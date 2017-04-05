@@ -33,13 +33,20 @@ add_filter( 'query_vars', 'wpleet_rewrite_add_var' );
 function wpleet_rewrite_add_var( $vars )
 {
     $vars[] = 'user';
+    $vars[] = 'lbpdf';
     return $vars;
 }
 
 add_rewrite_tag( '%user%', '([^&]+)' );
+add_rewrite_tag( '%lbpdf%', '([^&]+)' );
 add_rewrite_rule(
     '^user/([^/]*)/?',
     'index.php?user=$matches[1]',
+    'top'
+);
+add_rewrite_rule(
+    '^lbpdf/([^/]*)/?',
+    'index.php?lbpdf=$matches[1]',
     'top'
 );
 
@@ -51,6 +58,10 @@ function wpleet_rewrite_catch()
 
     if ( array_key_exists( 'user', $wp_query->query_vars ) ) {
         include (TEMPLATEPATH . '/user-profile.php');
+        exit;
+    }
+    if ( array_key_exists( 'lbpdf', $wp_query->query_vars ) ) {
+        include (ABSPATH . 'wp-content/plugins/lb-pdf/display.php');
         exit;
     }
 }

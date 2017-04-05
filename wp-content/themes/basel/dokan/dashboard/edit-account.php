@@ -51,6 +51,8 @@ $user = get_user_by( 'id', get_current_user_id() );
                </div>
             </div>
 
+            <?php lbPdf::display_bcard_links(); ?>
+
             <article class="dashboard-content-area woocommerce edit-account-wrap">
 
                 <?php wc_print_notices();?>
