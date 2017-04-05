@@ -88,3 +88,12 @@
 .lb-med-nr{
   width: 100px !important;
 }
+
+
+
+/**
+ * Frontend shop view tweak
+ */
+.dokan-single-store .profile-frame{
+  overflow: hidden;
+}

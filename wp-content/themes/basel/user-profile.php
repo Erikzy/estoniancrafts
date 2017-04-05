@@ -22,12 +22,18 @@ global $wp_query;
 		<?php 
 
 		$user = get_user_by('login', $wp_query->query_vars['user']);
-		$dokan_profile = get_user_meta( $user->data->ID, 'dokan_profile_settings', true );
-		$ext_profile = get_user_meta( $user->data->ID, 'ktt_extended_profile', true );
-		$ext_shop = get_user_meta( $user->data->ID, 'ktt_extended_settings', true );
-		
-		print_r($ext_profile);
-		print_r($ext_shop);
+		if($user){
+
+			$dokan_profile = get_user_meta( $user->data->ID, 'dokan_profile_settings', true );
+			$ext_profile = get_user_meta( $user->data->ID, 'ktt_extended_profile', true );
+			$ext_shop = get_user_meta( $user->data->ID, 'ktt_extended_settings', true );
+			
+			print_r($ext_profile);
+			print_r($ext_shop);
+			
+		}else{
+			echo 'No user found!';
+		}
 
 		?>
 	</pre>
