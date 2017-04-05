@@ -7,51 +7,79 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$student_post = new stdClass;
+$student_post->ID = 0;
+$student_post->post_title = '';
+$student_post->post_content = '';
+
+$shared_emails = [''];
+
 if( isset($_POST['lb_student_save']) ){
 
-	$id 	 = (int)$_GET['edit']; // TODO: check if current user owns the post!
-	$title   = sanitize_text_field($_POST['lb_student_title']);
-	$content = wp_kses_post($_POST['lb_student_content']);
+	if( isset($_POST['lb_student_id']) && $_POST['lb_student_id'] != 0 ){
 
-	if(strlen($title) < 3){
+		$student_p = lbStudent::can_edit_post($_POST['lb_student_id']);
+		if ( $student_p )  {
+			$student_post->ID = $student_p->ID;
+		}else{
+			lbStudent::$errors[] = __( "Can't modify the post with that ID", 'ktt' );
+		}
+
+	}
+
+	$student_post->post_title   = sanitize_text_field($_POST['lb_student_title']);
+	$student_post->post_content = wp_kses_post($_POST['lb_student_content']);
+
+	if(strlen($student_post->post_title) < 3){
     	lbStudent::$errors[] = __( 'Please enter product title', 'ktt' );
 	}
-	if(strlen($content) < 3){
+	if(strlen($student_post->post_content) < 3){
     	lbStudent::$errors[] = __( 'Please enter product content', 'ktt' );
 	}
 
 	if( count(lbStudent::$errors) == 0 ){
 		$post_array = [
-			'ID' => $id, 
-	        'post_content' => $content,
-	        'post_title' => $title,
+			'ID' => $student_post->ID, 
+	        'post_content' => $student_post->post_content,
+	        'post_title' => $student_post->post_title,
 	        'post_status' => 'publish',
 	        'post_type' => 'student_product',
 	        'comment_status' => 'open',
 	        'ping_status' => 'closed'
 		];
 
-		$insert = wp_insert_post( $post_array );
+		$insert_id = wp_insert_post( $post_array );
 
-		if( !$insert){
+		if( !$insert_id){
     		lbStudent::$errors[] = __( 'Something went wrong. Try again', 'ktt' );
+		}else{
+			$student_post->ID = $insert_id;
+
+			lbStudent::share_post($student_post->ID, $_POST['_shared_email']);
+
 		}
 
 	}
 
 }
 
-$student_post = new stdClass;
-$student_post->ID = 0;
-$student_post->post_title = '';
-$student_post->post_content = '';
-
 if( isset($_GET['edit']) ){
-	
-	$student_post = get_post( (int)$_GET['edit'] );
+
+	$student_p = lbStudent::can_edit_post($_GET['edit']);
+
+	if ( $student_p )  {
+		$student_post = $student_p;
+
+		$emails = get_post_meta($student_post->ID, '_shared_emails', true);
+		if( is_array($emails)  && count($emails) ){
+		    $shared_emails = $emails;
+		}
+
+	}else{
+		lbStudent::$errors[] = __( "Can't modify the post with that ID", 'ktt' );
+	}
 
 }
-
 
 ?>
 
@@ -81,6 +109,36 @@ if( isset($_GET['edit']) ){
 
 	        </p>
 
+	        <p>
+                <h3><?php _e( 'Invite users to access post', 'ktt' ); ?></h3>
+            </p>
+
+            <p>
+                <div class="lb-elastic-container">
+                    <div class="lb-elastic-elements">
+                        <?php
+                        
+                        foreach($shared_emails as $email){
+
+                        ?>
+                            <div class="lb-elastic-element lb-input-margins">
+
+                                <div class="dokan-form-group">
+
+                                	<input type="email" name="_shared_email[]" value="<?= $email ?>" class="dokan-form-control" placeholder="<?php _e("Share access with email", 'ktt') ?>">
+
+                                </div>
+
+                            </div>
+
+                        <?php 
+                        }
+                        ?>
+
+                    </div>
+                    <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                </div>
+            </p>
 	        <p>
 	        	<input type="hidden" name="lb_student_id" value="<?= $student_post->ID ?>">	
 	        	<input type="submit" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" name="lb_student_save" value="<?php _e('Save post', 'ktt') ?>">	

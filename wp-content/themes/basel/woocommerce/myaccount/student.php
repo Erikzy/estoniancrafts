@@ -7,10 +7,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if( isset($_GET['edit']) ){
+if( isset($_GET['edit']) || ( isset($_GET['action']) && $_GET['action'] == 'new' ) ){
 
 	require_once('student-edit.php');
 	exit;
+
+}
+
+if( isset($_GET['delete']) && (int)$_GET['delete'] != 0 && lbStudent::can_edit_post((int)$_GET['delete']) ){
+
+	wp_delete_post( (int)$_GET['delete'], true );
 
 }
 
@@ -39,7 +45,8 @@ if ( $query->have_posts() ) : ?>
 			    </tr>
 			</thead>
 			<tbody>
-			<?php while ( $query->have_posts() ) : $query->the_post(); ?>	
+			<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+				<?php global $post; ?>
 				<tr>                  
 			        <td data-title="Name">
 			            <p><a href="<?= site_url() ?>/my-account/student/?edit=<?php the_ID() ?>"><?php the_title() ?></a></p>
@@ -51,6 +58,14 @@ if ( $query->have_posts() ) : ?>
 			            </div>
 			        </td>
 			        <td data-title="Name">
+			        	<?php
+		
+							$emails = get_post_meta($post->ID, '_shared_emails', true);
+							
+							// if($emails){
+							// 	foreach($po)
+							// }
+			        	?>
 			            aaro@mail.ee, miki@mail.ee
 			        </td>
 			        
