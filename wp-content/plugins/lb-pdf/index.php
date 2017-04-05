@@ -238,7 +238,8 @@ class lbPdf{
 	public static function display_bcard_links(){
 
 		echo '<a href="'.site_url().'/lbpdf/bc-stand/" target="_blank">'.__( 'Business cards', 'dokan' ).'</a><br>';
-		echo '<a href="'.site_url().'/lbpdf/bc/" target="_blank">'.__( 'A4 business card', 'dokan' ).'</a>';
+		echo '<a href="'.site_url().'/lbpdf/bc/" target="_blank">'.__( 'A4 business card', 'dokan' ).'</a><br><br>';
+		echo '<a href="'.site_url().'?add-to-cart=135" target="_blank">'.__( 'Order a business card', 'dokan' ).'</a>';
 
 	}
 

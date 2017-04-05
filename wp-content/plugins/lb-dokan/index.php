@@ -24,6 +24,46 @@ class lbDokan{
         add_action( 'wp_ajax_lb_tags', [$this, 'available_tags'] );
         add_action( 'dokan_process_product_meta', [$this, 'save_tags']);
 
+        add_action( 'user_register', [$this, 'user_register']);
+
+    }
+
+    function user_register($user_id){
+
+        // Just create the empty user_meta tags to avoid errors
+        $ext_settings = [];
+        $ext_settings['company_name'] = '';
+        $ext_settings['company_nr'] = '';
+        $ext_settings['company_type'] = '';
+        $ext_settings['description'] = '';
+        $ext_settings['media'] = [''];
+        $ext_settings['address'] = [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '']];
+
+        update_user_meta( $user_id, 'ktt_extended_settings', $ext_settings );
+
+
+        $ext_profile = [];
+        $ext_profile['mobile'] = '';
+        $ext_profile['skype'] = '';
+        $ext_profile['gender'] = '';
+        $ext_profile['dob'] = '';
+        $ext_profile['workyears'] = '';
+        $ext_profile['video'] = '';
+        $ext_profile['description'] = '';
+        $ext_profile['education'] = '';
+        $ext_profile['education_school'] = '';
+        $ext_profile['education_start'] = '';
+        $ext_profile['education_end'] = '';
+        $ext_profile['country'] = '';
+        $ext_profile['state'] = '';
+        $ext_profile['city'] = '';
+        $ext_profile['address'] = '';
+        $ext_profile['org'] = [['name' => '', 'link' => '', 'start' => '', 'end' => '']];
+        $ext_profile['work_exp'] = [['name' => '', 'field' => '', 'start' => '', 'end' => '']];
+        $ext_profile['certificates'] = [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']];
+
+        update_user_meta( $user_id, 'ktt_extended_profile', $ext_profile );
+
     }
 
 	function register_scripts(){
@@ -698,6 +738,7 @@ class lbDokan{
      */
     function product_updated($product_id){
 
+        update_post_meta( $product_id, '_backorder_time', wc_clean($_POST['_backorder_time']));
         update_post_meta( $product_id, '_fragile_cargo', wc_clean($_POST['_fragile_cargo']));
         update_post_meta( $product_id, '_manufacturing_method', wc_clean($_POST['_manufacturing_method']));
         update_post_meta( $product_id, '_manufacturing_desc', wc_clean($_POST['_manufacturing_desc']));

@@ -415,12 +415,12 @@ if ( ! $from_shortcode ) {
 
                                 <div class="show_if_stock dokan-stock-management-wrapper dokan-form-group dokan-clearfix">
 
-                                    <div class="dokan-w3 hide_if_variation">
+                                    <div class="dokan-w2 hide_if_variation">
                                         <label for="_stock" class="dokan-form-label"><?php _e( 'Quantity', 'dokan' ); ?></label>
                                         <input type="number" name="_stock" placeholder="<?php __( '1', 'dokan' ); ?>" value="<?php echo wc_stock_amount( $_stock ); ?>" min="0" step="1">
                                     </div>
 
-                                    <div class="dokan-w3 hide_if_variation">
+                                    <div class="dokan-w2 hide_if_variation">
                                         <label for="_stock_status" class="dokan-form-label"><?php _e( 'Stock Status', 'dokan' ); ?></label>
 
                                         <?php dokan_post_input_box( $post_id, '_stock_status', array( 'options' => array(
@@ -429,13 +429,28 @@ if ( ! $from_shortcode ) {
                                         ) ), 'select' ); ?>
                                     </div>
 
-                                    <div class="dokan-w3 hide_if_variation">
+                                    <div class="dokan-w2 hide_if_variation">
                                         <label for="_backorders" class="dokan-form-label"><?php _e( 'Allow Backorders', 'dokan' ); ?></label>
 
                                         <?php dokan_post_input_box( $post_id, '_backorders', array( 'options' => array(
                                             'no'     => __( 'Do not allow', 'dokan' ),
                                             'notify' => __( 'Allow but notify customer', 'dokan' ),
                                             'yes'    => __( 'Allow', 'dokan' )
+                                        ) ), 'select' ); ?>
+                                    </div>
+
+                                    <div class="dokan-w2 hide_if_variation">
+                                        <label for="_backorder_time" class="dokan-form-label"><?php _e( 'Backorder time', 'ktt' ); ?></label>
+
+                                        <?php dokan_post_input_box( $post_id, '_backorder_time', array( 'options' => array(
+                                            ''     => __( '- select time -', 'ktt' ),
+                                            '1'    => __( '1 day', 'ktt' ),
+                                            '2'    => __( '2 days', 'ktt' ),
+                                            '3'    => __( '3 days', 'ktt' ),
+                                            '4'    => __( '4 days', 'ktt' ),
+                                            '5'    => __( '5 days', 'ktt' ),
+                                            '6'    => __( '6 days', 'ktt' ),
+                                            '7'    => __( '7 days', 'ktt' ),
                                         ) ), 'select' ); ?>
                                     </div>
                                 </div><!-- .show_if_stock -->
