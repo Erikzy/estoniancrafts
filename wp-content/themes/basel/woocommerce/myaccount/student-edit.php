@@ -16,6 +16,12 @@ $shared_emails = [''];
 
 if( isset($_POST['lb_student_save']) ){
 
+	if( !check_admin_referer( 'edit_student_post_'.(int)$_POST['lb_student_id'] ) ){
+
+		lbStudent::$errors[] = __( "Wp_nonce is not valid.", 'ktt' );
+
+	}
+
 	if( isset($_POST['lb_student_id']) && $_POST['lb_student_id'] != 0 ){
 
 		$student_p = lbStudent::can_edit_post($_POST['lb_student_id']);
@@ -140,6 +146,7 @@ if( isset($_GET['edit']) ){
                 </div>
             </p>
 	        <p>
+	        	<?php wp_nonce_field( 'edit_student_post_'.$student_post->ID ); ?>
 	        	<input type="hidden" name="lb_student_id" value="<?= $student_post->ID ?>">	
 	        	<input type="submit" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" name="lb_student_save" value="<?php _e('Save post', 'ktt') ?>">	
 	        </p>

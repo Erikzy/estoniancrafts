@@ -16,26 +16,30 @@ if( isset($_GET['edit']) || ( isset($_GET['action']) && $_GET['action'] == 'new'
 
 if( isset($_GET['delete']) && (int)$_GET['delete'] != 0 && lbStudent::can_edit_post((int)$_GET['delete']) ){
 
-	wp_delete_post( (int)$_GET['delete'], true );
+	if( check_admin_referer( 'delete-student-post_'.(int)$_GET['delete'] ) ){
+		wp_delete_post( (int)$_GET['delete'], true );
+	}
 
 }
 
 $args = array(
 	'post_type' => 'student_product',
+	'author' => get_current_user_id()
 );
 $query = new WP_Query($args);
 
-if ( $query->have_posts() ) : ?>
+?>
 
 <div class="dokan-dashboard-content dokan-product-listing">
 	<article class="dokan-product-listing-area">
 
 		<div class="product-listing-top dokan-clearfix" style="padding-bottom:1em;">
-                <span class="dokan-add-product-link">
-                    <a href="<?= site_url() ?>/my-account/student/?action=new" class="dokan-btn dokan-btn-theme dokan-right"><i class="fa fa-briefcase">&nbsp;</i> Add new product</a>
-                </span>
-            </div>
+            <span class="dokan-add-product-link">
+                <a href="<?= site_url() ?>/my-account/student/?action=new" class="dokan-btn dokan-btn-theme dokan-right"><i class="fa fa-briefcase">&nbsp;</i> Add new product</a>
+            </span>
+        </div>
 
+       	<?php if ( $query->have_posts() ) : ?>
 		<table class="dokan-table dokan-table-striped product-listing-table">
 			<thead>
 			    <tr>
@@ -53,7 +57,7 @@ if ( $query->have_posts() ) : ?>
 
 			            <div class="row-actions">
 			                <span class="edit"><a href="<?= site_url() ?>/my-account/student/?edit=<?php the_ID() ?>">Edit</a> | </span>
-			                <span class="delete"><a onclick="return confirm('Are you sure?');" href="<?= site_url() ?>/my-account/student/?delete=<?php the_ID() ?>">Delete Permanently</a> | </span>
+			                <span class="delete"><a onclick="return confirm('Are you sure?');" href="<?= wp_nonce_url( site_url()."/my-account/student/?delete=".$post->ID, 'delete-student-post_'.$post->ID ) ?>">Delete Permanently</a> | </span>
 			                <span class="view"><a href="<?php the_permalink() ?>" rel="permalink">View</a></span>
 			            </div>
 			        </td>
@@ -62,11 +66,7 @@ if ( $query->have_posts() ) : ?>
 		
 							$emails = get_post_meta($post->ID, '_shared_emails', true);
 							
-							// if($emails){
-							// 	foreach($po)
-							// }
 			        	?>
-			            aaro@mail.ee, miki@mail.ee
 			        </td>
 			        
 			        <td data-title="Date">
@@ -78,14 +78,15 @@ if ( $query->have_posts() ) : ?>
 			<!-- show pagination here -->
 
 		    </tbody>
-
 		</table>
+		<?php else : ?>
+
+			<h4><?php _e("You haven't added any products yet.", "ktt"); ?></h4>
+
+		<?php endif; ?>
 	</article>
 </div>
 
-<?php else : ?>
-
-<?php endif; ?>
 <?php wp_reset_query(); ?>
 
 <?php get_footer(); ?>
