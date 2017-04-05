@@ -1,0 +1,281 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Maksekeskus Estonia\n"
+"POT-Creation-Date: 2013-09-07 18:35+0200\n"
+"PO-Revision-Date: 2016-06-23 04:14+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: et\n"
+
+msgid "Maksekeskus Estonia payment gateway"
+msgstr "Maksekeskuse makseviis"
+
+msgid ""
+"Clients can pay for their order using all possible payment options in Estonia"
+msgstr "Kliendid saavad tasuta pangalingi, krediitkaardi või järelmaksuga"
+
+msgid "Gateway Disabled"
+msgstr "Makseviis keelatud"
+
+msgid "There has been an error processing Maksekeskus payment gateway."
+msgstr "Maksekeskuse makseviisis tekkis viga."
+
+msgid "Enable/Disable"
+msgstr "Luba/Keela"
+
+msgid "Enable Maksekeskus payment module"
+msgstr "Luba Maksekeskuse makseviis"
+
+msgid "Title"
+msgstr "Pealkiri"
+
+msgid "This controls the title which the user sees during checkout."
+msgstr "Kliendile kuvatav nimetus, kui ta valib sobivat makseviisi."
+
+msgid "Tasun pangalingi või krediitkaardiga"
+msgstr "Tasun pangalingi või krediitkaardiga"
+
+msgid "Description"
+msgstr "Kirjeldus"
+
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+"Kui klient valib käesoleva makseviisi, siis kuvatakse talle siin olev "
+"kirjeldus."
+
+msgid "Destination URL"
+msgstr "Makse algatamise URL"
+
+msgid "Here goes URL, where user is redirected to start the payment"
+msgstr "Siia läheb URL, kui klient alustab makse sooritamist"
+
+msgid "Shop ID"
+msgstr "Shop ID"
+
+msgid "Maksekeskus provides you with %s."
+msgstr "Maksekeskus annab Teile %s tunnuse."
+
+msgid "API secret"
+msgstr "API salasõna"
+
+msgid "Accepted currency by this gateway"
+msgstr "Käesoleva makseviisi aktsepteeritud valuuta"
+
+msgid "Other currencies will be converted to accepted currency"
+msgstr "Muud valuutad konverteeritakse aktsepteeritud valuutasse"
+
+msgid "Return URL"
+msgstr "Tagasipöördumise URL"
+
+msgid "Enter this URL to Maksekeskus database"
+msgstr "Tagasipöördumise URL tuleb sisestada Maksekeskuse andmebaasi"
+
+msgid "Method availability"
+msgstr "Maksemeetodi saadavus"
+
+msgid "All allowed countries"
+msgstr "Kõik lubatud riigid"
+
+msgid "Specific Countries"
+msgstr "Valitud riigid"
+
+msgid "Cancel order &amp; restore cart"
+msgstr "Tühista tellimus ja taasta ostukorv"
+
+msgid ""
+"Thank you for the order, please click on the button to start the payment."
+msgstr "Täname tellimuse eest, makse alustamiseks palun klikkige nupule."
+
+msgid "Payment completed"
+msgstr "Makse sooritatud"
+
+msgid "Preferred locale"
+msgstr "Eelistatud keel makse sooritamise hetkel"
+
+msgid "RFC-2616 format locale. Like et,en,ru"
+msgstr "RFC-2616 formaadis keele tunnus. Nagu näiteks et,en,ru"
+
+msgid "Enable API mode"
+msgstr "Luba API režiim"
+
+msgid "API public"
+msgstr "API avalik"
+
+msgid "API URL"
+msgstr "API URL"
+
+msgid "Checkout JS URL"
+msgstr "Checkout Javascripti URL"
+
+msgid "Disable this method, when order currency is not EUR"
+msgstr "Keela käesolev makseviis, kui valuuta pole EUR"
+
+msgid "Conversion will be attempted when this method is not disabled"
+msgstr "Lubamise korral püütakse summa teisendada EURideks"
+
+msgid "Pre-fill customer details on the credit card form"
+msgstr "Eeltäida kliendi andmed krediitkaardi andmete küsimise vormil"
+
+msgid "Shop name on credit card form"
+msgstr "Poe nimetus krediitkaardi vormil"
+
+msgid "Order description displayed under shop name"
+msgstr "Tellimuse referents poe nime all"
+
+msgid ""
+"%s will be replaced with order increment id or with quote reserved order id "
+"or with quote id"
+msgstr ""
+"%s asendatakse tellimuse numbriga või ostukorvi reserveeritud tellimuse "
+"numbriga või ostukorvi id-tunnusega"
+
+msgid "Payment option logo size at checkout"
+msgstr "Maksevaliku logo suurus kassas"
+
+msgid ""
+"Large logo is 60x60px with 12px padding, small logo is 48x48px (scaled) with "
+"2px padding"
+msgstr ""
+"Suur logo on 60x60px koos 12px paddinguga, väike logo on 48x48px "
+"(skaleeritud) koos 2px paddinguga"
+
+msgid "Small"
+msgstr "Väike"
+
+msgid "Large"
+msgstr "Suur"
+
+msgid "Maksekeskus request failed with response: %s"
+msgstr "Maksekeskuse päring ebaõnnestus, vastus serverist: %s"
+
+msgid "Log API requests"
+msgstr "Logi API päringud"
+
+msgid "Please select suitable payment option!"
+msgstr "Palun valige sobilik makseviis!"
+
+msgid "Transaction could not be created, please contact site administrator"
+msgstr ""
+"Tehingu loomine ebaõnnestus, palun võtke ühendust saidi administraatoriga"
+
+msgid ""
+"Credit card could not be processed, Please select suitable payment option!"
+msgstr "Krediitkaardi töötlemine ebaõnnestus, palun valige sobilik makseviis!"
+
+msgid "Transaction ID"
+msgstr "Tehingu number"
+
+msgid "Credit card type"
+msgstr "Krediitkaart"
+
+msgid "Name on card"
+msgstr "Nimi kaardil"
+
+msgid "Last digits"
+msgstr "Viimased numbrid"
+
+msgid "Expiration"
+msgstr "Aegub"
+
+msgid "Payment option"
+msgstr "Makseviis"
+
+msgid "Refund completed for amount %s"
+msgstr "Tagasimakse sooritatud summas %s"
+
+msgid "Enable/Disable Credit card payments"
+msgstr "Luba keela krediitkaardimaksed"
+
+msgid "Enable Credit card payments"
+msgstr "Luba krediitkaardimaksed"
+
+msgid "Title for Credit card payment"
+msgstr "Krediitkaardimakse pealkiri"
+
+msgid "Description for credit card payment"
+msgstr "Krediitkaardimakse kirjeldus"
+
+msgid "3D Secure authentication successful"
+msgstr "3D Secure autentimine õnnestus"
+
+msgid "3D Secure authentication failed [%s]"
+msgstr "3D Secure autentimine ebaõnnestus [%s]"
+
+msgid "Payment for amount of %1$s failed with message %2$s, code %3$s"
+msgstr "Makse summas %1$s ebaõnnestus veateatega: %2$s, veakood %3$s"
+
+msgid "Payment failed. Message: %1$s. Error code [%2$s]"
+msgstr "Makse ebaõnnestus. Veateade: %1$s. Veakood [%2$s]"
+
+msgid "Payment failed. Error code [%s]"
+msgstr "Maksmine ebaõnnestus. Veakood [%s]"
+
+msgid "Payment failed with no error code"
+msgstr "Maksmine ebaõnnestus. Veakood puudub."
+
+msgid "Payment in wrong status"
+msgstr "Makse on ebakorrektses olekus"
+
+msgid "Cannot make payment (transaction status violation)"
+msgstr "Makset ei saa teostada (tehing ebakorrektses olekus)"
+
+msgid "Card expired"
+msgstr "Kaart on aegunud"
+
+msgid "Not sufficient funds"
+msgstr "Tehing tagasilükatud. Kaardil pole piisavalt vabu vahendeid"
+
+msgid "Payment declined"
+msgstr ""
+"Makse tagasilükatud. Palun pöörduge oma panga poole või valige teine "
+"makseviis"
+
+msgid "Authorization failed"
+msgstr ""
+"Tehing tagasilükatud. Palun pöörduge oma panga poole või valige teine "
+"makseviis"
+
+msgid "Live mode"
+msgstr "Live režiim"
+
+msgid "Test mode"
+msgstr "Testrežiim"
+
+msgid "Payment method mode"
+msgstr "Makseviisi töörežiim"
+
+msgid "Live account credentials can be obtained here"
+msgstr "Live konto tunnused saate siit"
+
+msgid "API secret for live account"
+msgstr "API secret tunnus live kontole"
+
+msgid "Test account credentials can be obtained here"
+msgstr "Testkonto tunnused saate siit"
+
+msgid "API public for live account"
+msgstr "API public tunnus live kontole"
+
+msgid "API secret for test account"
+msgstr "API secret tunnus testkontole"
+
+msgid "API public for test account"
+msgstr "API public tunnus testkontole"
+
+msgid "Masked PAN"
+msgstr "Maskeeritud krediitkaardi number"
+
+msgid "Connection to Maksekeskus server was successful"
+msgstr "Ühendus õnnestus Maksekeskuse serverisse"
+
+msgid "Connection to Maksekeskus server failed with message: %s"
+msgstr "Ühendus ebaõnnestus Maksekeskuse serverisse veateatega: %s"
+
+msgid "What is test mode?"
+msgstr "Mis on testrežiim?"

@@ -1,0 +1,145 @@
+/* 
+*/
+.maksekeskus-form-list {
+    list-style: none outside none !important;
+    margin: 0;
+    border: 0 none !important;
+}
+
+.eabi_maksekeskus_select {
+    width: 95% !important;
+}
+
+.eabi_maksekeskus_select ul {
+    display: table;
+    margin: 0;
+    border: 0 none !important;
+}
+.eabi_maksekeskus_select li {
+    float: left;
+    list-style: none;
+    height: 90px;
+    min-width: 94px;
+    overflow: hidden;
+    padding: 2px !important;
+    background: transparent;
+    margin: 0 !important;
+    width: auto;
+}
+.eabi_maksekeskus_select li > a {
+    display: block;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 8px;
+    border: 3px solid #eee;
+    position: relative;
+    background: #fff;
+    text-decoration: none;
+}
+.eabi_maksekeskus_select *, .eabi_maksekeskus_select *:before, .eabi_maksekeskus_select *:after {
+    box-sizing: content-box;
+}
+
+
+.eabi_maksekeskus_select li > a:hover {
+    border-color: #1477a0;
+    text-decoration: none;
+}
+.eabi_maksekeskus_select li > a.selected {
+    border-color: #ffc000;
+}
+.eabi_maksekeskus_select li > a.selected:hover {
+    border-color: #1477a0;
+}
+.eabi_maksekeskus_select li > a > img {
+    margin: auto !important;
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    padding: 12px !important;
+    border: 0 none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    min-width: 0 !important;
+
+}
+
+.eabi_maksekeskus_select li > a > span {
+    margin: auto;
+    position: absolute;
+    text-transform: uppercase;
+    display: block;
+    width: 84px;
+    line-height: 84px;
+    text-align: center;
+    color: #666;
+}
+
+
+#eabi_maksekeskus_payment_start {
+}
+
+#eabi_maksekeskus_payment_start p {
+    text-align: center;
+}
+
+
+#maksekeskus-loading-mask {
+    color: #d85909;
+    font-size: 1.1em;
+    font-weight: bold;
+    opacity: 0.8;
+    position: absolute;
+    text-align: center;
+    z-index: 500;
+}
+
+#maksekeskus-loading-mask .loader {
+    background: none repeat scroll 0 0 #fff4e9;
+    border: 2px solid #f1af73;
+    color: #d85909;
+    font-weight: bold;
+    left: 50%;
+    margin-left: -60px;
+    padding: 15px 60px;
+    position: fixed;
+    text-align: center;
+    top: 35%;
+    width: 120px;
+    z-index: 1000;
+}
+
+
+/* small logo definitions */
+
+.eabi_maksekeskus_select .maksekeskus_small li {
+    height: 54px;
+    min-width: 54px;
+}
+
+.eabi_maksekeskus_select .maksekeskus_small li > a {
+    height: 50px;
+    min-width: 50px;
+}
+
+
+.eabi_maksekeskus_select .maksekeskus_small li > a > img {
+    width: 46px;
+    padding: 2px !important;
+}
+
+
+.eabi_maksekeskus_select .maksekeskus_small li > a > span {
+    width: 50px;
+    line-height: 50px;
+}
+
+
+/* make credit card logos not interactive */
+.payment_method_banklinkmaksekeskuscc li > a:hover {
+	border-color: #eee;
+	cursor: inherit;
+}
+
+/* end credit card logos not interactive */

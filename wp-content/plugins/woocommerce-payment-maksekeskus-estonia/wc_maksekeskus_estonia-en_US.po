@@ -1,0 +1,283 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Maksekeskus Estonia\n"
+"POT-Creation-Date: 2013-09-07 18:35+0200\n"
+"PO-Revision-Date: 2016-07-06 22:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: en\n"
+
+msgid "Maksekeskus Estonia payment gateway"
+msgstr "Maksekeskus Estonia payment gateway"
+
+msgid ""
+"Clients can pay for their order using all possible payment options in Estonia"
+msgstr ""
+"Clients can pay for their order using all possible payment options in Estonia"
+
+msgid "Gateway Disabled"
+msgstr "Gateway Disabled"
+
+msgid "There has been an error processing Maksekeskus payment gateway."
+msgstr "There has been an error processing Maksekeskus payment gateway."
+
+msgid "Enable/Disable"
+msgstr "Enable/Disable"
+
+msgid "Enable Maksekeskus payment module"
+msgstr "Enable Maksekeskus payment module"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "This controls the title which the user sees during checkout."
+msgstr "This controls the title which the user sees during checkout."
+
+msgid "Tasun pangalingi või krediitkaardiga"
+msgstr "Tasun pangalingi või krediitkaardiga"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "This controls the description which the user sees during checkout."
+msgstr "This controls the description which the user sees during checkout."
+
+msgid "Destination URL"
+msgstr "Destination URL"
+
+msgid "Here goes URL, where user is redirected to start the payment"
+msgstr "Here goes URL, where user is redirected to start the payment"
+
+msgid "Shop ID"
+msgstr "Shop ID"
+
+msgid "Maksekeskus provides you with %s."
+msgstr "Maksekeskus provides you with %s."
+
+msgid "API secret"
+msgstr "API secret"
+
+msgid "Accepted currency by this gateway"
+msgstr "Accepted currency by this gateway"
+
+msgid "Other currencies will be converted to accepted currency"
+msgstr "Other currencies will be converted to accepted currency"
+
+msgid "Return URL"
+msgstr "Return URL"
+
+msgid "Enter this URL to Maksekeskus database"
+msgstr "Enter this URL to Maksekeskus database"
+
+msgid "Method availability"
+msgstr "Method availability"
+
+msgid "All allowed countries"
+msgstr "All allowed countries"
+
+msgid "Specific Countries"
+msgstr "Specific Countries"
+
+msgid "Cancel order &amp; restore cart"
+msgstr "Cancel order &amp; restore cart"
+
+msgid ""
+"Thank you for the order, please click on the button to start the payment."
+msgstr ""
+"Thank you for the order, please click on the button to start the payment."
+
+msgid "Payment completed"
+msgstr "Payment completed"
+
+msgid "Preferred locale"
+msgstr "Preferred locale"
+
+msgid "RFC-2616 format locale. Like et,en,ru"
+msgstr "RFC-2616 format locale. Like et,en,ru"
+
+msgid "Enable API mode"
+msgstr "Enable API mode"
+
+msgid "API public"
+msgstr "API public"
+
+msgid "API URL"
+msgstr "API URL"
+
+msgid "Checkout JS URL"
+msgstr "Checkout JS URL"
+
+msgid "Disable this method, when order currency is not EUR"
+msgstr "Disable this method, when order currency is not EUR"
+
+msgid "Conversion will be attempted when this method is not disabled"
+msgstr "Conversion will be attempted when this method is not disabled"
+
+msgid "Pre-fill customer details on the credit card form"
+msgstr "Pre-fill customer details on the credit card form"
+
+msgid "Shop name on credit card form"
+msgstr "Shop name on credit card form"
+
+msgid "Order description displayed under shop name"
+msgstr "Order description displayed under shop name"
+
+msgid ""
+"%s will be replaced with order increment id or with quote reserved order id "
+"or with quote id"
+msgstr ""
+"%s will be replaced with order increment id or with quote reserved order id "
+"or with quote id"
+
+msgid "Payment option logo size at checkout"
+msgstr "Payment option logo size at checkout"
+
+msgid ""
+"Large logo is 60x60px with 12px padding, small logo is 48x48px (scaled) with "
+"2px padding"
+msgstr ""
+"Large logo is 60x60px with 12px padding, small logo is 48x48px (scaled) with "
+"2px padding"
+
+msgid "Small"
+msgstr "Small"
+
+msgid "Large"
+msgstr "Large"
+
+msgid "Maksekeskus request failed with response: %s"
+msgstr "Maksekeskus request failed with response: %s"
+
+msgid "Log API requests"
+msgstr "Log API requests"
+
+msgid "Please select suitable payment option!"
+msgstr "Please select suitable payment option!"
+
+msgid "Transaction could not be created, please contact site administrator"
+msgstr "Transaction could not be created, please contact site administrator"
+
+msgid ""
+"Credit card could not be processed, Please select suitable payment option!"
+msgstr ""
+"Credit card could not be processed, Please select suitable payment option!"
+
+msgid "Transaction ID"
+msgstr "Transaction ID"
+
+msgid "Credit card type"
+msgstr "Credit card type"
+
+msgid "Name on card"
+msgstr "Name on card"
+
+msgid "Last digits"
+msgstr "Last digits"
+
+msgid "Expiration"
+msgstr "Expiration"
+
+msgid "Payment option"
+msgstr "Payment option"
+
+msgid "Refund completed for amount %s"
+msgstr "Refund completed for amount %s"
+
+msgid "Enable/Disable Credit card payments"
+msgstr "Enable/Disable Credit card payments"
+
+msgid "Enable Credit card payments"
+msgstr "Enable Credit card payments"
+
+msgid "Title for Credit card payment"
+msgstr "Title for Credit card payment"
+
+msgid "Description for credit card payment"
+msgstr "Description for credit card payment"
+
+msgid "3D Secure authentication successful"
+msgstr "3D Secure authentication successful"
+
+msgid "3D Secure authentication failed [%s]"
+msgstr "3D Secure authentication failed [%s]"
+
+msgid "Payment for amount of %1$s failed with message %2$s, code %3$s"
+msgstr "Payment for amount of %1$s failed with message %2$s, code %3$s"
+
+msgid "Payment failed. Message: %1$s. Error code [%2$s]"
+msgstr "Payment failed. Message: %1$s. Error code [%2$s]"
+
+msgid "Payment failed. Error code [%s]"
+msgstr "Payment failed. Error code [%s]"
+
+msgid "Payment failed with no error code"
+msgstr "Payment failed with no error code"
+
+msgid "Payment in wrong status"
+msgstr "Payment in wrong status"
+
+msgid "Cannot make payment (transaction status violation)"
+msgstr "Cannot make payment (transaction status violation)"
+
+msgid "Card expired"
+msgstr "Card expired"
+
+msgid "Not sufficient funds"
+msgstr "Not sufficient funds"
+
+msgid "Payment declined"
+msgstr "Payment declined"
+
+msgid "Authorization failed"
+msgstr "Authorization failed"
+
+msgid "Live mode"
+msgstr "Live mode"
+
+msgid "Test mode"
+msgstr "Test mode"
+
+msgid "Payment method mode"
+msgstr "Payment method mode"
+
+msgid "Live account credentials can be obtained here"
+msgstr "Live account credentials can be obtained here"
+
+msgid "API secret for live account"
+msgstr "API secret for live account"
+
+msgid "Test account credentials can be obtained here"
+msgstr "Test account credentials can be obtained here"
+
+msgid "API public for live account"
+msgstr "API public for live account"
+
+msgid "API secret for test account"
+msgstr "API secret for test account"
+
+msgid "API public for test account"
+msgstr "API public for test account"
+
+msgid "Masked PAN"
+msgstr "Masked PAN"
+
+msgid "Connection to Maksekeskus server was successful"
+msgstr "Connection to Maksekeskus server was successful"
+
+msgid "Connection to Maksekeskus server failed with message: %s"
+msgstr "Connection to Maksekeskus server failed with message: %s"
+
+msgid "What is test mode?"
+msgstr "What is test mode?"
+
+msgid "Tasun pangalingiga"
+msgstr "Pay with Bank link"
+
+msgid "Tasun krediitkaardiga"
+msgstr "Pay with Credit Card"
