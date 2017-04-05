@@ -1,0 +1,2 @@
+You can do whatever you want with these icons (use on web or in desktop applications) as long as you don’t pass them off as your own and remove this readme file. A credit statement and a link back to
+http://led24.de/iconset/ or http://led24.de/ would be appreciated.

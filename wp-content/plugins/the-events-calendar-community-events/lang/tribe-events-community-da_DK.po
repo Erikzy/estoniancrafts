@@ -1,0 +1,931 @@
+# Translation of Community Events in Danish
+# This file is distributed under the same license as the Community Events package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-01-27 16:24:37+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/1.0-alpha-1100\n"
+"Project-Id-Version: Community Events\n"
+
+#: src/Tribe/Modules/Taxonomy_Block.php:95
+msgid "event categories"
+msgstr ""
+
+#: src/admin-views/community-options-template.php:103
+msgid "Users cannot create new Venues"
+msgstr ""
+
+#: src/admin-views/community-options-template.php:104
+msgid "Users will be limited to choosing from existing venues."
+msgstr ""
+
+#: src/admin-views/community-options-template.php:112
+msgid "Users cannot create new Organizers"
+msgstr ""
+
+#: src/admin-views/community-options-template.php:113
+msgid "Users will be limited to choosing from existing organizers."
+msgstr ""
+
+#: src/admin-views/community-options-template.php:121
+msgid "Spam Prevention"
+msgstr ""
+
+#: src/admin-views/community-options-template.php:123
+msgid "To enable spam prevention for anonymous submissions, enter your reCAPTCHA API keys under <a href=\"%1$s\">%2$s</a>"
+msgstr ""
+
+#: src/admin-views/community-options-template.php:128
+msgctxt "Click path in The Events Calendar settings to get to the API settings section separated by right arrows (HTML \"&rarr;\")"
+msgid "Events &rarr; Settings &rarr; APIs"
+msgstr ""
+
+#: src/views/community/modules/cost.php:49
+msgid "Events Currency Position"
+msgstr ""
+
+#: src/views/community/modules/datepickers.php:67
+msgid "Start/End:"
+msgstr ""
+
+#: src/views/community/modules/datepickers.php:73
+msgid "Event Start Date"
+msgstr "Startdato"
+
+#: src/views/community/modules/datepickers.php:88
+msgid "Event Start Time"
+msgstr "Starttidspunkt"
+
+#: src/views/community/modules/datepickers.php:101
+#: src/views/community/modules/datepickers.php:119
+msgid "HH:MM"
+msgstr ""
+
+#: src/views/community/modules/datepickers.php:102
+msgctxt "Start Date Time \"to\" End Date Time"
+msgid "to"
+msgstr ""
+
+#: src/views/community/modules/datepickers.php:106
+msgid "Event End Time"
+msgstr "Sluttidspunkt "
+
+#: src/views/community/modules/datepickers.php:123
+msgid "Event End Date"
+msgstr "Slutdato "
+
+#: src/views/community/modules/datepickers.php:140
+msgid "Timezone"
+msgstr ""
+
+#: src/views/community/modules/datepickers.php:157
+msgid "All Day Event"
+msgstr "Heldagsbegivenhed "
+
+#: src/views/community/modules/image.php:34
+msgid "Images may not exceed %1$s in size."
+msgstr ""
+
+#: src/views/community/modules/image.php:46
+msgid "Event Image"
+msgstr ""
+
+#: src/views/community/modules/image.php:49
+msgid "Choose File"
+msgstr ""
+
+#: src/views/community/modules/image.php:52
+msgid "Upload File"
+msgstr ""
+
+#: src/Tribe/Captcha/Recaptcha_V2.php:139
+msgctxt "failed recaptcha response validation"
+msgid "reCAPTCHA verification failed"
+msgstr "fejlende recaptcha svar-validering"
+
+#: src/admin-views/community-options-template.php:278
+msgid "Redirect for users who attempt to access the admin without permissions<br>Enter a full url to a post or page on your site<br>Leave blank for homepage"
+msgstr "Omdiriger til brugere, der forsøger at få adgang til admin uden tilladelser<br>Indtast en fuld URL til et indlæg eller side på dit websted<br>Efterlad blank for hjemmeside"
+
+#: src/Tribe/Captcha/Recaptcha.php:247 src/Tribe/Captcha/Recaptcha_V2.php:125
+msgctxt "failed recaptcha response"
+msgid "reCAPTCHA failed unexpectedly"
+msgstr "reCAPTCHA fejlede uventet"
+
+#: src/Tribe/Submission_Handler.php:333
+msgid "%s %s is required"
+msgstr "%s %s er påkrævet"
+
+#: src/Tribe/Submission_Handler.php:380 src/Tribe/Submission_Handler.php:412
+msgid "Name"
+msgstr "Navn"
+
+#: src/Tribe/Submission_Handler.php:392
+msgid "Province"
+msgstr "Priovins/Område"
+
+#: src/Tribe/Submission_Handler.php:396
+msgid "State"
+msgstr "Stat"
+
+#: src/Tribe/Submission_Handler.php:400
+msgid "Zip"
+msgstr "Postnummer"
+
+#: src/Tribe/Submission_Handler.php:404
+msgid "URL"
+msgstr "URL"
+
+#: src/admin-views/community-options-template.php:78
+msgid "<p>Community Events enables users to submit events through a form on your site. Whether soliciting contributions from anonymous users or registered members, you have complete editorial control over what makes it onto the calendar.</p><p>Check out our <a href=\"%s\">Community Events New User Primer</a> for information on configuring and using the plugin."
+msgstr "<p>Fællesskabet Begivenheder giver brugerne mulighed for at indsende begivenheder gennem en formular på dit websted. Hvorvidt hverve bidrag fra anonyme brugere eller registrerede medlemmer, har du fuldstændig redaktionel kontrol over, hvad der gør det på kalenderen.</p> <p>Tjek vores <a href=\"%s\">Fællesskabet Events Ny bruger Primer</a> for oplysninger om konfiguration og brug af plugin."
+
+#: src/Tribe/Submission_Handler.php:146 src/Tribe/Submission_Handler.php:160
+msgid "The file is not an Image"
+msgstr "Denne fil er ikke en billed-fil"
+
+#: src/Tribe/Submission_Handler.php:163
+msgid "The image size is invalid"
+msgstr "Størrelse på filen er forkert"
+
+#: src/Tribe/Submission_Handler.php:166
+msgid "The file is not a valid image"
+msgstr "Denne fil er ikke en korrekt billedfil"
+
+#: src/Tribe/Submission_Handler.php:487
+msgid "Invalid URL provided for %s"
+msgstr "Forkert URL angivet til %s"
+
+#: src/admin-views/community-options-template.php:316
+msgid "Single geography mode"
+msgstr "Enkel geografisk tilstand"
+
+#: src/admin-views/community-options-template.php:317
+msgid "Removes the country, state/province and timezone selectors from the submission form"
+msgstr "Fjerner: Land, privins/område/stat og tidszone vælgeren, fra formularen"
+
+#: src/Tribe/Event_Form.php:30
+msgid "Auto Draft"
+msgstr "Automatisk kladde"
+
+#: src/Tribe/Main.php:1107
+msgid "Delete Image"
+msgstr "Slet billede"
+
+#: src/views/community/event-list.php:72
+msgid "View past events"
+msgstr "Se tidligere begivenheder"
+
+#: src/views/community/event-list.php:76
+msgid "View upcoming events"
+msgstr "Se kommende begivenheder"
+
+#: src/Tribe/Main.php:1576
+msgid "The file you attempted to upload exceeded the maximum file size of %1$s."
+msgstr "Den fil du forsøger at uploade overskrider tilladelsen på størrelser af:  %1$s."
+
+#: src/views/community/modules/cost.php:61
+msgctxt "Currency symbol position"
+msgid "Before cost"
+msgstr "Foran pris"
+
+#: src/views/community/modules/cost.php:64
+msgctxt "Currency symbol position"
+msgid "After cost"
+msgstr "Efter pris"
+
+#: src/views/community/modules/datepickers.php:143
+msgid "Timezone:"
+msgstr "Tidszone:"
+
+#. Plugin Name of the plugin/theme
+msgid "The Events Calendar: Community Events"
+msgstr "The Events Calendar: Community Events"
+
+#. Description of the plugin/theme
+msgid "Community Events is an add-on providing additional functionality to the open source plugin The Events Calendar. Empower users to submit and manage their events on your website. <a href=\"http://tri.be/shop/wordpress-community-events/?utm_campaign=in-app&utm_source=docblock&utm_medium=plugin-community\">Check out the full feature list</a>. Need more features? Peruse our selection of <a href=\"http://tri.be/products/?utm_campaign=in-app&utm_source=docblock&utm_medium=plugin-community\" target=\"_blank\">plugins</a>."
+msgstr "Community Events er et add-on der tilføjer yderligere funktionalitet til open source-plugin'et The Events Calendar. Giv brugerne frihed til at uploade og administrere deres arrangementer på din hjemmeside. <a href=\"http://tri.be/shop/wordpress-community-events/?utm_campaign=in-app&utm_source=docblock&utm_medium=plugin-community\">Se hele lister over funktioner</a>. Har du brug for flere funktioner? Så tjek vores fulde udvalg af <a href=\"http://tri.be/products/?utm_campaign=in-app&utm_source=docblock&utm_medium=plugin-community\" target=\"_blank\">plugins</a>."
+
+#. Author of the plugin/theme
+msgid "Modern Tribe, Inc."
+msgstr "Modern Tribe, Inc."
+
+#. Author URI of the plugin/theme
+msgid "http://m.tri.be/21"
+msgstr "http://m.tri.be/21"
+
+#: src/Tribe/Modules/Taxonomy_Block.php:88
+msgid "more"
+msgstr "mere"
+
+#: src/views/community/modules/taxonomy.php:21
+msgid "%s Categories"
+msgstr ""
+
+#: src/Tribe/Submission_Handler.php:384
+msgid "Address"
+msgstr "Adresse"
+
+#: src/Tribe/Submission_Handler.php:388
+msgid "City"
+msgstr "By"
+
+#: src/views/community/modules/website.php:33
+msgid "%s Website"
+msgstr "%s Hjemmeside"
+
+#: src/views/community/modules/website.php:37
+msgid "URL:"
+msgstr "URL:"
+
+#: tribe-community-events.php:84
+msgid "The Events Calendar"
+msgstr "The Events Calendar"
+
+#: tribe-community-events.php:85
+msgid "To begin using The Events Calendar: Community Events, please install the latest version of <a href=\"%s\" class=\"thickbox\" title=\"%s\">The Events Calendar</a>."
+msgstr "For at komme i gang med The Events Calendar: Community Events skal du først installere den seneste version af <a href=\"%s\" class=\"thickbox\" title=\"%s\">The Events Calendar</a>."
+
+#: vendor/wp-router/WP_Route.class.php:36
+msgid "Missing %s"
+msgstr "Manglende %s"
+
+#: vendor/wp-router/WP_Route.class.php:63
+msgid "Property not found: %s."
+msgstr "Ikke fundet: %s"
+
+#: vendor/wp-router/WP_Route.class.php:77
+msgid "Invalid value for %s. Value may not be empty."
+msgstr "Ugyldig værdi for %s. Den overførte værdi må ikke være tomt"
+
+#: vendor/wp-router/WP_Route.class.php:80
+msgid "Invalid value for %1$s: %2$s. Value must be an array."
+msgstr "Ugyldig værdi for %1$s: %2$s. Den overførte værdi skal være en tabel"
+
+#: vendor/wp-router/WP_Route.class.php:250
+msgid "You are not authorized to access this page"
+msgstr "Du har ikke tilladelse til at tilgå denne side"
+
+#: vendor/wp-router/WP_Route.class.php:251
+msgid "Access Denied"
+msgstr "Adgang nægtet"
+
+#: vendor/wp-router/WP_Router_Page.class.php:74
+msgid "WP Router Placeholder Page"
+msgstr "WP Router pladsholder side"
+
+#: vendor/wp-router/WP_Router_Utility.class.php:49
+msgid "%1$s requires WordPress %2$s or higher and PHP %3$s or higher."
+msgstr "%1$s kræver WordPress %2$s eller nyere og PHP %3$s eller nyere"
+
+#: src/Tribe/Captcha/Abstract_Captcha.php:142
+msgid "Invalid value for the Anti-Spam Check"
+msgstr "Ugyldig Anti-Spam Check-værdi"
+
+#: src/Tribe/Captcha/Recaptcha.php:20
+msgid "reCAPTCHA API Keys"
+msgstr "reCAPTCHA API Keys"
+
+#: src/Tribe/Captcha/Recaptcha.php:24
+msgid "Provide reCAPTCHA API keys for both fields to enable reCAPTCHA on your Community Events form."
+msgstr ""
+
+#: src/Tribe/Captcha/Recaptcha.php:24
+msgid "Note: reCAPTCHA only appears for users who are not logged in."
+msgstr "Bemærk: reCAPTCHA er kun synligt for brugere der ikke er logget ind."
+
+#: src/Tribe/Captcha/Recaptcha.php:28
+msgid "Site Key"
+msgstr "Side-nøgle (Site Key)"
+
+#: src/Tribe/Captcha/Recaptcha.php:29
+msgid "Get your Site Key at %s"
+msgstr "Få din side-nøgle (Site Key) på %s"
+
+#: src/Tribe/Captcha/Recaptcha.php:38
+msgid "Secret Key"
+msgstr "Hemmelig nøgle (Secret Key)"
+
+#: src/Tribe/Captcha/Recaptcha.php:39
+msgid "Get your Secret Key at %s"
+msgstr "Få din Secret Key på %s"
+
+#: src/Tribe/Main.php:2815
+msgid "edit"
+msgstr "rediger"
+
+#: src/Tribe/Main.php:2816 src/admin-views/community-options-template.php:338
+msgid "add"
+msgstr "tilføj"
+
+#: src/Tribe/Main.php:2817
+msgid "delete"
+msgstr "slet"
+
+#: src/Tribe/Main.php:2818 src/admin-views/community-options-template.php:340
+msgid "list"
+msgstr "liste"
+
+#: src/Tribe/Main.php:2820
+msgid "venue"
+msgstr "sted"
+
+#: src/Tribe/Main.php:2821
+msgid "organizer"
+msgstr "arrangør"
+
+#: src/Tribe/Main.php:2822
+msgid "event"
+msgstr "event"
+
+#: src/Tribe/Main.php:613 src/Tribe/Main.php:1129
+msgid "Edit a Venue"
+msgstr "Rediger en lokalitet"
+
+#: src/Tribe/Main.php:632 src/Tribe/Main.php:1130
+msgid "Edit an Organizer"
+msgstr "Rediger en arrangør"
+
+#: src/Tribe/Main.php:650 src/Tribe/Main.php:1128
+msgid "Edit an Event"
+msgstr "Rediger en event"
+
+#: src/Tribe/Main.php:669
+msgid "Redirect"
+msgstr "Redirect"
+
+#: src/Tribe/Main.php:684 src/Tribe/Main.php:1239
+msgid "Submit an Event"
+msgstr "Tilføj en event"
+
+#: src/Tribe/Main.php:710 src/Tribe/Main.php:1121
+msgid "Remove an Event"
+msgstr "Fjern en event"
+
+#: src/Tribe/Main.php:726 src/Tribe/Main.php:1217
+#: src/admin-views/community-options-template.php:230
+msgid "My Events"
+msgstr "Mine events"
+
+#: src/Tribe/Main.php:810
+msgid "Not found."
+msgstr "Ikke fundet."
+
+#: src/Tribe/Main.php:960
+msgid "Community Events requires non-default (pretty) permalinks to be enabled or the [tribe_community_events] shortcode to exist on a page."
+msgstr "Community Events kræver ikke-standardiserede (og pæne) permalinks for at kunne fungere på en side. Det samme gør sig gældende for funktionaliteten af [tribe_community_events] shortcode'en."
+
+#: src/Tribe/Main.php:1044
+msgid "Delete"
+msgstr "Slet"
+
+#: src/Tribe/Main.php:1045
+msgid "Are you sure?"
+msgstr "Er du sikker?"
+
+#: src/Tribe/Main.php:1048
+msgid "Delete All"
+msgstr "Slet alle"
+
+#: src/Tribe/Main.php:1049
+msgid "Are you sure you want to permanently delete all instances of this recurring event?"
+msgstr "Er du sikker på at du vil slette alle tilfælde af denne tilbagevendende begivenhed permanent?"
+
+#: src/Tribe/Main.php:1051
+msgid "Are you sure you want to permanently delete this instance of a recurring event?"
+msgstr "Er du sikker på at du vil slette dette ene tilfælde af en tilbagevendende begivenhed permanent?"
+
+#: src/Tribe/Main.php:1122
+msgid "Remove a Venue"
+msgstr "Fjern et sted"
+
+#: src/Tribe/Main.php:1123
+msgid "Remove an Organizer"
+msgstr "Fjern en arrangør"
+
+#: src/Tribe/Main.php:1124 src/Tribe/Main.php:1131
+msgid "Unknown Post Type"
+msgstr "Ukendt indlægstype"
+
+#: src/Tribe/Main.php:1277
+msgid "This shortcode can only be used in pages."
+msgstr "Denne shortcode kan kun bruges på sider."
+
+#: src/Tribe/Main.php:1400
+msgid "Community Events Submission"
+msgstr "Indsendelse af Community Events"
+
+#: src/Tribe/Main.php:1492
+msgid "Trashed Event #"
+msgstr "Slettet begivenhed #"
+
+#: src/Tribe/Main.php:1495
+msgid "Deleted Event #"
+msgstr "Permanent slettet begivenhed #"
+
+#: src/Tribe/Main.php:1498
+msgid "This event (#%s) does not appear to exist."
+msgstr "Denne event (#%s) ser ikke ud til at eksistere."
+
+#: src/Tribe/Main.php:1501
+msgid "You do not have permission to delete this event."
+msgstr "Du har ikke tilladelse til at slette denne event."
+
+#: src/Tribe/Main.php:1512
+msgctxt "As in \"go back to previous page\""
+msgid "Back"
+msgstr "Tilbage"
+
+#: src/Tribe/Main.php:1547
+msgid "%sWarning:%s You are editing a recurring %s. All changes will be applied to the entire series."
+msgstr "%sAdvarsel:%s Du er i færd med at redigere en tilbagevendende %s. Alle ændringer vil påvirke hele event-serien"
+
+#: src/Tribe/Main.php:1556
+msgid "%s not found."
+msgstr "%s ikke fundet"
+
+#: src/Tribe/Main.php:1564
+msgid "Please log in first."
+msgstr "Log venligst på først."
+
+#: src/Tribe/Main.php:1570
+msgid "You do not have permission to edit this %s."
+msgstr "Du har ikke tilladelse til at redigere i dette %s."
+
+#: src/Tribe/Main.php:1706 src/views/community/event-list.php:137
+msgid "View"
+msgstr "Se"
+
+#: src/Tribe/Main.php:1712 src/views/community/event-list.php:143
+msgid "Edit"
+msgstr "Rediger"
+
+#: src/Tribe/Main.php:1835
+msgid "Venue not found."
+msgstr "Kan ikke finde lokalitet."
+
+#: src/Tribe/Main.php:1840
+msgid "Please log in to edit this venue"
+msgstr "Log venligst ind for at redigere denne lokalitet"
+
+#: src/Tribe/Main.php:1844
+msgid "You do not have permission to edit this venue."
+msgstr "Du har ikke tilladelse til at redigere denne lokalitet"
+
+#: src/Tribe/Main.php:1867
+msgid "Venue updated."
+msgstr "Lokalitet er opdateret."
+
+#: src/Tribe/Main.php:1877
+msgid "Venue name cannot be blank."
+msgstr "Lokalitetsnavn må ikke være tom."
+
+#: src/Tribe/Main.php:1881
+msgid "There was a problem updating your venue, please try again."
+msgstr "Der opstod et problem med at opdatere din lokalitet. Prøv venligst igen."
+
+#: src/Tribe/Main.php:1918
+msgid "Organizer not found."
+msgstr "Kan ikke finde arrangør."
+
+#: src/Tribe/Main.php:1922
+msgid "Please log in to edit this organizer"
+msgstr "Log venligst ind for at redigere denne arrangør"
+
+#: src/Tribe/Main.php:1926
+msgid "You do not have permission to edit this organizer."
+msgstr "Du har ikke tilladelses til at redigere denne arrangør."
+
+#: src/Tribe/Main.php:1948
+msgid "Organizer updated."
+msgstr "Arrangør er opdateret."
+
+#: src/Tribe/Main.php:1959
+msgid "Organizer name cannot be blank."
+msgstr "Arrangørnavn må ikke være tom."
+
+#: src/Tribe/Main.php:1963
+msgid "There was a problem updating this organizer, please try again."
+msgstr "Der opstod et problem med at opdatere denne arrangør. Prøv venligst igen."
+
+#: src/Tribe/Main.php:2045
+msgid "Please log in to view your events"
+msgstr "Log venligst ind for at se dine events"
+
+#: src/Tribe/Main.php:2086
+msgid "Fake Title"
+msgstr "Falsk titel"
+
+#: src/Tribe/Modules/Taxonomy_Block.php:117
+msgid "Show all categories ( %d )"
+msgstr "Vis alle kategorier ( %d )"
+
+#: src/Tribe/Main.php:2272
+msgid "The requested page number was not found."
+msgstr "Det efterspurgte sidenummer kunne ikke findes."
+
+#: src/Tribe/Main.php:2516
+msgid "Community"
+msgstr "Fællesskab"
+
+#: src/Tribe/Main.php:2533
+msgid "This template is also used for Community Events."
+msgstr "Denne skabelon er også anvendt til Fælleskabets Begivenheder"
+
+#: src/Tribe/Main.php:2748
+msgid "Community: Submit %s"
+msgstr "Fællesskabet: Tilføj %s"
+
+#: src/Tribe/Main.php:2756
+msgid "Community: My %s"
+msgstr "Fællesskab: Mit %s"
+
+#: src/Tribe/Main.php:2765 src/Tribe/Templates.php:47
+msgid "Community Events"
+msgstr "Fællesskabs begivenheder"
+
+#: src/Tribe/Main.php:2781
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: src/Tribe/Submission_Handler.php:68
+msgid "%s updated. "
+msgstr ""
+
+#: src/Tribe/Submission_Handler.php:69 src/Tribe/Submission_Handler.php:88
+msgid "Submit another %s"
+msgstr "Tilføj endnu en %s"
+
+#: src/Tribe/Submission_Handler.php:72
+msgid "There was a problem saving your %s, please try again."
+msgstr "Der opstod et problem med at gemme din %s. Prøv venligst igen."
+
+#: src/Tribe/Submission_Handler.php:87
+msgid "%s submitted."
+msgstr ""
+
+#: src/Tribe/Submission_Handler.php:91
+msgid "There was a problem submitting your %s, please try again."
+msgstr "Der opstod et problem med at tilføje din %s. Prøv venligst igen."
+
+#: src/Tribe/Submission_Handler.php:191
+msgid "%s is required"
+msgstr "%s er obligatorisk"
+
+#: src/Tribe/Submission_Handler.php:345
+msgid "%s Title"
+msgstr "%stitel"
+
+#: src/Tribe/Submission_Handler.php:348
+msgid "%s Description"
+msgstr "%sbeskrivelse"
+
+#: src/Tribe/Submission_Handler.php:456
+msgid "Invalid value for %s"
+msgstr "Ugyldig værdi for %s"
+
+#: src/Tribe/Submission_Handler.php:467
+msgid "Images must be png, jpg, or gif"
+msgstr "Billeder skal være i png-, jpg- eller gif-format"
+
+#: src/Tribe/Submission_Handler.php:509
+msgid "Image exceeded the allowed file size"
+msgstr "Billedestørrelsen overskrider det tilladte"
+
+#: src/Tribe/Submission_Handler.php:514
+msgid "The image failed to upload successfully"
+msgstr "Billedet blev ikke upload'et"
+
+#: src/Tribe/Submission_Handler.php:518
+msgid "The uploaded image could not be processed"
+msgstr "Det uploadede billede kunne ikke bearbejdes"
+
+#: src/admin-views/community-options-template.php:42
+msgid "Placed in the Trash"
+msgstr "Placeret i papirkurven"
+
+#: src/admin-views/community-options-template.php:43
+msgid "Permanently Deleted"
+msgstr "Slettet permanent"
+
+#: src/admin-views/community-options-template.php:50
+msgid "No Default"
+msgstr "Ingen standard"
+
+#: src/admin-views/community-options-template.php:58
+msgid "Use New Venue/No Default"
+msgstr "Brug ny lokalitet/Ingen standard"
+
+#: src/admin-views/community-options-template.php:73
+msgid "Community Events Settings"
+msgstr "Community Events indstillinger"
+
+#: src/admin-views/community-options-template.php:88
+msgid "General"
+msgstr "Generelt"
+
+#: src/admin-views/community-options-template.php:94
+msgid "Allow anonymous submissions"
+msgstr "Tillad anonyme tilføjelser"
+
+#: src/admin-views/community-options-template.php:95
+msgid "Check this box to allow users to submit events without having a WordPress account"
+msgstr "Sæt kryds her for at tillade brugere en WordPress-konto at tilføje events"
+
+#: src/admin-views/community-options-template.php:138
+msgid "Use visual editor for event descriptions"
+msgstr "Brug WYSIWYG-editor til event-beskrivelser"
+
+#: src/admin-views/community-options-template.php:146
+msgid "Default status for submitted events"
+msgstr "Standard-status for tilføjede events"
+
+#: src/admin-views/community-options-template.php:156
+msgid "Community rewrite slug"
+msgstr "Fællesskabet omskriv slug"
+
+#: src/admin-views/community-options-template.php:160
+msgid "The slug used for building the community events URL - it is appended to the main events slug. Your current community events URLs are"
+msgstr "Slugget, der anvendes til at bygge samfund begivenheder URL - det er vedlagt de vigtigste begivenheder skovsnegl. Dine nuværende samfund begivenheder webadresser"
+
+#: src/admin-views/community-options-template.php:173
+msgid "Alerts"
+msgstr "Advarsler"
+
+#: src/admin-views/community-options-template.php:178
+msgid "Send an email alert when a new event is submitted"
+msgstr "Send en email-notifikation når en ny event er blevet tilføjet"
+
+#: src/admin-views/community-options-template.php:186
+msgid "Email addresses to be notified"
+msgstr "Email-adresse til notifikation"
+
+#: src/admin-views/community-options-template.php:189
+msgid "One address per line"
+msgstr "En adresse pr. linie"
+
+#: src/admin-views/community-options-template.php:195
+msgid "Members"
+msgstr "Medlemmer"
+
+#: src/admin-views/community-options-template.php:200
+msgid "Control the permissions for your logged in users. Allow them to:"
+msgstr "Kontroller tilladelse for dine registrerede brugere. Giv dem tilladelse til at:"
+
+#: src/admin-views/community-options-template.php:205
+msgid "Edit their submissions"
+msgstr "Redigere deres tilføjelser"
+
+#: src/admin-views/community-options-template.php:213
+msgid "Remove their submissions"
+msgstr "Fjerne deres tilføjelser"
+
+#: src/admin-views/community-options-template.php:221
+msgid "Deleted events should be:"
+msgstr "Slettede events skal:"
+
+#: src/admin-views/community-options-template.php:235
+msgid "Events per page"
+msgstr "Events pr. side"
+
+#: src/admin-views/community-options-template.php:236
+msgid "This is the number of events displayed per page"
+msgstr "Antallet af events der vises pr. side"
+
+#: src/admin-views/community-options-template.php:244
+msgid "Date/time format"
+msgstr "Dato/tid-format"
+
+#: src/admin-views/community-options-template.php:245
+msgid "Help with date &amp; time formatting"
+msgstr "Hjælpe til dato- og tidsformattering"
+
+#: src/admin-views/community-options-template.php:253
+msgid "Access Control"
+msgstr "Adgangskontrol"
+
+#: src/admin-views/community-options-template.php:258
+msgid "Block access to WordPress dashboard"
+msgstr "Blokér adgang til WordPress-dashboard"
+
+#: src/admin-views/community-options-template.php:259
+msgid "Also disables the admin bar"
+msgstr "Deaktiverer også admin-bar"
+
+#: src/admin-views/community-options-template.php:267
+msgid "Roles to block"
+msgstr "Blokér følgende roller"
+
+#: src/admin-views/community-options-template.php:277
+msgid "Redirect URL"
+msgstr "Omdirigér URL"
+
+#: src/admin-views/community-options-template.php:288
+msgid "Form Defaults"
+msgstr "Form-standarder"
+
+#: src/admin-views/community-options-template.php:294
+msgid "Default venue for submitted events"
+msgstr "Standardsted for tilføjede events"
+
+#: src/admin-views/community-options-template.php:305
+msgid "Default organizer for submitted events"
+msgstr "Standardarrangør for tilføjede events"
+
+#: src/functions/template-tags.php:497
+#: src/views/community/edit-organizer.php:33
+#: src/views/community/edit-venue.php:34
+msgid "(required)"
+msgstr "(obligatorisk)"
+
+#: src/views/community/edit-event.php:38
+msgid "%s Title:"
+msgstr "%stitel:"
+
+#: src/views/community/edit-event.php:49
+#: src/views/community/edit-organizer.php:43
+#: src/views/community/edit-venue.php:44
+msgid "%s Description:"
+msgstr "%sbeskrivelse:"
+
+#: src/views/community/edit-event.php:81
+#: src/views/community/edit-organizer.php:69
+#: src/views/community/edit-venue.php:70
+msgid "Update %s"
+msgstr "Opdatér %s"
+
+#: src/views/community/edit-event.php:83
+#: src/views/community/edit-organizer.php:69
+#: src/views/community/edit-venue.php:70
+msgid "Submit %s"
+msgstr "Tilføj %s"
+
+#: src/views/community/edit-organizer.php:32
+#: src/views/community/edit-venue.php:33
+msgid "%s Name:"
+msgstr "%snavn:"
+
+#: src/views/community/email-template.php:29
+msgid "%s Organizer"
+msgstr "%sarrangør"
+
+#: src/views/community/email-template.php:32
+msgid "%s Venue"
+msgstr "%ssted"
+
+#: src/views/community/email-template.php:35
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: src/views/community/email-template.php:46
+msgid "Review %s"
+msgstr "Gennemse %s"
+
+#: src/views/community/email-template.php:48
+msgid "View %s"
+msgstr "Se %s"
+
+#: src/views/community/event-list.php:27
+#: src/views/community/modules/delete.php:22
+msgid "Add New"
+msgstr "Tilføj ny"
+
+#: src/views/community/event-list.php:32
+msgid "Display"
+msgstr "Vis"
+
+#: src/views/community/event-list.php:47
+#: src/views/community/modules/delete.php:30
+#: src/views/community/modules/header-links.php:23
+msgid "Not"
+msgstr "Ikke"
+
+#: src/views/community/event-list.php:50
+#: src/views/community/modules/delete.php:31
+#: src/views/community/modules/header-links.php:23
+msgid "Log Out"
+msgstr "Log ud"
+
+#: src/views/community/event-list.php:58
+msgid "There are no upcoming %s in your queue."
+msgstr "Der er ingen kommende %s i din kø"
+
+#: src/views/community/event-list.php:91
+msgid "Status"
+msgstr "Status"
+
+#: src/views/community/event-list.php:92
+msgid "Title"
+msgstr "Titel"
+
+#: src/views/community/event-list.php:95
+msgid "Category"
+msgstr "Kategori"
+
+#: src/views/community/event-list.php:98
+msgid "Recurring?"
+msgstr "Tilbagevendende?"
+
+#: src/views/community/event-list.php:101
+msgid "Start Date"
+msgstr "Startdato"
+
+#: src/views/community/event-list.php:102
+msgid "End Date"
+msgstr "Slutdato"
+
+#: src/views/community/event-list.php:188
+msgid "Yes"
+msgstr "Ja"
+
+#: src/views/community/event-list.php:190
+msgid "No"
+msgstr "Nej"
+
+#: src/views/community/modules/captcha.php:30
+msgid "Anti-Spam Check"
+msgstr "Anti-spam kontrol"
+
+#: src/views/community/modules/cost.php:40
+msgid "%s Cost"
+msgstr "%spris"
+
+#: src/views/community/modules/cost.php:46
+msgid "Currency Symbol:"
+msgstr "Valutasymbol:"
+
+#: src/views/community/modules/cost.php:70
+msgid "Cost:"
+msgstr "Pris:"
+
+#: src/views/community/modules/cost.php:73
+msgid "Leave blank to hide the field. Enter a 0 for %s that are free."
+msgstr "Efterlad tom for at skjule dette felt. Indtast '0' for gratis %s."
+
+#: src/views/community/modules/custom.php:30
+msgid "Additional Fields"
+msgstr "Yderligere felter"
+
+#: src/views/community/modules/custom.php:49
+msgctxt "custom field label"
+msgid "%s:"
+msgstr "%s:"
+
+#: src/views/community/modules/datepickers.php:51
+msgid "%s Time &amp; Date"
+msgstr "%s tid og dato"
+
+#: src/views/community/modules/datepickers.php:62
+msgid "You have changed the recurrence rules of this %1$s. Saving the %1$s will update all future %2$s.  If you did not mean to change all %2$s, then please refresh the page."
+msgstr ""
+
+#: src/views/community/modules/datepickers.php:84
+#: src/views/community/modules/datepickers.php:133
+msgid "YYYY-MM-DD"
+msgstr "ÅÅÅÅ-MM-DD"
+
+#: src/views/community/modules/delete.php:26
+#: src/views/community/modules/header-links.php:22
+msgid "My %s"
+msgstr "Mine %s"
+
+#: src/views/community/modules/image.php:22
+msgid "%s Image"
+msgstr "%sbillede"
+
+#: src/views/community/modules/image.php:33
+msgid "Images that are not png, jpg, or gif will not be uploaded."
+msgstr ""
+
+#: src/views/community/modules/organizer-fields.php:47
+#: src/views/community/modules/organizer.php:31
+#: src/views/community/modules/venue.php:36
+msgid "%s Details"
+msgstr "%sdetaljer"
+
+#: src/views/community/modules/organizer-fields.php:59
+msgid "%s Name"
+msgstr "%snavn"
+
+#: src/Tribe/Submission_Handler.php:408
+#: src/views/community/modules/organizer-fields.php:67
+msgid "Phone"
+msgstr "Telefon"
+
+#: src/Tribe/Submission_Handler.php:416
+#: src/views/community/modules/organizer-fields.php:73
+msgid "Website"
+msgstr "Hjemmeside"
+
+#: src/Tribe/Submission_Handler.php:420
+#: src/views/community/modules/organizer-fields.php:78
+msgid "Email"
+msgstr "Email"
+
+#: src/views/community/modules/custom.php:80
+#: src/views/community/modules/custom.php:115
+msgid "None"
+msgstr "Ingen"
