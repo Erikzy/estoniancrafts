@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: E-Abi WooCommerce Omniva Autosend plugin\n"
+"POT-Creation-Date: 2016-04-08 18:35+0200\n"
+"PO-Revision-Date: 2016-05-04 19:25+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: et\n"
+
+msgid ""
+"Services have not been defined for country %s, please verify your Omniva "
+"configuration"
+msgstr ""
+"Teenuseid pole seadistatud riigile %s, palun kontrollige oma Omniva "
+"seadistusi"
+
+msgid "EE | PA - From parcel terminal to parcel terminal"
+msgstr "EE | PA - Pakiautomaadist pakiautomaati"
+
+msgid "EE | PP - From postoffice to parcel terminal"
+msgstr "EE | PP - Postkontorist pakiautomaati"
+
+msgid "EE | PU - Courier picks up the goods and sends them to parcel terminal"
+msgstr "EE | PU - Kuller korjab ning saadab pakiautomaati"
+
+msgid "LT | DA - From parcel terminal to parcel terminal"
+msgstr "LT | DA - Pakiautomaadist pakiautomaati"
+
+msgid "LT | DP - From sorting office to parcel terminal"
+msgstr "LT | DP - Postkontorist pakiautomaati"
+
+msgid "EE | PO - From parcel terminal to postoffice"
+msgstr "EE | PO - Pakiautomaadist postkontorisse"
+
+msgid "EE | CD - From postoffice to postoffice"
+msgstr "EE | CD - Postkontorist postkontorisse"
+
+msgid "EE | CE - Courier picks up the goods and sends them to postoffice"
+msgstr "EE | CE - Kuller korjab ning saadab postkontorisse"
+
+msgid "Omniva services"
+msgstr "Omniva teenused"
+
+msgid ""
+"Used only with automatic data sending. Ask your Omniva account manager for "
+"proper codes if unhappy with default values."
+msgstr ""
+"Kasutatakse väikepaki andmete saatmisel. Konsulteerige oma kontohalduriga "
+"kui soovite kasutada täiendavaid/erinevaid Omniva teenuseid."
+
+msgid "Base service code"
+msgstr "Põhiteenuskood"
+
+msgid "Additional service codes (comma separated)"
+msgstr "Lisateenuskoodid (komadega eraldatud)"
+
+msgid "Cash on delivery service code"
+msgstr "Teenuskood lunamakseteenusele"
+
+msgid "Enable MPS (multi-package) delivery"
+msgstr "Luba Omniva MPS (mitmepaki) teenus"
+
+msgid "Number of packages per each MPS request"
+msgstr "Pakkide arv igas MPS päringus"
+
+msgid "Show return code sms"
+msgstr "Show return code sms"
+
+msgid "Show return code e-mail"
+msgstr "Show return code e-mail"
+
+msgid "Testing endpoint"
+msgstr "Testkeskkond"
+
+msgid "Live endpoint"
+msgstr "Live keskkond"
+
+msgid "%s - Parcel data needs to be confirmed in Omniva self service panel"
+msgstr "%s - Paki andmed vajavad ELS iseteeninduses täiendavat kinnitamist"
+
+msgid ""
+"%s - Parcel data is confirmed, packing slip can be printed from order view"
+msgstr ""
+"%s - Paki andmed on kinnitatud, pakikaarti saab trükkida tellimuse vaatest"
+
+msgid "Enable automatic data sending to Omniva server"
+msgstr "Luba pakiandmete saatmine Omniva serverisse"
+
+msgid "Only if the order has been paid for or the order is COD"
+msgstr ""
+"Paki andmed saadetakse serverisse vaid makstud või lunapaki tellimustele"
+
+msgid "Omniva Web-service username"
+msgstr "Omniva veebiteenuse kasutajatunnus"
+
+msgid ""
+"Omniva self-service credentials cannot be used, you need to ask for Web-"
+"service credentials from Omniva in order to be able to use automatic data "
+"sending features"
+msgstr ""
+"Automaatseks andmete saatmiseks tuleb kliendihaldurilt paluda XML "
+"veebiteenuse kasutajatunnused sest Omniva iseteeninduse kasutajatunnuseid "
+"kasutada siin ei saa"
+
+msgid "Omniva Web-service password"
+msgstr "Omniva veebiteenuse salasõna"
+
+msgid "Send parcel data"
+msgstr "Saada paki andmed"
+
+msgid ""
+"By default test environment can not be used. You may need to ask Omniva "
+"account manager to activate test environment first."
+msgstr ""
+"Testkeskkonna kasutamiseks paluge oma kliendihalduril see aktiveerida Teie "
+"kasutaja jaoks."
+
+msgid "Senddata function used"
+msgstr "Pakiandmete saatmise funktsioon"
+
+msgid "Return address name"
+msgstr "Nimi tagastusaadressil"
+
+msgid "Return address e-mail"
+msgstr "E-post tagastusaadressil"
+
+msgid "Return address phone"
+msgstr "Telefon tagastusaadressil"
+
+msgid "Return address street"
+msgstr "Tänav tagastusaadressil"
+
+msgid "Return address city, county"
+msgstr "Linn, maakond tagastusaadressil"
+
+msgid "Return address zip code"
+msgstr "Postiindeks tagastusaadressil"
+
+msgid "Return address country"
+msgstr "Riik tagastusaadressil"
+
+msgid "Product attribute name for declaring extra services in a product"
+msgstr "Tooteatribuudi nimetus, kus asuvad lisateenuste deklaratsioonid"
+
+msgid "Refer to readme.txt for extra information about this feature"
+msgstr "Kasutusjuhendist saab käesoleva funktsiooni kohta rohkem infot"
+
+msgid "Customer attribute name, which holds social security code"
+msgstr "Kliendi atribuudi nimetus, mis hoiab endas isikukoodi"
+
+msgid "SI (ID check) service requires social security number"
+msgstr "SI (ID kontroll) teenus nõuab isikukoodi"
+
+msgid "SI (ID check) service requires registered customer"
+msgstr "SI (ID kontroll) teenus nõuab registreeritud klienti"
+
+msgid ""
+"SI (ID check) service requires customer to have social security number in "
+"attribute %s"
+msgstr "SI (ID kontroll) teenus nõuab isikukoodi olemasolu atribuudis %s"
+
+msgid ""
+"COD Service or currency has not been defined for country %s, please verify "
+"your Omniva configuration"
+msgstr ""
+"Lunamakse teenuskood ja/või lunavaluuta ei ole määratud riigile %s, palun "
+"kontrollige oma Omniva seadistusi"
+
+msgid "Soap client initialization failed, no login data found"
+msgstr "SoapClient objekti loomine ebaõnnestus. Autentimisrekvisiite ei leitud"
+
+msgid "No response from server, check if allow_url_fopen setting is enabled"
+msgstr ""
+"Ei saanud vastust serverist, veendu, allow_url_fopen seadistus oleks lubatud"
+
+msgid "Response was not XML, check your username and password. Response: %s"
+msgstr ""
+"Vastus serverist ei olnud XML, veendu, et kasutajanimi ja salasõna oleksid "
+"korrektsed. Vastus serverist: %s"
+
+msgid "Response was not successul. (%s)"
+msgstr "Vastus serverist ei olnud edukas. (%s)"

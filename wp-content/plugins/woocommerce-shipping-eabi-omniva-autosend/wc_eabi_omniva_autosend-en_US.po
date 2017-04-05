@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: E-Abi WooCommerce Omniva Autosend plugin\n"
+"POT-Creation-Date: 2016-04-08 18:35+0200\n"
+"PO-Revision-Date: 2016-05-04 19:25+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: en\n"
+
+msgid ""
+"Services have not been defined for country %s, please verify your Omniva "
+"configuration"
+msgstr ""
+"Services have not been defined for country %s, please verify your Omniva "
+"configuration"
+
+msgid "EE | PA - From parcel terminal to parcel terminal"
+msgstr "EE | PA - From parcel terminal to parcel terminal"
+
+msgid "EE | PP - From postoffice to parcel terminal"
+msgstr "EE | PP - From postoffice to parcel terminal"
+
+msgid "EE | PU - Courier picks up the goods and sends them to parcel terminal"
+msgstr "EE | PU - Courier picks up the goods and sends them to parcel terminal"
+
+msgid "LT | DA - From parcel terminal to parcel terminal"
+msgstr "LT | DA - From parcel terminal to parcel terminal"
+
+msgid "LT | DP - From sorting office to parcel terminal"
+msgstr "LT | DP - From sorting office to parcel terminal"
+
+msgid "EE | PO - From parcel terminal to postoffice"
+msgstr "EE | PO - From parcel terminal to postoffice"
+
+msgid "EE | CD - From postoffice to postoffice"
+msgstr "EE | CD - From postoffice to postoffice"
+
+msgid "EE | CE - Courier picks up the goods and sends them to postoffice"
+msgstr "EE | CE - Courier picks up the goods and sends them to postoffice"
+
+msgid "Omniva services"
+msgstr "Omniva services"
+
+msgid ""
+"Used only with automatic data sending. Ask your Omniva account manager for "
+"proper codes if unhappy with default values."
+msgstr ""
+"Used only with automatic data sending. Ask your Omniva account manager for "
+"proper codes if unhappy with default values."
+
+msgid "Base service code"
+msgstr "Base service code"
+
+msgid "Additional service codes (comma separated)"
+msgstr "Additional service codes (comma separated)"
+
+msgid "Cash on delivery service code"
+msgstr "Cash on delivery service code"
+
+msgid "Enable MPS (multi-package) delivery"
+msgstr "Enable MPS (multi-package) delivery"
+
+msgid "Number of packages per each MPS request"
+msgstr "Number of packages per each MPS request"
+
+msgid "Show return code sms"
+msgstr "Show return code sms"
+
+msgid "Show return code e-mail"
+msgstr "Show return code e-mail"
+
+msgid "Testing endpoint"
+msgstr "Testing endpoint"
+
+msgid "Live endpoint"
+msgstr "Live endpoint"
+
+msgid "%s - Parcel data needs to be confirmed in Omniva self service panel"
+msgstr "%s - Parcel data needs to be confirmed in Omniva self service panel"
+
+msgid ""
+"%s - Parcel data is confirmed, packing slip can be printed from order view"
+msgstr ""
+"%s - Parcel data is confirmed, packing slip can be printed from order view"
+
+msgid "Enable automatic data sending to Omniva server"
+msgstr "Enable automatic data sending to Omniva server"
+
+msgid "Only if the order has been paid for or the order is COD"
+msgstr "Only if the order has been paid for or the order is COD"
+
+msgid "Omniva Web-service username"
+msgstr "Omniva Web-service username"
+
+msgid ""
+"Omniva self-service credentials cannot be used, you need to ask for Web-"
+"service credentials from Omniva in order to be able to use automatic data "
+"sending features"
+msgstr ""
+"Omniva self-service credentials cannot be used, you need to ask for Web-"
+"service credentials from Omniva in order to be able to use automatic data "
+"sending features"
+
+msgid "Omniva Web-service password"
+msgstr "Omniva Web-service password"
+
+msgid "Send parcel data"
+msgstr "Send parcel data"
+
+msgid ""
+"By default test environment can not be used. You may need to ask Omniva "
+"account manager to activate test environment first."
+msgstr ""
+"By default test environment can not be used. You may need to ask Omniva "
+"account manager to activate test environment first."
+
+msgid "Senddata function used"
+msgstr "Senddata function used"
+
+msgid "Return address name"
+msgstr "Return address name"
+
+msgid "Return address e-mail"
+msgstr "Return address e-mail"
+
+msgid "Return address phone"
+msgstr "Return address phone"
+
+msgid "Return address street"
+msgstr "Return address street"
+
+msgid "Return address city, county"
+msgstr "Return address city, county"
+
+msgid "Return address zip code"
+msgstr "Return address zip code"
+
+msgid "Return address country"
+msgstr "Return address country"
+
+msgid "Product attribute name for declaring extra services in a product"
+msgstr "Product attribute name for declaring extra services in a product"
+
+msgid "Refer to readme.txt for extra information about this feature"
+msgstr "Refer to readme.txt for extra information about this feature"
+
+msgid "Customer attribute name, which holds social security code"
+msgstr "Customer attribute name, which holds social security code"
+
+msgid "SI (ID check) service requires social security number"
+msgstr "SI (ID check) service requires social security number"
+
+msgid "SI (ID check) service requires registered customer"
+msgstr "SI (ID check) service requires registered customer"
+
+msgid ""
+"SI (ID check) service requires customer to have social security number in "
+"attribute %s"
+msgstr ""
+"SI (ID check) service requires customer to have social security number in "
+"attribute %s"
+
+msgid ""
+"COD Service or currency has not been defined for country %s, please verify "
+"your Omniva configuration"
+msgstr ""
+"COD Service or currency has not been defined for country %s, please verify "
+"your Omniva configuration"
+
+msgid "Soap client initialization failed, no login data found"
+msgstr "Soap client initialization failed, no login data found"
+
+msgid "No response from server, check if allow_url_fopen setting is enabled"
+msgstr "No response from server, check if allow_url_fopen setting is enabled"
+
+msgid "Response was not XML, check your username and password. Response: %s"
+msgstr "Response was not XML, check your username and password. Response: %s"
+
+msgid "Response was not successul. (%s)"
+msgstr "Response was not successul. (%s)"
