@@ -332,24 +332,85 @@ class lbDokan{
 
 	}
 
-	static function user_profile_completeness($user_id){
+    static function display_user_profile_completeness($user_id){
 
-		// TODO: make sure everything is being counted
+		$required_fields = [
+            'mobile', 
+            'skype', 
+            'description', 
+            'gender', 
+            'dob', 
+            'workyears', 
+            'video', 
+            'education', 
+            'education_school', 
+            'education_start', 
+            'education_end', 
+            'work_exp' => [
+                'name',
+                'filed',
+                'start',
+                'end'
+            ],
+            'org' => [
+                'name', 
+                'link',
+                'start', 
+                'end'
+            ],
+            'certificates' => [
+                'name', 
+                'auth', 
+                'start', 
+                'end', 
+                'link', 
+                'file'
+            ],
+            'country', 
+            'state', 
+            'city', 
+            'address'
+        ];
 
-		$required_fields = ['mobile', 'skype', 'gender', 'dob', 'workyears', 'video', 'description', 'education', 'country', 'state', 'city', 'address'];
+        $certificates  = isset( $ext_profile['certificates'] ) ? $ext_profile['certificates'] : [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']];
 
 		$ext_profile = get_user_meta( $user_id, 'ktt_extended_profile', true );
 		$completeness = 0;
+        $object_count = count($required_fields, 1)-2;
 
-		foreach($required_fields as $req_field){
+		foreach($required_fields as $key => $req_field){
 
-			if( isset($ext_profile[$req_field]) && !empty($ext_profile[$req_field]) ){
-				$completeness += 100/count($required_fields);
-			}
+            if( is_array($req_field) ){
+
+                if( isset($ext_profile[$key]) && is_array($ext_profile[$key]) ){
+
+                    $first_array = array_shift($ext_profile[$key]);
+            
+                    foreach ($first_array as $k => $value) {
+                    
+                        if($value != ''){
+                            $completeness += 100/$object_count;
+                        }
+
+                    }
+
+                }
+
+            } else if( isset($ext_profile[$req_field]) ){
+
+                if ( $ext_profile[$req_field] != '' && $ext_profile[$req_field] != 'none'){
+                    $completeness += 100/$object_count;
+                }
+            }
 
 		}
 
-		return ceil($completeness);
+        $user_avatar = get_user_meta( $user_id, 'dokan_profile_settings', true );
+        if( isset( $user_avatar['gravatar'] ) && $user_avatar['gravatar'] != 0){
+            $completeness += 100/$object_count;
+        }
+
+        self:: display_completeness_bar( ceil($completeness), __( 'Profile complete', 'ktt' ) );
 
 	}
 

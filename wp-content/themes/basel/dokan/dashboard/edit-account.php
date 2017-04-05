@@ -47,14 +47,8 @@ $user = get_user_by( 'id', get_current_user_id() );
 
 
             ?>
-            <div class="dokan-panel dokan-panel-default">
-                <div class="dokan-panel-body">
-                <div class="dokan-progress lb-progress">
-                    <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::user_profile_completeness($user->ID) ?>%">
-                        <?= lbDokan::user_profile_completeness($user->ID) ?>% <?php _e( 'Profile complete', 'ktt' ); ?></div>
-                </div>
-               </div>
-            </div>
+
+            <?php lbDokan::display_user_profile_completeness($user->ID) ?>
 
             <?php lbPdf::display_bcard_links(); ?>
 
