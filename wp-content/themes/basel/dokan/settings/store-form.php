@@ -365,7 +365,8 @@
         <div class="dokan-form-group">
 
             <div class="dokan-w4 ajax_prev dokan-text-left" style="margin-left:24%;">
-                <input type="submit" name="dokan_update_store_settings" class="dokan-btn dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Update Settings', 'dokan' ); ?>">
+                <button name="dokan_update_store_settings" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
+
             </div>
         </div>
     </form>

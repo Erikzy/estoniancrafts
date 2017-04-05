@@ -403,7 +403,8 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                     <p>
                         <?php wp_nonce_field( 'dokan_save_account_details' ); ?>
-                        <input type="submit" class="dokan-btn dokan-btn-danger dokan-btn-theme" name="dokan_save_account_details" value="<?php esc_attr_e( 'Save changes', 'dokan' ); ?>" />
+
+                        <button name="dokan_save_account_details" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
                         <input type="hidden" name="action" value="dokan_save_account_details" />
                     </p>
 

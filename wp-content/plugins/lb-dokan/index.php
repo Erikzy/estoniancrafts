@@ -18,7 +18,7 @@ class lbDokan{
 		add_action( 'dokan_product_updated', [$this, 'product_updated'] );
 		
         add_action( 'add_meta_boxes', [$this, 'add_box'] );
-        add_action( 'save_post_product', [$this, 'save_post'] );
+        add_action( 'save_post_product', [$this, 'save_post'], 11, 2 );
 
         add_action( 'wp_head', [$this, 'wp_head'] );
         add_action( 'wp_ajax_lb_tags', [$this, 'available_tags'] );
@@ -70,10 +70,11 @@ class lbDokan{
         global $wp_scripts;
 
         if (!is_admin()) {
+            wp_enqueue_style(  'lb-balloon', plugin_dir_url( __FILE__ ) . 'balloon.min.css', false,'1.0','all');
             wp_enqueue_style(  'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.css', false,'1.0','all');
             wp_enqueue_script( 'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.js', false,'1.0','all');
             wp_enqueue_style(  'lb-select2', plugin_dir_url( __FILE__ ) . 'select2/css/select2.min.css', false,'1.0','all');
-            wp_enqueue_script( 'lb-select2', plugin_dir_url( __FILE__ ) . 'select2/js/select2.full.min.js', false,'1.0','all');
+            wp_enqueue_script( 'lb-balloon', plugin_dir_url( __FILE__ ) . 'select2/js/select2.full.min.js', false,'1.0','all');
         }
 
     }
@@ -348,7 +349,7 @@ class lbDokan{
 
 		}
 
-		return floor($completeness);
+		return ceil($completeness);
 
 	}
 
@@ -377,11 +378,15 @@ class lbDokan{
 
 		}
 
-		return floor($completeness);
+		return ceil($completeness);
 
 	}
 
-    static function product_completeness($product_id){
+    static function display_product_completeness($product_id){
+
+        if( !$product_id ){
+            return;
+        }
 
         $completeness = 0;
         $meta_data = get_post_meta($product_id, '', true);
@@ -448,8 +453,23 @@ class lbDokan{
             }
 
         }
+        
+        self:: display_completeness_bar( round( 25 + 75 * ceil($completeness)/100 ), __( 'Product complete', 'ktt' ) ); // 25% default
+        
+    }
 
-        return round( 25 + 75 * ceil($completeness)/100 ); // 25% default
+    static function display_completeness_bar($percentage, $message){
+
+        ?>
+        <div class="dokan-panel dokan-panel-default">
+            <div class="dokan-panel-body">
+            <div class="dokan-progress lb-progress">
+                <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="<?= $percentage ?>" aria-valuemin="0" aria-valuemax="100" style="width:<?= $percentage ?>%">
+                    <?= $percentage ?>% <?= $message ?></div>
+            </div>
+           </div>
+        </div>
+        <?php
 
     }
 
@@ -827,9 +847,20 @@ class lbDokan{
     }
 
 
-    function save_post( $post_id ){
-        
-        if( ! ( wp_is_post_revision( $post_id) || wp_is_post_autosave( $post_id ) ) ) {
+    function save_post( $post_id, $post ){
+
+        //If is doing auto-save: exit function
+        if( defined('DOING_AUTOSAVE') AND DOING_AUTOSAVE ) return;
+
+        //If is doing auto-save via AJAX: exit function
+        if( defined( 'DOING_AJAX' ) && DOING_AJAX ) return;
+
+        if (isset($post->post_status) && 'auto-draft' == $post->post_status) {
+            return;
+        }
+
+        if( is_admin() && ! ( wp_is_post_revision( $product_id) || wp_is_post_autosave( $product_id ) ) ) {
+        // if( !wp_is_post_revision($post_id) ) {
             $this->product_updated( $post_id );
         }
 

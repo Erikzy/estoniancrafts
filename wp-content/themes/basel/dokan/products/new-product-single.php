@@ -131,14 +131,7 @@ if ( ! $from_shortcode ) {
             </h1>
         </header><!-- .entry-header -->
 
-        <div class="dokan-panel dokan-panel-default">
-            <div class="dokan-panel-body">
-            <div class="dokan-progress lb-progress">
-                <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::product_completeness($post_id) ?>%">
-                    <?= lbDokan::product_completeness($post_id) ?>% <?php _e( 'Product complete', 'ktt' ); ?></div>
-            </div>
-           </div>
-        </div>
+        <?php lbDokan::display_product_completeness($post_id); ?>
 
         <div class="product-edit-new-container">
             <?php if ( Dokan_Template_Products::$errors ) { ?>
@@ -622,7 +615,7 @@ if ( ! $from_shortcode ) {
 
                         <!--hidden input for Firefox issue-->
                         <input type="hidden" name="dokan_add_product" value="<?php esc_attr_e( 'Save Product', 'dokan' ); ?>"/>
-                        <input type="submit" name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" value="<?php esc_attr_e( 'Save Product', 'dokan' ); ?>"/>
+                        <button name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save Product', 'dokan' ); ?></button>
 
                     </form>
                 <?php } else { ?>
