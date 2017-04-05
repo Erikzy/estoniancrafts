@@ -2,16 +2,100 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-12-05 07:17:03+0000\n"
+"PO-Revision-Date: 2017-03-16 07:58:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.3.0-alpha\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: et_EE\n"
 "Project-Id-Version: Plugins - Contact Form 7 - Stable (latest release)\n"
 
-#: includes/functions.php:351
+#: includes/rest-api.php:241
+msgid "There was an error deleting the contact form."
+msgstr "Kontaktivormi kustutamisel esines viga."
+
+#: includes/rest-api.php:157 includes/rest-api.php:184
+#: includes/rest-api.php:233
+msgid "You are not allowed to access the requested contact form."
+msgstr "Sul ei ole õiguseid päritud kontaktivormile ligi pääsemiseks."
+
+#: includes/rest-api.php:151 includes/rest-api.php:178
+#: includes/rest-api.php:227
+msgid "The requested contact form was not found."
+msgstr "Päritud kontaktivormi ei leitud."
+
+#: includes/rest-api.php:107
+msgid "You are not allowed to create a contact form."
+msgstr "Sul ei ole kontaktivormi loomiseks õiguseid."
+
+#: includes/rest-api.php:101
+msgid "Cannot create existing contact form."
+msgstr "Olemasolevat kontaktivormi ei saa uuesti luua."
+
+#: includes/rest-api.php:44
+msgid "You are not allowed to access contact forms."
+msgstr "Sul ei ole õiguseid kontaktivormidele ligi pääsemiseks."
+
+#: includes/config-validator.php:539
+msgid "Attachment file does not exist at %path%."
+msgstr "Asukohas %path% ei ole manusefaili."
+
+#: includes/config-validator.php:470
+msgid "Invalid mailbox syntax is used in the %name% field."
+msgstr "%name% väljas oleva e-postkasti kirjapilt on vigane."
+
+#: includes/config-validator.php:381
+msgid "Unavailable names (%names%) are used for form controls."
+msgstr "Mõned vormi kontroll-elementide nimed (%names%) ei ole saadaval."
+
+#: includes/config-validator.php:141
+msgid "There are invalid mail header fields."
+msgstr "Mõned kirja päise väljad on vigased."
+
+#: includes/config-validator.php:137
+msgid "HTML tags are used in a message."
+msgstr "Sõnumis kasutatakse HTML märksõnu."
+
+#: includes/config-validator.php:135
+msgid "Sender email address does not belong to the site domain."
+msgstr "Saatja e-posti aadress ei kuulu veebilehe domeeni."
+
+#: includes/config-validator.php:133
+msgid "Invalid mailbox syntax is used."
+msgstr "Kasutatakse vigast e-postkasti kirjapilti."
+
+#: includes/config-validator.php:131
+msgid "There is a possible empty field."
+msgstr "On võimalik, et mõni väli jääb tühjaks."
+
+#: admin/includes/class-contact-forms-list-table.php:130
+msgid "%s configuration error detected"
+msgid_plural "%s configuration errors detected"
+msgstr[0] "Leiti %s konfiguratsiooniviga"
+msgstr[1] "Leiti %s konfiguratsiooniviga"
+
+#: admin/admin.php:319
+msgid "%d configuration errors detected in this tab panel"
+msgstr "Siin paneelis leiti %d konfiguratsiooniviga"
+
+#: admin/admin.php:318
+msgid "1 configuration error detected in this tab panel"
+msgstr "Siin paneelis leiti 1 konfiguratsiooniviga"
+
+#: admin/admin.php:317
+msgid "%d configuration errors detected"
+msgstr "Leiti %d konfiguratsiooniviga"
+
+#: admin/admin.php:316
+msgid "1 configuration error detected"
+msgstr "Leiti 1 konfiguratsiooniviga"
+
+#: admin/admin.php:495 includes/rest-api.php:118 includes/rest-api.php:194
+msgid "There was an error saving the contact form."
+msgstr "Kontaktivormi salvestamisel esines viga."
+
+#: includes/functions.php:357
 msgid "%1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s! Use %3$s instead."
 msgstr "%1$s on alates Contact Form 7 versioonist %2$s <strong>aegunud</strong>! Kasuta parem %3$s."
 
@@ -36,8 +120,8 @@ msgid "comment blacklist"
 msgstr "kommentaaride must nimekiri"
 
 #: admin/includes/welcome-panel.php:26
-msgid "http://contactform7.com/comment-blacklist/"
-msgstr "http://contactform7.com/comment-blacklist/"
+msgid "https://contactform7.com/comment-blacklist/"
+msgstr "https://contactform7.com/comment-blacklist/"
 
 #: admin/includes/welcome-panel.php:26
 msgid "Contact Form 7 supports spam-filtering with %1$s. Intelligent %2$s blocks annoying spambots. Plus, using %3$s, you can block messages containing specified keywords or those sent from specified IP addresses."
@@ -51,61 +135,21 @@ msgstr "Spämmerid kiusavad kõiki; sinu kontaktivormid pole mingi erand. Spämm
 msgid "Getting spammed? You have protection."
 msgstr "Saad tihti spämmi? Selle vastu on kaitse."
 
-#: includes/config-validator.php:327
-msgid "http://contactform7.com/configuration-errors/#messages:error_html_in_message"
-msgstr "http://contactform7.com/configuration-errors/#messages:error_html_in_message"
-
-#: includes/config-validator.php:305
-msgid "http://contactform7.com/configuration-errors/#mail.body:error_maybe_empty"
-msgstr "http://contactform7.com/configuration-errors/#mail.body:error_maybe_empty"
-
-#: includes/config-validator.php:291
-msgid "The %name% field value is invalid."
-msgstr "Välja %name% väärtus pole korrektne."
-
-#: includes/config-validator.php:285 includes/config-validator.php:293
-msgid "http://contactform7.com/configuration-errors/#mail.additional_headers:error_invalid_syntax"
-msgstr "http://contactform7.com/configuration-errors/#mail.additional_headers:error_invalid_syntax"
-
-#: includes/config-validator.php:265
-msgid "http://contactform7.com/configuration-errors/#mail.recipient:error_invalid_syntax"
-msgstr "http://contactform7.com/configuration-errors/#mail.recipient:error_invalid_syntax"
-
-#: includes/config-validator.php:253
-msgid "http://contactform7.com/configuration-errors/#mail.sender:error_email_not_in_site_domain"
-msgstr "http://contactform7.com/configuration-errors/#mail.sender:error_email_not_in_site_domain"
-
-#: includes/config-validator.php:249
-msgid "http://contactform7.com/configuration-errors/#mail.sender:error_invalid_syntax"
-msgstr "http://contactform7.com/configuration-errors/#mail.sender:error_invalid_syntax"
-
-#: includes/config-validator.php:237
-msgid "http://contactform7.com/configuration-errors/#mail.subject:error_maybe_empty"
-msgstr "http://contactform7.com/configuration-errors/#mail.subject:error_maybe_empty"
-
-#: includes/config-validator.php:200
-msgid "http://contactform7.com/configuration-errors/#form.body:error_multiple_controls_in_label"
-msgstr "http://contactform7.com/configuration-errors/#form.body:error_multiple_controls_in_label"
-
-#: includes/config-validator.php:120
-msgid "Multiple form controls are placed inside a single label element."
+#: includes/config-validator.php:139
+msgid "Multiple form controls are in a single label element."
 msgstr "Mitu vormi kontroll-elementi asuvad üheainsa neid kirjeldava elemendi sees."
 
-#: admin/admin.php:538
-msgid "What's this?"
-msgstr "Mis see on?"
-
-#: admin/admin.php:257
+#: admin/admin.php:315
 msgid "How to correct this?"
 msgstr "Kuidas see korda teha?"
 
-#: admin/admin.php:358
+#: admin/admin.php:414
 msgid "FAQ about Configuration Validator"
 msgstr "KKK konfiguratsiooni validaatori kohta"
 
-#: admin/admin.php:358 admin/admin.php:536
-msgid "http://contactform7.com/configuration-validator-faq/"
-msgstr "http://contactform7.com/configuration-validator-faq/"
+#: admin/admin.php:414
+msgid "https://contactform7.com/configuration-validator-faq/"
+msgstr "https://contactform7.com/configuration-validator-faq/"
 
 #: modules/text.php:189
 msgid "The telephone number is invalid."
@@ -119,7 +163,7 @@ msgstr "URL ei ole korrektne."
 msgid "The e-mail address entered is invalid."
 msgstr "Sisestatud e-posti aadress ei ole korrektne."
 
-#: modules/quiz.php:153
+#: modules/quiz.php:154
 msgid "The answer to the quiz is incorrect."
 msgstr "Küsimustiku vastus ei ole korrektne."
 
@@ -163,134 +207,116 @@ msgstr "Kuupäev on lubatust varasem."
 msgid "The date format is incorrect."
 msgstr "Kuupäeva formaat ei ole korrektne."
 
-#: includes/contact-form-template.php:181
+#: includes/contact-form-template.php:183
 msgid "The field is too short."
 msgstr "Väli on liiga lühike."
 
-#: includes/contact-form-template.php:174
+#: includes/contact-form-template.php:176
 msgid "The field is too long."
 msgstr "Väli on liiga pikk."
 
-#: includes/contact-form-template.php:167
+#: includes/contact-form-template.php:169
 msgid "The field is required."
 msgstr "Väli on nõutud."
 
-#: includes/contact-form-template.php:160
+#: includes/contact-form-template.php:162
 msgid "You must accept the terms and conditions before sending your message."
 msgstr "Enne teate saatmist pead nõustuma tingimustega."
 
-#: includes/contact-form-template.php:146
+#: includes/contact-form-template.php:148
 msgid "One or more fields have an error. Please check and try again."
 msgstr "Vähemalt ühe sisendväljaga esines viga. Palun kontrolli ja proovi uuesti."
 
-#: includes/contact-form-template.php:139
-#: includes/contact-form-template.php:153
+#: includes/contact-form-template.php:141
+#: includes/contact-form-template.php:155
 msgid "There was an error trying to send your message. Please try again later."
 msgstr "Sõnumi saatmisel esines viga. Palun proovi hiljem uuesti."
 
-#: includes/contact-form-template.php:132
+#: includes/contact-form-template.php:134
 msgid "Thank you for your message. It has been sent."
 msgstr "Täname sõnumi eest. See saadeti teele."
 
-#: includes/contact-form-template.php:50 includes/contact-form-template.php:76
+#: includes/contact-form-template.php:50 includes/contact-form-template.php:77
 msgctxt "mail subject"
 msgid "%1$s \"%2$s\""
 msgstr "%1$s \"%2$s\""
 
-#: includes/config-validator.php:118
-msgid "HTML tags are not allowed in a message."
-msgstr "Sõnumis ei ole HTML lubatud."
-
-#: includes/config-validator.php:116
-msgid "This email address does not belong to the same domain as the site."
-msgstr "See e-posti aadress ei kuulu veebilehega samasse domeeni."
-
-#: includes/config-validator.php:114
-msgid "This field has syntax errors."
-msgstr "See väli on vigaselt kirja pandud."
-
-#: includes/config-validator.php:112
-msgid "This field can be empty depending on user input."
-msgstr "Sõltuvalt kasutaja sisendist võib see väli olla tühi."
-
-#: admin/admin.php:529 admin/includes/class-contact-forms-list-table.php:119
-msgid "%s configuration error found"
-msgid_plural "%s configuration errors found"
-msgstr[0] "leiti %s seadistuse viga"
-msgstr[1] "leiti %s seadistuse viga"
-
-#: admin/admin.php:570
+#: admin/admin.php:601
 msgid "Misconfiguration leads to mail delivery failure or other troubles. Validate your contact forms now."
 msgstr "Vead seadistuses võivad põhjustada sõnumite saatmata jäämist ning muid probleeme. Kontrolli kohe oma kontaktivorme."
 
-#: admin/admin.php:568
+#: admin/admin.php:599
 msgid "Validate Contact Form 7 Configuration"
 msgstr "Kontrolli Contact Form 7 seadistusi"
 
-#: admin/admin.php:453
+#: includes/config-validator.php:16
+msgid "https://contactform7.com/configuration-errors/"
+msgstr "https://contactform7.com/configuration-errors/"
+
+#: admin/admin.php:517
 msgid "Configuration validation completed. No invalid contact form was found."
 msgstr "Seadistuse kontroll tehtud. Ühtegi vigast kontaktivormi ei leitud."
 
-#: admin/admin.php:445
+#: admin/admin.php:509
 msgid "Configuration validation completed. An invalid contact form was found."
 msgid_plural "Configuration validation completed. %s invalid contact forms were found."
 msgstr[0] "Seadistuse kontroll tehtud. Leiti vigane kontaktivorm."
 msgstr[1] "Seadistuse kontroll tehtud. Leiti %s vigast kontaktivormi."
 
-#: admin/admin.php:350
+#: admin/admin.php:406
 msgid "Validate Configuration"
 msgstr "Kontrolli seadistust"
 
-#: admin/admin.php:341
+#: admin/admin.php:397
 msgid "Validate %s Contact Form Now"
 msgid_plural "Validate %s Contact Forms Now"
 msgstr[0] "Kontrolli praegu %s kontaktivormi"
 msgstr[1] "Kontrolli praegu %s kontaktivormi"
 
-#: admin/admin.php:163
+#: admin/admin.php:212
 msgid "You are not allowed to validate configuration."
 msgstr "Sul ei ole seadistuse kontrollimiseks õiguseid."
 
-#: includes/controller.php:170
+#: includes/controller.php:178
 msgid "Please verify that you are not a robot."
 msgstr "Palun tõesta, et sa ei ole robot."
 
-#: modules/recaptcha.php:452
+#: modules/recaptcha.php:456
 msgid "Compact"
 msgstr "Kompaktne"
 
-#: modules/recaptcha.php:450
+#: modules/recaptcha.php:454
 msgid "Normal"
 msgstr "Tavaline"
 
-#: modules/recaptcha.php:446 modules/recaptcha.php:449
+#: modules/recaptcha.php:450 modules/recaptcha.php:453
 msgid "Size"
 msgstr "Suurus"
 
-#: modules/recaptcha.php:440
+#: modules/recaptcha.php:444
 msgid "Dark"
 msgstr "Tume"
 
-#: modules/recaptcha.php:438
+#: modules/recaptcha.php:442
 msgid "Light"
 msgstr "Hele"
 
-#: modules/recaptcha.php:434 modules/recaptcha.php:437
+#: modules/recaptcha.php:438 modules/recaptcha.php:441
 msgid "Theme"
 msgstr "Temaatika"
 
-#: modules/recaptcha.php:422
+#: modules/recaptcha.php:426
 msgid "Generate a form-tag for a reCAPTCHA widget. For more details, see %s."
 msgstr "Genereeri reCAPTCHA mooduli jaoks vormisilt. Lisainfo jaoks vaata %s."
 
-#: modules/recaptcha.php:414
+#: modules/recaptcha.php:418
 msgid "To use reCAPTCHA, first you need to install an API key pair. For more details, see %s."
 msgstr "Enne reCAPTCHA kasutamist pead kõigepealt paigaldama API võtmete paari. Lisainfo jaoks vaata %s."
 
 #: admin/includes/welcome-panel.php:26 modules/recaptcha.php:184
-#: modules/recaptcha.php:414 modules/recaptcha.php:424
-msgid "http://contactform7.com/recaptcha/"
-msgstr "http://contactform7.com/recaptcha/"
+#: modules/recaptcha.php:418 modules/recaptcha.php:428
+msgid "https://contactform7.com/recaptcha/"
+msgstr "https://contactform7.com/recaptcha/"
 
 #: modules/recaptcha.php:184
 msgid "For more details, see %s."
@@ -333,8 +359,8 @@ msgid "ERROR"
 msgstr "VIGA"
 
 #: admin/includes/welcome-panel.php:26 modules/recaptcha.php:23
-#: modules/recaptcha.php:184 modules/recaptcha.php:401
-#: modules/recaptcha.php:414 modules/recaptcha.php:424
+#: modules/recaptcha.php:184 modules/recaptcha.php:405
+#: modules/recaptcha.php:418 modules/recaptcha.php:428
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
@@ -355,10 +381,10 @@ msgid "Just another contact form plugin. Simple but flexible."
 msgstr "Kõigest veel üks kontaktivormi plugin. Lihtne, kuid paindlik."
 
 #. Plugin URI of the plugin/theme
-msgid "http://contactform7.com/"
-msgstr "http://contactform7.com/"
+msgid "https://contactform7.com/"
+msgstr "https://contactform7.com/"
 
-#: settings.php:137
+#: settings.php:140
 msgid "Contact form %d"
 msgstr "Kontaktivorm %d"
 
@@ -392,8 +418,8 @@ msgid "Text Fields"
 msgstr "Tekstiväljad"
 
 #: modules/text.php:228 modules/textarea.php:140
-msgid "http://contactform7.com/text-fields/"
-msgstr "http://contactform7.com/text-fields/"
+msgid "https://contactform7.com/text-fields/"
+msgstr "https://contactform7.com/text-fields/"
 
 #: modules/text.php:225
 msgid "Generate a form-tag for a single-line telephone number input field. For more details, see %s."
@@ -448,8 +474,8 @@ msgid "Submit Button"
 msgstr "Saatmise nupp"
 
 #: modules/submit.php:57
-msgid "http://contactform7.com/submit-button/"
-msgstr "http://contactform7.com/submit-button/"
+msgid "https://contactform7.com/submit-button/"
+msgstr "https://contactform7.com/submit-button/"
 
 #: modules/submit.php:55
 msgid "Generate a form-tag for a submit button. For more details, see %s."
@@ -459,47 +485,47 @@ msgstr "Genereeri saatmise nupu vormi-silt. Lisainfo jaoks vaata %s."
 msgid "submit"
 msgstr "saada"
 
-#: modules/select.php:203
+#: modules/select.php:218
 msgid "Insert a blank item as the first option"
 msgstr "Lisa esimeseks valikuks tühi element."
 
-#: modules/select.php:202
+#: modules/select.php:217
 msgid "Allow multiple selections"
 msgstr "Luba mitut valikut"
 
-#: modules/select.php:169
+#: modules/select.php:184
 msgid "Generate a form-tag for a drop-down menu. For more details, see %s."
 msgstr "Genereeri lahtirulluva menüü vormi-silt. Lisainfo jaoks vaata %s."
 
-#: modules/select.php:162
+#: modules/select.php:177
 msgid "drop-down menu"
 msgstr "lahtirulluv menüü"
 
-#: modules/quiz.php:194
+#: modules/quiz.php:195
 msgid "One pipe-separated question-answer pair (e.g. The capital of Brazil?|Rio) per line."
 msgstr "Üks püstkriipsuga eraldatud küsimuse-vastuse paar (nt Eesti pealinn?|Tallinn) rea kohta."
 
-#: modules/quiz.php:189 modules/quiz.php:192
+#: modules/quiz.php:190 modules/quiz.php:193
 msgid "Questions and answers"
 msgstr "Küsimused ja vastused"
 
-#: modules/quiz.php:174
+#: modules/quiz.php:175
 msgid "Quiz"
 msgstr "Küsimustik"
 
-#: modules/quiz.php:174
-msgid "http://contactform7.com/quiz/"
-msgstr "http://contactform7.com/quiz/"
+#: modules/quiz.php:175
+msgid "https://contactform7.com/quiz/"
+msgstr "https://contactform7.com/quiz/"
 
-#: modules/quiz.php:172
+#: modules/quiz.php:173
 msgid "Generate a form-tag for a question-answer pair. For more details, see %s."
 msgstr "Genereeri küsimuse-vastuse paari vormi-silt. Lisainfo jaoks vaata %s."
 
-#: modules/quiz.php:164
+#: modules/quiz.php:165
 msgid "quiz"
 msgstr "küsimustik"
 
-#: modules/quiz.php:152
+#: modules/quiz.php:153
 msgid "Sender doesn't enter the correct answer to the quiz"
 msgstr "Saataja ei sisestanud õiget vastust küsimusele"
 
@@ -516,8 +542,8 @@ msgid "Number Fields"
 msgstr "Numbriväljad"
 
 #: modules/number.php:156
-msgid "http://contactform7.com/number-fields/"
-msgstr "http://contactform7.com/number-fields/"
+msgid "https://contactform7.com/number-fields/"
+msgstr "https://contactform7.com/number-fields/"
 
 #: modules/number.php:154
 msgid "Generate a form-tag for a field for numeric value input. For more details, see %s."
@@ -560,8 +586,8 @@ msgid "File Uploading and Attachment"
 msgstr "Faili üleslaadimine ja manustamine"
 
 #: modules/file.php:236
-msgid "http://contactform7.com/file-uploading-and-attachment/"
-msgstr "http://contactform7.com/file-uploading-and-attachment/"
+msgid "https://contactform7.com/file-uploading-and-attachment/"
+msgstr "https://contactform7.com/file-uploading-and-attachment/"
 
 #: modules/file.php:234
 msgid "Generate a form-tag for a file uploading field. For more details, see %s."
@@ -615,8 +641,8 @@ msgid "Date Field"
 msgstr "Kuupäeva väli"
 
 #: modules/date.php:153
-msgid "http://contactform7.com/date-field/"
-msgstr "http://contactform7.com/date-field/"
+msgid "https://contactform7.com/date-field/"
+msgstr "https://contactform7.com/date-field/"
 
 #: modules/date.php:151
 msgid "Generate a form-tag for a date input field. For more details, see %s."
@@ -638,62 +664,62 @@ msgstr "Kuupäev on lubatust varasem"
 msgid "Date format that the sender entered is invalid"
 msgstr "Saatja sisestatud kuupäeva formaat on vigane."
 
-#: modules/checkbox.php:358 modules/date.php:224 modules/number.php:232
-#: modules/select.php:232 modules/text.php:311 modules/textarea.php:194
+#: modules/checkbox.php:361 modules/date.php:224 modules/number.php:232
+#: modules/select.php:247 modules/text.php:311 modules/textarea.php:194
 msgid "To use the value input through this field in a mail field, you need to insert the corresponding mail-tag (%s) into the field on the Mail tab."
 msgstr "Selle sisendi kaudu saadud väärtuse kasutamiseks e-kirja väljal pead sisestama vastava e-kirja-sildi (%s) sakis \"E-kiri\" õigele väljale."
 
-#: modules/checkbox.php:328
+#: modules/checkbox.php:331
 msgid "Make checkboxes exclusive"
 msgstr "Tee valikkastid üksteist välistavaks"
 
-#: modules/checkbox.php:326
+#: modules/checkbox.php:329
 msgid "Wrap each item with label element"
 msgstr "Mähi iga element nimesildi elemendi sisse"
 
-#: modules/checkbox.php:325
+#: modules/checkbox.php:328
 msgid "Put a label first, a checkbox last"
 msgstr "Pane nimesilt ette, valikkast taha"
 
-#: modules/checkbox.php:324 modules/select.php:201
+#: modules/checkbox.php:327 modules/select.php:216
 msgid "One option per line."
 msgstr "Üks valik rea kohta."
 
-#: modules/checkbox.php:307 modules/date.php:167 modules/file.php:250
-#: modules/number.php:175 modules/select.php:185 modules/text.php:242
+#: modules/checkbox.php:310 modules/date.php:167 modules/file.php:250
+#: modules/number.php:175 modules/select.php:200 modules/text.php:242
 #: modules/textarea.php:154
 msgid "Required field"
 msgstr "Nõutud väli"
 
-#: modules/checkbox.php:303 modules/checkbox.php:306 modules/date.php:163
+#: modules/checkbox.php:306 modules/checkbox.php:309 modules/date.php:163
 #: modules/date.php:166 modules/file.php:246 modules/file.php:249
-#: modules/number.php:166 modules/number.php:169 modules/select.php:181
-#: modules/select.php:184 modules/text.php:238 modules/text.php:241
+#: modules/number.php:166 modules/number.php:169 modules/select.php:196
+#: modules/select.php:199 modules/text.php:238 modules/text.php:241
 #: modules/textarea.php:150 modules/textarea.php:153
 msgid "Field type"
 msgstr "Välja tüüp"
 
-#: modules/checkbox.php:292 modules/select.php:171
+#: modules/checkbox.php:295 modules/select.php:186
 msgid "Checkboxes, Radio Buttons and Menus"
 msgstr "Valikkastid, raadionupud ja menüüd"
 
-#: modules/checkbox.php:292 modules/select.php:171
-msgid "http://contactform7.com/checkboxes-radio-buttons-and-menus/"
-msgstr "http://contactform7.com/checkboxes-radio-buttons-and-menus/"
+#: modules/checkbox.php:295 modules/select.php:186
+msgid "https://contactform7.com/checkboxes-radio-buttons-and-menus/"
+msgstr "https://contactform7.com/checkboxes-radio-buttons-and-menus/"
 
-#: modules/checkbox.php:289
+#: modules/checkbox.php:292
 msgid "Generate a form-tag for a group of radio buttons. For more details, see %s."
 msgstr "Genereeri raadionuppude grupi vormi-silt. Lisainfo jaoks vaata %s."
 
-#: modules/checkbox.php:287
+#: modules/checkbox.php:290
 msgid "Generate a form-tag for a group of checkboxes. For more details, see %s."
 msgstr "Genereeri valikkastide grupi vormi-silt. Lisainfo jaoks vaata %s."
 
-#: modules/checkbox.php:274
+#: modules/checkbox.php:277
 msgid "radio buttons"
 msgstr "raadionupud"
 
-#: modules/checkbox.php:272
+#: modules/checkbox.php:275
 msgid "checkboxes"
 msgstr "valikkastid"
 
@@ -714,8 +740,8 @@ msgid "Image settings"
 msgstr "Pildi seaded"
 
 #: modules/really-simple-captcha.php:231
-msgid "http://contactform7.com/captcha/"
-msgstr "http://contactform7.com/captcha/"
+msgid "https://contactform7.com/captcha/"
+msgstr "https://contactform7.com/captcha/"
 
 #: modules/really-simple-captcha.php:229
 msgid "Generate form-tags for a CAPTCHA image and corresponding response input field. For more details, see %s."
@@ -741,26 +767,26 @@ msgstr "Kood mida saatja sisestas ei kattu TURVAKOOD-iga."
 msgid "To use CAPTCHA, you need <a href=\"http://wordpress.org/extend/plugins/really-simple-captcha/\">Really Simple CAPTCHA</a> plugin installed."
 msgstr "Selleks, et kasutada TURVAKOOD-i, peab olema paigaldatud <a href=\"http://wordpress.org/extend/plugins/really-simple-captcha/\">Really Simple CAPTCHA</a> plugin."
 
-#: modules/acceptance.php:189 modules/checkbox.php:353 modules/date.php:219
-#: modules/file.php:289 modules/number.php:227 modules/quiz.php:218
-#: modules/really-simple-captcha.php:283 modules/recaptcha.php:476
-#: modules/select.php:227 modules/submit.php:90 modules/text.php:306
+#: modules/acceptance.php:189 modules/checkbox.php:356 modules/date.php:219
+#: modules/file.php:289 modules/number.php:227 modules/quiz.php:219
+#: modules/really-simple-captcha.php:283 modules/recaptcha.php:480
+#: modules/select.php:242 modules/submit.php:90 modules/text.php:306
 #: modules/textarea.php:189
 msgid "Insert Tag"
 msgstr "Sisesta silt"
 
-#: modules/acceptance.php:176 modules/checkbox.php:340 modules/date.php:207
-#: modules/file.php:276 modules/number.php:215 modules/quiz.php:205
+#: modules/acceptance.php:176 modules/checkbox.php:343 modules/date.php:207
+#: modules/file.php:276 modules/number.php:215 modules/quiz.php:206
 #: modules/really-simple-captcha.php:256 modules/really-simple-captcha.php:271
-#: modules/recaptcha.php:463 modules/select.php:214 modules/submit.php:77
+#: modules/recaptcha.php:467 modules/select.php:229 modules/submit.php:77
 #: modules/text.php:293 modules/textarea.php:176
 msgid "Class attribute"
 msgstr "Klassi atribuut"
 
-#: modules/acceptance.php:171 modules/checkbox.php:335 modules/date.php:202
-#: modules/file.php:271 modules/number.php:210 modules/quiz.php:200
+#: modules/acceptance.php:171 modules/checkbox.php:338 modules/date.php:202
+#: modules/file.php:271 modules/number.php:210 modules/quiz.php:201
 #: modules/really-simple-captcha.php:251 modules/really-simple-captcha.php:266
-#: modules/recaptcha.php:458 modules/select.php:209 modules/submit.php:72
+#: modules/recaptcha.php:462 modules/select.php:224 modules/submit.php:72
 #: modules/text.php:288 modules/textarea.php:171
 msgid "Id attribute"
 msgstr "Id atribuut"
@@ -774,14 +800,14 @@ msgid "Make this checkbox checked by default"
 msgstr "Määra see valikkast vaikimisi valituks."
 
 #: modules/acceptance.php:160 modules/acceptance.php:163
-#: modules/checkbox.php:319 modules/checkbox.php:322 modules/select.php:196
-#: modules/select.php:199
+#: modules/checkbox.php:322 modules/checkbox.php:325 modules/select.php:211
+#: modules/select.php:214
 msgid "Options"
 msgstr "Valikud"
 
-#: modules/acceptance.php:155 modules/checkbox.php:314 modules/date.php:173
-#: modules/file.php:256 modules/number.php:181 modules/quiz.php:184
-#: modules/really-simple-captcha.php:241 modules/select.php:191
+#: modules/acceptance.php:155 modules/checkbox.php:317 modules/date.php:173
+#: modules/file.php:256 modules/number.php:181 modules/quiz.php:185
+#: modules/really-simple-captcha.php:241 modules/select.php:206
 #: modules/text.php:248 modules/textarea.php:160
 msgid "Name"
 msgstr "Nimi"
@@ -791,8 +817,8 @@ msgid "Acceptance Checkbox"
 msgstr "Aktsepteerimise valikkast"
 
 #: modules/acceptance.php:145
-msgid "http://contactform7.com/acceptance-checkbox/"
-msgstr "http://contactform7.com/acceptance-checkbox/"
+msgid "https://contactform7.com/acceptance-checkbox/"
+msgstr "https://contactform7.com/acceptance-checkbox/"
 
 #: modules/acceptance.php:143
 msgid "Generate a form-tag for an acceptance checkbox. For more details, see %s."
@@ -802,55 +828,55 @@ msgstr "Genereeri aktsepteerimise valikkasti vormi-silt. Lisainfo jaoks vaata %s
 msgid "acceptance"
 msgstr "aktsepteerimine"
 
-#: includes/contact-form.php:151
+#: includes/contact-form.php:156
 msgid "<code>%1$s</code> property of a <code>WPCF7_ContactForm</code> object is <strong>no longer accessible</strong>. Use <code>%2$s</code> method instead."
 msgstr "Objecti <code>WPCF7_ContactForm</code> omadus <code>%1$s</code> <strong>ei ole enam kättesaadav</strong>. Kasuta selle asemel meetodit <code>%2$s</code>."
 
-#: includes/contact-form.php:77 includes/contact-form.php:225
+#: includes/contact-form.php:82 includes/contact-form.php:232
 msgid "Untitled"
 msgstr "Nimetu"
 
-#: includes/contact-form.php:31
+#: includes/contact-form.php:32
 msgid "Contact Form"
 msgstr "Kontaktivorm"
 
-#: includes/contact-form-template.php:179
+#: includes/contact-form-template.php:181
 msgid "There is a field with input that is shorter than the minimum allowed length"
 msgstr "Vähemalt ühe sisendvälja väärtuse pikkus on alla minimaalselt nõutut"
 
-#: includes/contact-form-template.php:172
+#: includes/contact-form-template.php:174
 msgid "There is a field with input that is longer than the maximum allowed length"
 msgstr "Vähemalt ühe sisendvälja väärtuse pikkus ületab maksimaalset lubatut"
 
-#: includes/contact-form-template.php:165
+#: includes/contact-form-template.php:167
 msgid "There is a field that the sender must fill in"
 msgstr "Saatja peab sisendvälja täitma"
 
-#: includes/contact-form-template.php:158
+#: includes/contact-form-template.php:160
 msgid "There are terms that the sender must accept"
 msgstr "Saatja peab tingimustega nõustuma"
 
-#: includes/contact-form-template.php:151
+#: includes/contact-form-template.php:153
 msgid "Submission was referred to as spam"
 msgstr "Päringut peeti spämmiks."
 
-#: includes/contact-form-template.php:144
+#: includes/contact-form-template.php:146
 msgid "Validation errors occurred"
 msgstr "Valideerimise vead"
 
-#: includes/contact-form-template.php:137
+#: includes/contact-form-template.php:139
 msgid "Sender's message failed to send"
 msgstr "Saatjal ei õnnestunud teadet teele saata"
 
-#: includes/contact-form-template.php:130
+#: includes/contact-form-template.php:132
 msgid "Sender's message was sent successfully"
 msgstr "Teie sõnum on saadetud. Aitäh!"
 
-#: includes/contact-form-template.php:61 includes/contact-form-template.php:84
+#: includes/contact-form-template.php:61 includes/contact-form-template.php:85
 msgid "This e-mail was sent from a contact form on %1$s (%2$s)"
 msgstr "See e-kiri saadeti kontaktivormi kaudu lehel %1$s (%2$s)"
 
-#: includes/contact-form-template.php:58 includes/contact-form-template.php:81
+#: includes/contact-form-template.php:58 includes/contact-form-template.php:82
 msgid "Message Body:"
 msgstr "Sõnumi sisu:"
 
@@ -882,7 +908,7 @@ msgstr "(nõutav)"
 msgid "Your Name"
 msgstr "Nimi"
 
-#: admin/includes/tag-generator.php:43
+#: admin/includes/tag-generator.php:44
 msgid "Form-tag Generator: %s"
 msgstr "Vormi-sildi generaator: %s"
 
@@ -979,83 +1005,83 @@ msgstr "Võimalikud tegevused"
 msgid "Overview"
 msgstr "Ülevaaade"
 
-#: admin/includes/editor.php:198
+#: admin/includes/editor.php:218
 msgid "You can add customization code snippets here. For details, see %s."
 msgstr "Siia saab lisada kohandamise koodijuppe. Täpsema info jaoks vaata %s."
 
-#: admin/includes/editor.php:196
-msgid "http://contactform7.com/additional-settings/"
-msgstr "http://contactform7.com/additional-settings/"
+#: admin/includes/editor.php:216
+msgid "https://contactform7.com/additional-settings/"
+msgstr "https://contactform7.com/additional-settings/"
 
-#: admin/includes/editor.php:175
+#: admin/includes/editor.php:194
 msgid "Edit messages used in the following situations."
 msgstr "Muuda järgnevates olukordades kasutatavaid sõnumeid."
 
-#: admin/includes/editor.php:151
+#: admin/includes/editor.php:170
 msgid "File Attachments"
 msgstr "Manustatud failid"
 
-#: admin/includes/editor.php:145
+#: admin/includes/editor.php:164
 msgid "Use HTML content type"
 msgstr "Kasuta HTML-i sisu tüüpi"
 
-#: admin/includes/editor.php:143
+#: admin/includes/editor.php:162
 msgid "Exclude lines with blank mail-tags from output"
 msgstr "Jäta tühjad e-kirja-sildid väljundist välja"
 
-#: admin/includes/editor.php:138
+#: admin/includes/editor.php:157
 msgid "Message Body"
 msgstr "Sõnumi sisu"
 
-#: admin/includes/editor.php:129
+#: admin/includes/editor.php:148
 msgid "Additional Headers"
 msgstr "Veel päiseid"
 
-#: admin/includes/editor.php:120 includes/contact-form-template.php:40
+#: admin/includes/editor.php:139 includes/contact-form-template.php:40
 msgid "Subject"
 msgstr "Teema"
 
-#: admin/includes/editor.php:111
+#: admin/includes/editor.php:130
 msgid "From"
 msgstr "Saatja"
 
-#: admin/includes/editor.php:102
+#: admin/includes/editor.php:121
 msgid "To"
 msgstr "Saaja"
 
-#: admin/includes/editor.php:96
+#: admin/includes/editor.php:115
 msgid "In the following fields, you can use these mail-tags:"
 msgstr "Järgnevatel väljadel saad kasutada neid e-kirja-silte:"
 
-#: admin/includes/editor.php:90
+#: admin/includes/editor.php:109
 msgid "Mail (2) is an additional mail template often used as an autoresponder."
 msgstr "E-kiri (2) on lisamall, mida kasutatakse tihti automaatvastuste jaoks."
 
-#: admin/includes/editor.php:65
+#: admin/includes/editor.php:75
 msgid "Use Mail (2)"
 msgstr "Kasuta teist e-kirja"
 
-#: admin/includes/editor.php:64
+#: admin/includes/editor.php:74
 msgid "Mail (2)"
 msgstr "E-kiri (2)"
 
-#: admin/includes/class-contact-forms-list-table.php:197
+#: admin/includes/class-contact-forms-list-table.php:214
 msgid "Y/m/d"
 msgstr "Y/m/d"
 
-#: admin/includes/class-contact-forms-list-table.php:195
+#: admin/includes/class-contact-forms-list-table.php:212
 msgid "%s ago"
 msgstr "%s tagasi"
 
-#: admin/includes/class-contact-forms-list-table.php:188
+#: admin/includes/class-contact-forms-list-table.php:202
 msgid "Y/m/d g:i:s A"
 msgstr "Y/m/d g:i:s A"
 
-#: admin/includes/class-contact-forms-list-table.php:107
+#: admin/includes/class-contact-forms-list-table.php:116
 msgid "Edit &#8220;%s&#8221;"
 msgstr "Muuda &#8220;%s&#8221;"
 
-#: admin/includes/class-contact-forms-list-table.php:133
+#: admin/includes/class-contact-forms-list-table.php:144
 msgid "Edit"
 msgstr "Muuda"
 
@@ -1075,8 +1101,8 @@ msgstr "Lühikood"
 msgid "Title"
 msgstr "Pealkiri"
 
-#: admin/edit-contact-form.php:206 admin/includes/editor.php:197
-#: admin/includes/editor.php:202
+#: admin/edit-contact-form.php:206 admin/includes/editor.php:217
+#: admin/includes/editor.php:222
 msgid "Additional Settings"
 msgstr "Lisaseaded"
 
@@ -1084,15 +1110,15 @@ msgstr "Lisaseaded"
 msgid "Additional Settings (%d)"
 msgstr "Lisaseaded (%d)"
 
-#: admin/edit-contact-form.php:193 admin/includes/editor.php:173
+#: admin/edit-contact-form.php:193 admin/includes/editor.php:192
 msgid "Messages"
 msgstr "Teated"
 
-#: admin/edit-contact-form.php:190 admin/includes/editor.php:72
+#: admin/edit-contact-form.php:190 admin/includes/editor.php:83
 msgid "Mail"
 msgstr "Email"
 
-#: admin/edit-contact-form.php:187 admin/includes/editor.php:45
+#: admin/edit-contact-form.php:187 admin/includes/editor.php:55
 msgid "Form"
 msgstr "Vorm"
 
@@ -1105,24 +1131,24 @@ msgid "Support"
 msgstr "Tugi"
 
 #: admin/edit-contact-form.php:168 admin/includes/help-tabs.php:94
-msgid "http://contactform7.com/support/"
-msgstr "http://contactform7.com/support/"
+msgid "https://contactform7.com/support/"
+msgstr "https://contactform7.com/support/"
 
 #: admin/edit-contact-form.php:167 admin/includes/help-tabs.php:93
 msgid "FAQ"
 msgstr "KKK"
 
 #: admin/edit-contact-form.php:167 admin/includes/help-tabs.php:93
-msgid "http://contactform7.com/faq/"
-msgstr "http://contactform7.com/faq/"
+msgid "https://contactform7.com/faq/"
+msgstr "https://contactform7.com/faq/"
 
 #: admin/edit-contact-form.php:166 admin/includes/help-tabs.php:92
 msgid "Docs"
 msgstr "Dokumentatsioon"
 
 #: admin/edit-contact-form.php:166 admin/includes/help-tabs.php:92
-msgid "http://contactform7.com/docs/"
-msgstr "http://contactform7.com/docs/"
+msgid "https://contactform7.com/docs/"
+msgstr "https://contactform7.com/docs/"
 
 #: admin/edit-contact-form.php:163
 msgid "Information"
@@ -1135,12 +1161,12 @@ msgid ""
 msgstr "Kas soovid kustutada kontaktivormi?"
 
 #: admin/edit-contact-form.php:147
-#: admin/includes/class-contact-forms-list-table.php:84
+#: admin/includes/class-contact-forms-list-table.php:92
 msgid "Delete"
 msgstr "Kustuta"
 
 #: admin/edit-contact-form.php:132
-#: admin/includes/class-contact-forms-list-table.php:143
+#: admin/includes/class-contact-forms-list-table.php:154
 msgid "Duplicate"
 msgstr "Loo duplikaat"
 
@@ -1165,63 +1191,63 @@ msgstr "Sisesta pealkiri siia"
 msgid "Save"
 msgstr "Salvesta"
 
-#: admin/admin.php:505
+#: admin/admin.php:570
 msgid "You are not allowed to edit this contact form."
 msgstr "Sul ei ole õigusi selle kontaktivormi muutmiseks."
 
 #: admin/includes/welcome-panel.php:34
-msgid "http://contactform7.com/save-submitted-messages-with-flamingo/"
-msgstr "http://contactform7.com/save-submitted-messages-with-flamingo/"
+msgid "https://contactform7.com/save-submitted-messages-with-flamingo/"
+msgstr "https://contactform7.com/save-submitted-messages-with-flamingo/"
 
 #: admin/includes/welcome-panel.php:26
-msgid "http://contactform7.com/spam-filtering-with-akismet/"
-msgstr "http://contactform7.com/spam-filtering-with-akismet/"
+msgid "https://contactform7.com/spam-filtering-with-akismet/"
+msgstr "https://contactform7.com/spam-filtering-with-akismet/"
 
 #: admin/includes/welcome-panel.php:16
 msgid "Dismiss"
 msgstr "Peida"
 
-#: admin/admin.php:487
+#: admin/admin.php:552
 msgid "<strong>Contact Form 7 %1$s requires WordPress %2$s or higher.</strong> Please <a href=\"%3$s\">update WordPress</a> first."
 msgstr "<strong>Contact Form 7 %1$s vajab WordPressi versiooni %2$s või kõrgemat.</strong> Palun <a href=\"%3$s\">uuenda WordPressi</a> enne."
 
-#: admin/admin.php:469
+#: admin/admin.php:534
 msgid "Settings"
 msgstr "Seaded"
 
-#: admin/admin.php:430
+#: admin/admin.php:486
 msgid "Contact form deleted."
 msgstr "Kontaktivorm on kustutatud."
 
-#: admin/admin.php:428
+#: admin/admin.php:484
 msgid "Contact form saved."
 msgstr "Kontaktivorm on salvestatud."
 
-#: admin/admin.php:426
+#: admin/admin.php:482
 msgid "Contact form created."
 msgstr "Kontaktivorm on loodud."
 
-#: admin/admin.php:328
+#: admin/admin.php:384
 msgid "Search Contact Forms"
 msgstr "Otsi kontaktivormidest"
 
-#: admin/admin.php:317
+#: admin/admin.php:373
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Otsingutulemused sõnale &#8220;%s&#8221;"
 
-#: admin/admin.php:252
+#: admin/admin.php:308
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr "Tehtud muudatused lähevad lehelt lahkumisel kaotsi."
 
-#: admin/admin.php:142
+#: admin/admin.php:189
 msgid "Error in deleting."
 msgstr "Viga kustutamisel."
 
-#: admin/admin.php:139
+#: admin/admin.php:185
 msgid "You are not allowed to delete this item."
 msgstr "Sul pole õigusi selle kustutamiseks."
 
-#: admin/admin.php:78 admin/admin.php:100
+#: admin/admin.php:79 admin/admin.php:143
 msgid "You are not allowed to edit this item."
 msgstr "Sul pole õigusi selle muutmiseks."
 
@@ -1229,11 +1255,11 @@ msgstr "Sul pole õigusi selle muutmiseks."
 msgid "Integration"
 msgstr "Seostatus"
 
-#: admin/admin.php:47 admin/admin.php:396
+#: admin/admin.php:47 admin/admin.php:452
 msgid "Integration with Other Services"
 msgstr "Teiste teenustega seostatus"
 
-#: admin/admin.php:37 admin/admin.php:312 admin/edit-contact-form.php:41
+#: admin/admin.php:37 admin/admin.php:368 admin/edit-contact-form.php:41
 msgid "Add New"
 msgstr "Lisa uus"
 
@@ -1241,7 +1267,7 @@ msgstr "Lisa uus"
 msgid "Add New Contact Form"
 msgstr "Lisa uus kontaktivorm"
 
-#: admin/admin.php:29 admin/admin.php:309 includes/contact-form.php:30
+#: admin/admin.php:29 admin/admin.php:365 includes/contact-form.php:31
 msgid "Contact Forms"
 msgstr "Kontaktivormid"
 
@@ -1253,8 +1279,8 @@ msgstr "Muuda kontaktivormi"
 msgid "Contact"
 msgstr "Kontakt"
 
-#. #-#-#-#-#  tmp-contact-form-7.pot (Contact Form 7 4.6.1)  #-#-#-#-#
+#. #-#-#-#-#  tmp-contact-form-7.pot (Contact Form 7 4.7)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: admin/admin.php:21 modules/flamingo.php:138
+#: admin/admin.php:21 modules/flamingo.php:146
 msgid "Contact Form 7"
 msgstr "Contact Form 7"

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-03-08 13:45:04+0000\n"
+"PO-Revision-Date: 2017-03-15 07:53:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,6 +37,10 @@ msgstr "Variatsiooni unikaalne identifikaator."
 msgid "Unique identifier for the variable product."
 msgstr "Varieeruva toote unikaalne identifikaator."
 
+#: includes/api/class-wc-rest-order-notes-controller.php:70
+msgid "Order note content."
+msgstr "Kliendi märkuse sisu."
+
 #: includes/api/class-wc-rest-order-notes-controller.php:53
 #: includes/api/class-wc-rest-order-notes-controller.php:85
 #: includes/api/class-wc-rest-order-refunds-controller.php:61
@@ -48,6 +52,18 @@ msgstr "Tellimuse ID."
 #: includes/api/class-wc-rest-taxes-controller.php:666
 msgid "Limit result set to specific IDs."
 msgstr "Piira tulemuste hulka kindlatele ID-dele."
+
+#: includes/api/class-wc-rest-customers-controller.php:67
+msgid "New user password."
+msgstr "Uus kasutaja salasõna."
+
+#: includes/api/class-wc-rest-customers-controller.php:62
+msgid "New user username."
+msgstr "Uus kasutaja kasutajanimi."
+
+#: includes/api/class-wc-rest-customers-controller.php:58
+msgid "New user email address."
+msgstr "Uus kasutaja e-posti aadress."
 
 #: includes/abstracts/abstract-wc-rest-terms-controller.php:49
 #: includes/api/class-wc-rest-product-attribute-terms-controller.php:63
@@ -10198,7 +10214,7 @@ msgstr "Näita ostukorvis transpordikulude kalkulaatorit"
 #: includes/admin/settings/class-wc-settings-shipping.php:49
 #: includes/admin/settings/class-wc-settings-shipping.php:77
 msgid "Shipping Options"
-msgstr "Transpordi seaded"
+msgstr "Tarnevalikud"
 
 #: includes/admin/settings/class-wc-settings-products.php:499
 msgid "Only allow reviews from \"verified owners\""
