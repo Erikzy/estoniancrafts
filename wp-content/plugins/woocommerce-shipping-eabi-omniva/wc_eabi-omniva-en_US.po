@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Itella SmartPOST Estonia\n"
+"POT-Creation-Date: 2015-08-29 18:35+0200\n"
+"PO-Revision-Date: 2016-04-29 01:44+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: en\n"
+
+msgid "Choose parcel machine"
+msgstr "Choose parcel machine"
+
+msgid "Chosen parcel machine"
+msgstr "Chosen parcel machine"
+
+msgid "Please select a parcel machine"
+msgstr "Please select a parcel machine"
+
+msgid "Please refresh the page and select a different parcel machine"
+msgstr "Please refresh the page and select a different parcel machine"
+
+msgid "Parcel machine changed to %s"
+msgstr "Parcel machine changed to %s"
+
+msgid "Omniva parcel machine"
+msgstr "Omniva parcel machine"
+
+msgid "Allows customer to choose Omniva parcel machine as a shipping method"
+msgstr "Allows customer to choose Omniva parcel machine as a shipping method"
+
+msgid "Choose postal office"
+msgstr "Choose postal office"
+
+msgid "Chosen postal office"
+msgstr "Chosen postal office"
+
+msgid "Please select a postal office"
+msgstr "Please select a postal office"
+
+msgid "Please refresh the page and select a different postal office"
+msgstr "Please refresh the page and select a different postal office"
+
+msgid "Postal office changed to %s"
+msgstr "Postal office changed to %s"
+
+msgid "Omniva postal offices"
+msgstr "Omniva postal offices"
+
+msgid ""
+"Allows customer to choose delivery to Omniva postal office as a shipping "
+"method"
+msgstr ""
+"Allows customer to choose delivery to Omniva postal office as a shipping "
+"method"
+
+msgid "S price"
+msgstr "S price"
+
+msgid "M price"
+msgstr "M price"
+
+msgid "L price"
+msgstr "L price"
+
+msgid "Choose shipping method"
+msgstr "Choose shipping method"
+
+msgid "Chosen shippingmethod"
+msgstr "Chosen shippingmethod"
+
+msgid "Please select a shipping method"
+msgstr "Please select a shipping method"
+
+msgid "Please refresh the page and select a different shipping method"
+msgstr "Please refresh the page and select a different shipping method"
+
+msgid "Shipping method changed to %s"
+msgstr "Shipping method changed to %s"
+
+msgid "Omniva courier to home or work"
+msgstr "Omniva courier to home or work"
+
+msgid ""
+"Allows customer to choose delivery with Omniva courier as a shipping method"
+msgstr ""
+"Allows customer to choose delivery with Omniva courier as a shipping method"
+
+msgid "Base price"
+msgstr "Base price"
+
+msgid "Kg price"
+msgstr "Kg price"
+
+msgid "Per Order - shipping price is base price + kg price"
+msgstr "Per Order - shipping price is base price + kg price"
+
+msgid ""
+"Per Item - shipping price is base price multiplied by number of (items - "
+"free boxes) + kg price"
+msgstr ""
+"Per Item - shipping price is base price multiplied by number of (items - "
+"free boxes) + kg price"
+
+msgid "Omniva letter to home or work"
+msgstr "Omniva letter to home or work"
+
+msgid ""
+"Allows customer to choose delivery with Omniva letter as a shipping method"
+msgstr ""
+"Allows customer to choose delivery with Omniva letter as a shipping method"
+
+msgid "Omniva letter to home or work (alternate)"
+msgstr "Omniva letter to home or work (alternate)"
+
+msgid ""
+"Allows customer to choose delivery with Omniva letter (alternate) as a "
+"shipping method"
+msgstr ""
+"Allows customer to choose delivery with Omniva letter (alternate) as a "
+"shipping method"

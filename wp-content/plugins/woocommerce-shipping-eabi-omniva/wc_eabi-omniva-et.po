@@ -1,0 +1,120 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: E-Abi WooCommerce Omniva plugin\n"
+"POT-Creation-Date: 2015-08-29 18:35+0200\n"
+"PO-Revision-Date: 2016-04-29 01:43+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: et\n"
+
+msgid "Choose parcel machine"
+msgstr "Vali pakiautomaat"
+
+msgid "Chosen parcel machine"
+msgstr "Valitud pakiautomaat"
+
+msgid "Please select a parcel machine"
+msgstr "Palun vali sobilik pakiautomaat"
+
+msgid "Please refresh the page and select a different parcel machine"
+msgstr "Palun värsenda lehte ja vali sobilik pakiautomaat"
+
+msgid "Parcel machine changed to %s"
+msgstr "Uueks valitud pakiautomaadiks on %s"
+
+msgid "Omniva parcel machine"
+msgstr "Omniva pakiautomaadid"
+
+msgid "Allows customer to choose Omniva parcel machine as a shipping method"
+msgstr "Lubab kliendil valida tarneviisiks sobiliku Omniva pakiautomaadi"
+
+msgid "Choose postal office"
+msgstr "Vali postkontor"
+
+msgid "Chosen postal office"
+msgstr "Valitud postkontor"
+
+msgid "Please select a postal office"
+msgstr "Palun vali sobilik postkontor"
+
+msgid "Please refresh the page and select a different postal office"
+msgstr "Palun värskendage lehte ja valige sobilik postkontor"
+
+msgid "Postal office changed to %s"
+msgstr "Uueks valitud postkontoriks on: %s"
+
+msgid "Omniva postal offices"
+msgstr "Omniva pakk postkontorisse"
+
+msgid ""
+"Allows customer to choose delivery to Omniva postal office as a shipping "
+"method"
+msgstr "Lubab kliendil valida tarneviisiks Omniva paki saatmise postkontorisse"
+
+msgid "S price"
+msgstr "S kapisuuruse hind"
+
+msgid "M price"
+msgstr "M kapisuuruse hind"
+
+msgid "L price"
+msgstr "L kapisuuruse hind"
+
+msgid "Choose shipping method"
+msgstr "Vali tarneviis"
+
+msgid "Chosen shippingmethod"
+msgstr "Valitud tarneviis"
+
+msgid "Please select a shipping method"
+msgstr "Palun valige tarneviis"
+
+msgid "Please refresh the page and select a different shipping method"
+msgstr "Palun värskendage lehte ja valige uuesti tarneviis"
+
+msgid "Shipping method changed to %s"
+msgstr "Uueks valitud tarneviisiks on: %s"
+
+msgid "Omniva courier to home or work"
+msgstr "Omniva kuller koju või tööle"
+
+msgid ""
+"Allows customer to choose delivery with Omniva courier as a shipping method"
+msgstr "Lubab kliendil valida tarneviisiks Omniva kulleri"
+
+msgid "Base price"
+msgstr "Baashind"
+
+msgid "Kg price"
+msgstr "Kg hind"
+
+msgid "Per Order - shipping price is base price + kg price"
+msgstr "Tellimuse kohta - tarne hind on baashind + kaaluhind"
+
+msgid ""
+"Per Item - shipping price is base price multiplied by number of (items - "
+"free boxes) + kg price"
+msgstr ""
+"Eseme kohta - tarne hind on baashind korrutatud (esemente arv - tasuta "
+"tarnepakkide arv) ja otsa liidetakse kaaluhind"
+
+msgid "Omniva letter to home or work"
+msgstr "Omniva maksikiri koju või tööle"
+
+msgid ""
+"Allows customer to choose delivery with Omniva letter as a shipping method"
+msgstr "Lubab kliendil valida tarneviisiks Omniva maksikirja"
+
+msgid "Omniva letter to home or work (alternate)"
+msgstr "Omniva maksikiri koju või tööle (alternatiivne)"
+
+msgid ""
+"Allows customer to choose delivery with Omniva letter (alternate) as a "
+"shipping method"
+msgstr "Lubab kliendil valida tarneviisiks Omniva maksikirja (alternatiivne)"
