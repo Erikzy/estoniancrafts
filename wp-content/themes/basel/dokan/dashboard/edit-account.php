@@ -47,6 +47,23 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                     <?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
+                    <?php $gravatar  = isset( $user->gravatar ) ? absint( $user->gravatar ) : 0; ?>
+                    <div class="dokan-form-group">
+                        <label class="dokan-w3 dokan-control-label" for="dokan_gravatar"><?php _e( 'Profile Picture', 'dokan' ); ?></label>
+
+                        <div class="dokan-w5 dokan-gravatar">
+                            <div class="dokan-left gravatar-wrap<?php echo $gravatar ? '' : ' dokan-hide'; ?>">
+                                <?php $gravatar_url = $gravatar ? wp_get_attachment_url( $gravatar ) : ''; ?>
+                                <input type="hidden" class="dokan-file-field" value="<?php echo $gravatar; ?>" name="dokan_gravatar">
+                                <img class="dokan-gravatar-img" src="<?php echo esc_url( $gravatar_url ); ?>">
+                                <a class="dokan-close dokan-remove-gravatar-image">&times;</a>
+                            </div>
+                            <div class="gravatar-button-area<?php echo $gravatar ? ' dokan-hide' : ''; ?>">
+                                <a href="#" class="dokan-pro-gravatar-drag dokan-btn dokan-btn-default"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
+                            </div>
+                        </div>
+                    </div>
+
                     <p class="form-row form-row-first">
                         <label for="account_first_name"><?php _e( 'First name', 'dokan' ); ?> <span class="required">*</span></label>
                         <input type="text" class="input-text" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" />
@@ -62,6 +79,87 @@ $user = get_user_by( 'id', get_current_user_id() );
                         <label for="account_email"><?php _e( 'Email address', 'dokan' ); ?> <span class="required">*</span></label>
                         <input type="email" class="input-text" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
                     </p>
+
+                    <p class="form-row form-row-first">
+                        <label for="account_mobile"><?php _e( 'Phone', 'ktt' ); ?></label>
+                        <input type="text" class="input-text" name="account_mobile" id="account_mobile" value="<?php echo esc_attr( $user->mobile ); ?>" />
+                    </p>
+
+                    <p class="form-row form-row-last">
+                        <label for="account_skype"><?php _e( 'Skype', 'ktt' ); ?></label>
+                        <input type="text" class="input-text" name="account_skype" id="account_skype" value="<?php echo esc_attr( $user->skype ); ?>" />
+                    </p>
+                    <div class="clear"></div>
+
+                    <p class="form-row form-row-wide">
+                        <label for="account_description"><?php _e( 'Description', 'ktt' ); ?></label>
+                        <textarea rows="4" class="input-text" name="account_description" id="account_description"><?php echo esc_attr( $user->description ); ?></textarea>
+                    </p>
+
+                    <p class="form-row form-row-first">
+                        <label for="account_sex"><?php _e( 'Gender', 'ktt' ); ?> </label>
+                        <select name="account_sex" id="account_sex">
+                            <option value="none"><?php _e( ' - Select gender - ', 'ktt' ); ?></option>
+                            <option value="male" <?= ($user->sex == 'male')? 'selected' : '' ?>><?php _e( 'Male', 'ktt' ); ?></option>
+                            <option value="female" <?= ($user->sex == 'female')? 'selected' : '' ?>><?php _e( 'Female', 'ktt' ); ?></option>
+                        </select>
+                        
+                    </p>
+
+                    <p class="form-row form-row-last">
+                        <label for="account_dob"><?php _e( 'Date of birth', 'ktt' ); ?></label>
+
+                        <input type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="<?php echo esc_attr( $user->dob ); ?>" name="account_dob" id="account_dob" list="dates_pattern0_datalist" placeholder="dd.mm.yyyy">
+                    </p>
+                    <div class="clear"></div>
+
+                    <p class="form-row form-row-first">
+                        <label for="account_workyears"><?php _e( 'Working experience (years)', 'ktt' ); ?></label>
+                        <input type="number" class="input-text" name="account_workyears" id="account_workyears" value="<?php echo esc_attr( $user->workyears ); ?>" />
+                    </p>
+
+                    <p class="form-row form-row-last">
+                        <label for="account_education"><?php _e( 'Education', 'ktt' ); ?></label>
+                        <select name="account_education" id="account_education">
+                            <option value="none"><?php _e( ' - Select your education - ', 'ktt' ); ?></option>
+                            <option value="1" <?= ($user->education == '1')? 'selected' : '' ?>><?php _e( 'Basic education', 'ktt' ); ?></option>
+                            <option value="2" <?= ($user->education == '2')? 'selected' : '' ?>><?php _e( 'Secondary education', 'ktt' ); ?></option>
+                            <option value="3" <?= ($user->education == '3')? 'selected' : '' ?>><?php _e( 'Vocational education', 'ktt' ); ?></option>
+                            <option value="4" <?= ($user->education == '4')? 'selected' : '' ?>><?php _e( 'Higher education', 'ktt' ); ?></option>
+                        </select>
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="account_video"><?php _e( 'YouTube video link', 'ktt' ); ?> <span class="required">*</span></label>
+                        <input type="text" class="input-text" name="account_video" id="account_video" value="<?php echo esc_attr( $user->video ); ?>" />
+                    </p>
+
+                    <fieldset>
+                        <legend><?php _e( 'Address', 'ktt' ); ?></legend>
+
+                        <p class="form-row form-row-first">
+                            <label for="account_location_country"><?php _e( 'Country', 'ktt' ); ?></label>
+
+                            <?= lb_display_country_select($user->location_country) ?>
+                        </p>
+
+                        <p class="form-row form-row-last">
+                            <label for="account_location_state"><?php _e( 'State', 'ktt' ); ?> </label>
+                            <input type="text" class="input-text" name="account_location_state" id="account_location_state" value="<?php echo esc_attr( $user->location_state ); ?>" />
+                        </p>
+                        <div class="clear"></div>
+
+                        <p class="form-row form-row-first">
+                            <label for="account_location_city"><?php _e( 'City', 'ktt' ); ?> </label>
+                            <input type="text" class="input-text" name="account_location_city" id="account_location_city" value="<?php echo esc_attr( $user->location_city ); ?>" />
+                        </p>
+
+                        <p class="form-row form-row-last">
+                            <label for="account_location_address"><?php _e( 'Address', 'ktt' ); ?> </label>
+                            <input type="text" class="input-text" name="account_location_address" id="account_location_address" value="<?php echo esc_attr( $user->location_address ); ?>" />
+                        </p>
+
+                    </fieldset>
 
                     <fieldset>
                         <legend><?php _e( 'Password Change', 'dokan' ); ?></legend>

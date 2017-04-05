@@ -7,6 +7,17 @@
 ?>
 <?php
 
+    $extended_settings = get_user_meta( get_current_user_id(), 'ktt_extended_settings', true );
+    $company_name  = isset( $extended_settings['company_name'] ) ? esc_attr( $extended_settings['company_name'] ) : '';
+    $company_nr  = isset( $extended_settings['company_nr'] ) ? esc_attr( $extended_settings['company_nr'] ) : '';
+    $company_type  = isset( $extended_settings['company_type'] ) ? esc_attr( $extended_settings['company_type'] ) : '';
+    $description  = isset( $extended_settings['description'] ) ? esc_attr( $extended_settings['description'] ) : '';
+
+    $media_links  = isset( $extended_settings['media'] ) ? $extended_settings['media'] : [''];
+    
+    $addresses  = isset( $extended_settings['address'] ) ? $extended_settings['address'] : [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '']];
+
+
     $gravatar   = isset( $profile_info['gravatar'] ) ? absint( $profile_info['gravatar'] ) : 0;
     $banner     = isset( $profile_info['banner'] ) ? absint( $profile_info['banner'] ) : 0;
     $storename  = isset( $profile_info['store_name'] ) ? esc_attr( $profile_info['store_name'] ) : '';
@@ -99,18 +110,20 @@
         <?php endif; ?>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_gravatar"><?php _e( 'Profile Picture', 'dokan' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="dokan_store_id"><?php _e( 'Store Logo', 'ktt' ); ?></label>
 
-            <div class="dokan-w5 dokan-gravatar">
-                <div class="dokan-left gravatar-wrap<?php echo $gravatar ? '' : ' dokan-hide'; ?>">
-                    <?php $gravatar_url = $gravatar ? wp_get_attachment_url( $gravatar ) : ''; ?>
-                    <input type="hidden" class="dokan-file-field" value="<?php echo $gravatar; ?>" name="dokan_gravatar">
-                    <img class="dokan-gravatar-img" src="<?php echo esc_url( $gravatar_url ); ?>">
-                    <a class="dokan-close dokan-remove-gravatar-image">&times;</a>
-                </div>
-                <div class="gravatar-button-area<?php echo $gravatar ? ' dokan-hide' : ''; ?>">
-                    <a href="#" class="dokan-pro-gravatar-drag dokan-btn dokan-btn-default"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
-                </div>
+            <div class="dokan-w5 dokan-text-left">
+                <a href="#add-img" class="lb-add-img"> + add image</a>
+            </div>
+        </div>
+
+        <?php $user = get_user_by( 'id', get_current_user_id() ); ?>
+
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_store_id"><?php _e( 'Store ID', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+                <input id="dokan_store_id" required value="<?php echo $user->user_nicename; ?>" name="dokan_store_id" class="dokan-form-control" type="text" disabled>
             </div>
         </div>
 
@@ -123,6 +136,102 @@
         </div>
 
         <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_company_name"><?php _e( 'Company Name', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+                <input id="dokan_store_name" required value="<?php echo $company_name; ?>" name="dokan_company_name" placeholder="<?php _e( 'company name', 'ktt'); ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
+
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_company_nr"><?php _e( 'Company reg nr', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+                <input id="dokan_company_nr" required value="<?php echo $company_nr; ?>" name="dokan_company_nr" placeholder="<?php _e( 'company registration number', 'ktt'); ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
+
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_company_type"><?php _e( 'Company type', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+
+                <select name="dokan_company_type" id="dokan_company_type">
+                    <option value="none"> - <?php _e( 'company type', 'ktt'); ?> - </option>
+                    <option value="1" <?= (($company_type == '1')? 'selected': '') ?>><?php _e( 'FIE', 'ktt'); ?></option>
+                    <option value="2" <?= (($company_type == '2')? 'selected': '') ?>><?php _e( 'OÜ', 'ktt'); ?></option>
+                    <option value="3" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'AS', 'ktt'); ?></option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_description"><?php _e( 'Short description', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+                <textarea id="dokan_description" name="dokan_description"><?php echo $description; ?></textarea>
+            </div>
+        </div>
+
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_media"><?php _e( 'Media links', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+
+                <div class="lb-elastic-container">
+                    <div class="lb-elastic-elements">
+
+                        <?php 
+
+                            foreach($media_links as $link){ ?>
+
+                                <div class="lb-elastic-element">
+                                    <input value="<?php echo $link; ?>" name="dokan_media[]" placeholder="<?php _e( 'http://', 'ktt'); ?>" class="dokan-form-control" type="text">
+                                </div>
+
+                        <?php } ?>
+                        
+                    </div>
+                    <a href="#lb-add-more" class="lb-elastic-add"> + add more</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_description"><?php _e( 'Address', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+
+                <div class="lb-elastic-container">
+                    <div class="lb-elastic-elements">
+
+                        <?php
+                            $i = 0;
+                            foreach( $addresses as $address){
+                        ?>
+                        
+                            <div class="lb-elastic-element lb-input-margins">
+                                <?php lb_display_country_select($address['country'], 'dokan_address['.$i.'][country]') ?>
+                               
+                                <input value="<?= $address['state'] ?>" name="dokan_address[<?= $i ?>][state]" placeholder="<?php _e( 'State', 'ktt'); ?>" class="dokan-form-control" type="text">
+                                <input value="<?= $address['city'] ?>" name="dokan_address[<?= $i ?>][city]" placeholder="<?php _e( 'City', 'ktt'); ?>" class="dokan-form-control" type="text">
+                                <input value="<?= $address['address'] ?>" name="dokan_address[<?= $i ?>][address]" placeholder="<?php _e( 'Address', 'ktt'); ?>" class="dokan-form-control" type="text">
+                                <input value="<?= $address['email'] ?>" name="dokan_address[<?= $i ?>][email]" placeholder="<?php _e( 'Shop e-mail', 'ktt'); ?>" class="dokan-form-control" type="email">
+                                <input value="<?= $address['phone'] ?>" name="dokan_address[<?= $i ?>][phone]" placeholder="<?php _e( 'Shop phone', 'ktt'); ?>" class="dokan-form-control" type="text">
+                            </div>
+                        <?php $i++; } ?>
+                
+                        
+                    </div>
+                    <a href="#lb-add-more" class="lb-elastic-add"> + add more shops</a>
+                </div>
+            </div>
+        </div>
+
+        <?php  /*
+
+        <div class="dokan-form-group">
             <label class="dokan-w3 dokan-control-label" for="dokan_store_ppp"><?php _e( 'Store Product Per Page', 'dokan' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
@@ -130,7 +239,8 @@
             </div>
         </div>
          <!--address-->
-
+        */ ?>
+        <?php  /*
         <?php
         $verified = false;
 
@@ -144,14 +254,14 @@
 
         ?>
         <!--address-->
-
+    
         <div class="dokan-form-group">
             <label class="dokan-w3 dokan-control-label" for="setting_phone"><?php _e( 'Phone No', 'dokan' ); ?></label>
             <div class="dokan-w5 dokan-text-left">
                 <input id="setting_phone" value="<?php echo $phone; ?>" name="setting_phone" placeholder="<?php _e( '+123456..', 'dokan' ); ?>" class="dokan-form-control input-md" type="text">
             </div>
         </div>
-
+       
         <?php if ( ! is_int( key( $is_enable_op_discount ) ) && array_key_exists("order-discount", $is_enable_op_discount ) == "order-discount" ) : ?>
             <div class="dokan-form-group">
                 <label class="dokan-w3 dokan-control-label"><?php _e( 'Discount ', 'dokan' ); ?></label>
@@ -196,7 +306,7 @@
                 </div>
             </div>
         </div>
-
+        
 
         <div class="dokan-form-group">
             <label class="dokan-w3 dokan-control-label" for="setting_map"><?php _e( 'Map', 'dokan' ); ?></label>
@@ -214,7 +324,7 @@
                 </div>
             </div> <!-- col.md-4 -->
         </div> <!-- .dokan-form-group -->
-
+     */ ?>
         <!--terms and conditions enable or not -->
         <?php
         $tnc_enable = dokan_get_option( 'seller_enable_terms_and_conditions', 'dokan_general', 'off' );
@@ -340,134 +450,5 @@
             }
         }
 
-        $(function() {
-            dokan_address_select.init();
-
-            $('#setting_phone').keydown(function(e) {
-                // Allow: backspace, delete, tab, escape, enter and .
-                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 91, 107, 109, 110, 187, 189, 190]) !== -1 ||
-                     // Allow: Ctrl+A
-                    (e.keyCode == 65 && e.ctrlKey === true) ||
-                     // Allow: home, end, left, right
-                    (e.keyCode >= 35 && e.keyCode <= 39)) {
-                         // let it happen, don't do anything
-                    return;
-                }
-
-                // Ensure that it is a number and stop the keypress
-                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                    e.preventDefault();
-                }
-            });
-            <?php
-            $locations = explode( ',', $map_location );
-            $def_lat = isset( $locations[0] ) ? $locations[0] : 90.40714300000002;
-            $def_long = isset( $locations[1] ) ? $locations[1] : 23.709921;
-            ?>
-            var def_zoomval = 12;
-            var def_longval = '<?php echo $def_long; ?>';
-            var def_latval = '<?php echo $def_lat; ?>';
-            var curpoint = new google.maps.LatLng(def_latval, def_longval),
-                geocoder   = new window.google.maps.Geocoder(),
-                $map_area = $('#dokan-map'),
-                $input_area = $( '#dokan-map-lat' ),
-                $input_add = $( '#dokan-map-add' ),
-                $find_btn = $( '#dokan-location-find-btn' );
-
-            autoCompleteAddress();
-
-            $find_btn.on('click', function(e) {
-                e.preventDefault();
-
-                geocodeAddress( $input_add.val() );
-            });
-
-            var gmap = new google.maps.Map( $map_area[0], {
-                center: curpoint,
-                zoom: def_zoomval,
-                mapTypeId: window.google.maps.MapTypeId.ROADMAP
-            });
-
-            var marker = new window.google.maps.Marker({
-                position: curpoint,
-                map: gmap,
-                draggable: true
-            });
-
-            window.google.maps.event.addListener( gmap, 'click', function ( event ) {
-                marker.setPosition( event.latLng );
-                updatePositionInput( event.latLng );
-            } );
-
-            window.google.maps.event.addListener( marker, 'drag', function ( event ) {
-                updatePositionInput(event.latLng );
-            } );
-
-            function updatePositionInput( latLng ) {
-                $input_area.val( latLng.lat() + ',' + latLng.lng() );
-            }
-
-            function updatePositionMarker() {
-                var coord = $input_area.val(),
-                    pos, zoom;
-
-                if ( coord ) {
-                    pos = coord.split( ',' );
-                    marker.setPosition( new window.google.maps.LatLng( pos[0], pos[1] ) );
-
-                    zoom = pos.length > 2 ? parseInt( pos[2], 10 ) : 12;
-
-                    gmap.setCenter( marker.position );
-                    gmap.setZoom( zoom );
-                }
-            }
-
-            function geocodeAddress( address ) {
-                geocoder.geocode( {'address': address}, function ( results, status ) {
-                    if ( status == window.google.maps.GeocoderStatus.OK ) {
-                        updatePositionInput( results[0].geometry.location );
-                        marker.setPosition( results[0].geometry.location );
-                        gmap.setCenter( marker.position );
-                        gmap.setZoom( 15 );
-                    }
-                } );
-            }
-
-            function autoCompleteAddress(){
-                if (!$input_add) return null;
-
-                $input_add.autocomplete({
-                    source: function(request, response) {
-                        // TODO: add 'region' option, to help bias geocoder.
-                        geocoder.geocode( {'address': request.term }, function(results, status) {
-                            response(jQuery.map(results, function(item) {
-                                return {
-                                    label     : item.formatted_address,
-                                    value     : item.formatted_address,
-                                    latitude  : item.geometry.location.lat(),
-                                    longitude : item.geometry.location.lng()
-                                };
-                            }));
-                        });
-                    },
-                    select: function(event, ui) {
-
-                        $input_area.val(ui.item.latitude + ',' + ui.item.longitude );
-
-                        var location = new window.google.maps.LatLng(ui.item.latitude, ui.item.longitude);
-
-                        gmap.setCenter(location);
-                        // Drop the Marker
-                        setTimeout( function(){
-                            marker.setValues({
-                                position    : location,
-                                animation   : window.google.maps.Animation.DROP
-                            });
-                        }, 1500);
-                    }
-                });
-            }
-
-        });
     })(jQuery);
 </script>
