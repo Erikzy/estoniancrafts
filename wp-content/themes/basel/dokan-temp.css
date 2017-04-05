@@ -24,15 +24,3 @@
 .dokan-dashboard-content .dokan-gravatar:hover .dokan-remove-gravatar-image {
   display: block;
 }
-
-
-
-/**
- * lb-elastic (1-n text fields)
- */
-.lb-elastic-element{
-  margin-bottom: .5em;
-}
-.lb-input-margins input, .lb-input-margins select{
-  margin-bottom: .5em;
-}

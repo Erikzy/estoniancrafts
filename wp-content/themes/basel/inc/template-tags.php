@@ -548,11 +548,12 @@ if( ! function_exists( 'basel_page_title' ) ) {
 			$title = get_the_title();
 
 			?>
+			<div class="ec-full-slider-top"><?php echo do_shortcode( '[html_block id="537"]' ); ?></div>
 				<div class="page-title <?php echo esc_attr( $title_class ); ?>" style="<?php echo esc_attr( $style ); ?>">
 					<div class="container">
 						<header class="entry-header">
-							<?php if( $page_title ): ?><h1 class="entry-title"><?php echo esc_html( $title ); ?></h1><?php endif; ?>
 							<?php if( $breadcrumbs ) basel_breadcrumbs(); ?>
+							<?php if( $page_title ): ?><h1 class="entry-title"><?php echo esc_html( $title ); ?></h1><?php endif; ?>
 						</header><!-- .entry-header -->
 					</div>
 				</div>
@@ -1034,8 +1035,10 @@ if( ! function_exists( 'basel_header_block_cart' ) ) {
 					<span><?php esc_html_e('Cart', 'basel'); ?> (<span>o</span>)</span>
 					<span class="basel-cart-totals">
 						<?php basel_cart_count(); ?>
+						<?php /*
 						<span class="subtotal-divider">/</span> 
 						<?php basel_cart_subtotal(); ?>
+						<*/ ?>
 					</span>
 				</a>
 				<?php if ( $position != 'side'): ?>
@@ -1495,9 +1498,11 @@ if( ! function_exists( 'basel_generate_header' ) ) {
 				'container' => array(
 					'wrapp-header' => array(
 						'logo',
-						'widget_area',
+						'container kt-otsing' => array(
+						'categories_menu',
+						'search_extended',
+					),
 						'right-column' => array(
-							'search',
 							'wishlist',
 							'cart',
 							'mobile_icon',

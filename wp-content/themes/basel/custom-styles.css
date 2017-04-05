@@ -1,0 +1,281 @@
+/*AINO FONT*/
+@font-face {
+    font-family: 'Aino-Regular';
+    src: url('/wp-content/aino-font/Aino-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aino-Bold';
+    src: url('/wp-content/aino-font/Aino-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aino-Headline';
+    src: url('/wp-content/aino-font/Aino-Headline.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+body { 
+font-family: Aino-Regular;
+}
+/*TOPBAR*/
+.topbar-wrapp {
+    border-bottom: 2px solid rgb(239, 127, 39) !important;
+    height: auto;
+}
+.topbar-menu {
+    float: left;
+}
+.topbar-menu ul>li>a {
+    text-transform: initial;
+    font-size: 25px;
+    color: #333333 !important;
+    margin: 0 25px 0 25px;
+    line-height: 50px;
+}
+.topbar-menu ul>li a:hover:after{
+	display:none;
+}
+.topbar-menu ul>li>a:hover{
+border-bottom:none;
+	color:#ef7f27 !important;
+}
+.topbar-menu ul>li:before{
+	display:none;
+}
+.top-bar-right a {
+    text-transform: initial;
+    font-size: 25px;
+    color: #333333 !important;
+    margin: 0 25px;
+    line-height: 50px;
+}
+.top-bar-right a:before {
+    content: " ";
+    position: relative;
+    margin-top: -12px;
+    border-right: 2px solid #333;
+    height: 25px;
+    left: -22px;
+    top: 50%;
+}
+.top-bar-right a:nth-child(1):before {
+   display:none;
+}
+/*LOGO*/
+.site-logo img {
+    max-width: 481px;
+}
+/*SEARCH*/
+.search-extended {
+    margin-left: 50px;
+}
+.kt-otsing {
+    display: table-cell;
+    vertical-align: middle;
+}
+.main-header form.has-categories-dropdown input[type=text] {
+    border-width: 1px;
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 22px 0 22px 20px;
+}
+form.has-categories-dropdown .input-dropdown-inner:after, form.has-categories-dropdown .input-dropdown-inner:before {
+    margin-top: -33px;
+    height: 62px;
+}
+form.has-categories-dropdown .input-dropdown-inner:after{
+	display:none;
+}
+.main-header form.has-categories-dropdown .search-by-category {
+	    right: 110px;
+    line-height: 70px;
+}
+.main-header form.has-categories-dropdown #searchsubmit {
+    top: 0px;
+    width: 76px;
+    color: #FFF;
+    background: #ef7f27;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 70px;
+}
+form.has-categories-dropdown .input-dropdown-inner>a:after {
+    content: "\f078";
+    color: #e7e1e0;
+}
+.main-header form.has-categories-dropdown .input-dropdown-inner>a {
+    font-size: 16px;
+    text-transform: none;
+}
+
+/*CART AND WISLIST IN HEADER RIGHT*/
+	/*cart icon*/
+.right-column {
+    width: 200px;
+}
+.right-column>div {
+    display: inline-block;
+    margin-left: 0px;
+    vertical-align: middle;
+}
+.shopping-cart a {
+    background-image: url(/wp-content/uploads/2017/02/cart-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+}
+.basel-cart-number {
+    width: 25px;
+    height: 25px;
+    background: #ef7f27;
+    text-align: center;
+    float: left;
+    border-radius: 50%;
+    color: #FFF;
+    font-size: 13px;
+    line-height: 25px;
+    top: 25px;
+    position: relative;
+}
+.icons-design-line .shopping-cart>a:before{
+display:none;
+}
+	/*wishlist*/
+.right-column .wishlist-info-widget {
+    margin-right: 30px;
+    margin-top: 10px;
+}
+.right-column .wishlist-info-widget>a>span {
+    padding: 0;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    top: -12px;
+    left: 25px;
+    width: 25px;
+    height: 25px;
+    background: #ef7f27;
+    line-height: 25px;
+    font-size: 13px;
+}
+.icons-design-line .wishlist-info-widget>a:before {
+    font-size: 36px;
+}
+/*MAIN MENU*/
+.navigation-wrap {
+    border-top: 2px solid rgb(239, 127, 39);
+    background: #f2f2f2;
+}
+.main-nav .menu>li>a {
+    text-transform: initial;
+    font-size: 26px;
+    color: #333333;
+}
+.main-nav .menu>li:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    border-right: 2px solid #333;
+    height: 25px;
+}
+.main-nav .menu>li:nth-child(1):before{
+	display:none;
+}
+/*FOOTER*/
+.main-footer {
+    background: url(/wp-content/uploads/2017/02/footer-bf-right.png);
+    background-repeat: no-repeat;
+    background-position: 100% 210%;
+    background-size: 25%;
+}
+.kt-footer-top {
+    float: left;
+    width: 100%;
+    border-top: 2px solid #ef7f27;
+}
+.footer-container .widget-area {
+    padding: 100px 0 20px 0;
+}
+/*ASSETS*/
+	/*Mailchimp*/
+#mc4wp-form-1 {
+    float: none;
+    margin: 0 auto;
+    display: table;
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
+    margin-top: -27px;
+    position: relative;
+    z-index: 9999;
+    padding: 5px 25px;
+}
+.mc4wp-form div {
+    width: 100%;
+    max-width: 1170px;
+}
+.kt-footer-newsletter {
+    float: left;
+    width: auto;
+}
+.kt-footer-newsletter label {
+    display: block;
+    float: left;
+    width: 100%;
+    max-width: 340px;
+    font-size: 35px;
+    color: #000;
+}
+.kt-footer-newsletter input[type=email] {
+    border-bottom: 2px solid #d3d3d3 !important;
+    float: left;
+    width: 100%;
+    max-width: 320px !important;
+    margin: -17px 30px 0 60px;
+	color:#b7b7b7;
+ background-image: url(/wp-content/uploads/2017/02/mail-icon-1.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
+}
+
+.kt-footer-newsletter input[type=email]:placeholder-shown {
+}
+.kt-footer-newsletter input[type=email]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #b7b7b7 !important;
+}
+.kt-footer-newsletter input[type=email]::-moz-placeholder { /* Firefox 19+ */
+  color: #b7b7b7 !important;
+}
+.kt-footer-newsletter input[type=email]:-ms-input-placeholder { /* IE 10+ */
+  color: #b7b7b7 !important;
+}
+.kt-footer-newsletter input[type=email]:-moz-placeholder { /* Firefox 18- */
+  color: #b7b7b7 !important;
+}
+.kt-footer-newsletter input[type=submit] {
+    padding-left: 55px !important;
+    padding-right: 55px !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+	float:left;
+	width:100%; 
+	max-width:200px;
+}
+.kt-footer-newsletter input[type=submit]:hover {
+    padding-left: 55px !important;
+    padding-right: 55px !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #000 !important;
+}

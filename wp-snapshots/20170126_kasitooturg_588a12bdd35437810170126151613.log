@@ -1,0 +1,75 @@
+********************************************************************************
+DUPLICATOR-LITE PACKAGE-LOG: 2017-01-26 15:16:27
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	1.1.20
+WORDPRESS:	4.6.1
+PHP INFO:	7.0.13 | SAPI: cgi-fcgi
+SERVER:		Apache / ZoneOS 
+PHP TIME LIMIT: (0) no time limit imposed 
+PHP MAX MEMORY: 2048M (512M default) 
+MEMORY STACK: 2MB 
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   PHP(query limit - 100)
+MYSQLTIMEOUT: 5000
+MYSQLDUMP:    Is Supported 
+TABLES: total:51 | filtered:0 | create:51 
+FILTERED: [] 
+SQL CREATED: 20170126_kasitooturg_588a12bdd35437810170126151613_database.sql 
+SQL FILE SIZE: 1.74MB (1829037) 
+SQL FILE TIME: 2017-01-26 15:16:27 
+SQL RUNTIME: 0.08 sec. 
+
+******************************************************************************** 
+ARCHIVE (ZIP): 
+******************************************************************************** 
+ARCHIVE DIR:  /data01/virt60026/domeenid/www.creativemeka.ee/dev/kasitooturg 
+ARCHIVE FILE: 20170126_kasitooturg_588a12bdd35437810170126151613_archive.zip 
+FILTERS: *OFF* 
+DIRS: not set 
+EXTS:  not set 
+---------------------------------------- 
+COMPRESSING 
+SIZE:	133.8MB 
+STATS:	Dirs 1,085 | Files 10,033 
+SQL ADDED: 20170126_kasitooturg_588a12bdd35437810170126151613_database.sql 
+ZipArchive Object
+(
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 11118
+    [filename] => /data01/virt60026/domeenid/www.creativemeka.ee/dev/kasitooturg/wp-snapshots/tmp/20170126_kasitooturg_588a12bdd35437810170126151613_archive.zip
+    [comment] => 
+)
+ 
+COMPRESSION RESULT: '1' 
+COMPRESSED SIZE: 77.94MB 
+ARCHIVE RUNTIME: 11.19 sec. 
+MEMORY STACK: 6MB 
+
+******************************************************************************** 
+MAKE INSTALLER: 
+******************************************************************************** 
+Build Start 
+Build Finished 
+Preping for use 
+Template parsed with new data 
+Complete [/data01/virt60026/domeenid/www.creativemeka.ee/dev/kasitooturg/wp-snapshots/tmp/20170126_kasitooturg_588a12bdd35437810170126151613_installer.php] 
+Added to archive 
+
+******************************************************************************** 
+INTEGRITY CHECKS: 
+******************************************************************************** 
+SQL File: 1.74MB 
+Installer File: 351.97KB 
+Archive File: 77.94MB  
+
+********************************************************************************
+RECORD ID:[2]
+TOTAL PROCESS RUNTIME: 12.18 sec.
+PEAK PHP MEMORY USED: 6MB
+DONE PROCESSING => 20170126_kasitooturg 2017-01-26 15:16:39
+ 
