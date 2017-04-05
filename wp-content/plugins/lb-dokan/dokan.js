@@ -10,6 +10,10 @@ jQuery(document).ready(function($){
 		    this.name = this.name.replace('[0]', '['+ newId +']');
 		});
 
+		// Reset add a file inputs
+		elem.find('.lb-file-placeholder, .lb-remove-doc').removeClass('active');
+		elem.find('.lb-add-doc').addClass('active');
+
 		$(this).parent().find('.lb-elastic-elements').append(elem);
 
 		return false;

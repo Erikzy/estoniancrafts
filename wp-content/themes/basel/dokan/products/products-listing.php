@@ -191,7 +191,9 @@
                                     <?php echo (int) get_post_meta( $post->ID, 'pageview', true ); ?>
                                 </td>
                                 <td data-title="<?php _e( 'PDF', 'ktt' ); ?>">
-                                    <a href="<?= site_url().'/lbpdf/pricetag-a4/?id='.$post->ID ?>" target="_blank">1</a>
+                                    <a href="<?= site_url().'/lbpdf/pricetag-a4/?id='.$post->ID ?>" target="_blank">a4</a>
+                                    <a href="<?= site_url().'/lbpdf/pricetag-a5/?id='.$post->ID ?>" target="_blank">a5</a>
+                                    <a href="<?= site_url().'/lbpdf/pricetag-bcard/?id='.$post->ID ?>" target="_blank">bcard</a>
                                 </td>
                                 <td class="post-date" data-title="<?php _e( 'Date', 'dokan' ); ?>">
                                     <?php

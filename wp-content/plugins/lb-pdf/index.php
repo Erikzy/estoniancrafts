@@ -55,6 +55,82 @@ class lbPdf{
 
 	}
 
+	
+	public static function generate_bcard_pricetag($product_id){
+
+		$_pf = new WC_Product_Factory();  
+		$_product = $_pf->get_product($product_id);
+
+		if(	!$_product ){
+			return false;
+		}
+
+		// TODO: correct logo & better positioning & better fonts!
+		$pdf = self::setup_a4('P', 10);
+
+		// add a page
+		$pdf->AddPage();
+
+
+		// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+		$left = PDF_MARGIN_LEFT;
+		$top = PDF_MARGIN_TOP;
+
+		// set some text to print
+		$txt = $_product->get_title()."<br><br>".$_product->get_price_html();
+
+		for($i=0; $i < 8; $i++){
+
+			$left = PDF_MARGIN_LEFT + $i%2 * 90;
+
+			if( $i != 0 && $i != 1 && $i != 4 && $i != 5 ){
+
+				$pdf->Image(plugin_dir_path( __FILE__ ).'google.png', $left, $top, 30, 25);
+				$pdf->writeHTMLCell(50, 0, $left + 30, $top, $txt); //Again where x and y are offset
+			}
+
+			$top += $i%2 * 70;
+		}
+		
+
+		//Close and output PDF document
+		$pdf->Output('pricetag-bcard.pdf', 'I');
+
+	}
+
+	public static function generate_a5_pricetag($product_id){
+
+		$_pf = new WC_Product_Factory();  
+		$_product = $_pf->get_product($product_id);
+
+		if(	!$_product ){
+			return false;
+		}
+
+		// TODO: correct logo & better positioning & better fonts!
+		$pdf = self::setup_a4();
+
+		// add a page
+		$pdf->AddPage();
+
+
+		// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+		// Image example with resizing
+		$pdf->Image(plugin_dir_path( __FILE__ ).'google.png', 0, self::$a4_size['h'] / 2, 130, 107);
+
+
+		// set some text to print
+		$txt = $_product->get_title()."<br><br>".$_product->get_price_html();
+
+		// $pdf->MultiCell(100, 5, $txt, 0, 'L', 0, 1, 150, '', true);
+		$pdf->writeHTMLCell(self::$a4_size['h'] - PDF_MARGIN_LEFT - PDF_MARGIN_RIGHT, 0, PDF_MARGIN_LEFT, self::$a4_size['h'] / 2 + 50, $txt, 0, 0, false, true, 'C'); //Again where x and y are offset
+
+		//Close and output PDF document
+		$pdf->Output('pricetag-a5.pdf', 'I');
+
+	}
 
 	public static function generate_a4_pricetag($product_id){
 
@@ -95,7 +171,7 @@ class lbPdf{
 		$current_user = wp_get_current_user();
 		$ext_profile = get_user_meta( $current_user->ID, 'ktt_extended_profile', true );
 
-		$pdf = self::setup_a4('P', 10);
+		$pdf = self::setup_a4('P', 9);
 
 		// add a page
 		$pdf->AddPage();
