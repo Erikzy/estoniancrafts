@@ -100,6 +100,7 @@ jQuery(document).ready(function($){
 	});
 
 
+
 	/**
 	 * Unit conversion before form submission
 	 */
@@ -132,5 +133,42 @@ jQuery(document).ready(function($){
 
 		return number * conversion[unit_from] / conversion[unit_to];
 	}
+
+	/**
+	 * Atribute options customization
+	 */
+	function init_attribute_select2(timeout){
+
+		setTimeout(function(){
+
+			var boxes = $(".lb_attribute_values");
+			boxes.select2({
+			    tags: true,
+			    placeholder: "Please enter attribute values",
+			    tokenSeparators: [",", "|", " "]
+			});
+
+			boxes.on("change", function (e) { 
+				var options = '';
+
+				if($(this).val() != ''){
+					options = $(this).val().join(',');
+				}
+        		$(this).parent().find('input[name="attribute_values[]"]').val( options );
+
+			});
+
+		}, timeout);
+
+	}
+	init_attribute_select2(0);
+	
+	$( document ).ajaxComplete(function(){
+		init_attribute_select2(0);
+	});
+
+	$( document ).on('click', '.dokan_add_new_attribute', function(){
+		init_attribute_select2(100);
+	});
 
 });

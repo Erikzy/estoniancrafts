@@ -67,8 +67,25 @@
                                 $att_val = $options;
                             }
                             ?>
-                            <td colspan="4"><input type="text" name="attribute_values[]" value="<?php echo implode( ',', $options ); ?>" data-preset_attr="<?php echo implode( ',', $att_val ); ?>" class="dokan-form-control dokan-attribute-option-values"></td>
-                            <td><button class="dokan-btn dokan-btn-theme clear_attributes"><?php _e( 'Clear All' , 'dokan' ); ?></button><button class="dokan-btn dokan-btn-theme remove_attribute"><i class="fa fa-trash-o"></i></button></td>
+                            <td colspan="3">
+                                <input type="hidden" name="attribute_values[]" value="<?php echo implode( ',', $options ); ?>">
+
+                                <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
+                                    <?php 
+
+                                        foreach ($att_val as $option) {
+                                            ?>
+                                            <option <?= ( (in_array($option, $options))? 'selected': '' ) ?>><?= $option ?></option>
+                                            <?php
+                                        }
+
+                                    ?>
+                                </select>
+
+                            </td>
+                            <td>
+                            <!-- <button class="dokan-btn dokan-btn-theme clear_attributes"><?php _e( 'Clear All' , 'dokan' ); ?></button> -->
+                            <button class="dokan-btn dokan-btn-theme remove_attribute"><i class="fa fa-trash-o"></i></button></td>
                         </tr>
                     <?php endforeach; ?>
                     <?php else: ?>

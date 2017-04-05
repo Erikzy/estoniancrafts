@@ -39,6 +39,11 @@ class lbDokan{
         add_action( 'wp_ajax_lb_tags', [$this, 'available_tags'] );
         add_action( 'dokan_process_product_meta', [$this, 'save_tags']);
 
+        remove_all_actions('wp_ajax_dokan_get_pre_attribute');
+        remove_all_actions('wp_ajax_nopriv_dokan_get_pre_attribute');
+
+        add_action( 'wp_ajax_dokan_get_pre_attribute', [$this, 'add_predefined_attribute'] );
+        add_action( 'wp_ajax_nopriv_dokan_get_pre_attribute', [$this, 'add_predefined_attribute'] );
 
     }
 
@@ -650,6 +655,52 @@ class lbDokan{
 
         $this->product_extended_form($post->ID);
         
+    }
+
+
+    /**
+     * Custom Dokan ajax function for adding product attributes
+     */
+    function add_predefined_attribute() {
+        $attr_name               = $_POST['name'];
+        $single                  = ( isset( $_POST['from'] ) && $_POST['from'] == 'popup' ) ? 'single-':'';
+        $remove_btn              = ( isset( $_POST['from'] ) && $_POST['from'] == 'popup' ) ? 'single_':'';
+        $attribute_taxonomy_name = wc_attribute_taxonomy_name( $attr_name );
+        $tax                     = get_taxonomy( $attribute_taxonomy_name );
+        $options                 = get_terms( $attribute_taxonomy_name, 'orderby=name&hide_empty=0' );
+        $att_val                 = wp_list_pluck( $options, 'name');
+        ob_start();
+        ?>
+        <tr class="dokan-<?php echo $single; ?>attribute-options">
+            <td width="20%">
+                <input type="text" disabled="disabled" value="<?php echo $attr_name; ?>" class="dokan-form-control dokan-<?php echo $single; ?>attribute-option-name-label" data-attribute_name="<?php echo wc_sanitize_taxonomy_name( str_replace( 'pa_', '', $attribute_taxonomy_name ) ); ?>">
+                <input type="hidden" name="attribute_names[]" value="<?php echo esc_attr( $attribute_taxonomy_name ); ?>" class="dokan-<?php echo $single; ?>attribute-option-name">
+                <input type="hidden" name="attribute_is_taxonomy[]" value="1">
+            </td>
+            <td colspan="3">
+
+                <input type="hidden" name="attribute_values[]" value="">
+
+                <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
+                    <?php 
+
+                        foreach ($att_val as $option) {
+                            ?>
+                            <option <?= ( (in_array($option, $options))? 'selected': '' ) ?>><?= $option ?></option>
+                            <?php
+                        }
+
+                    ?>
+                </select>
+
+            </td>
+            <td>
+                <button title="Delete" class="dokan-btn dokan-btn-theme remove_<?php echo $remove_btn; ?>attribute"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        <?php
+        $content = ob_get_clean();
+        wp_send_json_success( $content );
     }
 
 }

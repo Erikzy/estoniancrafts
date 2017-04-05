@@ -50,9 +50,29 @@
                             </td>
                             <td colspan="3">
                                 <# if ( attr_val.is_taxonomy ) { #>
-                                    <input type="text" name="attribute_values[]" value="{{ attr_val.term_value.replace(/ +\|+ /g, ',' ) }}" data-preset_attr="{{ attr_val.term_value.replace(/ +\|+ /g, ',' ) }}" class="dokan-form-control dokan-single-attribute-option-values">
+
+                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.term_value.replace(/ +\|+ /g, ',' ) }}">
+                                    
+                                    <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
+
+                                        <# _.each( attr_val.term_value.split("|"), function( option ) { #>
+                                            <option selected>{{option}}</option>
+                                        <# }) #>
+                                       
+                                    </select>
+
                                 <# } else { #>
-                                    <input type="text" name="attribute_values[]" value="{{ attr_val.value.replace(/ +\|+ /g, ',' ) }}" data-preset_attr="{{ attr_val.value.replace(/ +\|+ /g, ',' ) }}" class="dokan-form-control dokan-single-attribute-option-values">
+
+                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.value.replace(/ +\|+ /g, ',' ) }}">
+                                    
+                                    <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
+
+                                        <# _.each( attr_val.term_value.split("|"), function( option ) { #>
+                                            <option selected>{{option}}</option>
+                                        <# }) #>
+                                       
+                                    </select>
+
                                 <# } #>
                             </td>
                             <td><button class="dokan-btn dokan-btn-theme remove_single_attribute"><i class="fa fa-trash-o"></i></button></td>
