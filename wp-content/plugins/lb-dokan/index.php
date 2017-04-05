@@ -29,6 +29,9 @@ class lbDokan{
         add_action( 'woocommerce_edit_account_form', [$this, 'woocommerce_user_form'] );
         add_action( 'woocommerce_save_account_details', [$this, 'woocommerce_user_save'] );
 
+        add_action( 'show_user_profile', [$this, 'admin_user_profile_fields'], 22 );
+        add_action( 'edit_user_profile', [$this, 'admin_user_profile_fields'], 22 );
+
     }
 
     function user_register($user_id){
@@ -974,12 +977,21 @@ class lbDokan{
 
     function woocommerce_user_form(){
 
-        $user_id = get_current_user_id();
+        $user = wp_get_current_user();
+        $user_id = $user->ID;
+
+        $roles = $user->roles;
+        if( in_array('seller', $roles) ){
+            return;
+        }
+
         $phone = get_user_meta( $user_id, 'billing_phone', true );
-        $gender = get_user_meta( $user_id, 'lb_dokan_gender', true );
         $day = get_user_meta( $user_id, 'lb_dokan_dob_day', true );
         $month = get_user_meta( $user_id, 'lb_dokan_dob_month', true );
         $year = get_user_meta( $user_id, 'lb_dokan_dob_year', true );
+
+        $ext_profile = get_user_meta( $user_id, 'ktt_extended_profile', true );
+        $gender = ( isset($ext_profile['gender']) )? $ext_profile['gender'] : '';
 
         ?>
 
@@ -989,7 +1001,7 @@ class lbDokan{
         </p>
         <p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
             <label for="lb_dokan_gender"><?= __('Gender', 'ktt') ?></label>
-            <select name="lb_dokan_gender">
+            <select name="account_gender">
                 <option value=""> - <?= __('select gender', 'ktt') ?> - </option>
                 <option value="male" <?= (($gender == 'male')? 'selected': '')?>><?= __('Male', 'ktt') ?></option>
                 <option value="female" <?= (($gender == 'female')? 'selected': '')?>><?= __('Female', 'ktt') ?></option>
@@ -1012,11 +1024,31 @@ class lbDokan{
  
     function woocommerce_user_save( $user_id ) {
 
+        $user = wp_get_current_user();
+
+        $roles = $user->roles;
+        if( in_array('seller', $roles) ){
+            return;
+        }
+
+        $ext_profile = get_user_meta( $user_id, 'ktt_extended_profile', true );
+        $ext_profile['gender'] = ! empty( $_POST['account_gender'] ) ? wc_clean( $_POST['account_gender'] ) : '';
+        update_user_meta( $user_id, 'ktt_extended_profile', $ext_profile );
+
         update_user_meta( $user_id, 'billing_phone', sanitize_text_field( $_POST[ 'billing_phone' ] ) );
-        update_user_meta( $user_id, 'lb_dokan_gender', sanitize_text_field( $_POST[ 'lb_dokan_gender' ] ) );
         update_user_meta( $user_id, 'lb_dokan_dob_day', sanitize_text_field( $_POST[ 'lb_dokan_dob_day' ] ) );
         update_user_meta( $user_id, 'lb_dokan_dob_month', sanitize_text_field( $_POST[ 'lb_dokan_dob_month' ] ) );
         update_user_meta( $user_id, 'lb_dokan_dob_year', sanitize_text_field( $_POST[ 'lb_dokan_dob_year' ] ) );
+
+    }
+
+
+    /**
+     * Display extended options on admin edit user page
+     */
+    function admin_user_profile_fields($user){
+
+        echo 'custom...';
 
     }
 
