@@ -20,14 +20,20 @@ class lbDokan{
         add_action( 'add_meta_boxes', [$this, 'add_box'] );
         add_action( 'save_post', [$this, 'save_post'] );
 
+        add_action( 'wp_head', [$this, 'wp_head'] );
+        add_action( 'wp_ajax_lb_tags', [$this, 'available_tags'] );
+        add_action( 'dokan_process_product_meta', [$this, 'save_tags']);
+
     }
 
 	function register_scripts(){
         global $wp_scripts;
 
         if (!is_admin()) {
-            wp_enqueue_style( 'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.css', false,'1.0','all');
+            wp_enqueue_style(  'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.css', false,'1.0','all');
             wp_enqueue_script( 'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.js', false,'1.0','all');
+            wp_enqueue_style(  'lb-select2', plugin_dir_url( __FILE__ ) . 'select2/css/select2.min.css', false,'1.0','all');
+            wp_enqueue_script( 'lb-select2', plugin_dir_url( __FILE__ ) . 'select2/js/select2.full.min.js', false,'1.0','all');
         }
 
     }
@@ -38,6 +44,92 @@ class lbDokan{
         wp_enqueue_style( 'lb-dokan-admin', plugin_dir_url( __FILE__ ) . 'dokan-admin.css', false,'1.0','all');
         wp_enqueue_script( 'lb-dokan-admin', plugin_dir_url( __FILE__ ) . 'dokan-admin.js', false,'1.0','all');
         
+    }
+
+    function wp_head(){
+        ?>
+        <script type="text/javascript">
+            var siteurl = '<?= get_bloginfo("url"); ?>';
+        </script>
+        <?php
+    }
+
+    function available_tags(){
+
+        $output = [];
+
+        $terms = get_terms([
+            'taxonomy' => 'product_tag',
+            'search' => $_POST['term'],
+            'number' => 5,
+            'hide_empty' => false
+        ]);
+
+        $offer_new_tag = true;
+        if(strlen($_POST['term']) < 3){
+            $offer_new_tag = false;
+        }
+
+        if( count($terms) ){
+
+            foreach($terms as $term){
+
+                if( mb_strtolower( $term->name ) == mb_strtolower( $_POST['term'] ) ){
+                    $offer_new_tag = false;
+                }
+
+                $output[] = [ 'id' => $term->term_id, 'text' => $term->name ];
+
+            }
+
+        }
+
+        if($offer_new_tag){
+            array_unshift($output, ['id' => 'lb-new-'.$_POST['term'], 'text' => $_POST['term'].' (new)']);
+        }
+
+        $this->json( ['results' => $output] );
+
+    }
+
+    /**
+     * Save tags
+     */
+    function save_tags( $post_id ){
+
+        $tag_ids = [];
+
+        foreach ($_POST['lb-tags'] as $tag) {
+            
+            if( strpos($tag, 'lb-new-') === 0 ){
+                $new_tag = str_replace('lb-new-', '', $tag);
+
+                // Create a new tag
+                $new_term = wp_insert_term(
+                    $new_tag,
+                    'product_tag'
+                );
+
+                if(!is_wp_error($new_term)){
+                    $tag_ids[] = (int)$new_term['term_id'];
+                }
+
+            }else{
+                $tag_ids[] = (int)$tag;
+            }
+        
+        }
+
+        wp_set_object_terms( $post_id, $tag_ids, 'product_tag', false );
+
+    }
+
+    private function json($data){
+
+        header('Content-Type: application/json');
+        echo json_encode( $data );
+        exit;
+
     }
 
 	function save_shop($store_id){
@@ -252,7 +344,15 @@ class lbDokan{
         $completeness = 0;
         $meta_data = get_post_meta($product_id, '', true);
 
+        $tag_count = count( wp_get_post_terms( $product_id, 'product_tag' ) );
+
         $required_fields = ['_manufacturing_method', '_manufacturing_desc', '_manufacturing_time', '_manufacturing_qty', '_maintenance_info'];
+
+        $number_of_req_items = count($required_fields) + 7; // 
+
+        if($tag_count){
+            $completeness += 100/$number_of_req_items;
+        }
 
         foreach($meta_data as $key => $meta){
 
@@ -260,13 +360,54 @@ class lbDokan{
 
             if( in_array($key, $required_fields) && !empty($meta) ){
 
-                $completeness += 100/count($required_fields);
+                $completeness += 100/$number_of_req_items;
             
             }
 
         }
 
-        return floor($completeness);
+        if( isset($meta_data['_media_links']) && is_array($meta_data['_media_links']) ){
+
+            $link = unserialize($meta_data['_media_links'][0]);
+
+            if( array_shift($link) != ''){    
+                $completeness += 100/$number_of_req_items;
+            }
+
+        }
+
+        if( isset($meta_data['_certificates']) && is_array($meta_data['_certificates']) ){
+
+            $cert = unserialize($meta_data['_certificates'][0]);
+            $cert = array_shift($cert);
+
+            if( $cert['type'] != '' && $cert['file'] != ''){    
+                $completeness += 100/$number_of_req_items;
+            }
+
+        }
+
+        if( isset($meta_data['_materials']) && is_array($meta_data['_materials']) ){
+            
+            $material = unserialize($meta_data['_materials'][0]);
+            $material = array_shift($material);
+
+            if( $material['country'] != '' ){    
+                $completeness += 100/$number_of_req_items;
+            }
+            if( $material['name'] != '' ){    
+                $completeness += 100/$number_of_req_items;
+            }
+            if( $material['contents'] != '' ){    
+                $completeness += 100/$number_of_req_items;
+            }
+            if( $material['desc'] != '' ){    
+                $completeness += 100/$number_of_req_items;
+            }
+
+        }
+
+        return round( 25 + 75 * ceil($completeness)/100 ); // 25% default
 
     }
 

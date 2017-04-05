@@ -290,31 +290,25 @@ if ( ! $from_shortcode ) {
                                     </div>
                                 <?php endif; ?>
 
+                                
+
                                 <div class="dokan-form-group">
                                     <label for="product_tag" class="form-label"><?php _e( 'Tags', 'dokan' ); ?></label>
-                                    <?php
-                                    require_once DOKAN_LIB_DIR.'/class.tag-walker.php';
-                                    $term = wp_get_post_terms( $post_id, 'product_tag', array( 'fields' => 'ids') );
-                                    $selected = ( $term ) ? $term : array();
-                                    $drop_down_tags = wp_dropdown_categories( array(
-                                        'show_option_none' => __( '', 'dokan' ),
-                                        'hierarchical'     => 1,
-                                        'hide_empty'       => 0,
-                                        'name'             => 'product_tag[]',
-                                        'id'               => 'product_tag',
-                                        'taxonomy'         => 'product_tag',
-                                        'title_li'         => '',
-                                        'class'            => 'product_tags dokan-form-control chosen',
-                                        'exclude'          => '',
-                                        'selected'         => $selected,
-                                        'echo'             => 0,
-                                        'walker'           => new Dokan_Walker_Tag_Multi()
-                                    ) );
+                                    <select id="lb-tags" style="width:100%;" name="lb-tags[]" multiple="multiple">
+                                        <?php 
 
-                                    echo str_replace( '<select', '<select data-placeholder="'.__( 'Select product tags','dokan' ).'" multiple="multiple" ', $drop_down_tags );
+                                            $term = wp_get_post_terms( $post_id, 'product_tag', array( 'fields' => 'all') );
+                                            $selected = ( $term ) ? $term : array();
 
-                                    ?>
+                                            foreach ($selected as $option) {
+                                                ?>
+                                                <option value="<?= $option->term_id ?>" selected="selected"><?= $option->name ?></option>
+                                                <?php
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
+
                             </div><!-- .content-half-part -->
 
                             <div class="content-half-part featured-image">

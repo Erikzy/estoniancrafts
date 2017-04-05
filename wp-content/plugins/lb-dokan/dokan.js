@@ -74,4 +74,26 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+
+
+	/**
+	 * Tag selection
+	 */
+	// var lastResults = [];
+	$("#lb-tags").select2({
+	    multiple: true,
+	    placeholder: "Please enter tags",
+	    tokenSeparators: [","],
+	    ajax: {
+	        multiple: true,
+		    url: siteurl + '/wp-admin/admin-ajax.php?action=lb_tags',
+	        dataType: "json",
+	        type: "POST",
+	        // results: function (data, page) {
+	        //     lastResults = data.results;
+	        //     return data;
+	        // }
+	    }
+	});
+
 });
