@@ -8,8 +8,7 @@
    global $wp_query;
    ?>
 <?php 
-   // Get content width and sidebar position
-   $content_class = basel_get_content_class();
+   get_header( 'shop' );
    
    ?>
 <?php /*
@@ -59,59 +58,28 @@
       }
       
       ?>
-   <style>
-      .ec-user-profile{
-      }
-      .ec-user-info{
-      }
-      .user-hero {
-      background-size: cover;
-      min-height: 300px;
-      position: relative;
-      }
-      .user-hero .float-right{
-      width: 80%;
-      float: right;
-      clear: both;
-      }
-      .user-hero .bottom-bar {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      }
-      .user-hero h1 {
-      color: #ef7f27;
-      font-weight: bold;
-      }
-      .user-hero p {
-      font-weight: bold;
-      font-size: 18px;
-      }
-      .shop-rating{
-      float:left;
-      }
-      .shop-buttons{
-      float:right;
-      }
-   </style>
-   <div class="row">
-      <div class="col-sm-3 ec-user-profile">
-         <img class="profile-img" src="#" title="pildi array puudub">
+      
+       <?php
+			// @todo move hacks to backend functions
+		?>
+
+       <div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar ec-user-profile" role="complementary" style="margin-right:3%;">
+         <div class="profile-image" style="background-image: url(https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2017/03/mina-2.jpg)">
+         </div>
          <h5 class="widget-title">
-            Eesnimi ja Perekonnanimi
-            <?php echo $user->first_name ?>
+            <a href="#"><?php echo $user->first_name ?>  <?php echo $user->last_name ?></a>
          </h5>
-         <ul>
+         <ul class="user-fields">
             <?php if(!empty($ext_profile['gender'])): ?>
             <li><?php echo $ext_profile['gender']; ?></li>
             <?php endif; ?>
             <li>
                <?php
                   $tmpAddr = array();
-                  	if(!empty($ext_profile['country'])) $tmpAddr[] = $ext_profile['country'];
+                  if(!empty($ext_profile['address'])) $tmpAddr[] = $ext_profile['address'];
+                  if(!empty($ext_profile['city'])) $tmpAddr[] = $ext_profile['city'];
                   	if(!empty($ext_profile['state'])) $tmpAddr[] = $ext_profile['state'];
-                  	if(!empty($ext_profile['city'])) $tmpAddr[] = $ext_profile['city'];
-                  	if(!empty($ext_profile['address'])) $tmpAddr[] = $ext_profile['address'];
+                  if(!empty($ext_profile['country'])) $tmpAddr[] = $ext_profile['country'];
                   	echo implode(', ', $tmpAddr);
                   ?>
             </li>
@@ -120,47 +88,70 @@
             <?php endif; ?>
             <li><?php echo $user->user_email ?></li>
          </ul>
+            <ul class="social-nav">
+               <?php if(!empty($dokan_profile['social']['fb'])): ?>
+               <li class="facebook"><a href="<?php echo $dokan_profile['social']['fb']; ?>" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
+               <?php endif; ?>
+               <?php if(!empty($dokan_profile['social']['gplus'])): ?>
+               <li class="twitter"><a href="<?php echo $dokan_profile['social']['gplus']; ?>" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+               <?php endif; ?>
+               <?php if(!empty($dokan_profile['social']['twitter'])): ?>
+               <li class="instagram"><a href="<?php echo $dokan_profile['social']['twitter']; ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
+               <?php endif; ?>
+               <?php if(!empty($dokan_profile['social']['linkedin'])): ?>
+               <li class="linkedin"><a href="<?php echo $dokan_profile['social']['linkedin']; ?>" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
+               <?php endif; ?>
+               <?php if(!empty($dokan_profile['social']['youtube'])): ?>
+               <li class="youtube"><a href="<?php echo $dokan_profile['social']['youtube']; ?>" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
+               <?php endif; ?>
+               <?php if(!empty($dokan_profile['social']['instagram'])): ?>
+               <li class="instagram"><a href="<?php echo $dokan_profile['social']['instagram']; ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
+               <?php endif; ?>
+               <?php if(!empty($dokan_profile['social']['flickr'])): ?>
+               <li class="flickr"><a href="<?php echo $dokan_profile['social']['flickr']; ?>" target="_blank"><i class="fa fa-flickr fa-lg"></i></a></li>
+               <?php endif; ?>
+         </ul>
          <div class="expanded button-group">
-            <a class="button" href="#">View CV</a>
-            <a class="button" href="#">View Shop</a>
+            <a class="button" href="#">Võta meistriga ühendust</a>
          </div>
       </div>
-      <div class="col-sm-9 ec-user-info">
-         <div class="user-hero" style="background-image: url(https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2017/03/tootelehe-slide.jpg)">
-            <div class="float-right">
-               <?php if(!empty($dokan_profile['store_name'])): ?>
-               <h1 class="store_name"><?php echo $dokan_profile['store_name']; ?></h1>
-               <?php endif; ?>
-               <?php if(!empty($ext_shop['description'])): ?>
-               <p class="ext_shop"><?php echo $ext_shop['description']; ?> <a href="#">View Shop</a></p>
-               <?php endif; ?>
-            </div>
-            <div class="bottom-bar">
-               <div class="shop-buttons">
-                  <a class="button" href="#">following</a>
-                  <a class="button" href="#">Products</a>
-                  <a class="button" href="#">Reviews</a>
+<div id="dokan-primary" class="dokan-single-store dokan-w8 ec-user-info">
+        <div id="dokan-content" class="store-page-wrap woocommerce" role="main">
+         <div class="user-hero profile-info-summery-wrapper dokan-clearfix" <?php if(!empty($dokan_profile['banner'])): ?> style="background-image: url(<?php echo wp_get_attachment_url( $dokan_profile['banner'] ); ?>)"<?php endif; ?>>
+            <div class="class-effect">
+               <div class="float-right">
+                  <?php if(!empty($dokan_profile['store_name'])): ?>
+                  <h1 class="store_name"><?php echo $dokan_profile['store_name']; ?></h1>
+                  <?php endif; ?>
+                  <?php if(!empty($ext_shop['description'])): ?>
+                  <p class="ext_shop"><?php echo $ext_shop['description']; ?> <a class="par-link" href="#">View Shop</a></p>
+                  <?php endif; ?>
+               </div>
+               <div class="bottom-bar">
+                  <div class="shop-buttons">
+                     <a class="button" href="#">Products</a>
+                  </div>
                </div>
             </div>
          </div>
          <h3 class="title">Shop <a href="#">see more</a></h3>
          <div class="items">
-            <div class="col-sm-2"><a href="#"><img src="#"> item</a></div>
-            <div class="col-sm-2"><a href="#"><img src="#"> item</a></div>
-            <div class="col-sm-2"><a href="#"><img src="#"> item</a></div>
-            <div class="col-sm-2"><a href="#"><img src="#"> item</a></div>
-            <div class="col-sm-2"><a href="#"><img src="#"> item</a></div>
-            <div class="col-sm-2"><a href="#"><img src="#"> item</a></div>
+            <div class="item col-sm-2"><a href="#"><img src="https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2016/10/cropped-bike-2.jpg"> item</a></div>
+            <div class="item col-sm-2"><a href="#"><img src="https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2016/10/cropped-bike-2.jpg"> item</a></div>
+            <div class="item col-sm-2"><a href="#"><img src="https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2016/10/cropped-bike-2.jpg"> item</a></div>
+            <div class="item col-sm-2"><a href="#"><img src="https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2016/10/cropped-bike-2.jpg"> item</a></div>
+            <div class="item col-sm-2"><a href="#"><img src="https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2016/10/cropped-bike-2.jpg"> item</a></div>
+            <div class="item col-sm-2"><a href="#"><img src="https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2016/10/cropped-bike-2.jpg"> item</a></div>
          </div>
          <h3 class="title about-title">About</h3>
          <?php if(!empty($ext_shop['description'])): ?>
-         <p class="about-text"><?php echo $ext_shop['description']; ?></p>
+         <p class="about-text"><?php echo $ext_profile['description']; ?></p>
          <?php endif; ?>
          <h3 class="title">Education history</h3>
-         <ul>
+         <ul class="user-education">
             <li>
                <?php if(!empty($ext_profile['education_school'])): ?>
-               <b><?php echo $ext_profile['education_school']; ?></b><br>
+               <strong><?php echo $ext_profile['education_school']; ?></strong><br>
                <?php endif; ?>
                <?php if(!empty($ext_profile['education_title'])): ?>
                <?php echo $ext_profile['education_title']; ?><br>
@@ -174,11 +165,11 @@
             </li>
          </ul>
          <h3 class="title">Work education</h3>
-         <ul>
+         <ul class="work-education">
             <?php foreach ($ext_profile['work_exp'] as $work_exp): ?>
             <li>
                <?php if(!empty($work_exp['name'])): ?>
-               <b><?php echo $work_exp['name']; ?></b><br>
+               <strong><?php echo $work_exp['name']; ?></strong><br>
                <?php endif; ?>
                <?php if(!empty($work_exp['field'])): ?>
                <?php echo $work_exp['field']; ?><br>
@@ -193,7 +184,11 @@
             <?php endforeach; ?>
          </ul>
       </div>
-   </div>
+</div>
+
+   
+   
+<?php /*
    <div style="background:pink; width: 33.3333%; padding:15px; float: left;">
       <strong>ext_profile array VÄLJUNDID</strong>
       <ul>
@@ -241,7 +236,7 @@
                <li>start: <?php echo $ext_profile['certificates'][0]['start']; ?></li>
                <li>end: <?php echo $ext_profile['certificates'][0]['end']; ?></li>
                <li>link: <?php echo $ext_profile['certificates'][0]['link']; ?></li>
-               <li>file: <?php echo $ext_profile['certificates'][0]['file']; ?></li>
+               <li>file: <?php echo wp_get_attachment_url( $ext_profile['certificates'][0]['file'] ); ?> </li>
             </ul>
          </li>
       </ul>
@@ -326,7 +321,7 @@
          </li>
          <hr>
          <li>location: <?php echo $dokan_profile['location']; ?></li>
-         <li>banner: <?php echo $dokan_profile['banner']; ?></li>
+         <li>banner: <?php echo wp_get_attachment_url( $dokan_profile['banner'] ); ?></li>
          <hr>
          <li>
             profile_completion
@@ -354,6 +349,8 @@
   <?php print_r($dokan_profile) ?>
  </pre>
    </div>
+   */ ?>
+
 </div>
 <!-- .site-content -->
 <?php /* <?php get_sidebar(); ?> */ ?>
