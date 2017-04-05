@@ -35,8 +35,38 @@
                         <?php _e( 'This product requires shipping', 'dokan' ); ?>
                     </label>
                 </div>
+                <div class="show_if_needs_shipping dokan-form-group ec-extras">
+                    <?php $is_fragile = ( get_post_meta($post_id, '_fragile_cargo', true) == 'yes' ) ? 'yes' : 'no'; ?>
+                    <?php dokan_post_input_box( $post_id, '_fragile_cargo', array('value' => $is_fragile, 'label' => __( 'Fragile cargo', 'ktt' ) ), 'checkbox' ); ?>
+                    <?php $is_food = ( get_post_meta($post_id, '_food_cargo', true) == 'yes' ) ? 'yes' : 'no'; ?>
+                    <?php dokan_post_input_box( $post_id, '_food_cargo', array('value' => $is_food, 'label' => __( 'Is food', 'ktt' ) ), 'checkbox' ); ?>
+				</div>
+                <div class="show_if_needs_shipping row">
+					<div class="col-md-3">
+	                    <label class="control-label"><?php _e( 'length', 'dokan' ) ?></label>
+	                    <?php dokan_post_input_box( $post_id, '_length', array( 'class' => 'form-control' ), 'number' ); ?>
+					</div>
+					<div class="col-md-3">
+	                    <label class="control-label"><?php _e( 'width', 'dokan' ) ?></label>
+	                    <?php dokan_post_input_box( $post_id, '_width', array( 'class' => 'form-control' ), 'number' ); ?>
+					</div>
+					<div class="col-md-3">
+	                    <label class="control-label"><?php _e( 'height', 'dokan' ) ?></label>
+	                    <?php dokan_post_input_box( $post_id, '_height', array( 'class' => 'form-control' ), 'number' ); ?>
+					</div>
+					<div class="col-md-3">
+	                    <label class="control-label"><?php _e( 'Dimension unit', 'dokan' ) ?></label>
+						<select name="lb-dimension-unit">
+							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'mm'? 'selected':'' ?>>mm</option>
+							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'cm'? 'selected':'' ?>>cm</option>
+							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'm'? 'selected':'' ?>>m</option>
+						</select>
+						<input type="hidden" name="lb-dimension-woocom-unit" value="<?= get_option( 'woocommerce_dimension_unit' ) ?>">
+					</div>
+                </div>
+<?php /* Sven: Redesigned above
                 <div class="show_if_needs_shipping dokan-shipping-dimention-options">
-                    <?php dokan_post_input_box( $post_id, '_weight', array( 'class' => 'form-control', 'placeholder' => __( 'weight (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'dokan' ) ), 'number' ); ?>
+                    <?php // dokan_post_input_box( $post_id, '_weight', array( 'class' => 'form-control', 'placeholder' => __( 'weight (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'dokan' ) ), 'number' ); ?>
                     <?php dokan_post_input_box( $post_id, '_length', array( 'class' => 'form-control', 'placeholder' => __( 'length', 'dokan' ) ), 'number' ); ?>
                     <?php dokan_post_input_box( $post_id, '_width', array( 'class' => 'form-control', 'placeholder' => __( 'width', 'dokan' ) ), 'number' ); ?>
                     <?php dokan_post_input_box( $post_id, '_height', array( 'class' => 'form-control', 'placeholder' => __( 'height', 'dokan' ) ), 'number' ); ?>
@@ -51,36 +81,43 @@
                     </select>
                     <input type="hidden" name="lb-dimension-woocom-unit" value="<?= get_option( 'woocommerce_dimension_unit' ) ?>">
                 </div>
+*/ ?>
 
                 <?php if ( $post_id ): ?>
                     <?php do_action( 'dokan_product_options_shipping' ); ?>
                 <?php endif; ?>
-                <div class="show_if_needs_shipping dokan-form-group">
-                    <label class="control-label" for="product_shipping_class"><?php _e( 'Shipping Class', 'dokan' ); ?></label>
-                    <div class="dokan-text-left">
-                        <?php
-                        // Shipping Class
-                        $classes = get_the_terms( $post->ID, 'product_shipping_class' );
-                        if ( $classes && ! is_wp_error( $classes ) ) {
-                            $current_shipping_class = current($classes)->term_id;
-                        } else {
-                            $current_shipping_class = '';
-                        }
+                <div class="show_if_needs_shipping dokan-form-group row">
+					<div class="col-md-3">
+	                    <label class="control-label"><?php _e( 'weight (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'dokan' ); ?></label>
+	                    <?php dokan_post_input_box( $post_id, '_weight', array( 'class' => 'form-control' ), 'number' ); ?>
+					</div>
+					<div class="col-md-9">
+						<label class="control-label" for="product_shipping_class"><?php _e( 'Shipping Class', 'dokan' ); ?></label>
+						<div class="dokan-text-left">
+							<?php
+							// Shipping Class
+							$classes = get_the_terms( $post->ID, 'product_shipping_class' );
+							if ( $classes && ! is_wp_error( $classes ) ) {
+								$current_shipping_class = current($classes)->term_id;
+							} else {
+								$current_shipping_class = '';
+							}
 
-                        $args = array(
-                            'taxonomy'          => 'product_shipping_class',
-                            'hide_empty'        => 0,
-                            'show_option_none'  => __( 'No shipping class', 'dokan' ),
-                            'name'              => 'product_shipping_class',
-                            'id'                => 'product_shipping_class',
-                            'selected'          => $current_shipping_class,
-                            'class'             => 'dokan-form-control'
-                        );
-                        ?>
+							$args = array(
+								'taxonomy'          => 'product_shipping_class',
+								'hide_empty'        => 0,
+								'show_option_none'  => __( 'No shipping class', 'dokan' ),
+								'name'              => 'product_shipping_class',
+								'id'                => 'product_shipping_class',
+								'selected'          => $current_shipping_class,
+								'class'             => 'dokan-form-control'
+							);
+							?>
 
-                        <?php wp_dropdown_categories( $args ); ?>
-                        <p class="help-block"><?php _e( 'Shipping classes are used by certain shipping methods to group similar products.', 'dokan' ); ?></p>
-                    </div>
+							<?php wp_dropdown_categories( $args ); ?>
+							<p class="help-block"><?php _e( 'Shipping classes are used by certain shipping methods to group similar products.', 'dokan' ); ?></p>
+						</div>
+					</div>
                 </div>
                 <?php if( $dokan_shipping_enabled == 'yes' && $store_shipping == 'yes' ) : ?>
                     <div class="show_if_needs_shipping dokan-shipping-product-options">
