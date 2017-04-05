@@ -18,14 +18,19 @@ global $wp_query;
 
 <div class="site-content <?php echo esc_attr( $content_class ); ?>" role="main">
 
-<pre>
-	<?php 
+	<pre>
+		<?php 
 
-	$user = get_user_by('login', $wp_query->query_vars['user']);
-	$dokan_profile = get_user_meta( $user->data->ID, 'dokan_profile_settings', true );
-	print_r($dokan_profile);
-	?>
-		</pre>
+		$user = get_user_by('login', $wp_query->query_vars['user']);
+		$dokan_profile = get_user_meta( $user->data->ID, 'dokan_profile_settings', true );
+		$ext_profile = get_user_meta( $user->data->ID, 'ktt_extended_profile', true );
+		$ext_shop = get_user_meta( $user->data->ID, 'ktt_extended_settings', true );
+		
+		print_r($ext_profile);
+		print_r($ext_shop);
+
+		?>
+	</pre>
 
 </div><!-- .site-content -->
 

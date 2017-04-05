@@ -64,6 +64,15 @@
 
 ?>
 <?php do_action( 'dokan_settings_before_form', $current_user, $profile_info ); ?>
+    
+    <div class="dokan-panel dokan-panel-default dokan-profile-completeness">
+        <div class="dokan-panel-body">
+        <div class="dokan-progress lb-progress">
+            <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::shop_profile_completeness($current_user) ?>%">
+                <?= lbDokan::shop_profile_completeness($current_user) ?>% <?php _e( 'Profile complete', 'ktt' ); ?></div>
+        </div>
+       </div>
+    </div>
 
     <form method="post" id="store-form"  action="" class="dokan-form-horizontal">
 

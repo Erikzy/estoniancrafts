@@ -37,6 +37,20 @@ $user = get_user_by( 'id', get_current_user_id() );
             do_action( 'dokan_dashboard_content_inside_before' );
         ?>
 
+            <?php
+
+                $ext_profile = get_user_meta( $user->ID, 'ktt_extended_profile', true );
+
+            ?>
+            <div class="dokan-panel dokan-panel-default dokan-profile-completeness">
+                <div class="dokan-panel-body">
+                <div class="dokan-progress lb-progress">
+                    <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::user_profile_completeness($user->ID) ?>%">
+                        <?= lbDokan::user_profile_completeness($user->ID) ?>% <?php _e( 'Profile complete', 'ktt' ); ?></div>
+                </div>
+               </div>
+            </div>
+
             <article class="dashboard-content-area woocommerce edit-account-wrap">
 
                 <?php wc_print_notices();?>
@@ -82,26 +96,26 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                     <p class="form-row form-row-first">
                         <label for="account_mobile"><?php _e( 'Phone', 'ktt' ); ?></label>
-                        <input type="text" class="input-text" name="account_mobile" id="account_mobile" value="<?php echo esc_attr( $user->mobile ); ?>" />
+                        <input type="text" class="input-text" name="account_mobile" id="account_mobile" value="<?php echo esc_attr( $ext_profile['mobile'] ); ?>" />
                     </p>
 
                     <p class="form-row form-row-last">
                         <label for="account_skype"><?php _e( 'Skype', 'ktt' ); ?></label>
-                        <input type="text" class="input-text" name="account_skype" id="account_skype" value="<?php echo esc_attr( $user->skype ); ?>" />
+                        <input type="text" class="input-text" name="account_skype" id="account_skype" value="<?php echo esc_attr( $ext_profile['skype'] ); ?>" />
                     </p>
                     <div class="clear"></div>
 
                     <p class="form-row form-row-wide">
                         <label for="account_description"><?php _e( 'Description', 'ktt' ); ?></label>
-                        <textarea rows="4" class="input-text" name="account_description" id="account_description"><?php echo esc_attr( $user->description ); ?></textarea>
+                        <textarea rows="4" class="input-text" name="account_description" id="account_description"><?php echo esc_attr( $ext_profile['description'] ); ?></textarea>
                     </p>
 
                     <p class="form-row form-row-first">
-                        <label for="account_sex"><?php _e( 'Gender', 'ktt' ); ?> </label>
-                        <select name="account_sex" id="account_sex">
+                        <label for="account_gender"><?php _e( 'Gender', 'ktt' ); ?> </label>
+                        <select name="account_gender" id="account_gender">
                             <option value="none"><?php _e( ' - Select gender - ', 'ktt' ); ?></option>
-                            <option value="male" <?= ($user->sex == 'male')? 'selected' : '' ?>><?php _e( 'Male', 'ktt' ); ?></option>
-                            <option value="female" <?= ($user->sex == 'female')? 'selected' : '' ?>><?php _e( 'Female', 'ktt' ); ?></option>
+                            <option value="male" <?= ($ext_profile['gender'] == 'male')? 'selected' : '' ?>><?php _e( 'Male', 'ktt' ); ?></option>
+                            <option value="female" <?= ($ext_profile['gender'] == 'female')? 'selected' : '' ?>><?php _e( 'Female', 'ktt' ); ?></option>
                         </select>
                         
                     </p>
@@ -109,29 +123,29 @@ $user = get_user_by( 'id', get_current_user_id() );
                     <p class="form-row form-row-last">
                         <label for="account_dob"><?php _e( 'Date of birth', 'ktt' ); ?></label>
 
-                        <input type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="<?php echo esc_attr( $user->dob ); ?>" name="account_dob" id="account_dob" list="dates_pattern0_datalist" placeholder="dd.mm.yyyy">
+                        <input type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="<?php echo esc_attr( $ext_profile['dob'] ); ?>" name="account_dob" id="account_dob" list="dates_pattern0_datalist" placeholder="dd.mm.yyyy">
                     </p>
                     <div class="clear"></div>
 
                     <p class="form-row form-row-first">
                         <label for="account_workyears"><?php _e( 'Working experience (years)', 'ktt' ); ?></label>
-                        <input type="number" class="input-text" name="account_workyears" id="account_workyears" value="<?php echo esc_attr( $user->workyears ); ?>" />
+                        <input type="number" class="input-text" name="account_workyears" id="account_workyears" value="<?php echo esc_attr( $ext_profile['workyears'] ); ?>" />
                     </p>
 
                     <p class="form-row form-row-last">
                         <label for="account_education"><?php _e( 'Education', 'ktt' ); ?></label>
                         <select name="account_education" id="account_education">
                             <option value="none"><?php _e( ' - Select your education - ', 'ktt' ); ?></option>
-                            <option value="1" <?= ($user->education == '1')? 'selected' : '' ?>><?php _e( 'Basic education', 'ktt' ); ?></option>
-                            <option value="2" <?= ($user->education == '2')? 'selected' : '' ?>><?php _e( 'Secondary education', 'ktt' ); ?></option>
-                            <option value="3" <?= ($user->education == '3')? 'selected' : '' ?>><?php _e( 'Vocational education', 'ktt' ); ?></option>
-                            <option value="4" <?= ($user->education == '4')? 'selected' : '' ?>><?php _e( 'Higher education', 'ktt' ); ?></option>
+                            <option value="1" <?= ($ext_profile['education'] == '1')? 'selected' : '' ?>><?php _e( 'Basic education', 'ktt' ); ?></option>
+                            <option value="2" <?= ($ext_profile['education'] == '2')? 'selected' : '' ?>><?php _e( 'Secondary education', 'ktt' ); ?></option>
+                            <option value="3" <?= ($ext_profile['education'] == '3')? 'selected' : '' ?>><?php _e( 'Vocational education', 'ktt' ); ?></option>
+                            <option value="4" <?= ($ext_profile['education'] == '4')? 'selected' : '' ?>><?php _e( 'Higher education', 'ktt' ); ?></option>
                         </select>
                     </p>
 
                     <p class="form-row form-row-wide">
                         <label for="account_video"><?php _e( 'YouTube video link', 'ktt' ); ?> <span class="required">*</span></label>
-                        <input type="text" class="input-text" name="account_video" id="account_video" value="<?php echo esc_attr( $user->video ); ?>" />
+                        <input type="text" class="input-text" name="account_video" id="account_video" value="<?php echo esc_attr( $ext_profile['video'] ); ?>" />
                     </p>
 
                     <fieldset>
@@ -140,26 +154,43 @@ $user = get_user_by( 'id', get_current_user_id() );
                         <p class="form-row form-row-first">
                             <label for="account_location_country"><?php _e( 'Country', 'ktt' ); ?></label>
 
-                            <?= lb_display_country_select($user->location_country) ?>
+                            <?= lb_display_country_select($ext_profile['country']) ?>
                         </p>
 
                         <p class="form-row form-row-last">
                             <label for="account_location_state"><?php _e( 'State', 'ktt' ); ?> </label>
-                            <input type="text" class="input-text" name="account_location_state" id="account_location_state" value="<?php echo esc_attr( $user->location_state ); ?>" />
+                            <input type="text" class="input-text" name="account_location_state" id="account_location_state" value="<?php echo esc_attr( $ext_profile['state'] ); ?>" />
                         </p>
                         <div class="clear"></div>
 
                         <p class="form-row form-row-first">
                             <label for="account_location_city"><?php _e( 'City', 'ktt' ); ?> </label>
-                            <input type="text" class="input-text" name="account_location_city" id="account_location_city" value="<?php echo esc_attr( $user->location_city ); ?>" />
+                            <input type="text" class="input-text" name="account_location_city" id="account_location_city" value="<?php echo esc_attr( $ext_profile['city'] ); ?>" />
                         </p>
 
                         <p class="form-row form-row-last">
                             <label for="account_location_address"><?php _e( 'Address', 'ktt' ); ?> </label>
-                            <input type="text" class="input-text" name="account_location_address" id="account_location_address" value="<?php echo esc_attr( $user->location_address ); ?>" />
+                            <input type="text" class="input-text" name="account_location_address" id="account_location_address" value="<?php echo esc_attr( $ext_profile['address'] ); ?>" />
                         </p>
 
                     </fieldset>
+
+                    <div class="lb-elastic-container">
+                        <div class="lb-elastic-elements">
+
+                           
+                                <div class="lb-elastic-element lb-input-margins">
+                                   
+                                    <input value="" name="dokan_work" placeholder="<?php _e( 'Workplace', 'ktt'); ?>" class="dokan-form-control" type="text">
+                                    <a href="#add-file" class="lb-add-doc"> + add file</a>
+                                   
+                                </div>
+                           
+                    
+                            
+                        </div>
+                        <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                    </div>
 
                     <fieldset>
                         <legend><?php _e( 'Password Change', 'dokan' ); ?></legend>

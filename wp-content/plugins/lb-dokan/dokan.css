@@ -1,0 +1,41 @@
+.dokan-dashboard-content .dokan-gravatar {
+  position: relative;
+}
+.dokan-dashboard-content .dokan-gravatar .dokan-remove-gravatar-image {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #000;
+  top: 0;
+  left: 0;
+  opacity: .7;
+  font-size: 70px;
+  text-align: center;
+  color: #f00;
+  padding-top: 5px;
+  display: none;
+  border-radius: 50%;
+}
+.dokan-dashboard-content .dokan-gravatar .gravatar-wrap .dokan-gravatar-img {
+  border-radius: 50%;
+  height: 80px !important;
+  width: 80px;
+}
+.dokan-dashboard-content .dokan-gravatar:hover .dokan-remove-gravatar-image {
+  display: block;
+}
+.lb-progress{
+  margin-bottom: 0;
+}
+
+
+
+/**
+ * lb-elastic (1-n text fields)
+ */
+.lb-elastic-element{
+  margin-bottom: .5em;
+}
+.lb-input-margins input, .lb-input-margins select{
+  margin-bottom: .5em;
+}
