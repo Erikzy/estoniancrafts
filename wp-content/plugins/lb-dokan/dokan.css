@@ -59,3 +59,11 @@
 .lb-remove-doc.active, .lb-add-doc.active{
   display:inline;
 }
+
+
+/**
+ * Product edit view tweaks
+ */
+.wc-metabox table{
+  width: auto;
+}

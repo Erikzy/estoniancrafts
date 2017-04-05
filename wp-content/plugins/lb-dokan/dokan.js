@@ -1,5 +1,8 @@
 jQuery(document).ready(function($){
 
+	// Display the edit page inside .container (visual tweak)
+	$('.dokan-dashboard .main-page-wrapper .container-fluid').removeClass('container-fluid').addClass('container');
+
 	$('.lb-elastic-add').click(function(){
 
 		var elem = $(this).parent().find('.lb-elastic-element:first').clone();

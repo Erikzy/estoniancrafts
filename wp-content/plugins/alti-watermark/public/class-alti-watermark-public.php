@@ -59,7 +59,7 @@ class Alti_Watermark_Public {
 		      $image_requested, 
 		      $watermark_file, 
 		      (imagesx($image_requested)-(imagesx($watermark_file))), 
-		      (imagesy($image_requested))-(imagesy($watermark_file)), 
+		      0, 
 		      0, 
 		      0, 
 		      imagesx($watermark_file), 
