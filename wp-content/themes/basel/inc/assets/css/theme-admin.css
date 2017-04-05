@@ -1,0 +1,354 @@
+.basel-error,
+.basel-success,
+.basel-warning,
+.basel-notice {
+	padding: 20px 25px;
+	background-color: #ECFFE8;
+	border-bottom: 2px solid #378A11;
+	color: rgb(6, 91, 5);
+	margin-bottom: 20px;
+	min-width: 350px;
+	max-width: 650px;
+}
+
+.basel-error {
+	background-color: #FFFAFA;
+	border-bottom: 2px solid #F15A5A;
+	color: rgb(185, 17, 17);
+}
+
+.basel-warning {
+	background-color: #FFFEE8;
+	border-bottom: 2px solid #DCD41B;
+	color: rgb(136, 126, 14);
+}
+
+.basel-notice {
+	background-color: #E8FCFF;
+	border-bottom: 2px solid #1B9CDC;
+	color: rgb(14, 125, 136);
+}
+
+.basel-error.small,
+.basel-success.small,
+.basel-warning.small,
+.basel-notice.small {
+	padding: 10px 15px;
+	margin-bottom: 20px;
+	width: 250px;
+	max-width: 100%;
+	font-size: 12px;
+}
+
+
+
+.basel-error p:last-child,
+.basel-success p:last-child,
+.basel-warning p:last-child,
+.basel-notice p:last-child {
+	margin-bottom: 0;
+}
+
+
+/* *
+  * *
+   * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+   * 
+   * Styles needed for wp-admin
+   *
+   * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ * *
+* */
+
+.basel-image-src {
+	max-width: 150px;
+	height: auto;
+	border: 1px solid #e5e5e5;
+	padding: 10px;
+	margin: 10px auto;
+	display: block;
+}
+
+#basel_options-header img {
+    max-width: 350px;
+    margin-right: 20px;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+* Import page
+* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+*/
+
+#basel-import-form.form-in-action .page-preview,
+#basel-import-form.form-in-action p,
+#basel-import-form.form-in-action #basel_version,
+#basel-import-form.form-in-action .button {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.basel-import-page #basel_version {
+	width: 250px;
+	max-width: 100%;
+}
+
+
+.basel-import-page .description {
+	max-width: 250px;
+	font-size: 12px;
+}
+
+.basel-import-page .page-preview {
+	padding: 3px;
+
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+
+	border: 1px solid #efefef;
+	margin: 10px 0;
+	width: 250px;
+}
+
+.basel-import-page .page-preview img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.basel-import-progress {
+	display: none;
+	position: relative;
+	height: 10px; 
+	background-color: #efefef;
+	max-width: 100%;
+	width: 250px;
+}
+
+.basel-import-progress:after {
+	content: attr(data-progress) "%";
+	display: inline-block;
+	float: right;
+	font-size: 11px;
+	margin: -2px -35px 0 0;
+}
+
+.basel-import-progress div {
+	-webkit-transition: 0.2s all linear;
+	-o-transition: 0.2s all linear;
+	transition: 0.2s all linear;
+	position: absolute;
+	height: 10px; 
+	background-color: rgb(0, 155, 2);
+	overflow: hidden;
+}
+
+.basel-import-progress + p {
+	margin-top: 15px;
+}
+
+.basel-import-progress.animated div:after {
+    content: '123';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    background-color: #05AA07;
+    height: 10px;
+    font-size: 0;
+    width: 20px;
+    max-width: 50%
+}
+
+.basel-import-progress.animated div:after {
+  animation: basel_loading 2s infinite;
+  -moz-animation: basel_loading 2s infinite;
+  -webkit-animation: basel_loading 2s infinite;
+}
+
+@keyframes basel_loading {
+  0% {
+    left:-20px;
+  }
+  100% {
+    left:100%;
+  }
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+* 360 images gallery for products
+* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+*/
+
+#woocommerce-product-360-images .inside {
+    margin: 0;
+    padding: 0
+}
+#woocommerce-product-360-images .inside .add_product_360_images {
+    padding: 0 12px 12px
+}
+#woocommerce-product-360-images .inside #product_360_images_container {
+    padding: 0 0 0 9px
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul {
+    margin: 0;
+    padding: 0
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul:after,
+#woocommerce-product-360-images .inside #product_360_images_container ul:before {
+    content: " ";
+    display: table
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul:after {
+    clear: both
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul li.add,
+#woocommerce-product-360-images .inside #product_360_images_container ul li.image,
+#woocommerce-product-360-images .inside #product_360_images_container ul li.wc-metabox-sortable-placeholder {
+    width: 80px;
+    float: left;
+    cursor: move;
+    border: 1px solid #d5d5d5;
+    margin: 9px 9px 0 0;
+    background: #f7f7f7;
+    border-radius: 2px;
+    position: relative;
+    box-sizing: border-box
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul li.add img,
+#woocommerce-product-360-images .inside #product_360_images_container ul li.image img,
+#woocommerce-product-360-images .inside #product_360_images_container ul li.wc-metabox-sortable-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul li.wc-metabox-sortable-placeholder {
+    border: 3px dashed #ddd;
+    position: relative
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul li.wc-metabox-sortable-placeholder:after {
+    font-family: Dashicons;
+    speak: none;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    content: "";
+    font-size: 2.618em;
+    line-height: 72px;
+    color: #ddd
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul ul.actions {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 2px;
+    display: none
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul ul.actions li {
+    float: right;
+    margin: 0 0 0 2px
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul ul.actions li a {
+    width: 1em;
+    margin: 0;
+    height: 0;
+    display: block;
+    overflow: hidden
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul ul.actions li a.tips {
+    cursor: pointer
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul ul.actions li a.delete {
+    display: block;
+    text-indent: -9999px;
+    position: relative;
+    height: 1em;
+    width: 1em;
+    font-size: 1.4em
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul ul.actions li a.delete:before {
+    font-family: Dashicons;
+    speak: none;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    content: "";
+    color: #999
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul ul.actions li a.delete:hover:before {
+    color: #a00
+}
+#woocommerce-product-360-images .inside #product_360_images_container ul li:hover ul.actions {
+    display: block
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+* Menu custom fields
+* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+*/
+
+.nmi-item-custom-fields {
+	display: none;
+	overflow: hidden;
+	clear: both;
+	padding: 0 0;
+}
+
+.nmi-item-custom-fields h4 {
+	margin: 20px 0 10px;
+}
+
+
+.nmi-div {
+	overflow: hidden;
+	clear: both;
+	color: #a6a6a6;
+}
+
+	.nmi-div a {
+		text-decoration: none;
+		display: inline-block;
+	}
+	.nmi-div a:hover {
+		text-decoration: underline;
+	}
+
+.nmi-div a.link-with-image {
+	display: block;
+	margin: 10px 0;
+}
+
+.nmi-upload-link {
+	margin: 10px 0;
+}
+
+.nmi-current-image img {
+	display: inline-block;
+	padding: 3px;
+	border: 1px solid #efefef;
+}

@@ -1,0 +1,86 @@
+
+.dokan-widget-area {
+
+    .widget {
+        margin-bottom:40px;
+    }
+
+    .dokan-category-menu {
+
+        ul {
+
+            > li {
+                display: block;
+                margin-bottom: 15px;
+
+                > a {
+                    font-size: 14px;
+                    color:rgba(71, 71, 71, 0.9);
+
+                    &:hover {
+                        color:rgba(71, 71, 71, 0.7);
+                    }
+                }
+
+                > .sub-category {
+                    display: block;
+                    margin-top: 10px;
+
+                     .sub-block {
+                       margin-bottom: 10px;
+
+                       &:before {
+                            content:"\f105";
+                            padding: 0 8px 0 6px;
+                            display: inline-block;
+                            font-family: "FontAwesome";
+                        }
+
+                        h3 {
+                            display:inline-block;
+                            margin-bottom:0;
+                            font-family:$main-font;
+                            line-height: 1;
+                        }
+
+                        a {
+                            font-size: 12px;
+                            color:rgba(145,145,145,1);
+
+                            &:hover {   
+                                color:rgba(145,145,145,0.8);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dokan-single-store .profile-frame {
+    height:320px;
+}
+
+.single-product-content {
+    #tab-seller {
+        .seller-rating {
+            position: relative;
+            top:4px;
+        }
+    }
+}
+
+.dokan-rating {
+    .star-rating {
+        span {
+            &:before {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.dokan-store-img {
+    margin-bottom: 20px;
+}

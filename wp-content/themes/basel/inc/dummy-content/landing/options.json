@@ -1,0 +1,8 @@
+{
+	"top-bar": false,
+	"header": "simple",
+	"header_color_scheme": "light",
+	"header-border": false,
+	"primary-color": "#31a5e7",
+	"menu_align": "center"
+}

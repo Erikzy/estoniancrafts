@@ -1,0 +1,55 @@
+/** ------------------------------------------------------------------------------------------------
+* TEAM MEMBERS 
+* ------------------------------------------------------------------------------------------------ */
+
+.team-member {
+    margin-bottom:30px;
+
+    .member-image {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .member-details {
+        margin-bottom: 20px;
+        line-height: 1.5;
+
+        > h4 {
+            margin-bottom: 5px;
+            font-weight:bold;
+        }
+
+        .member-position {
+            margin-bottom: 20px;
+            font-style: italic;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .member-bio {
+            opacity: 0.7;
+        }
+    }
+
+    .member-social {
+
+        li {
+            margin: 0px 7px;
+        }
+
+        i {
+            font-size: 16px;
+        }
+    }
+
+    li {
+
+        a {
+            color:rgba(0,0,0,0.6);
+
+            &:hover {
+                color:rgba(0,0,0,0.8);
+            }
+        }
+    }
+}

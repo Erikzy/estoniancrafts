@@ -1,0 +1,27 @@
+
+/** ------------------------------------------------------------------------------------------------
+* COUNTER 
+* ------------------------------------------------------------------------------------------------ */
+
+.basel-counter {
+    text-align:center;
+
+    > span {
+        display: inline-block;
+        width:100%;
+        font-size:18px;
+    }
+
+    .counter-value {
+        margin-bottom: 20px;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .color-scheme-light & {
+
+        > span {
+            color:white;
+        }
+    }
+}

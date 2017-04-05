@@ -1,0 +1,106 @@
+
+/** ------------------------------------------------------------------------------------------------
+* DEVICE-CAROUSEL
+* ------------------------------------------------------------------------------------------------ */
+
+.macbook-carousel {
+	background: url(images/mockup-macbook.png) no-repeat center top;
+	background-size: contain;
+	margin: 0 auto;
+	width: 850px;
+	height: 501px;
+
+	.vc_images_carousel {
+		margin: 49px 152px 49px 152px;
+	}
+}
+
+.iphone-carousel {
+	background: url(images/mockup-iphone.png) no-repeat center top;
+	background-size: contain;
+	width: 415px;
+  	height: 796px;
+	margin: 0 auto;
+
+	.vc_images_carousel {
+		margin: 101px 40px 0px 42px;
+		height: 594px;
+		overflow: hidden;
+
+	}
+}
+
+.carousel-device {
+	
+	.wpb_gallery_heading {
+		display: none;
+	}
+
+		.owl-pagination {
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		z-index: 2;
+	}
+
+	.owl-wrapper-outer {
+		z-index: 2;
+	}
+
+	.owl-theme {
+
+		.owl-controls {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			.owl-buttons {
+
+				> div {
+					height:100%;
+					top: 0;
+					width: 40px;
+					background-color: rgba(0, 0, 0, 0.20);
+					border-radius:0;
+					transform: translateY(0%);
+					-o-transform: translateY(0%);
+					-webkit-transform: translateY(0%);
+					-moz-transform: translateY(0%);
+					-ms-transform: translateY(0%);
+					-sand-transform: translateY(0%);
+
+					&:before {
+						position:absolute;
+						top:45%;
+						width: 100%;
+						height: auto;
+						line-height: 1;
+						color: white;
+					}
+
+					&.owl-prev {
+						left: 0;
+					}
+
+					&.owl-next {
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	& .owl-theme:hover .owl-controls .owl-buttons div.owl-prev {
+	  left: 0px;
+	}
+
+	& .owl-theme:hover .owl-controls .owl-buttons div.owl-next {
+	  right: 0px;
+	}
+
+	& .owl-theme .owl-controls.clickable .owl-buttons div:hover {
+	  background-color: rgba(0, 0, 0, 0.5);
+	}
+}
