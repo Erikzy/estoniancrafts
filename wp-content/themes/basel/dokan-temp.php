@@ -23,6 +23,24 @@ function lb_display_country_select($selected = false, $field_name = 'account_loc
 
 
 
+/**
+ * Dokan seller menu customization
+ */
+add_filter( 'dokan_get_dashboard_nav', 'lb_seller_nav' );
+
+function lb_seller_nav( $urls ) {
+
+    unset( $urls['coupons'] );
+    unset( $urls['reviews'] );
+    unset( $urls['withdraw'] );
+
+    unset( $urls['settings']['sub']['shipping'] );
+    unset( $urls['settings']['sub']['payment'] );
+ 
+    return $urls;
+}
+
+
 
 /**
  * User profile pages

@@ -247,6 +247,29 @@ class lbDokan{
 
 	}
 
+    static function product_completeness($product_id){
+
+        $completeness = 0;
+        $meta_data = get_post_meta($product_id, '', true);
+
+        $required_fields = ['_manufacturing_method', '_manufacturing_desc', '_manufacturing_time', '_manufacturing_qty', '_maintenance_info'];
+
+        foreach($meta_data as $key => $meta){
+
+            $meta = $meta[0];
+
+            if( in_array($key, $required_fields) && !empty($meta) ){
+
+                $completeness += 100/count($required_fields);
+            
+            }
+
+        }
+
+        return floor($completeness);
+
+    }
+
     /**
      * Displays extended form fields whed adding/editing new products
      */
@@ -348,6 +371,7 @@ class lbDokan{
                     <label class="form-label"><?php _e( 'Manufacturing method', 'ktt' ); ?></label>
                  
                     <?php dokan_post_input_box( $post_id, '_manufacturing_method', array( 'options' => array(
+                                            ''  => __(' - select method - ', 'ktt'),
                                             'hand' => __( 'Hand crafted', 'ktt' ),
                                             'machine' => __( 'Machined', 'ktt' )
                                         ), 'value' => get_post_meta($post_id, '_manufacturing_method', true) ), 'select' ); ?>
@@ -619,8 +643,6 @@ class lbDokan{
     }
 
 
-
-
     function save_post( $post_id ){
         
         $post_type = get_post_type($post_id);
@@ -629,13 +651,6 @@ class lbDokan{
         if ( "product" != $post_type ) return;
 
         $this->product_updated( $post_id );
-        
-        // Make sure your data is set before trying to save it
-        // if( isset( $_POST['lb_instagram_hashtag'] ) )
-        //     update_post_meta( $post_id, '_lb_instagram_hashtag', $_POST['lb_instagram_hashtag'] );
-
-        // if( isset( $_POST['lb_instagram_desc'] ) )
-        //     update_post_meta( $post_id, '_lb_instagram_desc', $_POST['lb_instagram_desc'] );
 
     }
 

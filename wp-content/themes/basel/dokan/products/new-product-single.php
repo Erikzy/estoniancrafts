@@ -104,6 +104,7 @@ if ( ! $from_shortcode ) {
              *  @since 2.4
              */
             do_action( 'dokan_product_content_inside_area_before' );
+
         ?>
 
         <header class="dokan-dashboard-header dokan-clearfix">
@@ -129,6 +130,15 @@ if ( ! $from_shortcode ) {
                 <?php endif ?>
             </h1>
         </header><!-- .entry-header -->
+
+        <div class="dokan-panel dokan-panel-default dokan-profile-completeness">
+            <div class="dokan-panel-body">
+            <div class="dokan-progress lb-progress">
+                <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::product_completeness($post_id) ?>%">
+                    <?= lbDokan::product_completeness($post_id) ?>% <?php _e( 'Product complete', 'ktt' ); ?></div>
+            </div>
+           </div>
+        </div>
 
         <div class="product-edit-new-container">
             <?php if ( Dokan_Template_Products::$errors ) { ?>
