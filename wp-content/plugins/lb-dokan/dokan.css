@@ -39,3 +39,23 @@
 .lb-input-margins input, .lb-input-margins select{
   margin-bottom: .5em;
 }
+
+
+/**
+ * Add a file placeholder
+ */
+.lb-file-placeholder{
+  display: none;
+  width: 40px;
+  height: 40px;
+  background:url(file.png) no-repeat center center;
+}
+.lb-file-placeholder.active{
+  display: inline-block;
+}
+.lb-remove-doc, .lb-add-doc{
+  display: none;
+}
+.lb-remove-doc.active, .lb-add-doc.active{
+  display:inline;
+}

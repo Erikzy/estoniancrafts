@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
 
 	var media_uploader = null;
 
-	function open_media_uploader_image()
+	function open_media_uploader_image( clicked )
 	{
 	    media_uploader = wp.media({
 	        frame:  "post", 
@@ -28,11 +28,16 @@ jQuery(document).ready(function($){
 	    media_uploader.on("insert", function(){
 	        var json = media_uploader.state().get("selection").first().toJSON();
 
-	        var image_url = json.url;
-	        var image_caption = json.caption;
-	        var image_title = json.title;
+	        // var image_url = json.url;
+	        // var image_caption = json.caption;
+	        // var image_title = json.title;
 
-	        console.log(image_url);
+	        // console.log(json);
+
+	        clicked.parent().find('input').val(json.id);
+	        clicked.parent().find('.lb-file-placeholder').addClass('active');
+	        clicked.parent().find('.lb-remove-doc').addClass('active');
+	        clicked.removeClass('active');
 
 	    });
 
@@ -46,9 +51,21 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+	$('body').on('click', '.lb-remove-doc', function(){
+
+		$(this).parent().find('input').val('');
+        $(this).parent().find('.lb-file-placeholder').removeClass('active');
+        $(this).parent().find('.lb-add-doc').addClass('active');
+        $(this).removeClass('active');
+
+		return false;
+	});
+
 	$('body').on('click', '.lb-add-doc', function(){
 
-		open_media_uploader_image();
+		var clicked = $(this);
+
+		open_media_uploader_image(clicked);
 
 		return false;
 	});

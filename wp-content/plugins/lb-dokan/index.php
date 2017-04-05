@@ -97,10 +97,88 @@ class lbDokan{
     	$ext_profile['video'] = ! empty( $_POST['account_video'] ) ? wc_clean( $_POST['account_video'] ) : '';
     	$ext_profile['description'] = ! empty( $_POST['account_description'] ) ? wc_clean( $_POST['account_description'] ) : '';
     	$ext_profile['education'] = ! empty( $_POST['account_education'] ) ? wc_clean( $_POST['account_education'] ) : '';
+    	$ext_profile['education_school'] = ! empty( $_POST['account_education_school'] ) ? wc_clean( $_POST['account_education_school'] ) : '';
+    	$ext_profile['education_start'] = ! empty( $_POST['account_education_start'] ) ? wc_clean( $_POST['account_education_start'] ) : '';
+    	$ext_profile['education_end'] = ! empty( $_POST['account_education_end'] ) ? wc_clean( $_POST['account_education_end'] ) : '';
     	$ext_profile['country'] = ! empty( $_POST['account_location_country'] ) ? wc_clean( $_POST['account_location_country'] ) : '';
     	$ext_profile['state'] = ! empty( $_POST['account_location_state'] ) ? wc_clean( $_POST['account_location_state'] ) : '';
     	$ext_profile['city'] = ! empty( $_POST['account_location_city'] ) ? wc_clean( $_POST['account_location_city'] ) : '';
     	$ext_profile['address'] = ! empty( $_POST['account_location_address'] ) ? wc_clean( $_POST['account_location_address'] ) : '';
+
+    	if( ! empty( $_POST['account_org_name'] ) ){
+
+    		$orgs = [];
+
+    		foreach ($_POST['account_org_name'] as $index => $org) {
+    			
+    			$org = ['name' => $org, 'link' => $_POST['account_org_link'][$index], 'start' => $_POST['account_org_start'][$index], 'end' => $_POST['account_org_end'][$index]];
+
+    			$data_entered = array_diff($org, array('', ' '));
+    			if( count($data_entered) ) { 
+    				$orgs[] = $org; 
+    			}
+
+    		}
+
+    		if(!count($orgs)){ 
+    			$orgs = [['name' => '', 'link' => '', 'start' => '', 'end' => '']]; 
+    		}
+
+    		$ext_profile['org'] = wc_clean( array_values($orgs) );
+
+    	}
+
+    	if( ! empty( $_POST['account_work_exp_name'] ) ){
+
+    		$exp_array = [];
+
+    		foreach ($_POST['account_work_exp_name'] as $index => $exp) {
+    			
+    			$exp = ['name' => $exp, 'field' => $_POST['account_work_exp_field'][$index], 'start' => $_POST['account_work_exp_start'][$index], 'end' => $_POST['account_work_exp_end'][$index]];
+
+    			$data_entered = array_diff($exp, array('', ' '));
+    			if( count($data_entered) ) { 
+    				$exp_array[] = $exp; 
+    			}
+
+    		}
+
+    		if(!count($exp_array)){ 
+    			$exp_array = [['name' => '', 'field' => '', 'start' => '', 'end' => '']]; 
+    		}
+
+    		$ext_profile['work_exp'] = wc_clean( array_values($exp_array) );
+
+    	}
+
+    	if( ! empty( $_POST['account_cert_name'] ) ){
+
+    		$cert_array = [];
+
+    		foreach ($_POST['account_cert_name'] as $index => $cert) {
+    			
+    			$link = $_POST['account_cert_link'][$index];
+
+    			if( $link != '' ){
+    				$link = ( strpos($link, 'http://') !== 0 && strpos($link, 'https://') !== 0 )? 'http://'.$link : $link;
+				}
+
+    			$cert = ['name' => $cert, 'auth' => $_POST['account_cert_auth'][$index], 'start' => $_POST['account_cert_start'][$index], 'end' => $_POST['account_cert_end'][$index], 'link' => $link, 'file' => $_POST['account_cert_file'][$index]];
+
+    			$data_entered = array_diff($cert, array('', ' '));
+    			if( count($data_entered) ) { 
+    				$cert_array[] = $cert; 
+    			}
+
+    		}
+
+    		if(!count($cert_array)){ 
+    			$cert_array = [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']]; 
+    		}
+
+    		$ext_profile['certificates'] = wc_clean( array_values($cert_array) );
+
+    	}
 
 	    update_user_meta( $user_ID, 'ktt_extended_profile', $ext_profile );
 

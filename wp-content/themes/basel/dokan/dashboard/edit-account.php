@@ -40,6 +40,11 @@ $user = get_user_by( 'id', get_current_user_id() );
             <?php
 
                 $ext_profile = get_user_meta( $user->ID, 'ktt_extended_profile', true );
+    
+                $organizations  = isset( $ext_profile['org'] ) ? $ext_profile['org'] : [['name' => '', 'link' => '', 'start' => '', 'end' => '']];
+                $experience  = isset( $ext_profile['work_exp'] ) ? $ext_profile['work_exp'] : [['name' => '', 'field' => '', 'start' => '', 'end' => '']];
+                $certificates  = isset( $ext_profile['certificates'] ) ? $ext_profile['certificates'] : [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']];
+
 
             ?>
             <div class="dokan-panel dokan-panel-default dokan-profile-completeness">
@@ -135,20 +140,211 @@ $user = get_user_by( 'id', get_current_user_id() );
                     </p>
 
                     <p class="form-row form-row-last">
-                        <label for="account_education"><?php _e( 'Education', 'ktt' ); ?></label>
-                        <select name="account_education" id="account_education">
-                            <option value="none"><?php _e( ' - Select your education - ', 'ktt' ); ?></option>
-                            <option value="1" <?= ($ext_profile['education'] == '1')? 'selected' : '' ?>><?php _e( 'Basic education', 'ktt' ); ?></option>
-                            <option value="2" <?= ($ext_profile['education'] == '2')? 'selected' : '' ?>><?php _e( 'Secondary education', 'ktt' ); ?></option>
-                            <option value="3" <?= ($ext_profile['education'] == '3')? 'selected' : '' ?>><?php _e( 'Vocational education', 'ktt' ); ?></option>
-                            <option value="4" <?= ($ext_profile['education'] == '4')? 'selected' : '' ?>><?php _e( 'Higher education', 'ktt' ); ?></option>
-                        </select>
-                    </p>
-
-                    <p class="form-row form-row-wide">
                         <label for="account_video"><?php _e( 'YouTube video link', 'ktt' ); ?> <span class="required">*</span></label>
                         <input type="text" class="input-text" name="account_video" id="account_video" value="<?php echo esc_attr( $ext_profile['video'] ); ?>" />
                     </p>
+                    <div class="clear"></div>
+
+
+                    <fieldset>
+                        <legend><?php _e( 'Education', 'ktt' ); ?></legend>
+
+                        <p class="form-row form-row-first">
+                            <label for="account_education"><?php _e( 'Education', 'ktt' ); ?></label>
+                            <select name="account_education" id="account_education">
+                                <option value="none"><?php _e( ' - Select your education - ', 'ktt' ); ?></option>
+                                <option value="1" <?= ($ext_profile['education'] == '1')? 'selected' : '' ?>><?php _e( 'Basic education', 'ktt' ); ?></option>
+                                <option value="2" <?= ($ext_profile['education'] == '2')? 'selected' : '' ?>><?php _e( 'Secondary education', 'ktt' ); ?></option>
+                                <option value="3" <?= ($ext_profile['education'] == '3')? 'selected' : '' ?>><?php _e( 'Vocational education', 'ktt' ); ?></option>
+                                <option value="4" <?= ($ext_profile['education'] == '4')? 'selected' : '' ?>><?php _e( 'Higher education', 'ktt' ); ?></option>
+                            </select>
+                        </p>
+
+                        <p class="form-row form-row-last">
+                            <label for="account_education_school"><?php _e( 'School name', 'ktt' ); ?></label>
+
+                            <input type="text" class="input-text" name="account_education_school" id="account_education_school" value="<?php echo esc_attr( $ext_profile['education_school'] ); ?>" />
+                        </p>
+                        <div class="clear"></div>
+
+                        <p class="form-row form-row-first">
+                            <label for="account_education_start"><?php _e( 'Start date', 'ktt' ); ?></label>
+
+                            <input type="text" class="input-text" name="account_education_start" id="account_education_start" value="<?php echo esc_attr( $ext_profile['education_start'] ); ?>" placeholder="mm.yyyy" />
+                        </p>
+
+                        <p class="form-row form-row-last">
+                            <label for="account_education_end"><?php _e( 'End date', 'ktt' ); ?></label>
+
+                            <input type="text" class="input-text" name="account_education_end" id="account_education_end" value="<?php echo esc_attr( $ext_profile['education_end'] ); ?>" placeholder="mm.yyyy" />
+                        </p>
+                        <div class="clear"></div>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><?php _e( 'Work experience', 'ktt' ); ?></legend>
+
+                        <div class="lb-elastic-container">
+                            <div class="lb-elastic-elements">
+
+                                <?php
+                                    $i = 0;
+                                    foreach( $experience as $exp){
+                                ?>
+                                    <div class="lb-elastic-element lb-input-margins">
+
+                                        <p class="form-row form-row-first">
+                                            <label for="account_work_exp_name"><?php _e( 'Company name', 'ktt' ); ?></label>
+                                            <input type="text" class="input-text" name="account_work_exp_name[]" id="account_work_exp_name" value="<?php echo esc_attr( $exp['name'] ); ?>" />
+                                            
+                                        </p>
+
+                                        <p class="form-row form-row-last">
+                                            <label for="account_work_exp_field"><?php _e( 'Work field', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_work_exp_field[]" id="account_work_exp_field" value="<?php echo esc_attr( $exp['field'] ); ?>" />
+                                        </p>
+                                        <div class="clear"></div>
+
+                                        <p class="form-row form-row-first">
+                                            <label for="account_work_exp_start"><?php _e( 'Start date', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_work_exp_start[]" id="account_work_exp_start" value="<?php echo esc_attr( $exp['start'] ); ?>" placeholder="mm.yyyy" />
+                                        </p>
+
+                                        <p class="form-row form-row-last">
+                                            <label for="account_work_exp_end"><?php _e( 'End date', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_work_exp_end[]" id="account_work_exp_end" value="<?php echo esc_attr( $exp['end'] ); ?>" placeholder="mm.yyyy" />
+                                        </p>
+                                        <div class="clear"></div>
+                                        <hr>
+
+                                    </div>
+                               
+                                <?php $i++; } ?>
+                        
+                            </div>
+                            <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                        </div>
+                        
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><?php _e( 'Organization', 'ktt' ); ?></legend>
+
+                        <div class="lb-elastic-container">
+                            <div class="lb-elastic-elements">
+
+                                <?php
+                                    $i = 0;
+                                    foreach( $organizations as $org){
+                                ?>
+                                    <div class="lb-elastic-element lb-input-margins">
+
+                                        <p class="form-row form-row-first">
+                                            <label for="account_org_name"><?php _e( 'Organization name', 'ktt' ); ?></label>
+                                            <input type="text" class="input-text" name="account_org_name[]" id="account_org_name" value="<?php echo esc_attr( $org['name'] ); ?>" />
+                                            
+                                        </p>
+
+                                        <p class="form-row form-row-last">
+                                            <label for="account_org_link"><?php _e( 'Link', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_org_link[]" id="account_org_link" value="<?php echo esc_attr( $org['link'] ); ?>" />
+                                        </p>
+                                        <div class="clear"></div>
+
+                                        <p class="form-row form-row-first">
+                                            <label for="account_org_start"><?php _e( 'Start date', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_org_start[]" id="account_org_start" value="<?php echo esc_attr( $org['start'] ); ?>" placeholder="mm.yyyy" />
+                                        </p>
+
+                                        <p class="form-row form-row-last">
+                                            <label for="account_org_end"><?php _e( 'End date', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_org_end[]" id="account_org_end" value="<?php echo esc_attr( $org['end'] ); ?>" placeholder="mm.yyyy" />
+                                        </p>
+                                        <div class="clear"></div>
+                                        <hr>
+
+                                    </div>
+                               
+                                <?php $i++; } ?>
+                        
+                            </div>
+                            <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                        </div>
+                        
+                    </fieldset>
+
+                    <fieldset>
+                        <legend><?php _e( 'Certificates', 'ktt' ); ?></legend>
+
+                        <div class="lb-elastic-container">
+                            <div class="lb-elastic-elements">
+
+                                <?php
+                                    $i = 0;
+                                    foreach( $certificates as $cert){
+                                ?>
+                                    <div class="lb-elastic-element lb-input-margins">
+
+                                        <p class="form-row form-row-first">
+                                            <label for="account_cert_name"><?php _e( 'Certification name', 'ktt' ); ?></label>
+                                            <input type="text" class="input-text" name="account_cert_name[]" id="account_cert_name" value="<?php echo esc_attr( $cert['name'] ); ?>" />
+                                            
+                                        </p>
+
+                                        <p class="form-row form-row-last">
+                                            <label for="account_cert_auth"><?php _e( 'Instructor / certificate authority', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_cert_auth[]" id="account_cert_auth" value="<?php echo esc_attr( $cert['auth'] ); ?>" />
+                                        </p>
+                                        <div class="clear"></div>
+
+                                        <p class="form-row form-row-first">
+                                            <label for="account_cert_start"><?php _e( 'Start date', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_cert_start[]" id="account_cert_start" value="<?php echo esc_attr( $cert['start'] ); ?>" placeholder="mm.yyyy" />
+                                        </p>
+
+                                        <p class="form-row form-row-last">
+                                            <label for="account_cert_end"><?php _e( 'End date', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_cert_end[]" id="account_cert_end" value="<?php echo esc_attr( $cert['end'] ); ?>" placeholder="mm.yyyy" />
+                                        </p>
+                                        <div class="clear"></div>
+
+                                        <p class="form-row form-row-first">
+                                            <label for="account_cert_link"><?php _e( 'Link', 'ktt' ); ?></label>
+
+                                            <input type="text" class="input-text" name="account_cert_link[]" id="account_cert_link" value="<?php echo esc_attr( $cert['link'] ); ?>" />
+                                        </p>
+
+                                        <p class="form-row form-row-last">
+                                            <label for="account_cert_file"><?php _e( 'File', 'ktt' ); ?></label>
+
+                                            <input type="hidden" class="input-text" name="account_cert_file[]" id="account_cert_file" value="<?= (int)$cert['file']; ?>" />
+
+                                            <a href="#remove" class="lb-file-placeholder <?php if( (int)$cert['file'] != 0){ echo 'active'; } ?>"></a>
+                                            <a href="#add-file" class="lb-add-doc <?php if( (int)$cert['file'] == 0){ echo 'active'; } ?>"> + <?php _e( 'Add document', 'ktt' ); ?></a>
+                                            <a href="#add-file" class="lb-remove-doc <?php if( (int)$cert['file'] != 0){ echo 'active'; } ?>"> + <?php _e( 'Remove document', 'ktt' ); ?></a>
+                                        </p>
+                                        <div class="clear"></div>
+                                        <hr>
+
+                                    </div>
+                               
+                                <?php $i++; } ?>
+                        
+                            </div>
+                            <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                        </div>
+                        
+                    </fieldset>
 
                     <fieldset>
                         <legend><?php _e( 'Address', 'ktt' ); ?></legend>
@@ -176,23 +372,6 @@ $user = get_user_by( 'id', get_current_user_id() );
                         </p>
 
                     </fieldset>
-
-                    <div class="lb-elastic-container">
-                        <div class="lb-elastic-elements">
-
-                           
-                                <div class="lb-elastic-element lb-input-margins">
-                                   
-                                    <input value="" name="dokan_work" placeholder="<?php _e( 'Workplace', 'ktt'); ?>" class="dokan-form-control" type="text">
-                                    <a href="#add-file" class="lb-add-doc"> + add file</a>
-                                   
-                                </div>
-                           
-                    
-                            
-                        </div>
-                        <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
-                    </div>
 
                     <fieldset>
                         <legend><?php _e( 'Password Change', 'dokan' ); ?></legend>
