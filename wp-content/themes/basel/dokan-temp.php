@@ -166,9 +166,3 @@ function lb_dokan_get_avatar( $avatar, $id_or_email, $size) {
 }
 
 add_filter( 'get_avatar_url', 'lb_dokan_get_avatar', 99, 5 );
-
-
-
-/**
- * Custom options page extension
- */

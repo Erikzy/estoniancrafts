@@ -94,6 +94,8 @@ if ( 'layout3' === $profile_layout ) {
                             <?php dokan_get_readable_seller_rating( $store_user->ID ); ?>
                         </li>
                     </ul>
+            
+                    <?php do_action( 'lb_store_after_rating', $store_user->ID ); ?>
 
                     <?php if ( $social_fields ) { ?>
                         <div class="store-social-wrapper">
