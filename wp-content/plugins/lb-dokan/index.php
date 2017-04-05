@@ -353,32 +353,57 @@ class lbDokan{
 
 	}
 
-	static function shop_profile_completeness($user_id){
-		// TODO: make sure everything is being counted
+	static function display_shop_profile_completeness($user_id){
 
-		$required_fields = ['company_name', 'company_nr', 'company_type', 'description', 'media', 'address'];
+		$required_fields = ['company_name', 'company_nr', 'company_type', 'description', 'media', 'address' => ['country', 'state', 'city', 'address', 'email', 'phone']];
 
 		$ext_profile = get_user_meta( $user_id, 'ktt_extended_settings', true );
+
 		$completeness = 0;
+        $object_count = count($required_fields, 1);
 
-		foreach($required_fields as $req_field){
+		foreach($required_fields as $key => $req_field){
 
-			if( isset($ext_profile[$req_field]) && !empty($ext_profile[$req_field]) ){
+            if( is_array($req_field) ){
 
-				if($req_field == 'media' || $req_field == 'address'){
+                if( isset($ext_profile[$key]) && is_array($ext_profile[$key]) ){
+
+                    $first_array = array_shift($ext_profile[$key]);
+            
+                    foreach ($first_array as $k => $value) {
+                    
+                        if($value != ''){
+                            $completeness += 100/$object_count;
+                        }
+
+                    }
+
+                }
+
+            } else if( isset($ext_profile[$req_field]) ){
+
+                if ($req_field == 'media'){
     				$media = array_diff($ext_profile[$req_field], array('http://', 'https://', ''));
 
     				if( count($media) ){
-    					$completeness += 100/count($required_fields);
+    					$completeness += 100/$object_count;
     				}
-				}else{
-					$completeness += 100/count($required_fields);
+
+				} else if( $ext_profile[$req_field] != '' && $ext_profile[$req_field] != 'none'){
+					$completeness += 100/$object_count;
 				}
 			}
 
 		}
 
-		return ceil($completeness);
+        $profile_info = get_user_meta( $user_id, 'dokan_profile_settings', true );
+        $banner = isset( $profile_info['banner'] ) ? absint( $profile_info['banner'] ) : 0;
+
+        if($banner){
+            $completeness += 100/$object_count;
+        }
+
+        self:: display_completeness_bar( ceil($completeness), __( 'Profile complete', 'ktt' ) );
 
 	}
 
