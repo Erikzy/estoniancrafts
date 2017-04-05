@@ -65,7 +65,7 @@
 ?>
 <?php do_action( 'dokan_settings_before_form', $current_user, $profile_info ); ?>
 
-    <?php lbDokan::display_shop_profile_completeness($current_user) ?>
+    <?php lbDokan::get_instance()->user->display_shop_profile_completeness($current_user) ?>
 
     <form method="post" id="store-form"  action="" class="dokan-form-horizontal">
 

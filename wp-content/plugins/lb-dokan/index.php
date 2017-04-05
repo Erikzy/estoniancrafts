@@ -5,15 +5,30 @@
  * Version: 1.0
  */
 
+require_once('lbDokanUser.php');
 
 class lbDokan{
 
+    private static $instance = null;
+    public $user;
+
+    public static function get_instance() {
+ 
+        if ( null == self::$instance ) {
+            self::$instance = new self;
+        }
+ 
+        return self::$instance;
+ 
+    }
+
 	function __construct(){
 
-		add_action( 'dokan_store_profile_saved', [$this, 'save_shop'] );
+        $this->user = new lbDokanUser();
+
         add_action( 'wp_enqueue_scripts', [$this, 'register_scripts'], 15 );
 		add_action( 'admin_enqueue_scripts', [$this, 'admin_register_scripts'], 15 );
-        add_action( 'woocommerce_save_account_details', [$this, 'save_user_details'] );
+        
         add_action( 'dokan_product_edit_after_options', [$this, 'add_product_options_form'] );
 		add_action( 'dokan_product_updated', [$this, 'product_updated'] );
 		
@@ -24,51 +39,6 @@ class lbDokan{
         add_action( 'wp_ajax_lb_tags', [$this, 'available_tags'] );
         add_action( 'dokan_process_product_meta', [$this, 'save_tags']);
 
-        add_action( 'user_register', [$this, 'user_register']);
-
-        add_action( 'woocommerce_edit_account_form', [$this, 'woocommerce_user_form'] );
-        add_action( 'woocommerce_save_account_details', [$this, 'woocommerce_user_save'] );
-
-        add_action( 'show_user_profile', [$this, 'admin_user_profile_fields'], 22 );
-        add_action( 'edit_user_profile', [$this, 'admin_user_profile_fields'], 22 );
-
-    }
-
-    function user_register($user_id){
-
-        // Just create the empty user_meta tags to avoid errors
-        $ext_settings = [];
-        $ext_settings['company_name'] = '';
-        $ext_settings['company_nr'] = '';
-        $ext_settings['company_type'] = '';
-        $ext_settings['description'] = '';
-        $ext_settings['media'] = [''];
-        $ext_settings['address'] = [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '']];
-
-        update_user_meta( $user_id, 'ktt_extended_settings', $ext_settings );
-
-
-        $ext_profile = [];
-        $ext_profile['mobile'] = '';
-        $ext_profile['skype'] = '';
-        $ext_profile['gender'] = '';
-        $ext_profile['dob'] = '';
-        $ext_profile['workyears'] = '';
-        $ext_profile['video'] = '';
-        $ext_profile['description'] = '';
-        $ext_profile['education'] = '';
-        $ext_profile['education_school'] = '';
-        $ext_profile['education_start'] = '';
-        $ext_profile['education_end'] = '';
-        $ext_profile['country'] = '';
-        $ext_profile['state'] = '';
-        $ext_profile['city'] = '';
-        $ext_profile['address'] = '';
-        $ext_profile['org'] = [['name' => '', 'link' => '', 'start' => '', 'end' => '']];
-        $ext_profile['work_exp'] = [['name' => '', 'field' => '', 'start' => '', 'end' => '']];
-        $ext_profile['certificates'] = [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']];
-
-        update_user_meta( $user_id, 'ktt_extended_profile', $ext_profile );
 
     }
 
@@ -180,299 +150,6 @@ class lbDokan{
         exit;
 
     }
-
-	function save_shop($store_id){
-
-		$ext_settings = get_user_meta( $store_id, 'ktt_extended_settings', true );
-
-    	$ext_settings['company_name'] = ! empty( $_POST['dokan_company_name'] ) ? wc_clean( $_POST['dokan_company_name'] ) : '';
-    	$ext_settings['company_nr'] = ! empty( $_POST['dokan_company_nr'] ) ? wc_clean( $_POST['dokan_company_nr'] ) : '';
-    	$ext_settings['company_type'] = ! empty( $_POST['dokan_company_type'] ) ? wc_clean( $_POST['dokan_company_type'] ) : '';
-    	$ext_settings['description'] = ! empty( $_POST['dokan_description'] ) ? wc_clean( $_POST['dokan_description'] ) : '';
-
-    	if( ! empty( $_POST['dokan_media'] ) ){
-
-    		$media = $_POST['dokan_media'];
-
-    		// Remove all empty strings first
-    		$media = array_diff($media, array('http://', 'https://', ''));
-
-	    	// Make sure all media liks have http:// or https:// in front of them
-	    	$media = array_map(function($element) {
-			        return (strpos($element, 'http://') !== 0 && strpos($element, 'https://') !== 0)? 'http://'.$element : $element;
-			    },
-			    $media
-			);
-
-			if(!count($media)){ $media = ['']; }
-    		
-    		$ext_settings['media'] = wc_clean( $media );
-    	}
-
-    	if( ! empty( $_POST['dokan_address'] ) ){
-
-    		$addresses = [];
-
-    		foreach ($_POST['dokan_address'] as $address) {
-    			
-    			$address_data_entered = array_diff($address, array('', ' '));
-    			if( count($address_data_entered) ) { 
-    				$addresses[] = $address; 
-    			}
-
-    		}
-
-    		if(!count($addresses)){ 
-    			$addresses = [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '']]; 
-    		}
-
-    		$ext_settings['address'] = wc_clean( array_values($addresses) );
-
-    	}
-
-	    update_user_meta( $store_id, 'ktt_extended_settings', $ext_settings );
-
-	}
-
-
-	function save_user_details( $user_ID ){
-
-		$user_avatar = get_user_meta( $user_ID, 'dokan_profile_settings', true );
-	    $user_avatar['gravatar'] = $_POST['dokan_gravatar'];
-	    update_user_meta( $user_ID, 'dokan_profile_settings', $user_avatar );
-
-		$ext_profile = get_user_meta( $user_ID, 'ktt_extended_profile', true );
-
-    	$ext_profile['mobile'] = ! empty( $_POST['account_mobile'] ) ? wc_clean( $_POST['account_mobile'] ) : '';
-    	$ext_profile['skype'] = ! empty( $_POST['account_skype'] ) ? wc_clean( $_POST['account_skype'] ) : '';
-    	$ext_profile['gender'] = ! empty( $_POST['account_gender'] ) ? wc_clean( $_POST['account_gender'] ) : '';
-    	$ext_profile['dob'] = ! empty( $_POST['account_dob'] ) ? wc_clean( $_POST['account_dob'] ) : '';
-    	$ext_profile['workyears'] = ! empty( $_POST['account_workyears'] ) ? wc_clean( $_POST['account_workyears'] ) : '';
-    	$ext_profile['video'] = ! empty( $_POST['account_video'] ) ? wc_clean( $_POST['account_video'] ) : '';
-    	$ext_profile['description'] = ! empty( $_POST['account_description'] ) ? wc_clean( $_POST['account_description'] ) : '';
-    	$ext_profile['education'] = ! empty( $_POST['account_education'] ) ? wc_clean( $_POST['account_education'] ) : '';
-    	$ext_profile['education_school'] = ! empty( $_POST['account_education_school'] ) ? wc_clean( $_POST['account_education_school'] ) : '';
-    	$ext_profile['education_start'] = ! empty( $_POST['account_education_start'] ) ? wc_clean( $_POST['account_education_start'] ) : '';
-    	$ext_profile['education_end'] = ! empty( $_POST['account_education_end'] ) ? wc_clean( $_POST['account_education_end'] ) : '';
-    	$ext_profile['country'] = ! empty( $_POST['account_location_country'] ) ? wc_clean( $_POST['account_location_country'] ) : '';
-    	$ext_profile['state'] = ! empty( $_POST['account_location_state'] ) ? wc_clean( $_POST['account_location_state'] ) : '';
-    	$ext_profile['city'] = ! empty( $_POST['account_location_city'] ) ? wc_clean( $_POST['account_location_city'] ) : '';
-    	$ext_profile['address'] = ! empty( $_POST['account_location_address'] ) ? wc_clean( $_POST['account_location_address'] ) : '';
-
-    	if( ! empty( $_POST['account_org_name'] ) ){
-
-    		$orgs = [];
-
-    		foreach ($_POST['account_org_name'] as $index => $org) {
-    			
-    			$org = ['name' => $org, 'link' => $_POST['account_org_link'][$index], 'start' => $_POST['account_org_start'][$index], 'end' => $_POST['account_org_end'][$index]];
-
-    			$data_entered = array_diff($org, array('', ' '));
-    			if( count($data_entered) ) { 
-    				$orgs[] = $org; 
-    			}
-
-    		}
-
-    		if(!count($orgs)){ 
-    			$orgs = [['name' => '', 'link' => '', 'start' => '', 'end' => '']]; 
-    		}
-
-    		$ext_profile['org'] = wc_clean( array_values($orgs) );
-
-    	}
-
-    	if( ! empty( $_POST['account_work_exp_name'] ) ){
-
-    		$exp_array = [];
-
-    		foreach ($_POST['account_work_exp_name'] as $index => $exp) {
-    			
-    			$exp = ['name' => $exp, 'field' => $_POST['account_work_exp_field'][$index], 'start' => $_POST['account_work_exp_start'][$index], 'end' => $_POST['account_work_exp_end'][$index]];
-
-    			$data_entered = array_diff($exp, array('', ' '));
-    			if( count($data_entered) ) { 
-    				$exp_array[] = $exp; 
-    			}
-
-    		}
-
-    		if(!count($exp_array)){ 
-    			$exp_array = [['name' => '', 'field' => '', 'start' => '', 'end' => '']]; 
-    		}
-
-    		$ext_profile['work_exp'] = wc_clean( array_values($exp_array) );
-
-    	}
-
-    	if( ! empty( $_POST['account_cert_name'] ) ){
-
-    		$cert_array = [];
-
-    		foreach ($_POST['account_cert_name'] as $index => $cert) {
-    			
-    			$link = $_POST['account_cert_link'][$index];
-
-    			if( $link != '' ){
-    				$link = ( strpos($link, 'http://') !== 0 && strpos($link, 'https://') !== 0 )? 'http://'.$link : $link;
-				}
-
-    			$cert = ['name' => $cert, 'auth' => $_POST['account_cert_auth'][$index], 'start' => $_POST['account_cert_start'][$index], 'end' => $_POST['account_cert_end'][$index], 'link' => $link, 'file' => $_POST['account_cert_file'][$index]];
-
-    			$data_entered = array_diff($cert, array('', ' '));
-    			if( count($data_entered) ) { 
-    				$cert_array[] = $cert; 
-    			}
-
-    		}
-
-    		if(!count($cert_array)){ 
-    			$cert_array = [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']]; 
-    		}
-
-    		$ext_profile['certificates'] = wc_clean( array_values($cert_array) );
-
-    	}
-
-	    update_user_meta( $user_ID, 'ktt_extended_profile', $ext_profile );
-
-	}
-
-    static function display_user_profile_completeness($user_id){
-
-		$required_fields = [
-            'mobile', 
-            'skype', 
-            'description', 
-            'gender', 
-            'dob', 
-            'workyears', 
-            'video', 
-            'education', 
-            'education_school', 
-            'education_start', 
-            'education_end', 
-            'work_exp' => [
-                'name',
-                'filed',
-                'start',
-                'end'
-            ],
-            'org' => [
-                'name', 
-                'link',
-                'start', 
-                'end'
-            ],
-            'certificates' => [
-                'name', 
-                'auth', 
-                'start', 
-                'end', 
-                'link', 
-                'file'
-            ],
-            'country', 
-            'state', 
-            'city', 
-            'address'
-        ];
-
-        $certificates  = isset( $ext_profile['certificates'] ) ? $ext_profile['certificates'] : [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']];
-
-		$ext_profile = get_user_meta( $user_id, 'ktt_extended_profile', true );
-		$completeness = 0;
-        $object_count = count($required_fields, 1)-2;
-
-		foreach($required_fields as $key => $req_field){
-
-            if( is_array($req_field) ){
-
-                if( isset($ext_profile[$key]) && is_array($ext_profile[$key]) ){
-
-                    $first_array = array_shift($ext_profile[$key]);
-            
-                    foreach ($first_array as $k => $value) {
-                    
-                        if($value != ''){
-                            $completeness += 100/$object_count;
-                        }
-
-                    }
-
-                }
-
-            } else if( isset($ext_profile[$req_field]) ){
-
-                if ( $ext_profile[$req_field] != '' && $ext_profile[$req_field] != 'none'){
-                    $completeness += 100/$object_count;
-                }
-            }
-
-		}
-
-        $user_avatar = get_user_meta( $user_id, 'dokan_profile_settings', true );
-        if( isset( $user_avatar['gravatar'] ) && $user_avatar['gravatar'] != 0){
-            $completeness += 100/$object_count;
-        }
-
-        self:: display_completeness_bar( ceil($completeness), __( 'Profile complete', 'ktt' ) );
-
-	}
-
-	static function display_shop_profile_completeness($user_id){
-
-		$required_fields = ['company_name', 'company_nr', 'company_type', 'description', 'media', 'address' => ['country', 'state', 'city', 'address', 'email', 'phone']];
-
-		$ext_profile = get_user_meta( $user_id, 'ktt_extended_settings', true );
-
-		$completeness = 0;
-        $object_count = count($required_fields, 1);
-
-		foreach($required_fields as $key => $req_field){
-
-            if( is_array($req_field) ){
-
-                if( isset($ext_profile[$key]) && is_array($ext_profile[$key]) ){
-
-                    $first_array = array_shift($ext_profile[$key]);
-            
-                    foreach ($first_array as $k => $value) {
-                    
-                        if($value != ''){
-                            $completeness += 100/$object_count;
-                        }
-
-                    }
-
-                }
-
-            } else if( isset($ext_profile[$req_field]) ){
-
-                if ($req_field == 'media'){
-    				$media = array_diff($ext_profile[$req_field], array('http://', 'https://', ''));
-
-    				if( count($media) ){
-    					$completeness += 100/$object_count;
-    				}
-
-				} else if( $ext_profile[$req_field] != '' && $ext_profile[$req_field] != 'none'){
-					$completeness += 100/$object_count;
-				}
-			}
-
-		}
-
-        $profile_info = get_user_meta( $user_id, 'dokan_profile_settings', true );
-        $banner = isset( $profile_info['banner'] ) ? absint( $profile_info['banner'] ) : 0;
-
-        if($banner){
-            $completeness += 100/$object_count;
-        }
-
-        self:: display_completeness_bar( ceil($completeness), __( 'Profile complete', 'ktt' ) );
-
-	}
 
     static function display_product_completeness($product_id){
 
@@ -975,83 +652,6 @@ class lbDokan{
         
     }
 
-    function woocommerce_user_form(){
-
-        $user = wp_get_current_user();
-        $user_id = $user->ID;
-
-        $roles = $user->roles;
-        if( in_array('seller', $roles) ){
-            return;
-        }
-
-        $phone = get_user_meta( $user_id, 'billing_phone', true );
-        $day = get_user_meta( $user_id, 'lb_dokan_dob_day', true );
-        $month = get_user_meta( $user_id, 'lb_dokan_dob_month', true );
-        $year = get_user_meta( $user_id, 'lb_dokan_dob_year', true );
-
-        $ext_profile = get_user_meta( $user_id, 'ktt_extended_profile', true );
-        $gender = ( isset($ext_profile['gender']) )? $ext_profile['gender'] : '';
-
-        ?>
-
-        <p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
-            <label for="billing_phone"><?= __('Phone', 'ktt') ?></label>
-            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_phone" id="billing_phone" value="<?= $phone ?>">
-        </p>
-        <p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
-            <label for="lb_dokan_gender"><?= __('Gender', 'ktt') ?></label>
-            <select name="account_gender">
-                <option value=""> - <?= __('select gender', 'ktt') ?> - </option>
-                <option value="male" <?= (($gender == 'male')? 'selected': '')?>><?= __('Male', 'ktt') ?></option>
-                <option value="female" <?= (($gender == 'female')? 'selected': '')?>><?= __('Female', 'ktt') ?></option>
-            </select>
-        </p>
-        <div class="break"></div>
-        <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-            <label for="lb_dokan_dob"><?= __('Date of birth', 'ktt') ?></label>
-            <input type="number" class="lb-small-nr" name="lb_dokan_dob_day" id="lb_dokan_dob" value="<?= $day ?>" placeholder="dd">
-            <input type="number" class="lb-small-nr" name="lb_dokan_dob_month" id="lb_dokan_dob" value="<?= $month ?>" placeholder="mm">
-            <input type="number" class="lb-med-nr" name="lb_dokan_dob_year" id="lb_dokan_dob" value="<?= $year ?>" placeholder="yyyy" required>
-        </p>
-        <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-            <label><?= __('Mailing list opt-in', 'ktt') ?></label>
-            <input type="checkbox" name="lb_dokan_mailinglist" value="1">
-        </p>
-        <?php
-        // TODO: integrate mailing list checkbox with the plugin in use
-    }
- 
-    function woocommerce_user_save( $user_id ) {
-
-        $user = wp_get_current_user();
-
-        $roles = $user->roles;
-        if( in_array('seller', $roles) ){
-            return;
-        }
-
-        $ext_profile = get_user_meta( $user_id, 'ktt_extended_profile', true );
-        $ext_profile['gender'] = ! empty( $_POST['account_gender'] ) ? wc_clean( $_POST['account_gender'] ) : '';
-        update_user_meta( $user_id, 'ktt_extended_profile', $ext_profile );
-
-        update_user_meta( $user_id, 'billing_phone', sanitize_text_field( $_POST[ 'billing_phone' ] ) );
-        update_user_meta( $user_id, 'lb_dokan_dob_day', sanitize_text_field( $_POST[ 'lb_dokan_dob_day' ] ) );
-        update_user_meta( $user_id, 'lb_dokan_dob_month', sanitize_text_field( $_POST[ 'lb_dokan_dob_month' ] ) );
-        update_user_meta( $user_id, 'lb_dokan_dob_year', sanitize_text_field( $_POST[ 'lb_dokan_dob_year' ] ) );
-
-    }
-
-
-    /**
-     * Display extended options on admin edit user page
-     */
-    function admin_user_profile_fields($user){
-
-        echo 'custom...';
-
-    }
-
 }
 
-new lbDokan();
+lbDokan::get_instance();

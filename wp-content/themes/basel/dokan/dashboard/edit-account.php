@@ -48,7 +48,7 @@ $user = get_user_by( 'id', get_current_user_id() );
 
             ?>
 
-            <?php lbDokan::display_user_profile_completeness($user->ID) ?>
+            <?php lbDokan::get_instance()->user->display_user_profile_completeness($user->ID) ?>
 
             <?php lbPdf::display_bcard_links(); ?>
 
