@@ -99,4 +99,38 @@ jQuery(document).ready(function($){
 	    }
 	});
 
+
+	/**
+	 * Unit conversion before form submission
+	 */
+	$(".dokan-product-edit-form").submit(function(){
+
+		var selected_unit = $(this).find('select[name="lb-dimension-unit"]').val();
+		var woocom_unit = $(this).find('input[name="lb-dimension-woocom-unit"]').val();
+
+		if( selected_unit != woocom_unit ){
+
+			$('#_length, #_width, #_height').each(function(){
+				$(this).val( convert_distance_unit( $(this).val(), selected_unit, woocom_unit ) );
+			});
+
+		}
+
+	});
+
+	function convert_distance_unit(number, unit_from, unit_to){
+
+		if ( isNaN(number) ){
+			return number;
+		}
+
+		var conversion = {
+			mm: 1,
+			cm: 10,
+			m: 1000
+		}
+
+		return number * conversion[unit_from] / conversion[unit_to];
+	}
+
 });
