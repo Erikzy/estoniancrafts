@@ -116,7 +116,7 @@ class EC_Filters
 			'id' => 'logout',
 			'title' => __( 'Logout', 'woocommerce' ),
 			'url' => get_site_url(null, 'customer-logout'),
-			'url_endpoint' => 'customer-logout'
+			'url_endpoint' => 'my-account/customer-logout'
 		));
 
 		return $menu;
