@@ -12,7 +12,8 @@ class lbDokan{
 
 		add_action( 'dokan_store_profile_saved', [$this, 'save_shop'] );
 		add_action( 'wp_enqueue_scripts', [$this, 'register_scripts'], 15 );
-		add_action( 'woocommerce_save_account_details', [$this, 'save_user_details'] );
+        add_action( 'woocommerce_save_account_details', [$this, 'save_user_details'] );
+		add_action( 'dokan_product_edit_after_options', [$this, 'add_product_options_form'] );
 		
 	}
 
@@ -186,6 +187,8 @@ class lbDokan{
 
 	static function user_profile_completeness($user_id){
 
+		// TODO: make sure everything is being counted
+
 		$required_fields = ['mobile', 'skype', 'gender', 'dob', 'workyears', 'video', 'description', 'education', 'country', 'state', 'city', 'address'];
 
 		$ext_profile = get_user_meta( $user_id, 'ktt_extended_profile', true );
@@ -204,6 +207,7 @@ class lbDokan{
 	}
 
 	static function shop_profile_completeness($user_id){
+		// TODO: make sure everything is being counted
 
 		$required_fields = ['company_name', 'company_nr', 'company_type', 'description', 'media', 'address'];
 
@@ -230,6 +234,225 @@ class lbDokan{
 		return floor($completeness);
 
 	}
+
+    /**
+     * Displays extended from fields whed adding/editing new products
+     */
+    function add_product_options_form(){
+        global $post;
+
+        $post_id = $post->ID;
+        ?>
+
+        <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
+            <div class="dokan-side-left">
+                <h2><?php _e( 'Käsitööturg options', 'ktt' ); ?></h2>
+            </div>
+
+            <div class="dokan-side-right">
+                <div class="dokan-form-group">
+
+                    <?php $is_fragile = ( $post->comment_status == 'open' ) ? 'yes' : 'no'; ?>
+
+                    <?php dokan_post_input_box( $post_id, '_enable_reviews', array('value' => $is_fragile, 'label' => __( 'Fragile cargo', 'ktt' ) ), 'checkbox' ); ?>
+                </div>
+
+            </div>
+        </div><!-- .lb-dokan-options -->
+
+
+        <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
+            <div class="dokan-side-left">
+                <h2><?php _e( 'Used materials', 'ktt' ); ?></h2>
+            </div>
+
+            <div class="dokan-side-right">
+                <div class="lb-elastic-container">
+                    <div class="lb-elastic-elements">
+
+                        <div class="lb-elastic-element lb-input-margins">
+
+                            <div class="dokan-form-group">
+                                <label class="form-label"><?php _e( 'Material country', 'ktt' ); ?></label>
+                                <?php lb_display_country_select(false, '_material_country[]') ?>
+                            </div>
+
+                            <div class="dokan-form-group">
+                                <label class="form-label"><?php _e( 'Material name', 'ktt' ); ?></label>
+                                <?php dokan_post_input_box( $post_id, '_material_name[]', array( 'placeholder' => __( 'Material name', 'ktt' ) ), 'text' ); ?>
+                            </div>
+
+                            <div class="dokan-form-group">
+                                <label class="form-label"><?php _e( 'Material contents', 'ktt' ); ?></label>
+                                <?php dokan_post_input_box( $post_id, '_material_contents[]', array( 'placeholder' => __( 'Material contents', 'ktt' ) ), 'text' ); ?>
+                            </div>
+
+                            <div class="dokan-form-group">
+                                <label class="form-label"><?php _e( 'Description', 'ktt' ); ?></label>
+                                <?php dokan_post_input_box( $post_id, '_material_desc[]', array( 'placeholder' => __( 'Description', 'ktt' ) ), 'text' ); ?>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                </div>
+            </div>
+
+        </div><!-- .lb-dokan-options -->
+
+        <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
+            <div class="dokan-side-left">
+                <h2><?php _e( 'Manufacturing info', 'ktt' ); ?></h2>
+            </div>
+
+            <div class="dokan-side-right">
+               
+                <div class="dokan-form-group">
+                    <label class="form-label"><?php _e( 'Manufacturing method', 'ktt' ); ?></label>
+                 
+                    <?php dokan_post_input_box( $post_id, '_manufacturing_method', array( 'options' => array(
+                                            'hand' => __( 'Hand crafted', 'ktt' ),
+                                            'machine' => __( 'Machined', 'ktt' )
+                                        ) ), 'select' ); ?>
+                
+                </div>
+
+                <div class="dokan-form-group">
+                    <label class="form-label"><?php _e( 'Manufacturing description', 'ktt' ); ?></label>
+                    <?php dokan_post_input_box( $post_id, '_manufacturing_desc', array( 'placeholder' => __( 'Manufacturing description', 'ktt' ) ), 'text' ); ?>
+                </div>
+
+                <div class="dokan-form-group">
+                    <label class="form-label"><?php _e( 'Manufacturing time', 'ktt' ); ?></label>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <?php dokan_post_input_box( $post_id, '_manufacturing_time', array( 'placeholder' => __( 'Manufacturing time', 'ktt' ) ), 'number' ); ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php dokan_post_input_box( $post_id, '_manufacturing_time_unit', array( 'options' => array(
+                                                'hour' => __( 'Hours', 'ktt' ),
+                                                'day' => __( 'Days', 'ktt' ),
+                                                'week' => __( 'Weeks', 'ktt' ),
+                                                'month' => __( 'Months', 'ktt' )
+                                            ) ), 'select' ); ?>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="dokan-form-group">
+                    <label class="form-label"><?php _e( 'Manufacturing quantity', 'ktt' ); ?></label>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <?php dokan_post_input_box( $post_id, '_manufacturing_qty', array( 'placeholder' => __( 'Manufacturing quantity', 'ktt' ) ), 'number' ); ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php dokan_post_input_box( $post_id, '_manufacturing_time_unit', array( 'options' => array(
+                                                'hour' => __( 'in an hour', 'ktt' ),
+                                                'day' => __( 'in a day', 'ktt' ),
+                                                'week' => __( 'in a week', 'ktt' ),
+                                                'month' => __( 'in a month', 'ktt' ),
+                                                'year' => __( 'in a year', 'ktt' )
+                                            ) ), 'select' ); ?>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div><!-- .lb-dokan-options -->
+
+        <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
+            <div class="dokan-side-left">
+                <h2><?php _e( 'Maintenance', 'ktt' ); ?></h2>
+            </div>
+
+            <div class="dokan-side-right">
+               
+                <div class="dokan-form-group">
+                    <label class="form-label"><?php _e( 'Maintenance info', 'ktt' ); ?></label>
+                 
+                    <?php wp_editor( 'ccxxx' , '_maintenance_info', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); ?>
+                
+                </div>
+
+
+            </div>
+
+        </div><!-- .lb-dokan-options -->
+
+        <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
+            <div class="dokan-side-left">
+                <h2><?php _e( 'External media links', 'ktt' ); ?></h2>
+            </div>
+
+            <div class="dokan-side-right">
+               
+                <div class="lb-elastic-container">
+                    <div class="lb-elastic-elements">
+
+                        <div class="lb-elastic-element lb-input-margins">
+                            <div class="dokan-form-group">
+                                <?php dokan_post_input_box( $post_id, '_media_link[]', array( 'placeholder' => 'http://' ), 'text' ); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                    
+                </div>
+
+            </div>
+
+        </div><!-- .lb-dokan-options -->
+
+        <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
+            <div class="dokan-side-left">
+                <h2><?php _e( 'Patent / Certificate', 'ktt' ); ?></h2>
+            </div>
+
+            <div class="dokan-side-right">
+               
+                <div class="lb-elastic-container">
+                    <div class="lb-elastic-elements">
+
+                        <div class="lb-elastic-element lb-input-margins">
+                            <div class="dokan-form-group">
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <?php dokan_post_input_box( $post_id, '_file_type', array( 'options' => array(
+                                                            'patent' => __( 'Patent', 'ktt' ),
+                                                            'trademark' => __( 'Trademark', 'ktt' ),
+                                                            'certificate' => __( 'Certificate', 'ktt' )
+                                                        ) ), 'select' ); ?>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="hidden" class="input-text" name="account_cert_file[]" id="account_cert_file" value="<?= (int)$cert['file']; ?>" />
+
+                                        <a href="#remove" class="lb-file-placeholder <?php if( (int)$cert['file'] != 0){ echo 'active'; } ?>"></a>
+                                        <a href="#add-file" class="lb-add-doc <?php if( (int)$cert['file'] == 0){ echo 'active'; } ?>"> + <?php _e( 'Add document', 'ktt' ); ?></a>
+                                        <a href="#add-file" class="lb-remove-doc <?php if( (int)$cert['file'] != 0){ echo 'active'; } ?>"> + <?php _e( 'Remove document', 'ktt' ); ?></a>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                    
+                </div>
+
+            </div>
+
+        </div><!-- .lb-dokan-options -->
+
+        <?php
+
+    }
 
 }
 

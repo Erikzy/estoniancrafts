@@ -8,7 +8,7 @@ function lb_display_country_select($selected = false, $field_name = 'account_loc
 
     ?>
 
-    <select class="input-text" name="<?= $field_name ?>">
+    <select class="input-text dokan-form-control" name="<?= $field_name ?>">
 
     	<option value=""> - <?php _e( 'select country', 'ktt' ); ?> - </option>
 

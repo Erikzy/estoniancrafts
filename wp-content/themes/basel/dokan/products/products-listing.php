@@ -57,6 +57,7 @@
                         <th><?php _e( 'Price', 'dokan' ); ?></th>
                         <th><?php _e( 'Type', 'dokan' ); ?></th>
                         <th><?php _e( 'Views', 'dokan' ); ?></th>
+                        <th><?php _e( 'PDF', 'ktt' ); ?></th>
                         <th><?php _e( 'Date', 'dokan' ); ?></th>
                     </tr>
                 </thead>
@@ -188,6 +189,9 @@
                                 </td>
                                 <td data-title="<?php _e( 'Views', 'dokan' ); ?>">
                                     <?php echo (int) get_post_meta( $post->ID, 'pageview', true ); ?>
+                                </td>
+                                <td data-title="<?php _e( 'PDF', 'ktt' ); ?>">
+                                    <a href="<?= site_url().'/lbpdf/pricetag-a4/?id='.$post->ID ?>" target="_blank">1</a>
                                 </td>
                                 <td class="post-date" data-title="<?php _e( 'Date', 'dokan' ); ?>">
                                     <?php
