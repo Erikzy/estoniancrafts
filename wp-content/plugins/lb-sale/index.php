@@ -19,7 +19,12 @@ class lbSale{
         add_action( 'publish_post', [$this, 'save_global'], 99 ); 
         add_action( 'woocommerce_scheduled_sales', [$this, 'before_wc_scheduled_sales'], 1 );
         add_action( 'woocommerce_scheduled_sales', [$this, 'after_wc_scheduled_sales'], 99 );
+        register_deactivation_hook( __FILE__, [$this, 'deactivate'] );
+        
+    }
 
+    function deactivate() {
+        wp_clear_scheduled_hook( 'lb_sale_recalculate' );
     }
 
     function schedule_cron(){

@@ -26,6 +26,9 @@ class lbDokan{
 
         add_action( 'user_register', [$this, 'user_register']);
 
+        add_action( 'woocommerce_edit_account_form', [$this, 'woocommerce_user_form'] );
+        add_action( 'woocommerce_save_account_details', [$this, 'woocommerce_user_save'] );
+
     }
 
     function user_register($user_id){
@@ -955,10 +958,10 @@ class lbDokan{
     public function add_box(){
 
         add_meta_box(
-            'lb-dokan-extra',                    // Unique ID
-            'Extra fields',                   // Box title
-            [$this, 'product_box_extra_fields'],       // Content callback
-            ['product']             // post type
+            'lb-dokan-extra',                           // Unique ID
+            'Extra fields',                             // Box title
+            [$this, 'product_box_extra_fields'],        // Content callback
+            ['product']                                 // post type
         );
 
     }
@@ -967,6 +970,54 @@ class lbDokan{
 
         $this->product_extended_form($post->ID);
         
+    }
+
+    function woocommerce_user_form(){
+
+        $user_id = get_current_user_id();
+        $phone = get_user_meta( $user_id, 'billing_phone', true );
+        $gender = get_user_meta( $user_id, 'lb_dokan_gender', true );
+        $day = get_user_meta( $user_id, 'lb_dokan_dob_day', true );
+        $month = get_user_meta( $user_id, 'lb_dokan_dob_month', true );
+        $year = get_user_meta( $user_id, 'lb_dokan_dob_year', true );
+
+        ?>
+
+        <p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
+            <label for="billing_phone"><?= __('Phone', 'ktt') ?></label>
+            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_phone" id="billing_phone" value="<?= $phone ?>">
+        </p>
+        <p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
+            <label for="lb_dokan_gender"><?= __('Gender', 'ktt') ?></label>
+            <select name="lb_dokan_gender">
+                <option value=""> - <?= __('select gender', 'ktt') ?> - </option>
+                <option value="male" <?= (($gender == 'male')? 'selected': '')?>><?= __('Male', 'ktt') ?></option>
+                <option value="female" <?= (($gender == 'female')? 'selected': '')?>><?= __('Female', 'ktt') ?></option>
+            </select>
+        </p>
+        <div class="break"></div>
+        <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+            <label for="lb_dokan_dob"><?= __('Date of birth', 'ktt') ?></label>
+            <input type="number" class="lb-small-nr" name="lb_dokan_dob_day" id="lb_dokan_dob" value="<?= $day ?>" placeholder="dd">
+            <input type="number" class="lb-small-nr" name="lb_dokan_dob_month" id="lb_dokan_dob" value="<?= $month ?>" placeholder="mm">
+            <input type="number" class="lb-med-nr" name="lb_dokan_dob_year" id="lb_dokan_dob" value="<?= $year ?>" placeholder="yyyy" required>
+        </p>
+        <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+            <label><?= __('Mailing list opt-in', 'ktt') ?></label>
+            <input type="checkbox" name="lb_dokan_mailinglist" value="1">
+        </p>
+        <?php
+        // TODO: integrate mailing list checkbox with the plugin in use
+    }
+ 
+    function woocommerce_user_save( $user_id ) {
+
+        update_user_meta( $user_id, 'billing_phone', sanitize_text_field( $_POST[ 'billing_phone' ] ) );
+        update_user_meta( $user_id, 'lb_dokan_gender', sanitize_text_field( $_POST[ 'lb_dokan_gender' ] ) );
+        update_user_meta( $user_id, 'lb_dokan_dob_day', sanitize_text_field( $_POST[ 'lb_dokan_dob_day' ] ) );
+        update_user_meta( $user_id, 'lb_dokan_dob_month', sanitize_text_field( $_POST[ 'lb_dokan_dob_month' ] ) );
+        update_user_meta( $user_id, 'lb_dokan_dob_year', sanitize_text_field( $_POST[ 'lb_dokan_dob_year' ] ) );
+
     }
 
 }
