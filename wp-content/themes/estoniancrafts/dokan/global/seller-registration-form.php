@@ -59,6 +59,8 @@
 
 <?php do_action( 'dokan_reg_form_field' ); ?>
 
+<input type="hidden" name="role" value="customer" />
+<?php /* Sven: disabled temporarily
 <p class="form-row form-group user-role">
     <label class="radio">
         <input type="radio" name="role" value="customer"<?php checked( $role, 'customer' ); ?>>
@@ -71,3 +73,4 @@
     </label>
     <?php do_action( 'dokan_registration_form_role', $role ); ?>
 </p>
+*/ ?>
