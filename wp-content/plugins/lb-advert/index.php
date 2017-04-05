@@ -13,7 +13,8 @@ class lbAdvert{
 	function __construct(){
 
         add_action( 'wp_enqueue_scripts', [$this, 'register_scripts'], 15 );
-        add_action( 'dokan_product_edit_after_options', [$this, 'display_date_selector'] );
+//        add_action( 'dokan_product_edit_after_options', [$this, 'display_date_selector'] );
+		add_action( 'ec_merchant_product_edit_other_options', [$this, 'ec_merchant_product_edit_other_options'] );
 
         add_filter( 'woocommerce_add_cart_item_data', [$this, 'add_cart_item'], 10, 2 );
         add_action( 'woocommerce_add_to_cart_validation', [$this, 'validate_add_to_cart'], 1, 5 );
@@ -40,14 +41,81 @@ class lbAdvert{
 
     }
     
-    function display_date_selector(){
+	/**
+	 * Display additional options in merchant product edit page under "Other options" section.
+	 */
+
+	function ec_merchant_product_edit_other_options()
+	{
+        global $post, $wpdb;
+
+        ?>
+                <div class="dokan-form-group">
+
+                    <?php 
+
+                    // Fetch days that are already full and disable them from                    
+                    $query = "SELECT COUNT(*) as date_count, display_date FROM ".$wpdb->prefix."lb_advert GROUP BY display_date";
+                    $items = $wpdb->get_results($query, ARRAY_A);
+
+                    $full_dates = [];
+
+                    if($items){
+
+                        foreach ($items as $item) {
+
+                            if($item['date_count'] >= $this->advertsPerDay){
+                                $full_dates[] = $item['display_date'];
+                            }
+
+                        }
+
+                    }
+
+                    $query = "SELECT display_date FROM ".$wpdb->prefix."lb_advert WHERE product_id = ".(int)$post->ID;
+                    $items = $wpdb->get_results($query, ARRAY_A);
+                    if($items){
+
+                        foreach ($items as $item) {
+
+                            $full_dates[] = $item['display_date'];
+                            
+                        }
+
+                    }
+
+                    $full_dates = array_values($full_dates);
+
+                    ?>
+
+                    <script>
+                        var lb_advert_disabled = <?php echo json_encode($full_dates) ?>;
+                    </script>
+                    
+                    <label class="form-label" for="lb-datepicker"><?php _e('Date when to show this product on the front page', 'ktt'); ?></label>
+
+                    <input type="text" id="lb-datepicker">
+
+                    <a href="<?= site_url() ?>?add-to-cart=<?= get_option( 'lb_ad_product_id' ) ?>&lb-advert-date=01.10.2017&lb-product=<?= $post->ID ?>" target="_blank" id="lb-advert-buy" data-baseurl="<?= site_url() ?>?add-to-cart=<?= get_option( 'lb_ad_product_id' ) ?>&lb-product=<?= $post->ID ?>" style="display: none;margin-top:1em;"><?= __( 'Add to front page', 'ktt' ) ?> - 10€</a>
+                </div>
+        <?php
+	}
+
+	function display_date_selector(){
         global $post, $wpdb;
 
         ?>
 
+		<?php // Frontpage ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
-                <h2><?php _e( 'Frontpage', 'ktt' ); ?></h2>
+                <h2>
+					<?php _e( 'Frontpage', 'ktt' ); ?>
+					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+				</h2>
+				<p>
+					<?php _e( 'Product Frontpage description', 'dokan' ); ?>
+				</p>
             </div>
 
             <div class="dokan-side-right">

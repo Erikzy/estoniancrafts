@@ -261,9 +261,17 @@ class lbDokan{
 
         ?>
 
+		<?php // Shipping options ?>
+<?php /* Sven: moved to Shipping & Tax section
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
-                <h2><?php _e( 'Shipping options', 'ktt' ); ?></h2>
+                <h2>
+					<?php _e( 'Shipping options', 'ktt' ); ?>
+					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+				</h2>
+				<p>
+					<?php _e( 'Shipping options', 'ktt' ); ?>
+				</p>
             </div>
 
             <div class="dokan-side-right">
@@ -276,11 +284,18 @@ class lbDokan{
 
             </div>
         </div><!-- .lb-dokan-options -->
+*/ ?>
 
-
+		<?php // Used materials ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
-                <h2><?php _e( 'Used materials', 'ktt' ); ?></h2>
+                <h2>
+					<?php _e( 'Used materials', 'ktt' ); ?>
+					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+				</h2>
+				<p>
+					<?php _e( 'Product Used materials description', 'ktt' ); ?>
+				</p>
             </div>
 
             <div class="dokan-side-right">
@@ -305,23 +320,20 @@ class lbDokan{
                             <div class="lb-elastic-element lb-input-margins">
 
                                 <div class="dokan-form-group">
-                                    <label class="form-label"><?php _e( 'Material country', 'ktt' ); ?></label>
-                                    <?php lb_display_country_select($material['country'], '_material_country[]') ?>
-                                </div>
-
-                                <div class="dokan-form-group">
                                     <label class="form-label"><?php _e( 'Material name', 'ktt' ); ?></label>
                                     <?php dokan_post_input_box( $post_id, '_material_name[]', array( 'placeholder' => __( 'Material name', 'ktt' ), 'value' => $material['name'] ), 'text' ); ?>
                                 </div>
-
                                 <div class="dokan-form-group">
                                     <label class="form-label"><?php _e( 'Material contents', 'ktt' ); ?></label>
                                     <?php dokan_post_input_box( $post_id, '_material_contents[]', array( 'placeholder' => __( 'Material contents', 'ktt' ), 'value' => $material['contents'] ), 'text' ); ?>
                                 </div>
-
                                 <div class="dokan-form-group">
                                     <label class="form-label"><?php _e( 'Description', 'ktt' ); ?></label>
                                     <?php dokan_post_input_box( $post_id, '_material_desc[]', array( 'placeholder' => __( 'Description', 'ktt' ), 'value' => $material['desc'] ), 'text' ); ?>
+                                </div>
+                                <div class="dokan-form-group">
+                                    <label class="form-label"><?php _e( 'Material country', 'ktt' ); ?></label>
+                                    <?php lb_display_country_select($material['country'], '_material_country[]') ?>
                                 </div>
                                 <hr>
                             </div>
@@ -337,9 +349,16 @@ class lbDokan{
 
         </div><!-- .lb-dokan-options -->
 
+		<?php // Manufacturing info ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
-                <h2><?php _e( 'Manufacturing info', 'ktt' ); ?></h2>
+                <h2>
+					<?php _e( 'Manufacturing info', 'ktt' ); ?>
+					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+				</h2>
+				<p>
+					<?php _e( 'Product Manufacturing info description', 'ktt' ); ?>
+				</p>
             </div>
 
             <div class="dokan-side-right">
@@ -403,9 +422,16 @@ class lbDokan{
 
         </div><!-- .lb-dokan-options -->
 
+		<?php // Maintenance ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
-                <h2><?php _e( 'Maintenance', 'ktt' ); ?></h2>
+                <h2>
+					<?php _e( 'Maintenance', 'ktt' ); ?>
+					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+				</h2>
+				<p>
+					<?php _e( 'Product Maintenance description', 'ktt' ); ?>
+				</p>
             </div>
 
             <div class="dokan-side-right">
@@ -422,9 +448,16 @@ class lbDokan{
 
         </div><!-- .lb-dokan-options -->
 
+		<?php // External media links ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
-                <h2><?php _e( 'External media links', 'ktt' ); ?></h2>
+                <h2>
+					<?php _e( 'External media links', 'ktt' ); ?>
+					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+				</h2>
+				<p>
+					<?php _e( 'Product External media links description', 'ktt' ); ?>
+				</p>
             </div>
 
             <div class="dokan-side-right">
@@ -465,9 +498,16 @@ class lbDokan{
 
         </div><!-- .lb-dokan-options -->
 
+		<?php // Patents / Certificates ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
-                <h2><?php _e( 'Patent / Certificate', 'ktt' ); ?></h2>
+                <h2>
+					<?php _e( 'Patent / Certificate', 'ktt' ); ?>
+					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+				</h2>
+				<p>
+					<?php _e( 'Product Patent & Certificate description', 'ktt' ); ?>
+				</p>
             </div>
 
             <div class="dokan-side-right">

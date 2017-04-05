@@ -39,7 +39,11 @@ class Dokan_Template_Main {
      * @return void
      */
     public function get_dashboard_side_navigation() {
-    	global $wp;
+
+		// Sven: Removed dokan default navigation.
+		return;
+
+		global $wp;
     	$request = $wp->request;
     	$active = explode('/', $request );
     	unset( $active[0] );
