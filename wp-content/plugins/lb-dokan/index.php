@@ -11,22 +11,34 @@ class lbDokan{
 	function __construct(){
 
 		add_action( 'dokan_store_profile_saved', [$this, 'save_shop'] );
-		add_action( 'wp_enqueue_scripts', [$this, 'register_scripts'], 15 );
+        add_action( 'wp_enqueue_scripts', [$this, 'register_scripts'], 15 );
+		add_action( 'admin_enqueue_scripts', [$this, 'admin_register_scripts'], 15 );
         add_action( 'woocommerce_save_account_details', [$this, 'save_user_details'] );
         add_action( 'dokan_product_edit_after_options', [$this, 'add_product_options_form'] );
 		add_action( 'dokan_product_updated', [$this, 'product_updated'] );
 		
-	}
+        add_action( 'add_meta_boxes', [$this, 'add_box'] );
+        add_action( 'save_post', [$this, 'save_post'] );
+
+    }
 
 	function register_scripts(){
-		global $wp_scripts;
+        global $wp_scripts;
 
-		if (!is_admin()) {
-			wp_enqueue_style( 'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.css', false,'1.0','all');
-			wp_enqueue_script( 'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.js', false,'1.0','all');
-		}
+        if (!is_admin()) {
+            wp_enqueue_style( 'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.css', false,'1.0','all');
+            wp_enqueue_script( 'lb-dokan', plugin_dir_url( __FILE__ ) . 'dokan.js', false,'1.0','all');
+        }
 
-	}
+    }
+
+    function admin_register_scripts(){
+        global $wp_scripts;
+
+        wp_enqueue_style( 'lb-dokan-admin', plugin_dir_url( __FILE__ ) . 'dokan-admin.css', false,'1.0','all');
+        wp_enqueue_script( 'lb-dokan-admin', plugin_dir_url( __FILE__ ) . 'dokan-admin.js', false,'1.0','all');
+        
+    }
 
 	function save_shop($store_id){
 
@@ -76,7 +88,6 @@ class lbDokan{
     		$ext_settings['address'] = wc_clean( array_values($addresses) );
 
     	}
-
 
 	    update_user_meta( $store_id, 'ktt_extended_settings', $ext_settings );
 
@@ -237,12 +248,17 @@ class lbDokan{
 	}
 
     /**
-     * Displays extended from fields whed adding/editing new products
+     * Displays extended form fields whed adding/editing new products
      */
     function add_product_options_form(){
         global $post;
+        
+        $this->product_extended_form($post->ID);
 
-        $post_id = $post->ID;
+    }
+
+    function product_extended_form($post_id){
+
         ?>
 
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
@@ -600,6 +616,44 @@ class lbDokan{
 
         }
 
+    }
+
+
+
+
+    function save_post( $post_id ){
+        
+        $post_type = get_post_type($post_id);
+
+        // If this isn't a product, don't try to save fields
+        if ( "product" != $post_type ) return;
+
+        $this->product_updated( $post_id );
+        
+        // Make sure your data is set before trying to save it
+        // if( isset( $_POST['lb_instagram_hashtag'] ) )
+        //     update_post_meta( $post_id, '_lb_instagram_hashtag', $_POST['lb_instagram_hashtag'] );
+
+        // if( isset( $_POST['lb_instagram_desc'] ) )
+        //     update_post_meta( $post_id, '_lb_instagram_desc', $_POST['lb_instagram_desc'] );
+
+    }
+
+    public function add_box(){
+
+        add_meta_box(
+            'lb-dokan-extra',                    // Unique ID
+            'Extra fields',                   // Box title
+            [$this, 'product_box_extra_fields'],       // Content callback
+            ['product']             // post type
+        );
+
+    }
+
+    function product_box_extra_fields( $post ) {
+
+        $this->product_extended_form($post->ID);
+        
     }
 
 }

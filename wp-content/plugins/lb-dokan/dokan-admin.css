@@ -1,0 +1,46 @@
+#poststuff .dokan-side-left h2{
+	font-size: 1.3em;
+	margin:2em 0 .5em 0;
+	padding:0;
+}
+#lb-dokan-extra .form-label{
+	font-size: 0.8em;
+	font-weight: 700;
+	display: block;
+	margin-top:1em;
+}
+#lb-dokan-extra input[type="text"], #lb-dokan-extra input[type="number"], #lb-dokan-extra select{
+	min-width: 50%;
+}
+
+
+
+/**
+ * lb-elastic (1-n text fields)
+ */
+.lb-elastic-element{
+  margin-bottom: .5em;
+}
+.lb-input-margins input, .lb-input-margins select{
+  margin-bottom: .5em;
+}
+
+
+/**
+ * Add a file placeholder
+ */
+.lb-file-placeholder{
+  display: none;
+  width: 40px;
+  height: 40px;
+  background:url(file.png) no-repeat center center;
+}
+.lb-file-placeholder.active{
+  display: inline-block;
+}
+.lb-remove-doc, .lb-add-doc{
+  display: none;
+}
+.lb-remove-doc.active, .lb-add-doc.active{
+  display:inline;
+}
