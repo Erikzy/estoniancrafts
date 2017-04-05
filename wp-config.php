@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'estoniancrafts.localhost.com');
+define('DB_NAME', '');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', '');
 
 /** MySQL database password */
 define('DB_PASSWORD', '');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -79,6 +79,7 @@ $table_prefix  = 'ktt_';
  */
 define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
+define('WP_MEMORY_LIMIT', '256M');
 
 /* That's all, stop editing! Happy blogging. */
 
