@@ -95,16 +95,16 @@ class EC_Filters
 				'id' => 'edit-account',
 				'title' => __( 'Edit Account', 'woocommerce' ),
 				'url' => get_site_url(null, 'edit-account'),
-				'url_endpoint' => 'edit-account'
+				'url_endpoint' => 'my-account/edit-account'
 			));
 			$menu->items[] = new EC_MenuItem(array(
-				'id' => 'orders',
+				'id' => 'my-account/orders',
 				'title' => __( 'My Orders', 'ktt' ),
 				'url' => get_site_url(null, 'orders'),
-				'url_endpoint' => 'orders'
+				'url_endpoint' => 'my-account/orders'
 			));
 //			$menu->items[] = new EC_MenuItem(array(
-//				'id' => 'student',
+//				'id' => 'my-account/student',
 //				'title' => __( 'Student pages', 'ktt' ),
 //				'url' => get_site_url(null, 'student'),
 //				'url_endpoint' => 'student'
