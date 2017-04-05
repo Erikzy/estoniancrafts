@@ -18,7 +18,7 @@ class lbDokan{
 		add_action( 'dokan_product_updated', [$this, 'product_updated'] );
 		
         add_action( 'add_meta_boxes', [$this, 'add_box'] );
-        add_action( 'save_post', [$this, 'save_post'] );
+        add_action( 'save_post_product', [$this, 'save_post'] );
 
         add_action( 'wp_head', [$this, 'wp_head'] );
         add_action( 'wp_ajax_lb_tags', [$this, 'available_tags'] );
@@ -139,25 +139,27 @@ class lbDokan{
 
         $tag_ids = [];
 
-        foreach ($_POST['lb-tags'] as $tag) {
-            
-            if( strpos($tag, 'lb-new-') === 0 ){
-                $new_tag = str_replace('lb-new-', '', $tag);
+        if( isset($_POST['lb-tags']) && count($_POST['lb-tags']) ){
+            foreach ($_POST['lb-tags'] as $tag) {
+                
+                if( strpos($tag, 'lb-new-') === 0 ){
+                    $new_tag = str_replace('lb-new-', '', $tag);
 
-                // Create a new tag
-                $new_term = wp_insert_term(
-                    $new_tag,
-                    'product_tag'
-                );
+                    // Create a new tag
+                    $new_term = wp_insert_term(
+                        $new_tag,
+                        'product_tag'
+                    );
 
-                if(!is_wp_error($new_term)){
-                    $tag_ids[] = (int)$new_term['term_id'];
+                    if(!is_wp_error($new_term)){
+                        $tag_ids[] = (int)$new_term['term_id'];
+                    }
+
+                }else{
+                    $tag_ids[] = (int)$tag;
                 }
-
-            }else{
-                $tag_ids[] = (int)$tag;
+            
             }
-        
         }
 
         wp_set_object_terms( $post_id, $tag_ids, 'product_tag', false );
@@ -827,12 +829,9 @@ class lbDokan{
 
     function save_post( $post_id ){
         
-        $post_type = get_post_type($post_id);
-
-        // If this isn't a product, don't try to save fields
-        if ( "product" != $post_type ) return;
-
-        $this->product_updated( $post_id );
+        if( ! ( wp_is_post_revision( $post_id) || wp_is_post_autosave( $post_id ) ) ) {
+            $this->product_updated( $post_id );
+        }
 
     }
 
