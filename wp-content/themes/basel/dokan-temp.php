@@ -70,7 +70,7 @@ function lb_redirect_to_checkout($url) {
     $product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_REQUEST['add-to-cart'] ) );
     
     // Only redirect the product IDs in the array to the checkout
-    if ( in_array( $product_id, array( 135 ) ) ) {
+    if ( in_array( $product_id, array( 135, 137 ) ) ) {
         $url = WC()->cart->get_checkout_url();
     }
 
@@ -79,7 +79,7 @@ function lb_redirect_to_checkout($url) {
 add_filter( 'woocommerce_add_cart_item_data', 'lb_empty_cart', 10,  3);
 function lb_empty_cart( $cart_item_data, $product_id, $variation_id ) {
 
-    if ( in_array( $product_id, array( 135 ) ) ) {
+    if ( in_array( $product_id, array( 135, 137 ) ) ) {
         WC()->cart->empty_cart(); 
     }
 
