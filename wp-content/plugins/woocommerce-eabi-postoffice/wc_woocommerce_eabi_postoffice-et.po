@@ -1,0 +1,352 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: E-Abi WooCommerce Postoffice\n"
+"POT-Creation-Date: 2015-07-18 18:35+0200\n"
+"PO-Revision-Date: 2016-04-29 01:44+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: et\n"
+
+msgid "All remaining countries"
+msgstr "Kõik ülejäänud riigid"
+
+msgid "Country"
+msgstr "Riik"
+
+msgid "Base Price"
+msgstr "Baashind"
+
+msgid "Kg Price"
+msgstr "Kg hind"
+
+msgid "Free shipping from"
+msgstr "Tasuta tarne alates"
+
+msgid "Pickup Location"
+msgstr "Valitud korjepunkt"
+
+msgid "Edit"
+msgstr "Muuda"
+
+msgid "Chosen pickup location"
+msgstr "Valitud korjepunkt"
+
+msgid " -- select -- "
+msgstr " -- vali -- "
+
+msgid "Please select a pickup location"
+msgstr "Palun vali sobilik korjepunkt"
+
+msgid "Please refresh the page and select a different pickup location"
+msgstr "Palun lae käesolev leht uuesti ja vali uuesti korjepunkt"
+
+msgid "Pickup location changed to %s"
+msgstr "Korjepunkt muudetud. Uueks korjepunktis on: %s"
+
+msgid "Add new"
+msgstr "Lisa uus"
+
+msgid "Delete"
+msgstr "Kustuta"
+
+msgid "Upgraded to version %s"
+msgstr "Uuendatud versioonile %s"
+
+msgid "Defintions missing for country %s"
+msgstr "Deklaratsioonid puuduvad riigile %s"
+
+msgid "Choose pickup location"
+msgstr "Vali korjepunkt"
+
+msgid "Method availability"
+msgstr "Tarneviisi saadavus"
+
+msgid "All allowed countries"
+msgstr "Kõik lubatud riigid"
+
+msgid "Specific Countries"
+msgstr "Valitud riigid"
+
+msgid "Calculation Type"
+msgstr "Arvutusmetoodika"
+
+msgid "Per Order - charge shipping for the entire order as a whole"
+msgstr ""
+"Tellimuse kohta - tarne maksumus on suurima leitud kapisuuruse maksumus"
+
+msgid "Per Item - charge shipping for each item individually"
+msgstr ""
+"Eseme kohta - Iga leitud eseme kohta leitakse vastava kapisuuruse maksumus "
+"ja saadud maksumused summeeritakse tarne hinnaks"
+
+msgid "Tax Status"
+msgstr "Maksustamine"
+
+msgid "Taxable"
+msgstr "Maksustatav"
+
+msgid "None"
+msgstr "Puudub"
+
+msgid "Shipping Fee"
+msgstr "Tarne maksumus"
+
+msgid ""
+"Shipping fee excluding tax. Enter an amount, e.g. 2.50. (used, when fee for "
+"country is not found)"
+msgstr ""
+"Tarne maksumus ilma käibemaksuta. Sisesta summa, näiteks: 2.50. (kasutusel "
+"siis kui riigispetsiifilist hinda ei leita)"
+
+msgid "Shipping Fee per country"
+msgstr "Tarne maksumus riigi kohta"
+
+msgid "Enable free shipping"
+msgstr "Luba tasuta tarne"
+
+msgid "Allow free shipping"
+msgstr "Luba tasuta tarne"
+
+msgid "Free shipping from cart subtotal"
+msgstr "Tasuta tarne alates ostukorvi vahesummast (käibemaksuta)"
+
+msgid ""
+"Free shipping if cart subtotal is equal or greater than amount specified"
+msgstr ""
+"Tasuta tarne kui ostukorvi väärtus on võrdne või suurem siin lahtris "
+"määratud hinnast (käibemaksuta)"
+
+msgid "Free shipping from cart quantity"
+msgstr "Tasuta tarne alates esemete arvust ostukorvis"
+
+msgid ""
+"Free shipping if number of items in cart is equal or greater than amount "
+"specified. Empty or 0 disables this setting"
+msgstr ""
+"Tasuta tarne, kui ostukorvis on vähemalt siin lahtris määratud eset. Tühi "
+"või 0 keelab käesoleva seadistuse"
+
+msgid "Show pickup points names"
+msgstr "Näita korjepunktide nimesid"
+
+msgid "Only pickup points names"
+msgstr "Ainult korjepunktide nimetused"
+
+msgid "Pickup points names with description and address"
+msgstr "Korjepunktide nimetused koos kirjelduse ja aadressiga"
+
+msgid ""
+"Pickup points from larger cities displayed first, rest sorted alphabetically"
+msgstr ""
+"Korjepunktid suurematest linnadest eespool ja ülejäänud tähestiku järjekorras"
+
+msgid "Pickup points sorted alphabetically"
+msgstr "Tähestiku järjekorras"
+
+msgid "Maximum weight allowed"
+msgstr "Maksimaalne lubatud saadetise kaal"
+
+msgid "Minimum weight allowed"
+msgstr "Minimaalne lubatud saadetise kaal"
+
+msgid ""
+"If cart contains product over the weight, this shipping method is not "
+"available"
+msgstr ""
+"Kui ostukorv sisaldab toodet, mis kaalub rohkem, siis käesolev tarne "
+"keelatakse"
+
+msgid ""
+"If cart contains product less than the weight, this shipping method is not "
+"available"
+msgstr ""
+"Kui ostukorv sisaldab toodet, mis kaalub vähem, siis käesolev tarne "
+"keelatakse"
+
+msgid "Enable/Disable"
+msgstr "Luba/Keela"
+
+msgid "Enable this shipping method"
+msgstr "Luba käesolev tarneviis"
+
+msgid "Method Title"
+msgstr "Tarneviisi nimetus"
+
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+"Siin saab määrata tarneviisi nimetuse, mida klient näeb ostu sooritamisel."
+
+msgid "Sort pickup points by priority"
+msgstr "Korjepunktide sorteerimine"
+
+msgid "Shipping fee excluding tax. Enter an amount, e.g. 2.50."
+msgstr "Tarne hind ilma käibemaksuta. Näiteks: 2.50."
+
+msgid "Enable this method from cart subtotal"
+msgstr "Luba käesolev tarneviis alates ostukorvi väärtusest (käibemaksuta)"
+
+msgid "Empty or 0 disables this setting"
+msgstr "Tühi lahter või 0 keelab käesoleva seadistuse"
+
+msgid "Affects Cities/Counties grouping in pickup point select menu"
+msgstr "Mõjutab Linnade/Maakondade grupeerimist korjepunktide rippmenüüs"
+
+msgid "Hide group titles"
+msgstr "Peida gruppide pealkirjad"
+
+msgid "City selection menu width in pixels"
+msgstr "Linnade rippmenüü laius pikslites"
+
+msgid "Pickup points selection menu width in pixels"
+msgstr "Korjepunktide rippmenüü laius pikslites"
+
+msgid "Show all pickup points in a single select menu"
+msgstr "Kuva kõik korjepunktid ühes rippmenüüs"
+
+msgid ""
+"When disabled, user has to pick city/county first and then a suitable pickup "
+"point from previously selected city/county"
+msgstr ""
+"Keelatud seadistuse puhul peab klient enne valima sobiva linna/maakonna ja "
+"seejärel sobiva korjepunkti eelnevalt valitud linnast/maakonnast"
+
+msgid "Amount of free boxes per each paid box"
+msgstr "Tasuta tarnepakkide arv iga tasulise paki kohta"
+
+msgid "Used only when calcultion type is *Per Item*"
+msgstr "Kasutusel vaid siis kui tarnehinna arvutusmetoodika on *Eseme kohta*"
+
+msgid "Register Licence"
+msgstr "Registreeri litsents"
+
+msgid "Service"
+msgstr "Teenus"
+
+msgid "Status"
+msgstr "Olek"
+
+msgid "Activated"
+msgstr "Aktiveeritud"
+
+msgid "Disabled"
+msgstr "Keelatud"
+
+msgid "Licence"
+msgstr "Litsents"
+
+msgid "Status of current plugins licence"
+msgstr "Käesoleva plugina litsentsi staatus"
+
+msgid "Demo"
+msgstr "Demo"
+
+msgid "(expires: %s)"
+msgstr "(aegub: %s)"
+
+msgid "Show"
+msgstr "Kuva"
+
+msgid "Copy your licence key into the field below and save settings"
+msgstr "Kopeeri oma litsentsivõti allolevasse lahtrisse ja salvesta seaded"
+
+msgid "Get your licence key by clicking <a href=\"%s\">here</a>"
+msgstr "Litsentsivõtme saad klikates <a href=\"%s\">siia</a>"
+
+msgid ""
+"Look up your order confirmation e-mail for smoother registration process!"
+msgstr "Sujuvamaks registreerimiseks otsige üles oma tellimuse kinnituse meil!"
+
+msgid "Field %s was probably manipulated"
+msgstr "Välja '%s' tõenäoliselt manipuleeriti"
+
+msgid "Enable logging"
+msgstr "Luba faili logimine"
+
+msgid "Setting"
+msgstr "Seadistus"
+
+msgid "Value"
+msgstr "Väärtus"
+
+msgid "Country specific settings overrides"
+msgstr "Sihtriigi spetsiifilised seadistuste ülekirjutused"
+
+msgid "Support from e-mail %s"
+msgstr "Tehnilise toe e-posti aadress %s"
+
+msgid "Licence OK for following plugins: %s"
+msgstr "Litsents OK pluginatele: %s"
+
+msgid "Download"
+msgstr "Lae alla"
+
+msgid "Log file was not found or cannot be read"
+msgstr "Logi faili ei leitud või ei õnnestunud lugeda"
+
+msgid "Cleared log file %s"
+msgstr "Tühjendati logi fail %s"
+
+msgid "There was an error while processing request"
+msgstr "Rakenduses toimus tehniline tõrge"
+
+msgid "Clear log file"
+msgstr "Tühjenda logi fail"
+
+msgid "Currency"
+msgstr "Valuuta"
+
+msgid ""
+"Send order confirmation with barcode to following e-mails after parcel data "
+"send success"
+msgstr ""
+"Saada tellimuse kinnitus ribakoodiga järgnevatele e-posti aadressidele peale "
+"edukat pakiandmete saatmist"
+
+msgid "When to send parcel data"
+msgstr "Paki andmete saatmise hetk"
+
+msgid "After order payment"
+msgstr "Automaatselt peale tellimuse tasutuks märkimist"
+
+msgid "After order shipping"
+msgstr "Automaatselt peale tellimuse täitmist"
+
+msgid "I will send data myself by clicking on the button"
+msgstr "Manuaalselt nupule vajutades"
+
+msgid "Send shipment data to server"
+msgstr "Saada paki andmed serverisse"
+
+msgid "Print packing slip"
+msgstr "Trüki pakisilt"
+
+msgid "Shipment data sent to server. Barcodes are: %s"
+msgstr "Paki andmed saadetud serverisse. Ribakoodid on: %s"
+
+msgid "Shipment data sending to server failed. Message: %s"
+msgstr "Paki saatmine serverisse ebaõnnestus. Vastus serverist: %s"
+
+msgid "No barcodes were returned"
+msgstr "Triipkoode ei tagastatud"
+
+msgid "No packing slip found"
+msgstr "Pakisilti ei leitud"
+
+msgid "Packing slip printing failed. Message: %s"
+msgstr "Pakisildi trükkimine ebaõnnestus. Vastus serverist: %s"
+
+msgid "Maximum weight limits are calculated per each item"
+msgstr "Maksimaalne lubatud kaal arvutatakse iga eseme kohta eraldi"
+
+msgid ""
+"When disabled, then weight of whole cart is checked against maximum weight "
+"limit"
+msgstr ""
+"Kui keelatud, siis maksimaalne lubatud kaal kontrollitakse terve ostukorvi "
+"kaalu vastu"

@@ -1,0 +1,69 @@
+/*
+   *  (c) 2016 Aktsiamaailm OÜ - Kõik õigused kaitstud
+ *  Litsentsitingimused on saadaval http://www.e-abi.ee/litsentsitingimused
+ *  
+ *  (c) 2016 Aktsiamaailm OÜ - All rights reserved
+ *  Licence terms are available at http://en.e-abi.ee/litsentsitingimused
+ *  
+
+*/
+/* 
+    Created on : 21.07.2015, 0:06:32
+    Author     : Matis
+*/
+
+.eabi-form-licence-status .eabi-postoffice-green {
+    color: #2db573 !important;
+/*    color: rgba(45, 181, 115, 0.58) !important;*/
+    
+}
+
+.eabi-form-licence-status .eabi-postoffice-yellow {
+    color: #f0c514 !important;
+/*    color: rgba(240, 197, 20, 0.58) !important;*/
+}
+
+.eabi-form-licence-status .eabi-postoffice-red {
+    color: #e84c3d !important;
+/*    color: rgba(232, 76, 61, 0.58) !important;*/
+}
+
+.eabi-form-licence-status .eabi-register-licence {
+    background: #f1f1f1 none repeat scroll 0 0;
+    padding: 0 20px;
+}
+
+.eabi-form-licence-status {
+    padding: 0 20px;
+    width: 80%;
+}
+
+.order_actions .eabi_autosend_data ,
+.order_actions .eabi_print_slip {
+  display: block;
+  height: 2em !important;
+  padding: 0 !important;
+  position: relative;
+  text-indent: -9999px;
+  width: 2em;
+  background-image: url('../images/eabi-icon.png');
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+.order_actions .eabi_autosend_data {
+  background-image: url('../images/autosend-icon.png');
+}
+.order_actions .eabi_autosend_data:hover ,
+.order_actions .eabi_autosend_data:focus {
+  background-image: url('../images/autosend-icon.png');
+}
+
+.order_actions .eabi_print_slip {
+  background-image: url('../images/print-packing-slip-icon.png');
+}
+.order_actions .eabi_print_slip:hover ,
+.order_actions .eabi_print_slip:focus {
+  background-image: url('../images/print-packing-slip-icon.png');
+}
+

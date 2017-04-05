@@ -1,0 +1,348 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: E-Abi WooCommerce Postoffice\n"
+"POT-Creation-Date: 2015-07-18 18:35+0200\n"
+"PO-Revision-Date: 2016-04-29 01:44+0100\n"
+"Last-Translator: \n"
+"Language-Team: Aktsiamaailm OÜ <info@e-abi.ee>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: en\n"
+
+msgid "All remaining countries"
+msgstr "All remaining countries"
+
+msgid "Country"
+msgstr "Country"
+
+msgid "Base Price"
+msgstr "Base Price"
+
+msgid "Kg Price"
+msgstr "Kg Price"
+
+msgid "Free shipping from"
+msgstr "Free shipping from"
+
+msgid "Pickup Location"
+msgstr "Pickup Location"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Chosen pickup location"
+msgstr "Chosen pickup location"
+
+msgid " -- select -- "
+msgstr " -- select -- "
+
+msgid "Please select a pickup location"
+msgstr "Please select a pickup location"
+
+msgid "Please refresh the page and select a different pickup location"
+msgstr "Please refresh the page and select a different pickup location"
+
+msgid "Pickup location changed to %s"
+msgstr "Pickup location changed to %s"
+
+msgid "Add new"
+msgstr "Add new"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Upgraded to version %s"
+msgstr "Upgraded to version %s"
+
+msgid "Defintions missing for country %s"
+msgstr "Defintions missing for country %s"
+
+msgid "Choose pickup location"
+msgstr "Choose pickup location"
+
+msgid "Method availability"
+msgstr "Method availability"
+
+msgid "All allowed countries"
+msgstr "All allowed countries"
+
+msgid "Specific Countries"
+msgstr "Specific Countries"
+
+msgid "Calculation Type"
+msgstr "Calculation Type"
+
+msgid "Per Order - charge shipping for the entire order as a whole"
+msgstr "Per Order - charge shipping for the entire order as a whole"
+
+msgid "Per Item - charge shipping for each item individually"
+msgstr "Per Item - charge shipping for each item individually"
+
+msgid "Tax Status"
+msgstr "Tax Status"
+
+msgid "Taxable"
+msgstr "Taxable"
+
+msgid "None"
+msgstr "None"
+
+msgid "Shipping Fee"
+msgstr "Shipping Fee"
+
+msgid ""
+"Shipping fee excluding tax. Enter an amount, e.g. 2.50. (used, when fee for "
+"country is not found)"
+msgstr ""
+"Shipping fee excluding tax. Enter an amount, e.g. 2.50. (used, when fee for "
+"country is not found)"
+
+msgid "Shipping Fee per country"
+msgstr "Shipping Fee per country"
+
+msgid "Enable free shipping"
+msgstr "Enable free shipping"
+
+msgid "Allow free shipping"
+msgstr "Allow free shipping"
+
+msgid "Free shipping from cart subtotal"
+msgstr "Free shipping from cart subtotal"
+
+msgid ""
+"Free shipping if cart subtotal is equal or greater than amount specified"
+msgstr ""
+"Free shipping if cart subtotal is equal or greater than amount specified"
+
+msgid "Free shipping from cart quantity"
+msgstr "Free shipping from cart quantity"
+
+msgid ""
+"Free shipping if number of items in cart is equal or greater than amount "
+"specified. Empty or 0 disables this setting"
+msgstr ""
+"Free shipping if number of items in cart is equal or greater than amount "
+"specified. Empty or 0 disables this setting"
+
+msgid "Show pickup points names"
+msgstr "Show pickup points names"
+
+msgid "Only pickup points names"
+msgstr "Only pickup points names"
+
+msgid "Pickup points names with description and address"
+msgstr "Pickup points names with description and address"
+
+msgid ""
+"Pickup points from larger cities displayed first, rest sorted alphabetically"
+msgstr ""
+"Pickup points from larger cities displayed first, rest sorted alphabetically"
+
+msgid "Pickup points sorted alphabetically"
+msgstr "Pickup points sorted alphabetically"
+
+msgid "Maximum weight allowed"
+msgstr "Maximum weight allowed"
+
+msgid "Minimum weight allowed"
+msgstr "Minimum weight allowed"
+
+msgid ""
+"If cart contains product over the weight, this shipping method is not "
+"available"
+msgstr ""
+"If cart contains product over the weight, this shipping method is not "
+"available"
+
+msgid ""
+"If cart contains product less than the weight, this shipping method is not "
+"available"
+msgstr ""
+"If cart contains product less than the weight, this shipping method is not "
+"available"
+
+msgid "Enable/Disable"
+msgstr "Enable/Disable"
+
+msgid "Enable this shipping method"
+msgstr "Enable this shipping method"
+
+msgid "Method Title"
+msgstr "Method Title"
+
+msgid "This controls the title which the user sees during checkout."
+msgstr "This controls the title which the user sees during checkout."
+
+msgid "Sort pickup points by priority"
+msgstr "Sort pickup points by priority"
+
+msgid "Shipping fee excluding tax. Enter an amount, e.g. 2.50."
+msgstr "Shipping fee excluding tax. Enter an amount, e.g. 2.50."
+
+msgid "Enable this method from cart subtotal"
+msgstr "Enable this method from cart subtotal"
+
+msgid "Empty or 0 disables this setting"
+msgstr "Empty or 0 disables this setting"
+
+msgid "Affects Cities/Counties grouping in pickup point select menu"
+msgstr "Affects Cities/Counties grouping in pickup point select menu"
+
+msgid "Hide group titles"
+msgstr "Hide group titles"
+
+msgid "City selection menu width in pixels"
+msgstr "City selection menu width in pixels"
+
+msgid "Pickup points selection menu width in pixels"
+msgstr "Pickup points selection menu width in pixels"
+
+msgid "Show all pickup points in a single select menu"
+msgstr "Show all pickup points in a single select menu"
+
+msgid ""
+"When disabled, user has to pick city/county first and then a suitable pickup "
+"point from previously selected city/county"
+msgstr ""
+"When disabled, user has to pick city/county first and then a suitable pickup "
+"point from previously selected city/county"
+
+msgid "Amount of free boxes per each paid box"
+msgstr "Amount of free boxes per each paid box"
+
+msgid "Used only when calcultion type is *Per Item*"
+msgstr "Used only when calcultion type is *Per Item*"
+
+msgid "Register Licence"
+msgstr "Register Licence"
+
+msgid "Service"
+msgstr "Service"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Activated"
+msgstr "Activated"
+
+msgid "Disabled"
+msgstr "Disabled"
+
+msgid "Licence"
+msgstr "Licence"
+
+msgid "Status of current plugins licence"
+msgstr "Status of current plugins licence"
+
+msgid "Demo"
+msgstr "Demo"
+
+msgid "(expires: %s)"
+msgstr "(expires: %s)"
+
+msgid "Show"
+msgstr "Show"
+
+msgid "Copy your licence key into the field below and save settings"
+msgstr "Copy your licence key into the field below and save settings"
+
+msgid "Get your licence key by clicking <a href=\"%s\">here</a>"
+msgstr "Get your licence key by clicking <a href=\"%s\">here</a>"
+
+msgid ""
+"Look up your order confirmation e-mail for smoother registration process!"
+msgstr ""
+"Look up your order confirmation e-mail for smoother registration process!"
+
+msgid "Field %s was probably manipulated"
+msgstr "Field %s was probably manipulated"
+
+msgid "Enable logging"
+msgstr "Enable logging"
+
+msgid "Setting"
+msgstr "Setting"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Country specific settings overrides"
+msgstr "Country specific settings overrides"
+
+msgid "Support from e-mail %s"
+msgstr "Support from e-mail %s"
+
+msgid "Licence OK for following plugins: %s"
+msgstr "Licence OK for following plugins: %s"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Log file was not found or cannot be read"
+msgstr "Log file was not found or cannot be read"
+
+msgid "Cleared log file %s"
+msgstr "Cleared log file %s"
+
+msgid "There was an error while processing request"
+msgstr "There was an error while processing request"
+
+msgid "Clear log file"
+msgstr "Clear log file"
+
+msgid "Currency"
+msgstr "Currency"
+
+msgid ""
+"Send order confirmation with barcode to following e-mails after parcel data "
+"send success"
+msgstr ""
+"Send order confirmation with barcode to following e-mails after parcel data "
+"send success"
+
+msgid "When to send parcel data"
+msgstr "When to send parcel data"
+
+msgid "After order payment"
+msgstr "After order payment"
+
+msgid "After order shipping"
+msgstr "After order shipping"
+
+msgid "I will send data myself by clicking on the button"
+msgstr "I will send data myself by clicking on the button"
+
+msgid "Send shipment data to server"
+msgstr "Send shipment data to server"
+
+msgid "Print packing slip"
+msgstr "Print packing slip"
+
+msgid "Shipment data sent to server. Barcodes are: %s"
+msgstr "Shipment data sent to server. Barcodes are: %s"
+
+msgid "Shipment data sending to server failed. Message: %s"
+msgstr "Shipment data sending to server failed. Message: %s"
+
+msgid "No barcodes were returned"
+msgstr "No barcodes were returned"
+
+msgid "No packing slip found"
+msgstr "No packing slip found"
+
+msgid "Packing slip printing failed. Message: %s"
+msgstr "Packing slip printing failed. Message: %s"
+
+msgid "Maximum weight limits are calculated per each item"
+msgstr "Maximum weight limits are calculated per each item"
+
+msgid ""
+"When disabled, then weight of whole cart is checked against maximum weight "
+"limit"
+msgstr ""
+"When disabled, then weight of whole cart is checked against maximum weight "
+"limit"
