@@ -14,60 +14,62 @@ $student_post->post_content = '';
 
 $shared_emails = [''];
 
-if( isset($_POST['lb_student_save']) ){
+// if( isset($_POST['lb_student_save']) ){
 
-	if( !check_admin_referer( 'edit_student_post_'.(int)$_POST['lb_student_id'] ) ){
+// 	if( !check_admin_referer( 'edit_student_post_'.(int)$_POST['lb_student_id'] ) ){
 
-		lbStudent::$errors[] = __( "Wp_nonce is not valid.", 'ktt' );
+// 		lbStudent::$errors[] = __( "Wp_nonce is not valid.", 'ktt' );
 
-	}
+// 	}
 
-	if( isset($_POST['lb_student_id']) && $_POST['lb_student_id'] != 0 ){
+// 	if( isset($_POST['lb_student_id']) && $_POST['lb_student_id'] != 0 ){
 
-		$student_p = lbStudent::can_edit_post($_POST['lb_student_id']);
-		if ( $student_p )  {
-			$student_post->ID = $student_p->ID;
-		}else{
-			lbStudent::$errors[] = __( "Can't modify the post with that ID", 'ktt' );
-		}
+// 		$student_p = lbStudent::can_edit_post($_POST['lb_student_id']);
+// 		if ( $student_p )  {
+// 			$student_post->ID = $student_p->ID;
+// 		}else{
+// 			lbStudent::$errors[] = __( "Can't modify the post with that ID", 'ktt' );
+// 		}
 
-	}
+// 	}
 
-	$student_post->post_title   = sanitize_text_field($_POST['lb_student_title']);
-	$student_post->post_content = wp_kses_post($_POST['lb_student_content']);
+// 	$student_post->post_title   = sanitize_text_field($_POST['lb_student_title']);
+// 	$student_post->post_content = wp_kses_post($_POST['lb_student_content']);
 
-	if(strlen($student_post->post_title) < 3){
-    	lbStudent::$errors[] = __( 'Please enter product title', 'ktt' );
-	}
-	if(strlen($student_post->post_content) < 3){
-    	lbStudent::$errors[] = __( 'Please enter product content', 'ktt' );
-	}
+// 	if(strlen($student_post->post_title) < 3){
+//     	lbStudent::$errors[] = __( 'Please enter product title', 'ktt' );
+// 	}
+// 	if(strlen($student_post->post_content) < 3){
+//     	lbStudent::$errors[] = __( 'Please enter product content', 'ktt' );
+// 	}
 
-	if( count(lbStudent::$errors) == 0 ){
-		$post_array = [
-			'ID' => $student_post->ID, 
-	        'post_content' => $student_post->post_content,
-	        'post_title' => $student_post->post_title,
-	        'post_status' => 'publish',
-	        'post_type' => 'student_product',
-	        'comment_status' => 'open',
-	        'ping_status' => 'closed'
-		];
+// 	if( count(lbStudent::$errors) == 0 ){
+// 		$post_array = [
+// 			'ID' => $student_post->ID, 
+// 	        'post_content' => $student_post->post_content,
+// 	        'post_title' => $student_post->post_title,
+// 	        'post_status' => 'publish',
+// 	        'post_type' => 'student_product',
+// 	        'comment_status' => 'open',
+// 	        'ping_status' => 'closed'
+// 		];
 
-		$insert_id = wp_insert_post( $post_array );
+// 		$insert_id = wp_insert_post( $post_array );
 
-		if( !$insert_id){
-    		lbStudent::$errors[] = __( 'Something went wrong. Try again', 'ktt' );
-		}else{
-			$student_post->ID = $insert_id;
+// 		if( !$insert_id){
+//     		lbStudent::$errors[] = __( 'Something went wrong. Try again', 'ktt' );
+// 		}else{
 
-			lbStudent::share_post($student_post->ID, $_POST['_shared_email']);
+// 			$student_post->ID = $insert_id;
+// 			lbStudent::share_post($student_post->ID, $_POST['_shared_email']);
+// 			$redirect = 'http://example.com/redirect-example-url.html';
+//         	wp_redirect($redirect);
+        	
+// 		}
 
-		}
+// 	}
 
-	}
-
-}
+// }
 
 if( isset($_GET['edit']) ){
 

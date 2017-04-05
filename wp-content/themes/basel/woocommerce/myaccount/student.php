@@ -33,6 +33,13 @@ $query = new WP_Query($args);
 <div class="dokan-dashboard-content dokan-product-listing">
 	<article class="dokan-product-listing-area">
 
+		<?php if ( isset( $_GET['message'] ) && $_GET['message'] == 'success') { ?>
+            <div class="dokan-message">
+                <button type="button" class="dokan-close" data-dismiss="alert">&times;</button>
+                <strong><?php _e( 'Success!', 'dokan' ); ?></strong> <?php _e( 'The product has been saved successfully.', 'dokan' ); ?>
+            </div>
+        <?php } ?>
+
 		<div class="product-listing-top dokan-clearfix" style="padding-bottom:1em;">
             <span class="dokan-add-product-link">
                 <a href="<?= site_url() ?>/my-account/student/?action=new" class="dokan-btn dokan-btn-theme dokan-right"><i class="fa fa-briefcase">&nbsp;</i> Add new product</a>
