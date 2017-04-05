@@ -1,0 +1,31 @@
+/* General form styles */
+form .ec-form-field-description {
+	color: #aaaaaa;
+}
+
+/* Dokan dashboard rewrites */
+.dokan-dashboard .dokan-dashboard-wrap {
+	overflow: visible;
+}
+.dokan-dashboard .dokan-dashboard-content {
+	float: none;
+	overflow: visible;
+	width: 100%;
+}
+
+/* Product edit page */
+.product-edit-new-container .dokan-side-right {
+	display: none;
+}
+.product-edit-new-container .dokan-product-shipping-tax .dokan-side-right {
+	display: block;
+}
+.product-edit-new-container .dokan-product-shipping-tax .ec-extras label {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+/* Helpers */
+.ec-hidden {
+	display: none;
+}
