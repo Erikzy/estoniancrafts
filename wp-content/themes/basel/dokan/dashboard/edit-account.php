@@ -47,7 +47,7 @@ $user = get_user_by( 'id', get_current_user_id() );
 
 
             ?>
-            <div class="dokan-panel dokan-panel-default dokan-profile-completeness">
+            <div class="dokan-panel dokan-panel-default">
                 <div class="dokan-panel-body">
                 <div class="dokan-progress lb-progress">
                     <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::user_profile_completeness($user->ID) ?>%">
@@ -66,7 +66,12 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                 <form class="edit-account" action="" method="post">
 
-                    <?php do_action( 'woocommerce_edit_account_form_start' ); ?>
+                    <?php do_action( 'woocommerce_edit_account_form_start' ); 
+                    
+                        $user_avatar = get_user_meta( $user->ID, 'dokan_profile_settings', true );
+                        $user->gravatar = isset( $user_avatar['gravatar'] ) ? $user_avatar['gravatar'] : 0;
+
+                    ?>
 
                     <?php $gravatar  = isset( $user->gravatar ) ? absint( $user->gravatar ) : 0; ?>
                     <div class="dokan-form-group">

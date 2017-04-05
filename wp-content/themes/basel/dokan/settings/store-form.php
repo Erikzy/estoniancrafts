@@ -65,7 +65,7 @@
 ?>
 <?php do_action( 'dokan_settings_before_form', $current_user, $profile_info ); ?>
     
-    <div class="dokan-panel dokan-panel-default dokan-profile-completeness">
+    <div class="dokan-panel dokan-panel-default">
         <div class="dokan-panel-body">
         <div class="dokan-progress lb-progress">
             <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::shop_profile_completeness($current_user) ?>%">
@@ -77,6 +77,7 @@
     <form method="post" id="store-form"  action="" class="dokan-form-horizontal">
 
         <?php wp_nonce_field( 'dokan_store_settings_nonce' ); ?>
+        <input type="hidden" value="<?php echo $gravatar; ?>" name="dokan_gravatar">
 
         <?php if ( ! empty( $dokan_appearance['store_header_template'] ) && 'layout3' !== $dokan_appearance['store_header_template'] ): ?>
             <div class="dokan-banner">
@@ -117,14 +118,6 @@
 
             <?php do_action( 'dokan_settings_after_banner', $current_user, $profile_info ); ?>
         <?php endif; ?>
-
-        <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_store_id"><?php _e( 'Store Logo', 'ktt' ); ?></label>
-
-            <div class="dokan-w5 dokan-text-left">
-                <a href="#add-img" class="lb-add-img"> + add image</a>
-            </div>
-        </div>
 
         <?php $user = get_user_by( 'id', get_current_user_id() ); ?>
 

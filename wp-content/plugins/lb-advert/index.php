@@ -24,6 +24,8 @@ class lbAdvert{
         add_action( 'woocommerce_payment_complete', [$this, 'order_complete'] );
         add_action( 'woocommerce_order_status_completed', [$this, 'order_complete'] );
 
+        add_action( 'admin_init', [$this, 'settings_api_init'] );
+
     }
 
     function register_scripts(){
@@ -95,7 +97,7 @@ class lbAdvert{
 
                     <input type="text" id="lb-datepicker" placeholder="<?php _e('Date when to show this product on the front page', 'ktt'); ?>">
 
-                    <a href="<?= site_url() ?>?add-to-cart=137&lb-advert-date=01.10.2017&lb-product=<?= $post->ID ?>" target="_blank" id="lb-advert-buy" data-baseurl="<?= site_url() ?>?add-to-cart=137&lb-product=<?= $post->ID ?>" style="display: none;margin-top:1em;"><?= __( 'Add to front page', 'ktt' ) ?> - 10€</a>
+                    <a href="<?= site_url() ?>?add-to-cart=<?= get_option( 'lb_ad_product_id' ) ?>&lb-advert-date=01.10.2017&lb-product=<?= $post->ID ?>" target="_blank" id="lb-advert-buy" data-baseurl="<?= site_url() ?>?add-to-cart=<?= get_option( 'lb_ad_product_id' ) ?>&lb-product=<?= $post->ID ?>" style="display: none;margin-top:1em;"><?= __( 'Add to front page', 'ktt' ) ?> - 10€</a>
                 </div>
 
             </div>
@@ -112,7 +114,7 @@ class lbAdvert{
     function validate_add_to_cart( $passed, $product_id, $quantity, $variation_id = 0, $variations = [] ) {
         global $woocommerce, $wpdb;
 
-        if( $product_id == 137 ){
+        if( $product_id == get_option( 'lb_ad_product_id' ) ){
 
             $date = date( 'Y-m-d', strtotime($_GET['lb-advert-date']) );
 
@@ -193,7 +195,7 @@ class lbAdvert{
 
         foreach( $order_item as $product ) {
 
-            if( $product['product_id'] == 137 ){
+            if( $product['product_id'] == get_option( 'lb_ad_product_id' ) ){
                 $this->add_to_advert_queue($product['item_meta']['lb_advert_product'][0], $order_id, $product['item_meta']['lb_advert_date'][0] );
             }
             
@@ -240,6 +242,56 @@ class lbAdvert{
             echo do_shortcode('[products ids="'.implode(', ', $ids).'"]');
         }
 
+    }
+
+
+    /**
+     * Settings page data inputs
+     */
+    function settings_api_init() {
+        // Add the section to reading settings so we can add our
+        // fields to it
+        add_settings_section(
+            'lb_setting_section',
+            'Paid products for shopowners',
+            '',
+            'reading'
+        );
+
+        // Add the field with the names and function to use for our new
+        // settings, put it in our new section
+        add_settings_field(
+            'lb_ad_product_id',
+            'Frontpage ad product ID',
+            [$this, 'ad_id_callback_function'],
+            'reading',
+            'lb_setting_section'
+        );
+
+        add_settings_field(
+            'lb_bcard_product_id',
+            'Businesscard product ID',
+            [$this, 'bcard_id_callback_function'],
+            'reading',
+            'lb_setting_section'
+        );
+
+        // Register our setting so that $_POST handling is done for us and
+        // our callback function just has to echo the <input>
+        register_setting( 'reading', 'lb_ad_product_id' );
+        register_setting( 'reading', 'lb_bcard_product_id' );
+    }
+
+    function setting_section_callback_function() {
+        echo '<p>Paid products for shopowners</p>';
+    }
+
+    function ad_id_callback_function() {
+        echo '<input name="lb_ad_product_id" id="lb_ad_product_id" type="number" value="'.get_option( 'lb_ad_product_id' ).'" />';
+    }
+
+    function bcard_id_callback_function() {
+        echo '<input name="lb_bcard_product_id" id="lb_bcard_product_id" type="number" value="'.get_option( 'lb_bcard_product_id' ).'" />';
     }
 
 }

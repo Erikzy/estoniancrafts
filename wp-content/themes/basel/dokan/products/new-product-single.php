@@ -131,7 +131,7 @@ if ( ! $from_shortcode ) {
             </h1>
         </header><!-- .entry-header -->
 
-        <div class="dokan-panel dokan-panel-default dokan-profile-completeness">
+        <div class="dokan-panel dokan-panel-default">
             <div class="dokan-panel-body">
             <div class="dokan-progress lb-progress">
                 <div class="dokan-progress-bar dokan-progress-bar-info dokan-progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= lbDokan::product_completeness($post_id) ?>%">

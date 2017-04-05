@@ -28,6 +28,12 @@
   margin-bottom: 0;
 }
 
+/**
+ * Hide dokan default progress bar
+ */
+.dokan-profile-completeness{
+  display: none;
+}
 
 
 /**

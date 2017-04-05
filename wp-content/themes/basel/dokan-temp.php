@@ -70,7 +70,7 @@ function lb_redirect_to_checkout($url) {
     $product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_REQUEST['add-to-cart'] ) );
     
     // Only redirect the product IDs in the array to the checkout
-    if ( in_array( $product_id, array( 135, 137 ) ) ) {
+    if ( in_array( $product_id, array( get_option( 'lb_bcard_product_id' ), get_option( 'lb_ad_product_id' ) ) ) ) {
         $url = WC()->cart->get_checkout_url();
     }
 
@@ -79,7 +79,7 @@ function lb_redirect_to_checkout($url) {
 add_filter( 'woocommerce_add_cart_item_data', 'lb_empty_cart', 10,  3);
 function lb_empty_cart( $cart_item_data, $product_id, $variation_id ) {
 
-    if ( in_array( $product_id, array( 135, 137 ) ) ) {
+    if ( in_array( $product_id, array( get_option( 'lb_bcard_product_id' ), get_option( 'lb_ad_product_id' ) ) ) ) {
         WC()->cart->empty_cart(); 
     }
 
@@ -132,3 +132,43 @@ function wpleet_rewrite_catch()
     }
 }
 
+
+
+
+function lb_dokan_get_avatar( $avatar, $id_or_email, $size) {
+
+    if ( is_numeric( $id_or_email ) ) {
+        $user = get_user_by( 'id', $id_or_email );
+    } elseif ( is_object( $id_or_email ) ) {
+        if ( $id_or_email->user_id != '0' ) {
+            $user = get_user_by( 'id', $id_or_email->user_id );
+        } else {
+            return $avatar;
+        }
+    } else {
+        $user = get_user_by( 'email', $id_or_email );
+    }
+
+    if ( !$user ) {
+        return $avatar;
+    }
+
+    // see if there is a user_avatar meta field
+    $user_avatar = get_user_meta( $user->ID, 'dokan_profile_settings', true );
+    $gravatar_id = isset( $user_avatar['gravatar'] ) ? $user_avatar['gravatar'] : 0;
+    if ( empty( $gravatar_id ) ) {
+        return $avatar;
+    }
+
+    $avater_url = wp_get_attachment_thumb_url( $gravatar_id );
+
+    return $avater_url;
+}
+
+add_filter( 'get_avatar_url', 'lb_dokan_get_avatar', 99, 5 );
+
+
+
+/**
+ * Custom options page extension
+ */
