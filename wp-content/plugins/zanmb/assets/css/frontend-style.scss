@@ -1,0 +1,30 @@
+/* Zan Menu Builder frontend style */
+.zmb-menu {
+  .sub-menu {
+    .bg-right-bottom {
+      background-position: right bottom !important;
+    }
+    &.no-padding {
+      padding: 0 !important;
+    }
+  }
+  > li {
+    &.zmb-custom-item {
+      &.zmb-social, &.zmb-icon, &.logo {
+        font-size:0;
+        .zmb-social-icon {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.border-circle {
+  border-radius: 50%;
+}
+
+.zanmb-custom-menu-wrap {
+  display: inline-block;
+}

@@ -1,0 +1,45 @@
+@mixin small_title {
+  margin-top: 0;
+  margin-bottom: 7px;
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+$default_bg_color: #49c3df;
+@mixin sub_menu_default_effect {
+  -webkit-transition: opacity 0.4s ease, -webkit-transform 0.4s ease, visibility 0.4s linear 0s;
+  -moz-transition: opacity 0.4s ease, -moz-transform 0.4s ease, visibility 0.4s linear 0s;
+  -ms-transition: opacity 0.4s ease, -ms-transform 0.4s ease, visibility 0.4s linear 0s;
+  -o-transition: opacity 0.4s ease, -o-transform 0.4s ease, visibility 0.4s linear 0s;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s linear 0s;
+}
+
+@mixin transform_translateY50 {
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin transform_translateX50 {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin transform_translateY_none {
+  -webkit-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+@mixin transform_translate($posX, $posY) {
+  -webkit-transform: translateX($posX) translateY($posY);
+  -ms-transform: translateX($posX) translateY($posY);
+  -o-transform: translateX($posX) translateY($posY);
+  transform: translateX($posX) translateY($posY);
+}

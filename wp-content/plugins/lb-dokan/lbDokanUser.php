@@ -804,13 +804,13 @@ class lbDokanUser {
                 <tr>
                     <th><label><?php _e( 'City', 'ktt' ); ?></label></th>
                     <td>
-                        <input type="text" class="input-text" name="account_location_city" id="account_location_city" value="<?php echo esc_attr( $ext_profile['city'] ); ?>" />
+                        <input type="text" class="input-text" name="account_location_city" id="account_location_city" value="<?php echo isset($ext_profile['city']) ? esc_attr( $ext_profile['city'] ) : ''; ?>" />
                     </td>
                 </tr>
                 <tr>
                     <th><label><?php _e( 'Address', 'ktt' ); ?></label></th>
                     <td>
-                        <input type="text" class="input-text" name="account_location_address" id="account_location_address" value="<?php echo esc_attr( $ext_profile['address'] ); ?>" />
+                        <input type="text" class="input-text" name="account_location_address" id="account_location_address" value="<?php echo isset($ext_profile['address']) ? esc_attr( $ext_profile['address'] ) : ''; ?>" />
                     </td>
                 </tr>
                 

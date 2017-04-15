@@ -1,0 +1,627 @@
+@import "inc/mixins";
+@import "inc/keyframes";
+
+.vcmc-form {
+    box-sizing: border-box;
+    .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field, .vcmc-submit {
+        -webkit-appearance: none;
+    }
+    &.style-01 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #484848;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #484848;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: #ffffff;
+            border: 2px solid #c9c9c9;
+            box-shadow: none;
+            padding: 15px;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(3px);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #52bad5;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 52px;
+            outline: none;
+            overflow: hidden;
+            font-weight: 600;
+            background-image: none;
+            background-color: #52bad5;
+            color: #ffffff;
+            border: none;
+            @include border-radius(3px);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                background-color: #222222;
+            }
+        }
+    }
+    &.style-02 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #484848;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #484848;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: #ffffff;
+            border: 2px solid #c9c9c9;
+            box-shadow: none;
+            padding: 15px;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(3px);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 52px;
+            outline: none;
+            overflow: hidden;
+            font-weight: 600;
+            background-image: none;
+            background-color: #5fbd74;
+            color: #ffffff;
+            border: none;
+            @include border-radius(3px);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                background-color: #222222;
+            }
+        }
+    }
+    &.style-03 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #484848;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #484848;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: #ffffff;
+            border: 2px solid #ffffff;
+            box-shadow: none;
+            padding: 15px;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(3px);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #52bad5;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 52px;
+            outline: none;
+            overflow: hidden;
+            font-weight: 600;
+            background-image: none;
+            background-color: #52bad5;
+            color: #ffffff;
+            border: none;
+            @include border-radius(3px);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                background-color: #222222;
+            }
+        }
+    }
+    &.style-04 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #484848;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #484848;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: #ffffff;
+            border: 2px solid #ffffff;
+            box-shadow: none;
+            padding: 15px;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(3px);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 52px;
+            outline: none;
+            overflow: hidden;
+            font-weight: 600;
+            background-image: none;
+            background-color: #5fbd74;
+            color: #ffffff;
+            border: none;
+            @include border-radius(3px);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                background-color: #222222;
+            }
+        }
+    }
+    &.style-05 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #484848;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #484848;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: transparent;
+            border-width: 0 0 2px 0;
+            border-style: solid;
+            border-color: #c9c9c9;
+            box-shadow: none;
+            padding: 15px 0;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(0);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 52px;
+            overflow: hidden;
+            outline: none;
+            font-weight: 600;
+            background-image: none;
+            background-color: #5fbd74;
+            color: #ffffff;
+            border: none;
+            @include border-radius(3px);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                background-color: #222222;
+            }
+        }
+    }
+    &.style-06 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #ffffff;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #ffffff;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: transparent;
+            border-width: 0 0 2px 0;
+            border-style: solid;
+            border-color: #ffffff;
+            color: #ffffff;
+            box-shadow: none;
+            padding: 15px 0;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(0);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 52px;
+            overflow: hidden;
+            outline: none;
+            font-weight: 600;
+            background-image: none;
+            background-color: #5fbd74;
+            color: #ffffff;
+            border: none;
+            @include border-radius(3px);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                background-color: #222222;
+            }
+        }
+    }
+    &.style-07 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #222222;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #222222;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: transparent;
+            border-width: 0 0 2px 0;
+            border-style: solid;
+            border-color: #222222;
+            color: #222222;
+            box-shadow: none;
+            padding: 15px 0;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(0);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 48px;
+            overflow: hidden;
+            outline: none;
+            font-weight: 600;
+            background-image: none;
+            background-color: transparent;
+            color: #222222;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #222222;
+            @include border-radius(0);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                border-color: #5fbd74;
+                color: #5fbd74;
+            }
+        }
+    }
+    &.style-08 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #ffffff;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #ffffff;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: transparent;
+            border-width: 0 0 2px 0;
+            border-style: solid;
+            border-color: #ffffff;
+            color: #ffffff;
+            box-shadow: none;
+            padding: 15px 0;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(0);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 48px;
+            overflow: hidden;
+            outline: none;
+            font-weight: 600;
+            background-image: none;
+            background-color: transparent;
+            color: #ffffff;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #ffffff;
+            @include border-radius(0);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                border-color: #5fbd74;
+                color: #5fbd74;
+            }
+        }
+    }
+    &.style-09 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #222222;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #222222;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: #eeeeee;
+            border-width: 0;
+            border-style: solid;
+            border-color: #ffffff;
+            color: #222222;
+            box-shadow: none;
+            padding: 15px;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(0);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 52px;
+            overflow: hidden;
+            outline: none;
+            font-weight: 600;
+            background-image: none;
+            background-color: #5fbd74;
+            color: #ffffff;
+            border-width: 0;
+            border-style: solid;
+            border-color: #ffffff;
+            @include border-radius(0);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                background-color: #222222;
+            }
+        }
+    }
+    &.style-10 {
+        display: block;
+        width: 100%;
+        .vcmc-label, .vcmc-name, .vcmc-email, .vcmc-field {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .vcmc-label {
+            color: #ffffff;
+            font-weight: 600;
+            display: block;
+            padding-bottom: 10px;
+        }
+        .vcmc-checkbox-item, .vcmc-radio-item {
+            display: inline-block;
+            margin-right: 10px;
+            color: #ffffff;
+        }
+        .vcmc-name, .vcmc-email, .vcmc-field {
+            background-color: rgba(255, 255, 255, .2);
+            border-width: 0;
+            border-style: solid;
+            border-color: #ffffff;
+            color: #ffffff;
+            box-shadow: none;
+            padding: 15px;
+            height: 52px;
+            font-size: 17px;
+            line-height: 20px;
+            @include border-radius(0 !important);
+            @include transit;
+            &:focus {
+                outline: none;
+                border-color: #5fbd74;
+            }
+        }
+        .vcmc-submit {
+            font-size: 17px;
+            padding: 0 30px;
+            height: 52px;
+            line-height: 48px;
+            overflow: hidden;
+            outline: none;
+            font-weight: 600;
+            background-image: none;
+            background-color: #5fbd74;
+            color: #ffffff;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #5fbd74;
+            @include border-radius(0);
+            @include transit;
+            &.loading {
+                opacity: .5;
+                &:after {
+                    content: '...';
+                }
+            }
+            &:hover {
+                color: #5fbd74;
+                background-color: transparent;
+            }
+        }
+    }
+}

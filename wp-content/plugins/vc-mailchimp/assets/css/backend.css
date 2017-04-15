@@ -1,0 +1,55 @@
+.vcmc-api-box table {
+    width: 100%;
+}
+
+.vcmc-api-box .vcmc-renew-lists {
+    background-color: #00aef0;
+    color: #ffffff;
+    height: 36px;
+    line-height: 36px;
+    border: none;
+    padding: 0 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
+
+.vcmc-api-box .vcmc-renew-lists:hover, .vcmc-api-box .vcmc-renew-lists.loading {
+    background-color: #222222;
+}
+
+.vc_element-icon.vcmc-icon {
+    background-position: 0 0 !important;
+}
+
+.vcmc_select_image_preview img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    padding: 2px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+.vc_element-icon.vcmc-form {
+    background-image: url('images/vcmc_form.png') !important;
+}
+
+.vc_element-icon.vcmc-name {
+    background-image: url('images/vcmc_name.png') !important;
+}
+
+.vc_element-icon.vcmc-email {
+    background-image: url('images/vcmc_email.png') !important;
+}
+
+.vc_element-icon.vcmc-field {
+    background-image: url('images/vcmc_field.png') !important;
+}
+
+.vc_element-icon.vcmc-submit {
+    background-image: url('images/vcmc_submit.png') !important;
+}

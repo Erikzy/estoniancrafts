@@ -14,6 +14,8 @@ include_once($currentDirname.'/shortcodes.php');
 // Load widgets
 include_once($currentDirname.'/widgets.php');
 
+//WC_Cache_Helper::prevent_caching();
+
 function ec_debug()
 {
 	print '<pre>';
@@ -23,4 +25,12 @@ function ec_debug()
 		print "\n";
 	}
 	print '</pre>';
+}
+
+function ec_debug_to_console()
+{
+	foreach(func_get_args() as $arg)
+	{
+		print '<script>console.log('. json_encode( $arg ) .');</script>';
+	}
 }
