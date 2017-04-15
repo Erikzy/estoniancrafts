@@ -38,6 +38,12 @@ class EC_Filters
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_MenuItem.php');
 		$menu = new EC_Menu();
 
+		$messagesMenu = new EC_MenuItem(array(
+            'id' => 'messages',
+            'title' => __( 'Minu kirjad', 'ktt' ),
+            'url' => get_site_url(null, 'members/'.$user->display_name.'/messages/'),
+        ));
+
 		// Is merchant
 		if(in_array('seller', $user->roles))
 		{
@@ -47,12 +53,15 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/dashboard/edit-account'),
 				'url_endpoint' => 'my-account/dashboard/edit-account'
 			));
-			$menu->items[] = new EC_MenuItem(array(
-				'id' => 'orders',
-				'title' => __( 'My Orders', 'ktt' ),
-				'url' => get_site_url(null, 'my-account/orders'),
-				'url_endpoint' => 'my-account/orders'
-			));
+            $menu->items[] = new EC_MenuItem(array(
+                'id' => 'orders',
+                'title' => __( 'My Orders', 'ktt' ),
+                'url' => get_site_url(null, 'my-account/orders'),
+                'url_endpoint' => 'my-account/orders'
+            ));
+
+            $menu->items[] = $messagesMenu;
+
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop',
 				'title' => __( 'My Shop', 'ktt' )
@@ -103,6 +112,9 @@ class EC_Filters
 				'url' => get_site_url(null, 'orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
+
+            $menu->items[] = $messagesMenu;
+
 //			$menu->items[] = new EC_MenuItem(array(
 //				'id' => 'my-account/student',
 //				'title' => __( 'Student pages', 'ktt' ),
