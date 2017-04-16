@@ -6,6 +6,7 @@ class EC_Filters
 	{
 		// Public section
 		add_filter( 'ec_get_page_personal_profile', array(__CLASS__, 'ec_get_page_personal_profile_filter'), 1 );
+		add_filter( 'ec_get_store_page', array(__CLASS__, 'ec_get_store_page_filter'), 1 );
 
 		// Merchant section
 		add_filter( 'ec_get_page_merchant_products', array(__CLASS__, 'ec_get_page_merchant_products_filter'), 1 );
@@ -136,6 +137,22 @@ class EC_Filters
 		{
 			include_once('Blocks/Pages/EC_Personal_Profile_Page.php');
 			$page = new EC_Personal_Profile_Page();
+			$page->load();
+		}
+
+		return $page;
+	}
+
+	/**
+	 * @param EC_Block $page
+	 * @return \EC_Store_Page
+	 */
+	public static function ec_get_store_page_filter($page=null)
+	{
+		if(is_null($page))
+		{
+			include_once('Blocks/Pages/EC_Store_Page.php');
+			$page = new EC_Store_Page();
 			$page->load();
 		}
 

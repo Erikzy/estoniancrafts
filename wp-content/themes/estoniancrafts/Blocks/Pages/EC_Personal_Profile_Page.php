@@ -128,7 +128,7 @@ $mtime1 = microtime(true);
 
 		// Contact us url
 		// @todo real contact us url
-		$this->contact_us_url = 'mailto:'.$this->email;
+		$this->contact_us_url = 'mailto:'.antispambot( $this->email );
 
 		// Address
 		$address = new EC_Address();

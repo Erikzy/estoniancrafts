@@ -8,9 +8,9 @@ class EC_Actions
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_action') );
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_debug_action'), 9999 );
 
-//		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
-//		add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
-		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'woocommerce_after_shop_loop_item_title_action'), 10 );
+		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
+//		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_categories_action'), 9 );
+		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_price_action'), 10 );
 	
 		// Google analytics
 		add_action( 'wp_head', array(__CLASS__, 'wp_head_google_analytics_action') );
@@ -57,9 +57,13 @@ class EC_Actions
 		echo '<div class="basel-my-account-sidebar">';
 	}
 
-	public static function woocommerce_after_shop_loop_item_title_action()
+	public static function shop_loop_item_price_action()
 	{
 		woocommerce_template_loop_price();
+	}
+
+	public static function shop_loop_item_categories_action()
+	{
 		basel_product_categories();
 	}
 

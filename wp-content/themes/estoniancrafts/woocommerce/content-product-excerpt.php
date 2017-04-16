@@ -41,19 +41,20 @@
 		 * @hooked woocommerce_template_loop_rating - 5
 		 * @hooked woocommerce_template_loop_price - 10
 		 */
-		do_action( 'woocommerce_after_shop_loop_item_title' );
 	?>
 </div>
 
 <div class="product-element-bottom">
 	<?php
-		basel_product_categories();
 		/**
 		 * woocommerce_shop_loop_item_title hook
 		 *
 		 * @hooked woocommerce_template_loop_product_title - 10
 		 */
 		do_action( 'woocommerce_shop_loop_item_title' );
+
+		// Price and categories
+		do_action( 'woocommerce_after_shop_loop_item_title' );
 	?>
 
 	<div class="product-excerpt">
