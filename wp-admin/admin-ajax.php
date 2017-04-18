@@ -64,7 +64,7 @@ $core_actions_post = array(
 	'parse-media-shortcode', 'destroy-sessions', 'install-plugin', 'update-plugin', 'press-this-save-post',
 	'press-this-add-category', 'crop-image', 'generate-password', 'save-wporg-username', 'delete-plugin',
 	'search-plugins', 'search-install-plugins', 'activate-plugin', 'update-theme', 'delete-theme',
-	'install-theme', 'get-post-thumbnail-html',
+	'install-theme', 'get-post-thumbnail-html'
 );
 
 // Deprecated
@@ -88,7 +88,8 @@ if ( is_user_logged_in() ) {
 	 *
 	 * @since 2.1.0
 	 */
-	do_action( 'wp_ajax_' . $_REQUEST['action'] );
+
+    do_action( 'wp_ajax_' . $_REQUEST['action'] );
 } else {
 	/**
 	 * Fires non-authenticated Ajax actions for logged-out users.

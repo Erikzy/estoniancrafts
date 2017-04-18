@@ -1039,3 +1039,30 @@ h5.widget-title {
 .top-bar-right {
 	text-align: right;
 }
+
+
+/*Buddypress styles*/
+#buddypress #messages-select {
+    width: auto;
+}
+#buddypress #search-message-form {
+    position: relative;
+}
+#buddypress #messages_search_submit {
+    position: absolute;
+    right:-20px;
+    top: 0;
+    color: #fff;
+
+    background-color: #ef7f27;
+    border: 1px solid #ef7f27;
+    border-radius: 0;
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    line-height: 18px;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out 0s;
+}

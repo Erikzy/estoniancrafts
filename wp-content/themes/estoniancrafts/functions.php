@@ -48,3 +48,19 @@ function ec_debug_to_console()
 		print '<script>console.log('. json_encode( $arg ) .');</script>';
 	}
 }
+
+/**
+ * Output the user id to the page of the current thread's last author.
+ */
+function bp_message_thread_from_id() {
+    echo bp_get_message_thread_from_id();
+}
+/**
+ * Get the user id to the page of the current thread's last author.
+ *
+ * @return string
+ */
+function bp_get_message_thread_from_id() {
+    global $messages_template;
+    return $messages_template->thread->last_sender_id;
+}
