@@ -31,7 +31,7 @@
 		<?php do_action( 'bp_before_sidebar_login_form' ); ?>
 
 		<?php if ( bp_get_signup_allowed() ) : ?>
-		
+
 			<p id="login-text">
 
 				<?php printf( __( 'Please <a href="%s" title="Create an account">create an account</a> to get started.', 'buddypress' ), bp_get_signup_page() ); ?>
