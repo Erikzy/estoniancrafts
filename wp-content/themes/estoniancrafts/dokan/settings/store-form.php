@@ -114,6 +114,23 @@
 
         <?php $user = get_user_by( 'id', get_current_user_id() ); ?>
 
+		<?php // Store logo ?>
+		<?php $store_logo  = isset( $extended_settings['ec_store_logo'] ) ? absint( $extended_settings['ec_store_logo'] ) : 0; ?>
+		<div class="dokan-form-group">
+			<label class="dokan-w3 dokan-control-label"><?php _e( 'Store Logo', 'ktt' ); ?></label>
+			<div class="dokan-w5 dokan-gravatar">
+				<div class="dokan-left gravatar-wrap<?php echo $store_logo ? '' : ' dokan-hide'; ?>">
+					<?php $store_logo_url = $gravatar ? wp_get_attachment_url( $store_logo ) : ''; ?>
+					<input type="hidden" class="dokan-file-field" value="<?php echo $store_logo; ?>" name="ec_store_logo">
+					<img class="dokan-gravatar-img" src="<?php echo esc_url( $store_logo_url ); ?>">
+					<a class="dokan-close dokan-remove-gravatar-image">&times;</a>
+				</div>
+				<div class="gravatar-button-area<?php echo $store_logo ? ' dokan-hide' : ''; ?>">
+					<a href="#" class="dokan-pro-gravatar-drag dokan-btn dokan-btn-default"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
+				</div>
+			</div>
+		</div>
+
         <div class="dokan-form-group">
             <label class="dokan-w3 dokan-control-label" for="dokan_store_id"><?php _e( 'Store ID', 'ktt' ); ?></label>
 
@@ -139,14 +156,6 @@
         </div>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_company_nr"><?php _e( 'Company reg nr', 'ktt' ); ?></label>
-
-            <div class="dokan-w5 dokan-text-left">
-                <input id="dokan_company_nr" required value="<?php echo $company_nr; ?>" name="dokan_company_nr" placeholder="<?php _e( 'company registration number', 'ktt'); ?>" class="dokan-form-control" type="text">
-            </div>
-        </div>
-
-        <div class="dokan-form-group">
             <label class="dokan-w3 dokan-control-label" for="dokan_company_type"><?php _e( 'Company type', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
@@ -160,6 +169,37 @@
             </div>
         </div>
 
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="dokan_company_nr"><?php _e( 'Company reg nr', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+                <input id="dokan_company_nr" required value="<?php echo $company_nr; ?>" name="dokan_company_nr" placeholder="<?php _e( 'company registration number', 'ktt'); ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
+
+		<?php // Store phone ?>
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="ec_store_phone"><?php _e( 'Phone nr', 'ktt' ); ?></label>
+            <div class="dokan-w5 dokan-text-left">
+                <input id="ec_store_phone" name="ec_store_phone" value="<?php echo isset($extended_settings['ec_store_phone']) ? esc_attr( $extended_settings['ec_store_phone'] ) : '' ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
+
+		<?php // Store email ?>
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="ec_store_email"><?php _e( 'Email', 'ktt' ); ?></label>
+            <div class="dokan-w5 dokan-text-left">
+                <input id="ec_store_email" name="ec_store_email" value="<?php echo isset($extended_settings['ec_store_email']) ? esc_attr( $extended_settings['ec_store_email'] ) : '' ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
+
+		<?php // Store website ?>
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="ec_store_website"><?php _e( 'Website', 'ktt' ); ?></label>
+            <div class="dokan-w5 dokan-text-left">
+                <input id="ec_store_website" name="ec_store_website" value="<?php echo isset($extended_settings['ec_store_website']) ? esc_attr( $extended_settings['ec_store_website'] ) : '' ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
 
         <div class="dokan-form-group">
             <label class="dokan-w3 dokan-control-label" for="dokan_description"><?php _e( 'Short description', 'ktt' ); ?></label>
@@ -352,6 +392,67 @@
 
         <?php endif;?>
 
+		<?php // Social media ?>
+		<fieldset>
+			<legend><?= __('Social Media Links', 'ktt') ?></legend>
+
+			<?php // Facebook ?>
+			<div class="dokan-form-group">
+				<label class="dokan-w3 dokan-control-label" for="ec_store_sm_fb"><?php _e( 'Facebook', 'ktt' ); ?></label>
+				<div class="dokan-w5 dokan-text-left">
+					<input id="ec_store_sm_fb" name="ec_store_sm_fb" value="<?php echo isset($extended_settings['ec_store_sm_fb']) ? esc_attr( $extended_settings['ec_store_sm_fb'] ) : '' ?>" class="dokan-form-control" type="text">
+				</div>
+			</div>
+
+			<?php // Google+ ?>
+			<div class="dokan-form-group">
+				<label class="dokan-w3 dokan-control-label" for="ec_store_sm_gplus"><?php _e( 'Google+', 'ktt' ); ?></label>
+				<div class="dokan-w5 dokan-text-left">
+					<input id="ec_store_sm_gplus" name="ec_store_sm_gplus" value="<?php echo isset($extended_settings['ec_store_sm_gplus']) ? esc_attr( $extended_settings['ec_store_sm_gplus'] ) : '' ?>" class="dokan-form-control" type="text">
+				</div>
+			</div>
+
+			<?php // Twitter ?>
+			<div class="dokan-form-group">
+				<label class="dokan-w3 dokan-control-label" for="ec_store_sm_twitter"><?php _e( 'Twitter', 'ktt' ); ?></label>
+				<div class="dokan-w5 dokan-text-left">
+					<input id="ec_store_sm_twitter" name="ec_store_sm_twitter" value="<?php echo isset($extended_settings['ec_store_sm_twitter']) ? esc_attr( $extended_settings['ec_store_sm_twitter'] ) : '' ?>" class="dokan-form-control" type="text">
+				</div>
+			</div>
+
+			<?php // LinkedIn ?>
+			<div class="dokan-form-group">
+				<label class="dokan-w3 dokan-control-label" for="ec_store_sm_linkedin"><?php _e( 'LinkedIn', 'ktt' ); ?></label>
+				<div class="dokan-w5 dokan-text-left">
+					<input id="ec_store_sm_linkedin" name="ec_store_sm_linkedin" value="<?php echo isset($extended_settings['ec_store_sm_linkedin']) ? esc_attr( $extended_settings['ec_store_sm_linkedin'] ) : '' ?>" class="dokan-form-control" type="text">
+				</div>
+			</div>
+
+			<?php // YouTube ?>
+			<div class="dokan-form-group">
+				<label class="dokan-w3 dokan-control-label" for="ec_store_sm_youtube"><?php _e( 'YouTube', 'ktt' ); ?></label>
+				<div class="dokan-w5 dokan-text-left">
+					<input id="ec_store_sm_youtube" name="ec_store_sm_youtube" value="<?php echo isset($extended_settings['ec_store_sm_youtube']) ? esc_attr( $extended_settings['ec_store_sm_youtube'] ) : '' ?>" class="dokan-form-control" type="text">
+				</div>
+			</div>
+
+			<?php // Instagram ?>
+			<div class="dokan-form-group">
+				<label class="dokan-w3 dokan-control-label" for="ec_store_sm_instagram"><?php _e( 'Instagram', 'ktt' ); ?></label>
+				<div class="dokan-w5 dokan-text-left">
+					<input id="ec_store_sm_instagram" name="ec_store_sm_instagram" value="<?php echo isset($extended_settings['ec_store_sm_instagram']) ? esc_attr( $extended_settings['ec_store_sm_instagram'] ) : '' ?>" class="dokan-form-control" type="text">
+				</div>
+			</div>
+
+			<?php // Flickr ?>
+			<div class="dokan-form-group">
+				<label class="dokan-w3 dokan-control-label" for="ec_store_sm_flickr"><?php _e( 'Flickr', 'ktt' ); ?></label>
+				<div class="dokan-w5 dokan-text-left">
+					<input id="ec_store_sm_flickr" name="ec_store_sm_flickr" value="<?php echo isset($extended_settings['ec_store_sm_flickr']) ? esc_attr( $extended_settings['ec_store_sm_flickr'] ) : '' ?>" class="dokan-form-control" type="text">
+				</div>
+			</div>
+
+		</fieldset>
 
         <?php do_action( 'dokan_settings_form_bottom', $current_user, $profile_info ); ?>
 

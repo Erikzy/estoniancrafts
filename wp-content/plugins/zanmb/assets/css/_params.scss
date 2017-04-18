@@ -1,0 +1,28 @@
+
+@mixin small_title {
+  margin-top: 0;
+  margin-bottom: 7px;
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: bold;
+}
+@mixin transition_06 {
+  -webkit-transition: all .6s ease-in-out;
+  -moz-transition: all .6s ease-in-out;
+  -ms-transition: all .6s ease-in-out;
+  -o-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
+}
+
+@mixin hover_effect_crossing {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+  @include transition_06;
+}

@@ -1,0 +1,18 @@
+/* Zan Menu Builder frontend style */
+.zmb-menu .sub-menu .bg-right-bottom {
+  background-position: right bottom !important; }
+.zmb-menu .sub-menu.no-padding {
+  padding: 0 !important; }
+.zmb-menu > li.zmb-custom-item.zmb-social, .zmb-menu > li.zmb-custom-item.zmb-icon, .zmb-menu > li.zmb-custom-item.logo {
+  font-size: 0; }
+  .zmb-menu > li.zmb-custom-item.zmb-social .zmb-social-icon, .zmb-menu > li.zmb-custom-item.zmb-icon .zmb-social-icon, .zmb-menu > li.zmb-custom-item.logo .zmb-social-icon {
+    font-size: 14px;
+    line-height: 20px; }
+
+.border-circle {
+  border-radius: 50%; }
+
+.zanmb-custom-menu-wrap {
+  display: inline-block; }
+
+/*# sourceMappingURL=frontend-style.css.map */

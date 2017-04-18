@@ -107,7 +107,21 @@ class lbDokanUser {
 
     	}
 
-	    update_user_meta( $store_id, 'ktt_extended_settings', $ext_settings );
+    	$ext_settings['ec_store_phone'] = ! empty( $_POST['ec_store_phone'] ) ? wc_clean( $_POST['ec_store_phone'] ) : '';
+    	$ext_settings['ec_store_email'] = ! empty( $_POST['ec_store_email'] ) ? wc_clean( $_POST['ec_store_email'] ) : '';
+    	$ext_settings['ec_store_website'] = ! empty( $_POST['ec_store_website'] ) ? wc_clean( $_POST['ec_store_website'] ) : '';
+		$ext_settings['ec_store_logo'] = isset( $_POST['ec_store_logo'] ) ? wc_clean( $_POST['ec_store_logo'] ) : '';
+
+		// Store social media
+    	$ext_settings['ec_store_sm_fb'] = ! empty( $_POST['ec_store_sm_fb'] ) ? wc_clean( $_POST['ec_store_sm_fb'] ) : '';
+    	$ext_settings['ec_store_sm_gplus'] = ! empty( $_POST['ec_store_sm_gplus'] ) ? wc_clean( $_POST['ec_store_sm_gplus'] ) : '';
+    	$ext_settings['ec_store_sm_twitter'] = ! empty( $_POST['ec_store_sm_twitter'] ) ? wc_clean( $_POST['ec_store_sm_twitter'] ) : '';
+    	$ext_settings['ec_store_sm_linkedin'] = ! empty( $_POST['ec_store_sm_linkedin'] ) ? wc_clean( $_POST['ec_store_sm_linkedin'] ) : '';
+    	$ext_settings['ec_store_sm_youtube'] = ! empty( $_POST['ec_store_sm_youtube'] ) ? wc_clean( $_POST['ec_store_sm_youtube'] ) : '';
+    	$ext_settings['ec_store_sm_instagram'] = ! empty( $_POST['ec_store_sm_instagram'] ) ? wc_clean( $_POST['ec_store_sm_instagram'] ) : '';
+    	$ext_settings['ec_store_sm_flickr'] = ! empty( $_POST['ec_store_sm_flickr'] ) ? wc_clean( $_POST['ec_store_sm_flickr'] ) : '';
+
+		update_user_meta( $store_id, 'ktt_extended_settings', $ext_settings );
 
 	}
 
@@ -804,13 +818,13 @@ class lbDokanUser {
                 <tr>
                     <th><label><?php _e( 'City', 'ktt' ); ?></label></th>
                     <td>
-                        <input type="text" class="input-text" name="account_location_city" id="account_location_city" value="<?php echo esc_attr( $ext_profile['city'] ); ?>" />
+                        <input type="text" class="input-text" name="account_location_city" id="account_location_city" value="<?php echo isset($ext_profile['city']) ? esc_attr( $ext_profile['city'] ) : ''; ?>" />
                     </td>
                 </tr>
                 <tr>
                     <th><label><?php _e( 'Address', 'ktt' ); ?></label></th>
                     <td>
-                        <input type="text" class="input-text" name="account_location_address" id="account_location_address" value="<?php echo esc_attr( $ext_profile['address'] ); ?>" />
+                        <input type="text" class="input-text" name="account_location_address" id="account_location_address" value="<?php echo isset($ext_profile['address']) ? esc_attr( $ext_profile['address'] ) : ''; ?>" />
                     </td>
                 </tr>
                 

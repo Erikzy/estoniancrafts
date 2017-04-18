@@ -1,0 +1,68 @@
+=== WordPress Mega Menu ===
+
+Requires at least: 4.0
+Tested up to: 4.7
+Stable tag: 2.2
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+== Description ==
+
+Mega/Vertical menu for King Composer, Visual Composer and any page builder plugins...
+
+== Changelog ==
+
+= 2.2 - December 20 2016 =
+    - Added: Ajax login form
+    - Added: zmb_item_icon, zmb_item_img_icon, zmb_sliding_fields filters
+    - Fixed: Vertical sub menu width bug
+    - Improved: Some codes
+    - Updated: WordPress 4.7
+
+= 2.1 - December 01 2016 =
+    - Added: Mega menu settings on the nav menu editing page
+    - Added: King Composer compatible
+    - Fixed: Custom js
+    - Fixed: Zan Posts List shortcode category chosen issue
+
+= 2.0 - November 27 2016 =
+    - Added: Supported mega item for post/page, custom post type
+    - Added: "zmb_post_types_allowed_mega" filter hook
+    - Added: Edit menu item link when manage menu
+    - Added: Icon picker for menu item icon class
+    - Added: Automatic add role for edit "zanmb" post type with Visual Composer
+    - Fixed: Menu container not show when no logo is chosen
+    - Improved: Menu location shortcode
+    - Improved: CSS
+
+= 1.3.1 - November 24 2016 =
+    - Updated: Compatible with Visual Composer 5.0.1
+    - Updated: Compatible with WooCommerce 2.6.8
+    - Improved: Frontend CSS
+
+= 1.3 - November 16 2016 =
+    - Added: Mega item link
+    - Added: Current item for mega item class
+    - Added: Some filter for menu settings
+    - Added: Logo class for logo any where
+    - Added: Shortcode for mega menu: [wpmm location="menu_location"]
+    - Added: Filter hook for Menu location: zmb_menu_location
+    - Updated: Visual Composer 5.0
+    - Fixed: Tabs small bug on sticky menu
+    - Improved: Frontend CSS
+
+= 1.2 - October 21 2016 =
+    - Fixed: Callback error when publish
+
+= 1.1 - October 11 2016 =
+    - Added: Multi level mega menu
+    - Added: Sliding content
+    - Added: Logo upload
+    - Added: Custom base color
+    - Added: Some page builder plugins compatible
+    - Fixed: One page menu item links on mobile
+    - Fixed: Headway themes compatible issue
+    - Improved: Frontend CSS
+
+= 1.0 - September 22 2016 =
+    * Initial release

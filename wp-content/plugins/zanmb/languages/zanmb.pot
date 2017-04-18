@@ -1,0 +1,4360 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WordPress Mega Menu\n"
+"POT-Creation-Date: 2016-09-22 11:00+0700\n"
+"PO-Revision-Date: 2016-09-22 10:59+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: zanmb.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/metaboxes/example-functions.php:80
+msgid "Test Metabox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:91
+#: classes/metaboxes/example-functions.php:383
+msgid "Test Text"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:92
+#: classes/metaboxes/example-functions.php:104
+#: classes/metaboxes/example-functions.php:112
+#: classes/metaboxes/example-functions.php:120
+#: classes/metaboxes/example-functions.php:129
+#: classes/metaboxes/example-functions.php:137
+#: classes/metaboxes/example-functions.php:152
+#: classes/metaboxes/example-functions.php:160
+#: classes/metaboxes/example-functions.php:168
+#: classes/metaboxes/example-functions.php:185
+#: classes/metaboxes/example-functions.php:194
+#: classes/metaboxes/example-functions.php:207
+#: classes/metaboxes/example-functions.php:214
+#: classes/metaboxes/example-functions.php:221
+#: classes/metaboxes/example-functions.php:235
+#: classes/metaboxes/example-functions.php:248
+#: classes/metaboxes/example-functions.php:261
+#: classes/metaboxes/example-functions.php:273
+#: classes/metaboxes/example-functions.php:282
+#: classes/metaboxes/example-functions.php:290
+#: classes/metaboxes/example-functions.php:299
+#: classes/metaboxes/example-functions.php:306
+#: classes/metaboxes/example-functions.php:320
+#: classes/metaboxes/example-functions.php:384
+#: classes/metaboxes/example-functions.php:475
+#: classes/metaboxes/example-functions.php:483
+#: classes/metaboxes/example-functions.php:490
+#: classes/metaboxes/example-functions.php:497
+#: classes/metaboxes/example-functions.php:504
+#: classes/metaboxes/example-functions.php:511
+#: classes/metaboxes/example-functions.php:518
+#: classes/metaboxes/example-functions.php:545
+#: classes/metaboxes/example-functions.php:553
+#: classes/metaboxes/example-functions.php:560
+#: classes/metaboxes/example-functions.php:597
+msgid "field description (optional)"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:103
+msgid "Test Text Small"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:111
+msgid "Test Text Medium"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:119
+msgid "Website URL"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:128
+msgid "Test Text Email"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:136
+msgid "Test Time"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:144
+#: classes/metaboxes/example-functions.php:145
+msgid "Time zone"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:151
+msgid "Test Date Picker"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:159
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:167
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:184
+msgid "Test Money"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:193
+msgid "Test Color Picker"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:206
+msgid "Test Text Area"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:213
+msgid "Test Text Area Small"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:220
+msgid "Test Text Area for Code"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:227
+msgid "Test Title Weeeee"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:228
+msgid "This is a title description"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:234
+msgid "Test Select"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:240
+#: classes/metaboxes/example-functions.php:253
+#: classes/metaboxes/example-functions.php:265
+msgid "Option One"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:241
+#: classes/metaboxes/example-functions.php:254
+#: classes/metaboxes/example-functions.php:266
+msgid "Option Two"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:242
+#: classes/metaboxes/example-functions.php:255
+#: classes/metaboxes/example-functions.php:267
+msgid "Option Three"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:247
+msgid "Test Radio inline"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:260
+msgid "Test Radio"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:272
+msgid "Test Taxonomy Radio"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:281
+msgid "Test Taxonomy Select"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:289
+msgid "Test Taxonomy Multi Checkbox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:298
+msgid "Test Checkbox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:305
+msgid "Test Multi Checkbox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:311
+msgid "Check One"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:312
+msgid "Check Two"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:313
+msgid "Check Three"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:319
+msgid "Test wysiwyg"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:327
+msgid "Test Image"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:328
+msgid "Upload an image or enter a URL."
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:334
+msgid "Multiple Files"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:335
+msgid "Upload or add multiple images/attachments."
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:342
+msgid "oEmbed"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:343
+msgid ""
+"Enter a youtube, twitter, or instagram URL. Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:374
+msgid "About Page Metabox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:403
+msgid "Repeating Field Group"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:411
+msgid "Generates reusable form entries"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:413
+msgid "Entry {#}"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:414
+msgid "Add Another Entry"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:415
+msgid "Remove Entry"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:428
+msgid "Entry Title"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:435
+#: classes/zmbNavMenuEditCustom.php:294
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:149
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:204
+msgid "Description"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:436
+msgid "Write a short description for this entry"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:442
+msgid "Entry Image"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:448
+msgid "Image Caption"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:467
+msgid "User Profile Metabox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:474
+#: classes/metaboxes/example-functions.php:544
+msgid "Extra Info"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:482
+msgid "Avatar"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:489
+msgid "Facebook URL"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:496
+msgid "Twitter URL"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:503
+msgid "Google+ URL"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:510
+msgid "Linkedin URL"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:517
+msgid "User Field"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:537
+msgid "Category Metabox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:552
+msgid "Term Image"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:559
+msgid "Arbitrary Term Field"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:581
+msgid "Theme Options Metabox"
+msgstr ""
+
+#: classes/metaboxes/example-functions.php:596
+msgid "Site Background Color"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2.php:122
+msgid "Metabox configuration is required to have an ID parameter"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2.php:375
+msgid "Click to toggle"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Ajax.php:65
+msgid "Please Try Again"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Ajax.php:155
+msgid "Remove Embed"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Ajax.php:159
+#, php-format
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Field.php:1030
+msgid "Add Group"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Field.php:1031
+msgid "Remove Group"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Field.php:1053
+#: classes/metaboxes/includes/CMB2_Field.php:1057
+#: core/shortcodes/zan-vc-global.php:184
+msgid "None"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:86
+#: classes/metaboxes/includes/CMB2_JS.php:119
+msgid "Clear"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:87
+#: classes/zmbNavMenuEditCustom.php:335
+#: reduxframework/ReduxCore/framework.php:1880
+msgid "Default"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:88
+msgid "Select Color"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:89
+msgid "Current Color"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:109
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:110
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:111
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:112
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:113
+msgid ""
+"January, February, March, April, May, June, July, August, September, "
+"October, November, December"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:114
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:115
+msgid "Next"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:116
+msgid "Prev"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:117
+msgid "Today"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:118
+#: classes/metaboxes/includes/CMB2_JS.php:128
+msgid "Done"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:122
+msgid "Choose Time"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:123
+msgid "Time"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:124
+msgid "Hour"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:125
+msgid "Minute"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:126
+msgid "Second"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:127
+msgid "Now"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:129
+msgctxt ""
+"Valid formatting string, as per http://trentrichardson.com/examples/"
+"timepicker/"
+msgid "hh:mm TT"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:135
+msgid "Use this file"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:136
+msgid "Use these files"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:137
+#: classes/metaboxes/includes/CMB2_Types.php:1021
+msgid "Remove Image"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:138
+#: classes/metaboxes/includes/CMB2_Types.php:357
+#: classes/metaboxes/includes/CMB2_Types.php:1040
+#: classes/zmbNavMenuEditCustom.php:366
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:321
+#: reduxframework/ReduxCore/inc/fields/media/field_media.php:205
+#: reduxframework/ReduxCore/inc/fields/multi_text/field_multi_text.php:69
+#: reduxframework/ReduxCore/inc/fields/multi_text/field_multi_text.php:73
+#: reduxframework/ReduxCore/inc/fields/multi_text/field_multi_text.php:76
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:133
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:190
+msgid "Remove"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:139
+#: classes/metaboxes/includes/CMB2_Types.php:1035
+msgid "File:"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:140
+#: classes/metaboxes/includes/CMB2_Types.php:1038
+msgid "Download"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_JS.php:141
+msgid "Select / Deselect All"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Types.php:298
+msgid "Add Row"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Types.php:768
+#: classes/metaboxes/includes/CMB2_Types.php:816
+msgid "No terms"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Types.php:884
+msgid "Add or Upload Files"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_Types.php:945
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:314
+#: reduxframework/ReduxCore/inc/fields/media/field_media.php:198
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:126
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:188
+msgid "Upload"
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_hookup.php:120
+msgid ""
+"Term Metadata is a WordPress > 4.4 feature. Please upgrade your WordPress "
+"install."
+msgstr ""
+
+#: classes/metaboxes/includes/CMB2_hookup.php:124
+msgid "Term metaboxes configuration requires a 'taxonomies' parameter"
+msgstr ""
+
+#: classes/metaboxes/includes/helper-functions.php:250
+msgid "Save"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:147
+#, php-format
+msgid "%s (Invalid)"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:152
+#, php-format
+msgid "%s (Pending)"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:166
+msgid "sub item"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:181
+msgid "Move up"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:194
+msgid "Move down"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:197 classes/zmbNavMenuEditCustom.php:199
+#: core/post-types/post-zanmenu.php:18
+msgid "Edit Menu Item"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:208
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:153
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:207
+msgid "URL"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:217
+msgid "Navigation Label"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:225
+msgid "Title Attribute"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:236
+msgid "Open link in a new window/tab"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:241
+msgid "CSS Classes (optional)"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:245
+msgid "For social icon: zmb-social. For mini cart: zmb-cart."
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:250
+msgid "Icon Classes (optional)"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:255
+msgid "Ex: fa fa-adjust"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:260
+msgid "Icon Image (optional)"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:265
+msgid "Paste icon image url here"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:266
+msgid "Input icon image url or choose a default image below"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:286
+msgid "Link Relationship (XFN)"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:299
+msgid ""
+"The description will be displayed in the menu if the current theme supports "
+"it."
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:305
+msgid "Move"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:306
+msgid "Up one"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:307
+msgid "Down one"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:310
+msgid "To the top"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:322
+msgid "Zan Menu Width"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:332
+msgid "Drop Direction"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:337 core/shortcodes/zmb_news_letter.php:118
+#: core/shortcodes/zmb_simple_title_desc.php:109
+#: reduxframework/ReduxCore/inc/fields/border/field_border.php:159
+#: reduxframework/ReduxCore/inc/fields/spacing/field_spacing.php:236
+msgid "Left"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:339 core/shortcodes/zmb_news_letter.php:119
+#: core/shortcodes/zmb_simple_title_desc.php:110
+#: reduxframework/ReduxCore/inc/fields/border/field_border.php:145
+#: reduxframework/ReduxCore/inc/fields/spacing/field_spacing.php:222
+msgid "Right"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:353
+#, php-format
+msgid "Original: %s"
+msgstr ""
+
+#: classes/zmbNavMenuEditCustom.php:369
+msgid "Cancel"
+msgstr ""
+
+#: classes/zmb_navwalker.php:261
+msgid "Add a menu"
+msgstr ""
+
+#: core/functions.php:90
+msgid " --- All Categories --- "
+msgstr ""
+
+#: core/functions.php:109
+msgid " --------------- "
+msgstr ""
+
+#: core/metaboxes/post-type-metaboxes/metaboxes-zanmenu.php:28
+msgid "Advance"
+msgstr ""
+
+#: core/metaboxes/post-type-metaboxes/metaboxes-zanmenu.php:42
+msgid "Background Color"
+msgstr ""
+
+#: core/metaboxes/post-type-metaboxes/metaboxes-zanmenu.php:46
+msgid "Set menu item content background color"
+msgstr ""
+
+#: core/metaboxes/post-type-metaboxes/metaboxes-zanmenu.php:49
+msgid "Custom Class"
+msgstr ""
+
+#: core/metaboxes/post-type-metaboxes/metaboxes-zanmenu.php:50
+msgid "Custom additional class. Ex: no-padding no-margin"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:14 core/post-types/post-zanmenu.php:25
+msgid "Zan Menu"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:15
+msgid "Zan Menu Item"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:16
+msgid "Add New"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:17
+msgid "Add New Menu Item"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:19
+msgid "New Menu Item"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:20
+msgid "View Menu Item"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:21
+msgid "Search Menu Items"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:22
+msgid "No Menu Items found"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:23
+msgid "No Menu Items found in Trash"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:24
+msgid "Parent Menu Item:"
+msgstr ""
+
+#: core/post-types/post-zanmenu.php:31
+msgid "Zan Menus."
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:15 core/shortcodes/zan-vc-global.php:52
+#: core/shortcodes/zan-vc-global.php:98
+msgid "--- No Animation ---"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:16 core/shortcodes/zan-vc-global.php:113
+msgid "bounceOut"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:17 core/shortcodes/zan-vc-global.php:114
+msgid "bounceOutDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:18 core/shortcodes/zan-vc-global.php:115
+msgid "bounceOutLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:19 core/shortcodes/zan-vc-global.php:116
+msgid "bounceOutRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:20 core/shortcodes/zan-vc-global.php:117
+msgid "bounceOutUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:21 core/shortcodes/zan-vc-global.php:127
+msgid "fadeOut"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:22 core/shortcodes/zan-vc-global.php:128
+msgid "fadeOutDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:23 core/shortcodes/zan-vc-global.php:129
+msgid "fadeOutDownBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:24 core/shortcodes/zan-vc-global.php:130
+msgid "fadeOutLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:25 core/shortcodes/zan-vc-global.php:131
+msgid "fadeOutLeftBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:26 core/shortcodes/zan-vc-global.php:132
+msgid "fadeOutRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:27 core/shortcodes/zan-vc-global.php:133
+msgid "fadeOutRightBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:28 core/shortcodes/zan-vc-global.php:134
+msgid "fadeOutUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:29 core/shortcodes/zan-vc-global.php:135
+msgid "fadeOutUpBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:30 core/shortcodes/zan-vc-global.php:139
+msgid "flipOutX"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:31 core/shortcodes/zan-vc-global.php:140
+msgid "flipOutY"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:32 core/shortcodes/zan-vc-global.php:142
+msgid "lightSpeedOut"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:33 core/shortcodes/zan-vc-global.php:148
+msgid "rotateOut"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:34 core/shortcodes/zan-vc-global.php:149
+msgid "rotateOutDownLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:35 core/shortcodes/zan-vc-global.php:150
+msgid "rotateOutDownRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:36 core/shortcodes/zan-vc-global.php:151
+msgid "rotateOutUpLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:37 core/shortcodes/zan-vc-global.php:152
+msgid "rotateOutUpRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:38 core/shortcodes/zan-vc-global.php:157
+msgid "slideOutUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:39 core/shortcodes/zan-vc-global.php:158
+msgid "slideOutDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:40 core/shortcodes/zan-vc-global.php:159
+msgid "slideOutLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:41 core/shortcodes/zan-vc-global.php:160
+msgid "slideOutRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:42 core/shortcodes/zan-vc-global.php:166
+msgid "zoomOut"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:43 core/shortcodes/zan-vc-global.php:167
+msgid "zoomOutDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:44 core/shortcodes/zan-vc-global.php:168
+msgid "zoomOutLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:45 core/shortcodes/zan-vc-global.php:169
+msgid "zoomOutRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:46 core/shortcodes/zan-vc-global.php:170
+msgid "zoomOutUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:47 core/shortcodes/zan-vc-global.php:173
+msgid "rollOut"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:48 core/shortcodes/zan-vc-global.php:171
+msgid "hinge"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:53 core/shortcodes/zan-vc-global.php:99
+msgid "bounce"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:54 core/shortcodes/zan-vc-global.php:100
+msgid "flash"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:55 core/shortcodes/zan-vc-global.php:101
+msgid "pulse"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:56 core/shortcodes/zan-vc-global.php:102
+msgid "rubberBand"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:57 core/shortcodes/zan-vc-global.php:103
+msgid "shake"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:58 core/shortcodes/zan-vc-global.php:104
+msgid "swing"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:59 core/shortcodes/zan-vc-global.php:105
+msgid "tada"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:60 core/shortcodes/zan-vc-global.php:106
+msgid "wobble"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:61 core/shortcodes/zan-vc-global.php:107
+msgid "jello"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:62 core/shortcodes/zan-vc-global.php:108
+msgid "bounceIn"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:63 core/shortcodes/zan-vc-global.php:109
+msgid "bounceInDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:64 core/shortcodes/zan-vc-global.php:110
+msgid "bounceInLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:65 core/shortcodes/zan-vc-global.php:111
+msgid "bounceInRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:66 core/shortcodes/zan-vc-global.php:112
+msgid "bounceInUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:67 core/shortcodes/zan-vc-global.php:118
+msgid "fadeIn"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:68 core/shortcodes/zan-vc-global.php:119
+msgid "fadeInDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:69 core/shortcodes/zan-vc-global.php:120
+msgid "fadeInDownBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:70 core/shortcodes/zan-vc-global.php:121
+msgid "fadeInLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:71 core/shortcodes/zan-vc-global.php:122
+msgid "fadeInLeftBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:72 core/shortcodes/zan-vc-global.php:123
+msgid "fadeInRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:73 core/shortcodes/zan-vc-global.php:124
+msgid "fadeInRightBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:74 core/shortcodes/zan-vc-global.php:125
+msgid "fadeInUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:75 core/shortcodes/zan-vc-global.php:126
+msgid "fadeInUpBig"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:76 core/shortcodes/zan-vc-global.php:136
+msgid "flip"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:77 core/shortcodes/zan-vc-global.php:137
+msgid "flipInX"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:78 core/shortcodes/zan-vc-global.php:138
+msgid "flipInY"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:79 core/shortcodes/zan-vc-global.php:141
+msgid "lightSpeedIn"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:80 core/shortcodes/zan-vc-global.php:143
+msgid "rotateIn"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:81 core/shortcodes/zan-vc-global.php:144
+msgid "rotateInDownLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:82 core/shortcodes/zan-vc-global.php:145
+msgid "rotateInDownRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:83 core/shortcodes/zan-vc-global.php:146
+msgid "rotateInUpLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:84 core/shortcodes/zan-vc-global.php:147
+msgid "rotateInUpRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:85 core/shortcodes/zan-vc-global.php:153
+msgid "slideInUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:86 core/shortcodes/zan-vc-global.php:154
+msgid "slideInDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:87 core/shortcodes/zan-vc-global.php:155
+msgid "slideInLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:88 core/shortcodes/zan-vc-global.php:156
+msgid "slideInRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:89 core/shortcodes/zan-vc-global.php:161
+msgid "zoomIn"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:90 core/shortcodes/zan-vc-global.php:162
+msgid "zoomInDown"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:91 core/shortcodes/zan-vc-global.php:163
+msgid "zoomInLeft"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:92 core/shortcodes/zan-vc-global.php:164
+msgid "zoomInRight"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:93 core/shortcodes/zan-vc-global.php:165
+msgid "zoomInUp"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:94 core/shortcodes/zan-vc-global.php:172
+msgid "rollIn"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:181
+msgid "Solid"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:182
+msgid "Dotted"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:183
+msgid "Dashed"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:185
+msgid "Hidden"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:186
+msgid "Double"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:187
+msgid "Groove"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:188
+msgid "Ridge"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:189
+msgid "Inset"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:190
+msgid "Outset"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:199
+msgid "Font Awesome"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:200
+msgid "Open Iconic"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:201
+msgid "Typicons"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:202
+msgid "Entypo"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:203
+msgid "Linecons"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:204
+msgid "Mono Social"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:205
+msgid "Simple Line"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:210
+msgid "Icon"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:211
+msgid "Select icon from library."
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:220
+msgid "Icon library"
+msgstr ""
+
+#: core/shortcodes/zan-vc-global.php:224
+msgid "Select icon library."
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:27
+msgid "Zan Content"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:30
+#: core/shortcodes/zmb_custom_nav_menu.php:28
+#: core/shortcodes/zmb_img_item_with_text.php:30
+#: core/shortcodes/zmb_news_letter.php:31
+#: core/shortcodes/zmb_post_single.php:118
+#: core/shortcodes/zmb_posts_list.php:17
+#: core/shortcodes/zmb_products_list.php:21
+#: core/shortcodes/zmb_simple_title_desc.php:161
+#: core/shortcodes/zmb_single_product.php:21
+msgid "Zan"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:36
+msgid "Content"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:43
+msgid "Enable Content Image"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:46 core/shortcodes/zmb_content.php:82
+#: core/shortcodes/zmb_img_item_with_text.php:55 core/zanmb-options.php:361
+#: core/zanmb-options.php:369
+msgid "Yes"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:47 core/shortcodes/zmb_content.php:83
+#: core/shortcodes/zmb_img_item_with_text.php:56 core/zanmb-options.php:362
+#: core/zanmb-options.php:370
+msgid "No"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:55
+#: core/shortcodes/zmb_img_item_with_text.php:36
+msgid "Image"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:57
+msgid "Choose image"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:67
+#: core/shortcodes/zmb_img_item_with_text.php:44
+msgid "Image Size"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:70
+msgid "<em>{width}x{height}</em>. Example: <em>263x188</em>, etc..."
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:79
+msgid "Enable Do Shortcode"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:91
+#: core/shortcodes/zmb_img_item_with_text.php:121
+#: core/shortcodes/zmb_news_letter.php:147
+#: core/shortcodes/zmb_post_single.php:86 core/shortcodes/zmb_posts_list.php:89
+#: core/shortcodes/zmb_products_list.php:56
+#: core/shortcodes/zmb_simple_title_desc.php:129
+#: core/shortcodes/zmb_single_product.php:55
+msgid "CSS Animation"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:100
+#: core/shortcodes/zmb_img_item_with_text.php:130
+#: core/shortcodes/zmb_news_letter.php:156
+#: core/shortcodes/zmb_post_single.php:95 core/shortcodes/zmb_posts_list.php:98
+#: core/shortcodes/zmb_products_list.php:65
+#: core/shortcodes/zmb_simple_title_desc.php:138
+#: core/shortcodes/zmb_single_product.php:64
+msgid "Animation Delay"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:103
+#: core/shortcodes/zmb_img_item_with_text.php:133
+#: core/shortcodes/zmb_news_letter.php:159
+#: core/shortcodes/zmb_post_single.php:98
+#: core/shortcodes/zmb_posts_list.php:101
+#: core/shortcodes/zmb_products_list.php:68
+#: core/shortcodes/zmb_simple_title_desc.php:141
+#: core/shortcodes/zmb_single_product.php:67
+msgid "Delay unit is second."
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:111
+#: core/shortcodes/zmb_custom_nav_menu.php:56
+#: core/shortcodes/zmb_img_item_with_text.php:141
+#: core/shortcodes/zmb_news_letter.php:167
+#: core/shortcodes/zmb_post_single.php:106
+#: core/shortcodes/zmb_posts_list.php:109
+#: core/shortcodes/zmb_products_list.php:76
+#: core/shortcodes/zmb_simple_title_desc.php:149
+#: core/shortcodes/zmb_single_product.php:75
+msgid "Css"
+msgstr ""
+
+#: core/shortcodes/zmb_content.php:113
+#: core/shortcodes/zmb_custom_nav_menu.php:58
+#: core/shortcodes/zmb_img_item_with_text.php:143
+#: core/shortcodes/zmb_news_letter.php:169
+#: core/shortcodes/zmb_post_single.php:108
+#: core/shortcodes/zmb_posts_list.php:111
+#: core/shortcodes/zmb_products_list.php:78
+#: core/shortcodes/zmb_simple_title_desc.php:151
+#: core/shortcodes/zmb_single_product.php:77
+msgid "Design options"
+msgstr ""
+
+#: core/shortcodes/zmb_custom_nav_menu.php:25
+msgid "Zan Custom Menu"
+msgstr ""
+
+#: core/shortcodes/zmb_custom_nav_menu.php:34
+#: core/shortcodes/zmb_img_item_with_text.php:64
+#: core/shortcodes/zmb_news_letter.php:37
+#: core/shortcodes/zmb_simple_title_desc.php:31
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:145
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:200
+msgid "Title"
+msgstr ""
+
+#: core/shortcodes/zmb_custom_nav_menu.php:41
+#: core/shortcodes/zmb_img_item_with_text.php:105
+#: core/shortcodes/zmb_news_letter.php:76
+#: core/shortcodes/zmb_post_single.php:62 core/shortcodes/zmb_posts_list.php:55
+#: core/shortcodes/zmb_simple_title_desc.php:72
+msgid "Title Color"
+msgstr ""
+
+#: core/shortcodes/zmb_custom_nav_menu.php:47
+msgid "Menu"
+msgstr ""
+
+#: core/shortcodes/zmb_custom_nav_menu.php:50
+msgid ""
+"Custom menu not found. Please visit <b>Appearance > Menus</b> page to create "
+"new menu."
+msgstr ""
+
+#: core/shortcodes/zmb_custom_nav_menu.php:50
+msgid "Select menu to display."
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:27
+msgid "Zan Image Item With Text"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:38
+msgid "Choose banner image"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:47
+msgid "<em>{width}x{height}</em>. Example: <em>60x60</em>, etc..."
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:52
+msgid "Image Circle"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:66
+#: core/shortcodes/zmb_simple_title_desc.php:33
+msgid "Menu builder for Visual Composer"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:72
+#: core/shortcodes/zmb_news_letter.php:45
+#: core/shortcodes/zmb_simple_title_desc.php:39
+msgid "Short Description"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:80
+#: core/shortcodes/zmb_simple_title_desc.php:47
+msgid "Link"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:86
+#: core/shortcodes/zmb_simple_title_desc.php:53
+msgid "Title Tag"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:89
+#: core/shortcodes/zmb_simple_title_desc.php:56
+msgid "h1"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:90
+#: core/shortcodes/zmb_simple_title_desc.php:57
+msgid "h2"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:91
+#: core/shortcodes/zmb_simple_title_desc.php:58
+msgid "h3"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:92
+#: core/shortcodes/zmb_simple_title_desc.php:59
+msgid "h4"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:93
+#: core/shortcodes/zmb_simple_title_desc.php:60
+msgid "h5"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:94
+#: core/shortcodes/zmb_simple_title_desc.php:61
+msgid "h6"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:95
+#: core/shortcodes/zmb_simple_title_desc.php:62
+msgid "span"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:96
+#: core/shortcodes/zmb_simple_title_desc.php:63
+msgid "label"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:97
+#: core/shortcodes/zmb_simple_title_desc.php:64
+msgid "p"
+msgstr ""
+
+#: core/shortcodes/zmb_img_item_with_text.php:113
+#: core/shortcodes/zmb_news_letter.php:84
+#: core/shortcodes/zmb_simple_title_desc.php:80
+msgid "Short Description Color"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:28
+msgid "Zan Newsletter"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:39
+msgid "Join Our Newsletter"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:47
+msgid "Sign up our newsletter and get more events &amp; promotions!"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:53
+msgid "Submit Text"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:60
+msgid "Placeholder Text"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:62
+msgid "Enter your email here"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:68
+msgid "Success Message"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:70
+msgid "Your email added..."
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:92
+msgid "Input Text Color"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:100
+msgid "Input Background Color"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:108
+msgid "Submit Button Color"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:115
+#: core/shortcodes/zmb_simple_title_desc.php:106
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:342
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:343
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:344
+msgid "Text Align"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:120
+#: core/shortcodes/zmb_simple_title_desc.php:111
+msgid "Center"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:121
+#: core/shortcodes/zmb_simple_title_desc.php:112
+msgid "Inherit"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:129
+msgid "Mailchimp API Key"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:131
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"__blank\">Click here to get your Mailchimp API key</"
+"a>"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:132
+#: core/shortcodes/zmb_news_letter.php:141
+msgid "Mailchimp Settings"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:138
+msgid "Mailchimp List ID"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:140
+#, php-format
+msgid "<a href=\"%s\" target=\"__blank\">How to find Mailchimp list ID</a>"
+msgstr ""
+
+#: core/shortcodes/zmb_news_letter.php:265
+#: core/shortcodes/zmb_news_letter.php:297
+msgid "Failed"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:17
+msgid "Post"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:20
+msgid "Input post ID or post title to see suggestions."
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:26 core/shortcodes/zmb_posts_list.php:42
+msgid "Thumbnail Size"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:29
+msgid "Format {width}x{height}. Default <strong>262x96</strong>."
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:35 core/shortcodes/zmb_posts_list.php:80
+msgid "Excerpt Max Words"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:38 core/shortcodes/zmb_posts_list.php:83
+msgid "Maximum number of post excerpt words"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:44
+msgid "Read More Text"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:46
+msgid "Read more..."
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:70 core/shortcodes/zmb_posts_list.php:63
+msgid "Text Color"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:78
+msgid "Read More Color"
+msgstr ""
+
+#: core/shortcodes/zmb_post_single.php:115
+msgid "Zan Single Post"
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:14
+msgid "Zan Posts list"
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:22
+#: core/shortcodes/zmb_simple_title_desc.php:17
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:281
+msgid "Style"
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:25
+msgid "Style 1 (show post thumbnail)"
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:26
+msgid "Style 2 (show post date)"
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:34
+msgid "Posts Category"
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:45
+msgid "Format {width}x{height}. Default <strong>70x70</strong>."
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:71
+msgid "Number Of Posts"
+msgstr ""
+
+#: core/shortcodes/zmb_posts_list.php:74
+msgid "Maximum number of posts will load"
+msgstr ""
+
+#: core/shortcodes/zmb_products_list.php:18
+msgid "Zan Products List"
+msgstr ""
+
+#: core/shortcodes/zmb_products_list.php:26
+msgid "Products"
+msgstr ""
+
+#: core/shortcodes/zmb_products_list.php:34
+#: core/shortcodes/zmb_single_product.php:33
+msgid "Input product ID or product title to see suggestions."
+msgstr ""
+
+#: core/shortcodes/zmb_products_list.php:40
+#: core/shortcodes/zmb_single_product.php:39
+msgid "Product Title Color"
+msgstr ""
+
+#: core/shortcodes/zmb_products_list.php:48
+#: core/shortcodes/zmb_single_product.php:47
+msgid "Price Color"
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:20
+msgid "Style 1"
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:21
+msgid "Style 2"
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:22
+msgid "Style 3 (Icon Big)"
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:23
+msgid "Style 4 (Icon Border)"
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:98
+msgid "Icon Color"
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:120
+msgid "Additional Class"
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:123
+msgid "Ex: address."
+msgstr ""
+
+#: core/shortcodes/zmb_simple_title_desc.php:158
+msgid "Zan Simple Title With Description"
+msgstr ""
+
+#: core/shortcodes/zmb_single_product.php:18
+msgid "Zan Single Product"
+msgstr ""
+
+#: core/shortcodes/zmb_single_product.php:26
+msgid "Product"
+msgstr ""
+
+#: core/zanmb-options.php:89 reduxframework/sample/sample-config.php:108
+msgid "Section via hook"
+msgstr ""
+
+#: core/zanmb-options.php:90 reduxframework/sample/sample-config.php:109
+msgid ""
+"<p class=\"description\">This is a section created by adding a filter to the "
+"sections array. Can be used by child themes to add/remove sections from the "
+"options.</p>"
+msgstr ""
+
+#: core/zanmb-options.php:167 reduxframework/sample/sample-config.php:189
+#, php-format
+msgid "Customize &#8220;%s&#8221;"
+msgstr ""
+
+#: core/zanmb-options.php:175 core/zanmb-options.php:179
+#: reduxframework/sample/sample-config.php:198
+#: reduxframework/sample/sample-config.php:202
+msgid "Current theme preview"
+msgstr ""
+
+#: core/zanmb-options.php:188 reduxframework/sample/sample-config.php:209
+#, php-format
+msgid "By %s"
+msgstr ""
+
+#: core/zanmb-options.php:189
+#: reduxframework/ReduxCore/inc/welcome/views/about.php:8
+#: reduxframework/ReduxCore/inc/welcome/views/changelog.php:10
+#: reduxframework/ReduxCore/inc/welcome/views/credits.php:10
+#: reduxframework/ReduxCore/inc/welcome/views/extensions.php:81
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:34
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:8
+#: reduxframework/sample/sample-config.php:210
+#, php-format
+msgid "Version %s"
+msgstr ""
+
+#: core/zanmb-options.php:190 reduxframework/sample/sample-config.php:211
+msgid "Tags"
+msgstr ""
+
+#: core/zanmb-options.php:196 reduxframework/sample/sample-config.php:216
+#, php-format
+msgid "This <a href=\"%1$s\">child theme</a> requires its parent theme, %2$s."
+msgstr ""
+
+#: core/zanmb-options.php:196 reduxframework/sample/sample-config.php:216
+msgid "http://codex.wordpress.org/Child_Themes"
+msgstr ""
+
+#: core/zanmb-options.php:218
+msgid "Welcome to WordPress Mega Menu options panel"
+msgstr ""
+
+#: core/zanmb-options.php:220
+msgid "From here you can config WordPress Mega Menu in the way you need."
+msgstr ""
+
+#: core/zanmb-options.php:225
+msgid "Enable Mega Menu On Locations"
+msgstr ""
+
+#: core/zanmb-options.php:244
+#, php-format
+msgid "\"%s\" Break Point"
+msgstr ""
+
+#: core/zanmb-options.php:252
+#, php-format
+msgid "Enable Sticky For \"%s\""
+msgstr ""
+
+#: core/zanmb-options.php:254 reduxframework/ReduxCore/framework.php:1731
+msgid "Enable"
+msgstr ""
+
+#: core/zanmb-options.php:255 reduxframework/ReduxCore/framework.php:1736
+msgid "Disable"
+msgstr ""
+
+#: core/zanmb-options.php:265
+msgid "Enable Vertical Menu Style For Locations"
+msgstr ""
+
+#: core/zanmb-options.php:283
+#, php-format
+msgid "\"%s\" Base Width Type (Vertical)"
+msgstr ""
+
+#: core/zanmb-options.php:287
+msgid "Closest Selector"
+msgstr ""
+
+#: core/zanmb-options.php:288
+msgid "Number"
+msgstr ""
+
+#: core/zanmb-options.php:296
+#, php-format
+msgid "\"%s\" Level 0 Width"
+msgstr ""
+
+#: core/zanmb-options.php:297
+msgid ""
+"Menu level 0 width. It should be smaller than base width. Defautl 200 (unit "
+"is pixel)"
+msgstr ""
+
+#: core/zanmb-options.php:305
+#, php-format
+msgid "\"%s\" Base Width Closest Selector (Vertical)"
+msgstr ""
+
+#: core/zanmb-options.php:306
+msgid "The closest selector to calculate sub menu width"
+msgstr ""
+
+#: core/zanmb-options.php:314
+#, php-format
+msgid "\"%s\" Base Width (Vertical)"
+msgstr ""
+
+#: core/zanmb-options.php:326 reduxframework/sample/sample-config.php:799
+msgid "Custom CSS"
+msgstr ""
+
+#: core/zanmb-options.php:327
+msgid "Paste your custom CSS code here."
+msgstr ""
+
+#: core/zanmb-options.php:337
+msgid "Custom JS"
+msgstr ""
+
+#: core/zanmb-options.php:338
+msgid "Paste your custom JS code here."
+msgstr ""
+
+#: core/zanmb-options.php:348 reduxframework/sample/sample-config.php:555
+msgid "General Settings"
+msgstr ""
+
+#: core/zanmb-options.php:355
+msgid "Resource Settings"
+msgstr ""
+
+#: core/zanmb-options.php:360
+msgid "Load Simple Line Font Icons"
+msgstr ""
+
+#: core/zanmb-options.php:368
+msgid "Load Awesome Font Icons"
+msgstr ""
+
+#: core/zanmb-options.php:382 reduxframework/sample/barebones-config.php:110
+#: reduxframework/sample/sample-config.php:1635
+msgid "Theme Information 1"
+msgstr ""
+
+#: core/zanmb-options.php:383 core/zanmb-options.php:389
+#: core/zanmb-options.php:393 reduxframework/sample/barebones-config.php:111
+#: reduxframework/sample/barebones-config.php:117
+#: reduxframework/sample/sample-config.php:1636
+#: reduxframework/sample/sample-config.php:1642
+msgid "<p>This is the tab content, HTML is allowed.</p>"
+msgstr ""
+
+#: core/zanmb-options.php:388 reduxframework/sample/barebones-config.php:116
+#: reduxframework/sample/sample-config.php:1641
+msgid "Theme Information 2"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: core/zanmb-options.php:408 core/zanmb-options.php:413
+msgid "WordPress Mega Menu"
+msgstr ""
+
+#: core/zanmb-options.php:412
+msgid "WP Mega Menu"
+msgstr ""
+
+#: core/zanmb-options.php:438
+msgid "Zan Themes WordPress Team"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/enqueue.php:451
+#: reduxframework/ReduxCore/inc/extensions/customizer/extension_customizer.php:687
+msgid "You have changes that are not saved. Would you like to save them now?"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/enqueue.php:459
+#: reduxframework/ReduxCore/inc/extensions/customizer/extension_customizer.php:688
+msgid "Are you sure? Resetting will lose all custom values."
+msgstr ""
+
+#: reduxframework/ReduxCore/core/enqueue.php:467
+msgid "Are you sure? Resetting will lose all custom values in this section."
+msgstr ""
+
+#: reduxframework/ReduxCore/core/enqueue.php:475
+#: reduxframework/ReduxCore/inc/extensions/customizer/extension_customizer.php:689
+msgid ""
+"Your current options will be replaced with the values of this preset. Would "
+"you like to proceed?"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/enqueue.php:482
+msgid "Please Wait"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/enqueue.php:493
+msgid "There was an error saving. Here is the result of your action:"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/enqueue.php:494
+msgid ""
+"There was a problem with your action. Please try again or reload the page."
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:65
+msgid "Warning- This options panel will not work properly without javascript!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:141
+msgid "Settings Imported!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:156
+msgid "All Defaults Restored!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:170
+msgid "Section Defaults Restored!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:184
+msgid "Settings Saved!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:204
+msgid "Settings have changed, you should save them!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:212
+msgid "error(s) were found!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:220
+msgid "warning(s) were found!"
+msgstr ""
+
+#: reduxframework/ReduxCore/core/panel.php:312
+msgid ""
+"<strong>Your panel has bundled outdated copies of Redux Framework template "
+"files</strong> &#8211; if you encounter functionality issues this could be "
+"the reason. Ensure you update or remove them."
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:226
+#, php-format
+msgid "Options panel created using %1$s"
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:226
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:199
+msgid "Redux Framework"
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:230
+#: reduxframework/ReduxCore/framework.php:234
+msgid "Options"
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:1742
+msgid "moving the mouse over"
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:1744
+msgid "clicking"
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:1748
+#, php-format
+msgid ""
+"Hints are tooltips that popup when %d the hint icon, offering addition "
+"information about the field in which they appear.  They can be %d d by using "
+"the link below."
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:1753
+msgid "Hints"
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:2759
+msgid "Invalid security credential.  Please reload the page and try again."
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:2768
+msgid "Invalid user capability.  Please reload the page and try again."
+msgstr ""
+
+#: reduxframework/ReduxCore/framework.php:2857
+msgid "Your panel has no fields. Nothing to save."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_admin_notices.php:97
+msgid "Dismiss"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_cdn.php:74
+msgid ""
+"Please wait a few minutes, then try refreshing the page. Unable to load some "
+"remotely hosted scripts."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_cdn.php:76
+#, php-format
+msgid ""
+"If you are developing offline, please download and install the <a href=\"%s"
+"\" target=\"_blank\">Redux Vendor Support</a> plugin/extension to bypass the "
+"our CDN and avoid this warning"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_cdn.php:81
+msgid "Redux Framework Warning"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_cdn.php:81
+#, php-format
+msgid "%s CDN unavailable.  Some controls may not render properly."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_cdn.php:113
+#, php-format
+msgid ""
+"The <a href=\"%s\">Vendor Support plugin</a> (or extension) is either not "
+"installed or not activated and thus, some controls may not render properly.  "
+"Please ensure that it is installed and <a href=\"%s\">activated</a>"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_filesystem.php:31
+#: reduxframework/ReduxCore/inc/class.redux_filesystem.php:60
+#: reduxframework/ReduxCore/inc/class.redux_filesystem.php:270
+msgid "File Permission Issues"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_filesystem.php:31
+#, php-format
+msgid ""
+"We were unable to modify required files. Please check your permissions, or "
+"modify your wp-config.php file to contain your FTP login credentials as <a "
+"href=\"%s\" target=\"_blank\">outlined here</a>."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_filesystem.php:60
+#: reduxframework/ReduxCore/inc/class.redux_filesystem.php:270
+#, php-format
+msgid ""
+"We were unable to modify required files. Please ensure that <code>%1s</code> "
+"has the proper read-write permissions, or modify your wp-config.php file to "
+"contain your FTP login credentials as <a href=\"%2s\" target=\"_blank"
+"\">outlined here</a>."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/class.redux_helpers.php:596
+#, php-format
+msgid ""
+"<code>%s</code> version <strong style=\"color:red\">%s</strong> is out of "
+"date. The core version is %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/extension_customizer.php:722
+msgid "You have changes that are not saved.  Would you like to save them now?"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/extension_customizer.php:723
+msgid "Are you sure?  Resetting will lose all custom values."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/extension_customizer.php:724
+msgid ""
+"Your current options will be replaced with the values of this preset.  Would "
+"you like to proceed?"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:89
+msgid "Press return or enter to open this panel"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:114
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:142
+#, php-format
+msgid "You are customizing %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:138
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_section.php:79
+msgid "Back"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_panel.php:146
+msgid "Help"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_section.php:72
+msgid "Press return or enter to open"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/customizer/inc/customizer_section.php:122
+msgid "Press return or enter to expand"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/extension_import_export.php:120
+#: reduxframework/sample/sample-config.php:1590
+msgid "Import / Export"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:91
+msgid "Import Options"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:95
+msgid "Import from File"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:98
+msgid "Import from URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:104
+msgid ""
+"Input your backup file below and hit Import to restore your sites options "
+"from a backup."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:111
+msgid ""
+"Input the URL to another sites options set and hit Import to load the "
+"options from that site."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:116
+msgid "Import"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:116
+msgid ""
+"WARNING! This will overwrite all existing option values, please proceed with "
+"caution!"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:120
+msgid "Export Options"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:124
+msgid ""
+"Here you can copy/download your current option settings. Keep this safe as "
+"you can use it as a backup should anything go wrong, or you can use it to "
+"restore your settings on this site (or any other site)."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:132
+msgid "Copy Data"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:133
+msgid "Download Data File"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/import_export/import_export/field_import_export.php:134
+msgid "Copy Export URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/options_object/extension_options_object.php:82
+#: reduxframework/ReduxCore/inc/extensions/options_object/options_object/field_options_object.php:104
+msgid "Options Object"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/extensions/options_object/options_object/field_options_object.php:107
+msgid "Show Object in Javascript Console Object"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:124
+#: reduxframework/ReduxCore/inc/fields/color/field_color.php:73
+#: reduxframework/ReduxCore/inc/fields/color_gradient/field_color_gradient.php:79
+#: reduxframework/ReduxCore/inc/fields/color_gradient/field_color_gradient.php:91
+msgid "Transparent"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:141
+msgid "Background Repeat"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:157
+msgid "Background Clip"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:173
+msgid "Background Origin"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:188
+msgid "Background Size"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:203
+msgid "Background Attachment"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:223
+msgid "Background Position"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/background/field_background.php:277
+#: reduxframework/ReduxCore/inc/fields/media/field_media.php:149
+msgid "No media selected"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/border/field_border.php:125
+#: reduxframework/ReduxCore/inc/fields/spacing/field_spacing.php:191
+msgid "All"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/border/field_border.php:138
+#: reduxframework/ReduxCore/inc/fields/spacing/field_spacing.php:215
+msgid "Top"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/border/field_border.php:152
+#: reduxframework/ReduxCore/inc/fields/spacing/field_spacing.php:229
+msgid "Bottom"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/border/field_border.php:174
+msgid "Border style"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/color_gradient/field_color_gradient.php:68
+msgid "From "
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/color_gradient/field_color_gradient.php:82
+msgid "To "
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/dimensions/field_dimensions.php:162
+msgid "Width"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/dimensions/field_dimensions.php:178
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:442
+msgid "Height"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/dimensions/field_dimensions.php:189
+#: reduxframework/ReduxCore/inc/fields/dimensions/field_dimensions.php:190
+#: reduxframework/ReduxCore/inc/fields/spacing/field_spacing.php:245
+#: reduxframework/ReduxCore/inc/fields/spacing/field_spacing.php:246
+msgid "Units"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/gallery/field_gallery.php:73
+#: reduxframework/sample/sample-config.php:313
+msgid "Add/Edit Gallery"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/gallery/field_gallery.php:74
+msgid "Clear Gallery"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/link_color/field_link_color.php:88
+msgid "Regular"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/link_color/field_link_color.php:92
+msgid "Hover"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/link_color/field_link_color.php:96
+msgid "Visited"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/link_color/field_link_color.php:100
+msgid "Active"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/multi_text/field_multi_text.php:61
+msgid "Add More"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/password/field_password.php:62
+msgid "Password"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/password/field_password.php:63
+msgid "Username"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/select/field_select.php:83
+#: reduxframework/ReduxCore/inc/fields/select_image/field_select_image.php:63
+msgid "Select an item"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/select/field_select.php:134
+#: reduxframework/ReduxCore/inc/fields/select_image/field_select_image.php:144
+msgid "No items of this type were found."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:68
+msgid "Slide"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:73
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:174
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:167
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:220
+msgid "Delete"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/slides/field_slides.php:223
+#, php-format
+msgid "Add %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/switch/field_switch.php:41
+msgid "On"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/switch/field_switch.php:44
+msgid "Off"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:231
+msgid "Font Family"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:232
+msgid "Font family"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:258
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:259
+msgid "Backup Font Family"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:273
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:281
+msgid "Font style"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:274
+msgid "Font Weight &amp; Style"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:321
+msgid "Font subsets"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:323
+msgid "Font Subsets"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:325
+msgid "Subsets"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:325
+msgid "Font script"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:365
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:366
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:367
+msgid "Text Transform"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:388
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:389
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:390
+msgid "Font Variant"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:408
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:409
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:410
+msgid "Text Decoration"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:432
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:433
+msgid "Font Size"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:433
+msgid "Size"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:441
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:442
+msgid "Line Height"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:450
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:451
+msgid "Word Spacing"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:459
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:460
+msgid "Letter Spacing"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:478
+msgid "Font Color"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:480
+msgid "Font color"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:890
+msgid "Standard Fonts"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/fields/typography/field_typography.php:991
+msgid "Google Webfonts"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/embedded.php:15
+#, php-format
+msgid ""
+"<span class=\"tc-lead tc-recommended\">RECOMMENDED</span>: If you are "
+"submitting to WordPress.org Theme Repository, it is <strong>strongly</"
+"strong> suggested that you read <a href=\"%s\" target=\"_blank\">this "
+"document</a>, or your theme will be rejected because of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/embedded.php:24
+#, php-format
+msgid ""
+"<span class=\"tc-lead tc-required\">REQUIRED</span>: You MUST delete "
+"<strong> %s </strong>, or your theme will be rejected by WP.org theme "
+"submission because of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/embedded.php:38
+msgid "Optional"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/embedded.php:40
+msgid ""
+"<span class=\"tc-lead tc-recommended\">RECOMMENDED</span>: The following "
+"arguments MUST be used for WP.org submissions, or you will be rejected "
+"because of your Redux configuration."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:16
+msgid "Redux localization utilities"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:17
+msgid "Redux Resting Diles"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:18
+msgid "Redux Code Styles"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:19
+msgid "Redux Unit Testing"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:20
+msgid "Redux Plugin File"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:21
+msgid "Redux Boostrap Tests"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:22
+msgid "CI Testing FIle"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:23
+msgid "PHP Unit Testing"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/themecheck/checks/full_package.php:36
+msgid ""
+"It appears that you have embedded the full Redux package inside your theme. "
+"You need only embed the <strong>ReduxCore</strong> folder. Embedding "
+"anything else will get your rejected from theme submission. Suspected Redux "
+"package file(s):"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:129
+msgid "Help improve Our Panel"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:130
+msgid ""
+"Please helps us improve our panel by allowing us to gather anonymous usage "
+"stats so we know which configurations, plugins and themes to test to ensure "
+"compatibility."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:135
+msgid "Allow tracking"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:140
+msgid "Do not allow tracking"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:151
+msgid "Welcome to the Redux Demo Panel"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:152
+msgid "Getting Started"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:152
+#, php-format
+msgid ""
+"This panel demonstrates the many features of Redux.  Before digging in, we "
+"suggest you get up to speed by reviewing %1$s."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:152
+msgid "our documentation"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:153
+msgid "Redux Generator"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:153
+#, php-format
+msgid ""
+"Want to get a head start? Use the %1$s. It will create a customized "
+"boilerplate theme or a standalone admin folder complete with all things "
+"Redux (with the help of Underscores and TGM). Save yourself a headache and "
+"try it today."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:154
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:223
+msgid "Redux Extensions"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:154
+#, php-format
+msgid ""
+"Did you know we have extensions, which greatly enhance the features of "
+"Redux?  Visit our %1$s to learn more!"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:154
+msgid "extensions directory"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:155
+msgid "Like Redux?"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:155
+#, php-format
+msgid ""
+"If so, please %1$s and consider making a %2$s to keep development of Redux "
+"moving forward."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:155
+msgid "leave us a favorable review on WordPress.org"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:155
+msgid "donation"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:156
+msgid "Newsletter"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:156
+msgid ""
+"If you'd like to keep up to with all things Redux, please subscribe to our "
+"newsletter"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:157
+msgid "Email address"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:157
+msgid "Subscribe"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/tracking.php:166
+msgid "Close"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/color/validation_color.php:15
+#: reduxframework/ReduxCore/inc/validation/color_rgba/validation_color_rgba.php:14
+#: reduxframework/ReduxCore/inc/validation/colorrgba/validation_colorrgba.php:16
+msgid "This field must be a valid color value."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/comma_numeric/validation_comma_numeric.php:16
+msgid ""
+"You must provide a comma separated list of numerical values for this option."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/css/validation_css.php:39
+msgid "Unsafe strings were found in your CSS and have been filtered out."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/date/validation_date.php:16
+msgid "This field must be a valid date."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/email/validation_email.php:16
+#: reduxframework/ReduxCore/inc/validation/email_not_empty/validation_email_not_empty.php:16
+msgid "You must provide a valid email for this option."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/no_html/validation_no_html.php:15
+msgid ""
+"You must not enter any HTML in this field, all HTML tags have been removed."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/no_special_chars/validation_no_special_chars.php:16
+msgid ""
+"You must not enter any special characters in this field, all special "
+"characters have been removed."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/not_empty/validation_not_empty.php:16
+msgid "This field cannot be empty. Please provide a value."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/numeric/validation_numeric.php:16
+#: reduxframework/ReduxCore/inc/validation/numeric_not_empty/validation_numeric_not_empty.php:16
+msgid "You must provide a numerical value for this option."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/unique_slug/validation_unique_slug.php:16
+#, php-format
+msgid ""
+"That URL slug is in use, please choose another. <code>%s</code> is open for "
+"use."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/validation/url/validation_url.php:16
+msgid "You must provide a valid URL for this option."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/about.php:2
+#, php-format
+msgid "Welcome to Redux Framework %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/about.php:5
+#, php-format
+msgid ""
+"Thank you for updating to the latest version! Redux Framework %s is a huge "
+"step forward in Redux Development. Look at all that's new."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/about.php:15
+msgid "What is Redux Framework?"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/about.php:17
+msgid ""
+"Redux Framework is the core of many products on the web. It is an option "
+"framework which developers use to\n"
+"            enhance their products."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/about.php:22
+msgid "Learn More"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/about.php:28
+msgid "New in this Release"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/changelog.php:2
+msgid "Redux Framework - Changelog"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/changelog.php:5
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:30
+msgid ""
+"Our core mantra at Redux is backwards compatibility. With hundreds of "
+"thousands of instances worldwide, you can be assured that we will take care "
+"of you and your clients."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/credits.php:2
+msgid "Redux Framework - A Community Effort"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/credits.php:5
+msgid ""
+"We recognize we are nothing without our community. We would like to thank "
+"all of those who help Redux to be what it is. Thank you for your involvement."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/credits.php:18
+#, php-format
+msgid ""
+"Redux is created by a community of developers world wide. Want to have your "
+"name listed too? <a href=\"%d\" target=\"_blank\">Contribute to Redux</a>."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/extensions.php:73
+msgid "Redux Framework - Extensions"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/extensions.php:76
+msgid ""
+"Supercharge your Redux experience. Our extensions provide you with features "
+"that will take your products to the next level."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/extensions.php:89
+msgid ""
+"While some are built specificially for developers, extensions such as Custom "
+"Fonts are sure to make any user happy."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:26
+msgid "Redux Framework - System Status"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:43
+msgid ""
+"Please copy and paste this information in your ticket when contacting "
+"support:"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:48
+msgid "Get System Report"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:53
+msgid "Understanding the Status Report"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:62
+msgid "Copied!"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:63
+msgid "Copy for Support"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:73
+msgid "WordPress Environment"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:80
+msgid "Home URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:83
+msgid "The URL of your site's homepage."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:89
+msgid "Site URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:92
+msgid "The root URL of your site."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:100
+msgid "Redux Version"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:103
+msgid "The version of Redux Framework installed on your site."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:111
+msgid "Redux Data Directory Writable"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:114
+msgid ""
+"Redux and its extensions write data to the <code>uploads</code> directory. "
+"This directory must be writable."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:120
+#, php-format
+msgid "To allow data saving, make <code>%s</code> writable."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:126
+msgid "WP Content URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:129
+msgid "The location of Wordpress's content URL."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:137
+msgid "WP Version"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:140
+msgid "The version of WordPress installed on your site."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:148
+msgid "WP Multisite"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:151
+msgid "Whether or not you have WordPress Multisite enabled."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:162
+msgid "Permalink Structure"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:165
+msgid ""
+"The current permalink structure as defined in Wordpress Settings->Permalinks."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:174
+msgid "Front Page Display"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:176
+msgid "The current Reading mode of Wordpress."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:185
+msgid "Front Page"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:188
+msgid "The currently selected page which acts as the site's Front Page."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:196
+msgid "Posts Page"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:199
+msgid "The currently selected page in where blog posts are displayed."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:210
+msgid "WP Memory Limit"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:213
+msgid "The maximum amount of memory (RAM) that your site can use at one time."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:220
+#, php-format
+msgid ""
+"%s - We recommend setting memory to at least 40MB. See: <a href=\"%s\" "
+"target=\"_blank\">Increasing memory allocated to PHP</a>"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:229
+msgid "Database Table Prefix"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:232
+msgid "The prefix structure of the current Wordpress database."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:240
+msgid "WP Debug Mode"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:243
+msgid "Displays whether or not WordPress is in Debug Mode."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:255
+msgid "Language"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:258
+msgid "The current language used by WordPress. Default = English"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:270
+msgid "Browser"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:277
+msgid "Browser Info"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:280
+msgid "Information about web browser current in use."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:297
+msgid "Server Environment"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:304
+msgid "Server Info"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:307
+msgid "Information about the web server that is currently hosting your site."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:315
+msgid "Localhost Environment"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:318
+msgid "Is the server running in a localhost environment."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:332
+msgid "PHP Version"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:335
+msgid "The version of PHP installed on your hosting server."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:343
+msgid "ABSPATH"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:346
+msgid "The ABSPATH variable on the server."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:355
+msgid "PHP Memory Limit"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:356
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:361
+msgid "The largest filesize that can be contained in one post."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:360
+msgid "PHP Post Max Size"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:365
+msgid "PHP Time Limit"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:366
+msgid ""
+"The amount of time (in seconds) that your site will spend on a single "
+"operation before timing out (to avoid server lockups)"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:370
+msgid "PHP Max Input Vars"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:371
+msgid ""
+"The maximum number of variables your server can use for a single function to "
+"avoid overloads."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:375
+msgid "PHP Display Errors"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:376
+msgid "Determines if PHP will display errors within the browser."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:387
+msgid "SUHOSIN Installed"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:388
+msgid ""
+"Suhosin is an advanced protection system for PHP installations. It was "
+"designed to protect your servers on the one hand against a number of well "
+"known problems in PHP applications and on the other hand against potential "
+"unknown vulnerabilities within these applications or the PHP core itself.  "
+"If enabled on your server, Suhosin may need to be configured to increase its "
+"data submission limits."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:399
+msgid "MySQL Version"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:400
+msgid "The version of MySQL installed on your hosting server."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:404
+msgid "Max Upload Size"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:405
+msgid ""
+"The largest filesize that can be uploaded to your WordPress installation."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:410
+msgid "Default Timezone is UTC"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:412
+msgid "The default timezone for your server."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:416
+#, php-format
+msgid "Default timezone is %s - it should be UTC"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:428
+msgid "Used when communicating with remote services with PHP."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:434
+msgid ""
+"Your server does not have fsockopen or cURL enabled - cURL is used to "
+"communicate with other servers. Please contact your hosting provider."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:473
+msgid "Remote Post"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:474
+msgid "Used to send data to remote servers."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:479
+msgid ""
+"wp_remote_post() failed. Many advanced features may not function. Contact "
+"your hosting provider."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:482
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:497
+#, php-format
+msgid "Error: %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:489
+msgid "Remote Get"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:490
+msgid "Used to grab information from remote servers for updates updates."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:495
+msgid ""
+"wp_remote_get() failed. This is needed to get information from remote "
+"servers. Contact your hosting provider."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:531
+msgid "Active Plugins"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:546
+msgid "Visit plugin homepage"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:553
+#, php-format
+msgctxt "by author"
+msgid "by %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:572
+msgid "Redux Instance: "
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:579
+msgid "The opt_name argument for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:587
+msgid "The global_variable argument for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:595
+msgid "Indicates if developer mode is enabled for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:600
+msgid "Indicates if ajax based saving is enabled for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:605
+msgid ""
+"The page slug denotes the string used for the options panel page for this "
+"instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:610
+msgid ""
+"The page permissions variable sets the permission level required to access "
+"the options panel for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:615
+msgid ""
+"This variable set whether or not the menu is displayed as an admin menu item "
+"for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:620
+msgid ""
+"The page parent variable sets where the options menu will be placed on the "
+"WordPress admin sidebar for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:626
+msgid "Indicates if the compiler flag is enabled for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:631
+msgid ""
+"Indicates if output flag for globally shutting off all CSS output is enabled "
+"for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:636
+msgid ""
+"The output_tag variable sets whether or not dynamic CSS will be generated "
+"for the customizer and Google fonts for this instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:645
+msgid ""
+"The specified template path containing custom template files for this "
+"instance of Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:650
+msgid "List of template files overriding the default Redux template files."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:676
+msgid "Indicates the installed Redux extensions and their version numbers."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:705
+msgid "Theme"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:710
+msgid "Name"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:711
+msgid "The name of the current active theme."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:715
+msgid "Version"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:716
+msgid "The installed version of the current active theme."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:722
+msgid "is available"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:728
+msgid "Author URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:729
+msgid "The theme developers URL."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:733
+msgid "Child Theme"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:734
+msgid "Displays whether or not the current theme is a child theme."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:737
+#, php-format
+msgid ""
+"If you're modifying Redux Framework or a parent theme you didn't build "
+"personally, we recommend using a child theme. See: <a href=\"%s\" target="
+"\"_blank\">How to create a child theme</a>"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:745
+msgid "Parent Theme Name"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:747
+msgid "The name of the parent theme."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:752
+msgid "Parent Theme Version"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:754
+msgid "The installed version of the parent theme."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:759
+msgid "Parent Theme Author URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/status_report.php:761
+msgid "The parent theme developers URL."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:2
+msgid "Redux Framework - Support"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:4
+msgid ""
+"We are an open source project used by developers to make powerful control "
+"panels."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:19
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:40
+msgid "Generate a Support URL"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:20
+msgid "Select Support Type"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:21
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:87
+msgid "How to Get Support"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:27
+msgid "Submit a Support Request"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:31
+msgid "To get started, we will need to generate a support hash."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:35
+#, php-format
+msgid ""
+"This will provide to your developer all the information they may need to "
+"remedy your issue. This action WILL send information securely to a remote "
+"server. To see the type of information sent, please look at the  <a href=\"%s"
+"\">Status tab</a>."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:52
+msgid "Select Your Support Type"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:56
+msgid "What type of user are you?"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:63
+msgid "User"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:65
+msgid "I am a user, using a pre-built product."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:70
+msgid "Developer"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:72
+msgid "I am a developer, building a product using Redux."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:92
+msgid ""
+"Please proceed to the Redux Framework issue tracker and supply us with your "
+"support URL below. Please also provide any information that will help us to "
+"reproduce your issue."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:101
+msgid ""
+"Listed below are the Wordpress plugins and/or theme installed on your site "
+"that utilize Redux Framework. We do not directly support products created "
+"with our framework.  It is the responsibility of the plugin or theme "
+"developer to support their work. You will need to contact the author(s) of "
+"the products listed below with your support questions."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:105
+msgid ""
+"Please be sure to include for your developer - via cut and paste - the "
+"Support URL in the box below."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/views/support.php:134
+#, php-format
+msgid ""
+"Should the developer not be responsive, read the <a href=\"%s\" target="
+"\"_blank\">following article</a> before asking for support from us directly."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:102
+msgid ""
+"If you like <strong>Redux</strong> please leave us a <a href=\"https://"
+"wordpress.org/support/view/plugin-reviews/redux-framework?filter=5#postform"
+"\" target=\"_blank\" class=\"redux-rating-link\" data-rated="
+"\"Thanks :)\">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. A huge thank "
+"you from Redux in advance!"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:177
+msgid "Support hash could not be generated. Please try again later."
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:199
+msgid "Welcome to Redux Framework"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:207
+msgid "Redux Framework Changelog"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:215
+msgid "Get Support"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:232
+msgid "The people that develop Redux Framework"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:240
+msgid "Redux Framework Status"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:340
+msgid "What's New"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:343
+#: reduxframework/sample/sample-config.php:1782
+msgid "Extensions"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:346
+msgid "Changelog"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:349
+msgid "Credits"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:352
+#: reduxframework/sample/sample-config.php:1776
+msgid "Support"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:355
+msgid "Status"
+msgstr ""
+
+#: reduxframework/ReduxCore/inc/welcome/welcome.php:512
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/footer.tpl.php:50
+#: reduxframework/ReduxCore/templates/panel/header_stickybar.tpl.php:21
+msgid "Save Changes"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/footer.tpl.php:54
+#: reduxframework/ReduxCore/templates/panel/header_stickybar.tpl.php:25
+msgid "Reset Section"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/footer.tpl.php:55
+#: reduxframework/ReduxCore/templates/panel/header_stickybar.tpl.php:26
+msgid "Reset All"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/footer.tpl.php:60
+#: reduxframework/ReduxCore/templates/panel/header_stickybar.tpl.php:29
+msgid "Working..."
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:11
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:49
+msgid "Developer Mode Enabled"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:20
+msgid "WP_DEBUG is enabled"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:26
+msgid "you are working in a localhost environment"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:31
+msgid "and"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:34
+msgid "This has been automatically enabled because"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:36
+msgid ""
+"If you are not a developer, your theme/plugin author shipped with developer "
+"mode enabled. Contact them directly to fix it."
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header.tpl.php:58
+msgid "FORCED DEV MODE OFF ENABLED"
+msgstr ""
+
+#: reduxframework/ReduxCore/templates/panel/header_stickybar.tpl.php:15
+msgid "Expand"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:55
+#: reduxframework/sample/sample-config.php:239
+msgid "Home Settings"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:56
+#: reduxframework/sample/sample-config.php:1564
+msgid ""
+"These fields can be fully translated by WPML (WordPress Multi-Language). "
+"This serves as an example for you to implement. For extra details look at "
+"our <a href=\"http://docs.reduxframework.com/core/advanced/wpml-integration/"
+"\" target=\"_blank\">WPML Implementation</a> documentation."
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:64
+msgid "Example Text"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:67
+msgid "Example description."
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:68
+msgid "Example subtitle."
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:78
+#: reduxframework/sample/sample-config.php:1563
+msgid "WPML Example"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:79
+msgid ""
+"These fields can be fully translated by WPML (WordPress Multi-Language). "
+"This serves as an example for you to implement."
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:86
+#: reduxframework/sample/sample-config.php:1571
+msgid "WPML Text"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:87
+#: reduxframework/sample/sample-config.php:1572
+msgid "This string can be translated via WPML."
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:92
+#: reduxframework/sample/sample-config.php:1577
+msgid "WPML Multi Checkbox"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:93
+#: reduxframework/sample/sample-config.php:1578
+msgid "You can literally translate the values via key."
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:121
+#: reduxframework/sample/sample-config.php:1646
+msgid "<p>This is the sidebar content, HTML is allowed.</p>"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:144
+#: reduxframework/sample/barebones-config.php:145
+#: reduxframework/sample/sample-config.php:1669
+#: reduxframework/sample/sample-config.php:1670
+msgid "Sample Options"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:262
+#: reduxframework/sample/sample-config.php:1815
+#, php-format
+msgid ""
+"<p>Did you know that Redux sets a global variable for you? To access any of "
+"your saved options from within your code you can use your global variable: "
+"<strong>$%1$s</strong></p>"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:264
+#: reduxframework/sample/sample-config.php:1817
+msgid ""
+"<p>This text is displayed above the options panel. It isn't required, but "
+"more info is always better! The intro_text field accepts all HTML.</p>"
+msgstr ""
+
+#: reduxframework/sample/barebones-config.php:268
+#: reduxframework/sample/sample-config.php:1821
+msgid ""
+"<p>This text is displayed below the options panel. It isn't required, but "
+"more info is always better! The footer_text field accepts all HTML.</p>"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:240
+msgid ""
+"Redux Framework was created with the developer in mind. It allows for any "
+"theme developer to have an advanced theme panel with most of the features a "
+"developer would need. For more information check out the Github repo at: <a "
+"href=\"https://github.com/ReduxFramework/Redux-Framework\">https://github."
+"com/ReduxFramework/Redux-Framework</a>"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:248
+msgid "Web Fonts"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:252
+#: reduxframework/sample/sample-config.php:281
+msgid "Basic media uploader with disabled URL input field."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:253
+#: reduxframework/sample/sample-config.php:282
+#: reduxframework/sample/sample-config.php:300
+#: reduxframework/sample/sample-config.php:308
+msgid "Upload any media using the WordPress native uploader"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:262
+msgid "Section Show"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:263
+#: reduxframework/sample/sample-config.php:270
+msgid "With the \"section\" field you can create indent option sections."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:269
+msgid "Media Options"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:278
+msgid "Media w/ URL"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:298
+msgid "Media w/o URL"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:299
+#: reduxframework/sample/sample-config.php:307
+msgid ""
+"This represents the minimalistic view. It does not have the preview box or "
+"the display URL in an input box. "
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:306
+msgid "Media No Preview"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:314
+msgid ""
+"Create a new Gallery by selecting existing or uploading new images using the "
+"WordPress native uploader"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:315
+#: reduxframework/sample/sample-config.php:705
+#: reduxframework/sample/sample-config.php:716
+#: reduxframework/sample/sample-config.php:734
+#: reduxframework/sample/sample-config.php:832
+#: reduxframework/sample/sample-config.php:846
+#: reduxframework/sample/sample-config.php:855
+#: reduxframework/sample/sample-config.php:862
+#: reduxframework/sample/sample-config.php:875
+#: reduxframework/sample/sample-config.php:884
+#: reduxframework/sample/sample-config.php:893
+#: reduxframework/sample/sample-config.php:915
+#: reduxframework/sample/sample-config.php:928
+#: reduxframework/sample/sample-config.php:937
+#: reduxframework/sample/sample-config.php:952
+#: reduxframework/sample/sample-config.php:961
+#: reduxframework/sample/sample-config.php:970
+#: reduxframework/sample/sample-config.php:980
+#: reduxframework/sample/sample-config.php:996
+#: reduxframework/sample/sample-config.php:1004
+#: reduxframework/sample/sample-config.php:1023
+#: reduxframework/sample/sample-config.php:1031
+#: reduxframework/sample/sample-config.php:1039
+#: reduxframework/sample/sample-config.php:1053
+#: reduxframework/sample/sample-config.php:1061
+#: reduxframework/sample/sample-config.php:1111
+#: reduxframework/sample/sample-config.php:1124
+#: reduxframework/sample/sample-config.php:1144
+#: reduxframework/sample/sample-config.php:1158
+#: reduxframework/sample/sample-config.php:1186
+#: reduxframework/sample/sample-config.php:1219
+#: reduxframework/sample/sample-config.php:1228
+#: reduxframework/sample/sample-config.php:1236
+#: reduxframework/sample/sample-config.php:1245
+#: reduxframework/sample/sample-config.php:1253
+#: reduxframework/sample/sample-config.php:1262
+#: reduxframework/sample/sample-config.php:1270
+#: reduxframework/sample/sample-config.php:1279
+#: reduxframework/sample/sample-config.php:1287
+#: reduxframework/sample/sample-config.php:1296
+#: reduxframework/sample/sample-config.php:1306
+#: reduxframework/sample/sample-config.php:1314
+#: reduxframework/sample/sample-config.php:1323
+#: reduxframework/sample/sample-config.php:1331
+#: reduxframework/sample/sample-config.php:1340
+#: reduxframework/sample/sample-config.php:1390
+#: reduxframework/sample/sample-config.php:1401
+#: reduxframework/sample/sample-config.php:1415
+msgid "This is the description field, again good for additional info."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:320
+msgid "Slider Example 1"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:321
+msgid "This slider displays the value as a label."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:322
+msgid "Slider description. Min: 1, max: 500, step: 1, default value: 250"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:332
+msgid "Slider Example 2 with Steps (5)"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:333
+msgid "This example displays the value in a text box"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:334
+msgid "Slider description. Min: 0, max: 300, step: 5, default value: 75"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:344
+msgid "Slider Example 3 with two sliders"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:345
+msgid "This example displays the values in select boxes"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:346
+msgid ""
+"Slider description. Min: 0, max: 500, step: 5, slider 1 default value: 100, "
+"slider 2 default value: 300"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:360
+msgid "Slider Example 4 with float values"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:361
+msgid "This example displays float values"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:362
+msgid "Slider description. Min: 0, max: 1, step: .1, default value: .5"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:373
+msgid "JQuery UI Spinner Example 1"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:374
+msgid ""
+"JQuery UI spinner description. Min:20, max: 100, step:20, default value: 40"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:383
+msgid "Switch On"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:384
+#: reduxframework/sample/sample-config.php:391
+msgid "Look, it's on!"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:390
+msgid "Switch Off"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:398
+msgid "Switch - Nested Children, Enable to show"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:399
+msgid "Look, it's on! Also hidden child elements!"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:408
+msgid "Switch - This and the next switch required for patterns to show"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:409
+#: reduxframework/sample/sample-config.php:418
+msgid "Also called a \"fold\" parent."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:410
+#: reduxframework/sample/sample-config.php:419
+msgid ""
+"Items set with a fold to this ID will hide unless this is set to the "
+"appropriate value."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:417
+msgid "Switch2 - Enable the above switch and this one for patterns to show"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:430
+msgid "Images Option (with pattern=>true)"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:431
+msgid "Select a background pattern."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:477
+msgid "Slides Options"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:478
+msgid "Unlimited slides with drag and drop sortings."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:479
+msgid ""
+"This field will store all slides values into a multidimensional array to use "
+"into a foreach loop."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:481
+msgid "This is a title"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:482
+msgid "Description Here"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:483
+msgid "Give us a link!"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:490
+msgid "Preset"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:491
+#: reduxframework/sample/sample-config.php:493
+msgid ""
+"This allows you to set a json string or array to override multiple "
+"preferences in your theme."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:514
+msgid "Typography"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:536
+msgid "Typography option with each property can be called individually."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:561
+msgid "Main Layout"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:562
+msgid ""
+"Select main content and sidebar alignment. Choose between 1, 2 or 3 column "
+"layout."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:595
+msgid "Tracking Code"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:596
+msgid ""
+"Paste your Google Analytics (or other) tracking code here. This will be "
+"added into the footer template of your theme."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:603
+msgid "CSS Code"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:604
+msgid "Paste your CSS code here."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:635
+msgid "Footer Text"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:636
+msgid ""
+"You can use the following shortcodes in your footer text: [wp-url] [site-"
+"url] [theme-url] [login-url] [logout-url] [site-title] [site-tagline] "
+"[current-year]"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:651
+msgid "Styling Options"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:657
+msgid "Theme Stylesheet"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:658
+msgid "Select your themes alternative color scheme."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:666
+msgid "Body Background Color"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:667
+msgid "Pick a background color for the theme (default: #fff)."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:675
+msgid "Body Background"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:676
+msgid "Body background with image, color, etc."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:682
+msgid "Footer Background Color"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:683
+msgid "Pick a background color for the footer (default: #dd9933)."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:690
+msgid "Color RGBA"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:691
+msgid "Gives you the RGBA color."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:703
+msgid "Header Gradient Color Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:704
+#: reduxframework/sample/sample-config.php:715
+#: reduxframework/sample/sample-config.php:731
+msgid "Only color validation can be done on this field type"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:714
+msgid "Links Color Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:730
+msgid "Header Border Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:760
+msgid "Padding/Margin Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:761
+msgid "Allow your users to choose the spacing or margin they want."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:762
+msgid ""
+"You can enable or disable any piece of this field. Top, Right, Bottom, Left, "
+"or Units."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:775
+msgid "Dimensions (Width/Height) Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:776
+msgid "Allow your users to choose width, height, and/or unit."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:777
+msgid ""
+"You can enable or disable any piece of this field. Width, Height, or Units."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:786
+msgid "Body Font"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:787
+msgid "Specify the body font properties."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:800
+msgid "Quickly add some CSS to your theme by adding it to this block."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:801
+msgid "This field is even CSS validated!"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:807
+msgid "Custom HTML"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:808
+msgid "Just like a text box widget."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:809
+msgid "This field is even HTML validated!"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:823
+msgid "Field Validation"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:824
+msgid "Validate ALL fields within Redux."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:825
+msgid ""
+"<p class=\"description\">This is the Description. Again HTML is allowed2</p>"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:830
+msgid "Text Option - Email Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:831
+msgid ""
+"This is a little space under the Field Title in the Options table, "
+"additional info is good in here."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:844
+msgid "Text Option with Data Attributes"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:845
+msgid ""
+"You can also pass an options array if you want. Set the default to whatever "
+"you like."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:852
+msgid "Multi Text Option - Color Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:854
+msgid ""
+"If you enter an invalid color it will be removed. Try using the text \"blue"
+"\" as a color.  ;)"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:860
+msgid "Text Option - URL Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:861
+msgid "This must be a URL."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:873
+msgid "Text Option - Numeric Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:874
+msgid "This must be numeric."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:882
+msgid "Text Option - Comma Numeric Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:883
+msgid "This must be a comma separated string of numerical values."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:891
+msgid "Text Option - No Special Chars Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:892
+msgid "This must be a alpha numeric only."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:900
+msgid "Text Option - Str Replace Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:901
+#: reduxframework/sample/sample-config.php:914
+#: reduxframework/sample/sample-config.php:927
+#: reduxframework/sample/sample-config.php:936
+msgid "You decide."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:902
+msgid "This field's default value was changed by a filter hook!"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:913
+msgid "Text Option - Preg Replace Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:926
+msgid "Text Option - Custom Callback Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:935
+msgid "Text Option - Custom Callback Validated - Class"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:950
+msgid "Textarea Option - No HTML Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:951
+msgid "All HTML will be stripped"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:959
+msgid "Textarea Option - HTML Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:960
+msgid "HTML Allowed (wp_kses)"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:968
+msgid "Textarea Option - HTML Validated Custom"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:969
+msgid "Custom HTML Allowed (wp_kses)"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:978
+msgid "Textarea Option - JS Validated"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:979
+msgid "JS will be escaped"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:988
+msgid "Radio/Checkbox Fields"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:989
+#: reduxframework/sample/sample-config.php:1137
+#: reduxframework/sample/sample-config.php:1383
+#: reduxframework/sample/sample-config.php:1611
+msgid ""
+"<p class=\"description\">This is the Description. Again HTML is allowed</p>"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:994
+msgid "Checkbox Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:995
+#: reduxframework/sample/sample-config.php:1003
+#: reduxframework/sample/sample-config.php:1022
+#: reduxframework/sample/sample-config.php:1030
+#: reduxframework/sample/sample-config.php:1038
+#: reduxframework/sample/sample-config.php:1052
+#: reduxframework/sample/sample-config.php:1060
+#: reduxframework/sample/sample-config.php:1075
+#: reduxframework/sample/sample-config.php:1143
+#: reduxframework/sample/sample-config.php:1157
+#: reduxframework/sample/sample-config.php:1185
+#: reduxframework/sample/sample-config.php:1218
+#: reduxframework/sample/sample-config.php:1227
+#: reduxframework/sample/sample-config.php:1235
+#: reduxframework/sample/sample-config.php:1244
+#: reduxframework/sample/sample-config.php:1252
+#: reduxframework/sample/sample-config.php:1261
+#: reduxframework/sample/sample-config.php:1269
+#: reduxframework/sample/sample-config.php:1278
+#: reduxframework/sample/sample-config.php:1286
+#: reduxframework/sample/sample-config.php:1295
+#: reduxframework/sample/sample-config.php:1313
+#: reduxframework/sample/sample-config.php:1322
+#: reduxframework/sample/sample-config.php:1330
+#: reduxframework/sample/sample-config.php:1339
+#: reduxframework/sample/sample-config.php:1347
+#: reduxframework/sample/sample-config.php:1389
+#: reduxframework/sample/sample-config.php:1400
+#: reduxframework/sample/sample-config.php:1414
+msgid "No validation can be done on this field type"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1002
+msgid "Multi Checkbox Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1021
+#: reduxframework/sample/sample-config.php:1051
+msgid "Multi Checkbox Option (with menu data)"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1029
+msgid "Multi Checkbox Option (with sidebar data)"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1037
+msgid "Radio Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1059
+msgid "Images Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1074
+msgid "Images Option for Layout"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1076
+msgid ""
+"This uses some of the built in images, you can use them for layout options."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1109
+#: reduxframework/sample/sample-config.php:1122
+msgid "Sortable Text Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1110
+#: reduxframework/sample/sample-config.php:1123
+msgid "Define and reorder these however you want."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1136
+msgid "Select Fields"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1142
+msgid "Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1156
+msgid "Select Option with optgroup"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1184
+msgid "Multi Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1199
+msgid "Select Image"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1200
+msgid "A preview of the selected image will appear underneath the select box."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1211
+msgid "You can easily add a variety of data from WordPress."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1217
+msgid "Categories Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1226
+msgid "Categories Multi Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1234
+msgid "Pages Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1243
+msgid "Pages Multi Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1251
+msgid "Tags Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1260
+msgid "Tags Multi Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1268
+msgid "Menus Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1277
+msgid "Menus Multi Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1285
+msgid "Post Type Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1294
+msgid "Post Type Multi Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1304
+msgid "Post Type Multi Select Option + Sortable"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1305
+msgid "This field also has sortable enabled!"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1312
+msgid "Posts Select Option2"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1321
+msgid "Posts Multi Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1329
+msgid "User Role Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1338
+msgid "Capabilities Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1346
+msgid "Elusive Icons Select Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1348
+msgid "Here's a list of all the elusive icons by name and icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1354
+msgid "<strong>Theme URL:</strong> "
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1355
+msgid "<strong>Author:</strong> "
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1356
+msgid "<strong>Version:</strong> "
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1360
+msgid "<strong>Tags:</strong> "
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1367
+#: reduxframework/sample/sample-config.php:1624
+#: reduxframework/sample/sample-config.php:1770
+msgid "Documentation"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1382
+msgid "Additional Fields"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1388
+msgid "Date Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1399
+msgid "Button Set Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1413
+msgid "Button Set, Multi Select"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1428
+msgid "This is the info field, if you want to break sections up."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1434
+#: reduxframework/sample/sample-config.php:1442
+#: reduxframework/sample/sample-config.php:1450
+#: reduxframework/sample/sample-config.php:1464
+#: reduxframework/sample/sample-config.php:1472
+#: reduxframework/sample/sample-config.php:1481
+#: reduxframework/sample/sample-config.php:1490
+#: reduxframework/sample/sample-config.php:1499
+msgid "This is a title."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1435
+msgid "This is an info field with the warning style applied and a header."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1443
+msgid ""
+"This is an info field with the success style applied, a header and an icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1451
+msgid ""
+"This is an info field with the critical style applied, a header and an icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1465
+msgid ""
+"This is an info notice field with the normal style applied, a header and an "
+"icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1473
+msgid ""
+"This is an info notice field with the info style applied, a header and an "
+"icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1482
+msgid ""
+"This is an info notice field with the warning style applied, a header and an "
+"icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1491
+msgid ""
+"This is an info notice field with the success style applied, a header and an "
+"icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1500
+msgid ""
+"This is an notice field with the critical style applied, a header and an "
+"icon."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1505
+msgid "Custom Field Callback"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1506
+#: reduxframework/sample/sample-config.php:1514
+msgid "This is a completely unique field type"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1507
+#: reduxframework/sample/sample-config.php:1515
+msgid ""
+"This is created with a callback function, so anything goes in this field. "
+"Make sure to define the function though."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1513
+msgid "Custom Field Callback - Class"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1523
+#: reduxframework/sample/sample-config.php:1547
+msgid "Customizer Only Option"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1524
+#: reduxframework/sample/sample-config.php:1548
+msgid "The subtitle is NOT visible in customizer"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1525
+#: reduxframework/sample/sample-config.php:1549
+msgid "The field desc is NOT visible in customizer."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1540
+msgid "Customizer Only"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1541
+msgid ""
+"<p class=\"description\">This Section should be visible only in Customizer</"
+"p>"
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1591
+msgid "Import and Export your Redux Framework settings from file, text or URL."
+msgstr ""
+
+#: reduxframework/sample/sample-config.php:1610
+msgid "Theme Information"
+msgstr ""
+
+#: zanmb.php:137
+msgctxt "Open Sans font: on or off"
+msgid "on"
+msgstr ""
+
+#: zanmb.php:145
+msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
+msgid "no-subset"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://zmb.zanthemes.net/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Horizontal/Vertical menu builder for WordPress site. Best work with Visual "
+"Composer."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Le Manh Linh"
+msgstr ""
