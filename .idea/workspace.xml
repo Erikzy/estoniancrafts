@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa82ecbe-ad10-41b5-8d23-8114a94adda8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-admin/admin-ajax.php" afterPath="$PROJECT_DIR$/wp-admin/admin-ajax.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/ec-assets/style_public.css" afterPath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/ec-assets/style_public.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php" />
-    </list>
+    <list default="true" id="aa82ecbe-ad10-41b5-8d23-8114a94adda8" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="buddypress.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="buddypress.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="465">
+              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
               <folding>
                 <element signature="e#6#261#0#PHP" expanded="true" />
                 <element signature="e#1225#1262#0#PHP" expanded="true" />
@@ -72,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages-loop.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="messages-loop.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress/members/single/messages/messages-loop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="119" column="34" lean-forward="false" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
+            <state relative-caret-position="296">
+              <caret line="107" column="77" lean-forward="true" selection-start-line="107" selection-start-column="77" selection-end-line="107" selection-end-column="77" />
               <folding>
                 <marker date="1492519514733" expanded="true" signature="4103:4605" ph="..." />
                 <marker date="1492519514733" expanded="true" signature="4954:5056" ph="..." />
@@ -85,6 +81,16 @@
                 <marker date="1492519514733" expanded="true" signature="6425:6486" ph="..." />
                 <marker date="1492519514733" expanded="true" signature="6931:6947" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress/members/single/home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-700">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -413,6 +419,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estoniancrafts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="estoniancrafts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -493,12 +513,12 @@
       <workItem from="1492086925685" duration="4021000" />
       <workItem from="1492243885024" duration="598000" />
       <workItem from="1492284834175" duration="23000" />
-      <workItem from="1492504874013" duration="14364000" />
+      <workItem from="1492504874013" duration="14850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21945000" />
+    <option name="totallyTimeSpent" value="22431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="24" width="2560" height="1416" extended-state="6" />
@@ -535,14 +555,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/myaccount/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/global/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -864,14 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-admin/admin-ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/buddypress-message-attachment/includes/main-class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-150">
@@ -928,17 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#261#0#PHP" expanded="true" />
-            <element signature="e#1225#1262#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="635">
@@ -957,8 +950,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress/members/single/messages/messages-loop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="119" column="34" lean-forward="false" selection-start-line="119" selection-start-column="34" selection-end-line="119" selection-end-column="34" />
+        <state relative-caret-position="296">
+          <caret line="107" column="77" lean-forward="true" selection-start-line="107" selection-start-column="77" selection-end-line="107" selection-end-column="77" />
           <folding>
             <marker date="1492519514733" expanded="true" signature="4103:4605" ph="..." />
             <marker date="1492519514733" expanded="true" signature="4954:5056" ph="..." />
@@ -966,6 +959,33 @@
             <marker date="1492519514733" expanded="true" signature="5603:5748" ph="..." />
             <marker date="1492519514733" expanded="true" signature="6425:6486" ph="..." />
             <marker date="1492519514733" expanded="true" signature="6931:6947" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress/members/single/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-700">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-admin/admin-ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="46" column="80" lean-forward="false" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <folding>
+            <element signature="e#6#261#0#PHP" expanded="true" />
+            <element signature="e#1225#1262#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
