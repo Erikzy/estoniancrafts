@@ -16,6 +16,20 @@ include_once($currentDirname.'/widgets.php');
 
 //WC_Cache_Helper::prevent_caching();
 
+/**
+ * @return string
+ */
+function ec_get_sidebar_name()
+{
+	// Organisation page
+	if(bp_is_current_component( 'groups' ) && bp_is_group_single()) {
+		return 'sidebar-organisation';
+	}
+
+	// Theme default
+	return basel_get_sidebar_name();
+}
+
 function ec_debug()
 {
 	print '<pre>';
