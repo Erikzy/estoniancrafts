@@ -8,7 +8,7 @@ do_action( 'bp_before_group_header' );
 
 	<?php if ( bp_group_is_visible() ) : ?>
 
-		<h3><?php _e( 'Group Admins IDIKAS', 'buddypress' ); ?></h3>
+		<h3><?php _e( 'Group Admins', 'buddypress' ); ?></h3>
 
 		<?php bp_group_list_admins();
 

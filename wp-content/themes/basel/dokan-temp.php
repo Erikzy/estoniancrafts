@@ -117,21 +117,20 @@ add_rewrite_rule(
 );
 
 
-add_action( 'template_redirect', 'wpleet_rewrite_catch' );
-function wpleet_rewrite_catch()
+add_filter( 'template_include', 'wpleet_rewrite_catch' );
+function wpleet_rewrite_catch( $original_template )
 {
     global $wp_query;
 
-    if ( array_key_exists( 'user', $wp_query->query_vars ) ) {
-        include (TEMPLATEPATH . '/user-profile.php');
-        exit;
+	if ( array_key_exists( 'user', $wp_query->query_vars ) ) {
+        return TEMPLATEPATH . '/user-profile.php';
     }
     if ( array_key_exists( 'lbpdf', $wp_query->query_vars ) ) {
-        include (ABSPATH . 'wp-content/plugins/lb-pdf/display.php');
-        exit;
+        return ABSPATH . 'wp-content/plugins/lb-pdf/display.php';
     }
-}
 
+    return $original_template;
+}
 
 
 

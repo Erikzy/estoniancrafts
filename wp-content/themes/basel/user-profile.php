@@ -5,15 +5,7 @@
     */
    
    get_header(); 
-   global $wp_query;
-   ?>
-<?php 
-   get_header( 'shop' );
-   
-   ?>
-<?php /*
-   <div class="site-content <?php echo esc_attr( $content_class ); ?>" role="main">
-*/ ?>
+?>
 <div class="site-content col-sm-12" role="main">
 <?php 
 	$page = apply_filters('ec_get_page_personal_profile', null);
@@ -138,7 +130,7 @@
 					<?php if(!empty($store->featured_products)): ?>
 						<div class="items">
 							<?php foreach($store->featured_products as $product): ?>
-								<?php ec_debug_to_console($product) ?>
+								<?php // ec_debug_to_console($product) ?>
 								<div class="item col-sm-2">
 									<a href="<?= $product->public_url ?>">
 										<?php if($product->image): ?>

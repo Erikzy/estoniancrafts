@@ -240,6 +240,11 @@ HTML;
 				$title = esc_html__( 'Search Results for: ', 'basel' ) . get_search_query();
 			}
 
+			// Profile page
+			if(ec_is_personal_profile_page() ) {
+				$title = esc_html__( 'Profile', 'ktt' );
+			}
+
 			?>
 				<div class="page-title <?php echo esc_attr( $title_class ); ?> title-blog" style="<?php echo esc_attr( $style ); ?>">
 					<div class="container">

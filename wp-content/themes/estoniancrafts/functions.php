@@ -27,19 +27,60 @@ function ec_get_sidebar_name()
 	}
 
 	// Mailbox
+	if(ec_is_mailbox_page()) {
+		return 'sidebar-my-account';
+	}
+
+	// Theme default
+	return basel_get_sidebar_name();
+}
+
+/**
+ * @return boolean
+ */
+function ec_is_personal_profile_page()
+{
+	$url_parts = wp_parse_url($_SERVER['REQUEST_URI']);
+	if(is_array($url_parts) && isset($url_parts['path']) && !empty($url_parts['path']))
+	{
+		$url_parts['path'] = trim($url_parts['path'], '/');
+		$url_path_parts = explode('/', $url_parts['path']);
+		if($url_path_parts[0] == 'user') {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * @return boolean
+ */
+function ec_is_organisation_page()
+{
+	if(bp_is_current_component( 'groups' ) && bp_is_group_single()) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * @return boolean
+ */
+function ec_is_mailbox_page()
+{
 	$url_parts = wp_parse_url($_SERVER['REQUEST_URI']);
 	if(is_array($url_parts) && isset($url_parts['path']) && !empty($url_parts['path']))
 	{
 		$url_parts['path'] = trim($url_parts['path'], '/');
 		$url_path_parts = explode('/', $url_parts['path']);
 		if(count($url_path_parts) >= 3 && $url_path_parts[0] == 'members' && $url_path_parts[2] == 'messages') {
-			return 'sidebar-my-account';
+			return true;
 		}
-		
 	}
 
-	// Theme default
-	return basel_get_sidebar_name();
+	return false;
 }
 
 function ec_debug()
