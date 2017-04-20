@@ -45,10 +45,6 @@ $content_class = basel_get_content_class();
     </div><!-- .site-content -->
 
 
-<?php /*
- @TODO Add the correct sidebar
- */ ?>
-<?php #get_sidebar(); ?>
-<?php #dynamic_sidebar( 'sidebar-my-account' ); ?>
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
