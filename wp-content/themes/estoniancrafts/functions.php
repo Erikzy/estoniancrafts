@@ -26,6 +26,18 @@ function ec_get_sidebar_name()
 		return 'sidebar-organisation';
 	}
 
+	// Mailbox
+	$url_parts = wp_parse_url($_SERVER['REQUEST_URI']);
+	if(is_array($url_parts) && isset($url_parts['path']) && !empty($url_parts['path']))
+	{
+		$url_parts['path'] = trim($url_parts['path'], '/');
+		$url_path_parts = explode('/', $url_parts['path']);
+		if(count($url_path_parts) >= 3 && $url_path_parts[0] == 'members' && $url_path_parts[2] == 'messages') {
+			return 'sidebar-my-account';
+		}
+		
+	}
+
 	// Theme default
 	return basel_get_sidebar_name();
 }
@@ -43,9 +55,11 @@ function ec_debug()
 
 function ec_debug_to_console()
 {
-	foreach(func_get_args() as $arg)
-	{
-		print '<script>console.log('. json_encode( $arg ) .');</script>';
+	if(WP_DEBUG === true) {
+		foreach(func_get_args() as $arg)
+		{
+			print '<script>console.log('. json_encode( $arg ) .');</script>';
+		}
 	}
 }
 
