@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Community Events package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-27 16:24:37+0000\n"
+"PO-Revision-Date: 2017-02-13 04:14:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,44 +12,44 @@ msgstr ""
 
 #: src/Tribe/Modules/Taxonomy_Block.php:95
 msgid "event categories"
-msgstr ""
+msgstr "rubriky akce"
 
 #: src/admin-views/community-options-template.php:103
 msgid "Users cannot create new Venues"
-msgstr ""
+msgstr "Uživatele nemohou vytvářet nová místa konání"
 
 #: src/admin-views/community-options-template.php:104
 msgid "Users will be limited to choosing from existing venues."
-msgstr ""
+msgstr "Uživatelé budou budou moci vybírat jen z existujících míst konání akcí."
 
 #: src/admin-views/community-options-template.php:112
 msgid "Users cannot create new Organizers"
-msgstr ""
+msgstr "Uživatele nemohou vytvářet nové pořadatele"
 
 #: src/admin-views/community-options-template.php:113
 msgid "Users will be limited to choosing from existing organizers."
-msgstr ""
+msgstr "Uživatelé budou budou moci vybírat jen ze existujících pořadatelů."
 
 #: src/admin-views/community-options-template.php:121
 msgid "Spam Prevention"
-msgstr ""
+msgstr "Ochrana proti spamu"
 
 #: src/admin-views/community-options-template.php:123
 msgid "To enable spam prevention for anonymous submissions, enter your reCAPTCHA API keys under <a href=\"%1$s\">%2$s</a>"
-msgstr ""
+msgstr "Pro aktivaci ochrany proti spamu pro anonymní odeslání, zadejte své reCAPTCHA API klíče do <a href=\"%1$s\">%2$s</a>"
 
 #: src/admin-views/community-options-template.php:128
 msgctxt "Click path in The Events Calendar settings to get to the API settings section separated by right arrows (HTML \"&rarr;\")"
 msgid "Events &rarr; Settings &rarr; APIs"
-msgstr ""
+msgstr "Akce &rarr; Nastavení &rarr; API"
 
 #: src/views/community/modules/cost.php:49
 msgid "Events Currency Position"
-msgstr ""
+msgstr "Pozice měny u akcí"
 
 #: src/views/community/modules/datepickers.php:67
 msgid "Start/End:"
-msgstr ""
+msgstr "Začátek/Konec:"
 
 #: src/views/community/modules/datepickers.php:73
 msgid "Event Start Date"
@@ -62,12 +62,12 @@ msgstr "Čas zahájení akce"
 #: src/views/community/modules/datepickers.php:101
 #: src/views/community/modules/datepickers.php:119
 msgid "HH:MM"
-msgstr ""
+msgstr "HH:MM"
 
 #: src/views/community/modules/datepickers.php:102
 msgctxt "Start Date Time \"to\" End Date Time"
 msgid "to"
-msgstr ""
+msgstr "do"
 
 #: src/views/community/modules/datepickers.php:106
 msgid "Event End Time"
@@ -79,7 +79,7 @@ msgstr "Koncové datum akce"
 
 #: src/views/community/modules/datepickers.php:140
 msgid "Timezone"
-msgstr ""
+msgstr "Časová zóna"
 
 #: src/views/community/modules/datepickers.php:157
 msgid "All Day Event"
@@ -87,19 +87,19 @@ msgstr "Celodenní akce"
 
 #: src/views/community/modules/image.php:34
 msgid "Images may not exceed %1$s in size."
-msgstr ""
+msgstr "Obrázky nesmí přesáhnout velikost %1$s."
 
 #: src/views/community/modules/image.php:46
 msgid "Event Image"
-msgstr ""
+msgstr "Obrázek akce"
 
 #: src/views/community/modules/image.php:49
 msgid "Choose File"
-msgstr ""
+msgstr "Vyberte soubor"
 
 #: src/views/community/modules/image.php:52
 msgid "Upload File"
-msgstr ""
+msgstr "Nahrát soubor"
 
 #: src/Tribe/Captcha/Recaptcha_V2.php:139
 msgctxt "failed recaptcha response validation"
@@ -115,27 +115,27 @@ msgctxt "failed recaptcha response"
 msgid "reCAPTCHA failed unexpectedly"
 msgstr "reCAPTCHA neočekávaně selhala"
 
-#: src/Tribe/Submission_Handler.php:333
+#: src/Tribe/Submission_Handler.php:338
 msgid "%s %s is required"
 msgstr "%s %s je vyžadován"
 
-#: src/Tribe/Submission_Handler.php:380 src/Tribe/Submission_Handler.php:412
+#: src/Tribe/Submission_Handler.php:385 src/Tribe/Submission_Handler.php:417
 msgid "Name"
 msgstr "Jméno"
 
-#: src/Tribe/Submission_Handler.php:392
+#: src/Tribe/Submission_Handler.php:397
 msgid "Province"
 msgstr "Kraj"
 
-#: src/Tribe/Submission_Handler.php:396
+#: src/Tribe/Submission_Handler.php:401
 msgid "State"
 msgstr "Stát"
 
-#: src/Tribe/Submission_Handler.php:400
+#: src/Tribe/Submission_Handler.php:405
 msgid "Zip"
 msgstr "PSČ"
 
-#: src/Tribe/Submission_Handler.php:404
+#: src/Tribe/Submission_Handler.php:409
 msgid "URL"
 msgstr "URL adresa"
 
@@ -143,19 +143,19 @@ msgstr "URL adresa"
 msgid "<p>Community Events enables users to submit events through a form on your site. Whether soliciting contributions from anonymous users or registered members, you have complete editorial control over what makes it onto the calendar.</p><p>Check out our <a href=\"%s\">Community Events New User Primer</a> for information on configuring and using the plugin."
 msgstr "<p>Komunitní akce umožňují uživatelům přidávat nové akce prostřednictvím formuláře přímo na stránkách vašeho webu. Ať už umožníte přidávání příspěvků anonymním uživatelům nebo jen registrovaným členům, vy máte plnou redakční kontrolu nad tím, co se nakonec dostane do kalendáře akcí.</p><p>Pro více informací o nastavení a používání pluginu se podívejte na naši <a href=\"%s\">příručku nového uživatele Komunitních akcí</a>."
 
-#: src/Tribe/Submission_Handler.php:146 src/Tribe/Submission_Handler.php:160
+#: src/Tribe/Submission_Handler.php:151 src/Tribe/Submission_Handler.php:165
 msgid "The file is not an Image"
 msgstr "Soubor není obrázek"
 
-#: src/Tribe/Submission_Handler.php:163
+#: src/Tribe/Submission_Handler.php:168
 msgid "The image size is invalid"
 msgstr "Velikost obrázku není platná"
 
-#: src/Tribe/Submission_Handler.php:166
+#: src/Tribe/Submission_Handler.php:171
 msgid "The file is not a valid image"
 msgstr "Soubor není platný obrázek"
 
-#: src/Tribe/Submission_Handler.php:487
+#: src/Tribe/Submission_Handler.php:492
 msgid "Invalid URL provided for %s"
 msgstr "URL adresa pro %s nebyla zadána."
 
@@ -225,11 +225,11 @@ msgstr "více"
 msgid "%s Categories"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:384
+#: src/Tribe/Submission_Handler.php:389
 msgid "Address"
 msgstr "Adresa"
 
-#: src/Tribe/Submission_Handler.php:388
+#: src/Tribe/Submission_Handler.php:393
 msgid "City"
 msgstr "Město"
 
@@ -331,7 +331,7 @@ msgstr "seznam"
 
 #: src/Tribe/Main.php:2820
 msgid "venue"
-msgstr "místo"
+msgstr "místo konání"
 
 #: src/Tribe/Main.php:2821
 msgid "organizer"
@@ -551,55 +551,55 @@ msgstr "Komunitní akce"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: src/Tribe/Submission_Handler.php:68
+#: src/Tribe/Submission_Handler.php:73
 msgid "%s updated. "
 msgstr "%s byla aktualizována."
 
-#: src/Tribe/Submission_Handler.php:69 src/Tribe/Submission_Handler.php:88
+#: src/Tribe/Submission_Handler.php:74 src/Tribe/Submission_Handler.php:93
 msgid "Submit another %s"
 msgstr "Přidat další akci"
 
-#: src/Tribe/Submission_Handler.php:72
+#: src/Tribe/Submission_Handler.php:77
 msgid "There was a problem saving your %s, please try again."
 msgstr "Nastal problém při ukládání vaší akce. Zkuste to prosím znovu."
 
-#: src/Tribe/Submission_Handler.php:87
+#: src/Tribe/Submission_Handler.php:92
 msgid "%s submitted."
 msgstr "%s byla odeslána."
 
-#: src/Tribe/Submission_Handler.php:91
+#: src/Tribe/Submission_Handler.php:96
 msgid "There was a problem submitting your %s, please try again."
 msgstr "Nastal problém při odesílání vaší akce. Zkuste to prosím znovu."
 
-#: src/Tribe/Submission_Handler.php:191
+#: src/Tribe/Submission_Handler.php:196
 msgid "%s is required"
 msgstr "%s je vyžadován"
 
-#: src/Tribe/Submission_Handler.php:345
+#: src/Tribe/Submission_Handler.php:350
 msgid "%s Title"
 msgstr "Název akce"
 
-#: src/Tribe/Submission_Handler.php:348
+#: src/Tribe/Submission_Handler.php:353
 msgid "%s Description"
 msgstr "Popis akce"
 
-#: src/Tribe/Submission_Handler.php:456
+#: src/Tribe/Submission_Handler.php:461
 msgid "Invalid value for %s"
 msgstr "Neplatná hodnota pro %s"
 
-#: src/Tribe/Submission_Handler.php:467
+#: src/Tribe/Submission_Handler.php:472
 msgid "Images must be png, jpg, or gif"
 msgstr "Obrázky musí být ve formátu png, jpg nebo gif"
 
-#: src/Tribe/Submission_Handler.php:509
+#: src/Tribe/Submission_Handler.php:514
 msgid "Image exceeded the allowed file size"
 msgstr "Velikost nahrávaného obrázku překročila povolenou hodnotu"
 
-#: src/Tribe/Submission_Handler.php:514
+#: src/Tribe/Submission_Handler.php:519
 msgid "The image failed to upload successfully"
 msgstr "Obrázek se nepodařilo nahrát"
 
-#: src/Tribe/Submission_Handler.php:518
+#: src/Tribe/Submission_Handler.php:523
 msgid "The uploaded image could not be processed"
 msgstr "Nahraný obrázek se nepodařilo zpracovat"
 
@@ -910,17 +910,17 @@ msgstr "%s akce"
 msgid "%s Name"
 msgstr "Jméno / název"
 
-#: src/Tribe/Submission_Handler.php:408
+#: src/Tribe/Submission_Handler.php:413
 #: src/views/community/modules/organizer-fields.php:67
 msgid "Phone"
 msgstr "Telefon"
 
-#: src/Tribe/Submission_Handler.php:416
+#: src/Tribe/Submission_Handler.php:421
 #: src/views/community/modules/organizer-fields.php:73
 msgid "Website"
 msgstr "Webová stránka"
 
-#: src/Tribe/Submission_Handler.php:420
+#: src/Tribe/Submission_Handler.php:425
 #: src/views/community/modules/organizer-fields.php:78
 msgid "Email"
 msgstr "Email"

@@ -60,6 +60,9 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 						/* translators: accessibility text */
 						_e( 'Select all', 'buddypress' );
 					?></label></th>
+                    <?php if ( bp_is_active( 'messages', 'star' ) ) : ?>
+                        <th scope="col" class="thread-from">&nbsp;</th>
+                    <?php endif; ?>
 					<th scope="col" class="thread-from"><?php _e( 'From', 'buddypress' ); ?></th>
 					<th scope="col" class="thread-info"><?php _e( 'Subject', 'buddypress' ); ?></th>
 
@@ -90,10 +93,13 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 								_e( 'Select this message', 'buddypress' );
 							?></span></label>
 
-                            <?php if ( bp_is_active( 'messages', 'star' ) ) : ?>
-                                <?php bp_the_message_star_action_link( array( 'thread_id' => bp_get_message_thread_id() ) ); ?>
-                            <?php endif; ?>
+
 						</td>
+                        <?php if ( bp_is_active( 'messages', 'star' ) ) : ?>
+                            <td>
+                                <?php bp_the_message_star_action_link( array( 'thread_id' => bp_get_message_thread_id() ) ); ?>
+                            </td>
+                        <?php endif; ?>
 
 						<?php if ( 'sentbox' != bp_current_action() ) : ?>
 							<td class="thread-from">

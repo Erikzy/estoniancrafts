@@ -4,8 +4,8 @@ Contributors: ModernTribe, barry.hughes, bordoni, borkweb, brianjessee, brook-tr
 Tags: widget, events, simple, tooltips, grid, month, list, calendar, event, venue, community, registration, api, dates, date, plugin, posts, sidebar, template, theme, time, google maps, google, maps, conference, workshop, concert, meeting, seminar, summit, forum, shortcode, The Events Calendar, The Events Calendar PRO
 Donate link: http://m.tri.be/29
 Requires at least: 3.9
-Tested up to: 4.7.2
-Stable tag: 4.4.2
+Tested up to: 4.7.3
+Stable tag: 4.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,10 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
 
 == Changelog ==
+
+= [4.4.3] 2017-03-23 =
+
+* Fix - Ensure the Google Map settings for submitted/edited events are saved as expected (Thanks @Werner for the report in our support forums) [72124]
 
 = [4.4.2] 2017-02-09 =
 

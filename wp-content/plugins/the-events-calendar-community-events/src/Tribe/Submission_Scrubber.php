@@ -18,8 +18,6 @@ class Tribe__Events__Community__Submission_Scrubber {
 		'EventEndDate',
 		'EventEndTime',
 		'EventTimezone',
-		'EventShowMapLink',
-		'EventShowMap',
 		'EventURL',
 		'EventCurrencySymbol',
 		'EventCurrencyPosition',
@@ -42,6 +40,8 @@ class Tribe__Events__Community__Submission_Scrubber {
 		'Zip',
 		'Phone',
 		'URL',
+		'EventShowMapLink',
+		'EventShowMap',
 	);
 
 	protected $allowed_organizer_fields = array( // filter these with 'tribe_events_community_allowed_organizer_fields'

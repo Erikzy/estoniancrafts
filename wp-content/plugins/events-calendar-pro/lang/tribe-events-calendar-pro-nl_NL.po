@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Events Calendar Pro package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-27 16:28:00+0000\n"
+"PO-Revision-Date: 2017-03-23 00:26:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,106 +13,106 @@ msgstr ""
 #: src/admin-views/event-recurrence.php:99
 #: src/admin-views/event-recurrence.php:335
 msgid "months"
-msgstr ""
+msgstr "maanden"
 
 #: src/admin-views/event-recurrence.php:140
 msgctxt "Begins the line indicating when a recurrence time starts"
 msgid "At"
-msgstr ""
+msgstr "Vanaf"
 
 #: src/admin-views/event-recurrence.php:150
 msgid "the same time:"
-msgstr ""
+msgstr "dezelfde tijd:"
 
 #: src/admin-views/event-recurrence.php:151
 msgid "a different time:"
-msgstr ""
+msgstr "een andere tijd:"
 
 #: src/admin-views/event-recurrence.php:179
 #: src/admin-views/event-recurrence.php:381
 msgid "Series ends"
-msgstr ""
+msgstr "Reeks eindigt"
 
 #: src/admin-views/event-recurrence.php:188
 #: src/admin-views/event-recurrence.php:391
 msgid "on"
-msgstr ""
+msgstr "op"
 
 #: src/admin-views/event-recurrence.php:207
 msgid "Series ends on this date"
-msgstr ""
+msgstr "Reeks eindigt op deze datum"
 
 #: src/admin-views/event-recurrence.php:235
 #: src/admin-views/event-recurrence.php:449
 msgid "Show Details"
-msgstr ""
+msgstr "Toon Details"
 
 #: src/admin-views/event-recurrence.php:236
 #: src/admin-views/event-recurrence.php:450
 msgid "Hide Details"
-msgstr ""
+msgstr "Verberg Details"
 
 #: src/admin-views/event-recurrence.php:244
 msgid "Schedule multiple events"
-msgstr ""
+msgstr "Plan meerdere evenementen in"
 
 #: src/admin-views/event-recurrence.php:247
 msgid "Add more events"
-msgstr ""
+msgstr "Voeg meer evenementen toe"
 
 #: src/admin-views/event-recurrence.php:260
 msgid "Event will not occur:"
-msgstr ""
+msgstr "Evenement vind niet plaats:"
 
 #: src/admin-views/event-recurrence.php:463
 msgid "Recurrence Description"
-msgstr ""
+msgstr "Beschrijving Herhaling"
 
 #: src/admin-views/recurrence/months.php:11
 msgid "the same day:"
-msgstr ""
+msgstr "dezelfde dag:"
 
 #: src/admin-views/recurrence/months.php:12
 #: src/admin-views/recurrence/years.php:64
 msgid "a different day:"
-msgstr ""
+msgstr "een andere dag:"
 
 #: src/admin-views/recurrence/months.php:30
 #: src/admin-views/recurrence/years.php:82
 msgctxt "Qualifying the \"different day\". Example: \"day\" in \"day 12 of the month\""
 msgid "day"
-msgstr ""
+msgstr "dag"
 
 #: src/admin-views/recurrence/months.php:37
 #: src/admin-views/recurrence/years.php:89
 msgctxt "Qualifying the \"different day\". Example: \"the\" in \"the first Friday\""
 msgid "the"
-msgstr ""
+msgstr "de"
 
 #: src/admin-views/recurrence/months.php:54
 #: src/admin-views/recurrence/years.php:100
 msgid "Use pattern:"
-msgstr ""
+msgstr "Gebruik patroon:"
 
 #: src/admin-views/recurrence/months.php:62
 #: src/admin-views/recurrence/years.php:108
 msgid "Use date:"
-msgstr ""
+msgstr "Gebruik datum:"
 
 #: src/admin-views/recurrence/months.php:99
 #: src/admin-views/recurrence/years.php:145
 msgctxt "As in: day 12 of the month"
 msgid "of the month"
-msgstr ""
+msgstr "van de maand"
 
 #: src/admin-views/recurrence/time.php:10
 #: src/admin-views/recurrence/time.php:84
 msgid "same day"
-msgstr ""
+msgstr "zelfde dag"
 
 #: src/admin-views/recurrence/time.php:12
 msgid "next day"
-msgstr ""
+msgstr "volgende dag"
 
 #: src/admin-views/recurrence/time.php:15
 msgctxt "number suffix for numbers ending in 1"
@@ -137,21 +137,21 @@ msgstr ""
 #: src/admin-views/recurrence/time.php:57
 msgctxt "custom recurrence time separator"
 msgid "to"
-msgstr ""
+msgstr "tot"
 
 #: src/admin-views/recurrence/time.php:73
 msgctxt "custom recurrence time/date separator"
 msgid "the"
-msgstr ""
+msgstr "de"
 
 #: src/admin-views/recurrence/weeks.php:5
 msgid "Event Series Recurrence Day of Week"
-msgstr ""
+msgstr "Evenementen Reeks Herhaling Dag van de Week"
 
 #: src/admin-views/recurrence/weeks.php:7
 msgctxt "Begins the line indicating what day of the week the event will occur on"
 msgid "On"
-msgstr ""
+msgstr "Op"
 
 #: src/admin-views/recurrence/years.php:27
 msgid "year"
@@ -541,12 +541,12 @@ msgstr ""
 
 #: src/admin-views/event-recurrence.php:26
 msgid "Delete This"
-msgstr ""
+msgstr "Verwijder Deze"
 
 #: src/admin-views/event-recurrence.php:91
 #: src/admin-views/event-recurrence.php:327
 msgid "weeks"
-msgstr ""
+msgstr "weken"
 
 #: src/admin-views/event-recurrence.php:96
 #: src/admin-views/event-recurrence.php:332
@@ -555,23 +555,23 @@ msgstr "maand"
 
 #: src/Tribe/Recurrence/Strings.php:17
 msgid "the 3rd day of the month"
-msgstr ""
+msgstr "de 3de dag van de maand"
 
 #: src/Tribe/Recurrence/Strings.php:18
 msgid "the 4th day of the month"
-msgstr ""
+msgstr "de 4de dag van de maand"
 
 #: src/Tribe/Recurrence/Strings.php:19
 msgid "the 5th day of the month"
-msgstr ""
+msgstr "de 5e dag van de maand"
 
 #: src/Tribe/Recurrence/Strings.php:20
 msgid "the 6th day of the month"
-msgstr ""
+msgstr "de 6e dag van de maand"
 
 #: src/Tribe/Recurrence/Strings.php:21
 msgid "the 7th day of the month"
-msgstr ""
+msgstr "de 7e dag van de maand"
 
 #: src/Tribe/Recurrence/Strings.php:22
 msgid "the 8th day of the month"
