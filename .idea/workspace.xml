@@ -2,421 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa82ecbe-ad10-41b5-8d23-8114a94adda8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-bg_BG.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-bg_BG.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-de_DE.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-de_DE.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-hu_HU.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-hu_HU.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nb_NO.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nb_NO.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nl_NL.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nl_NL.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-pt_BR.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-pt_BR.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/images/mini-ajax-arrow-sprite.png" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/images/mini-ajax-arrow-sprite.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-cs_CZ.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-cs_CZ.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-da_DK.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-da_DK.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-de_DE.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-de_DE.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-fr_FR.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-fr_FR.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-it_IT.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-it_IT.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/lib/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/lib/glyphicons-halflings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/lib/screenshot.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/lib/screenshot.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_flat_0_aaaaaa_40x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_flat_75_ffffff_40x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_55_fbf9ee_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_65_ffffff_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_75_dadada_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_75_dadada_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_75_e6e6e6_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_glass_95_fef1ec_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_222222_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_2e83ff_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_2e83ff_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_454545_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_888888_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_888888_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_cd0a0a_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/images/ui-icons_cd0a0a_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-bg_BG.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-bg_BG.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ca.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ca.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cs_CZ.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cs_CZ.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cy.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cy.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-da_DK.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-da_DK.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-de_DE.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-de_DE.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-el.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-el.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-en_CA.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-en_CA.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-es_ES.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-es_ES.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-et.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-et.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-eu.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-eu.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fi.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fi.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fr_FR.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fr_FR.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-he_IL.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-he_IL.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-hu_HU.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-hu_HU.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-is_IS.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-is_IS.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-it_IT.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-it_IT.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ja.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ja.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nb_NO.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nb_NO.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nl_NL.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nl_NL.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_BR.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_BR.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_PT.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_PT.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ru_RU.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ru_RU.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sk_SK.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sk_SK.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sv_SE.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sv_SE.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-tr_TR.mo" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-tr_TR.mo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2x2.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2x2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/spinner.gif" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/spinner.gif" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/datepicker/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/datepicker/ui-icons_222222_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/datepicker/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/datepicker/ui-icons_454545_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/datepicker/ui-icons_666666_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/datepicker/ui-icons_666666_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/recurring-event-icon.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/images/recurring-event-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_65_ffffff_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_65_ffffff_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_75_dadada_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_75_dadada_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_222222_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_222222_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_2e83ff_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_2e83ff_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_454545_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_454545_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_888888_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_888888_256x240.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_cd0a0a_256x240.png" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/images/ui-icons_cd0a0a_256x240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/events-calendar-pro.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/events-calendar-pro.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-bg_BG.po" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-bg_BG.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-de_DE.po" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-de_DE.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-hu_HU.po" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-hu_HU.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nb_NO.po" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nb_NO.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nl_NL.po" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-nl_NL.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-pt_BR.po" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/lang/tribe-events-calendar-pro-pt_BR.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/license.txt" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/license.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/readme.txt" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Ajax_Maps.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Ajax_Maps.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Ajax_Photoview.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Ajax_Photoview.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Ajax_Weekview.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Ajax_Weekview.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Events_Pro_Css.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Asset/Events_Pro_Css.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Main.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Recurrence/Queue.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Recurrence/Queue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Recurrence/Queue_Processor.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Recurrence/Queue_Processor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Templates/Mods/List_View.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/Tribe/Templates/Mods/List_View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/admin-views/widget-admin-calendar.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/admin-views/widget-admin-calendar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-mini-ajax.css" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-mini-ajax.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-mini-ajax.min.css" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-mini-ajax.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-pro-skeleton.css" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-pro-skeleton.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-pro-skeleton.min.css" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/css/tribe-events-pro-skeleton.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/js/events-recurrence.js" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/js/events-recurrence.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/js/events-recurrence.min.js" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/js/events-recurrence.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/postcss/tribe-events-mini-ajax.pcss" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/postcss/tribe-events-mini-ajax.pcss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/postcss/tribe-events-pro-skeleton.pcss" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/resources/postcss/tribe-events-pro-skeleton.pcss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/content.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/content.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/loop-grid-allday.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/loop-grid-allday.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/loop-grid-hourly.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/loop-grid-hourly.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/loop-grid.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/loop-grid.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/mobile.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/mobile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/nav.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/nav.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/single-event.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/single-event.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/tooltip.php" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/src/views/pro/week/tooltip.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/vendor/isotope/isotope.pkgd.js" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/vendor/isotope/isotope.pkgd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/vendor/isotope/isotope.pkgd.min.js" afterPath="$PROJECT_DIR$/wp-content/plugins/events-calendar-pro/vendor/isotope/isotope.pkgd.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-bg_BG.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-bg_BG.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-ca.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-ca.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-cs_CZ.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-cs_CZ.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-da_DK.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-da_DK.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-de_DE.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-de_DE.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-el.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-el.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-es_ES.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-es_ES.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-fi.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-fi.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-fr_FR.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-fr_FR.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-id_ID.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-id_ID.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-it_IT.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-it_IT.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-nb_NO.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-nb_NO.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-nl_NL.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-nl_NL.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-pt_BR.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-pt_BR.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-pt_PT.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-pt_PT.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-ro_RO.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-ro_RO.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-ru_RU.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-ru_RU.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-sv_SE.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-sv_SE.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-uk.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-uk.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-zh_TW.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community-zh_TW.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community.pot" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/lang/tribe-events-community.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/readme.txt" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/src/Tribe/Main.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/src/Tribe/Main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/src/Tribe/Submission_Handler.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/src/Tribe/Submission_Handler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/src/Tribe/Submission_Scrubber.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/src/Tribe/Submission_Scrubber.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/tribe-community-events.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar-community-events/tribe-community-events.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Abstract_Deactivation.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Abstract_Deactivation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Admin/Help_Page.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Admin/Help_Page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/App_Shop.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/App_Shop.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Asset/Data.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Asset/Data.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Autoloader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Autoloader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Cache.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Cache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Cache_Listener.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Cache_Listener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Changelog_Reader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Changelog_Reader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Credits.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Credits.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Date_Utils.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Date_Utils.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Field.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Field.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/JSON_LD/Abstract.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/JSON_LD/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Main.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/PUE/Checker.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/PUE/Checker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/PUE/Plugin_Info.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/PUE/Plugin_Info.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/PUE/Utility.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/PUE/Utility.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Settings.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Settings_Tab.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Settings_Tab.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Support.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Support.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Template_Factory.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Template_Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Template_Part_Cache.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Template_Part_Cache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Utils/Coordinates_Provider.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Utils/Coordinates_Provider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Validate.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/Validate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/View_Helpers.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/Tribe/View_Helpers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-display.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-display.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-general.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-general.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-help.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-help.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-licenses.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-licenses.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-network.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/admin-views/tribe-options-network.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/functions/template-tags/date.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/functions/template-tags/date.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/functions/template-tags/general.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/src/functions/template-tags/general.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/tribe-common.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/tribe-common.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/autoload.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/jquery.timepicker.css" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/jquery.timepicker.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/lib/bootstrap-datepicker.js" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery-timepicker/lib/bootstrap-datepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/ui.theme.css" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/common/vendor/jquery/ui.theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-af.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-af.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-bg_BG.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-bg_BG.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ca.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ca.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cs_CZ.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cs_CZ.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cy.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-cy.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-da_DK.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-da_DK.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-de_DE.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-de_DE.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-el.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-el.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-en_CA.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-en_CA.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-en_GB.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-en_GB.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-es_ES.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-es_ES.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-et.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-et.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-eu.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-eu.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fi.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fi.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fr_CA.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fr_CA.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fr_FR.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-fr_FR.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-he_IL.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-he_IL.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-hu_HU.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-hu_HU.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-id_ID.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-id_ID.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-is_IS.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-is_IS.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-it_IT.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-it_IT.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ja.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ja.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-lt_LT.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-lt_LT.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-lv.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-lv.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nb_NO.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nb_NO.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nl_NL.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-nl_NL.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_BR.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_BR.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_PT.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-pt_PT.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ro_RO.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ro_RO.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ru_RU.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-ru_RU.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sk_SK.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sk_SK.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sl_SI.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sl_SI.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sr_RS.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sr_RS.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sv_SE.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-sv_SE.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-tr_TR.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-tr_TR.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-zh_CN.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-zh_CN.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-zh_TW.po" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar-zh_TW.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar.pot" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/lang/the-events-calendar.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/license.txt" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/license.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/readme.txt" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/API.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/API.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Admin/Event_Meta_Box.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Admin/Event_Meta_Box.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Admin_List.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Admin_List.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Aggregator/Event.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Aggregator/Event.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Aggregator/Record/Abstract.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Aggregator/Record/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Aggregator/Tabs/New.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Aggregator/Tabs/New.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Amalgamator.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Amalgamator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Abstract_Asset.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Abstract_Asset.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Abstract_Events_Css.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Abstract_Events_Css.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Admin.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Admin_Menu.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Admin_Menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Admin_Ui.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Admin_Ui.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ajax_Calendar.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ajax_Calendar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ajax_Dayview.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ajax_Dayview.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ajax_List.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ajax_List.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Bootstrap_Datepicker.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Bootstrap_Datepicker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Calendar_Script.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Calendar_Script.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Chosen.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Chosen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Datepicker.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Datepicker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Dialog.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Dialog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ecp_Plugins.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Ecp_Plugins.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css_Default.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css_Default.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css_Full.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css_Full.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css_Skeleton.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Events_Css_Skeleton.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Factory.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Jquery_Placeholder.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Jquery_Placeholder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Jquery_Resize.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Jquery_Resize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Settings.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Smoothness.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Smoothness.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Tribe_Events_Bar.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Tribe_Events_Bar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Tribe_Select2.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Asset/Tribe_Select2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Backcompat.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Backcompat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Bar.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Bar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Capabilities.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Capabilities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Deactivation.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Deactivation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Default_Values.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Default_Values.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Embedded_Maps.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Embedded_Maps.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/Admin_Page.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/Admin_Page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/Column_Mapper.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/Column_Mapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer_Events.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer_Events.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer_Organizers.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer_Organizers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer_Venues.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Importer_Venues.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Reader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Reader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Uploader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/File_Uploader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/Plugin.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Importer/Plugin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/List_Widget.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/List_Widget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Main.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Options_Exception.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Options_Exception.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Post_Exception.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Post_Exception.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Query.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Query.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Recurring_Event_Cleanup.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Recurring_Event_Cleanup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/Day.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/Day.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/List.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/List.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/Month.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/Month.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/Single_Event.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template/Single_Event.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template_Factory.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Template_Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Templates.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Templates.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Updater.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Updater.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Venue.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/Venue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/iCal.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/Tribe/iCal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/admin-update-message.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/admin-update-message.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/admin-welcome-message.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/admin-welcome-message.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/aggregator/settings.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/aggregator/settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/event-sidebar-options.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/event-sidebar-options.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/events-meta-box.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/events-meta-box.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/no-comments.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/no-comments.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/organizer-meta-box.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/organizer-meta-box.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/tribe-options-display.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/tribe-options-display.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/tribe-options-timezones.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/tribe-options-timezones.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/venue-meta-box.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/venue-meta-box.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/widget-admin-list.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/admin-views/widget-admin-list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeAppShop.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeAppShop.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeDateUtils.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeDateUtils.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEvents.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEvents.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsAPI.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsAPI.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsAdminList.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsAdminList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsBar.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsBar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsCache.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsCache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsCacheListener.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsCacheListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_AdminPage.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_AdminPage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_ColumnMapper.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_ColumnMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter_Events.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter_Events.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter_Organizers.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter_Organizers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter_Venues.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileImporter_Venues.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileReader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileReader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileUploader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_FileUploader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_Plugin.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsImporter_Plugin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsListWidget.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsListWidget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsOptionsException.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsOptionsException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsPostException.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsPostException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsQuery.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsQuery.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsSupport.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsSupport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsTemplates.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsTemplates.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsViewHelpers.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEventsViewHelpers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEvents_EmbeddedMaps.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeEvents_EmbeddedMaps.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeField.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeField.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribePluginUpdateEngineChecker.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribePluginUpdateEngineChecker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribePluginUpdateUtility.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribePluginUpdateUtility.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeRecurringEventCleanup.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeRecurringEventCleanup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeSettings.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeSettings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeSettingsTab.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeSettingsTab.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeValidate.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeValidate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Amalgamator.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Amalgamator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_Day_Template.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_Day_Template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_List_Template.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_List_Template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_Month_Template.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_Month_Template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_Single_Event_Template.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Events_Single_Event_Template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Meta_Factory.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Meta_Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_PU_PluginInfo.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_PU_PluginInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Register_Meta.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Register_Meta.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Template_Factory.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe_Template_Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe__Events__Meta_Factory.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/Tribe__Events__Meta_Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeiCal.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/deprecated/TribeiCal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/advanced-functions/event.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/advanced-functions/event.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/advanced-functions/organizer.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/advanced-functions/organizer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/advanced-functions/venue.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/advanced-functions/venue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/date.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/date.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/day.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/day.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/deprecated.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/deprecated.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/general.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/general.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/google-map.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/google-map.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/ical.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/ical.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/link.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/link.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/loop.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/loop.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/month.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/month.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/options.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/options.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/organizer.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/organizer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/query.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/query.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/venue.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/venue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/widgets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/widgets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/columns.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/columns.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/footer.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/header.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/import.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/import.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/in-progress.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/in-progress.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/result.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/admin-views/result.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/ecp-events-importer.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/io/csv/ecp-events-importer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/LICENSE" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/README.md" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/release.sh" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/release.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.css" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.js" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.min.js" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/resources/deprecated/select2/select2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/the-events-calendar.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/the-events-calendar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/jquery-ui-1.8.23.custom.css" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/smoothness/jquery-ui-1.8.23.custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/ui.datepicker.min.js" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/jquery/ui.datepicker.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Abstract_Deactivation.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Abstract_Deactivation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/App_Shop.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/App_Shop.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Asset/Data.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Asset/Data.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Autoloader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Autoloader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Cache.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Cache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Cache_Listener.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Cache_Listener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Changelog_Reader.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Changelog_Reader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Credits.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Credits.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Date_Utils.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Date_Utils.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Field.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Field.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/JSON_LD/Abstract.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/JSON_LD/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/PUE/Checker.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/PUE/Checker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/PUE/Plugin_Info.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/PUE/Plugin_Info.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/PUE/Utility.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/PUE/Utility.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Settings.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Settings_Tab.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Settings_Tab.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Support.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Support.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Template_Factory.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Template_Factory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Template_Part_Cache.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Template_Part_Cache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Validate.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/Validate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/View_Helpers.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/Tribe/View_Helpers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-display.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-display.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-general.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-general.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-help.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-help.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-licenses.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-licenses.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-network.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/admin-views/tribe-options-network.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/functions/template-tags/date.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/functions/template-tags/date.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/functions/template-tags/general.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/common/src/functions/template-tags/general.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/event-tickets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/event-tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Attendees_Table.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Attendees_Table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Metabox.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Metabox.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/RSVP.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/RSVP.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Ticket_Object.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Ticket_Object.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Tickets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Tickets_Handler.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/Tribe/Tickets_Handler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/attendees.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/attendees.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/list.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/meta-box.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/meta-box.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/rsvp-metabox-advanced.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/admin-views/rsvp-metabox-advanced.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketObject.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketObject.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTickets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketsAttendeesTable.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketsAttendeesTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketsMetabox.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketsMetabox.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketsPro.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/TribeEventsTicketsPro.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Attendees_Table.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Attendees_Table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Metabox.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Metabox.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Ticket_Object.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Ticket_Object.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Tickets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Tickets_Pro.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/deprecated/Tribe__Events__Tickets__Tickets_Pro.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/template-tags/tickets.php" afterPath="$PROJECT_DIR$/wp-content/plugins/the-events-calendar/vendor/tickets/src/template-tags/tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress/members/single/messages/messages-loop.php" afterPath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/buddypress/members/single/messages/messages-loop.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/ec-assets/style_public.css" afterPath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/ec-assets/style_public.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/filters.php" afterPath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/filters.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -430,7 +17,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="single-event.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/tribe-events/pro/photo/single-event.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -438,10 +25,6 @@
               <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
               <folding>
                 <marker date="1492785113637" expanded="true" signature="500:556" ph="..." />
-                <marker date="1492785113637" expanded="true" signature="650:859" ph="..." />
-                <marker date="1492785113637" expanded="true" signature="790:845" ph="..." />
-                <marker date="1492785113637" expanded="true" signature="1103:1175" ph="..." />
-                <marker date="1492785113637" expanded="true" signature="1294:1484" ph="..." />
               </folding>
             </state>
           </provider>
@@ -450,18 +33,28 @@
       <file leaf-file-name="bar.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/tribe-events/modules/bar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="465">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1053">
-              <caret line="172" column="71" lean-forward="false" selection-start-line="172" selection-start-column="71" selection-end-line="172" selection-end-column="71" />
+            <state relative-caret-position="198">
+              <caret line="115" column="17" lean-forward="false" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -470,7 +63,7 @@
       <file leaf-file-name="filters.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/filters.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1114">
+            <state relative-caret-position="2670">
               <caret line="178" column="101" lean-forward="false" selection-start-line="178" selection-start-column="101" selection-end-line="178" selection-end-column="101" />
               <folding>
                 <marker date="1492786012190" expanded="true" signature="5434:5488" ph="..." />
@@ -483,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/views/modules/meta/venue.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -492,7 +85,7 @@
       <file leaf-file-name="actions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/actions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
+            <state relative-caret-position="2685">
               <caret line="179" column="80" lean-forward="false" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="80" />
               <folding>
                 <marker date="1492778056201" expanded="true" signature="3147:3553" ph="..." />
@@ -506,7 +99,7 @@
       <file leaf-file-name="general.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/general.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="861">
+            <state relative-caret-position="15405">
               <caret line="1031" column="82" lean-forward="false" selection-start-line="1031" selection-start-column="77" selection-end-line="1031" selection-end-column="82" />
               <folding />
             </state>
@@ -516,7 +109,7 @@
       <file leaf-file-name="style_public.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/ec-assets/style_public.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="963">
+            <state relative-caret-position="16935">
               <caret line="1129" column="30" lean-forward="false" selection-start-line="1129" selection-start-column="30" selection-end-line="1129" selection-end-column="30" />
               <folding />
             </state>
@@ -571,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/wp-content/plugins/buddypress/bp-themes/bp-default/onecolumn-page.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/buddypress/bp-themes/bp-default/sidebar-footer.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/buddypress/bp-themes/bp-default/sidebar.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/buddypress/bp-themes/bp-default/links.php" />
@@ -622,6 +214,7 @@
         <option value="$PROJECT_DIR$/wp-content/themes/estoniancrafts/filters.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/estoniancrafts/ec-assets/style_public.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -653,6 +246,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -665,570 +259,9 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tribe-events" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tribe-events" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ec-assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widgets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="meta" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="list" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="embed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="day" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the-events-calendar" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="events-calendar-pro" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="events-calendar-pro" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pro" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="events-calendar-pro" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pro" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="photo" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="estoniancrafts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="events-calendar-pro" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1319,26 +352,27 @@
       <workItem from="1492686652612" duration="262000" />
       <workItem from="1492766934852" duration="5218000" />
       <workItem from="1492782659522" duration="15000" />
-      <workItem from="1492782883295" duration="4689000" />
+      <workItem from="1492782883295" duration="5841000" />
+      <workItem from="1493023155837" duration="629000" />
+      <workItem from="1493195557280" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44602000" />
+    <option name="totallyTimeSpent" value="46408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2560" y="24" width="2560" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2688942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27366745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3444613" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34522003" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1346,6 +380,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3444613" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1361,13 +396,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/buddypress/bp-templates/bp-legacy/buddypress/members/single/messages/message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-includes/general-template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -1408,7 +436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1474,7 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="953">
           <caret line="137" column="65" lean-forward="false" selection-start-line="137" selection-start-column="65" selection-end-line="137" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1482,9 +508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <element signature="e#6#353#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1492,7 +515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1500,7 +522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="15" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1509,7 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="41" column="41" lean-forward="false" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1582,7 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1590,14 +609,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/views/modules/meta/venue.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1606,13 +624,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="272" column="13" lean-forward="false" selection-start-line="272" selection-start-column="13" selection-end-line="272" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/ec-assets/style_public.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="963">
+        <state relative-caret-position="16935">
           <caret line="1129" column="30" lean-forward="false" selection-start-line="1129" selection-start-column="30" selection-end-line="1129" selection-end-column="30" />
           <folding />
         </state>
@@ -1620,15 +637,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/tribe-events/modules/bar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="465">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/actions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
+        <state relative-caret-position="2685">
           <caret line="179" column="80" lean-forward="false" selection-start-line="179" selection-start-column="80" selection-end-line="179" selection-end-column="80" />
           <folding>
             <marker date="1492778056201" expanded="true" signature="3147:3553" ph="..." />
@@ -1640,7 +657,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/the-events-calendar/src/functions/template-tags/general.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
+        <state relative-caret-position="15405">
           <caret line="1031" column="82" lean-forward="false" selection-start-line="1031" selection-start-column="77" selection-end-line="1031" selection-end-column="82" />
           <folding />
         </state>
@@ -1648,7 +665,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/filters.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1114">
+        <state relative-caret-position="2670">
           <caret line="178" column="101" lean-forward="false" selection-start-line="178" selection-start-column="101" selection-end-line="178" selection-end-column="101" />
           <folding>
             <marker date="1492786012190" expanded="true" signature="5434:5488" ph="..." />
@@ -1662,18 +679,22 @@
           <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
           <folding>
             <marker date="1492785113637" expanded="true" signature="500:556" ph="..." />
-            <marker date="1492785113637" expanded="true" signature="650:859" ph="..." />
-            <marker date="1492785113637" expanded="true" signature="790:845" ph="..." />
-            <marker date="1492785113637" expanded="true" signature="1103:1175" ph="..." />
-            <marker date="1492785113637" expanded="true" signature="1294:1484" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/estoniancrafts/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="172" column="71" lean-forward="false" selection-start-line="172" selection-start-column="71" selection-end-line="172" selection-end-column="71" />
+        <state relative-caret-position="198">
+          <caret line="115" column="17" lean-forward="false" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
