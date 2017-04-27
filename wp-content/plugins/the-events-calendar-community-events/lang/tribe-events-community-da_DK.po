@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Community Events package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-27 16:24:37+0000\n"
+"PO-Revision-Date: 2017-02-13 04:14:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -115,27 +115,27 @@ msgctxt "failed recaptcha response"
 msgid "reCAPTCHA failed unexpectedly"
 msgstr "reCAPTCHA fejlede uventet"
 
-#: src/Tribe/Submission_Handler.php:333
+#: src/Tribe/Submission_Handler.php:338
 msgid "%s %s is required"
 msgstr "%s %s er påkrævet"
 
-#: src/Tribe/Submission_Handler.php:380 src/Tribe/Submission_Handler.php:412
+#: src/Tribe/Submission_Handler.php:385 src/Tribe/Submission_Handler.php:417
 msgid "Name"
 msgstr "Navn"
 
-#: src/Tribe/Submission_Handler.php:392
+#: src/Tribe/Submission_Handler.php:397
 msgid "Province"
 msgstr "Priovins/Område"
 
-#: src/Tribe/Submission_Handler.php:396
+#: src/Tribe/Submission_Handler.php:401
 msgid "State"
 msgstr "Stat"
 
-#: src/Tribe/Submission_Handler.php:400
+#: src/Tribe/Submission_Handler.php:405
 msgid "Zip"
 msgstr "Postnummer"
 
-#: src/Tribe/Submission_Handler.php:404
+#: src/Tribe/Submission_Handler.php:409
 msgid "URL"
 msgstr "URL"
 
@@ -143,19 +143,19 @@ msgstr "URL"
 msgid "<p>Community Events enables users to submit events through a form on your site. Whether soliciting contributions from anonymous users or registered members, you have complete editorial control over what makes it onto the calendar.</p><p>Check out our <a href=\"%s\">Community Events New User Primer</a> for information on configuring and using the plugin."
 msgstr "<p>Fællesskabet Begivenheder giver brugerne mulighed for at indsende begivenheder gennem en formular på dit websted. Hvorvidt hverve bidrag fra anonyme brugere eller registrerede medlemmer, har du fuldstændig redaktionel kontrol over, hvad der gør det på kalenderen.</p> <p>Tjek vores <a href=\"%s\">Fællesskabet Events Ny bruger Primer</a> for oplysninger om konfiguration og brug af plugin."
 
-#: src/Tribe/Submission_Handler.php:146 src/Tribe/Submission_Handler.php:160
+#: src/Tribe/Submission_Handler.php:151 src/Tribe/Submission_Handler.php:165
 msgid "The file is not an Image"
 msgstr "Denne fil er ikke en billed-fil"
 
-#: src/Tribe/Submission_Handler.php:163
+#: src/Tribe/Submission_Handler.php:168
 msgid "The image size is invalid"
 msgstr "Størrelse på filen er forkert"
 
-#: src/Tribe/Submission_Handler.php:166
+#: src/Tribe/Submission_Handler.php:171
 msgid "The file is not a valid image"
 msgstr "Denne fil er ikke en korrekt billedfil"
 
-#: src/Tribe/Submission_Handler.php:487
+#: src/Tribe/Submission_Handler.php:492
 msgid "Invalid URL provided for %s"
 msgstr "Forkert URL angivet til %s"
 
@@ -225,11 +225,11 @@ msgstr "mere"
 msgid "%s Categories"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:384
+#: src/Tribe/Submission_Handler.php:389
 msgid "Address"
 msgstr "Adresse"
 
-#: src/Tribe/Submission_Handler.php:388
+#: src/Tribe/Submission_Handler.php:393
 msgid "City"
 msgstr "By"
 
@@ -551,55 +551,55 @@ msgstr "Fællesskabs begivenheder"
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: src/Tribe/Submission_Handler.php:68
+#: src/Tribe/Submission_Handler.php:73
 msgid "%s updated. "
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:69 src/Tribe/Submission_Handler.php:88
+#: src/Tribe/Submission_Handler.php:74 src/Tribe/Submission_Handler.php:93
 msgid "Submit another %s"
 msgstr "Tilføj endnu en %s"
 
-#: src/Tribe/Submission_Handler.php:72
+#: src/Tribe/Submission_Handler.php:77
 msgid "There was a problem saving your %s, please try again."
 msgstr "Der opstod et problem med at gemme din %s. Prøv venligst igen."
 
-#: src/Tribe/Submission_Handler.php:87
+#: src/Tribe/Submission_Handler.php:92
 msgid "%s submitted."
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:91
+#: src/Tribe/Submission_Handler.php:96
 msgid "There was a problem submitting your %s, please try again."
 msgstr "Der opstod et problem med at tilføje din %s. Prøv venligst igen."
 
-#: src/Tribe/Submission_Handler.php:191
+#: src/Tribe/Submission_Handler.php:196
 msgid "%s is required"
 msgstr "%s er obligatorisk"
 
-#: src/Tribe/Submission_Handler.php:345
+#: src/Tribe/Submission_Handler.php:350
 msgid "%s Title"
 msgstr "%stitel"
 
-#: src/Tribe/Submission_Handler.php:348
+#: src/Tribe/Submission_Handler.php:353
 msgid "%s Description"
 msgstr "%sbeskrivelse"
 
-#: src/Tribe/Submission_Handler.php:456
+#: src/Tribe/Submission_Handler.php:461
 msgid "Invalid value for %s"
 msgstr "Ugyldig værdi for %s"
 
-#: src/Tribe/Submission_Handler.php:467
+#: src/Tribe/Submission_Handler.php:472
 msgid "Images must be png, jpg, or gif"
 msgstr "Billeder skal være i png-, jpg- eller gif-format"
 
-#: src/Tribe/Submission_Handler.php:509
+#: src/Tribe/Submission_Handler.php:514
 msgid "Image exceeded the allowed file size"
 msgstr "Billedestørrelsen overskrider det tilladte"
 
-#: src/Tribe/Submission_Handler.php:514
+#: src/Tribe/Submission_Handler.php:519
 msgid "The image failed to upload successfully"
 msgstr "Billedet blev ikke upload'et"
 
-#: src/Tribe/Submission_Handler.php:518
+#: src/Tribe/Submission_Handler.php:523
 msgid "The uploaded image could not be processed"
 msgstr "Det uploadede billede kunne ikke bearbejdes"
 
@@ -898,7 +898,7 @@ msgstr "%sbillede"
 
 #: src/views/community/modules/image.php:33
 msgid "Images that are not png, jpg, or gif will not be uploaded."
-msgstr ""
+msgstr "Billeder der ikke er i png-, jpg- eller gif-format vil ikke blive uploadet."
 
 #: src/views/community/modules/organizer-fields.php:47
 #: src/views/community/modules/organizer.php:31
@@ -910,17 +910,17 @@ msgstr "%sdetaljer"
 msgid "%s Name"
 msgstr "%snavn"
 
-#: src/Tribe/Submission_Handler.php:408
+#: src/Tribe/Submission_Handler.php:413
 #: src/views/community/modules/organizer-fields.php:67
 msgid "Phone"
 msgstr "Telefon"
 
-#: src/Tribe/Submission_Handler.php:416
+#: src/Tribe/Submission_Handler.php:421
 #: src/views/community/modules/organizer-fields.php:73
 msgid "Website"
 msgstr "Hjemmeside"
 
-#: src/Tribe/Submission_Handler.php:420
+#: src/Tribe/Submission_Handler.php:425
 #: src/views/community/modules/organizer-fields.php:78
 msgid "Email"
 msgstr "Email"

@@ -5,7 +5,7 @@ Tags: events, calendar, event, venue, organizer, dates, date, google maps, confe
 Donate link: http://m.tri.be/29
 Requires at least: 3.9
 Tested up to: 4.7.3
-Stable tag: 4.4.4
+Stable tag: 4.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -202,6 +202,10 @@ Our Premium Plugins:
 * <a href="http://m.tri.be/fa" target="_blank">The Events Calendar: Filter Bar</a>
 
 == Changelog ==
+
+= [4.4.5] 2017-03-23 =
+
+* Fix - skeleton styles - adjusted to make Week and Photo views look OK with skeleton styles (Thank you @Adam for the initial report) [73735]
 
 = [4.4.4] 2017-03-08 =
 

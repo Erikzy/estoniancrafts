@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Events Calendar Pro package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-02-14 23:35:40+0000\n"
+"PO-Revision-Date: 2017-03-20 22:31:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,7 +36,7 @@ msgstr "Serie endet"
 #: src/admin-views/event-recurrence.php:188
 #: src/admin-views/event-recurrence.php:391
 msgid "on"
-msgstr "an"
+msgstr "am"
 
 #: src/admin-views/event-recurrence.php:207
 msgid "Series ends on this date"
@@ -108,11 +108,11 @@ msgstr "des Monats"
 #: src/admin-views/recurrence/time.php:10
 #: src/admin-views/recurrence/time.php:84
 msgid "same day"
-msgstr "gleicher Tag"
+msgstr "gleichen Tag"
 
 #: src/admin-views/recurrence/time.php:12
 msgid "next day"
-msgstr "nächster Tag"
+msgstr "nächsten Tag"
 
 #: src/admin-views/recurrence/time.php:15
 msgctxt "number suffix for numbers ending in 1"
@@ -1038,27 +1038,27 @@ msgstr "ersten %1$s"
 #: src/Tribe/Recurrence/Meta.php:1246
 msgctxt "Used when displaying: \"the second Monday\" or \"the second day\""
 msgid "the second %1$s"
-msgstr "der zweite %1$s"
+msgstr "zweiten %1$s"
 
 #: src/Tribe/Recurrence/Meta.php:1247
 msgctxt "Used when displaying: \"the third Monday\" or \"the third day\""
 msgid "the third %1$s"
-msgstr "der dritte %1$s"
+msgstr "dritten %1$s"
 
 #: src/Tribe/Recurrence/Meta.php:1248
 msgctxt "Used when displaying: \"the fourth Monday\" or \"the fourth day\""
 msgid "the fourth %1$s"
-msgstr "der vierte %1$s"
+msgstr "vierten %1$s"
 
 #: src/Tribe/Recurrence/Meta.php:1249
 msgctxt "Used when displaying: \"the fifth Monday\" or \"the fifth day\""
 msgid "the fifth %1$s"
-msgstr "der fünfte %1$s"
+msgstr "fünften %1$s"
 
 #: src/Tribe/Recurrence/Meta.php:1250
 msgctxt "Used when displaying: \"the last Monday\" or \"the last day\""
 msgid "the last %1$s"
-msgstr "der letzte %1$s"
+msgstr "letzten %1$s"
 
 #: src/Tribe/Recurrence/Meta.php:1251
 msgctxt "Used when displaying the word \"day\" in \"the last day\" or \"the first day\""
@@ -2035,7 +2035,7 @@ msgstr "Suche"
 #: src/admin-views/recurrence/months.php:55
 #: src/admin-views/recurrence/years.php:101
 msgid "first"
-msgstr "erster"
+msgstr "ersten"
 
 #: src/Tribe/Advanced_List_Widget.php:22
 msgid "A widget that displays the next upcoming x events."

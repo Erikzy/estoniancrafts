@@ -13,7 +13,7 @@ class Tribe__Events__Pro__Templates__Mods__List_View {
 			?>
 			<p class="tribe-events-back tribe-events-loop">
 				<a href="<?php echo esc_url( tribe_get_events_link() ); ?>">
-					<?php printf( '&laquo; ' . esc_html__( 'All %s', 'the-events-calendar' ), tribe_get_event_label_plural() ); ?>
+					<?php printf( '&laquo; ' . esc_html__( 'All %s', 'tribe-events-calendar-pro' ), tribe_get_event_label_plural() ); ?>
 				</a>
 			</p>
 			<?php

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Events Calendar Pro package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-27 16:27:59+0000\n"
+"PO-Revision-Date: 2017-03-23 00:22:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,75 +13,75 @@ msgstr ""
 #: src/admin-views/event-recurrence.php:99
 #: src/admin-views/event-recurrence.php:335
 msgid "months"
-msgstr ""
+msgstr "meses"
 
 #: src/admin-views/event-recurrence.php:140
 msgctxt "Begins the line indicating when a recurrence time starts"
 msgid "At"
-msgstr ""
+msgstr "Às"
 
 #: src/admin-views/event-recurrence.php:150
 msgid "the same time:"
-msgstr ""
+msgstr "ao mesmo tempo:"
 
 #: src/admin-views/event-recurrence.php:151
 msgid "a different time:"
-msgstr ""
+msgstr "outra hora:"
 
 #: src/admin-views/event-recurrence.php:179
 #: src/admin-views/event-recurrence.php:381
 msgid "Series ends"
-msgstr ""
+msgstr "Série acaba"
 
 #: src/admin-views/event-recurrence.php:188
 #: src/admin-views/event-recurrence.php:391
 msgid "on"
-msgstr ""
+msgstr "em"
 
 #: src/admin-views/event-recurrence.php:207
 msgid "Series ends on this date"
-msgstr ""
+msgstr "Série acaba nessa data"
 
 #: src/admin-views/event-recurrence.php:235
 #: src/admin-views/event-recurrence.php:449
 msgid "Show Details"
-msgstr ""
+msgstr "Mostrar Detalhes"
 
 #: src/admin-views/event-recurrence.php:236
 #: src/admin-views/event-recurrence.php:450
 msgid "Hide Details"
-msgstr ""
+msgstr "Esconder Detalhes"
 
 #: src/admin-views/event-recurrence.php:244
 msgid "Schedule multiple events"
-msgstr ""
+msgstr "Agendar múltiplos eventos"
 
 #: src/admin-views/event-recurrence.php:247
 msgid "Add more events"
-msgstr ""
+msgstr "Adicionar mais eventos"
 
 #: src/admin-views/event-recurrence.php:260
 msgid "Event will not occur:"
-msgstr ""
+msgstr "Evento não ocorrerá:"
 
 #: src/admin-views/event-recurrence.php:463
 msgid "Recurrence Description"
-msgstr ""
+msgstr "Descrição da Recorrência"
 
 #: src/admin-views/recurrence/months.php:11
 msgid "the same day:"
-msgstr ""
+msgstr "mesmo dia:"
 
 #: src/admin-views/recurrence/months.php:12
 #: src/admin-views/recurrence/years.php:64
 msgid "a different day:"
-msgstr ""
+msgstr "outro dia:"
 
 #: src/admin-views/recurrence/months.php:30
 #: src/admin-views/recurrence/years.php:82
 msgctxt "Qualifying the \"different day\". Example: \"day\" in \"day 12 of the month\""
 msgid "day"
-msgstr ""
+msgstr "dia"
 
 #: src/admin-views/recurrence/months.php:37
 #: src/admin-views/recurrence/years.php:89
@@ -92,128 +92,128 @@ msgstr ""
 #: src/admin-views/recurrence/months.php:54
 #: src/admin-views/recurrence/years.php:100
 msgid "Use pattern:"
-msgstr ""
+msgstr "Usar padrão:"
 
 #: src/admin-views/recurrence/months.php:62
 #: src/admin-views/recurrence/years.php:108
 msgid "Use date:"
-msgstr ""
+msgstr "Usar data:"
 
 #: src/admin-views/recurrence/months.php:99
 #: src/admin-views/recurrence/years.php:145
 msgctxt "As in: day 12 of the month"
 msgid "of the month"
-msgstr ""
+msgstr "do mês"
 
 #: src/admin-views/recurrence/time.php:10
 #: src/admin-views/recurrence/time.php:84
 msgid "same day"
-msgstr ""
+msgstr "mesmo dia"
 
 #: src/admin-views/recurrence/time.php:12
 msgid "next day"
-msgstr ""
+msgstr "dia seguinte"
 
 #: src/admin-views/recurrence/time.php:15
 msgctxt "number suffix for numbers ending in 1"
 msgid "%1$sst day"
-msgstr ""
+msgstr "%1$sº dia"
 
 #: src/admin-views/recurrence/time.php:20
 msgctxt "number suffix for numbers ending in 2"
 msgid "%1$snd day"
-msgstr ""
+msgstr "%1$sº dia"
 
 #: src/admin-views/recurrence/time.php:25
 msgctxt "number suffix for numbers ending in 3"
 msgid "%1$srd day"
-msgstr ""
+msgstr "%1$sº dia"
 
 #: src/admin-views/recurrence/time.php:30
 msgctxt "number suffix for numbers ending in something other than 1, 2, or 3"
 msgid "%1$sth day"
-msgstr ""
+msgstr "%1$sº dia"
 
 #: src/admin-views/recurrence/time.php:57
 msgctxt "custom recurrence time separator"
 msgid "to"
-msgstr ""
+msgstr "às"
 
 #: src/admin-views/recurrence/time.php:73
 msgctxt "custom recurrence time/date separator"
 msgid "the"
-msgstr ""
+msgstr "o"
 
 #: src/admin-views/recurrence/weeks.php:5
 msgid "Event Series Recurrence Day of Week"
-msgstr ""
+msgstr "Dia da Semana Recorrente da Série de Eventos"
 
 #: src/admin-views/recurrence/weeks.php:7
 msgctxt "Begins the line indicating what day of the week the event will occur on"
 msgid "On"
-msgstr ""
+msgstr "Em"
 
 #: src/admin-views/recurrence/years.php:27
 msgid "year"
-msgstr ""
+msgstr "ano"
 
 #: src/admin-views/recurrence/years.php:30
 msgid "years"
-msgstr ""
+msgstr "anos"
 
 #: src/admin-views/recurrence/years.php:36
 msgctxt "Begins the line indicating on which month the event will occur"
 msgid "in"
-msgstr ""
+msgstr "em"
 
 #: src/admin-views/recurrence/years.php:37
 msgid "Which month will the event recur in?"
-msgstr ""
+msgstr "Em qual mês o evento reocorrerá?"
 
 #: src/admin-views/recurrence/years.php:63
 msgid "the same day"
-msgstr ""
+msgstr "no mesmo dia"
 
 #: src/admin-views/widget-admin-advanced-list.php:127
 msgctxt "events list widget setting"
 msgid "Limit to featured events only"
-msgstr ""
+msgstr "Limitado apenas à eventos em destaque"
 
 #: src/Tribe/Recurrence/Strings.php:63
 msgid "An all day event every [interval] day(s), happening [count] times"
-msgstr ""
+msgstr "Um evento de dia inteiro ocorrendo a cada [interval] dia(s), acontecendo [count] vezes"
 
 #: src/Tribe/Recurrence/Strings.php:64
 msgid "An all day event every [interval] day(s) at [start_time], happening [count] times"
-msgstr ""
+msgstr "Um evento de dia inteiro ocorrendo a cada [interval] dias às [start_time], acontecendo [count] vezes"
 
 #: src/Tribe/Recurrence/Strings.php:65
 msgid "A multi-day event every [interval] day(s), happening [count] times"
-msgstr ""
+msgstr "Um evento de múltiplos dias a cada [interval] dias, acontecendo [count] vezes"
 
 #: src/Tribe/Recurrence/Strings.php:66
 msgid "A multi-day event every [interval] day(s) at [start_time], happening [count] times"
-msgstr ""
+msgstr "Um evento de múltiplos dias a cada [interval] dias começando às [start_time], acontecendo [count] vezes"
 
 #: src/Tribe/Recurrence/Strings.php:69
 msgid "An event every [interval] day(s) that begins at [start_time], repeating indefinitely"
-msgstr ""
+msgstr "Um evento ocorrendo a cada [interval] dias que começa às [start_time], repetindo indefinidamente"
 
 #: src/Tribe/Recurrence/Strings.php:70
 msgid "An all day event every [interval] day(s), repeating indefinitely"
-msgstr ""
+msgstr "Um evento de dia inteiro a cada [interval] dias, repetindo indefinidamente"
 
 #: src/Tribe/Recurrence/Strings.php:71
 msgid "An all day event every [interval] day(s) at [start_time], repeating indefinitely"
-msgstr ""
+msgstr "Um evento de dia inteiro a cada [interval] dias às [start_time], repetindo indefinidamente"
 
 #: src/Tribe/Recurrence/Strings.php:72
 msgid "A multi-day event every [interval] day(s), repeating indefinitely"
-msgstr ""
+msgstr "Um evento de múltiplos dias a cada [interval] dias, repetindo indefinidamente"
 
 #: src/Tribe/Recurrence/Strings.php:73
 msgid "A multi-day event every [interval] day(s) at [start_time], repeating indefinitely"
-msgstr ""
+msgstr "Um evento de múltiplos dias a cada [interval] dias começando às [start_time], repetindo indefinidamente"
 
 #: src/Tribe/Recurrence/Strings.php:76
 msgid "An event every [interval] week(s) that begins at [start_time] on [days_of_week], repeating until [series_end_date]"
@@ -1918,12 +1918,12 @@ msgstr "Em"
 #: src/admin-views/event-recurrence.php:189
 #: src/admin-views/event-recurrence.php:392
 msgid "after"
-msgstr ""
+msgstr "Depois de"
 
 #: src/admin-views/event-recurrence.php:190
 #: src/admin-views/event-recurrence.php:393
 msgid "never"
-msgstr ""
+msgstr "Nunca"
 
 #: src/admin-views/event-recurrence.php:223
 #: src/admin-views/event-recurrence.php:425
@@ -2035,7 +2035,7 @@ msgstr "Busca"
 #: src/admin-views/recurrence/months.php:55
 #: src/admin-views/recurrence/years.php:101
 msgid "first"
-msgstr ""
+msgstr "Primeiro"
 
 #: src/Tribe/Advanced_List_Widget.php:22
 msgid "A widget that displays the next upcoming x events."
@@ -2044,7 +2044,7 @@ msgstr "Um widget que mostra os próximos x eventos."
 #: src/admin-views/recurrence/months.php:56
 #: src/admin-views/recurrence/years.php:102
 msgid "second"
-msgstr ""
+msgstr "Segundo"
 
 #: src/Tribe/Advanced_List_Widget.php:27
 msgid "Events List"
@@ -2053,7 +2053,7 @@ msgstr "Lista de Eventos"
 #: src/admin-views/recurrence/months.php:57
 #: src/admin-views/recurrence/years.php:103
 msgid "third"
-msgstr ""
+msgstr "Terceiro"
 
 #: src/Tribe/Advanced_List_Widget.php:131
 msgid "Upcoming Events"
@@ -2062,7 +2062,7 @@ msgstr "Próximos Eventos"
 #: src/admin-views/recurrence/months.php:58
 #: src/admin-views/recurrence/years.php:104
 msgid "fourth"
-msgstr ""
+msgstr "Quarto"
 
 #: src/Tribe/Community_Modifications.php:28
 msgid "Recurrence End Date"
@@ -2071,7 +2071,7 @@ msgstr "Data final de recorrência"
 #: src/admin-views/recurrence/months.php:59
 #: src/admin-views/recurrence/years.php:105
 msgid "fifth"
-msgstr ""
+msgstr "Quinto"
 
 #: src/Tribe/Community_Modifications.php:31
 msgid "Recurrence Count"
@@ -2145,7 +2145,7 @@ msgstr "Organizadores"
 
 #: src/Tribe/Geo_Loc.php:164
 msgid "You have %d venues for which we don't have geolocation data. We need to use the Google Maps API to get that information. Doing this may take a while (approximately 1 minute for every 200 venues)."
-msgstr ""
+msgstr "Você tem %d locais para os quais não temos informações de geolocalização. Precisaremos usar a API do Google Maps para conseguir essas informações. Isso pode demorar um pouco (aprox. 1 minuto para cada 200 locais)."
 
 #: src/admin-views/tribe-options-defaults.php:55
 msgid "Default organizer"

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Community Events package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-27 16:24:37+0000\n"
+"PO-Revision-Date: 2017-03-22 23:58:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,27 +12,27 @@ msgstr ""
 
 #: src/Tribe/Modules/Taxonomy_Block.php:95
 msgid "event categories"
-msgstr ""
+msgstr "categorie evento"
 
 #: src/admin-views/community-options-template.php:103
 msgid "Users cannot create new Venues"
-msgstr ""
+msgstr "gli utenti non posso creare nuove località"
 
 #: src/admin-views/community-options-template.php:104
 msgid "Users will be limited to choosing from existing venues."
-msgstr ""
+msgstr "Gli utenti potranno scegliere solo tra località esistenti"
 
 #: src/admin-views/community-options-template.php:112
 msgid "Users cannot create new Organizers"
-msgstr ""
+msgstr "Gli utenti non possono creare nuovi organizzatori"
 
 #: src/admin-views/community-options-template.php:113
 msgid "Users will be limited to choosing from existing organizers."
-msgstr ""
+msgstr "Gli utenti potranno scegliere solo tra li organizzatori esistenti"
 
 #: src/admin-views/community-options-template.php:121
 msgid "Spam Prevention"
-msgstr ""
+msgstr "Prevenzione Spam"
 
 #: src/admin-views/community-options-template.php:123
 msgid "To enable spam prevention for anonymous submissions, enter your reCAPTCHA API keys under <a href=\"%1$s\">%2$s</a>"
@@ -45,11 +45,11 @@ msgstr ""
 
 #: src/views/community/modules/cost.php:49
 msgid "Events Currency Position"
-msgstr ""
+msgstr "Posizione della valuta"
 
 #: src/views/community/modules/datepickers.php:67
 msgid "Start/End:"
-msgstr ""
+msgstr "Inizio/Fine:"
 
 #: src/views/community/modules/datepickers.php:73
 msgid "Event Start Date"
@@ -67,7 +67,7 @@ msgstr ""
 #: src/views/community/modules/datepickers.php:102
 msgctxt "Start Date Time \"to\" End Date Time"
 msgid "to"
-msgstr ""
+msgstr "da [Data di inizio \"a\" Data di Fine]"
 
 #: src/views/community/modules/datepickers.php:106
 msgid "Event End Time"
@@ -79,7 +79,7 @@ msgstr "Data Fine Evento"
 
 #: src/views/community/modules/datepickers.php:140
 msgid "Timezone"
-msgstr ""
+msgstr "Fuso orario"
 
 #: src/views/community/modules/datepickers.php:157
 msgid "All Day Event"
@@ -87,19 +87,19 @@ msgstr "Evento giornaliero"
 
 #: src/views/community/modules/image.php:34
 msgid "Images may not exceed %1$s in size."
-msgstr ""
+msgstr "Le immagini non posso superare i %1$s"
 
 #: src/views/community/modules/image.php:46
 msgid "Event Image"
-msgstr ""
+msgstr "Immagine dell'evento"
 
 #: src/views/community/modules/image.php:49
 msgid "Choose File"
-msgstr ""
+msgstr "Scegli file"
 
 #: src/views/community/modules/image.php:52
 msgid "Upload File"
-msgstr ""
+msgstr "Carica file"
 
 #: src/Tribe/Captcha/Recaptcha_V2.php:139
 msgctxt "failed recaptcha response validation"
@@ -115,27 +115,27 @@ msgctxt "failed recaptcha response"
 msgid "reCAPTCHA failed unexpectedly"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:333
+#: src/Tribe/Submission_Handler.php:338
 msgid "%s %s is required"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:380 src/Tribe/Submission_Handler.php:412
+#: src/Tribe/Submission_Handler.php:385 src/Tribe/Submission_Handler.php:417
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
-#: src/Tribe/Submission_Handler.php:392
+#: src/Tribe/Submission_Handler.php:397
 msgid "Province"
-msgstr ""
+msgstr "Provincia"
 
-#: src/Tribe/Submission_Handler.php:396
+#: src/Tribe/Submission_Handler.php:401
 msgid "State"
-msgstr ""
+msgstr "Regione"
 
-#: src/Tribe/Submission_Handler.php:400
+#: src/Tribe/Submission_Handler.php:405
 msgid "Zip"
-msgstr ""
+msgstr "CAP"
 
-#: src/Tribe/Submission_Handler.php:404
+#: src/Tribe/Submission_Handler.php:409
 msgid "URL"
 msgstr "URL"
 
@@ -143,21 +143,21 @@ msgstr "URL"
 msgid "<p>Community Events enables users to submit events through a form on your site. Whether soliciting contributions from anonymous users or registered members, you have complete editorial control over what makes it onto the calendar.</p><p>Check out our <a href=\"%s\">Community Events New User Primer</a> for information on configuring and using the plugin."
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:146 src/Tribe/Submission_Handler.php:160
+#: src/Tribe/Submission_Handler.php:151 src/Tribe/Submission_Handler.php:165
 msgid "The file is not an Image"
-msgstr ""
+msgstr "Questo file non è una immagine"
 
-#: src/Tribe/Submission_Handler.php:163
+#: src/Tribe/Submission_Handler.php:168
 msgid "The image size is invalid"
-msgstr ""
+msgstr "Le dimensioni di questa immagine non sono valide"
 
-#: src/Tribe/Submission_Handler.php:166
+#: src/Tribe/Submission_Handler.php:171
 msgid "The file is not a valid image"
-msgstr ""
+msgstr "Questo file non una immagine valide"
 
-#: src/Tribe/Submission_Handler.php:487
+#: src/Tribe/Submission_Handler.php:492
 msgid "Invalid URL provided for %s"
-msgstr ""
+msgstr "L'URL inserito per l'evento non è valido"
 
 #: src/admin-views/community-options-template.php:316
 msgid "Single geography mode"
@@ -165,41 +165,41 @@ msgstr ""
 
 #: src/admin-views/community-options-template.php:317
 msgid "Removes the country, state/province and timezone selectors from the submission form"
-msgstr ""
+msgstr "Rimuove i selettori della nazione, la regione/provincia, il fuso orario dal form di inserimento"
 
 #: src/Tribe/Event_Form.php:30
 msgid "Auto Draft"
-msgstr ""
+msgstr "Bozza Automatica"
 
 #: src/Tribe/Main.php:1107
 msgid "Delete Image"
-msgstr ""
+msgstr "Elimina Immagine"
 
 #: src/views/community/event-list.php:72
 msgid "View past events"
-msgstr ""
+msgstr "Guarda gli eventi passati"
 
 #: src/views/community/event-list.php:76
 msgid "View upcoming events"
-msgstr ""
+msgstr "Guarda i prossimi eventi"
 
 #: src/Tribe/Main.php:1576
 msgid "The file you attempted to upload exceeded the maximum file size of %1$s."
-msgstr ""
+msgstr "Il file che stai provando a caricare eccede la dimensione massima consentita di %1$s."
 
 #: src/views/community/modules/cost.php:61
 msgctxt "Currency symbol position"
 msgid "Before cost"
-msgstr ""
+msgstr "Prima del prezzo"
 
 #: src/views/community/modules/cost.php:64
 msgctxt "Currency symbol position"
 msgid "After cost"
-msgstr ""
+msgstr "Dopo il prezzo"
 
 #: src/views/community/modules/datepickers.php:143
 msgid "Timezone:"
-msgstr ""
+msgstr "Fuso orario:"
 
 #. Plugin Name of the plugin/theme
 msgid "The Events Calendar: Community Events"
@@ -219,23 +219,23 @@ msgstr ""
 
 #: src/Tribe/Modules/Taxonomy_Block.php:88
 msgid "more"
-msgstr ""
+msgstr "di più"
 
 #: src/views/community/modules/taxonomy.php:21
 msgid "%s Categories"
-msgstr ""
+msgstr "Categorie dell'%s"
 
-#: src/Tribe/Submission_Handler.php:384
+#: src/Tribe/Submission_Handler.php:389
 msgid "Address"
 msgstr "Indirizzo"
 
-#: src/Tribe/Submission_Handler.php:388
+#: src/Tribe/Submission_Handler.php:393
 msgid "City"
 msgstr "Città"
 
 #: src/views/community/modules/website.php:33
 msgid "%s Website"
-msgstr ""
+msgstr "Sito dell'%s"
 
 #: src/views/community/modules/website.php:37
 msgid "URL:"
@@ -283,7 +283,7 @@ msgstr "%1$s richiede WordPress %2$s o superiore e PHP %3$s o superiore."
 
 #: src/Tribe/Captcha/Abstract_Captcha.php:142
 msgid "Invalid value for the Anti-Spam Check"
-msgstr ""
+msgstr "Valore per controllo anti-spam non valido"
 
 #: src/Tribe/Captcha/Recaptcha.php:20
 msgid "reCAPTCHA API Keys"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: src/Tribe/Main.php:1556
 msgid "%s not found."
-msgstr ""
+msgstr "%s non trovato."
 
 #: src/Tribe/Main.php:1564
 msgid "Please log in first."
@@ -453,7 +453,7 @@ msgstr "Per favore, effettua prima il login."
 
 #: src/Tribe/Main.php:1570
 msgid "You do not have permission to edit this %s."
-msgstr ""
+msgstr "Non hai i permessi necessari per modificare questo %s."
 
 #: src/Tribe/Main.php:1706 src/views/community/event-list.php:137
 msgid "View"
@@ -551,57 +551,57 @@ msgstr "Community Events"
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: src/Tribe/Submission_Handler.php:68
+#: src/Tribe/Submission_Handler.php:73
 msgid "%s updated. "
-msgstr ""
+msgstr "%s aggiornato."
 
-#: src/Tribe/Submission_Handler.php:69 src/Tribe/Submission_Handler.php:88
+#: src/Tribe/Submission_Handler.php:74 src/Tribe/Submission_Handler.php:93
 msgid "Submit another %s"
-msgstr ""
+msgstr "Inserisci un'altro evento"
 
-#: src/Tribe/Submission_Handler.php:72
+#: src/Tribe/Submission_Handler.php:77
 msgid "There was a problem saving your %s, please try again."
-msgstr ""
+msgstr "Ci è stato un problema nel salvare il tuo %s perfavore ritenta."
 
-#: src/Tribe/Submission_Handler.php:87
+#: src/Tribe/Submission_Handler.php:92
 msgid "%s submitted."
-msgstr ""
+msgstr "%s inserito."
 
-#: src/Tribe/Submission_Handler.php:91
+#: src/Tribe/Submission_Handler.php:96
 msgid "There was a problem submitting your %s, please try again."
-msgstr ""
+msgstr "Ci è stato un problema nel inserire il tuo evento perfavore ritenta"
 
-#: src/Tribe/Submission_Handler.php:191
+#: src/Tribe/Submission_Handler.php:196
 msgid "%s is required"
 msgstr "%s (richiesto)"
 
-#: src/Tribe/Submission_Handler.php:345
+#: src/Tribe/Submission_Handler.php:350
 msgid "%s Title"
-msgstr ""
+msgstr "Titolo dell'%s"
 
-#: src/Tribe/Submission_Handler.php:348
+#: src/Tribe/Submission_Handler.php:353
 msgid "%s Description"
-msgstr ""
+msgstr "Descrizione dell'%s"
 
-#: src/Tribe/Submission_Handler.php:456
+#: src/Tribe/Submission_Handler.php:461
 msgid "Invalid value for %s"
 msgstr "Valore non valido per %s. Il valore non deve essere vuoto."
 
-#: src/Tribe/Submission_Handler.php:467
+#: src/Tribe/Submission_Handler.php:472
 msgid "Images must be png, jpg, or gif"
 msgstr "Le immagini devono essere in formato .png, .jpg o .gif"
 
-#: src/Tribe/Submission_Handler.php:509
-msgid "Image exceeded the allowed file size"
-msgstr ""
-
 #: src/Tribe/Submission_Handler.php:514
-msgid "The image failed to upload successfully"
-msgstr ""
+msgid "Image exceeded the allowed file size"
+msgstr "L'immagine supera le dimensioni consentite"
 
-#: src/Tribe/Submission_Handler.php:518
+#: src/Tribe/Submission_Handler.php:519
+msgid "The image failed to upload successfully"
+msgstr "L'immagine non è stata caricata correttamente "
+
+#: src/Tribe/Submission_Handler.php:523
 msgid "The uploaded image could not be processed"
-msgstr ""
+msgstr "Non è stato possibile processare l'immagine caricata"
 
 #: src/admin-views/community-options-template.php:42
 msgid "Placed in the Trash"
@@ -743,7 +743,7 @@ msgstr "(richiesto)"
 
 #: src/views/community/edit-event.php:38
 msgid "%s Title:"
-msgstr ""
+msgstr "Titolo dell'%s:"
 
 #: src/views/community/edit-event.php:49
 #: src/views/community/edit-organizer.php:43
@@ -770,11 +770,11 @@ msgstr "Nome %s:"
 
 #: src/views/community/email-template.php:29
 msgid "%s Organizer"
-msgstr ""
+msgstr "Organizzatore dell'%s"
 
 #: src/views/community/email-template.php:32
 msgid "%s Venue"
-msgstr ""
+msgstr "Location dell'%s"
 
 #: src/views/community/email-template.php:35
 msgid "Description"
@@ -782,11 +782,11 @@ msgstr "Descrizione"
 
 #: src/views/community/email-template.php:46
 msgid "Review %s"
-msgstr ""
+msgstr "Recensioni dell'%s"
 
 #: src/views/community/email-template.php:48
 msgid "View %s"
-msgstr ""
+msgstr "Vista dell'%s"
 
 #: src/views/community/event-list.php:27
 #: src/views/community/modules/delete.php:22
@@ -847,11 +847,11 @@ msgstr "No"
 
 #: src/views/community/modules/captcha.php:30
 msgid "Anti-Spam Check"
-msgstr ""
+msgstr "Controllo Anti-Spam"
 
 #: src/views/community/modules/cost.php:40
 msgid "%s Cost"
-msgstr ""
+msgstr "Costo dell'%s"
 
 #: src/views/community/modules/cost.php:46
 msgid "Currency Symbol:"
@@ -863,7 +863,7 @@ msgstr "Costo:"
 
 #: src/views/community/modules/cost.php:73
 msgid "Leave blank to hide the field. Enter a 0 for %s that are free."
-msgstr ""
+msgstr "Lascia vuoto per nascondere il campo. Inserisci 0 se l'%s è gratuito."
 
 #: src/views/community/modules/custom.php:30
 msgid "Additional Fields"
@@ -876,7 +876,7 @@ msgstr "%s:"
 
 #: src/views/community/modules/datepickers.php:51
 msgid "%s Time &amp; Date"
-msgstr ""
+msgstr "%s Data &amp; Ora"
 
 #: src/views/community/modules/datepickers.php:62
 msgid "You have changed the recurrence rules of this %1$s. Saving the %1$s will update all future %2$s.  If you did not mean to change all %2$s, then please refresh the page."
@@ -890,11 +890,11 @@ msgstr "AAAA-MM-DD"
 #: src/views/community/modules/delete.php:26
 #: src/views/community/modules/header-links.php:22
 msgid "My %s"
-msgstr ""
+msgstr "I Miei %s"
 
 #: src/views/community/modules/image.php:22
 msgid "%s Image"
-msgstr ""
+msgstr "Immagine dell'%s"
 
 #: src/views/community/modules/image.php:33
 msgid "Images that are not png, jpg, or gif will not be uploaded."
@@ -910,17 +910,17 @@ msgstr "Dettagli %s:"
 msgid "%s Name"
 msgstr "Nome %s"
 
-#: src/Tribe/Submission_Handler.php:408
+#: src/Tribe/Submission_Handler.php:413
 #: src/views/community/modules/organizer-fields.php:67
 msgid "Phone"
 msgstr "Telefono"
 
-#: src/Tribe/Submission_Handler.php:416
+#: src/Tribe/Submission_Handler.php:421
 #: src/views/community/modules/organizer-fields.php:73
 msgid "Website"
 msgstr "Sito Web"
 
-#: src/Tribe/Submission_Handler.php:420
+#: src/Tribe/Submission_Handler.php:425
 #: src/views/community/modules/organizer-fields.php:78
 msgid "Email"
 msgstr "Email"

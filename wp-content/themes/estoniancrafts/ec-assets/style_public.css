@@ -1066,3 +1066,85 @@ h5.widget-title {
     text-transform: uppercase;
     transition: all 0.25s ease-in-out 0s;
 }
+
+.date-dot {
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius: 50%;
+    background-color: #FE5803;
+
+    display: inline-block;
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+    margin: 0 0.5rem;
+}
+.date-dot.active {
+    background-color: #333333;
+}
+.date-dot a {
+    text-transform: capitalize;
+    position: absolute;
+    color: #fff;
+    left: 0;
+    right: 0;
+    top: 30%;
+    bottom: 0;
+}
+
+#buddypress div.message-search {
+    min-width: 22rem;
+}
+
+.type-tribe_events.tribe-events-photo-event .tribe-events-photo-event-wrap {
+    background-color: #fff;
+}
+
+.tribe-events-photo-event-wrap:hover {
+    box-shadow: none;
+}
+
+.tribe_events_more_button_wrapper, .tribe-events-list #tribe-events-photo-events .tribe-events-event-details h2, .tribe-events-list .tribe-events-loop .tribe-events-content {
+    text-align: center;
+}
+
+.tribe-events-photo-event .tribe-events-event-image {
+    position: relative;
+}
+.tribe-events-image-header, .tribe-events-image-header-time {
+    display: none;
+}
+
+.tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header-time {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.5rem;
+    padding: 0.25rem 0.65rem;
+    background-color: #fff;
+    color: #333;
+    font-size: 1.4rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tribe-events-image-header-time small {
+    display: block;
+    text-transform: uppercase;
+    font-size: 40% !important;
+}
+
+.tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: #F17F22;
+    margin: 0 1.5rem;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.2rem 1rem;
+    width: 85%;
+}

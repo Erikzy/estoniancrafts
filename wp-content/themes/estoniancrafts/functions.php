@@ -119,3 +119,62 @@ function bp_get_message_thread_from_id() {
     global $messages_template;
     return $messages_template->thread->last_sender_id;
 }
+
+function custom_tribe_events_event_schedule_details( $event = null, $before = '', $after = '' ) {
+    if ( is_null( $event ) ) {
+        global $post;
+        $event = $post;
+    }
+
+    if ( is_numeric( $event ) ) {
+        $event = get_post( $event );
+    }
+
+    $inner                    = '';
+    $format                   = '';
+    $date_without_year_format = 'd M';
+    $date_with_year_format    = 'd M Y';
+    $time_format              = get_option( 'time_format' );
+    $datetime_separator       = tribe_get_option( 'dateTimeSeparator', ' @ ' );
+    $time_range_separator     = tribe_get_option( 'timeRangeSeparator', ' - ' );
+
+    $settings = array(
+        'show_end_time' => true,
+        'time'          => true,
+    );
+
+    $settings = wp_parse_args( apply_filters( 'tribe_events_event_schedule_details_formatting', $settings ), $settings );
+    if ( ! $settings['time'] ) {
+        $settings['show_end_time'] = false;
+    }
+
+    /**
+     * @var $show_end_time
+     * @var $time
+     */
+    extract( $settings );
+
+    $format = $date_with_year_format;
+
+    // if it starts and ends in the current year then there is no need to display the year
+    if ( tribe_get_start_date( $event, false, 'Y' ) === date( 'Y' ) && tribe_get_end_date( $event, false, 'Y' ) === date( 'Y' ) ) {
+        $format = $date_without_year_format;
+    }
+
+    if ( tribe_event_is_multiday( $event ) ) { // multi-date event
+        $inner .= tribe_get_start_date( $event, true, 'd M' ) .' - ';
+        $inner .= tribe_get_end_date( $event, true, 'd M' );
+    } else {
+        if ( tribe_get_start_date( $event, false, 'g:i A' ) === tribe_get_end_date( $event, false, 'g:i A' ) ) { // Same start/end time
+            $inner .= tribe_get_start_date( $event, true, 'd M' );
+        } else { // defined start/end time
+            $inner .= tribe_get_start_date( $event, true, 'd M H:i' );
+            if ($show_end_time) {
+                $inner .= ' - '.tribe_get_end_date( $event, true, 'H:i' );
+            }
+        }
+//        $inner .= str_replace(array('--', '++'), array('<small>', '</small>'), tribe_get_start_date( $event, true, 'd--M++' ));
+    }
+
+    return str_replace('.', '', $inner);
+}

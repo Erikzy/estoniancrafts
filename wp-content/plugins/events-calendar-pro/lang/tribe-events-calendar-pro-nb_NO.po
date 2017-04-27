@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Events Calendar Pro package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-27 16:27:59+0000\n"
+"PO-Revision-Date: 2017-03-23 00:00:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1199,7 +1199,7 @@ msgstr ""
 
 #: src/admin-views/widget-admin-countdown.php:45
 msgid "Show seconds?"
-msgstr ""
+msgstr "Vis sekunder?"
 
 #: src/Tribe/Main.php:765
 msgid "Otherwise, if you're feeling adventurous, you can get started by heading to the Events menu and adding your first event."
@@ -1908,12 +1908,12 @@ msgstr "på"
 #: src/admin-views/event-recurrence.php:189
 #: src/admin-views/event-recurrence.php:392
 msgid "after"
-msgstr ""
+msgstr "etter"
 
 #: src/admin-views/event-recurrence.php:190
 #: src/admin-views/event-recurrence.php:393
 msgid "never"
-msgstr ""
+msgstr "aldri"
 
 #: src/admin-views/event-recurrence.php:223
 #: src/admin-views/event-recurrence.php:425
@@ -2025,7 +2025,7 @@ msgstr "Søk"
 #: src/admin-views/recurrence/months.php:55
 #: src/admin-views/recurrence/years.php:101
 msgid "first"
-msgstr ""
+msgstr "Første"
 
 #: src/Tribe/Advanced_List_Widget.php:22
 msgid "A widget that displays the next upcoming x events."
@@ -2034,7 +2034,7 @@ msgstr "En widget som viser de kommende hendelsene."
 #: src/admin-views/recurrence/months.php:56
 #: src/admin-views/recurrence/years.php:102
 msgid "second"
-msgstr ""
+msgstr "Andre"
 
 #: src/Tribe/Advanced_List_Widget.php:27
 msgid "Events List"
@@ -2043,7 +2043,7 @@ msgstr "Hendelsesliste"
 #: src/admin-views/recurrence/months.php:57
 #: src/admin-views/recurrence/years.php:103
 msgid "third"
-msgstr ""
+msgstr "Tredje"
 
 #: src/Tribe/Advanced_List_Widget.php:131
 msgid "Upcoming Events"
@@ -2052,7 +2052,7 @@ msgstr "Kommende hendelser"
 #: src/admin-views/recurrence/months.php:58
 #: src/admin-views/recurrence/years.php:104
 msgid "fourth"
-msgstr ""
+msgstr "Fjerde"
 
 #: src/Tribe/Community_Modifications.php:28
 msgid "Recurrence End Date"
@@ -2061,7 +2061,7 @@ msgstr "Sluttdato for gjentakende arrangement"
 #: src/admin-views/recurrence/months.php:59
 #: src/admin-views/recurrence/years.php:105
 msgid "fifth"
-msgstr ""
+msgstr "Femte"
 
 #: src/Tribe/Community_Modifications.php:31
 msgid "Recurrence Count"

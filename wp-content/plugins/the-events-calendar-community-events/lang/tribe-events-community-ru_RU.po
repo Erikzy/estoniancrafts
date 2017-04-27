@@ -115,27 +115,27 @@ msgctxt "failed recaptcha response"
 msgid "reCAPTCHA failed unexpectedly"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:333
+#: src/Tribe/Submission_Handler.php:338
 msgid "%s %s is required"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:380 src/Tribe/Submission_Handler.php:412
+#: src/Tribe/Submission_Handler.php:385 src/Tribe/Submission_Handler.php:417
 msgid "Name"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:392
+#: src/Tribe/Submission_Handler.php:397
 msgid "Province"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:396
+#: src/Tribe/Submission_Handler.php:401
 msgid "State"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:400
+#: src/Tribe/Submission_Handler.php:405
 msgid "Zip"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:404
+#: src/Tribe/Submission_Handler.php:409
 msgid "URL"
 msgstr "Ссылка"
 
@@ -143,19 +143,19 @@ msgstr "Ссылка"
 msgid "<p>Community Events enables users to submit events through a form on your site. Whether soliciting contributions from anonymous users or registered members, you have complete editorial control over what makes it onto the calendar.</p><p>Check out our <a href=\"%s\">Community Events New User Primer</a> for information on configuring and using the plugin."
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:146 src/Tribe/Submission_Handler.php:160
+#: src/Tribe/Submission_Handler.php:151 src/Tribe/Submission_Handler.php:165
 msgid "The file is not an Image"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:163
+#: src/Tribe/Submission_Handler.php:168
 msgid "The image size is invalid"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:166
+#: src/Tribe/Submission_Handler.php:171
 msgid "The file is not a valid image"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:487
+#: src/Tribe/Submission_Handler.php:492
 msgid "Invalid URL provided for %s"
 msgstr ""
 
@@ -225,11 +225,11 @@ msgstr ""
 msgid "%s Categories"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:384
+#: src/Tribe/Submission_Handler.php:389
 msgid "Address"
 msgstr "Адрес"
 
-#: src/Tribe/Submission_Handler.php:388
+#: src/Tribe/Submission_Handler.php:393
 msgid "City"
 msgstr "Город"
 
@@ -551,55 +551,55 @@ msgstr "Мероприятия Общества"
 msgid "Settings"
 msgstr "астройки"
 
-#: src/Tribe/Submission_Handler.php:68
+#: src/Tribe/Submission_Handler.php:73
 msgid "%s updated. "
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:69 src/Tribe/Submission_Handler.php:88
+#: src/Tribe/Submission_Handler.php:74 src/Tribe/Submission_Handler.php:93
 msgid "Submit another %s"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:72
+#: src/Tribe/Submission_Handler.php:77
 msgid "There was a problem saving your %s, please try again."
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:87
+#: src/Tribe/Submission_Handler.php:92
 msgid "%s submitted."
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:91
+#: src/Tribe/Submission_Handler.php:96
 msgid "There was a problem submitting your %s, please try again."
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:191
+#: src/Tribe/Submission_Handler.php:196
 msgid "%s is required"
 msgstr "%s необходим"
 
-#: src/Tribe/Submission_Handler.php:345
+#: src/Tribe/Submission_Handler.php:350
 msgid "%s Title"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:348
+#: src/Tribe/Submission_Handler.php:353
 msgid "%s Description"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:456
+#: src/Tribe/Submission_Handler.php:461
 msgid "Invalid value for %s"
 msgstr "Недопустимое значение для %s"
 
-#: src/Tribe/Submission_Handler.php:467
+#: src/Tribe/Submission_Handler.php:472
 msgid "Images must be png, jpg, or gif"
 msgstr "Изображения должны быть png, jpg, или gif"
 
-#: src/Tribe/Submission_Handler.php:509
+#: src/Tribe/Submission_Handler.php:514
 msgid "Image exceeded the allowed file size"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:514
+#: src/Tribe/Submission_Handler.php:519
 msgid "The image failed to upload successfully"
 msgstr ""
 
-#: src/Tribe/Submission_Handler.php:518
+#: src/Tribe/Submission_Handler.php:523
 msgid "The uploaded image could not be processed"
 msgstr ""
 
@@ -910,17 +910,17 @@ msgstr "%s Детали"
 msgid "%s Name"
 msgstr "%s Название"
 
-#: src/Tribe/Submission_Handler.php:408
+#: src/Tribe/Submission_Handler.php:413
 #: src/views/community/modules/organizer-fields.php:67
 msgid "Phone"
 msgstr "Телефон"
 
-#: src/Tribe/Submission_Handler.php:416
+#: src/Tribe/Submission_Handler.php:421
 #: src/views/community/modules/organizer-fields.php:73
 msgid "Website"
 msgstr "Сайт"
 
-#: src/Tribe/Submission_Handler.php:420
+#: src/Tribe/Submission_Handler.php:425
 #: src/views/community/modules/organizer-fields.php:78
 msgid "Email"
 msgstr "Почта"

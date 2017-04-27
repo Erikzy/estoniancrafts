@@ -61,6 +61,11 @@ class Tribe__Events__Community__Submission_Handler {
 		$events_label_singular_lowercase = tribe_get_event_label_singular_lowercase();
 		$event = get_post( $this->event_id );
 
+		// this entry is expected to be lowercase for the Tribe__Events__API
+		if ( ! isset( $this->submission['venue'] ) && isset( $this->submission['Venue'] ) ) {
+			$this->submission['venue'] = $this->submission['Venue'];
+		}
+
 		// if the post isn't an auto-draft, then we're updating a post. Otherwise, we'll consider it new
 		if ( $this->event_id && 'auto-draft' !== $event->post_status ) {
 			$saved = Tribe__Events__API::updateEvent( $this->event_id, $this->submission );

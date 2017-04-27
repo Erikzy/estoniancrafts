@@ -50,7 +50,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		public $shortcodes;
 
 		const REQUIRED_TEC_VERSION = '4.4.3';
-		const VERSION = '4.4.4';
+		const VERSION = '4.4.5';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );

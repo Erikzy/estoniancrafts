@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Events Calendar Pro package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-27 16:28:00+0000\n"
+"PO-Revision-Date: 2017-03-22 23:42:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1018,12 +1018,12 @@ msgstr ""
 #: src/Tribe/Recurrence/Meta.php:1242
 msgctxt "Placeholder text for a day of the week (or days of the week) before the user has selected any"
 msgid "[day]"
-msgstr ""
+msgstr "[nap]"
 
 #: src/Tribe/Recurrence/Meta.php:1243
 msgctxt "Placeholder text for a month (or months) before the user has selected any"
 msgid "[month]"
-msgstr ""
+msgstr "[hónap]"
 
 #: src/Tribe/Recurrence/Meta.php:1244
 msgctxt "Describes a day of the month (e.g. \"day 5\" or \"day 27\")"
@@ -1918,12 +1918,12 @@ msgstr "Ekkor"
 #: src/admin-views/event-recurrence.php:189
 #: src/admin-views/event-recurrence.php:392
 msgid "after"
-msgstr ""
+msgstr "Után"
 
 #: src/admin-views/event-recurrence.php:190
 #: src/admin-views/event-recurrence.php:393
 msgid "never"
-msgstr ""
+msgstr "Soha"
 
 #: src/admin-views/event-recurrence.php:223
 #: src/admin-views/event-recurrence.php:425
@@ -2035,7 +2035,7 @@ msgstr "Keresés"
 #: src/admin-views/recurrence/months.php:55
 #: src/admin-views/recurrence/years.php:101
 msgid "first"
-msgstr ""
+msgstr "Első"
 
 #: src/Tribe/Advanced_List_Widget.php:22
 msgid "A widget that displays the next upcoming x events."
@@ -2044,7 +2044,7 @@ msgstr "Egy widget, mely a következő x eseményt jeleníti meg."
 #: src/admin-views/recurrence/months.php:56
 #: src/admin-views/recurrence/years.php:102
 msgid "second"
-msgstr ""
+msgstr "Második"
 
 #: src/Tribe/Advanced_List_Widget.php:27
 msgid "Events List"
@@ -2053,7 +2053,7 @@ msgstr "Események listája"
 #: src/admin-views/recurrence/months.php:57
 #: src/admin-views/recurrence/years.php:103
 msgid "third"
-msgstr ""
+msgstr "Harmadik"
 
 #: src/Tribe/Advanced_List_Widget.php:131
 msgid "Upcoming Events"
@@ -2062,7 +2062,7 @@ msgstr "Közelgő események"
 #: src/admin-views/recurrence/months.php:58
 #: src/admin-views/recurrence/years.php:104
 msgid "fourth"
-msgstr ""
+msgstr "Negyedik"
 
 #: src/Tribe/Community_Modifications.php:28
 msgid "Recurrence End Date"
@@ -2071,7 +2071,7 @@ msgstr ""
 #: src/admin-views/recurrence/months.php:59
 #: src/admin-views/recurrence/years.php:105
 msgid "fifth"
-msgstr ""
+msgstr "Ötödik"
 
 #: src/Tribe/Community_Modifications.php:31
 msgid "Recurrence Count"
@@ -2145,7 +2145,7 @@ msgstr "Szervező"
 
 #: src/Tribe/Geo_Loc.php:164
 msgid "You have %d venues for which we don't have geolocation data. We need to use the Google Maps API to get that information. Doing this may take a while (approximately 1 minute for every 200 venues)."
-msgstr ""
+msgstr "%d olyan helyszíned van, amihez még nincs helymeghatározási adat. A Google Térképek API-t kell használnunk az információ megszerzéséhez. Ez eltarthat egy darabig (kb. 1 perc 200 helyszínenként)."
 
 #: src/admin-views/tribe-options-defaults.php:55
 msgid "Default organizer"
