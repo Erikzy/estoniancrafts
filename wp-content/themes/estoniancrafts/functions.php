@@ -178,3 +178,16 @@ function custom_tribe_events_event_schedule_details( $event = null, $before = ''
 
     return str_replace('.', '', $inner);
 }
+
+if (!function_exists('tribe_is_started_event')) {
+    // Usage tribe_is_started_event( $event_id )
+    function tribe_is_started_event( $event = null ){
+        if ( ! tribe_is_event( $event ) ){
+            return false;
+        }
+        $event = tribe_events_get_event( $event );
+        // Grab the event End Date as UNIX time
+        $start_date = tribe_get_start_date( $event, true, 'U' );
+        return time() > $start_date;
+    }
+}
