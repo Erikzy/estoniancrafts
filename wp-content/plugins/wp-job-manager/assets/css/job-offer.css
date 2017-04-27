@@ -1,0 +1,98 @@
+.single-job_listing .entry-header .entry-thumbnail {
+    margin-bottom: 0px !important;
+}
+
+.single-job_listing .entry-header .post-date {
+    top: 0px;
+}
+
+.single_job_listing .job-listing-meta {
+    padding-left: 0px;
+}
+
+.single_job_listing .job-listing-meta li:before {
+    content: none;
+}
+
+.single_job_listing .make-offer .price-info {
+    padding-bottom: 30px;
+}
+
+.single_job_listing .make-offer .price-info h3 {
+    display: block;
+}
+
+.single_job_listing .make-offer .price-info .name,
+.single_job_listing .make-offer .price-info .count,
+.single_job_listing .make-offer .price-info .price {
+    display: block;
+    color: #000;
+}
+
+.single_job_listing .label2 {
+    font-weight: bold;
+}
+
+.single_job_listing .make-offer .deadline-info {
+    padding-bottom: 20px;
+}
+
+.single_job_listing .make-offer .deadline-info .deadline span {
+    padding: 6px 10px;
+    border: 1px solid #f2f2f2;
+    border-radius: 6px;
+    margin: 5px;
+}
+
+.single_job_listing .make-offer .button {
+    float: right;
+}
+
+.single_job_listing .job_files {
+    padding-top: 20px;
+}
+.single_job_listing .job_files a {
+    display: block;
+}
+.single_job_listing .job_images {
+    overflow: hidden;
+}
+.single_job_listing .job_images a {
+    display: block;
+    padding: 5px;
+    float: left;
+}
+
+.single_job_listing .row {
+    padding: 20px 0px;
+}
+.single_job_listing .col2 {
+    width: 50%;
+    float: left;
+    display: block;
+    overflow: hidden;
+    min-height: 50px;
+}
+
+.single_job_listing .profile-info a,
+.single_job_listing .profile-info .avatar {
+    margin: 0px;
+    float: none;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+}
+.single_job_listing .profile-info .avatar img {
+    float: none;
+    margin: 0 auto;
+    display: block;
+}
+
+ul.job_listings li .deadline, 
+ul.job_listings li .price, 
+ul.job_listings li .bids, 
+ul.job_listings li .link {
+    float: right;
+    padding-left: 20px;
+    color: #000;
+}
