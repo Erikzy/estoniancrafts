@@ -1,0 +1,38 @@
+.badge
+{
+    font-size: 10px !important;
+}
+.crm-panel-right
+{
+    margin-right: 1em !important;
+}
+.crm-panel-left
+{
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+.crm-divider {
+  height: 1px;
+  width:100%;
+  display:block;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.crm-form-element
+{
+    padding: 10px 0px;
+    display: inline-block;
+    width: 100%;
+}
+.crm-form-element-input
+{
+    padding: 0px 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+.container
+{
+    width: 100% !important;
+}

@@ -216,3 +216,128 @@
 [27-Apr-2017 09:37:10 UTC] PHP Fatal error:  Call to undefined function messages_new_message() in G:\dolmit.com\estoniancrafts\wp-content\plugins\wp-job-manager\wp-job-manager-template.php on line 1012
 [27-Apr-2017 09:37:23 UTC] PHP Fatal error:  Call to undefined function messages_new_message() in G:\dolmit.com\estoniancrafts\wp-content\plugins\wp-job-manager\wp-job-manager-template.php on line 1013
 [27-Apr-2017 09:37:26 UTC] PHP Fatal error:  Call to undefined function messages_new_message() in G:\dolmit.com\estoniancrafts\wp-content\plugins\wp-job-manager\wp-job-manager-template.php on line 1013
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:47:29 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 13:59:13 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:01:49 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\awesome-support\includes\class-member.php on line 197
+[27-Apr-2017 17:02:30 UTC] PHP Notice:  Undefined index: bank_name in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 215
+[27-Apr-2017 17:02:30 UTC] PHP Notice:  Undefined index: ac_name in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 221
+[27-Apr-2017 17:02:30 UTC] PHP Notice:  Undefined index: ac_number in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 227
+[27-Apr-2017 17:02:30 UTC] PHP Notice:  Undefined index: bank_addr in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 233
+[27-Apr-2017 17:02:30 UTC] PHP Notice:  Undefined index: swift in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 239
+[27-Apr-2017 17:10:51 UTC] #0 G:\dolmit.com\estoniancrafts\wp-includes\pluggable.php(352): PHPMailer->setFrom('Reply Email', 'Email Name', false)
+#1 G:\dolmit.com\estoniancrafts\wp-content\plugins\wsdesk\includes\class-crm-ajax-functions.php(3173): wp_mail('sven@creativeme...', 'Ticket [1] : Mi...', '<html>\n        ...', Array, Array)
+#2 G:\dolmit.com\estoniancrafts\wp-content\plugins\wsdesk\includes\class-crm-ajax-functions.php(1964): CRM_Ajax::eh_crm_fire_email(2)
+#3 [internal function]: CRM_Ajax::eh_crm_ticket_reply_agent('')
+#4 G:\dolmit.com\estoniancrafts\wp-includes\plugin.php(524): call_user_func_array(Array, Array)
+#5 G:\dolmit.com\estoniancrafts\wp-admin\admin-ajax.php(92): do_action('wp_ajax_eh_crm_...')
+#6 {main}
+[27-Apr-2017 17:12:32 UTC] #0 G:\dolmit.com\estoniancrafts\wp-includes\pluggable.php(352): PHPMailer->setFrom('Reply Email', 'Email Name', false)
+#1 G:\dolmit.com\estoniancrafts\wp-content\plugins\wsdesk\includes\class-crm-ajax-functions.php(3173): wp_mail('sven@creativeme...', 'Re: Ticket [1] ...', '<html>\n        ...', Array, Array)
+#2 G:\dolmit.com\estoniancrafts\wp-content\plugins\wsdesk\includes\class-crm-ajax-functions.php(1964): CRM_Ajax::eh_crm_fire_email(4)
+#3 [internal function]: CRM_Ajax::eh_crm_ticket_reply_agent('')
+#4 G:\dolmit.com\estoniancrafts\wp-includes\plugin.php(524): call_user_func_array(Array, Array)
+#5 G:\dolmit.com\estoniancrafts\wp-admin\admin-ajax.php(92): do_action('wp_ajax_eh_crm_...')
+#6 {main}
+[27-Apr-2017 17:25:38 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:38 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:39 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:39 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:39 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:39 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:39 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:39 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:39 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:39 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:40 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:40 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:40 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:40 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:40 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:40 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:41 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:41 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:41 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:41 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:42 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:42 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:42 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:42 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:42 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in G:\dolmit.com\estoniancrafts\wp-includes\taxonomy.php on line 1855
+[27-Apr-2017 17:25:43 UTC] PHP Notice:  Trying to get property of non-object in G:\dolmit.com\estoniancrafts\wp-content\plugins\sitepress-multilingual-cms\classes\taxonomy-term-translation\class-wpml-term-actions.php on line 62
+[27-Apr-2017 18:22:19 UTC] #0 G:\dolmit.com\estoniancrafts\wp-includes\pluggable.php(352): PHPMailer->setFrom('Reply Email', 'Email Name', false)
+#1 G:\dolmit.com\estoniancrafts\wp-content\plugins\wsdesk\includes\class-crm-ajax-functions.php(3173): wp_mail('sven@creativeme...', 'Ticket [6] : te...', '<html>\n        ...', Array, Array)
+#2 G:\dolmit.com\estoniancrafts\wp-content\plugins\wsdesk\includes\class-crm-ajax-functions.php(1964): CRM_Ajax::eh_crm_fire_email(7)
+#3 [internal function]: CRM_Ajax::eh_crm_ticket_reply_agent('')
+#4 G:\dolmit.com\estoniancrafts\wp-includes\plugin.php(524): call_user_func_array(Array, Array)
+#5 G:\dolmit.com\estoniancrafts\wp-admin\admin-ajax.php(92): do_action('wp_ajax_eh_crm_...')
+#6 {main}
+[28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: bank_name in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 215
+[28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: ac_name in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 221
+[28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: ac_number in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 227
+[28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: bank_addr in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 233
+[28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: swift in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 239
+[28-Apr-2017 10:51:11 UTC] PHP Notice:  Undefined index: titleLink in G:\dolmit.com\estoniancrafts\wp-content\plugins\simple-twitter-tweets\simple-twitter-tweets.php on line 189
