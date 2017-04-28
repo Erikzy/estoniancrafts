@@ -105,7 +105,7 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 							<td class="thread-from">
 
                                 <?php
-                                    $dokanPrifleSettings = get_user_meta( bp_message_thread_from_id(), 'dokan_profile_settings', true );
+                                    $dokanPrifleSettings = get_user_meta( bp_get_message_thread_from_id(), 'dokan_profile_settings', true );
                                     if(!empty($dokanPrifleSettings['gravatar'])) {
                                         echo '<img src="'. wp_get_attachment_thumb_url( $dokanPrifleSettings['gravatar'] ).'" alt="" />';
                                     }

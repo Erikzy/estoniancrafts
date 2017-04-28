@@ -21,6 +21,8 @@ $filters = tribe_events_get_filters();
 $views   = tribe_events_get_views();
 
 $current_url = tribe_events_get_current_filter_url();
+
+$tribe_events_calendar_options = get_option( 'tribe_events_calendar_options' , array('eventsSlug' => 'events'));
 ?>
 
 <?php do_action( 'tribe_events_bar_before_template' ) ?>
@@ -44,7 +46,7 @@ $current_url = tribe_events_get_current_filter_url();
         }
 
         foreach($period as $dt){
-            echo '<div class="date-dot'.($dt->format("Y-m") == $selection ? ' active' : '').'"><a href="/'.$uri_segments[1].'/foto/?action=tribe_photo&tribe_paged=1&tribe_event_display=photo&tribe-bar-date='.$dt->format("Y-m").'" data-month="'.$dt->format("Y-m").'">'.mysql2date( 'M', $dt->format("Y-m-d H:i:s")).'</a></div>';
+            echo '<div class="date-dot'.($dt->format("Y-m") == $selection ? ' active' : '').'"><a href="/'.$tribe_events_calendar_options['eventsSlug'].'/foto/?action=tribe_photo&tribe_paged=1&tribe_event_display=photo&tribe-bar-date='.$dt->format("Y-m").'" data-month="'.$dt->format("Y-m").'">'.mysql2date( 'M', $dt->format("Y-m-d H:i:s")).'</a></div>';
         }
     ?>
 
@@ -99,5 +101,11 @@ $current_url = tribe_events_get_current_filter_url();
 	<!-- #tribe-bar-form -->
 
 </div><!-- #tribe-events-bar -->
+
+<?php if (is_user_logged_in()) : ?>
+    <?php $tribe_community_events_options = get_option( 'tribe_community_events_options' , array('communityRewriteSlug' => 'community')); ?>
+    <a href="/<?=$tribe_events_calendar_options['eventsSlug']?>/<?=$tribe_community_events_options['communityRewriteSlug']?>/add" class="btn btn-color-primary btn-lg btn-block">Lisa enda üritus <i class="icon-plus icons"></i></a>
+<?php endif; ?>
+
 <?php
 do_action( 'tribe_events_bar_after_template' );

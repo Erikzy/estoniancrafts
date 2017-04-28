@@ -1,7 +1,3 @@
 /.phpintel
-/.idea
+.idea
 /wp-content/uploads/message-attachments
-
-.idea/workspace.xml
-/nbproject/private/
-nbproject
