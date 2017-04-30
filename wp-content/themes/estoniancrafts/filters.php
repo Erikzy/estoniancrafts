@@ -127,12 +127,6 @@ class EC_Filters
 		}
 
 		// Global
-                $menu->items[] = new EC_MenuItem(array(
-			'id' => 'support',
-			'title' => __( 'Support', 'ktt' ),
-			'url' => get_site_url(null, 'my-account/support'),
-			'url_endpoint' => 'my-account/support'
-		));
 		$menu->items[] = new EC_MenuItem(array(
 			'id' => 'logout',
 			'title' => __( 'Logout', 'woocommerce' ),

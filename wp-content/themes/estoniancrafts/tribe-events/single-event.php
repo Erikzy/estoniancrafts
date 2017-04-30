@@ -103,7 +103,7 @@ $event_id = get_the_ID();
                     </div>
                 <?php else : ?>
                     <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>" class="btn btn-color-primary">Soovin osaleda</a>
-                <? endif; ?>
+                <?php endif; ?>
             <?php endif; ?>
 
 			<!-- Event meta -->

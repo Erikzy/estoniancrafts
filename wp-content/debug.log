@@ -341,3 +341,68 @@
 [28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: bank_addr in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 233
 [28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: swift in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 239
 [28-Apr-2017 10:51:11 UTC] PHP Notice:  Undefined index: titleLink in G:\dolmit.com\estoniancrafts\wp-content\plugins\simple-twitter-tweets\simple-twitter-tweets.php on line 189
+[30-Apr-2017 15:05:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function bp_is_current_component() in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php:25
+Stack trace:
+#0 /var/www/estoniancrafts/wp-content/themes/estoniancrafts/sidebar.php(12): ec_get_sidebar_name()
+#1 /var/www/estoniancrafts/wp-includes/template.php(572): require_once('/var/www/estoni...')
+#2 /var/www/estoniancrafts/wp-includes/template.php(531): load_template('/var/www/estoni...', true)
+#3 /var/www/estoniancrafts/wp-includes/general-template.php(122): locate_template(Array, true)
+#4 /var/www/estoniancrafts/wp-content/themes/basel/page.php(48): get_sidebar()
+#5 /var/www/estoniancrafts/wp-includes/template-loader.php(75): include('/var/www/estoni...')
+#6 /var/www/estoniancrafts/wp-blog-header.php(19): require_once('/var/www/estoni...')
+#7 /var/www/estoniancrafts/index.php(17): require('/var/www/estoni...')
+#8 {main}
+  thrown in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php on line 25
+[30-Apr-2017 15:18:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function bp_is_current_component() in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php:25
+Stack trace:
+#0 /var/www/estoniancrafts/wp-content/themes/estoniancrafts/sidebar.php(12): ec_get_sidebar_name()
+#1 /var/www/estoniancrafts/wp-includes/template.php(572): require_once('/var/www/estoni...')
+#2 /var/www/estoniancrafts/wp-includes/template.php(531): load_template('/var/www/estoni...', true)
+#3 /var/www/estoniancrafts/wp-includes/general-template.php(122): locate_template(Array, true)
+#4 /var/www/estoniancrafts/wp-content/themes/basel/page.php(48): get_sidebar()
+#5 /var/www/estoniancrafts/wp-includes/template-loader.php(75): include('/var/www/estoni...')
+#6 /var/www/estoniancrafts/wp-blog-header.php(19): require_once('/var/www/estoni...')
+#7 /var/www/estoniancrafts/index.php(17): require('/var/www/estoni...')
+#8 {main}
+  thrown in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php on line 25
+[30-Apr-2017 15:18:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function bp_is_current_component() in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php:25
+Stack trace:
+#0 /var/www/estoniancrafts/wp-content/themes/estoniancrafts/sidebar.php(12): ec_get_sidebar_name()
+#1 /var/www/estoniancrafts/wp-includes/template.php(572): require_once('/var/www/estoni...')
+#2 /var/www/estoniancrafts/wp-includes/template.php(531): load_template('/var/www/estoni...', true)
+#3 /var/www/estoniancrafts/wp-includes/general-template.php(122): locate_template(Array, true)
+#4 /var/www/estoniancrafts/wp-content/themes/basel/page.php(48): get_sidebar()
+#5 /var/www/estoniancrafts/wp-includes/template-loader.php(75): include('/var/www/estoni...')
+#6 /var/www/estoniancrafts/wp-blog-header.php(19): require_once('/var/www/estoni...')
+#7 /var/www/estoniancrafts/index.php(17): require('/var/www/estoni...')
+#8 {main}
+  thrown in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php on line 25
+[30-Apr-2017 15:18:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function bp_is_current_component() in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php:25
+Stack trace:
+#0 /var/www/estoniancrafts/wp-content/themes/estoniancrafts/sidebar.php(12): ec_get_sidebar_name()
+#1 /var/www/estoniancrafts/wp-includes/template.php(572): require_once('/var/www/estoni...')
+#2 /var/www/estoniancrafts/wp-includes/template.php(531): load_template('/var/www/estoni...', true)
+#3 /var/www/estoniancrafts/wp-includes/general-template.php(122): locate_template(Array, true)
+#4 /var/www/estoniancrafts/wp-content/themes/basel/page.php(48): get_sidebar()
+#5 /var/www/estoniancrafts/wp-includes/template-loader.php(75): include('/var/www/estoni...')
+#6 /var/www/estoniancrafts/wp-blog-header.php(19): require_once('/var/www/estoni...')
+#7 /var/www/estoniancrafts/index.php(17): require('/var/www/estoni...')
+#8 {main}
+  thrown in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php on line 25
+[30-Apr-2017 15:19:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function bp_is_current_component() in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php:25
+Stack trace:
+#0 /var/www/estoniancrafts/wp-content/themes/estoniancrafts/sidebar.php(12): ec_get_sidebar_name()
+#1 /var/www/estoniancrafts/wp-includes/template.php(572): require_once('/var/www/estoni...')
+#2 /var/www/estoniancrafts/wp-includes/template.php(531): load_template('/var/www/estoni...', true)
+#3 /var/www/estoniancrafts/wp-includes/general-template.php(122): locate_template(Array, true)
+#4 /var/www/estoniancrafts/wp-content/themes/basel/page.php(48): get_sidebar()
+#5 /var/www/estoniancrafts/wp-includes/template-loader.php(75): include('/var/www/estoni...')
+#6 /var/www/estoniancrafts/wp-blog-header.php(19): require_once('/var/www/estoni...')
+#7 /var/www/estoniancrafts/index.php(17): require('/var/www/estoni...')
+#8 {main}
+  thrown in /var/www/estoniancrafts/wp-content/themes/estoniancrafts/functions.php on line 25
+[30-Apr-2017 15:22:06 UTC] PHP Notice:  Undefined index: titleLink in /var/www/estoniancrafts/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 189
+[30-Apr-2017 15:23:03 UTC] PHP Notice:  Undefined index: titleLink in /var/www/estoniancrafts/wp-content/plugins/simple-twitter-tweets/simple-twitter-tweets.php on line 189
+[30-Apr-2017 15:23:52 UTC] PHP Notice:  tribe_is_recurring_event käitamisel tekkis <strong>viga</strong>. You need to pass a post ID or use it in the loop. Lisainfo: <a href="https://codex.wordpress.org/Debugging_in_WordPress">WordPressi silumine</a>. (See teade lisati versioonis 3.10.) in /var/www/estoniancrafts/wp-includes/functions.php on line 4041
+[30-Apr-2017 15:25:21 UTC] PHP Notice:  tribe_is_recurring_event käitamisel tekkis <strong>viga</strong>. You need to pass a post ID or use it in the loop. Lisainfo: <a href="https://codex.wordpress.org/Debugging_in_WordPress">WordPressi silumine</a>. (See teade lisati versioonis 3.10.) in /var/www/estoniancrafts/wp-includes/functions.php on line 4041
+[30-Apr-2017 15:43:46 UTC] PHP Notice:  Tribe__Events__Main::getOption on alates versioonist 4.0 <strong>vananenud</strong>! Parem variant on Tribe__Settings_Manager::get_option. in /var/www/estoniancrafts/wp-includes/functions.php on line 3752
