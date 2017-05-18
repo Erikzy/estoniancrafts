@@ -341,3 +341,13 @@
 [28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: bank_addr in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 233
 [28-Apr-2017 10:49:42 UTC] PHP Notice:  Undefined index: swift in G:\dolmit.com\estoniancrafts\wp-content\plugins\dokan\classes\admin-user-profile.php on line 239
 [28-Apr-2017 10:51:11 UTC] PHP Notice:  Undefined index: titleLink in G:\dolmit.com\estoniancrafts\wp-content\plugins\simple-twitter-tweets\simple-twitter-tweets.php on line 189
+[08-May-2017 05:57:14 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1534
+[08-May-2017 05:57:15 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1564
+[08-May-2017 05:57:15 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1564
+[08-May-2017 05:57:22 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1534
+[08-May-2017 05:57:22 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1564
+[08-May-2017 05:57:22 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1564
+[08-May-2017 06:09:44 UTC] PHP Warning:  mysqli_real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1534
+[08-May-2017 06:09:44 UTC] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1564
+[08-May-2017 06:09:44 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in G:\dolmit.com\estoniancrafts\wp-includes\wp-db.php on line 1564
+[18-May-2017 09:15:29 UTC] PHP Notice:  Undefined offset: 1 in G:\dolmit.com\estoniancrafts\wp-admin\includes\dashboard.php on line 1224
