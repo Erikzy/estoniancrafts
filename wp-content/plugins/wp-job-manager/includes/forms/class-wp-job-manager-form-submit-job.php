@@ -57,12 +57,15 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form
         add_action('wp', array($this, 'process'));
 
         $this->steps = (array) apply_filters('submit_job_steps', array(
+                    /*
                     'buy' => array(
                         'name' => __('Buy', 'wp-job-manager'),
                         'view' => array($this, 'buy'),
                         'handler' => array($this, 'buy_handler'),
                         'priority' => 5
                     ),
+                     * 
+                     */
                     'submit' => array(
                         'name' => __('Submit Details', 'wp-job-manager'),
                         'view' => array($this, 'submit'),
@@ -1097,10 +1100,29 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form
     /**
      * Done Step
      */
-    public function done()
+    public function done($attr = array())
     {
         do_action('job_manager_job_submitted', $this->job_id);
+        
+        $type = 'procurement';
+        if(is_array($attr) && key_exists('job_types', $attr)) {
+            $type = $attr['job_types'];
+        }
+        
+        $product = $this->get_product_by_sku($type);
+        
+        if(!is_object($product)) {
+            $this->create_new_job_offer_product($type);
+            $product = $this->get_product_by_sku($type);
+        }
+        
+        $productId = $product->get_id();
+        $url = "?add-to-cart=$productId&quantity=1&quick_buy=1";
+        
         get_job_manager_template('job-submitted.php', array('job' => get_post($this->job_id)));
+        
+        echo "<script>window.location = '$url';</script>";
+        exit;
     }
 
 }
