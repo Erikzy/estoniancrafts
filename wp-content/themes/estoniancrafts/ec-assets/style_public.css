@@ -1170,7 +1170,7 @@ h5.widget-title {
     font-family: "simple-line-icons" !important;
 }
 
-.mce-btn i {
+.mce-btn i, .ab-icon {
     font: 400 20px/1 dashicons !important;
 }
 

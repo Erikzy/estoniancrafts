@@ -27,7 +27,6 @@ $tribe_events_calendar_options = get_option( 'tribe_events_calendar_options' , a
 
 <?php do_action( 'tribe_events_bar_before_template' ) ?>
 <div id="tribe-events-bar">
-
     <?php
 
         $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
