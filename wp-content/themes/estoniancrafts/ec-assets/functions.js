@@ -75,16 +75,15 @@ jQuery(document).ready(function($) {
         if( ! $variation_form.data('product_variations') ) return;
 
         $variation_form.find('select').each(function() {
-
             var select = $(this);
             var swatch = select.parent().find('.swatches-select');
-            var options = select.data('attribute_options');
+            var options = $("select#" + this.id + " option").toArray();
 
             swatch.find('> div').removeClass('swatch-enabled').addClass('swatch-disabled');
 
             options.forEach(function(el) {
                 var value = el.value;
-                $(el).addClass('enabled');
+
                 if($(el).hasClass('enabled') ) {
                     swatch.find('div[data-value="' + value + '"]').removeClass('swatch-disabled').addClass('swatch-enabled');
                 } else {
