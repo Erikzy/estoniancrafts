@@ -70,6 +70,8 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
 			</p>
 
+            <?php echo do_shortcode('[smart_id]') ?>
+
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
 		</form>
