@@ -181,3 +181,41 @@ function custom_tribe_event_featured_image($featured_image, $post_id = false, $s
     $featured_image = str_replace('<div class="tribe-events-event-image">', '<div class="tribe-events-event-image">'.$tpl, $featured_image);
     return $featured_image;
 }
+
+/* woocommerce tabs tabs */
+
+add_filter( 'woocommerce_product_tabs', 'ec_custom_tabs', 99, 1);
+
+function ec_custom_tabs($tabs)
+{
+	$tabs['basel_additional_tab']['callback'] = 'ec_additional_product_tab_content';
+
+	return $tabs;
+}
+
+function ec_additional_product_tab_content()
+{
+	include (get_stylesheet_directory() . '/woocommerce/single-product/tabs/shipping-delivery-information.php');
+}
+
+add_filter( 'woocommerce_get_item_data', 'ec_get_item_data', 99, 2);
+
+function ec_get_item_data($cart_data, $cart_item)
+{
+	$product = $cart_item['data'];
+	$delivery = '';
+	// if is stock item and has items in stock
+	if ($product->managing_stock() && $product->get_stock_quantity()) {
+		$delivery = get_post_meta( $product->id, '_expected_delivery_in_warehouse', true);
+	} else {
+		$delivery = get_post_meta( $product->id, '_expected_delivery_no_warehouse', true);
+	}
+
+	if ($delivery !== '') {
+		$cart_data[] = [
+			'key' => 'Delivery',
+			'value' => $delivery
+		];
+	}
+	return $cart_data;
+}

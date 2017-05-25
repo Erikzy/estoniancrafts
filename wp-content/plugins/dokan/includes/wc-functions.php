@@ -971,6 +971,8 @@ function dokan_new_process_product_meta( $post_id ) {
             update_post_meta( $post_id, '_length', isset( $_POST['_length'] ) ? stripslashes( $_POST['_length'] ) : '' );
             update_post_meta( $post_id, '_width', isset( $_POST['_width'] ) ? stripslashes( $_POST['_width'] ) : '' );
             update_post_meta( $post_id, '_height', isset( $_POST['_height'] ) ? stripslashes( $_POST['_height'] ) : '' );
+            update_post_meta( $post_id, '_expected_delivery_in_warehouse', isset( $_POST['_expected_delivery_in_warehouse'] ) ? stripslashes( $_POST['_expected_delivery_in_warehouse']) : '' );
+            update_post_meta( $post_id, '_expected_delivery_no_warehouse', isset( $_POST['_expected_delivery_no_warehouse'] ) ? stripslashes( $_POST['_expected_delivery_no_warehouse']) : '' );
         } else {
             update_post_meta( $post_id, '_weight', '' );
             update_post_meta( $post_id, '_length', '' );
