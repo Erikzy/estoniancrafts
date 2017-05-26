@@ -182,8 +182,7 @@ function custom_tribe_event_featured_image($featured_image, $post_id = false, $s
     return $featured_image;
 }
 
-/* woocommerce tabs tabs */
-
+/* Shipping&Delivery tab */ //  currently not needed for any task, but I added it anyways, because it will be needed in the future
 add_filter( 'woocommerce_product_tabs', 'ec_custom_tabs', 99, 1);
 
 function ec_custom_tabs($tabs)
@@ -198,11 +197,11 @@ function ec_additional_product_tab_content()
 	include (get_stylesheet_directory() . '/woocommerce/single-product/tabs/shipping-delivery-information.php');
 }
 
-add_filter( 'woocommerce_get_item_data', 'ec_get_item_data', 99, 2);
+// expected delivery
+add_filter('ec_order_review_expected_delivery', 'ec_order_review_expected_delivery', 1, 1);
 
-function ec_get_item_data($cart_data, $cart_item)
+function ec_order_review_expected_delivery($product)
 {
-	$product = $cart_item['data'];
 	$delivery = '';
 	// if is stock item and has items in stock
 	if ($product->managing_stock() && $product->get_stock_quantity()) {
@@ -212,10 +211,9 @@ function ec_get_item_data($cart_data, $cart_item)
 	}
 
 	if ($delivery !== '') {
-		$cart_data[] = [
-			'key' => 'Delivery',
-			'value' => $delivery
-		];
+		echo '<p>';
+		_e('Delivery');
+		echo ': ' . $delivery;
+		echo '</p>';
 	}
-	return $cart_data;
 }
