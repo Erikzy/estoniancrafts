@@ -34,10 +34,7 @@ if ( $sellers['users'] ) {
                                 echo dokan_get_seller_address( $seller->ID );
                             } ?>
 
-                            <?php if ( isset( $store_info['phone'] ) && !empty( $store_info['phone'] ) ) { ?>
-                                <br>
-                                <abbr title="<?php _e( 'Phone Number', 'dokan' ); ?>"><?php _e( 'P:', 'dokan' ); ?></abbr> <?php echo esc_html( $store_info['phone'] ); ?>
-                            <?php } ?>
+
 
                         </address>
 

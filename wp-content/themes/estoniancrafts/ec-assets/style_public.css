@@ -1180,3 +1180,47 @@ h5.widget-title {
 .dashicons, .dashicons-before::before {
     font-family: dashicons !important;
 }
+
+/*AUTOCOMPLETE SEARCH*/
+.autocomplete-suggestions > div {
+    display: block!important;
+}
+
+.autocomplete-suggestions > div.search-seller {
+    border-bottom: none !important;;
+    padding-bottom: 0 !important;;
+    margin-bottom: -5px !important;;
+    margin-top: 5px !important;
+    color: #ef7f27;
+}
+.autocomplete-suggestions > div.search-seller > a {
+    color: #ef7f27;
+}
+.autocomplete-suggestions > div.search-seller > a > span {
+    color: #4C4C4C;
+}
+
+.autocomplete-suggestions > div {
+    overflow: hidden;
+    padding-bottom: 5px !important;
+    margin-bottom: 10px !important;
+    border-bottom: 1px solid rgba(129,129,129,.15) !important;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+/*DOCAKN SELLER*/
+ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap {
+    height: 240px;
+    text-align: center;
+    overflow: hidden;
+}
+ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
+    display: block;
+}
+ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
