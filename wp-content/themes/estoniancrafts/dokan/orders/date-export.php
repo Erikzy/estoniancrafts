@@ -25,6 +25,13 @@
             <input type="hidden" name="order_date" value="<?php echo isset( $_GET['order_date'] ) ? sanitize_key( $_GET['order_date'] ) : ''; ?>">
             <input type="hidden" name="order_status" value="<?php echo isset( $_GET['order_status'] ) ? sanitize_key( $_GET['order_status'] ) : 'all'; ?>">
         </div>
+        <div class="dokan-form-group">
+            Excel'is avamiseks kasutage:<br/>
+            Data > Import External Data > Import Data.<br/>
+            Valige faili tüübiks 'csv' ja otsige arvutist alla laetud fail.<br/>
+            Muuta File_Origin > "65001 UTF".<br/>
+            Muuta Delimiter komaks ','.
+        </div>
     </form>
 
     <div class="dokan-clearfix"></div>
