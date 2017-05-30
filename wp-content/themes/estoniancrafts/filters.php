@@ -207,7 +207,7 @@ function my_mail($data){
             $recipient_id = $user->data->ID;
             $subject = ! empty( $data['subject'] ) ? $data['subject'] : false;
             $message = ! empty( $data['message'] ) ? $data['message'] : false;
-            $message = strip_tags($message, '<a><p><h1><h2><h3><h4>');
+//            $message = strip_tags($message, '<a><p><h1><h2><h3><h4><table><thead><tbody><tfoot><th><td><tr>');
 
             $date_sent = bp_core_current_time();
 
@@ -224,8 +224,50 @@ function my_mail($data){
     return $data;
 }
 
-// Send as an email if it's a regular buddypress message
+// Extend buddypress messages to send them even by user email address
+add_filter( 'bp_messages_recipients', 'custom_bp_messages_recipients');
 
+function custom_bp_messages_recipients($recipients) {
+
+    // Just to be sure we handle an array
+    if (is_array($recipients)) {
+
+        // We need to remove the empty recipients
+        $recipients = array_filter($recipients);
+
+        // Change the email to username
+        foreach ($recipients as $key => $value) {
+            if (strpos($value, '@')) {
+                $user = get_user_by('email', trim($value));
+
+                // Check if the user is found
+                if ($user) {
+                    $recipients[$key] = $user->data->user_nicename;
+                } else {
+                    wp_mail($value,$_POST['subject'], $_POST['content'],['ignore_bb' => true]);
+
+                    if (count($recipients) == 1) {
+                        // Setup the link to the logged-in user's messages.
+                        $member_messages = trailingslashit( bp_loggedin_user_domain() . bp_get_messages_slug() );
+                        $redirect_to = trailingslashit( $member_messages . 'compose' );
+
+                        $feedback    = __( 'Message successfully sent by email.', 'buddypress' );
+
+                        // Add feedback message.
+                        bp_core_add_message( $feedback, 'success' );
+
+                        // Redirect to previous page
+                        bp_core_redirect( $redirect_to );
+                    }
+                }
+            }
+        }
+    }
+
+    return $recipients;
+}
+
+// Send as an email if it's a regular buddypress message
 add_filter( 'messages_message_sent', 'my_messages_message_sent');
 
 function my_messages_message_sent($message) {

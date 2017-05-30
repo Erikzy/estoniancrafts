@@ -200,7 +200,9 @@ if (!class_exists("IdCardLogin")) {
         static function getPluginBaseUrl() {
             $pUrl = plugins_url();
             $baseName = plugin_basename(__FILE__);
-            $pluginFolder = explode(DIRECTORY_SEPARATOR, $baseName)[0];
+            // This doesn't work on windows
+//            $pluginFolder = explode(DIRECTORY_SEPARATOR, $baseName)[0];
+            $pluginFolder = explode('/', $baseName)[0];
             return $pUrl . '/' . $pluginFolder;
         }
 
