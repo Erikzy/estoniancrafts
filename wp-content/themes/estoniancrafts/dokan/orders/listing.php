@@ -61,8 +61,12 @@ if ( $user_orders ) {
                             $user = __( 'Guest', 'dokan' );
                         }
 
-                        echo $user;
                         ?>
+                        <?php if ( !empty($user_info) ): ?>
+                        <a href="<?php echo esc_url(apply_filters( 'bp_get_member_permalink', bp_core_get_user_domain( $user_info->ID, $user_info->user_nicename, $user_info->user_login ))); ?>"><?php echo $user ?></a>
+                        <?php else: ?>
+                            <?php echo $user ?>
+                        <?php endif; ?>
                     </td>
                     <td class="dokan-order-date" data-title="<?php _e( 'Date', 'dokan' ); ?>" >
                         <?php
