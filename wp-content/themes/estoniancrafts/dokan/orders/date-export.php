@@ -19,18 +19,17 @@
     </form>
 
     <form action="" method="POST" class="dokan-right">
+        <?php
+        $csviepage = get_page_by_title('CSV import/export');
+        $csvielink = get_permalink( $csviepage );
+        if ($csviepage) : ?>
+            <a href="<?php echo $csvielink; ?>" target="_blank">CSV import/export</a>
+        <?php endif; ?>
         <div class="dokan-form-group">
             <input type="submit" name="dokan_order_export_all"  class="dokan-btn dokan-btn-sm dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Export All', 'dokan' ); ?>">
             <input type="submit" name="dokan_order_export_filtered"  class="dokan-btn dokan-btn-sm dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Export Filtered', 'dokan' ); ?>">
             <input type="hidden" name="order_date" value="<?php echo isset( $_GET['order_date'] ) ? sanitize_key( $_GET['order_date'] ) : ''; ?>">
             <input type="hidden" name="order_status" value="<?php echo isset( $_GET['order_status'] ) ? sanitize_key( $_GET['order_status'] ) : 'all'; ?>">
-        </div>
-        <div class="dokan-form-group">
-            Excel'is avamiseks kasutage:<br/>
-            Data > Import External Data > Import Data.<br/>
-            Valige faili tüübiks 'csv' ja otsige arvutist alla laetud fail.<br/>
-            Muuta File_Origin > "65001 UTF".<br/>
-            Muuta Delimiter komaks ','.
         </div>
     </form>
 
