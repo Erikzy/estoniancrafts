@@ -191,3 +191,22 @@ if (!function_exists('tribe_is_started_event')) {
         return time() > $start_date;
     }
 }
+
+if (!function_exists('is_user_idcard')) {
+    function is_user_idcard(){
+        global $wpdb;
+
+        if (!is_user_logged_in()) {
+            return false;
+        }
+
+        $current_user = wp_get_current_user();
+        $user = $wpdb->get_row(
+            $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=%s", $current_user->ID
+            )
+        );
+
+        return $user != NULL;
+    }
+}
