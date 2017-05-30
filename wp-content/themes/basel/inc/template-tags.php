@@ -1091,7 +1091,7 @@ if( ! function_exists( 'basel_header_block_search_extended' ) ) {
 		$defaults = array(
 			'thumbnail' => true,
 			'price' => true,
-			'count' => 5
+			'count' => 10
 		);
 
 		if( $show_categories ) {
