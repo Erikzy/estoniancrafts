@@ -1423,7 +1423,7 @@
     <div class="vc_column_container vc_col-sm-6">
         <div class="vc_column-inner ">
             <figure style="margin: -20px;">
-                <img src="http://placehold.it/760x800">
+                <img src="http://placehold.it/760x800" alt="">
             </figure>
         </div>
     </div>
