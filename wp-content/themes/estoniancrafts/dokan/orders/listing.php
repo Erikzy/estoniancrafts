@@ -116,14 +116,22 @@ if ( $user_orders ) {
                             'icon' => '<i class="fa fa-eye">&nbsp;</i>'
                         );
 
+                        $actions['packing-slip'] = array(
+                            'url' => wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $the_order->id ), 'generate_wpo_wcpdf' ),
+                            'name' => __('Print invoice and address', 'dokan'),
+                            'action' => "print",
+                            'icon' => '<i class="fa fa-print">&nbsp;</i>',
+                            'target' => '_blank'
+                        );
+
                         $actions = apply_filters( 'woocommerce_admin_order_actions', $actions, $the_order );
 
                         foreach ($actions as $action) {
                             $icon = ( isset( $action['icon'] ) ) ? $action['icon'] : '';
-                            printf( '<a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="%s" data-toggle="tooltip" data-placement="top" title="%s">%s</a> ', esc_url( $action['url'] ), esc_attr( $action['name'] ), $icon );
+                            printf( '<a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="%s" data-toggle="tooltip" data-placement="top" title="%s" %s>%s</a> ', esc_url( $action['url'] ), esc_attr( $action['name'] ), isset($action['target']) ? 'target="'.$action['target'].'"' : '', $icon);
                         }
 
-                        do_action( 'woocommerce_admin_order_actions_end', $the_order );
+                        // do_action( 'woocommerce_admin_order_actions_end', $the_order ); // used only by PDF module to add 2 extra buttons
                         ?>
                     </td>
                     <td class="diviader"></td>
