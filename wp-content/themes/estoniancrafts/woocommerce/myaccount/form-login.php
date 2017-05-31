@@ -112,6 +112,10 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 
 		<form method="post" class="register">
 
+            <?php if (strlen($regHash)) {
+               echo '<input type="hidden" name="reghash" value="'.esc_attr($regHash).'">';
+            } ?>
+
 			<?php do_action( 'woocommerce_register_form_start' ); ?>
 
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
