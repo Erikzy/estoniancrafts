@@ -304,7 +304,7 @@ $order    = new WC_Order( $order_id );
                             <div class="clearfix dokan-form-group" style="margin-top: 10px;">
                                 <!-- Trigger the modal with a button -->
                                 <input type="button" data-toggle="modal" data-target="#tracking-modal" id="add-tracking-number" name="add_tracking_number" class="dokan-btn dokan-btn-success grant_access" value="<?php esc_attr_e( 'Tracking Number', 'dokan' ); ?>">
-
+                                <a href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $order->id ), 'generate_wpo_wcpdf' ); ?>" class="dokan-btn dokan-btn-success" target="_blank"><?php echo __('Print invoice and address', 'ktt'); ?></a>
                             </div>
 
                             <!-- Modal -->
