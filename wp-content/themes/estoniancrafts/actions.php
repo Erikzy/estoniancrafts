@@ -15,6 +15,7 @@ class EC_Actions
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
 //		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_categories_action'), 9 );
 		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_price_action'), 10 );
+		add_action( 'wp_ajax_get_product_statistics', array(__CLASS__, 'get_product_statistics_ajax'));
 	}
 
 	/**
@@ -369,6 +370,50 @@ HTML;
 			
 			return;
 		endif;
+	}
+
+	public static function get_product_statistics_ajax()
+	{
+		check_ajax_referer('ec_get_product_statistics');
+		
+		// check privileges
+		if ( !is_admin() ) { // accessing it through admin-ajax.php
+            die();
+        }
+
+		$productId = isset($_GET['product_id']) && (int)$_GET['product_id'] ? (int)$_GET['product_id'] : null;
+		if (!$productId) {
+			die();
+		}
+		// check for product ownership
+		$product = wc_get_product($productId);
+		if (!($product && $product->post &&
+			(int)$product->post->post_author === (int)get_current_user_id()
+		)) {
+			die();
+		}
+		unset($productId);
+
+		// get stats
+		$stats = [];
+		$stats[] = [
+			'label' => __( 'Views', 'dokan' ),
+			'value' => (int) get_post_meta( $product->id, 'pageview', true )
+		];
+
+		$stats[] = [
+			'label' => __( 'Favorites', 'dokan' ),
+			'value' => yith_wcwl_count_add_to_wishlist($product->id)
+		];
+
+		// return statistics
+		echo '<table>';
+		foreach ($stats as $stat) {
+			echo sprintf('<tr><td>%s:</td><td><strong>%s</strong></td></tr>', $stat['label'], $stat['value']);
+		}
+		echo '</table>';
+
+		die();
 	}
 
 }

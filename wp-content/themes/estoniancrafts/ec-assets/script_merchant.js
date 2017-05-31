@@ -17,10 +17,6 @@ jQuery(document).ready(function($)
 		}
 	});
 
-	/*
-	 * Products / Product save functions
-	 */
-
 	// Publish button click
 	$('form.dokan-product-edit-form button.ec-product-publish-btn').on('click', function(e)
 	{
@@ -32,4 +28,31 @@ jQuery(document).ready(function($)
 	{
 		$(this).closest('form').find('input[name=post_status]').val('draft');
 	});
+
+	/*
+	 * Order handling
+	 */
+	var ec_merchant = {
+		init: function () {
+			$('body').on('click', '.get-product-statistics', ec_merchant.getProductStatistics);
+		},
+
+		getProductStatistics: function (e) {
+			e.preventDefault();
+
+			var parent = $(e.target).parent().parent();
+			$(parent).block({message: null, overlayCSS: { background: '#fff url('+ dokan.ajax_loader +') no-repeat center', opacity: 1.0 }});
+
+			$.get($(e.target).parent().attr('href'), function (response) {
+				$(parent).unblock();
+				$(parent).html(response);
+			});
+
+			return false;
+		}
+
+	};
+
+	ec_merchant.init();
+
 });
