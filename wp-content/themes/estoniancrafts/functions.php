@@ -107,17 +107,21 @@ function ec_debug_to_console()
 /**
  * Output the user id to the page of the current thread's last author.
  */
-function bp_message_thread_from_id() {
-    echo bp_get_message_thread_from_id();
+if (!function_exists('bp_message_thread_from_id')) {
+    function bp_message_thread_from_id() {
+        echo bp_get_message_thread_from_id();
+    }
 }
 /**
  * Get the user id to the page of the current thread's last author.
  *
  * @return string
  */
-function bp_get_message_thread_from_id() {
-    global $messages_template;
-    return $messages_template->thread->last_sender_id;
+if (!function_exists('bp_get_message_thread_from_id')) {
+    function bp_get_message_thread_from_id() {
+        global $messages_template;
+        return $messages_template->thread->last_sender_id;
+    }
 }
 
 function custom_tribe_events_event_schedule_details( $event = null, $before = '', $after = '' ) {
@@ -189,5 +193,25 @@ if (!function_exists('tribe_is_started_event')) {
         // Grab the event End Date as UNIX time
         $start_date = tribe_get_start_date( $event, true, 'U' );
         return time() > $start_date;
+    }
+}
+
+if (!function_exists('is_user_idcard')) {
+    function is_user_idcard() {
+        // Just to be sure if user is currently logged in
+        if (!is_user_logged_in()) {
+            return false;
+        }
+
+        global $wpdb;
+
+        $current_user = wp_get_current_user();
+        $user = $wpdb->get_row(
+            $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=%s", $current_user->ID
+            )
+        );
+
+        return (bool) $user != NULL;
     }
 }

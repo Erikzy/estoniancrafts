@@ -200,7 +200,9 @@ if (!class_exists("IdCardLogin")) {
         static function getPluginBaseUrl() {
             $pUrl = plugins_url();
             $baseName = plugin_basename(__FILE__);
-            $pluginFolder = explode(DIRECTORY_SEPARATOR, $baseName)[0];
+            // This doesn't work on windows
+//            $pluginFolder = explode(DIRECTORY_SEPARATOR, $baseName)[0];
+            $pluginFolder = explode('/', $baseName)[0];
             return $pUrl . '/' . $pluginFolder;
         }
 
@@ -269,10 +271,25 @@ if (!class_exists("IdCardLogin")) {
 
 //        static function disable_password_reset() {
 //            return false;
-//        }        
+//        }
 
         static function enqueueJquery() {
             wp_enqueue_script('jquery');
+        }
+
+        static function user_has_idCard() {
+            global $wpdb;
+            $current_user = wp_get_current_user();
+            $user = $wpdb->get_row(
+                $wpdb->prepare(
+                    "select * from $wpdb->prefix" . "idcard_users WHERE userid=%s", $current_user->ID
+                )
+            );
+            if (!$user) {
+                echo '<h4>Kinnita Id Kaardiga</h4>';
+                $data = do_shortcode('[smart_id]');
+                echo $data;
+            }
         }
 
     }
@@ -294,6 +311,7 @@ if (!class_exists("IdCardLogin")) {
 
     add_shortcode('smart_id', 'IdCardLogin::return_id_login');
     add_shortcode('contract', 'IdCardLogin::display_contract_to_sign');
+    add_shortcode('user_has_idCard', 'IdCardLogin::user_has_idCard');
 
 //    add_filter('allow_password_reset', 'IdCardLogin::disable_password_reset');
 //    add_filter('login_errors', create_function('$a', "return 'Not allowed!';"));
