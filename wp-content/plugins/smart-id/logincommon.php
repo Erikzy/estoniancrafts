@@ -31,16 +31,17 @@ if (!class_exists("LoginCommon")) {
 
            if (0 == $current_user->ID) {
                // generate new user
-               $user_data = array(
-                   'user_pass' => wp_generate_password(64, true),
-                   'user_login' => $userName,
-                   'display_name' => "$firstName $lastName",
-                   'first_name' => $firstName,
-                   'last_name' => $lastName,
-                   'user_email' => $email,
-                   'role' => get_option('default_role') // Use default role or another role, e.g. 'editor'
-               );
-               $user_id = wp_insert_user($user_data);
+//               $user_data = array(
+//                   'user_pass' => wp_generate_password(64, true),
+//                   'user_login' => $userName,
+//                   'display_name' => "$firstName $lastName",
+//                   'first_name' => $firstName,
+//                   'last_name' => $lastName,
+//                   'user_email' => $email,
+//                   'role' => get_option('default_role') // Use default role or another role, e.g. 'editor'
+//               );
+//               $user_id = wp_insert_user($user_data);
+               $user_id = 0;
                $wpdb->insert($wpdb->prefix . "idcard_users",
                    array(
                        'firstname' => $firstName,
