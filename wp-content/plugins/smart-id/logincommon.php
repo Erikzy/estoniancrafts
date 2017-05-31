@@ -11,7 +11,12 @@ if (!class_exists("LoginCommon")) {
                 //Otsime üles sisselogitud inimese või tekitame, kui teda varem polnud
                 $user = LoginCommon::getUser($identityCode);
                 if (($user == NULL) and ( NULL == username_exists($userName))) {
-                    $user_id = LoginCommon::createUser($userName, $firstName, $lastName, $email, $identityCode);
+                    $regHash = sha1($identityCode.$firstName.$lastName.time());
+
+                    $user_id = LoginCommon::createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash);
+                    $myaccount_page_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
+                    $myaccount_page_url .= '?reghash='.$regHash;
+                    return bp_core_redirect( $myaccount_page_url );
                 } else {
                     $user_id = $user->userid;
                 }
@@ -25,7 +30,7 @@ if (!class_exists("LoginCommon")) {
             wp_set_auth_cookie($user_id);
         }
 
-       private static function createUser($userName, $firstName, $lastName, $email, $identityCode) {
+       private static function createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash = '') {
            global $wpdb;
            $current_user = wp_get_current_user();
 
@@ -48,6 +53,7 @@ if (!class_exists("LoginCommon")) {
                        'lastname' => $lastName,
                        'identitycode' => $identityCode,
                        'userid' => $user_id,
+                       'reghash' => $regHash,
                        'created_at' => current_time('mysql')
                    )
                );

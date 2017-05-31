@@ -257,6 +257,7 @@ if (!class_exists("IdCardLogin")) {
                 firstname tinytext NOT NULL,
                 lastname tinytext NOT NULL,
                 identitycode VARCHAR(11) NOT NULL,
+                reghash VARCHAR(100) NULL,
                 userid bigint(20) unsigned NOT NULL,
                 created_at datetime NOT NULL,
 		access_token VARCHAR(32),
