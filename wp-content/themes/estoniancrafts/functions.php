@@ -14,6 +14,9 @@ include_once($currentDirname.'/shortcodes.php');
 // Load widgets
 include_once($currentDirname.'/widgets.php');
 
+// Load shops
+include_once($currentDirname.'/shop/shop-functions.php');
+
 //WC_Cache_Helper::prevent_caching();
 
 /**
