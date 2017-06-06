@@ -9,6 +9,7 @@ class EC_UserRelation
 	* Available user relation keys
 	*/
 	const SHOP_USER = 'shop_user';
+	const SHOP_ADMIN = 'shop_admin';
 
 	protected $id;
 	protected $source_user_id;
@@ -16,12 +17,14 @@ class EC_UserRelation
 	protected $relation_key;
 	protected $value;
 
+	protected static $_membersCache = [];
+
 	public function __construct()
 	{
 		$this->id = null;
 		$this->source_user_id = 0;
 		$this->target_user_id = 0;
-		$this->key = EC_UserRelation::SHOP_USER;
+		$this->relation_key = EC_UserRelation::SHOP_USER;
 		$this->value = '';
 	}
 
@@ -80,25 +83,18 @@ class EC_UserRelation
 		return $this->relation_key === EC_UserRelation::SHOP_USER;
 	}
 
+	/*
+	* @return boolean
+	*/
+	public function isShopAdmin()
+	{
+		return $this->relation_key === EC_UserRelation::SHOP_ADMIN;
+	}
+
 	public function setValue($value)
 	{
-		if ($this->isShopUser()) {
-			// check get current logged in user and check if seller
-			$shopOwner = wp_get_current_user();
-			if (!($shopOwner && 
-				$shopOwner->ID &&
-				dokan_is_seller_enabled($shopOwner->ID)
-			)) {
-				return false;
-			}
-
-			if ((int)$this->target_user_id !== (int)$shopOwner->ID) {
-				return false;
-			}
-		}
-		
 		$this->value = $value;
-		return true;
+		return $this;
 	}
 
 	public function getValue()
@@ -117,7 +113,7 @@ class EC_UserRelation
 		$data = [
 			'source_user_id' => $this->source_user_id,
 			'target_user_id' => $this->target_user_id,
-			'relation_key' => $this->key,
+			'relation_key' => $this->relation_key,
 			'value' => $this->value
 		];
 
@@ -194,15 +190,21 @@ class EC_UserRelation
 	}
 
 	/*
-	* AJAX binding
+	* AJAX binding and listen to role change
 	*/
 	public static function init()
 	{
 		add_action('wp_ajax_ec_add_shop_user', [__CLASS__, 'add_shop_user_ajax']);
 		add_action('wp_ajax_ec_remove_shop_user', [__CLASS__, 'remove_shop_user_ajax']);
-		add_action('wp_ajax_ec_add_user_relation_value', [__CLASS__, 'add_user_relation_value_ajax']);
+		add_action('wp_ajax_ec_add_shop_user_relation_value', [__CLASS__, 'add_shop_user_relation_value_ajax']);
+
+		add_action('set_user_role', [__CLASS__, 'addUserShopRelation'], 1, 3);
 	}
 
+	/*
+	* Ajax callable to add shop user by user email
+	* echo's shop team list user table row (HTML)
+	*/
 	public static function add_shop_user_ajax()
 	{
 		// returns with proper json
@@ -245,7 +247,7 @@ class EC_UserRelation
 		// check get user with email
 		$user = get_user_by('email', $email);
 		if (!($user && $user->ID)) {
-			$return(false, 'E-posti aadressiga ' . $email . ' kasutajat ei leitud' // @TODO translate, this will be forwarded to front end side (only viable error)
+			$return(false, sprintf(__('User with email "%s" was not found', 'ktt'), $email)
 			);
 		}
 		unset($email);
@@ -256,10 +258,14 @@ class EC_UserRelation
 			$return(); // this relation already exists (do nothing)
 		}
 
+		// can't assign itself
+		if ((int)$relation->source_user_id === (int)$relation->target_user_id) {
+			$return(false, __('Can not add yourself as shop member', 'ktt'));
+		}
 		if ($relation->save()) {
 			// render added user profile
 			ob_start();
-			include(locate_template('templates/myaccount/shop_member_list_user.php'));
+			include(locate_template('templates/myaccount/shop_team_list_user.php'));
 			$html = ob_get_contents();
 			ob_end_clean();
 			$return(true, $html);
@@ -268,13 +274,17 @@ class EC_UserRelation
 		$return();
 	}
 
+	/*
+	* Ajax callable to remove shop user relation
+	* echo's removed relation id
+	*/
 	public static function remove_shop_user_ajax()
 	{
 		// check access token
 		if (!(isset($_POST['_wpnonce']) &&
 			wp_verify_nonce($_POST['_wpnonce'], 'ec_remove_shop_user')
 		)) {
-			die('token mismatch');
+			die();
 		}
 		unset($_POST['_wpnonce']);
 		// check if relation id is set
@@ -286,14 +296,14 @@ class EC_UserRelation
 			$shopOwner->ID &&
 			dokan_is_seller_enabled($shopOwner->ID)
 		)) {
-			die('invalid access');
+			die();
 		}
 
 		// get relation (checks if user has right to even remove relation)
 		$relation = EC_UserRelation::loadById($relationId);
 		unset($relationId);
 		if (!($relation->id && (int)$relation->target_user_id === (int)$shopOwner->ID && $relation->isShopUser())) {
-			die('not allowed to remove this relation');
+			die();
 		}
 
 		// remove store
@@ -305,49 +315,142 @@ class EC_UserRelation
 		die();
 	}
 
-	public static function add_user_relation_value_ajax()
+	/*
+	* Ajax callable to add user relation some value (only for shop users)
+	* echo's relation id if success
+	*/
+	public static function add_shop_user_relation_value_ajax()
 	{
 		// check if relation id is set
 		$relationId = isset($_POST['relation_id']) && (int)$_POST['relation_id'] ? (int)$_POST['relation_id'] : null;
 		unset($_POST['relation_id']);
 		if (!$relationId) {
-
+			die();
 		}
 		// check value
 		$value = isset($_POST['value']) ? $_POST['value'] : null;
+		$value = trim($value);
 		unset($_POST['value']);
 		if ($value === null) {
-			die('Puudub väärtus');
+			die();
 		}
 
 		// get relation (checks if user has right to even remove relation)
 		$relation = EC_UserRelation::loadById($relationId);
 		unset($relationId);
 		if (!$relation->id) {
-			die('relation with does not exist');
+			die();
 		}
 
 		// check access token for specific relation role
 		if (!(isset($_POST['_wpnonce']) &&
 			wp_verify_nonce($_POST['_wpnonce'], 'ec_add_user_relation_value_' . $relation->id)
 		)) {
-			die('token mismatch');
+			die();
 		}
 		unset($_POST['_wpnonce']);
 
-		// set value
-		if (!$relation->setValue($value)) {
-			die('not allowed to modify this relation value');
-		}
-
-		if ($relation->save()) {
-			// return changed id as token of success
-			echo $relation->id;
+		$shopOwner = wp_get_current_user();
+		if (!($shopOwner && 
+			$shopOwner->ID &&
+			dokan_is_seller_enabled($shopOwner->ID) &&
+			$shopOwner->ID == (int)$relation->target_user_id
+		)) {
 			die();
 		}
+
+		$relation->setValue($value);
+		$relation->save();
+		echo $relation->id;
 		die();
+	}
+
+	/*
+	* Loads member list of all shop members (including owner as first member)
+	* @param int $ownderId - show owner user id
+	* @return array - in format [0 => ['user' => WP_User, 'relation' => EC_UserRelation], 1 => [...], ... ]
+	*/
+	public static function loadShopMembers($ownerId)
+	{
+		// caching
+		$cacheKey = 'shop_team_' . $ownerId;
+		if (!array_key_exists($cacheKey, self::$_membersCache)) {
+			global $wpdb;
+
+			// get relations
+			$dbrelations = $wpdb->get_results($wpdb->prepare("SELECT * FROM `ktt_ec_user_relations` 
+				WHERE target_user_id = %d AND
+				(relation_key = %s OR relation_key = %s)
+			;", $ownerId, EC_UserRelation::SHOP_USER, EC_UserRelation::SHOP_ADMIN), ARRAY_A);
+
+			$admin = null;
+			$members = [];
+			// populate and load users
+			foreach ($dbrelations as $relationArray) {
+				$relation = new EC_UserRelation();
+				$relation->populate($relationArray);
+				$user = get_user_by('id', $relation->source_user_id);
+				$member = ['user' => $user, 'relation' => $relation];
+				if ($relation->isShopAdmin()) { // do not include as other members
+					$admin = $member;
+				} else {
+					$members[] = $member;
+				}
+			}
+
+			// every show has to have admin. Force adds one
+			if (!$admin) {
+				// add admin to shop members
+				$relation = EC_UserRelation::loadByRelation($ownerId, EC_UserRelation::SHOP_ADMIN, $ownerId);
+				$relation->save();
+				$user = get_user_by('id', $relation->source_user_id);
+				$admin = ['user' => $user, 'relation' => $relation];
+			}
+			// admin as first in the member list
+			array_unshift($members, $admin);
+
+			// store in cache
+			self::$_membersCache[$cacheKey] = $members;
+		}
+		return self::$_membersCache[$cacheKey];
+	}
+
+	/*
+	* If user gets role seller, adds user to his own shop as admin (needed to have 'Job title' enabled for changes
+	*/
+	public static function addUserShopRelation($id, $role, $old_roles)
+	{
+		if ($role === 'seller') {
+			$relation = EC_UserRelation::loadByRelation($id, EC_UserRelation::SHOP_ADMIN, $id);
+			if (!$relation->id) {
+				$relation->save();
+			}
+		}
 	}
 
 }
 
 EC_UserRelation::init();
+
+/*
+* Team member list page shortcode
+*/
+function ec_shop_team($atts)
+{	
+	// is logged in as seller?
+	$shopOwner = wp_get_current_user();
+	if ($shopOwner && 
+		$shopOwner->ID &&
+		dokan_is_seller_enabled($shopOwner->ID)
+	) {
+		$members = EC_UserRelation::loadShopMembers($shopOwner->ID);
+
+		ob_start();
+		include(locate_template('templates/myaccount/shop_team.php'));
+		return ob_get_clean();
+	}
+
+	return false;
+}
+
+add_shortcode('ec_shop_team', 'ec_shop_team');

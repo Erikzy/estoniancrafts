@@ -1,6 +1,7 @@
 
 jQuery(document).ready(function($)
 {
+	
 	// Init widgets
 	$('.dropdown-toggle').dropdown();
 
@@ -50,7 +51,7 @@ jQuery(document).ready(function($)
 		{
 			e.preventDefault();
 			if (!$(e.target).find('input[name="email"]').val()) { return false; }
-			$(e.target).block({message: null, overlayCSS: { background: '#fff url('+ dokan.ajax_loader +') no-repeat center', opacity: 0.6 }});
+			$(e.target).block({message: null, overlayCSS: { background: '#fff url('+ basel_settings.ajax_loader +') no-repeat center', opacity: 0.6 }});
 
 			$.post($(e.target).attr('action'), $(e.target).serialize(), function (response) {
 				$(e.target).unblock();
@@ -71,7 +72,7 @@ jQuery(document).ready(function($)
 		{
 			e.preventDefault();
 
-			$(e.target).parent().block({message: null, overlayCSS: { background: '#fff url('+ dokan.ajax_loader +') no-repeat center', opacity: 0.6 }});
+			$(e.target).parent().block({message: null, overlayCSS: { background: '#fff url('+ basel_settings.ajax_loader +') no-repeat center', opacity: 0.6 }});
 
 			var params = {
 				_wpnonce: $(e.target).data('security'),
@@ -96,7 +97,7 @@ jQuery(document).ready(function($)
 		{
 			e.preventDefault();
 
-			$(e.target).block({message: null, overlayCSS: { background: '#fff url('+ dokan.ajax_loader +') no-repeat center', opacity: 0.6 }});
+			$(e.target).block({message: null, overlayCSS: { background: '#fff url('+ basel_settings.ajax_loader +') no-repeat center', opacity: 0.6 }});
 
 			$.post($(e.target).attr('action'), $(e.target).serialize(), function (response) {
 				var id;

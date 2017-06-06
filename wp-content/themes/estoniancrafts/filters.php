@@ -100,8 +100,8 @@ class EC_Filters
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-team',
 				'title' => $submenuPrefix.__( 'Team', 'ktt' ),
-				'url' => get_site_url(null, 'my-account/dashboard/team'),
-				'url_endpoint' => 'my-account/dashboard/team'
+				'url' => get_site_url(null, 'my-account/team'),
+				'url_endpoint' => 'my-account/team'
 			));
 		}
 		// Not a merchant

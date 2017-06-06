@@ -79,6 +79,7 @@ class EC_Actions
             'popup_pages' => ( basel_get_opt( 'popup_pages' ) ) ? (int) basel_get_opt( 'popup_pages' ) : 0,
             'promo_popup_hide_mobile' => ( basel_get_opt( 'promo_popup_hide_mobile' ) ) ? 'yes' : 'no',
             'find_shop_names_containing' => esc_html__('Find shop names containing', 'basel'),
+            'ajax_loader' => WP_PLUGIN_URL.'/dokan/assets/images/ajax-loader.gif',
         );
 
         wp_localize_script( 'ec-basel-functions', 'basel_settings', $translations );
