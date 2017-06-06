@@ -406,6 +406,19 @@ HTML;
 			'value' => yith_wcwl_count_add_to_wishlist($product->id)
 		];
 
+		if (function_exists('getPostSharesCount')) { // meaning that ec facebook plugin is enabled
+			// get fresh from facebook
+			try {
+				msp_update($product->id);
+			} catch (FacebookSDKException $e) {}
+
+			$stats[] = [
+				'label' => __('Facebook shares', 'ktt'),
+				'value' => getPostSharesCount($product->id)
+			];
+
+		}
+
 		// return statistics
 		echo '<table>';
 		foreach ($stats as $stat) {
