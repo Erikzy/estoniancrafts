@@ -418,3 +418,27 @@ HTML;
 
 }
 EC_Actions::init();
+
+// Check if the current registered user has IDCARD validation hash code
+add_action('user_register', 'check_idcard_user_register');
+
+function check_idcard_user_register($user_id) {
+    global $wpdb;
+
+    if ($user_id && isset($_POST['reghash']) && strlen($_POST['reghash'])) {
+        $regHash = esc_sql(trim($_POST['reghash']));
+
+        $idcardData = $wpdb->get_row(
+            $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=0 AND reghash=%s", $regHash
+            )
+        );
+
+        if ($idcardData) {
+            $query = $wpdb->prepare('UPDATE ' . $wpdb->prefix.'idcard_users SET userid = %d WHERE reghash = %s', array( $user_id, $regHash ) );
+            $wpdb->query( $query );
+        }
+    }
+
+    return true;
+}
