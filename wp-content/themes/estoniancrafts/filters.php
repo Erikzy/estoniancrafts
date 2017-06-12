@@ -127,6 +127,12 @@ class EC_Filters
 		}
 
 		// Global
+		$menu->items[] = new EC_MenuItem([
+			'id' => 'disputes',
+			'title' => __('Disputes', 'ktt'),
+			'url' => get_site_url(null, 'my-account/disputes'),
+			'url_endpoint' => 'my-account/disputes'
+		]);
 		$menu->items[] = new EC_MenuItem(array(
 			'id' => 'logout',
 			'title' => __( 'Logout', 'woocommerce' ),
