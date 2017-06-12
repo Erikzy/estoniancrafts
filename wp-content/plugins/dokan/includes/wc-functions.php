@@ -1003,7 +1003,13 @@ function dokan_new_process_product_meta( $post_id ) {
     $sku     = get_post_meta($post_id, '_sku', true);
     $new_sku = wc_clean( stripslashes( $_POST['_sku'] ) );
     if ( $new_sku == '' ) {
-        update_post_meta( $post_id, '_sku', '' );
+        $generated_sku = get_post_meta( $post_id, '_generated_sku', true);
+        if( empty($generated_sku) ){
+            $generated_sku = 'A-'.$post_id . time();
+            update_post_meta( $post_id, '_generated_sku', $generated_sku );
+        }
+        
+        update_post_meta( $post_id, '_sku', $generated_sku );
     } elseif ( $new_sku !== $sku ) {
         if ( ! empty( $new_sku ) ) {
             if (

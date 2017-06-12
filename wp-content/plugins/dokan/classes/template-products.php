@@ -147,7 +147,6 @@ class Dokan_Template_Products {
                     AND $wpdb->postmeta.meta_key = '_sku' AND $wpdb->postmeta.meta_value = '%s'
                  ", $sku ) );
             
-            
 
             if ( isset( $_POST['dokan_product_id'] ) && empty( $_POST['dokan_product_id'] ) ) {
                
@@ -158,7 +157,7 @@ class Dokan_Template_Products {
                 self::$errors = apply_filters( 'dokan_can_add_product', $errors );
                 
             } else {
-                 if ( ! empty( $sku ) && $_sku_post_id != (int) $_POST['dokan_product_id']  ) {
+                if ($_sku_post_id && ! empty( $sku ) && $_sku_post_id != (int) $_POST['dokan_product_id']  ) {
                     $errors[] = __( 'Product SKU must be unique.', 'dokan' );
                 }
                 
