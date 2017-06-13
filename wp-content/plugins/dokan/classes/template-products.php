@@ -126,6 +126,56 @@ class Dokan_Template_Products {
             if ( empty( $post_title ) ) {
                 $errors[] = __( 'Please enter product title', 'dokan' );
             }
+            
+            if($_POST['lb-dimension-unit']=='mm')
+            {
+             if ( strlen($_POST['_length']) <= get_option('_length_size_mm')) {
+                $errors[] = __( 'Please enter up to '.get_option('_length_size_mm').' character in Length.', 'dokan' );
+            } 
+            
+            if (  strlen($_POST['_width']) <= get_option('_width_size_mm')) {
+                $errors[] = __( 'Please enter up to '.get_option('_width_size_mm').' character in Width.', 'dokan' );
+            } 
+            
+            if (  strlen($_POST['_height']) <= get_option('_height_size_mm')) {
+                $errors[] = __( 'Please enter up to '.get_option('_height_size_mm').' character in Height.', 'dokan' );
+            }
+            }
+            elseif($_POST['lb-dimension-unit']=='cm')
+            {
+                  if ( strlen( $_POST['_length']) <= get_option('_length_size_cm')) {
+                $errors[] = __( 'Please enter up to '.get_option('_length_size_cm').' character in Length.', 'dokan' );
+            } 
+            
+            if (  strlen($_POST['_width']) <= get_option('_width_size_cm')) {
+                $errors[] = __( 'Please enter up to '.get_option('_width_size_cm').' character in Width.', 'dokan' );
+            } 
+            
+            if (  strlen($_POST['_height']) <= get_option('_height_size_cm')) {
+                $errors[] = __( 'Please enter up to '.get_option('_height_size_cm').' character in Height.', 'dokan' );
+            }
+            } 
+            
+            elseif($_POST['lb-dimension-unit']=='m')
+            {
+                  if ( strlen( $_POST['_length']) <= get_option('_length_size_m')) {
+                $errors[] = __( 'Please enter up to '.get_option('_length_size_m').' character in Length.', 'dokan' );
+            } 
+            
+            if (  strlen($_POST['_width']) <= get_option('_width_size_m')) {
+                $errors[] = __('Please enter up to '.get_option('_width_size_m').' character in Width.', 'dokan' );
+            } 
+            
+            if ( strlen( $_POST['_height']) <= get_option('_height_size_m')) {
+                $errors[] = __( 'Please enter up to '.get_option('_height_size_m').' character in Height.', 'dokan' );
+            }
+            }
+            
+            
+            if( $post_content <= get_option('discription_limit'))
+            {
+                $errors[] = __( 'Please enter up to '.get_option('discription_limit').' character in product descprion.', 'dokan' ); 
+            }
 
             if( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ) {
                 $product_cat    = intval( $_POST['product_cat'] );
@@ -201,7 +251,10 @@ class Dokan_Template_Products {
                     
                     
                     
-                    /**/
+                    /****
+                     * Added by urmas
+                     * Manufacturing and Used materials diled
+                     */
                     
                     
                     
@@ -290,7 +343,10 @@ class Dokan_Template_Products {
 
         }
                     
-                    
+                    /****
+                     * Added by urmas
+                     * Finish Manufacturing and Used materials diled
+                     */     
                     
                     
                     
