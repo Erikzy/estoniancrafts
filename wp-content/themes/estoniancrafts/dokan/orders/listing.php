@@ -9,6 +9,22 @@ $offset       = ( $paged - 1 ) * $limit;
 $order_date   = isset( $_GET['order_date'] ) ? sanitize_key( $_GET['order_date'] ) : NULL;
 $user_orders  = dokan_get_seller_orders( $seller_id, $order_status, $order_date, $limit, $offset );
 
+?>
+
+<div>
+    <?php
+    $olcpage = get_page_by_title('Order instructions');
+    $olclink = get_permalink( $olcpage );
+    if ($olcpage): ?>
+    <a href="<?php echo $olclink; ?>" target="_blank"><?php echo __('Instructions to handle orders effectively', 'ktt'); ?></a>
+    <?php endif;
+    unset($olcpage);
+    unset($olclink); // garbage collection
+    ?>
+</div>
+
+<?php
+
 if ( $user_orders ) {
     ?>
     <table class="dokan-table dokan-table-striped">
@@ -61,8 +77,12 @@ if ( $user_orders ) {
                             $user = __( 'Guest', 'dokan' );
                         }
 
-                        echo $user;
                         ?>
+                        <?php if ( !empty($user_info) ): ?>
+                        <a href="<?php echo esc_url(apply_filters( 'bp_get_member_permalink', bp_core_get_user_domain( $user_info->ID, $user_info->user_nicename, $user_info->user_login ))); ?>"><?php echo $user ?></a>
+                        <?php else: ?>
+                            <?php echo $user ?>
+                        <?php endif; ?>
                     </td>
                     <td class="dokan-order-date" data-title="<?php _e( 'Date', 'dokan' ); ?>" >
                         <?php
@@ -116,14 +136,22 @@ if ( $user_orders ) {
                             'icon' => '<i class="fa fa-eye">&nbsp;</i>'
                         );
 
+                        $actions['packing-slip'] = array(
+                            'url' => wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $the_order->id ), 'generate_wpo_wcpdf' ),
+                            'name' => __('Print invoice and address', 'ktt'),
+                            'action' => "print",
+                            'icon' => '<i class="fa fa-print">&nbsp;</i>',
+                            'target' => '_blank'
+                        );
+
                         $actions = apply_filters( 'woocommerce_admin_order_actions', $actions, $the_order );
 
                         foreach ($actions as $action) {
                             $icon = ( isset( $action['icon'] ) ) ? $action['icon'] : '';
-                            printf( '<a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="%s" data-toggle="tooltip" data-placement="top" title="%s">%s</a> ', esc_url( $action['url'] ), esc_attr( $action['name'] ), $icon );
+                            printf( '<a class="dokan-btn dokan-btn-default dokan-btn-sm tips" href="%s" data-toggle="tooltip" data-placement="top" title="%s" %s>%s</a> ', esc_url( $action['url'] ), esc_attr( $action['name'] ), isset($action['target']) ? 'target="'.$action['target'].'"' : '', $icon);
                         }
 
-                        do_action( 'woocommerce_admin_order_actions_end', $the_order );
+                        // do_action( 'woocommerce_admin_order_actions_end', $the_order ); // used only by PDF module to add 2 extra buttons
                         ?>
                     </td>
                     <td class="diviader"></td>

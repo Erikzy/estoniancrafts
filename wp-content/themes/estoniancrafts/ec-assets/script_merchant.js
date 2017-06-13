@@ -18,10 +18,6 @@ jQuery(document).ready(function($)
 		}
 	});
 
-	/*
-	 * Products / Product save functions
-	 */
-
 	// Publish button click
 	$('form.dokan-product-edit-form button.ec-product-publish-btn').on('click', function(e)
 	{
@@ -45,6 +41,7 @@ jQuery(document).ready(function($)
 			
 			$('body').on('submit', '.ec_add_user_relation_value', this.add_shop_user_relation_value);
 			$('body').on('change input', '.ec_add_user_relation_value input[name="value"]', function (e){ $(e.target).parent().find('button[type="submit"]').show(); });
+			$('body').on('click', '.get-product-statistics', ec_merchant.getProductStatistics);
 		},
 
 		add_shop_user: function (e)
@@ -107,6 +104,20 @@ jQuery(document).ready(function($)
 					alert(response);
 				}
 				$(e.target).unblock();
+			});
+
+			return false;
+		},
+
+		getProductStatistics: function (e) {
+			e.preventDefault();
+
+			var parent = $(e.target).parent().parent();
+			$(parent).block({message: null, overlayCSS: { background: '#fff url('+ dokan.ajax_loader +') no-repeat center', opacity: 1.0 }});
+
+			$.get($(e.target).parent().attr('href'), function (response) {
+				$(parent).unblock();
+				$(parent).html(response);
 			});
 
 			return false;
