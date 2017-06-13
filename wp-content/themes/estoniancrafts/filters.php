@@ -291,3 +291,19 @@ function my_messages_message_sent($message) {
     }
     return true;
 }
+
+// custom store permalink
+function ec_override_dokan_rewrite_rules( $custom_store_url ) {
+	
+	add_rewrite_rule( '([^/]+)/?$', 'index.php?'.$custom_store_url.'=$matches[1]', 'top' );
+    add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&paged=$matches[2]', 'top' );
+
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&term=$matches[2]&term_section=true', 'top' );
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/page/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&term=$matches[2]&paged=$matches[3]&term_section=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/toc?$', 'index.php?'.$custom_store_url.'=$matches[1]&toc=true', 'top' );
+    add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&paged=$matches[2]&toc=true', 'top' );
+
+	//flush_rewrite_rules(); // => hit save under wordpress permalink settings, calls flush_rewrite_rules()
+}
+add_action('dokan_rewrite_rules_loaded', 'ec_override_dokan_rewrite_rules', 10, 1);
