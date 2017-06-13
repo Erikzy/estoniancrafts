@@ -454,6 +454,7 @@ class lbDokan{
                 <h2>
 					<?php _e( 'External media links', 'ktt' ); ?>
 					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+                  
 				</h2>
 				<p>
 					<?php _e( 'Product External media links description', 'ktt' ); ?>
@@ -461,7 +462,7 @@ class lbDokan{
             </div>
 
             <div class="dokan-side-right">
-               
+                 <a href="<?php echo get_option('instruction_page_url'); ?>"><?php _e( 'Click here for instructions', 'ktt' ); ?></a>
                 <div class="lb-elastic-container">
 
                     <div class="lb-elastic-elements">
