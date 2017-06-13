@@ -291,3 +291,32 @@ function my_messages_message_sent($message) {
     }
     return true;
 }
+
+/**
+ * Adds a 'Ask information' tab in product single page
+ *
+ * @param array $tabs
+ * @return array
+ */
+function ec_dokan_ask_information_product_tab( $tabs) {
+
+    $tabs['ask_information'] = array(
+        'title'    => __( 'Ask information', 'ktt' ),
+        'priority' => 90,
+        'callback' => 'ec_dokan_ask_information_tab'
+    );
+
+    return $tabs;
+}
+
+add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' );
+
+
+/**
+ * Prints information asking form in product single page
+ *
+ * @param type $val
+ */
+function ec_dokan_ask_information_tab( $val ) {
+    dokan_get_template_part('global/ask-information-tab', '', [/*parameters*/]);
+}
