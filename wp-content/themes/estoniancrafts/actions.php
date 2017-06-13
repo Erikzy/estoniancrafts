@@ -36,6 +36,7 @@ class EC_Actions
 
 		wp_enqueue_style('ec-merchant-style', $child_theme_url.'/ec-assets/style_merchant.css');
 		wp_enqueue_script('ec-merchant-script', $child_theme_url.'/ec-assets/script_merchant.js');
+		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
 
         // Unregister font-awsome css registered by dokan plugin
 		wp_deregister_style('fontawesome');
