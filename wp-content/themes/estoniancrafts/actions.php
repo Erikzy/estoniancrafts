@@ -8,6 +8,7 @@ class EC_Actions
 		add_action( 'wp_head', array(__CLASS__, 'wp_head_google_analytics_action') );
 
 		add_action( 'wp_enqueue_scripts', array(__CLASS__, 'ec_custom_styles_js_action') );
+        add_action( 'wp_enqueue_scripts', array(__CLASS__, 'ec_override_styles_js_action'), 10001 );
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_action') );
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_debug_action'), 9999 );
 
@@ -24,7 +25,7 @@ class EC_Actions
 		$template_url = get_template_directory_uri();
 		$child_theme_url = get_stylesheet_directory_uri();
 
-		// Public assets
+        // Public assets
 		wp_enqueue_style('ec-public-style', $child_theme_url.'/ec-assets/style_public.css');
 		wp_enqueue_script('ec-public-script', $child_theme_url.'/ec-assets/script_public.js');
 
@@ -34,11 +35,55 @@ class EC_Actions
 
 		wp_enqueue_style('ec-merchant-style', $child_theme_url.'/ec-assets/style_merchant.css');
 		wp_enqueue_script('ec-merchant-script', $child_theme_url.'/ec-assets/script_merchant.js');
+		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
 
-		// Unregister font-awsome css registered by dokan plugin
+        // Unregister font-awsome css registered by dokan plugin
 		wp_deregister_style('fontawesome');
 		wp_deregister_style('bootstrap');
 	}
+    /**
+     * Include styles and scripts
+     */
+    public static function ec_override_styles_js_action()
+    {
+        $template_url = get_template_directory_uri();
+        $child_theme_url = get_stylesheet_directory_uri();
+
+        wp_dequeue_script( 'basel-theme');
+        wp_dequeue_script( 'basel-functions');
+        wp_enqueue_script( 'basel-libraries', $template_url . '/js/libraries.js', array( 'jquery', 'jquery-cookie' ), '', true );
+        wp_enqueue_script( 'ec-basel-functions', $child_theme_url . '/js/functions.js', array( 'jquery', 'jquery-cookie' ), '', true );
+
+
+        $translations = array(
+            'adding_to_cart' => esc_html__('Processing', 'basel'),
+            'added_to_cart' => esc_html__('Product was successfully added to your cart.', 'basel'),
+            'continue_shopping' => esc_html__('Continue shopping', 'basel'),
+            'view_cart' => esc_html__('View Cart', 'basel'),
+            'go_to_checkout' => esc_html__('Checkout', 'basel'),
+            'loading' => esc_html__('Loading...', 'basel'),
+            'countdown_days' => esc_html__('days', 'basel'),
+            'countdown_hours' => esc_html__('hr', 'basel'),
+            'countdown_mins' => esc_html__('min', 'basel'),
+            'countdown_sec' => esc_html__('sc', 'basel'),
+            'loading' => esc_html__('Loading...', 'basel'),
+            'wishlist' => ( class_exists( 'YITH_WCWL' ) ) ? 'yes' : 'no',
+            'cart_url' => ( basel_woocommerce_installed() ) ?  esc_url( WC()->cart->get_cart_url() ) : '',
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'added_popup' => ( basel_get_opt( 'added_to_cart_popup' ) ) ? 'yes' : 'no',
+            'swatches_2_0' => ( basel_get_opt( 'swatches_2_0' ) ) ? 'yes' : 'no',
+            'categories_toggle' => ( basel_get_opt( 'categories_toggle' ) ) ? 'yes' : 'no',
+            'enable_popup' => ( basel_get_opt( 'promo_popup' ) ) ? 'yes' : 'no',
+            'popup_delay' => ( basel_get_opt( 'promo_timeout' ) ) ? (int) basel_get_opt( 'promo_timeout' ) : 1000,
+            'popup_event' => basel_get_opt( 'popup_event' ),
+            'popup_scroll' => ( basel_get_opt( 'popup_scroll' ) ) ? (int) basel_get_opt( 'popup_scroll' ) : 1000,
+            'popup_pages' => ( basel_get_opt( 'popup_pages' ) ) ? (int) basel_get_opt( 'popup_pages' ) : 0,
+            'promo_popup_hide_mobile' => ( basel_get_opt( 'promo_popup_hide_mobile' ) ) ? 'yes' : 'no',
+            'find_shop_names_containing' => esc_html__('Find shop names containing', 'basel'),
+        );
+
+        wp_localize_script( 'ec-basel-functions', 'basel_settings', $translations );
+    }
 
 	public static function wp_loaded_action()
 	{
@@ -329,3 +374,27 @@ HTML;
 
 }
 EC_Actions::init();
+
+// Check if the current registered user has IDCARD validation hash code
+add_action('user_register', 'check_idcard_user_register');
+
+function check_idcard_user_register($user_id) {
+    global $wpdb;
+
+    if ($user_id && isset($_POST['reghash']) && strlen($_POST['reghash'])) {
+        $regHash = esc_sql(trim($_POST['reghash']));
+
+        $idcardData = $wpdb->get_row(
+            $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=0 AND reghash=%s", $regHash
+            )
+        );
+
+        if ($idcardData) {
+            $query = $wpdb->prepare('UPDATE ' . $wpdb->prefix.'idcard_users SET userid = %d WHERE reghash = %s', array( $user_id, $regHash ) );
+            $wpdb->query( $query );
+        }
+    }
+
+    return true;
+}

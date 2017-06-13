@@ -12,6 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+$firstName  = '';
+$lastName   = '';
+$regHash    = '';
+
 $tabs = basel_get_opt( 'login_tabs' );
 $text = basel_get_opt( 'reg_text' );
 
@@ -19,11 +23,33 @@ $class = 'basel-registration-page';
 
 if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) {
 	$class .= ' basel-register-tabs';
+
+    if (isset($_GET['reghash']) && strlen($_GET['reghash'])) {
+        $regHashTmp = esc_sql(trim($_GET['reghash']));
+
+        global $wpdb;
+        $idcardData = $wpdb->get_row(
+            $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=0 AND reghash=%s", $regHashTmp
+            )
+        );
+        if ($idcardData) {
+            $firstName  = $idcardData->firstname;
+            $lastName   = $idcardData->lastname;
+            $regHash    = $idcardData->reghash;
+            $class .= ' active-register';
+        }
+    }
 }
 
 if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes' ) {
 	$class .= ' basel-no-registration';
 }
+
+
+
+
+
 
 ?>
 
@@ -70,6 +96,8 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
 			</p>
 
+            <?php echo do_shortcode('[smart_id]') ?>
+
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
 		</form>
@@ -83,6 +111,10 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 		<h2><?php _e( 'Register', 'woocommerce' ); ?></h2>
 
 		<form method="post" class="register">
+
+            <?php if (strlen($regHash)) {
+               echo '<input type="hidden" name="reghash" value="'.esc_attr($regHash).'">';
+            } ?>
 
 			<?php do_action( 'woocommerce_register_form_start' ); ?>
 
@@ -137,7 +169,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<div class="registration-info"><?php echo ($text); ?></div>
 			<?php endif ?>
 
-			<a href="#" class="btn btn-color-black basel-switch-to-register" data-login="<?php _e( 'Login', 'basel') ?>" data-register="<?php _e( 'Register', 'basel') ?>"><?php _e( 'Register', 'basel') ?></a>
+			<a href="#" class="btn btn-color-black basel-switch-to-register" data-login="<?php _e( 'Login', 'basel') ?>" data-register="<?php _e( 'Register', 'basel') ?>"><?=strlen($regHash) ?_e( 'Login', 'basel') :_e( 'Register', 'basel')?></a>
 
 		</div>
 	<?php endif ?>

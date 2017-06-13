@@ -217,3 +217,113 @@ function ec_order_review_expected_delivery($product)
 		echo '</p>';
 	}
 }
+
+// Insert the email content to user's buddypress inbox
+add_filter( 'wp_mail', 'my_mail');
+
+function my_mail($data){
+
+    // Lets not get into loop
+    if (isset($data['headers']['ignore_bb'])) {
+        return $data;
+    }
+
+    if (isset($data['to']) && !empty($data['to']) && is_string($data['to'])) {
+
+        $user = get_user_by( 'email', $data['to'] );
+        if ($user) {
+            global $wpdb;
+            $bp = buddypress();
+
+            // Get new thread ID
+            $thread_id = (int) $wpdb->get_var( "SELECT MAX(thread_id) FROM {$bp->messages->table_name_messages}" ) + 1;
+
+            // If we have a logged inuser then use it
+            $sender_id = bp_loggedin_user_id() ? bp_loggedin_user_id() : 1;
+            $recipient_id = $user->data->ID;
+            $subject = ! empty( $data['subject'] ) ? $data['subject'] : false;
+            $message = ! empty( $data['message'] ) ? $data['message'] : false;
+//            $message = strip_tags($message, '<a><p><h1><h2><h3><h4><table><thead><tbody><tfoot><th><td><tr>');
+
+            $date_sent = bp_core_current_time();
+
+            // First insert the message into the messages table.
+            if ( ! $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_messages} ( thread_id, sender_id, subject, message, date_sent ) VALUES ( %d, %d, %s, %s, %s )", $thread_id, $sender_id, $subject, $message, $date_sent ) ) ) {
+                return false;
+            }
+
+            // Add an recipient entry for all recipients.
+            $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 )", $recipient_id, $thread_id ) );
+        }
+    }
+
+    return $data;
+}
+
+// Extend buddypress messages to send them even by user email address
+add_filter( 'bp_messages_recipients', 'custom_bp_messages_recipients');
+
+function custom_bp_messages_recipients($recipients) {
+
+    // Just to be sure we handle an array
+    if (is_array($recipients)) {
+
+        // We need to remove the empty recipients
+        $recipients = array_filter($recipients);
+
+        // Change the email to username
+        foreach ($recipients as $key => $value) {
+            if (strpos($value, '@')) {
+                $user = get_user_by('email', trim($value));
+
+                // Check if the user is found
+                if ($user) {
+                    $recipients[$key] = $user->data->user_nicename;
+                } else {
+                    wp_mail($value,$_POST['subject'], $_POST['content'],['ignore_bb' => true]);
+
+                    if (count($recipients) == 1) {
+                        // Setup the link to the logged-in user's messages.
+                        $member_messages = trailingslashit( bp_loggedin_user_domain() . bp_get_messages_slug() );
+                        $redirect_to = trailingslashit( $member_messages . 'compose' );
+
+                        $feedback    = __( 'Message successfully sent by email.', 'buddypress' );
+
+                        // Add feedback message.
+                        bp_core_add_message( $feedback, 'success' );
+
+                        // Redirect to previous page
+                        bp_core_redirect( $redirect_to );
+                    }
+                }
+            }
+        }
+    }
+
+    return $recipients;
+}
+
+// Send as an email if it's a regular buddypress message
+add_filter( 'messages_message_sent', 'my_messages_message_sent');
+
+function my_messages_message_sent($message) {
+
+    // Just to be sure we handle an object
+    if (is_object($message)) {
+
+        // If we have recipients
+        if (!empty($message->recipients) and is_array($message->recipients)) {
+
+            // Send an email to all recipient
+            foreach ($message->recipients as $row) {
+                $user = get_userdata($row->user_id);
+
+                // Check if the user is found
+                if ($user) {
+                    wp_mail($user->data->user_email,$message->subject, $message->message,['ignore_bb' => true]);
+                }
+            }
+        }
+    }
+    return true;
+}
