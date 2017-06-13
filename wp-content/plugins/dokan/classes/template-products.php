@@ -196,6 +196,105 @@ class Dokan_Template_Products {
                 }
 
                 if ( $product_id ) {
+                    
+                    
+                    
+                    
+                    
+                    /**/
+                    
+                    
+                    
+                    
+                    update_post_meta( $product_id, '_backorder_time', wc_clean($_POST['_backorder_time']));
+        update_post_meta( $product_id, '_fragile_cargo', wc_clean($_POST['_fragile_cargo']));
+        update_post_meta( $product_id, '_manufacturing_method', wc_clean($_POST['_manufacturing_method']));
+        update_post_meta( $product_id, '_manufacturing_desc', wc_clean($_POST['_manufacturing_desc']));
+        update_post_meta( $product_id, '_manufacturing_time', wc_clean($_POST['_manufacturing_time']));
+        update_post_meta( $product_id, '_manufacturing_time_unit', wc_clean($_POST['_manufacturing_time_unit']));
+        update_post_meta( $product_id, '_manufacturing_qty', wc_clean($_POST['_manufacturing_qty']));
+        update_post_meta( $product_id, '_manufacturing_qty_unit', wc_clean($_POST['_manufacturing_qty_unit']));
+
+        update_post_meta( $product_id, '_maintenance_info', $_POST['_maintenance_info']);
+        
+        if( ! empty( $_POST['_media_link'] ) ){
+
+            $media = $_POST['_media_link'];
+
+            // Remove all empty strings first
+            $media = array_diff($media, array('http://', 'https://', ''));
+
+            // Make sure all media links have http:// or https:// in front of them
+            $media = array_map(function($element) {
+                    return (strpos($element, 'http://') !== 0 && strpos($element, 'https://') !== 0)? 'http://'.$element : $element;
+                },
+                $media
+            );
+
+            if(!count($media)){ $media = ['']; }
+            
+            update_post_meta( $product_id, '_media_links', wc_clean($media));
+
+        }
+
+
+
+        if( ! empty( $_POST['_material_country'] ) ){
+
+            $material_array = [];
+
+            foreach ($_POST['_material_country'] as $index => $country) {
+
+                $material = [ 'country' => $country, 'name' => $_POST['_material_name'][$index], 'contents' => $_POST['_material_contents'][$index], 'desc' => $_POST['_material_desc'][$index] ];
+
+                $data_entered = array_diff($material, array('', ' '));
+                if( count($data_entered) ) { 
+                    $material_array[] = $material; 
+                }
+
+            }
+
+            if(!count($material_array)){ 
+                $material_array = [['country' => '', 'name' => '', 'contents' => '', 'desc' => '']];
+            }
+
+            update_post_meta( $product_id, '_materials', wc_clean($material_array));
+
+        }
+
+
+        if( ! empty( $_POST['_cert_file'] ) ){
+
+            $certificates = [];
+
+            foreach ($_POST['_cert_file'] as $index => $file) {
+
+                if( $file == 0 || $file == '0' || empty($_POST['_cert_type'][$index]) ){
+                    continue;
+                }
+
+                $cert = [ 'type' => $_POST['_cert_type'][$index], 'file' => $file ];
+
+                $data_entered = array_diff($cert, array('', ' '));
+                if( count($data_entered) ) { 
+                    $certificates[] = $cert; 
+                }
+
+            }
+
+            if(!count($certificates)){ 
+                $certificates = [['type' => '', 'file' => '']];
+            }
+
+            update_post_meta( $product_id, '_certificates', wc_clean($certificates));
+
+        }
+                    
+                    
+                    
+                    
+                    
+                    /**/
 
                     /** set images **/
                     if ( $featured_image ) {
