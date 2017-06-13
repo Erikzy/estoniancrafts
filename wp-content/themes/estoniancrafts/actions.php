@@ -15,6 +15,9 @@ class EC_Actions
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
 //		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_categories_action'), 9 );
 		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_price_action'), 10 );
+
+		// ajax actions
+		add_action( 'wp_ajax_ask_information', array(__CLASS__, 'ask_information_ajax'));
 	}
 
 	/**
@@ -369,6 +372,13 @@ HTML;
 			
 			return;
 		endif;
+	}
+
+	public static function ask_information_ajax()
+	{
+		check_ajax_referer('ask-information', 'ask_information_token');
+
+		die('Your question has been sent');
 	}
 
 }
