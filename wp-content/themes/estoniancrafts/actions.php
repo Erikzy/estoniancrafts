@@ -35,6 +35,7 @@ class EC_Actions
 
 		wp_enqueue_style('ec-merchant-style', $child_theme_url.'/ec-assets/style_merchant.css');
 		wp_enqueue_script('ec-merchant-script', $child_theme_url.'/ec-assets/script_merchant.js');
+		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
 
         // Unregister font-awsome css registered by dokan plugin
 		wp_deregister_style('fontawesome');
@@ -373,3 +374,27 @@ HTML;
 
 }
 EC_Actions::init();
+
+// Check if the current registered user has IDCARD validation hash code
+add_action('user_register', 'check_idcard_user_register');
+
+function check_idcard_user_register($user_id) {
+    global $wpdb;
+
+    if ($user_id && isset($_POST['reghash']) && strlen($_POST['reghash'])) {
+        $regHash = esc_sql(trim($_POST['reghash']));
+
+        $idcardData = $wpdb->get_row(
+            $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=0 AND reghash=%s", $regHash
+            )
+        );
+
+        if ($idcardData) {
+            $query = $wpdb->prepare('UPDATE ' . $wpdb->prefix.'idcard_users SET userid = %d WHERE reghash = %s', array( $user_id, $regHash ) );
+            $wpdb->query( $query );
+        }
+    }
+
+    return true;
+}
