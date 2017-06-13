@@ -462,7 +462,7 @@ class lbDokan{
             </div>
 
             <div class="dokan-side-right">
-                 <a href="<?php echo get_option('instruction_page_url'); ?>"><?php _e( 'Click here for instructions', 'ktt' ); ?></a>
+                 <a href="<?php echo the_permalink(get_option('instruction_page_id')); ?>"><?php _e( 'Click here for instructions', 'ktt' ); ?></a>
                 <div class="lb-elastic-container">
 
                     <div class="lb-elastic-elements">
