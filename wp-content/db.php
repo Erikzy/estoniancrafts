@@ -1,0 +1,1 @@
+/var/www/html/estoniancrafts/wp-content/plugins/query-monitor/wp-content/db.php

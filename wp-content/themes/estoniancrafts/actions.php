@@ -15,6 +15,7 @@ class EC_Actions
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
 //		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_categories_action'), 9 );
 		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_price_action'), 10 );
+		add_action( 'wp_ajax_get_product_statistics', array(__CLASS__, 'get_product_statistics_ajax'));
 	}
 
 	/**
@@ -35,6 +36,7 @@ class EC_Actions
 
 		wp_enqueue_style('ec-merchant-style', $child_theme_url.'/ec-assets/style_merchant.css');
 		wp_enqueue_script('ec-merchant-script', $child_theme_url.'/ec-assets/script_merchant.js');
+		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
 
         // Unregister font-awsome css registered by dokan plugin
 		wp_deregister_style('fontawesome');
@@ -371,5 +373,86 @@ HTML;
 		endif;
 	}
 
+	public static function get_product_statistics_ajax()
+	{
+		check_ajax_referer('ec_get_product_statistics');
+		
+		// check privileges
+		if ( !is_admin() ) { // accessing it through admin-ajax.php
+            die();
+        }
+
+		$productId = isset($_GET['product_id']) && (int)$_GET['product_id'] ? (int)$_GET['product_id'] : null;
+		if (!$productId) {
+			die();
+		}
+		// check for product ownership
+		$product = wc_get_product($productId);
+		if (!($product && $product->post &&
+			(int)$product->post->post_author === (int)get_current_user_id()
+		)) {
+			die();
+		}
+		unset($productId);
+
+		// get stats
+		$stats = [];
+		$stats[] = [
+			'label' => __( 'Views', 'dokan' ),
+			'value' => (int) get_post_meta( $product->id, 'pageview', true )
+		];
+
+		$stats[] = [
+			'label' => __( 'Favorites', 'dokan' ),
+			'value' => yith_wcwl_count_add_to_wishlist($product->id)
+		];
+
+		if (function_exists('getPostSharesCount')) { // meaning that ec facebook plugin is enabled
+			// get fresh from facebook
+			try {
+				msp_update($product->id);
+			} catch (FacebookSDKException $e) {}
+
+			$stats[] = [
+				'label' => __('Facebook shares', 'ktt'),
+				'value' => getPostSharesCount($product->id)
+			];
+
+		}
+
+		// return statistics
+		echo '<table>';
+		foreach ($stats as $stat) {
+			echo sprintf('<tr><td>%s:</td><td><strong>%s</strong></td></tr>', $stat['label'], $stat['value']);
+		}
+		echo '</table>';
+
+		die();
+	}
+
 }
 EC_Actions::init();
+
+// Check if the current registered user has IDCARD validation hash code
+add_action('user_register', 'check_idcard_user_register');
+
+function check_idcard_user_register($user_id) {
+    global $wpdb;
+
+    if ($user_id && isset($_POST['reghash']) && strlen($_POST['reghash'])) {
+        $regHash = esc_sql(trim($_POST['reghash']));
+
+        $idcardData = $wpdb->get_row(
+            $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=0 AND reghash=%s", $regHash
+            )
+        );
+
+        if ($idcardData) {
+            $query = $wpdb->prepare('UPDATE ' . $wpdb->prefix.'idcard_users SET userid = %d WHERE reghash = %s', array( $user_id, $regHash ) );
+            $wpdb->query( $query );
+        }
+    }
+
+    return true;
+}

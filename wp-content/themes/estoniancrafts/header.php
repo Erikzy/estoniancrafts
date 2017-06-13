@@ -19,6 +19,7 @@
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
 
 <body <?php body_class(); ?>>
+
 <?php if (basel_needs_header()): ?>
 	<?php do_action( 'basel_after_body_open' ); ?>
 	<?php 
@@ -67,8 +68,12 @@
 							<?php echo do_shortcode( basel_get_opt( 'header_text' ) ); ?>
 						<?php endif; ?>	
 						
-<?php if ( is_user_logged_in() ) { ?>
- 	<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?php _e('My Account','woothemes'); ?></a>
+<?php 
+	if ( is_user_logged_in() ) { 
+		$user = wp_get_current_user();
+		$fullName = $user->first_name . ' ' . $user->last_name;
+?>
+ 	<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
  <?php } 
  else { ?>
  	<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>"><?php _e('Login | Register','woothemes'); ?></a>
