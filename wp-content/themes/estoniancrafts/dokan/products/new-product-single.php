@@ -400,11 +400,13 @@ if ( ! $from_shortcode ) {
 
                         <?php do_action( 'dokan_new_product_form' ); ?>
 
-                        <?php if ( $post_id ): ?>
+                        <?php //if ( $post_id ): ?>
                             <?php do_action( 'dokan_product_edit_after_main' ); ?>
-                        <?php endif; ?>
-
-						<?php // Inventory & Variants ?>
+                        
+                            
+                        <?php //endif; ?>
+                        
+                        	<?php // Inventory & Variants ?>
                         <div class="dokan-product-inventory dokan-edit-row dokan-clearfix">
                             <div class="dokan-side-left">
                                 <h2>
@@ -555,6 +557,15 @@ if ( ! $from_shortcode ) {
                         </div><!-- .dokan-product-inventory -->
 
                         <?php do_action( 'dokan_product_edit_after_inventory_variants', $post, $post_id ); ?>
+                        
+                        
+                        
+                        
+                        
+                        
+                    
+
+					
 
 <?php /* Sven: discounts are disabled
                         <?php if ( ! is_int( key( $is_enable_op_discount ) ) && array_key_exists("product-discount", $is_enable_op_discount ) == "product-discount" ) : ?>
@@ -587,11 +598,12 @@ if ( ! $from_shortcode ) {
                         <?php endif;?>
 */ ?>
 
-                        <?php if ( $post_id ): ?>
+                        <?php //if ( $post_id ): ?>
                             <?php do_action( 'dokan_product_edit_after_options' ); ?>
-                        <?php endif; ?>
+                        
+                         <?php //endif; ?>
 
-						<?php // Other options ?>
+                        				<?php // Other options ?>
                         <div class="dokan-other-options dokan-edit-row dokan-clearfix">
                             <div class="dokan-side-left">
                                 <h2>
@@ -665,6 +677,11 @@ if ( ! $from_shortcode ) {
 
                             </div>
                         </div><!-- .dokan-other-options -->
+                        
+                        
+                        
+                       
+		
 
                         <?php wp_nonce_field( 'dokan_add_new_product', 'dokan_add_new_product_nonce' ); ?>
 
