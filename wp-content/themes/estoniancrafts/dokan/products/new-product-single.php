@@ -166,17 +166,11 @@ if ( ! $from_shortcode ) {
                     <form class="dokan-product-edit-form" role="form" method="post">
                         <input type="hidden" id="discription_limit" value="<?php echo get_option('discription_limit'); ?>">
                         
-                        <input type="hidden" id="_length_size_cm" value="<?php echo get_option('_length_size_cm'); ?>">
-                        <input type="hidden" id="_width_size_cm" value="<?php echo get_option('_width_size_cm'); ?>">
-                        <input type="hidden" id="_height_size_cm" value="<?php echo get_option('_height_size_cm'); ?>"> 
+                        <input type="hidden" id="_length_size" value="<?php echo get_option('_length_size'); ?>">
+                        <input type="hidden" id="_width_size" value="<?php echo get_option('_width_size'); ?>">
+                        <input type="hidden" id="_height_size" value="<?php echo get_option('_height_size'); ?>"> 
                         
-                        <input type="hidden" id="_length_size_mm" value="<?php echo get_option('_length_size_mm'); ?>">
-                        <input type="hidden" id="_width_size_mm" value="<?php echo get_option('_width_size_mm'); ?>">
-                        <input type="hidden" id="_height_size_mm" value="<?php echo get_option('_height_size_mm'); ?>">
-                        
-                        <input type="hidden" id="_length_size_m" value="<?php echo get_option('_length_size_m'); ?>">
-                        <input type="hidden" id="_width_size_m" value="<?php echo get_option('_width_size_m'); ?>">
-                        <input type="hidden" id="_height_size_m" value="<?php echo get_option('_height_size_m'); ?>">
+                       
                         
                         
                         
