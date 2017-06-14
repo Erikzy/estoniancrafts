@@ -157,6 +157,7 @@ class Dokan_Template_Products {
                     $errors[] = __( 'Please enter up to '.$mm_height.' digit in Height.', 'dokan' );
                 }
             }
+            
             elseif($_POST['lb-dimension-unit']=='cm')
             {
                  $cm_width = get_option('_width_size')*100;
@@ -212,7 +213,7 @@ class Dokan_Template_Products {
             
             
             
-            if( $post_content >= get_option('discription_limit'))
+            if( strlen($post_content) > get_option('discription_limit'))
             {
                 $errors[] = __( 'Please enter up to '.get_option('discription_limit').' character in product descprion.', 'dokan' ); 
             }
