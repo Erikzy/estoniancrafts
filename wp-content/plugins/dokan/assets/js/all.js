@@ -637,6 +637,142 @@ jQuery(function($) {
             }else{
                 $( 'div.dokan-product-cat-alert' ).hide();
             }
+            
+            
+            
+            console.log($('[name="lb-dimension-unit"]').val());
+            
+            if ( $( '#_length' ).val().trim() == '' ) {
+                $( '#_length' ).focus();
+                $( 'div.dokan-product-length' ).removeClass('dokan-hide');
+                return;
+            }else if($( '#_length' ).val() < 0 ){
+                  $( '#_length' ).focus();
+                $( 'div.dokan-product-length-nagetive' ).removeClass('dokan-hide');
+                return;
+            }else{
+                $( 'div.dokan-product-length-limit' ).addClass('dokan-hide');
+                 $( 'div.dokan-product-length' ).hide();
+                if($('[name="lb-dimension-unit"]').val() =='cm')
+                    {
+                       if($( '#_length' ).val() > $('#_length_size_cm').val() ){
+                           $( '#_length' ).focus();
+                            $( 'div.dokan-product-length-limit' ).removeClass('dokan-hide');
+                           $( 'div.dokan-product-length-limit span' ).html(' '+$('#_length_size_cm').val());
+                            return;
+                        } 
+                    }
+                else if($('[name="lb-dimension-unit"]').val() =='mm')
+                    {
+                       if($( '#_length' ).val() > $('#_length_size_mm').val() ){
+                           $( '#_length' ).focus();
+                            $( 'div.dokan-product-length-limit' ).removeClass('dokan-hide');
+                          $( 'div.dokan-product-length-limit span' ).html(' '+$('#_length_size_mm').val());
+                            return;
+                        } 
+                    }
+                else if($('[name="lb-dimension-unit"]').val() =='m')
+                    {
+                       if($( '#_length' ).val() > $('#_length_size_m').val() ){
+                           $( '#_length' ).focus();
+                            $( 'div.dokan-product-length-limit' ).removeClass('dokan-hide');
+                            $( 'div.dokan-product-length-limit span' ).html(' '+$('#_length_size_m').val());
+                            return;
+                        } 
+                    }
+               
+            }
+            
+            if ( $( '#_width' ).val().trim() == '' ) {
+                $( '#_width' ).focus();
+                $( 'div.dokan-product-width' ).removeClass('dokan-hide');
+                return;
+           }else if($( '#_width' ).val() < 0 ){
+                  $( '#_width' ).focus();
+                $( 'div.dokan-product-width-nagetive' ).removeClass('dokan-hide');
+               return;
+            }else{
+                 $( 'div.dokan-product-width' ).hide();
+                  $( 'div.dokan-product-width-limit' ).addClass('dokan-hide');
+                 if($('[name="lb-dimension-unit"]').val() =='cm')
+                    {
+                       if($( '#_width' ).val() > $('#_width_size_cm').val() ){
+                           $( '#_width' ).focus();
+                            $( 'div.dokan-product-width-limit' ).removeClass('dokan-hide');
+                           $( 'div.dokan-product-width-limit span' ).html(' '+$('#_width_size_cm').val());
+                            return;
+                        } 
+                    }
+                else if($('[name="lb-dimension-unit"]').val() =='mm')
+                    {
+                       if($( '#_width' ).val() > $('#_width_size_mm').val() ){
+                           $( '#_width' ).focus();
+                            $( 'div.dokan-product-width-limit' ).removeClass('dokan-hide');
+                            $( 'div.dokan-product-width-limit span' ).html(' '+$('#_width_size_mm').val());
+                            return;
+                        } 
+                    }
+                else if($('[name="lb-dimension-unit"]').val() =='m')
+                    {
+                       if($( '#_width' ).val() > $('#_width_size_m').val() ){
+                           $( '#_width' ).focus();
+                            $( 'div.dokan-product-width-limit' ).removeClass('dokan-hide');
+                            $( 'div.dokan-product-width-limit span' ).html(' '+$('#_width_size_m').val());
+                            return;
+                        } 
+                    }
+                
+                
+               
+            }
+            
+            
+            if ( $( '#_height' ).val().trim() == '' ) {
+                $( '#_height' ).focus();
+                $( 'div.dokan-product-height' ).removeClass('dokan-hide');
+                return;
+            }else if($( '#_height' ).val() < 0 ){
+                  $( '#_height' ).focus();
+                $( 'div.dokan-product-height-nagetive' ).removeClass('dokan-hide');
+                return;
+            }else{
+                  $( 'div.dokan-product-height' ).hide();
+                 $( 'div.dokan-product-height-limit' ).addClass('dokan-hide');
+                 if($('[name="lb-dimension-unit"]').val() =='cm')
+                    {
+                       if($( '#_height' ).val() > $('#_height_size_cm').val() ){
+                           $( '#_height' ).focus();
+                            $( 'div.dokan-product-height-limit' ).removeClass('dokan-hide');
+                            $( 'div.dokan-product-height-limit span' ).html(' '+$('#_height_size_cm').val());
+                            return;
+                        } 
+                    }
+                else if($('[name="lb-dimension-unit"]').val() =='mm')
+                    {
+                       if($( '#_height' ).val() > $('#_height_size_mm').val() ){
+                           $( '#_height' ).focus();
+                            $( 'div.dokan-product-height-limit' ).removeClass('dokan-hide');
+                            $( 'div.dokan-product-height-limit span' ).html(' '+$('#_height_size_mm').val());
+                            return;
+                        } 
+                    }
+                else if($('[name="lb-dimension-unit"]').val() =='m')
+                    {
+                       if($( '#_height' ).val() > $('#_height_size_m').val() ){
+                           $( '#_height' ).focus();
+                            $( 'div.dokan-product-height-limit' ).removeClass('dokan-hide');
+                            $( 'div.dokan-product-height-limit span' ).html(' '+$('#_height_size_m').val());
+                            return;
+                        } 
+                    }
+                
+                
+              
+            }
+            
+            
+            
+            
             $( 'input[type=submit]' ).attr( 'disabled', 'disabled' );
             this.submit();
         },
