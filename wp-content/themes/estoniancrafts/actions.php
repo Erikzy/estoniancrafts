@@ -18,6 +18,8 @@ class EC_Actions
 
 		// ajax actions
 		add_action( 'wp_ajax_ask_information', array(__CLASS__, 'ask_information_ajax'));
+		add_action( 'wp_ajax_get_product_statistics', array(__CLASS__, 'get_product_statistics_ajax'));
+
 	}
 
 	/**
@@ -38,6 +40,7 @@ class EC_Actions
 
 		wp_enqueue_style('ec-merchant-style', $child_theme_url.'/ec-assets/style_merchant.css');
 		wp_enqueue_script('ec-merchant-script', $child_theme_url.'/ec-assets/script_merchant.js');
+		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
 
         // Unregister font-awsome css registered by dokan plugin
 		wp_deregister_style('fontawesome');
@@ -82,6 +85,7 @@ class EC_Actions
             'popup_pages' => ( basel_get_opt( 'popup_pages' ) ) ? (int) basel_get_opt( 'popup_pages' ) : 0,
             'promo_popup_hide_mobile' => ( basel_get_opt( 'promo_popup_hide_mobile' ) ) ? 'yes' : 'no',
             'find_shop_names_containing' => esc_html__('Find shop names containing', 'basel'),
+            'ajax_loader' => WP_PLUGIN_URL.'/dokan/assets/images/ajax-loader.gif',
         );
 
         wp_localize_script( 'ec-basel-functions', 'basel_settings', $translations );
@@ -379,6 +383,63 @@ HTML;
 		check_ajax_referer('ask-information', 'ask_information_token');
 
 		die('Your question has been sent');
+	}
+
+	public static function get_product_statistics_ajax()
+	{
+		check_ajax_referer('ec_get_product_statistics');
+		
+		// check privileges
+		if ( !is_admin() ) { // accessing it through admin-ajax.php
+            die();
+        }
+
+		$productId = isset($_GET['product_id']) && (int)$_GET['product_id'] ? (int)$_GET['product_id'] : null;
+		if (!$productId) {
+			die();
+		}
+		// check for product ownership
+		$product = wc_get_product($productId);
+		if (!($product && $product->post &&
+			(int)$product->post->post_author === (int)get_current_user_id()
+		)) {
+			die();
+		}
+		unset($productId);
+
+		// get stats
+		$stats = [];
+		$stats[] = [
+			'label' => __( 'Views', 'dokan' ),
+			'value' => (int) get_post_meta( $product->id, 'pageview', true )
+		];
+
+		$stats[] = [
+			'label' => __( 'Favorites', 'dokan' ),
+			'value' => yith_wcwl_count_add_to_wishlist($product->id)
+		];
+
+		if (function_exists('getPostSharesCount')) { // meaning that ec facebook plugin is enabled
+			// get fresh from facebook
+			try {
+				msp_update($product->id);
+			} catch (FacebookSDKException $e) {}
+
+			$stats[] = [
+				'label' => __('Facebook shares', 'ktt'),
+				'value' => getPostSharesCount($product->id)
+			];
+
+		}
+
+		// return statistics
+		echo '<table>';
+		foreach ($stats as $stat) {
+			echo sprintf('<tr><td>%s:</td><td><strong>%s</strong></td></tr>', $stat['label'], $stat['value']);
+		}
+		echo '</table>';
+
+		die();
 	}
 
 }

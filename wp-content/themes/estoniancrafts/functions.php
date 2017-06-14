@@ -14,6 +14,9 @@ include_once($currentDirname.'/shortcodes.php');
 // Load widgets
 include_once($currentDirname.'/widgets.php');
 
+// Load shops
+include_once($currentDirname.'/shop/shop-functions.php');
+
 //WC_Cache_Helper::prevent_caching();
 
 /**
@@ -195,6 +198,48 @@ if (!function_exists('tribe_is_started_event')) {
         return time() > $start_date;
     }
 }
+
+// override 'woocommerce_package_rates' filter
+if (function_exists('dokan_multiply_flat_rate_price_by_seller')) {
+    remove_filter('woocommerce_package_rates', 'dokan_multiply_flat_rate_price_by_seller', 1);
+}
+
+function ec_multiply_flat_rate_price_by_seller( $rates, $package ) {
+
+    $flat_rate_array = preg_grep("/^flat_rate:*/", array_keys( $rates ) );
+    if (count($flat_rate_array)) {
+        $flat_rate       = $flat_rate_array[0];
+
+        foreach ( $package['contents'] as $product ) {
+            $sellers[] = get_post_field( 'post_author', $product['product_id'] );
+        }
+
+        $sellers = array_unique( $sellers );
+
+        $selllers_count = count( $sellers );
+
+        if ( isset( $rates[$flat_rate] ) && ! is_null( $rates[$flat_rate] ) ) {
+
+            $rates[$flat_rate]->cost = $rates[$flat_rate]->cost * $selllers_count;
+
+            // we assumed taxes key will always be 1, if different condition appears in future, we'll update the script
+            if ( isset( $rates[$flat_rate]->taxes[1] ) ) {
+                $rates[$flat_rate]->taxes[1] = $rates[$flat_rate]->taxes[1] * $selllers_count;
+            }
+
+        } elseif ( isset( $rates['international_delivery'] ) && ! is_null( $rates['international_delivery'] ) ) {
+
+            $rates['international_delivery']->cost = $rates['international_delivery']->cost * $selllers_count;
+            // we assumed taxes key will always be 1, if different condition appears in future, we'll update the script
+            $rates['international_delivery']->taxes[1] = $rates['international_delivery']->taxes[1] * $selllers_count;
+
+         }
+
+    }
+
+    return $rates;
+}
+add_filter( 'woocommerce_package_rates', 'ec_multiply_flat_rate_price_by_seller', 2,2);
 
 if (!function_exists('is_user_idcard')) {
     function is_user_idcard() {
