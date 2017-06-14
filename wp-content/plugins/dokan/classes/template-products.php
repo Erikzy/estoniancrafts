@@ -130,50 +130,58 @@ class Dokan_Template_Products {
             
             if($_POST['lb-dimension-unit']=='mm')
             {
+                $mm_width = get_option('_width_size')*1000;
+                $mm_lenght = get_option('_length_size')*1000;
+                $mm_height = get_option('_height_size')*1000;
                 if ( strlen($_POST['_length']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Length.', 'dokan' );
                 } 
-                elseif ( strlen($_POST['_length']) > get_option('_length_size_mm')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_length_size_mm').' digit in Length.', 'dokan' );
+                
+                elseif ( strlen($_POST['_length']) > $mm_lenght) {
+                    $errors[] = __( 'Please enter up to '.$mm_lenght.' digit in Length.', 'dokan' );
                 } 
                 
                 
                 if ( strlen($_POST['_width']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Width.', 'dokan' );
                 } 
-                elseif (  strlen($_POST['_width']) > get_option('_width_size_mm')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_width_size_mm').' digit in Width.', 'dokan' );
+                elseif (  strlen($_POST['_width']) > $mm_width) {
+                    $errors[] = __( 'Please enter up to '.$mm_width.' digit in Width.', 'dokan' );
                 } 
                 
                 
                 if ( strlen($_POST['_height']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
                 } 
-                elseif (  strlen($_POST['_height']) > get_option('_height_size_mm')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_height_size_mm').' digit in Height.', 'dokan' );
+                elseif (  strlen($_POST['_height']) > $mm_height) {
+                    $errors[] = __( 'Please enter up to '.$mm_height.' digit in Height.', 'dokan' );
                 }
             }
             elseif($_POST['lb-dimension-unit']=='cm')
             {
-                if ( strlen($_POST['_height']) < 0) {
+                 $cm_width = get_option('_width_size')*100;
+                $cm_lenght = get_option('_length_size')*100;
+                $cm_height = get_option('_height_size')*100;
+                
+                if ( strlen($_POST['_length']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
                 } 
-                elseif ( strlen( $_POST['_length']) > get_option('_length_size_cm')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_length_size_cm').' digit in Length.', 'dokan' );
+                elseif ( strlen( $_POST['_length']) > $cm_lenght) {
+                    $errors[] = __( 'Please enter up to '.$cm_lenght.' digit in Length.', 'dokan' );
+                } 
+                
+                 if ( strlen($_POST['_width']) < 0) {
+                    $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
+                } 
+                elseif (  strlen($_POST['_width']) > $cm_width) {
+                    $errors[] = __( 'Please enter up to '.$cm_width.' digit in Width.', 'dokan' );
                 } 
                 
                  if ( strlen($_POST['_height']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
                 } 
-                elseif (  strlen($_POST['_width']) > get_option('_width_size_cm')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_width_size_cm').' digit in Width.', 'dokan' );
-                } 
-                
-                 if ( strlen($_POST['_height']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
-                } 
-                elseif (  strlen($_POST['_height']) > get_option('_height_size_cm')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_height_size_cm').' digit in Height.', 'dokan' );
+                elseif (  strlen($_POST['_height']) > $cm_height) {
+                    $errors[] = __( 'Please enter up to '.$cm_height.' digit in Height.', 'dokan' );
                 }
             } 
             
@@ -182,22 +190,22 @@ class Dokan_Template_Products {
                  if ( strlen($_POST['_length']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Length.', 'dokan' );
                 } 
-                elseif ( strlen( $_POST['_length']) > get_option('_length_size_m')) {
-                      $errors[] = __( 'Please enter up to '.get_option('_length_size_m').' digit in Length.', 'dokan' );
+                elseif ( strlen( $_POST['_length']) > get_option('_length_size')) {
+                      $errors[] = __( 'Please enter up to '.get_option('_length_size').' digit in Length.', 'dokan' );
                 } 
                 
                  if ( strlen($_POST['_width']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Width.', 'dokan' );
                 } 
-                elseif (  strlen($_POST['_width']) > get_option('_width_size_m')) {
-                    $errors[] = __('Please enter up to '.get_option('_width_size_m').' digit in Width.', 'dokan' );
+                elseif (  strlen($_POST['_width']) > get_option('_width_size')) {
+                    $errors[] = __('Please enter up to '.get_option('_width_size').' digit in Width.', 'dokan' );
                 } 
             
                  if ( strlen($_POST['_height']) < 0) {
                     $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
                 } 
-                elseif ( strlen( $_POST['_height']) > get_option('_height_size_m')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_height_size_m').' digit in Height.', 'dokan' );
+                elseif ( strlen( $_POST['_height']) > get_option('_height_size')) {
+                    $errors[] = __( 'Please enter up to '.get_option('_height_size').' digit in Height.', 'dokan' );
                 }
             }
             
