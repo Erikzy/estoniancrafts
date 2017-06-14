@@ -362,7 +362,7 @@ class EC_vcUserCarousel extends WPBakeryShortCode
 new EC_vcUserCarousel();
 
 if ( 'vc_get_autocomplete_suggestion' === vc_request_param( 'action' ) || 'vc_edit_form' === vc_post_param( 'action' ) ) {
-    function ec_user_carousel_include_callback($query, $tag, $param_name)
+    function ec_user_carousel_include_callback($query, $tag = '', $param_name = '')
     {
         global $wpdb;
         $suggestions = $wpdb->get_results($wpdb->prepare("SELECT ID AS value, user_email AS label FROM `ktt_users` WHERE user_email LIKE %s", '%'.$query.'%'), ARRAY_A);
