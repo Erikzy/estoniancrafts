@@ -42,17 +42,45 @@
                     <?php dokan_post_input_box( $post_id, '_food_cargo', array('value' => $is_food, 'label' => __( 'Is food', 'ktt' ) ), 'checkbox' ); ?>
 				</div>
                 <div class="show_if_needs_shipping row">
-					<div class="col-md-3">
+					<div class="col-md-3 dfdgd">
+                        
 	                    <label class="control-label"><?php _e( 'length', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_length', array( 'class' => 'form-control' ), 'number' ); ?>
+                         <div class="dokan-product-length dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Please choose a Length !!!', 'dokan'); ?>
+                                    </div>
+                        <div class="dokan-product-length-nagetive dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Negative value is not allowed !!!', 'dokan'); ?>
+                                    </div>
+                        <div class="dokan-product-length-limit dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Please enter up to <span></span>', 'dokan'); ?>
+                                    </div>
 					</div>
 					<div class="col-md-3">
 	                    <label class="control-label"><?php _e( 'width', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_width', array( 'class' => 'form-control' ), 'number' ); ?>
+                        <div class="dokan-product-width dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Please choose a Width !!!', 'dokan'); ?>
+                                    </div>
+                         <div class="dokan-product-width-nagetive dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Negative value is not allowed !!!', 'dokan'); ?>
+                                    </div>
+                        <div class="dokan-product-width-limit dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Please enter up to <span></span>', 'dokan'); ?>
+                                    </div>
 					</div>
 					<div class="col-md-3">
 	                    <label class="control-label"><?php _e( 'height', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_height', array( 'class' => 'form-control' ), 'number' ); ?>
+                        <div class="dokan-product-heigth dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Please choose a Height !!!', 'dokan'); ?>
+                                    </div>
+                         <div class="dokan-product-height-nagetive dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Negative value is not allowed !!!', 'dokan'); ?>
+                                    </div>
+                        <div class="dokan-product-heigth-limit dokan-hide dokan-alert dokan-alert-danger">
+                                            <?php _e('Please enter up to <span></span>', 'dokan'); ?>
+                                    </div>
 					</div>
 					<div class="col-md-3">
 	                    <label class="control-label"><?php _e( 'Dimension unit', 'dokan' ) ?></label>
