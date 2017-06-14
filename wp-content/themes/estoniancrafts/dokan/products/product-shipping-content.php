@@ -174,6 +174,32 @@
                         </div>
                     </div>
                 <?php endif; ?>
+                <div class="show_if_needs_shipping">
+                    <div class="dokan-form-group">
+                        <label class="dokan-control-label"><?php _e('Expected delivery time for product in the warehouse', 'ktt'); ?></label>
+                        <?php dokan_post_input_box(
+                            $post_id, 
+                            '_expected_delivery_in_warehouse', 
+                            array( 
+                                'placeholder' => __( 'Expected delivery time for product in the warehouse', 'ktt' ),
+                                'value' => get_post_meta( $post_id, '_expected_delivery_in_warehouse', true)
+                            ),
+                            'text' 
+                        ); ?>
+                    </div>
+                    <div class="dokan-form-group">
+                        <label class="dokan-control-label"><?php _e('Expected delivery time for product not in the warehouse', 'ktt'); ?></label>
+                        <?php dokan_post_input_box(
+                            $post_id, 
+                            '_expected_delivery_no_warehouse', 
+                            array( 
+                                'placeholder' => __( 'Expected delivery time for product not in the warehouse', 'ktt' ),
+                                'value' => get_post_meta( $post_id, '_expected_delivery_no_warehouse', true)
+                            ),
+                            'text' 
+                        ); ?>
+                    </div>
+                </div>
             </div>
         <?php endif; ?>
 

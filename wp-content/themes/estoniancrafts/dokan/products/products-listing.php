@@ -64,6 +64,7 @@
                         <th><?php _e( 'Image', 'dokan' ); ?></th>
                         <th><?php _e( 'Name', 'dokan' ); ?></th>
                         <th><?php _e( 'Status', 'dokan' ); ?></th>
+                        <th><?php _e( 'Statistics', 'dokan' ); ?></th>
                         <th><?php _e( 'Stock', 'dokan' ); ?></th>
                         <th><?php _e( 'Price', 'dokan' ); ?></th>
                         <th><?php _e( 'Date', 'dokan' ); ?></th>
@@ -96,9 +97,9 @@
                                 </td>
                                 <td class="post-status" data-title="<?php _e( 'Status', 'dokan' ); ?>">
                                     <label class="dokan-label <?php echo $product->status; ?>"><?php echo dokan_get_post_status( $product->status ); ?></label>
-									<br />
-									<span><?php _e( 'Views', 'dokan' ) ?>:</span>&nbsp;
-									<?php echo (int) get_post_meta( $product->post_id, 'pageview', true ); ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=get_product_statistics&product_id=' . $product->post_id), 'ec_get_product_statistics' ) ?>" class="get-product-statistics" style="font-size: 22px;"><i class="fa fa-bar-chart">&nbsp;</i></a>
                                 </td>
                                 <td data-title="<?php _e( 'Stock', 'dokan' ); ?>">
                                     <?php
