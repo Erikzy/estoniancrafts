@@ -27,6 +27,8 @@ class Dokan_Template_Products {
         add_action( 'template_redirect', array( $this, 'handle_delete_product' ) );
         add_action( 'dokan_render_new_product_template', array( $this, 'render_new_product_template' ), 10 );
         add_action( 'dokan_render_product_edit_template', array( $this, 'load_product_edit_template' ), 11 );
+        
+        add_filter('init', array($this, 'tinymce_init'));
     }
 
     /**
@@ -682,5 +684,26 @@ class Dokan_Template_Products {
 
         dokan_delete_product_handler();
     }
+    
+    
+    
+    
+    
+    
+ function tinymce_init() {
+    // Hook to tinymce plugins filter
+    add_filter( 'mce_external_plugins', array($this, 'tinymce_plugin' ));
+}
+
+
+function tinymce_plugin($init) {
+    // We create a new plugin... linked to a js file.
+    // Mine was created from a plugin... but you can change this to link to a file in your plugin
+    $init['keyup_event'] = plugins_url() . '/dokan/assets/js/keyup_event.js';
+    return $init;
+}
+    
+    
+    
 
 }
