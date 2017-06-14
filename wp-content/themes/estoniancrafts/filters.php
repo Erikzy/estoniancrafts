@@ -58,11 +58,11 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
-            $menu->items[] = new EC_MenuItem(array(
+            /*$menu->items[] = new EC_MenuItem(array(
 				'id' => 'messages',
 				'title' => __( 'My Messages', 'ktt' ) .(bp_get_total_unread_messages_count() > 0 ? ' ('.bp_get_total_unread_messages_count().')' : ''),
 				'url' => get_site_url(null, 'members/'.$user->user_nicename.'/messages/'),
-			));
+			));*/
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop',
 				'title' => __( 'My Shop', 'ktt' )
@@ -96,6 +96,12 @@ class EC_Filters
 				'title' => $submenuPrefix.__( 'Settings', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard/settings/store'),
 				'url_endpoint' => 'my-account/dashboard/settings/store'
+			));
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-team',
+				'title' => $submenuPrefix.__( 'Team', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/team'),
+				'url_endpoint' => 'my-account/team'
 			));
 		}
 		// Not a merchant
@@ -180,6 +186,42 @@ function custom_tribe_event_featured_image($featured_image, $post_id = false, $s
 
     $featured_image = str_replace('<div class="tribe-events-event-image">', '<div class="tribe-events-event-image">'.$tpl, $featured_image);
     return $featured_image;
+}
+
+/* Shipping&Delivery tab */ //  currently not needed for any task, but I added it anyways, because it will be needed in the future
+add_filter( 'woocommerce_product_tabs', 'ec_custom_tabs', 99, 1);
+
+function ec_custom_tabs($tabs)
+{
+	$tabs['basel_additional_tab']['callback'] = 'ec_additional_product_tab_content';
+
+	return $tabs;
+}
+
+function ec_additional_product_tab_content()
+{
+	include (get_stylesheet_directory() . '/woocommerce/single-product/tabs/shipping-delivery-information.php');
+}
+
+// expected delivery
+add_filter('ec_order_review_expected_delivery', 'ec_order_review_expected_delivery', 1, 1);
+
+function ec_order_review_expected_delivery($product)
+{
+	$delivery = '';
+	// if is stock item and has items in stock
+	if ($product->managing_stock() && $product->get_stock_quantity()) {
+		$delivery = get_post_meta( $product->id, '_expected_delivery_in_warehouse', true);
+	} else {
+		$delivery = get_post_meta( $product->id, '_expected_delivery_no_warehouse', true);
+	}
+
+	if ($delivery !== '') {
+		echo '<p>';
+		_e('Delivery');
+		echo ': ' . $delivery;
+		echo '</p>';
+	}
 }
 
 // Insert the email content to user's buddypress inbox
