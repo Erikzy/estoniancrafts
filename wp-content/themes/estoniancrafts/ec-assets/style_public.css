@@ -1236,3 +1236,22 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
 .top-users .user-item .avatar {
     margin: 0px;
 }
+
+#tab-ask_information {
+    text-align: center;
+}
+#tab-ask_information div {
+    width: 600px;
+    display: inline-block;
+    text-align: left;
+}
+#tab-ask_information label {
+    display: inline-block;
+}
+#tab-ask_information label.stretch {
+    display: block;
+    width: 100%;
+}
+#tab-ask_information textarea {
+    display: block;
+}
