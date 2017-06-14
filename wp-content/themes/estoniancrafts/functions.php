@@ -236,6 +236,12 @@ class EC_vcUserCarousel extends WPBakeryShortCode
             'category' => __('My Custom Elements', 'text-domain'),
             'params' => [
                 [
+                    'type' => 'checkbox',
+                    'heading' => __('Is brand', 'ktt'),
+                    'param_name' => 'is_brand',
+                    'description' => __('Check to show users as brand', 'ktt'),
+                ],
+                [
                     'type' => 'autocomplete',
                     'param_name' => 'include',
                     'heading' => __( 'Users', 'ktt' ),
@@ -256,15 +262,18 @@ class EC_vcUserCarousel extends WPBakeryShortCode
         extract(
             shortcode_atts(
                 array(
-                    'include' => ''
+                    'include' => '',
+                    'is_brand' => false
                 ),
                 $atts
             )
         );
+
+        // get users
         $include = explode(',', $atts['include']);
         $include = array_map(function ($value) { return (int)$value; }, $include);
         $tmpusers = get_users(['include' => $include]);
-        // reorder
+            // reorder
         $findUser = function(&$users, $id) {
             foreach ($users as $user) {
                 if ((int)$user->ID === $id) {
@@ -276,18 +285,30 @@ class EC_vcUserCarousel extends WPBakeryShortCode
         foreach ($include as $id) {
             $users[] = $findUser($tmpusers, (int)$id);
         }
-        unset($tmpusers);
-        unset($include);
 
-        ob_start(); ?>
-        
-        <div style="text-align: center;">
-            <?php foreach ($users as $user): ?>
-                <p><?= $user->user_email ?></p>
-            <?php endforeach;?>
-        </div>
+        // get is brand
+        $isBrand = isset($atts['is_brand']) ? $atts['is_brand'] : false;
 
+        ob_start(); 
+
+        echo '<div class="top-users">';
+        foreach ($users as $user):
+        ?>
+            <div class="user-item">
+                <?= get_avatar($user->ID, 128) ?>
+                <h3>
+                    <?php if ($isBrand) : ?>
+                        <?= esc_html(dokan_get_store_info($user->ID)['store_name']) ?>
+                    <?php else: ?>
+                        <?= $user->first_name ?> <?= $user->last_name ?>
+                    <?php endif; ?>
+                </h3>
+
+            </div>
         <?php
+        endforeach;
+        echo '</div>';
+
         return ob_get_clean();
     }
 

@@ -1224,3 +1224,15 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     height: auto;
     margin: 0 auto;
 }
+
+.top-users {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.top-users .user-item {
+    display: inline-block;
+    margin: 16px;
+}
+.top-users .user-item .avatar {
+    margin: 0px;
+}
