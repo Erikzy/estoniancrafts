@@ -382,7 +382,41 @@ HTML;
 	{
 		check_ajax_referer('ask-information', 'ask_information_token');
 
-		die('Your question has been sent');
+		// get parameters
+		$productId = isset($_POST['product_id']) && (int)$_POST['product_id'] ? (int)$_POST['product_id'] : null;
+		$firstName = isset($_POST['first_name']) ? $_POST['first_name'] : null;
+		$lastName = isset($_POST['last_name']) ? $_POST['last_name'] : null;
+		$email = isset($_POST['email']) ? $_POST['email'] : null;
+		$content = isset($_POST['content']) ? $_POST['content'] : null;
+
+		if (!($firstName && $lastName && $email && $content && $productId)) {
+			ob_clean();
+			die(json_encode(['success' => false, 'message' => false]));
+		}
+
+		$product = get_product($productId);
+		if (!$product) {
+			ob_clean();
+			die(json_encode(['success' => false, 'message' => false]));
+		}
+
+		// get target email
+		$seller = get_user_by( 'id', $product->post->post_author );
+		$to = $seller->user_email;
+		$subject = sprintf(__('Information about %s ', 'ktt'), $product->post->post_title);
+		// generate headers
+		$headers = [
+			'Content-Type: text/html; charset=UTF-8',
+			sprintf('From: %s %s <%s>', $firstName, $lastName, $email)
+		];
+
+		if (!wp_mail($to, $subject, $content , $headers)) {
+			ob_clean();
+			die(json_encode(['success' => false, 'message' => __('Failed to send email', 'ktt')]));
+		}
+
+		ob_clean();
+		die(json_encode(['success' => true, 'message' => __('Your question has been sent', 'ktt')]));
 	}
 
 	public static function get_product_statistics_ajax()

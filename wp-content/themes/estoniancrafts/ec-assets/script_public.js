@@ -12,11 +12,11 @@ jQuery(document).ready(function($) {
         $(target).toggleClass(toggleClass);
     });
 
-    var public = {
+    var ec_public = {
 
     	init: function () 
     	{
-    		$('#ask_information_form').on('submit', public.ask_information);
+    		$('#ask_information_form').on('submit', ec_public.ask_information);
     	},
 
     	ask_information: function (e)
@@ -29,9 +29,12 @@ jQuery(document).ready(function($) {
     
     		$.post($('#ask_information_form').attr('action'), parameters, function (response) {
     			$('#ask_information_form').unblock();
-    			if (response != '') {
-    				$('#ask_information_form_container').html(response);
-    			}
+                var result = JSON.parse(response);
+    			if (result.success) {
+    				$('#ask_information_form_container').html(result.message);
+    			} else if (result.message) {
+                    alert(result.message);
+                }
     		})
 
     		return false;
@@ -39,6 +42,6 @@ jQuery(document).ready(function($) {
 
     };
 
-    public.init();
+    ec_public.init();
 
 });

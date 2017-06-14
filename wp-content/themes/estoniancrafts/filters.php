@@ -360,5 +360,12 @@ add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' )
  * @param type $val
  */
 function ec_dokan_ask_information_tab( $val ) {
-    dokan_get_template_part('global/ask-information-tab', '', [/*parameters*/]);
+	global $product;
+
+	$user = wp_get_current_user();
+	
+    dokan_get_template_part('global/ask-information-tab', '', [
+    	'product' => $product,
+    	'user' => $user
+    ]);
 }
