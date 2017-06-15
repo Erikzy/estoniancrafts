@@ -163,16 +163,15 @@ if ( ! $from_shortcode ) {
             if ( $can_sell ) {
 
                 if ( dokan_is_seller_enabled( get_current_user_id() ) ) { ?>
+                    <script type="text/javascript">var ec_product_limits = <?= json_encode([
+                        'maxLength' => (double)get_option('_product_max_length'),
+                        'maxWidth' => (double)get_option('_product_max_width'),
+                        'maxHeight' => (double)get_option('_product_max_height'),
+                        'descriptionLimit' => (int)get_option('_product_description_limit'),
+                        'shortDescriptionLimit' => (int)get_option('_product_short_description_limit')
+                    ])?>;</script>
                     <form class="dokan-product-edit-form" role="form" method="post">
                         <input type="hidden" id="discription_limit" value="<?php echo get_option('discription_limit'); ?>">
-                        
-                        <input type="hidden" id="_length_size" value="<?php echo get_option('_length_size'); ?>">
-                        <input type="hidden" id="_width_size" value="<?php echo get_option('_width_size'); ?>">
-                        <input type="hidden" id="_height_size" value="<?php echo get_option('_height_size'); ?>"> 
-                        
-                       
-                        
-                        
                         
                         <?php if ( $post_id ): ?>
                             <?php do_action( 'dokan_product_data_panel_tabs' ); ?>

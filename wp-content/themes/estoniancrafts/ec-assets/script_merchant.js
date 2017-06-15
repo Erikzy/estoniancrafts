@@ -42,6 +42,95 @@ jQuery(document).ready(function($)
 			$('body').on('submit', '.ec_add_user_relation_value', this.add_shop_user_relation_value);
 			$('body').on('change input', '.ec_add_user_relation_value input[name="value"]', function (e){ $(e.target).parent().find('button[type="submit"]').show(); });
 			$('body').on('click', '.get-product-statistics', ec_merchant.getProductStatistics);
+
+			$('.dokan-product-shipping-tax.dokan-edit-row select[name="lb-dimension-unit"], #_length, #_width, #_height').on('change', ec_merchant.set_dimension_limits);
+			ec_merchant.set_dimension_limits();
+
+			// description limits
+			tinymce.on('addeditor', function (event) {
+				var editor = event.editor;
+				if (editor.id === 'post_content') {
+					editor.settings.charLimit = ec_product_limits.descriptionLimit;
+					editor.onKeyDown.add(ec_merchant.check_tinymce_limit);
+				} else if (editor.id === 'post_excerpt') {
+					editor.settings.charLimit = ec_product_limits.shortDescriptionLimit;
+					editor.onKeyDown.add(ec_merchant.check_tinymce_limit);
+				}
+			});
+		},
+
+		check_tinymce_limit: function (editor, e)
+		{
+			var charLimit = editor.settings.charLimit;
+			var charCount = editor.getContent().replace(/(<([^>]+)>)/ig,"").length;
+
+			if (e.keyCode != 8 && e.keyCode != 46 && charCount + 1 > charLimit) {
+				e.preventDefault();
+				e.stopPropagation();
+				return false;
+			}
+		},
+
+		previousUnit: null,
+
+		set_dimension_limits: function ()
+		{
+			var unit = $('.dokan-product-shipping-tax.dokan-edit-row select[name="lb-dimension-unit"]').val();
+			// find limit correction
+			var limitCorrection = 1.0;
+			if (unit === 'cm') {
+				limitCorrection = 0.1;
+			} else if (unit === 'm') {
+				limitCorrection = 0.001;
+			}
+
+			var maxLength = ec_product_limits.maxLength * limitCorrection;
+			var maxWidth = ec_product_limits.maxWidth * limitCorrection;
+			var maxHeight = ec_product_limits.maxHeight * limitCorrection;
+			
+			// find value correction
+			var valueCorrection = 1.0;
+			var prev = ec_merchant.previousUnit;
+			if (prev) {
+				if (prev === 'mm') {
+					if (unit === 'cm') {
+						valueCorrection = 0.1;
+					} else if (unit === 'm') {
+						valueCorrection = 0.001;
+					}
+				} else if (prev === 'cm') {
+					if (unit === 'mm') {
+						valueCorrection = 10.0;
+					} else if (unit === 'm') {
+						valueCorrection = 0.01;
+					}
+				} else if (prev === 'm') {
+					if (unit === 'cm') {
+						valueCorrection = 100.0;
+					} else if (unit === 'mm') {
+						valueCorrection = 1000.0;
+					}
+				}
+			}
+
+			// clamp values
+			var _length = parseFloat($('#_length').val()) * valueCorrection;
+			var _width = parseFloat($('#_width').val()) * valueCorrection;
+			var _height = parseFloat($('#_height').val()) * valueCorrection;
+
+			_length = _length > maxLength ? maxLength : _length < 0.0 ? 0.0 : _length;
+			_width = _width > maxWidth ? maxWidth : _width < 0.0 ? 0.0 : _width;
+			_height = _height > maxHeight ? maxHeight : _height < 0.0 ? 0.0 : _height;
+
+			// set limits and correct the value
+			$('#_length').attr('max', maxLength);
+			$('#_length').val(_length);
+			$('#_width').attr('max', maxWidth);
+			$('#_width').val(_width);
+			$('#_height').attr('max', maxHeight);
+			$('#_height').val(_height);
+
+			ec_merchant.previousUnit = unit;
 		},
 
 		add_shop_user: function (e)
