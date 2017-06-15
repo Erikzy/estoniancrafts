@@ -7,6 +7,103 @@
  * @package WooCommerce/Templates
  * @version 2.6.0
  */
+function load_in_footer()
+{
+?>
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '<?php echo get_option('facebook_apid'); ?>',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v2.9'
+        });
+/*
+FB.getLoginStatus(function(response) {
+console.log(response);
+if(response.status === 'connected')
+{
+testAPI();
+document.getElementById('status').innerHTML = 'we are connected';
+} else if(response.status === 'not_authorized'){
+document.getElementById('status').innerHTML = 'we are not authorized';
+} else {
+document.getElementById('status').innerHTML = 'You are not logged';
+}
+});
+*/ 
+    };
+
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+    function fblogin()
+    {
+        FB.login(function(response){
+            console.log(response);
+            if(response.status === 'connected')
+            {
+                AfterSuces();
+                // document.getElementById('status').innerHTML = 'we are connected';
+            } else if(response.status === 'not_authorized'){
+                // document.getElementById('status').innerHTML = 'we are not authorized';
+            } else {
+                // document.getElementById('status').innerHTML = 'You are not logged';
+            } 
+        }, {scope: 'email'})
+    }
+/*
+    function fblogout()
+    {
+        FB.logout(function(response) {
+            if(response.status === 'connected')
+            {
+                //document.getElementById('status').innerHTML = 'we are connected';
+            } else if(response.status === 'not_authorized'){
+                // document.getElementById('status').innerHTML = 'we are not authorized';
+            } else {
+                // document.getElementById('status').innerHTML = 'You are not logged';
+            }
+        });
+    }
+*/
+
+    function AfterSuces() {
+        var ajaxUrl = "<?php echo admin_url('admin-ajax.php')?>";
+        //console.log('Welcome!  Fetching your information.... ');
+        var url = '/me?fields=name,email';
+        FB.api(url, function(response) {
+            jQuery.ajax({
+                type:"POST",
+                url: ajaxUrl,
+                data: {
+                    action: "Generate_Session",
+                    username: response.name,
+                    email : response.email,
+                },
+                success:function(data){
+                    location.href = 'dashboard';
+                }
+            })
+            //console.log(response);
+            //console.log('Successful login for: ' + response.name);
+            //document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+        });
+    }
+
+</script>
+<div id="status" style="display:none"></div>
+
+<?php
+}
+add_action('wp_footer', 'load_in_footer', 100);
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -94,6 +191,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 					<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
 				</label>
 				<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
+                 <input type="button" class="woocommerce-Button button" onclick="fblogin()"  name="facebooklogin" value="<?php esc_attr_e( 'Login using facebook', 'woocommerce' ); ?>" />
 			</p>
 
             <?php echo do_shortcode('[smart_id]') ?>
@@ -150,6 +248,8 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 			<p class="woocomerce-FormRow form-row">
 				<?php wp_nonce_field( 'woocommerce-register' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
+                
+                <input type="button" class="woocommerce-Button button" onclick="fblogin()"  name="facebooklogin" value="<?php esc_attr_e( 'Register using facebook', 'woocommerce' ); ?>" />
 			</p>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
