@@ -1,7 +1,11 @@
 
 jQuery(document).ready(function($)
 {
-	
+
+	if (typeof(window['ec_product_limits']) == 'undefined') {
+		var ec_product_limits = {};
+	}
+
 	// Init widgets
 	$('.dropdown-toggle').dropdown();
 
@@ -47,16 +51,19 @@ jQuery(document).ready(function($)
 			ec_merchant.set_dimension_limits();
 
 			// description limits
-			tinymce.on('addeditor', function (event) {
-				var editor = event.editor;
-				if (editor.id === 'post_content') {
-					editor.settings.charLimit = ec_product_limits.descriptionLimit;
-					editor.onKeyDown.add(ec_merchant.check_tinymce_limit);
-				} else if (editor.id === 'post_excerpt') {
-					editor.settings.charLimit = ec_product_limits.shortDescriptionLimit;
-					editor.onKeyDown.add(ec_merchant.check_tinymce_limit);
-				}
-			});
+			if (typeof(window['tinymce']) != 'undefined') {
+				tinymce.on('addeditor', function (event) {
+					var editor = event.editor;
+					if (editor.id === 'post_content') {
+						editor.settings.charLimit = ec_product_limits.descriptionLimit;
+						editor.onKeyDown.add(ec_merchant.check_tinymce_limit);
+					} else if (editor.id === 'post_excerpt') {
+						editor.settings.charLimit = ec_product_limits.shortDescriptionLimit;
+						editor.onKeyDown.add(ec_merchant.check_tinymce_limit);
+					}
+				});
+			}
+
 		},
 
 		check_tinymce_limit: function (editor, e)
