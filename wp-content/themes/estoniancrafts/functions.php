@@ -14,6 +14,9 @@ include_once($currentDirname.'/shortcodes.php');
 // Load widgets
 include_once($currentDirname.'/widgets.php');
 
+// Load facebook
+include_once($currentDirname.'/facebook/class-facebook-login.php');
+
 //WC_Cache_Helper::prevent_caching();
 
 /**
@@ -215,50 +218,3 @@ if (!function_exists('is_user_idcard')) {
         return (bool) $user != NULL;
     }
 }
-
-/*
- *
- */
-function Generate_Session()
-{
-    $username = $_POST['username'];
-    $password = 'admin';
-    $email = $_POST['email'];
-    $user_id = wp_create_user( $username, $password, $email );
-    $user = new WP_User( $user_id );
-    $user->set_role( 'seller' );
-    
-    $user_login     = esc_attr($username);
-    $user_password  = esc_attr($password);
-    $user_email     = esc_attr($email);
-    
-    $user_data = array(
-        'user_login'    =>      $user_login,
-        'user_pass'     =>      $user_password,
-        'user_email'    =>      $user_email,
-        'role'          =>      'seller'
-    );
-    
-    // Inserting new user to the db
-    //wp_insert_user( $user_data );
-    
-    $creds = array();
-    $creds['user_login'] = $user_login;
-    $creds['user_password'] = $user_password;
-    $creds['remember'] = true;
-    
-    $user = wp_signon( $creds, false );
-    
-    $userID = $user->ID;
-    
-    wp_set_current_user( $userID, $user_login );
-    wp_set_auth_cookie( $userID, true, false );
-    do_action( 'wp_login', $user_login );
-    if ( is_user_logged_in() ) : echo 'SUCCESS'; 
-    else : echo 'FAIL!';  endif; 
-    wp_die();
-}
-// creating Ajax call for WordPress
-add_action( 'wp_ajax_nopriv_Generate_Session', 'Generate_Session' );
-add_action( 'wp_ajax_Generate_Session', 'Generate_Session' );
-
