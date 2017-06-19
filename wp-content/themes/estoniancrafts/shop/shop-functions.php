@@ -643,6 +643,7 @@ function add_or_edit_blog()
         }
         /*load html form*/
       include(locate_template('templates/myaccount/add_edit_post.php'));
+        /*Finish html template*/
     }
     else
     {
