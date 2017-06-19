@@ -103,6 +103,12 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/team'),
 				'url_endpoint' => 'my-account/team'
 			));
+            $menu->items[] = new EC_MenuItem(array(
+				'id' => 'blog',
+				'title' => $submenuPrefix.__( 'Blog', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/blog'),
+				'url_endpoint' => 'my-account/blog'
+			));
 		}
 		// Not a merchant
 		else
