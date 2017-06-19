@@ -284,7 +284,12 @@ jQuery(document).ready(function($)
          var $parent_element = $(this).closest('#primaryPostForm');
         if($('[name="post_status"]').val()=='pending')
            {
-                alert($('.publish_notify', $parent_element).html());
+               if (confirm($('.publish_notify', $parent_element).html()) == false) 
+               {
+                    return false;
+               } 
+               
+               
            }
     })
     
