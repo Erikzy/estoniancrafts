@@ -2,8 +2,8 @@
 jQuery(document).ready(function($)
 {
 
-	if (typeof(window['ec_product_limits']) == 'undefined') {
-		var ec_product_limits = {};
+	if (!window.hasOwnProperty('ec_product_limits')) {
+		window.ec_product_limits = {};
 	}
 
 	// Init widgets
