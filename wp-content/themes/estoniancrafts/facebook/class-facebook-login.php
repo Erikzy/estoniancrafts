@@ -300,7 +300,7 @@ class FacebookLogin{
         update_user_meta( $new_user, 'last_name', $fb_user['last_name'] );
         update_user_meta( $new_user, 'user_url', $fb_user['link'] );
         update_user_meta( $new_user, 'ec_facebook_id', $fb_user['id'] );
-        
+
         // Log the user ?
         wp_set_auth_cookie( $new_user );
     }

@@ -1225,7 +1225,7 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     margin: 0 auto;
 }
 
-.ec-facebook-wrapper a {
+.ec-facebook-wrapper a, .ec-facebook-wrapper a:hover, .ec-facebook-wrapper a:link, .ec-facebook-wrapper a:active,  .ec-facebook-wrapper a:visited {
     cursor: pointer;
     color: white;
     border-collapse: collapse;
@@ -1233,11 +1233,6 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     font-family: Helvetica, Arial, sans-serif;
     -moz-text-size-adjust: none;
     font-size: 16px;
-    background-color: #3B55A0;
-    border-radius: 5px;
-    border: solid 1px #3B55A0;
-}
-.ec-facebook-wrapper a:hover, .ec-facebook-wrapper a:active {
     background-color: #3B55A0;
     border-radius: 5px;
     border: solid 1px #3B55A0;
