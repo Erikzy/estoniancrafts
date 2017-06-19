@@ -129,98 +129,46 @@ class Dokan_Template_Products {
                 $errors[] = __( 'Please enter product title', 'dokan' );
             }
             
-            
-            if($_POST['lb-dimension-unit']=='mm')
-            {
-                $mm_width = get_option('_width_size')*1000;
-                $mm_lenght = get_option('_length_size')*1000;
-                $mm_height = get_option('_height_size')*1000;
-                if ( strlen($_POST['_length']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Length.', 'dokan' );
-                } 
-                
-                elseif ( strlen($_POST['_length']) > $mm_lenght) {
-                    $errors[] = __( 'Please enter up to '.$mm_lenght.' digit in Length.', 'dokan' );
-                } 
-                
-                
-                if ( strlen($_POST['_width']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Width.', 'dokan' );
-                } 
-                elseif (  strlen($_POST['_width']) > $mm_width) {
-                    $errors[] = __( 'Please enter up to '.$mm_width.' digit in Width.', 'dokan' );
-                } 
-                
-                
-                if ( strlen($_POST['_height']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
-                } 
-                elseif (  strlen($_POST['_height']) > $mm_height) {
-                    $errors[] = __( 'Please enter up to '.$mm_height.' digit in Height.', 'dokan' );
-                }
+            // product dimensions
+            $unit = isset($_POST['lb-dimension-unit']) ? $_POST['lb-dimension-unit'] : null;
+            $length = isset($_POST['_length']) ? (double)$_POST['_length'] : null;
+            $width = isset($_POST['_width']) ? (double)$_POST['_width'] : null;
+            $height = isset($_POST['_height']) ? (double)$_POST['_height'] : null;
+
+            $unitCorrection = 1.0;
+            if ('cm' === $unit) {
+                $unitCorrection = 0.1;
+            } else if ('m' === $unit) {
+                $unitCorrection = 0.001;
             }
-            
-            elseif($_POST['lb-dimension-unit']=='cm')
-            {
-                 $cm_width = get_option('_width_size')*100;
-                $cm_lenght = get_option('_length_size')*100;
-                $cm_height = get_option('_height_size')*100;
-                
-                if ( strlen($_POST['_length']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
-                } 
-                elseif ( strlen( $_POST['_length']) > $cm_lenght) {
-                    $errors[] = __( 'Please enter up to '.$cm_lenght.' digit in Length.', 'dokan' );
-                } 
-                
-                 if ( strlen($_POST['_width']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
-                } 
-                elseif (  strlen($_POST['_width']) > $cm_width) {
-                    $errors[] = __( 'Please enter up to '.$cm_width.' digit in Width.', 'dokan' );
-                } 
-                
-                 if ( strlen($_POST['_height']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
-                } 
-                elseif (  strlen($_POST['_height']) > $cm_height) {
-                    $errors[] = __( 'Please enter up to '.$cm_height.' digit in Height.', 'dokan' );
-                }
-            } 
-            
-            elseif($_POST['lb-dimension-unit']=='m')
-            {
-                 if ( strlen($_POST['_length']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Length.', 'dokan' );
-                } 
-                elseif ( strlen( $_POST['_length']) > get_option('_length_size')) {
-                      $errors[] = __( 'Please enter up to '.get_option('_length_size').' digit in Length.', 'dokan' );
-                } 
-                
-                 if ( strlen($_POST['_width']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Width.', 'dokan' );
-                } 
-                elseif (  strlen($_POST['_width']) > get_option('_width_size')) {
-                    $errors[] = __('Please enter up to '.get_option('_width_size').' digit in Width.', 'dokan' );
-                } 
-            
-                 if ( strlen($_POST['_height']) < 0) {
-                    $errors[] = __( 'Negative Value is not allowed in Height.', 'dokan' );
-                } 
-                elseif ( strlen( $_POST['_height']) > get_option('_height_size')) {
-                    $errors[] = __( 'Please enter up to '.get_option('_height_size').' digit in Height.', 'dokan' );
-                }
+            // default values in mm
+            $maxLength = ((double)get_option('_product_max_length')) * $unitCorrection;
+            $maxWidth = ((double)get_option('_product_max_width')) * $unitCorrection;
+            $maxHeight = ((double)get_option('_product_max_height')) * $unitCorrection;
+
+            // check clamp
+            if ($length && $maxLength && ($length < 0 || $length > $maxLength)) {
+                $errors[] = __('Invalid length', 'ktt');
             }
-            
-            
-            
-            
-            if( strlen($post_content) > get_option('discription_limit'))
-            {
-                $errors[] = __( 'Please enter up to '.get_option('discription_limit').' character in product descprion.', 'dokan' ); 
+            if ($width && $maxWidth && ($width < 0 || $width > $maxWidth)) {
+                $errors[] = __('Invalid width', 'ktt');   
             }
+            if ($height && $maxHeight && ($height < 0 || $height > $maxHeight)) {
+                $errors[] = __('Invalid height', 'ktt');
+            }            
             
-            
+            // check description limit
+            $descriptionLimit = (int)get_option('_product_description_limit');
+            if($descriptionLimit && strlen($post_content) > $descriptionLimit)
+            {
+                $errors[] = __('Description is too long', 'ktt');
+            }
+
+            $shortDescriptionLimit = (int)get_option('_product_short_description_limit');
+            if($shortDescriptionLimit && strlen($post_excerpt) > $shortDescriptionLimit)
+            {
+                $errors[] = __('Short description is too long', 'ktt');
+            }
 
             if( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ) {
                 $product_cat    = intval( $_POST['product_cat'] );
@@ -242,7 +190,6 @@ class Dokan_Template_Products {
                     AND $wpdb->postmeta.meta_key = '_sku' AND $wpdb->postmeta.meta_value = '%s'
                  ", $sku ) );
             
-            
 
             if ( isset( $_POST['dokan_product_id'] ) && empty( $_POST['dokan_product_id'] ) ) {
                
@@ -253,7 +200,7 @@ class Dokan_Template_Products {
                 self::$errors = apply_filters( 'dokan_can_add_product', $errors );
                 
             } else {
-                 if ( ! empty( $sku ) && $_sku_post_id != (int) $_POST['dokan_product_id']  ) {
+                if ($_sku_post_id && ! empty( $sku ) && $_sku_post_id != (int) $_POST['dokan_product_id']  ) {
                     $errors[] = __( 'Product SKU must be unique.', 'dokan' );
                 }
                 

@@ -46,41 +46,14 @@
                         
 	                    <label class="control-label"><?php _e( 'length', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_length', array( 'class' => 'form-control' ), 'number' ); ?>
-                         <div class="dokan-product-length dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Please choose a Length !!!', 'dokan'); ?>
-                                    </div>
-                        <div class="dokan-product-length-nagetive dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Negative value is not allowed !!!', 'dokan'); ?>
-                                    </div>
-                        <div class="dokan-product-length-limit dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Please enter up to <span></span>', 'dokan'); ?>
-                                    </div>
 					</div>
 					<div class="col-md-3">
 	                    <label class="control-label"><?php _e( 'width', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_width', array( 'class' => 'form-control' ), 'number' ); ?>
-                        <div class="dokan-product-width dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Please choose a Width !!!', 'dokan'); ?>
-                                    </div>
-                         <div class="dokan-product-width-nagetive dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Negative value is not allowed !!!', 'dokan'); ?>
-                                    </div>
-                        <div class="dokan-product-width-limit dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Please enter up to <span></span>', 'dokan'); ?>
-                                    </div>
 					</div>
 					<div class="col-md-3">
 	                    <label class="control-label"><?php _e( 'height', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_height', array( 'class' => 'form-control' ), 'number' ); ?>
-                        <div class="dokan-product-heigth dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Please choose a Height !!!', 'dokan'); ?>
-                                    </div>
-                         <div class="dokan-product-height-nagetive dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Negative value is not allowed !!!', 'dokan'); ?>
-                                    </div>
-                        <div class="dokan-product-heigth-limit dokan-hide dokan-alert dokan-alert-danger">
-                                            <?php _e('Please enter up to <span></span>', 'dokan'); ?>
-                                    </div>
 					</div>
 					<div class="col-md-3">
 	                    <label class="control-label"><?php _e( 'Dimension unit', 'dokan' ) ?></label>
@@ -174,6 +147,32 @@
                         </div>
                     </div>
                 <?php endif; ?>
+                <div class="show_if_needs_shipping">
+                    <div class="dokan-form-group">
+                        <label class="dokan-control-label"><?php _e('Expected delivery time for product in the warehouse', 'ktt'); ?></label>
+                        <?php dokan_post_input_box(
+                            $post_id, 
+                            '_expected_delivery_in_warehouse', 
+                            array( 
+                                'placeholder' => __( 'Expected delivery time for product in the warehouse', 'ktt' ),
+                                'value' => get_post_meta( $post_id, '_expected_delivery_in_warehouse', true)
+                            ),
+                            'text' 
+                        ); ?>
+                    </div>
+                    <div class="dokan-form-group">
+                        <label class="dokan-control-label"><?php _e('Expected delivery time for product not in the warehouse', 'ktt'); ?></label>
+                        <?php dokan_post_input_box(
+                            $post_id, 
+                            '_expected_delivery_no_warehouse', 
+                            array( 
+                                'placeholder' => __( 'Expected delivery time for product not in the warehouse', 'ktt' ),
+                                'value' => get_post_meta( $post_id, '_expected_delivery_no_warehouse', true)
+                            ),
+                            'text' 
+                        ); ?>
+                    </div>
+                </div>
             </div>
         <?php endif; ?>
 
