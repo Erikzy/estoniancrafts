@@ -222,5 +222,74 @@ jQuery(document).ready(function($)
 	};
 
 	ec_merchant.init();
+    
+    
+     var mediaUploader;
+    //post picture
+    //Add picture
+    $('[data-action="add"]').click(function(e){
+        
+        e.preventDefault();
+        var $parent_element = $(this).parent();
+        var $this = $(this);
+        
+         // If the uploader object has already been created, reopen the dialog
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+                // Extend the wp.media object
+                mediaUploader = wp.media.frames.file_frame = wp.media({
+                    title: 'Choose Image',
+                    button: {
+                        text: 'Choose Image'
+                    },
+                    multiple: false
+                });
+
+                // When a file is selected, grab the URL and set it as the text field's value
+                mediaUploader.on('select', function() {
+                   
+                    attachment = mediaUploader.state().get('selection').first().toJSON();
+                    $('[name="post_picture"]', $parent_element).val(attachment.id);
+                    $('img', $parent_element).attr('src', attachment.url);
+                    $this.addClass('hide');
+                    $('[data-action="remove"]', $parent_element).removeClass('hide');
+                });
+                // Open the uploader dialog
+                mediaUploader.open();
+        
+        
+    });
+    
+    
+    //remove image
+     $('[data-action="remove"]').click(function(e){
+         
+        e.preventDefault();
+        var $parent_element = $(this).parent();
+        var $this = $(this);
+        $('[name="post_picture"]', $parent_element).val('');
+        $('img', $parent_element).removeAttr('src');
+        $this.addClass('hide');
+        $('[data-action="add"]', $parent_element).removeClass('hide');
+         
+         
+     });
+    
+
+    //get post status and notify to merchan when click on publish button
+    $('[data-btn="submit"]').click(function(){
+        $('[name="post_status"]').val($(this).attr('data-action'));
+         var $parent_element = $(this).closest('#primaryPostForm');
+        if($('[name="post_status"]').val()=='pending')
+           {
+                alert($('.publish_notify', $parent_element).html());
+           }
+    })
+    
+    
+    
+   
 
 });
