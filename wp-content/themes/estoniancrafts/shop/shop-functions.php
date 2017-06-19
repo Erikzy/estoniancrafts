@@ -653,7 +653,7 @@ function add_or_edit_blog()
                     <img src="<?php if( $post_thumbnail_url ) echo $post_thumbnail_url[0]; ?>" data-img="post_picture">
                     <input type="hidden" name="post_picture" value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>">
                     <a href="#" btn-name="post_picture" data-action="add" data-btn="manage_image"  class=" <?php if( $post_thumbnail_id ) echo 'hide'; ?>">Add Image</a>
-                    <a href="#" btn-name="post_picture" data-action="remove"  data-btn="manage_image">Remove Image</a>
+                    <a href="#" btn-name="post_picture" data-action="remove"  data-btn="manage_image" class="<?php if( !$post_thumbnail_id ) echo 'hide'; ?>">Remove Image</a>
                     
                 </div>
             </div>
