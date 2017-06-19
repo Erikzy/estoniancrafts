@@ -115,7 +115,7 @@ get_header( 'shop' );
 									</a>
 								</li>
 							<?php endforeach; ?>
-                            <li class="co-worker"><a href="<?php echo home_url('merchant-blog/?athr_id='.$ec_page->user->data->ID) ; ?>">Blog</a></li>
+                            <li class="co-worker"><a href="<?php echo home_url('merchant-blog/?id='.$ec_page->user->data->ID) ; ?>">Blog</a></li>
 						</ul>
 					</div>
 
