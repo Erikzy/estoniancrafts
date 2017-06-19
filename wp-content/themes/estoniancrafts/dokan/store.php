@@ -102,6 +102,9 @@ get_header( 'shop' );
 					<div class="co-workers">
 						<ul>
 							<?php foreach($ec_page->related_people as $person): ?>
+                            <?php //echo '<pre>';
+                                                                                                    //print_r($ec_page); ?>
+                                                                                                    
 								<li class="co-worker">
 									<a href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
 										<?php if(!empty($person->avatar_url)): ?>
@@ -112,6 +115,7 @@ get_header( 'shop' );
 									</a>
 								</li>
 							<?php endforeach; ?>
+                            <li class="co-worker"><a href="<?php echo home_url('merchant-blog/?athr_id='.$ec_page->user->data->ID) ; ?>">Blog</a></li>
 						</ul>
 					</div>
 
