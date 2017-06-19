@@ -2,6 +2,8 @@
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
+ob_clean();
+ob_start();
 
 class EC_UserRelation
 {
@@ -432,6 +434,8 @@ class EC_UserRelation
 
 EC_UserRelation::init();
 
+
+
 /*
 * Team member list page shortcode
 */
@@ -454,3 +458,252 @@ function ec_shop_team($atts)
 }
 
 add_shortcode('ec_shop_team', 'ec_shop_team');
+
+
+
+
+
+/**
+ * BLog manage for loggin merchant(seller)
+ */
+
+function myaccount_blog()
+{
+    if(is_user_logged_in())
+    {
+        global $current_user;
+        wp_get_current_user();
+        $blog_post = '
+        <br>
+        <a class="btn" href="'.home_url('my-account/add-blog/').'">Add new post</a>
+        <br>
+        <table class="table table-hover">
+        <thead>
+        <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>';
+        
+        query_posts(array(
+            'author'        =>  $current_user->ID,
+            'orderby'       =>  'post_date',
+            'order'         =>  'DESC',
+            'post_status' => 'any',
+            'posts_per_page' => -1
+        ));
+        $i=1;
+        while ( have_posts() ) : the_post(); 
+            $blog_post .='
+            <tr>
+            <th scope="row">'.$i.'</th>
+            <td>'.get_the_title().'</td>
+            <td>'.get_the_date().'</td>
+            <td>'.get_post_status().'</td>
+            <td>';
+        
+            $blog_post .= (get_post_status() != 'publish') ? '<a class="btn btn-primary btn-sm" href="'.home_url('my-account/edit-blog/?edit_blog='.get_the_ID()).'">Edit</a>' : '' ;
+            $blog_post .='</td>
+            </tr>';
+        
+            $i++;
+        endwhile;
+        $blog_post .= '</tbody>
+        </table>';
+
+        wp_reset_query();
+        return $blog_post;
+    }
+    else
+    {
+        _e('<blockquote>Please log in to continue</blockquote> ', 'ktt');
+    }
+
+
+}
+add_shortcode('myaccount_blog', 'myaccount_blog');
+
+
+
+
+/***
+* Add or edit post view for merchant
+*/
+function add_or_edit_blog()
+{
+    if(is_user_logged_in())
+    {
+        
+        $postTitleError='';
+        $post_id='';
+        $request_id='';
+        $hasError=false;
+        $post_title='';
+        $post_content='';
+        $post_status='';
+        $post_thumbnail_id='';
+        $post_thumbnail_url='';
+
+
+        if( isset($_GET['edit_blog']))
+        {
+            $request_id = $_GET['edit_blog'];
+            query_posts(array('p' => $request_id, 'post_type' => 'any'));
+            while(have_posts()): the_post();
+                $post_title =  get_the_title();
+                $post_content = get_the_content();
+                $post_status = get_post_status();
+                $post_thumbnail_id = get_post_thumbnail_id(get_the_ID()); 
+                $post_thumbnail_url = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'thumbnail_size' );
+            endwhile;
+            wp_reset_query();
+        }
+        
+        if ( isset( $_POST['submitted'] ) && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' ) )
+        {
+            if ( trim( $_POST['postTitle'] ) === '' ) 
+            {
+                $postTitleError = 'Please enter a title.';
+                $hasError = true;
+            }
+            
+            if($hasError==false)
+            {
+                //
+                if( $request_id )
+                {
+                    //update post data
+                    $post_information = array(
+                        'ID' => $request_id,
+                        'post_title' => esc_attr(wp_strip_all_tags( $_POST['postTitle'] )),
+                        'post_content' => esc_attr($_POST['postContent']),
+                        'post_type' => 'post',
+                        'post_status' => esc_attr($_POST['post_status'])
+                    );
+                    
+                    $post_id = wp_update_post( $post_information );  
+                }
+                else
+                {
+                    //insert post data
+                    $post_information = array(
+                        'post_title' => esc_attr(wp_strip_all_tags( $_POST['postTitle'] )),
+                        'post_content' => esc_attr($_POST['postContent']),
+                        'post_type' => 'post',
+                        'post_status' => esc_attr($_POST['post_status'])
+                    );
+                    $post_id = wp_insert_post( $post_information );
+
+                    //send mail
+                    $to = get_option('merchant_admin_email');
+                    $subject= 'revision for post';
+                    $message = home_url('dashboard/edit-blog/?edit_blog='.$post_id);
+                    wp_mail( $to, $subject, $message );
+                }
+                
+                //set post image
+                set_post_thumbnail( $post_id, esc_attr($_POST['post_picture']) );
+            }
+        }
+        //post id
+        if(isset($_POST['post_status']))
+        {
+            if($_POST['post_status']==='trash')
+            {
+                wp_redirect( home_url('my-account/blog/') );
+                exit; 
+            }
+        }
+        else  
+        {
+            if ( $post_id )
+            {
+                wp_redirect( home_url('my-account/edit-blog/?edit_blog='.$post_id) );
+                exit;
+            }
+        }
+?>
+    <form action="" id="primaryPostForm" method="POST">
+        <div class="row">
+            <div class="col-md-8">
+                <br>
+                <?php if ( $postTitleError != '' ) { ?>
+                    <span class="error"><?php echo $postTitleError; ?></span>
+                    <div class="clearfix"></div>
+                <?php } ?> 
+                <br>
+                <label for="postTitle"><?php _e('Post Title:', 'framework'); ?></label>
+                <input type="text" name="postTitle" id="postTitle" class="" value="<?php if ( isset( $_POST['postTitle'] ) )  echo $_POST['postTitle']; elseif( $post_title ) echo $post_title; ?>"/>
+                <br>
+                <br>    
+                <label for="postContent"><?php  _e('Post Content:', 'framework'); ?></label>
+                <?php wp_editor(html_entity_decode($post_content),  'postContent', array('editor_height' => 150,  'media_buttons' => true, 'editor_class' => '') ); ?>
+                <br>
+                <input type="hidden" name="submitted" id="submitted" value="true" />
+                <input type="hidden" name="post_status" value="<?php if($post_status) echo $post_status; ?>" />
+                <label class="publish_notify hide"><?php _e('Carefully look through the post. The post will go to translation', 'ktt'); ?></label>
+            </div>
+            <div class="col-md-4">
+                <br>
+                <div class="fetaute-image">
+                    <img src="<?php if( $post_thumbnail_url ) echo $post_thumbnail_url[0]; ?>" data-img="post_picture">
+                    <input type="hidden" name="post_picture" value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>">
+                    <a href="#" btn-name="post_picture" data-action="add" data-btn="manage_image"  class=" <?php if( $post_thumbnail_id ) echo 'hide'; ?>">Add Image</a>
+                    <a href="#" btn-name="post_picture" data-action="remove"  data-btn="manage_image">Remove Image</a>
+                    
+                </div>
+            </div>
+        </div>
+        <?php   wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
+        <button type="submit" class="btn" data-action="pending" data-btn="submit"><?php  _e('Publish', 'ktt'); ?></button>
+        <button type="submit" class="btn" data-action="draft" data-btn="submit"><?php  _e('Draft', 'ktt'); ?></button>
+        <?php if ( $request_id ) : ?>
+        <button type="submit" class="btn" data-action="trash" data-btn="submit"><?php  _e('Delete', 'ktt'); ?></button>
+        <?php endif; ?>
+    </form>
+    <?php 
+    }
+    else
+    {
+        _e('<blockquote>Please log in to continue</blockquote>', 'ktt');
+    }
+}
+add_shortcode('add_or_edit_blog', 'add_or_edit_blog');
+
+
+
+
+/**
+ * Merchant blog
+ */
+
+function merchant_blog()
+{
+ echo '<br>';
+    if(isset($_GET['athr_id']))
+    {
+        query_posts(array(
+            'author'        =>  esc_attr($_GET['athr_id']),
+            'orderby'       =>  'post_date',
+            'order'         =>  'DESC',
+            'post_status' => 'publish',
+            'posts_per_page' => -1
+        ));
+        $i=1;
+        while ( have_posts() ) : the_post();
+        ?>
+            <div class="blog-group">
+                <strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong>
+                <?php the_content(); ?>    
+            </div><br>
+            <hr>
+        <?php
+        endwhile;
+        wp_reset_query();
+    }
+}
+add_shortcode('merchant_blog', 'merchant_blog');
