@@ -27,6 +27,8 @@ class Dokan_Template_Products {
         add_action( 'template_redirect', array( $this, 'handle_delete_product' ) );
         add_action( 'dokan_render_new_product_template', array( $this, 'render_new_product_template' ), 10 );
         add_action( 'dokan_render_product_edit_template', array( $this, 'load_product_edit_template' ), 11 );
+        
+      
     }
 
     /**
@@ -126,6 +128,47 @@ class Dokan_Template_Products {
             if ( empty( $post_title ) ) {
                 $errors[] = __( 'Please enter product title', 'dokan' );
             }
+            
+            // product dimensions
+            $unit = isset($_POST['lb-dimension-unit']) ? $_POST['lb-dimension-unit'] : null;
+            $length = isset($_POST['_length']) ? (double)$_POST['_length'] : null;
+            $width = isset($_POST['_width']) ? (double)$_POST['_width'] : null;
+            $height = isset($_POST['_height']) ? (double)$_POST['_height'] : null;
+
+            $unitCorrection = 1.0;
+            if ('cm' === $unit) {
+                $unitCorrection = 0.1;
+            } else if ('m' === $unit) {
+                $unitCorrection = 0.001;
+            }
+            // default values in mm
+            $maxLength = ((double)get_option('_product_max_length')) * $unitCorrection;
+            $maxWidth = ((double)get_option('_product_max_width')) * $unitCorrection;
+            $maxHeight = ((double)get_option('_product_max_height')) * $unitCorrection;
+
+            // check clamp
+            if ($length && $maxLength && ($length < 0 || $length > $maxLength)) {
+                $errors[] = __('Invalid length', 'ktt');
+            }
+            if ($width && $maxWidth && ($width < 0 || $width > $maxWidth)) {
+                $errors[] = __('Invalid width', 'ktt');   
+            }
+            if ($height && $maxHeight && ($height < 0 || $height > $maxHeight)) {
+                $errors[] = __('Invalid height', 'ktt');
+            }            
+            
+            // check description limit
+            $descriptionLimit = (int)get_option('_product_description_limit');
+            if($descriptionLimit && strlen($post_content) > $descriptionLimit)
+            {
+                $errors[] = __('Description is too long', 'ktt');
+            }
+
+            $shortDescriptionLimit = (int)get_option('_product_short_description_limit');
+            if($shortDescriptionLimit && strlen($post_excerpt) > $shortDescriptionLimit)
+            {
+                $errors[] = __('Short description is too long', 'ktt');
+            }
 
             if( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ) {
                 $product_cat    = intval( $_POST['product_cat'] );
@@ -147,7 +190,6 @@ class Dokan_Template_Products {
                     AND $wpdb->postmeta.meta_key = '_sku' AND $wpdb->postmeta.meta_value = '%s'
                  ", $sku ) );
             
-            
 
             if ( isset( $_POST['dokan_product_id'] ) && empty( $_POST['dokan_product_id'] ) ) {
                
@@ -158,7 +200,7 @@ class Dokan_Template_Products {
                 self::$errors = apply_filters( 'dokan_can_add_product', $errors );
                 
             } else {
-                 if ( ! empty( $sku ) && $_sku_post_id != (int) $_POST['dokan_product_id']  ) {
+                if ($_sku_post_id && ! empty( $sku ) && $_sku_post_id != (int) $_POST['dokan_product_id']  ) {
                     $errors[] = __( 'Product SKU must be unique.', 'dokan' );
                 }
                 
@@ -196,6 +238,111 @@ class Dokan_Template_Products {
                 }
 
                 if ( $product_id ) {
+                    
+                    
+                    
+                    
+                    
+                    /****
+                     * Added by urmas
+                     * Manufacturing and Used materials diled
+                     */
+                    
+                    
+                    
+                    
+                    update_post_meta( $product_id, '_backorder_time', wc_clean($_POST['_backorder_time']));
+        update_post_meta( $product_id, '_fragile_cargo', wc_clean($_POST['_fragile_cargo']));
+        update_post_meta( $product_id, '_manufacturing_method', wc_clean($_POST['_manufacturing_method']));
+        update_post_meta( $product_id, '_manufacturing_desc', wc_clean($_POST['_manufacturing_desc']));
+        update_post_meta( $product_id, '_manufacturing_time', wc_clean($_POST['_manufacturing_time']));
+        update_post_meta( $product_id, '_manufacturing_time_unit', wc_clean($_POST['_manufacturing_time_unit']));
+        update_post_meta( $product_id, '_manufacturing_qty', wc_clean($_POST['_manufacturing_qty']));
+        update_post_meta( $product_id, '_manufacturing_qty_unit', wc_clean($_POST['_manufacturing_qty_unit']));
+
+        update_post_meta( $product_id, '_maintenance_info', $_POST['_maintenance_info']);
+        
+        if( ! empty( $_POST['_media_link'] ) ){
+
+            $media = $_POST['_media_link'];
+
+            // Remove all empty strings first
+            $media = array_diff($media, array('http://', 'https://', ''));
+
+            // Make sure all media links have http:// or https:// in front of them
+            $media = array_map(function($element) {
+                    return (strpos($element, 'http://') !== 0 && strpos($element, 'https://') !== 0)? 'http://'.$element : $element;
+                },
+                $media
+            );
+
+            if(!count($media)){ $media = ['']; }
+            
+            update_post_meta( $product_id, '_media_links', wc_clean($media));
+
+        }
+
+
+
+        if( ! empty( $_POST['_material_country'] ) ){
+
+            $material_array = [];
+
+            foreach ($_POST['_material_country'] as $index => $country) {
+
+                $material = [ 'country' => $country, 'name' => $_POST['_material_name'][$index], 'contents' => $_POST['_material_contents'][$index], 'desc' => $_POST['_material_desc'][$index] ];
+
+                $data_entered = array_diff($material, array('', ' '));
+                if( count($data_entered) ) { 
+                    $material_array[] = $material; 
+                }
+
+            }
+
+            if(!count($material_array)){ 
+                $material_array = [['country' => '', 'name' => '', 'contents' => '', 'desc' => '']];
+            }
+
+            update_post_meta( $product_id, '_materials', wc_clean($material_array));
+
+        }
+
+
+        if( ! empty( $_POST['_cert_file'] ) ){
+
+            $certificates = [];
+
+            foreach ($_POST['_cert_file'] as $index => $file) {
+
+                if( $file == 0 || $file == '0' || empty($_POST['_cert_type'][$index]) ){
+                    continue;
+                }
+
+                $cert = [ 'type' => $_POST['_cert_type'][$index], 'file' => $file ];
+
+                $data_entered = array_diff($cert, array('', ' '));
+                if( count($data_entered) ) { 
+                    $certificates[] = $cert; 
+                }
+
+            }
+
+            if(!count($certificates)){ 
+                $certificates = [['type' => '', 'file' => '']];
+            }
+
+            update_post_meta( $product_id, '_certificates', wc_clean($certificates));
+
+        }
+                    
+                    /****
+                     * Added by urmas
+                     * Finish Manufacturing and Used materials diled
+                     */     
+                    
+                    
+                    
+                    /**/
 
                     /** set images **/
                     if ( $featured_image ) {
@@ -484,5 +631,13 @@ class Dokan_Template_Products {
 
         dokan_delete_product_handler();
     }
+    
+    
+    
+    
+ 
+    
+    
+    
 
 }

@@ -14,6 +14,13 @@ include_once($currentDirname.'/shortcodes.php');
 // Load widgets
 include_once($currentDirname.'/widgets.php');
 
+// Load facebook
+include_once($currentDirname.'/facebook/class-facebook-login.php');
+
+// Load shops
+include_once($currentDirname.'/shop/shop-functions.php');
+
+
 //WC_Cache_Helper::prevent_caching();
 
 /**
@@ -196,6 +203,48 @@ if (!function_exists('tribe_is_started_event')) {
     }
 }
 
+// override 'woocommerce_package_rates' filter
+if (function_exists('dokan_multiply_flat_rate_price_by_seller')) {
+    remove_filter('woocommerce_package_rates', 'dokan_multiply_flat_rate_price_by_seller', 1);
+}
+
+function ec_multiply_flat_rate_price_by_seller( $rates, $package ) {
+
+    $flat_rate_array = preg_grep("/^flat_rate:*/", array_keys( $rates ) );
+    if (count($flat_rate_array)) {
+        $flat_rate       = $flat_rate_array[0];
+
+        foreach ( $package['contents'] as $product ) {
+            $sellers[] = get_post_field( 'post_author', $product['product_id'] );
+        }
+
+        $sellers = array_unique( $sellers );
+
+        $selllers_count = count( $sellers );
+
+        if ( isset( $rates[$flat_rate] ) && ! is_null( $rates[$flat_rate] ) ) {
+
+            $rates[$flat_rate]->cost = $rates[$flat_rate]->cost * $selllers_count;
+
+            // we assumed taxes key will always be 1, if different condition appears in future, we'll update the script
+            if ( isset( $rates[$flat_rate]->taxes[1] ) ) {
+                $rates[$flat_rate]->taxes[1] = $rates[$flat_rate]->taxes[1] * $selllers_count;
+            }
+
+        } elseif ( isset( $rates['international_delivery'] ) && ! is_null( $rates['international_delivery'] ) ) {
+
+            $rates['international_delivery']->cost = $rates['international_delivery']->cost * $selllers_count;
+            // we assumed taxes key will always be 1, if different condition appears in future, we'll update the script
+            $rates['international_delivery']->taxes[1] = $rates['international_delivery']->taxes[1] * $selllers_count;
+
+         }
+
+    }
+
+    return $rates;
+}
+add_filter( 'woocommerce_package_rates', 'ec_multiply_flat_rate_price_by_seller', 2,2);
+
 if (!function_exists('is_user_idcard')) {
     function is_user_idcard() {
         // Just to be sure if user is currently logged in
@@ -214,4 +263,122 @@ if (!function_exists('is_user_idcard')) {
 
         return (bool) $user != NULL;
     }
+}
+
+/*
+* User visual composer carousel widget
+*/
+class EC_vcUserCarousel extends WPBakeryShortCode
+{
+
+    public function __construct()
+    {
+        add_action('init', array($this, 'vc_mapping'));
+        add_shortcode('ec_user_carousel', array($this, 'vc_html'));
+    }
+
+    public function vc_mapping()
+    {
+        vc_map([
+            'name' => __('EC Users', 'ktt'),
+            'base' => 'ec_user_carousel',
+            'category' => __('My Custom Elements', 'text-domain'),
+            'params' => [
+                [
+                    'type' => 'checkbox',
+                    'heading' => __('Is brand', 'ktt'),
+                    'param_name' => 'is_brand',
+                    'description' => __('Check to show users as brand', 'ktt'),
+                ],
+                [
+                    'type' => 'autocomplete',
+                    'param_name' => 'include',
+                    'heading' => __( 'Users', 'ktt' ),
+                    'description' => __( 'Add users by email', 'ktt' ),
+                    'settings' => [
+                        'multiple' => true,
+                        'sortable' => true,
+                        'groups' => true,
+                        'min_length' => 1,
+                    ]
+                ]
+            ]
+        ]);
+    }
+
+    public function vc_html($atts)
+    {
+        extract(
+            shortcode_atts(
+                array(
+                    'include' => '',
+                    'is_brand' => false
+                ),
+                $atts
+            )
+        );
+
+        // get users
+        $include = explode(',', $atts['include']);
+        $include = array_map(function ($value) { return (int)$value; }, $include);
+        $tmpusers = get_users(['include' => $include]);
+            // reorder
+        $findUser = function(&$users, $id) {
+            foreach ($users as $user) {
+                if ((int)$user->ID === $id) {
+                    return $user;
+                }
+            }
+        };
+        $users = [];
+        foreach ($include as $id) {
+            $users[] = $findUser($tmpusers, (int)$id);
+        }
+
+        // get is brand
+        $isBrand = isset($atts['is_brand']) ? $atts['is_brand'] : false;
+
+        ob_start(); 
+
+        echo '<div class="top-users">';
+        foreach ($users as $user):
+        ?>
+            <div class="user-item">
+                <?= get_avatar($user->ID, 128) ?>
+                <h3>
+                    <?php if ($isBrand) : ?>
+                        <?= esc_html(dokan_get_store_info($user->ID)['store_name']) ?>
+                    <?php else: ?>
+                        <?= $user->first_name ?> <?= $user->last_name ?>
+                    <?php endif; ?>
+                </h3>
+
+            </div>
+        <?php
+        endforeach;
+        echo '</div>';
+
+        return ob_get_clean();
+    }
+
+}
+
+new EC_vcUserCarousel();
+
+if ( 'vc_get_autocomplete_suggestion' === vc_request_param( 'action' ) || 'vc_edit_form' === vc_post_param( 'action' ) ) {
+    function ec_user_carousel_include_callback($query, $tag = '', $param_name = '')
+    {
+        global $wpdb;
+        $suggestions = $wpdb->get_results($wpdb->prepare("SELECT ID AS value, user_email AS label FROM `ktt_users` WHERE user_email LIKE %s", '%'.$query.'%'), ARRAY_A);
+        return $suggestions;
+    }
+    add_filter('vc_autocomplete_ec_user_carousel_include_callback', 'ec_user_carousel_include_callback');
+
+    function ec_include_field_render($params)
+    {
+        global $wpdb;
+        $user = $wpdb->get_row($wpdb->prepare("SELECT ID AS value, user_email AS label FROM `ktt_users` WHERE ID = %d", (int)$params['value']), ARRAY_A);
+        return $user;
+    }
+    add_filter( 'vc_autocomplete_ec_user_carousel_include_render', 'ec_include_field_render', 10, 1 ); // Render exact product. Must return an array (label,value)
 }

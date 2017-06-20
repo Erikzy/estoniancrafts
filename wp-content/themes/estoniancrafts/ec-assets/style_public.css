@@ -1224,3 +1224,47 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     height: auto;
     margin: 0 auto;
 }
+
+.ec-facebook-wrapper a, .ec-facebook-wrapper a:hover, .ec-facebook-wrapper a:link, .ec-facebook-wrapper a:active,  .ec-facebook-wrapper a:visited {
+    cursor: pointer;
+    color: white;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    -moz-text-size-adjust: none;
+    font-size: 16px;
+    background-color: #3B55A0;
+    border-radius: 5px;
+    border: solid 1px #3B55A0;
+}
+
+.top-users {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.top-users .user-item {
+    display: inline-block;
+    margin: 16px;
+}
+.top-users .user-item .avatar {
+    margin: 0px;
+}
+
+#tab-ask_information {
+    text-align: center;
+}
+#tab-ask_information div {
+    width: 600px;
+    display: inline-block;
+    text-align: left;
+}
+#tab-ask_information label {
+    display: inline-block;
+}
+#tab-ask_information label.stretch {
+    display: block;
+    width: 100%;
+}
+#tab-ask_information textarea {
+    display: block;
+}
