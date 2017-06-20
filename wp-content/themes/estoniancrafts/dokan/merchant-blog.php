@@ -21,7 +21,7 @@ get_header( 'shop' );
         ));
         $i=1;
         while ( have_posts() ) : the_post();
-        
+            /*template*/
            get_template_part( 'content', get_post_format() );
         
         endwhile;
