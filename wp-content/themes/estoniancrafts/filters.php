@@ -340,21 +340,35 @@ function my_messages_message_sent($message) {
     return true;
 }
 
-// custom store permalink
-function ec_override_dokan_rewrite_rules( $custom_store_url ) {
+function ec_replace_link($query) {
 	
-	add_rewrite_rule( '([^/]+)/?$', 'index.php?'.$custom_store_url.'=$matches[1]', 'top' );
-    add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&paged=$matches[2]', 'top' );
+	$author = $query->get('pagename');
+	$seller_info = get_user_by( 'slug', $author );
+	if ($seller_info) {
+		$query->set('store', $author);
+		if ( !is_admin() && $query->is_main_query() && !empty( $author ) ) {
+            $store_info   = dokan_get_store_info( $seller_info->data->ID );
+            $post_per_page = isset( $store_info['store_ppp'] ) && !empty( $store_info['store_ppp'] ) ? $store_info['store_ppp'] : 12;
+            set_query_var( 'posts_per_page', $post_per_page );
+            $query->set( 'post_type', 'product' );
+            $query->set( 'author_name', $author );
+            $query->query['term_section'] = isset( $query->query['term_section'] ) ? $query->query['term_section'] : array();
 
-    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&term=$matches[2]&term_section=true', 'top' );
-    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/page/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&term=$matches[2]&paged=$matches[3]&term_section=true', 'top' );
-
-    add_rewrite_rule( '([^/]+)/toc?$', 'index.php?'.$custom_store_url.'=$matches[1]&toc=true', 'top' );
-    add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?'.$custom_store_url.'=$matches[1]&paged=$matches[2]&toc=true', 'top' );
-
-	//flush_rewrite_rules(); // => hit save under wordpress permalink settings, calls flush_rewrite_rules()
+            if ( $query->query['term_section'] ) {
+                $query->set( 'tax_query',
+                    array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'term_id',
+                            'terms'    => $query->query['term']
+                        )
+                    )
+                );
+            }
+        }
+	}
 }
-add_action('dokan_rewrite_rules_loaded', 'ec_override_dokan_rewrite_rules', 10, 1);
+add_action('pre_get_posts', 'ec_replace_link', 0, 1);
 
 /**
  * Adds a 'Ask information' tab in product single page
@@ -391,4 +405,3 @@ function ec_dokan_ask_information_tab( $val ) {
     	'user' => $user
     ]);
 }
->>>>>>> features-1
