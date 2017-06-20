@@ -115,7 +115,8 @@ get_header( 'shop' );
 									</a>
 								</li>
 							<?php endforeach; ?>
-                            <li class="co-worker"><a href="<?php echo home_url('merchant-blog/?id='.$ec_page->user->data->ID) ; ?>">Blog</a></li>
+                        
+                            <li class="co-worker"><a href="<?php echo home_url('store/'.get_query_var( dokan_get_option( 'custom_store_url', 'dokan_general', 'store' )).'/blog/') ; ?>">Blog</a></li>
 						</ul>
 					</div>
 
