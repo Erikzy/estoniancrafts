@@ -642,7 +642,7 @@ function add_or_edit_blog()
             }
         }
         /*load html form*/
-      include(locate_template('templates/myaccount/add_edit_post.php'));
+        include(locate_template('templates/myaccount/add_edit_post.php'));
         /*Finish html template*/
     }
     else
@@ -653,30 +653,3 @@ function add_or_edit_blog()
 add_shortcode('add_or_edit_blog', 'add_or_edit_blog');
 
 
-
-
-/**
- * Merchant blog
- */
-
-function merchant_blog()
-{
-    if(isset($_GET['id']))
-    {
-        query_posts(array(
-            'author'        =>  esc_attr($_GET['id']),
-            'orderby'       =>  'post_date',
-            'order'         =>  'DESC',
-            'post_status' => 'publish',
-            'posts_per_page' => -1
-        ));
-        $i=1;
-        while ( have_posts() ) : the_post();
-        
-            include(locate_template('templates/myaccount/merchant_blog.php'));
-        
-        endwhile;
-        wp_reset_query();
-    }
-}
-add_shortcode('merchant_blog', 'merchant_blog');
