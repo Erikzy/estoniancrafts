@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying all reviews.
+ * The Template for displaying all merchant blog.
  *
  * @package dokan
  * @package dokan - 2014 1.0
