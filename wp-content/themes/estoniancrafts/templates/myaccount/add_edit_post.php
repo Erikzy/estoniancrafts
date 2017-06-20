@@ -31,13 +31,9 @@
             </div>
         </div>
         <?php   wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
-        <?php if ( $request_id ) : ?>
+        <?php if ( $post_status!='pending' && $post_status!='publish' ) : ?>
         <button type="submit" class="btn" data-action="pending" data-btn="submit"><?php  _e('Publish', 'ktt'); ?></button>
-        <?php endif; ?>
-         <?php if ( !$request_id ) : ?>
         <button type="submit" class="btn" data-action="draft" data-btn="submit"><?php  _e('Draft', 'ktt'); ?></button>
-        <?php endif; ?>
-        <?php if ( $request_id ) : ?>
         <button type="submit" class="btn" data-action="trash" data-btn="submit"><?php  _e('Delete', 'ktt'); ?></button>
         <?php endif; ?>
     </form>

@@ -17,12 +17,13 @@ class Dokan_Rewrites {
         $this->custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'store' );
 
         add_action( 'init', array( $this, 'register_rule' ) );
+        add_action( 'init', array( $this, 'blog_register_rule' ) );
 
         add_filter( 'template_include', array( $this, 'store_template' ) );
         add_filter( 'template_include', array( $this,  'product_edit_template' ) );
         add_filter( 'template_include', array( $this,  'store_toc_template' ) );
         
-        //add_filter( 'template_include', array( $this,  'store_blog_template' ) );
+        add_filter( 'template_include', array( $this,  'store_blog_template' ) );
         
         
         add_filter( 'query_vars', array( $this, 'register_query_var' ) );
@@ -67,7 +68,6 @@ class Dokan_Rewrites {
     function register_rule() {
         $this->query_vars = apply_filters( 'dokan_query_var_filter', array(
             'products',
-            'store',
             'new-product',
             'orders',
             'withdraw',
@@ -113,7 +113,7 @@ class Dokan_Rewrites {
         add_rewrite_rule( $this->custom_store_url.'/([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?'.$this->custom_store_url.'=$matches[1]&paged=$matches[2]&toc=true', 'top' );
       
         
-       add_rewrite_rule( $this->custom_store_url.'/([^/]+)/blog?$', 'index.php?'.$this->custom_store_url.'=$matches[1]&blog=true', 'top' );
+       //add_rewrite_rule( $this->custom_store_url.'/([^/]+)/blog?$', 'index.php?'.$this->custom_store_url.'=$matches[1]&blog=true', 'top' );
         
         
         
@@ -121,6 +121,21 @@ class Dokan_Rewrites {
         
           
     }
+    
+    
+    
+    
+    
+    
+    
+    
+     function blog_register_rule() {
+           add_rewrite_rule( $this->custom_store_url.'/([^/]+)/blog?$', 'index.php?'.$this->custom_store_url.'=$matches[1]&blog=true', 'top' );
+        do_action( 'dokan_rewrite_rules_loaded', $this->custom_store_url );
+    }
+    
+    
+         
 
     /**
      * Register the query var
@@ -192,27 +207,37 @@ class Dokan_Rewrites {
         if ( ! $this->is_woo_installed() ) {
             return $template;
         }
-        
-        global $wp;
-        $current_url = home_url(add_query_arg(array(),$wp->request));
-         $store_name = get_query_var( $this->custom_store_url );
-       
-        
-         if ( stripos( $current_url, 'store/'.$store_name.'/blog' ) ) {
-          return dokan_locate_template( 'merchant-blog.php' );
-        }
+      
        
         if ( get_query_var( 'toc' ) ) {
             return dokan_locate_template( 'store-toc.php' );
         }  
            
-        
-        
-        
-          
-
         return $template;
 
+    }
+
+    
+    
+    
+    /**
+     * Returns the merchant blog template
+     *
+     * @since 2.3
+     *
+     * @param string $template
+     *
+     * @return string
+     */
+    function store_blog_template( $template ) {
+
+        global $wp;
+        $current_url = home_url(add_query_arg(array(),$wp->request));
+         $store_name = get_query_var( $this->custom_store_url );
+         if ( stripos( $current_url, 'store/'.$store_name.'/blog' ) ) {
+          return dokan_locate_template( 'merchant-blog.php' );
+        }
+        return $template;
     }
 
     /**

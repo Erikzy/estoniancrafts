@@ -537,7 +537,6 @@ function add_or_edit_blog()
 {
     if(is_user_logged_in())
     {
-        
         $postTitleError='';
         $post_id='';
         $request_id='';
@@ -547,83 +546,85 @@ function add_or_edit_blog()
         $post_status='';
         $post_thumbnail_id='';
         $post_thumbnail_url='';
-
-
+        
         if( isset($_GET['id']))
         {
             $request_id = esc_attr($_GET['id']);
-            query_posts(array('p' => $request_id, 'post_type' => 'any'));
-            while(have_posts()): the_post();
-            if(get_post_status()=='publish')
+       
+           if(get_post_status($request_id)=='publish' || get_post_status($request_id)=='pending')
             {
                 _e('<blockquote>You have no access for this post </blockquote>', 'ktt');
                 exit;
             }
-                $post_title =  get_the_title();
-                $post_content = get_the_content();
-                $post_status = get_post_status();
-                $post_thumbnail_id = get_post_thumbnail_id(get_the_ID()); 
-                $post_thumbnail_url = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'thumbnail_size' );
-            endwhile;
-            wp_reset_query();
+             $post_title =  get_the_title($request_id);
+             $post_content_tmp = get_post($request_id);
+             $post_content = $post_content_tmp->post_content;
+             $post_status = get_post_status($request_id);
+             $post_thumbnail_id = get_post_thumbnail_id($request_id); 
+             $post_thumbnail_url = wp_get_attachment_image_src( get_post_thumbnail_id($request_id), 'thumbnail_size' );
+          
         }
-        
+
         if ( isset( $_POST['submitted'] ) && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' ) )
         {
-            if ( trim( $_POST['postTitle'] ) === '' ) 
-            {
-                $postTitleError = 'Please enter a title.';
-                $hasError = true;
+            if (!in_array($_POST['post_status'], ['draft', 'pending','trash']))
+            { 
+                _e('<blockquote>Bad request. </blockquote>', 'ktt');
+                exit;
             }
-            
-            if($hasError==false)
+            else
             {
-                 if(esc_attr($_POST['postContent'])=='publish')
-                 {
-                    $post_status = 'pending'  ;
-                 }
-                else
+                if ( trim( $_POST['postTitle'] ) === '' ) 
                 {
-                     $post_status = esc_attr($_POST['postContent']) ;
+                    $postTitleError = 'Please enter a title.';
+                    $hasError = true;
                 }
                 
-                
-                //
-                if( $request_id )
+                if($hasError==false)
                 {
-                    //update post data
-                    $post_information = array(
-                        'ID' => $request_id,
-                        'post_title' => esc_attr(wp_strip_all_tags( $_POST['postTitle'] )),
-                        'post_content' => esc_attr($_POST['postContent']),
-                        'post_type' => 'post',
-                        'post_status' => $post_status
-                    );
+                    if(esc_attr($_POST['post_status'])=='publish')
+                    {
+                        $post_status = 'pending'  ;
+                    }
+                    else
+                    {
+                        $post_status = esc_attr($_POST['post_status']) ;
+                    }
+                 
                     
-                    $post_id = wp_update_post( $post_information );  
+                     $post_information = array(
+                            'post_title' => esc_attr(wp_strip_all_tags( $_POST['postTitle'] )),
+                            'post_content' => esc_attr($_POST['postContent']),
+                            'post_type' => 'post',
+                            'post_status' => $post_status
+                        );
+                    
+                    
+                    
+                    //
+                    if( $request_id )
+                    {
+                        $post_information['ID'] = $request_id; //push
+                        $post_id = wp_update_post( $post_information );  
+                    }
+                    else
+                    {
+                        //insert post data
+                        $post_id = wp_insert_post( $post_information );
+                        
+                        //send mail
+                        $to = get_option('merchant_admin_email');
+                        $subject= 'revision for post';
+                        $message = home_url('my-account/blog/edit?id='.$post_id);
+                        wp_mail( $to, $subject, $message );
+                    }
+                    
+                    //set post image
+                    set_post_thumbnail( $post_id, esc_attr($_POST['post_picture']) );
                 }
-                else
-                {
-                    //insert post data
-                    $post_information = array(
-                        'post_title' => esc_attr(wp_strip_all_tags( $_POST['postTitle'] )),
-                        'post_content' => esc_attr($_POST['postContent']),
-                        'post_type' => 'post',
-                        'post_status' => $post_status
-                    );
-                    $post_id = wp_insert_post( $post_information );
-
-                    //send mail
-                    $to = get_option('merchant_admin_email');
-                    $subject= 'revision for post';
-                    $message = home_url('my-account/blog/edit?id='.$post_id);
-                    wp_mail( $to, $subject, $message );
-                }
-                
-                //set post image
-                set_post_thumbnail( $post_id, esc_attr($_POST['post_picture']) );
             }
         }
+        
         //post id
         if(isset($_POST['post_status']))
         {
@@ -633,14 +634,13 @@ function add_or_edit_blog()
                 exit; 
             }
         }
-        else  
+        
+        if ( $post_id )
         {
-            if ( $post_id )
-            {
-                wp_redirect( home_url('my-account/edit-blog/edit?id='.$post_id) );
-                exit;
-            }
+            wp_redirect( home_url('my-account/blog/edit/?id='.$post_id) );
+            exit;
         }
+        
         /*load html form*/
         include(locate_template('templates/myaccount/add_edit_post.php'));
         /*Finish html template*/
