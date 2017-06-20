@@ -21,7 +21,10 @@ class Dokan_Rewrites {
         add_filter( 'template_include', array( $this, 'store_template' ) );
         add_filter( 'template_include', array( $this,  'product_edit_template' ) );
         add_filter( 'template_include', array( $this,  'store_toc_template' ) );
-
+        
+        //add_filter( 'template_include', array( $this,  'store_blog_template' ) );
+        
+        
         add_filter( 'query_vars', array( $this, 'register_query_var' ) );
         add_filter( 'pre_get_posts', array( $this, 'store_query_filter' ) );
         add_filter( 'woocommerce_get_breadcrumb', array( $this, 'store_page_breadcrumb'), 10 ,1  );
@@ -64,6 +67,7 @@ class Dokan_Rewrites {
     function register_rule() {
         $this->query_vars = apply_filters( 'dokan_query_var_filter', array(
             'products',
+            'store',
             'new-product',
             'orders',
             'withdraw',
@@ -71,6 +75,9 @@ class Dokan_Rewrites {
             'edit-account'
         ) );
 
+     
+        
+        
         foreach ( $this->query_vars as $var ) {
             add_rewrite_endpoint( $var, EP_PAGES );
         }
@@ -104,8 +111,15 @@ class Dokan_Rewrites {
 
         add_rewrite_rule( $this->custom_store_url.'/([^/]+)/toc?$', 'index.php?'.$this->custom_store_url.'=$matches[1]&toc=true', 'top' );
         add_rewrite_rule( $this->custom_store_url.'/([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?'.$this->custom_store_url.'=$matches[1]&paged=$matches[2]&toc=true', 'top' );
-
+      
+        
+       add_rewrite_rule( $this->custom_store_url.'/([^/]+)/blog?$', 'index.php?'.$this->custom_store_url.'=$matches[1]&blog=true', 'top' );
+        
+        
+        
         do_action( 'dokan_rewrite_rules_loaded', $this->custom_store_url );
+        
+          
     }
 
     /**
@@ -138,13 +152,15 @@ class Dokan_Rewrites {
     function store_template( $template ) {
 
         $store_name = get_query_var( $this->custom_store_url );
-
+        
         if ( ! $this->is_woo_installed() ) {
             return $template;
         }
-
+  
         if ( !empty( $store_name ) ) {
             $store_user = get_user_by( 'slug', $store_name );
+            
+            
 
             // no user found
             if ( ! $store_user ) {
@@ -176,9 +192,24 @@ class Dokan_Rewrites {
         if ( ! $this->is_woo_installed() ) {
             return $template;
         }
+        
+        global $wp;
+        $current_url = home_url(add_query_arg(array(),$wp->request));
+         $store_name = get_query_var( $this->custom_store_url );
+       
+        
+         if ( stripos( $current_url, 'store/'.$store_name.'/blog' ) ) {
+          return dokan_locate_template( 'merchant-blog.php' );
+        }
+       
         if ( get_query_var( 'toc' ) ) {
             return dokan_locate_template( 'store-toc.php' );
-        }
+        }  
+           
+        
+        
+        
+          
 
         return $template;
 
