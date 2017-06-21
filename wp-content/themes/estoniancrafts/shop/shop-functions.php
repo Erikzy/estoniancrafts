@@ -506,7 +506,7 @@ function myaccount_blog()
             <td>'.get_post_status().'</td>
             <td>';
         
-            $blog_post .= (get_post_status() != 'publish') ? '<a class="btn btn-primary btn-sm" href="'.home_url('my-account/blog/edit?id='.get_the_ID()).'">Edit</a>' : '' ;
+            $blog_post .= (get_post_status() != 'publish' && get_post_status() != 'pending') ? '<a class="btn btn-primary btn-sm" href="'.home_url('my-account/blog/edit?id='.get_the_ID()).'">Edit</a>' : '' ;
             $blog_post .='</td>
             </tr>';
         
