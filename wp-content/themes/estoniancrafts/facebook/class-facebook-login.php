@@ -135,7 +135,11 @@ class FacebookLogin{
         if(!session_id()) {
             session_start();
         }
-        $fb = $this->initApi();
+        try {
+            $fb = $this->initApi();
+        } catch (Exception $e) {
+            return '#';
+        }
         $helper = $fb->getRedirectLoginHelper();
         // Optional permissions
         $permissions = ['email'];
