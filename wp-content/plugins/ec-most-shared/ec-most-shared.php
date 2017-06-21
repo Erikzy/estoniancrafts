@@ -35,7 +35,7 @@ function ec_most_shared_post()
 
 function msp_update($id)
 {
-    $config = array('app_id' => get_option("facebook_app_id"), 'app_secret'=> get_option("facebook_app_secret"));
+    $config = array('app_id' => get_option("_facebook_app_id"), 'app_secret'=> get_option("_facebook_app_secret"));
     $connect = new \Facebook\Facebook($config);
     $url = get_permalink($id);
     $result = $connect->get('?ids=' . $url . '&fields=engagement', $connect->getApp()->getAccessToken());
