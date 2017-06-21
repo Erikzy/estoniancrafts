@@ -27,7 +27,7 @@
         </span>
 
         <span class="details">
-            <?php printf( '<a href="%s">%s</a>', dokan_get_store_url( $author->ID ), $author->display_name ); ?>
+            <?php printf( '<a href="%s">%s</a>', ec_dokan_get_store_url( $author->ID ), $author->display_name ); ?>
         </span>
     </li>
     <?php if ( !empty( $store_info['address'] ) ) { ?>

@@ -382,3 +382,11 @@ if ( 'vc_get_autocomplete_suggestion' === vc_request_param( 'action' ) || 'vc_ed
     }
     add_filter( 'vc_autocomplete_ec_user_carousel_include_render', 'ec_include_field_render', 10, 1 ); // Render exact product. Must return an array (label,value)
 }
+
+function ec_dokan_get_store_url( $user_id )
+{
+    $userdata = get_userdata( $user_id );
+    $user_nicename = ( !false == $userdata ) ? $userdata->user_nicename : '';
+
+    return sprintf( '%s/%s/', home_url(), $user_nicename );
+}

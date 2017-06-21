@@ -340,35 +340,33 @@ function my_messages_message_sent($message) {
     return true;
 }
 
-function ec_replace_link($query) {
-	
-	$author = $query->get('pagename');
-	$seller_info = get_user_by( 'slug', $author );
-	if ($seller_info) {
-		$query->set('store', $author);
-		if ( !is_admin() && $query->is_main_query() && !empty( $author ) ) {
-            $store_info   = dokan_get_store_info( $seller_info->data->ID );
-            $post_per_page = isset( $store_info['store_ppp'] ) && !empty( $store_info['store_ppp'] ) ? $store_info['store_ppp'] : 12;
-            set_query_var( 'posts_per_page', $post_per_page );
-            $query->set( 'post_type', 'product' );
-            $query->set( 'author_name', $author );
-            $query->query['term_section'] = isset( $query->query['term_section'] ) ? $query->query['term_section'] : array();
+function ec_dokan_rewrite_rules($custom_store_url)
+{
+	add_rewrite_rule( '([^/]+)/?$', 'index.php?pagename=$matches[1]', 'top' );
+    add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]', 'top' );
 
-            if ( $query->query['term_section'] ) {
-                $query->set( 'tax_query',
-                    array(
-                        array(
-                            'taxonomy' => 'product_cat',
-                            'field'    => 'term_id',
-                            'terms'    => $query->query['term']
-                        )
-                    )
-                );
-            }
-        }
-	}
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&term_section=true', 'top' );
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&paged=$matches[3]&term_section=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/toc?$', 'index.php?pagename=$matches[1]&toc=true', 'top' );
+    add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]&toc=true', 'top' );
 }
-add_action('pre_get_posts', 'ec_replace_link', 0, 1);
+add_action('dokan_rewrite_rules_loaded', 'ec_dokan_rewrite_rules', 100, 1);
+
+function ec_post_request($query_vars)
+{
+	if (array_key_exists('pagename', $query_vars)) {
+		// check if it's store
+		$seller = get_user_by( 'slug', $query_vars['pagename']);
+		if ($seller && dokan_get_store_info($seller->data->ID)) {
+			$custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'store' );
+			$query_vars[$custom_store_url] = $query_vars['pagename'];
+			unset($query_vars['pagename']);
+		}
+	}
+	return $query_vars;
+}
+add_filter('request', 'ec_post_request', 100, 1);
 
 /**
  * Adds a 'Ask information' tab in product single page
