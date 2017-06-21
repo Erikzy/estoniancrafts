@@ -83,6 +83,11 @@ class FacebookLogin{
         // No need for the button is the user is already logged
         if(is_user_logged_in())
             return;
+
+        $loginUrl = $this->getLoginUrl();
+        if ($loginUrl === false) {
+            return __('Login or register with Facebook is not set up yet.', 'ktt');
+        }
         // We save the URL for the redirection:
         if(!isset($_SESSION['ec_facebook_url']))
             $_SESSION['ec_facebook_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -104,6 +109,7 @@ class FacebookLogin{
             // We remove them from the session
             unset($_SESSION['ec_facebook_message']);
         }
+
         // Button
         $html .= '<a href="'.$this->getLoginUrl().'" class="btn"><img src="https://www.facebook.com/rsrc.php/v3/yC/r/aMltqKRlCHD.png"><span>'.$button_label.'</span></a>';
         $html .= '</div>';
@@ -138,7 +144,7 @@ class FacebookLogin{
         try {
             $fb = $this->initApi();
         } catch (Exception $e) {
-            return '#';
+            return false;
         }
         $helper = $fb->getRedirectLoginHelper();
         // Optional permissions
@@ -304,6 +310,7 @@ class FacebookLogin{
         update_user_meta( $new_user, 'last_name', $fb_user['last_name'] );
         update_user_meta( $new_user, 'user_url', $fb_user['link'] );
         update_user_meta( $new_user, 'ec_facebook_id', $fb_user['id'] );
+        update_user_meta( $new_user, 'dokan_enable_selling', 1 );
 
         // Log the user ?
         wp_set_auth_cookie( $new_user );
