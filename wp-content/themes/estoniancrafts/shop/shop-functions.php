@@ -416,6 +416,10 @@ class EC_UserRelation
 		}
 		return self::$_membersCache[$cacheKey];
 	}
+    
+    
+    
+    
 
 	/*
 	* If user gets role seller, adds user to his own shop as admin (needed to have 'Job title' enabled for changes
@@ -429,6 +433,61 @@ class EC_UserRelation
 			}
 		}
 	}
+    
+    
+    
+    /**
+     * Insert or update post data
+     * function should return inserted or updated post id
+     */
+    public function insert_or_update_post($data)
+    {
+        $post_id='';
+           
+                    if(esc_attr($data['post_status'])=='publish')
+                    {
+                        $post_status = 'pending'  ;
+                    }
+                    else
+                    {
+                        $post_status = esc_attr($data['post_status']) ;
+                    }
+                 
+                     $post_information = array(
+                            'post_title' => esc_attr(wp_strip_all_tags( $data['postTitle'] )),
+                            'post_content' => esc_attr($data['postContent']),
+                            'post_type' => $data['post'],
+                            'post_status' => $post_status
+                        );
+                    
+                    
+                    
+                    //
+                    if( !empty($data['request_id'] ))
+                    {
+                        $post_information['ID'] = $data['request_id']; //push
+                        $post_id = wp_update_post( $post_information );  
+                    }
+                    else
+                    {
+                        //insert post data
+                        $post_id = wp_insert_post( $post_information );
+                        
+                        //send mail
+                        $to = get_option('merchant_admin_email');
+                        $subject= 'revision for post';
+                        $message = home_url('my-account/blog/edit?id='.$post_id);
+                        wp_mail( $to, $subject, $message );
+                    }
+                    
+        
+                    //set post image
+                    set_post_thumbnail( $post_id, esc_attr($data['post_picture']) );
+        
+        return $post_id;
+        
+    }
+    
 
 }
 
@@ -473,49 +532,7 @@ function myaccount_blog()
     {
         global $current_user;
         wp_get_current_user();
-        $blog_post = '
-        <br>
-        <a class="btn" href="'.home_url('my-account/blog/edit').'">Add new post</a>
-        <br>
-        <table class="table table-hover">
-        <thead>
-        <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>';
-        
-        query_posts(array(
-            'author'        =>  $current_user->ID,
-            'orderby'       =>  'post_date',
-            'order'         =>  'DESC',
-            'post_status' => 'any',
-            'posts_per_page' => -1
-        ));
-        $i=1;
-        while ( have_posts() ) : the_post(); 
-            $blog_post .='
-            <tr>
-            <th scope="row">'.$i.'</th>
-            <td>'.get_the_title().'</td>
-            <td>'.get_the_date().'</td>
-            <td>'.get_post_status().'</td>
-            <td>';
-        
-            $blog_post .= (get_post_status() != 'publish' && get_post_status() != 'pending') ? '<a class="btn btn-primary btn-sm" href="'.home_url('my-account/blog/edit?id='.get_the_ID()).'">Edit</a>' : '' ;
-            $blog_post .='</td>
-            </tr>';
-        
-            $i++;
-        endwhile;
-        $blog_post .= '</tbody>
-        </table>';
-
-        wp_reset_query();
+        include(locate_template('templates/myaccount/blog_listing.php'));
         return $blog_post;
     }
     else
@@ -582,45 +599,17 @@ function add_or_edit_blog()
                 
                 if($hasError==false)
                 {
-                    if(esc_attr($_POST['post_status'])=='publish')
-                    {
-                        $post_status = 'pending'  ;
-                    }
-                    else
-                    {
-                        $post_status = esc_attr($_POST['post_status']) ;
-                    }
-                 
+                    $data = array(
+                        'post_status' => $_POST['post_status'],
+                        'postTitle' => $_POST['postTitle'],
+                        'postContent' => $_POST['postContent'],
+                        'post_picture' => $_POST['post_picture'],
+                        'post_type' => 'post',
+                        'request_id' => $request_id,
+                    );
                     
-                     $post_information = array(
-                            'post_title' => esc_attr(wp_strip_all_tags( $_POST['postTitle'] )),
-                            'post_content' => esc_attr($_POST['postContent']),
-                            'post_type' => 'post',
-                            'post_status' => $post_status
-                        );
-                    
-                    
-                    
-                    //
-                    if( $request_id )
-                    {
-                        $post_information['ID'] = $request_id; //push
-                        $post_id = wp_update_post( $post_information );  
-                    }
-                    else
-                    {
-                        //insert post data
-                        $post_id = wp_insert_post( $post_information );
-                        
-                        //send mail
-                        $to = get_option('merchant_admin_email');
-                        $subject= 'revision for post';
-                        $message = home_url('my-account/blog/edit?id='.$post_id);
-                        wp_mail( $to, $subject, $message );
-                    }
-                    
-                    //set post image
-                    set_post_thumbnail( $post_id, esc_attr($_POST['post_picture']) );
+                   $post_id =  EC_UserRelation::insert_or_update_post($data);
+                   
                 }
             }
         }
