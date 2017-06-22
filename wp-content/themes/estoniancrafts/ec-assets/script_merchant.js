@@ -277,22 +277,13 @@ jQuery(document).ready(function($)
          
      });
     
-
     //get post status and notify to merchan when click on publish button
-    $('[data-btn="submit"]').click(function(){
-        $('[name="post_status"]').val($(this).attr('data-action'));
-         var $parent_element = $(this).closest('#primaryPostForm');
-        if($('[name="post_status"]').val()=='pending')
-           {
-               if (confirm($('.publish_notify', $parent_element).html()) == false) 
-               {
-                    return false;
-               } 
-           }
+    $('#edit-blog-post-form input[name="edit_action[publish]"]').click(function(){
+        var $parent_element = $('#edit-blog-post-form');
+       	if (confirm($('.publish_notify', $parent_element).html()) == false) 
+       	{
+            return false;
+       	}
     })
-    
-    
-    
-   
 
 });

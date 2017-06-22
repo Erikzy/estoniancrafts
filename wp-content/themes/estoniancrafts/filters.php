@@ -370,11 +370,14 @@ function ec_post_request($query_vars)
 			$custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'store' );
 			$query_vars[$custom_store_url] = $query_vars['pagename'];
 			unset($query_vars['pagename']);
+		} else if (array_key_exists('blog', $query_vars)) { // blog conflixt fix
+			unset($query_vars['blog']);
+			$query_vars['pagename'] .= '/blog';
 		}
 	}
 	return $query_vars;
 }
-add_filter('request', 'ec_post_request', 100, 1);
+add_filter('request', 'ec_post_request', 0, 1);
 
 function ec_register_query_vars($vars)
 {
@@ -389,7 +392,7 @@ function ec_store_blog( $template )
 	if (get_query_var('blog')) {
 		$custom_store_url = dokan_get_option('custom_store_url', 'dokan_general', 'store');
 		$store_name = get_query_var($custom_store_url);
-		if (!empty($store_name)) {
+		if ($store_name) {
 			$store_user = get_user_by('slug', $store_name);
 			if (!$store_user) {
 				return get_404_template();
@@ -404,11 +407,12 @@ function ec_store_blog( $template )
 			ob_start();
 			include(dokan_locate_template( 'store-blog.php'));
 			$page->custom_content = ob_get_clean();
+			return dokan_locate_template('store.php');
 		}
 	}
 	return $template;
 }
-add_filter('template_include', 'ec_store_blog', 10, 1);
+add_filter('template_include', 'ec_store_blog', 1, 1);
 
 /**
  * Adds a 'Ask information' tab in product single page

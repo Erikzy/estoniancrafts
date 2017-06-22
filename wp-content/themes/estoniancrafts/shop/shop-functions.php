@@ -434,61 +434,6 @@ class EC_UserRelation
 		}
 	}
     
-    
-    
-    /**
-     * Insert or update post data
-     * function should return inserted or updated post id
-     */
-    public function insert_or_update_post($data)
-    {
-        $post_id='';
-           
-                    if(esc_attr($data['post_status'])=='publish')
-                    {
-                        $post_status = 'pending'  ;
-                    }
-                    else
-                    {
-                        $post_status = esc_attr($data['post_status']) ;
-                    }
-                 
-                     $post_information = array(
-                            'post_title' => esc_attr(wp_strip_all_tags( $data['postTitle'] )),
-                            'post_content' => esc_attr($data['postContent']),
-                            'post_type' => $data['post'],
-                            'post_status' => $post_status
-                        );
-                    
-                    
-                    
-                    //
-                    if( !empty($data['request_id'] ))
-                    {
-                        $post_information['ID'] = $data['request_id']; //push
-                        $post_id = wp_update_post( $post_information );  
-                    }
-                    else
-                    {
-                        //insert post data
-                        $post_id = wp_insert_post( $post_information );
-                        
-                        //send mail
-                        $to = get_option('merchant_admin_email');
-                        $subject= 'revision for post';
-                        $message = home_url('my-account/blog/edit?id='.$post_id);
-                        wp_mail( $to, $subject, $message );
-                    }
-                    
-        
-                    //set post image
-                    set_post_thumbnail( $post_id, esc_attr($data['post_picture']) );
-        
-        return $post_id;
-        
-    }
-    
-
 }
 
 EC_UserRelation::init();
@@ -518,34 +463,23 @@ function ec_shop_team($atts)
 
 add_shortcode('ec_shop_team', 'ec_shop_team');
 
-
-
-
-
 /**
  * BLog manage for loggin merchant(seller)
  */
-
 function myaccount_blog()
 {
     if(is_user_logged_in())
     {
-        global $current_user;
-        wp_get_current_user();
-        include(locate_template('templates/myaccount/blog_listing.php'));
-        return $blog_post;
+        ob_start();
+        include(locate_template('templates/myaccount/blog-list.php'));
+        return ob_get_clean();
     }
     else
     {
         _e('<blockquote>Please log in to continue</blockquote> ', 'ktt');
     }
-
-
 }
 add_shortcode('myaccount_blog', 'myaccount_blog');
-
-
-
 
 /***
 * Add or edit post view for merchant
@@ -554,94 +488,94 @@ function add_or_edit_blog()
 {
     if(is_user_logged_in())
     {
-        $postTitleError='';
-        $post_id='';
-        $request_id='';
-        $hasError=false;
-        $post_title='';
-        $post_content='';
-        $post_status='';
-        $post_thumbnail_id='';
-        $post_thumbnail_url='';
-        
-        // find the post
-        $queryId = isset($_GET['id']) ? $_GET['id']: null;
+	    $user = wp_get_current_user();
+        // config
+        $listUrl = home_url('/my-account/blog');
+        $actionMap = [
+        	'delete' => ['draft' => 'trash'],
+        	'draft' => ['draft' => 'draft'],
+        	'publish' => ['draft' => 'pending'] // for action 'publish' if the post status is 'draft', move status to 'pending' 
+        ];
+        // get the post
+        $queryId = isset($_GET['id']) ? (int)$_GET['id']: null;
+        if ($queryId !== null) {
+	        $post = get_post($queryId);
+	        if ( $queryId && !$post ) {
+	        	wp_redirect( $listUrl );
+	        }
+	        // post belongs to user
+	        if ( (int)$post->post_author !== (int)$user->ID ) {
+	        	wp_redirect( $listUrl );
+	        }
+	        // not published, pending nor trash
+	        if ( in_array($post->post_status, ['pending', 'publish', 'trash']) ) {
+	        	wp_redirect( $listUrl );
+	        }
+        } else {
+        	// new post
+        	$post = new WP_Post((object)[]);
+        	$post->post_status = 'draft';
+        	$post->post_author = $user->ID;
+        }
+        // on submit, populate post, get errors
+        $errors = [];
+        $action = isset($_POST['edit_action']) && is_array($_POST['edit_action']) && count($_POST['edit_action']) ? array_keys($_POST['edit_action'])[0] : null;
+        if (isset($_POST['blog_post_token']) && wp_verify_nonce($_POST['blog_post_token'], 'blog_post_token') && in_array($action, array_keys($actionMap)) ) {
+        	// populate post
+        	$postTitle = isset($_POST['post_title']) ? $_POST['post_title'] : null;
+        	$postContent = isset($_POST['post_content']) ? $_POST['post_content'] : null;
+        	$postPicture = isset($_POST['post_picture']) ? $_POST['post_picture'] : null;
+        	// validate
+        	if (!$postTitle) {
+        		$errors['post_title'] = __('Empty blog post title', 'ktt');
+        	}
+        	if (!$postContent) {
+        		$errors['post_content'] = __('Empty blog post content', 'ktt');
+        	}
+        	// handle action changes
+        	$map = $actionMap[$action];
+        	if (!array_key_exists($post->post_status, $map)) {
+        		wp_redirect( $listUrl ); // should not happen
+        	}
+        	// populate
+        	$post->post_status = $map[$post->post_status];
+        	$post->post_title = $postTitle;
+        	$post->post_content = $postContent;
+        	$post->post_picture = $postPicture;
+        	// save if no errors
+        	if (!count($errors)) {
+	        	// after update
+	        	if ($postPicture) {
+	        		//set post image
+	                set_post_thumbnail( $post->ID, esc_attr($postPicture) );
+	        	}
+        		if ($post->ID) {
+        			wp_update_post($post);
+        		} else if ($post->post_status !== 'trash') {
+        			$post->ID = (wp_insert_post($post));
+        			//send mail
+                    $to = get_option('merchant_admin_email');
+                    $subject= 'revision for post';
+                    $message = home_url('my-account/blog/edit?id='.$post_id);
+                    wp_mail( $to, $subject, $message );
 
-        if( isset($_GET['id']))
-        {
-            $request_id = esc_attr($_GET['id']);
-       
-           if(get_post_status($request_id)=='publish' || get_post_status($request_id)=='pending')
-            {
-                _e('<blockquote>You have no access for this post </blockquote>', 'ktt');
-                exit;
-            }
-             $post_title =  get_the_title($request_id);
-             $post_content_tmp = get_post($request_id);
-             $post_content = $post_content_tmp->post_content;
-             $post_status = get_post_status($request_id);
-             $post_thumbnail_id = get_post_thumbnail_id($request_id); 
-             $post_thumbnail_url = wp_get_attachment_image_src( get_post_thumbnail_id($request_id), 'thumbnail_size' );
-          
+        			wp_redirect( $listUrl .'/edit?id='.$post->ID );
+        		}
+
+	        	if (in_array($action, ['publish', 'delete'])) {
+	        		wp_redirect( $listUrl );
+	        	}
+        	}
         }
 
-        if ( isset( $_POST['submitted'] ) && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' ) )
-        {
-            if (!in_array($_POST['post_status'], ['draft', 'pending','trash']))
-            { 
-                _e('<blockquote>Bad request. </blockquote>', 'ktt');
-        		wp_redirect( home_url('my-account/blog') );
-                exit;
-            }
-            else
-            {
-                if ( trim( $_POST['postTitle'] ) === '' ) 
-                {
-                    $postTitleError = 'Please enter a title.';
-                    $hasError = true;
-                }
-                
-                if($hasError==false)
-                {
-                    $data = array(
-                        'post_status' => $_POST['post_status'],
-                        'postTitle' => $_POST['postTitle'],
-                        'postContent' => $_POST['postContent'],
-                        'post_picture' => $_POST['post_picture'],
-                        'post_type' => 'post',
-                        'request_id' => $request_id,
-                    );
-                    
-                   $post_id =  EC_UserRelation::insert_or_update_post($data);
-                   
-                }
-            }
-        }
+        $post_thumbnail_id = $post->ID ? get_post_thumbnail_id($post->ID) : null;
+        $post_thumbnail_url = wp_get_attachment_image_src( $post_thumbnail_id, 'thumbnail_size' );
         
-        //post id
-        if(isset($_POST['post_status']))
-        {
-            if($_POST['post_status']==='trash')
-            {
-                wp_redirect( home_url('my-account/blog') );
-                exit; 
-            }
-        }
-        
-        if ( $post_id )
-        {
-            wp_redirect( home_url('my-account/blog/edit/?id='.$post_id) );
-            exit;
-        }
-        
-        /*load html form*/
-        include(locate_template('templates/myaccount/add_edit_post.php'));
-        /*Finish html template*/
+        ob_start();
+        include(locate_template('templates/myaccount/blog-edit-post.php'));
+        return ob_get_clean();
     }
-    else
-    {
-        _e('<blockquote>Please log in to continue</blockquote>', 'ktt');
-    }
+    return '';
 }
 add_shortcode('add_or_edit_blog', 'add_or_edit_blog');
 
