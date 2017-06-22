@@ -1230,9 +1230,9 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     color: white;
     border-collapse: collapse;
     border-spacing: 0;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Aino-Regular' !important;
     -moz-text-size-adjust: none;
-    font-size: 16px;
+    font-size: 14px;
     background-color: #3B55A0;
     border-radius: 5px;
     border: solid 1px #3B55A0;
@@ -1244,7 +1244,7 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
 }
 .top-users .user-item {
     display: inline-block;
-    margin: 16px;
+    margin: 0px 16px;
 }
 .top-users .user-item .avatar {
     margin: 0px;

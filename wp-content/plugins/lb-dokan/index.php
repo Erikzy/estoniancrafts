@@ -463,7 +463,7 @@ class lbDokan{
 
             <div class="dokan-side-right">
                 <p>
-                <a target="_blank" href="<?= get_permalink(get_page_by_path(get_option('_external_instruction_page_path'))) ?>"><?php _e( 'Instructions for external links', 'ktt' ); ?></a>
+                <a target="_blank" href="<?= get_option( 'home' ).'/'.get_option('_external_instruction_page_path') ?>"><?php _e( 'Instructions for external links', 'ktt' ); ?></a>
                 <p>
                 <div class="lb-elastic-container">
 
