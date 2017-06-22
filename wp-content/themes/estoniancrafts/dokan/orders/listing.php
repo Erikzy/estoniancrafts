@@ -13,14 +13,10 @@ $user_orders  = dokan_get_seller_orders( $seller_id, $order_status, $order_date,
 
 <div>
     <?php
-    $olcpage = get_page_by_title('Order instructions');
-    $olclink = get_permalink( $olcpage );
-    if ($olcpage): ?>
-    <a href="<?php echo $olclink; ?>" target="_blank"><?php echo __('Instructions to handle orders effectively', 'ktt'); ?></a>
-    <?php endif;
-    unset($olcpage);
-    unset($olclink); // garbage collection
-    ?>
+    $instSlug = get_option('_order_instruction_page_path');
+    if ($instSlug): ?>
+    <a href="<?= get_option('home').'/'.$instSlug ?>" target="_blank"><?php echo __('Instructions to handle orders effectively', 'ktt'); ?></a>
+    <?php endif; ?>
 </div>
 
 <?php

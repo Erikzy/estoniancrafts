@@ -14,8 +14,12 @@ include_once($currentDirname.'/shortcodes.php');
 // Load widgets
 include_once($currentDirname.'/widgets.php');
 
+// Load facebook
+include_once($currentDirname.'/facebook/class-facebook-login.php');
+
 // Load shops
 include_once($currentDirname.'/shop/shop-functions.php');
+
 
 //WC_Cache_Helper::prevent_caching();
 
@@ -405,3 +409,10 @@ function ec_blog_register_rule($custom_store_url) {
 }
 add_action( 'dokan_rewrite_rules_loaded', 'ec_blog_register_rule', 10, 1 );
     
+function ec_dokan_get_store_url( $user_id )
+{
+    $userdata = get_userdata( $user_id );
+    $user_nicename = ( !false == $userdata ) ? $userdata->user_nicename : '';
+
+    return sprintf( '%s/%s/', home_url(), $user_nicename );
+}

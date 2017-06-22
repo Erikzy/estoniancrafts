@@ -58,11 +58,11 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
-            /*$menu->items[] = new EC_MenuItem(array(
+            $menu->items[] = new EC_MenuItem(array(
 				'id' => 'messages',
 				'title' => __( 'My Messages', 'ktt' ) .(bp_get_total_unread_messages_count() > 0 ? ' ('.bp_get_total_unread_messages_count().')' : ''),
 				'url' => get_site_url(null, 'members/'.$user->user_nicename.'/messages/'),
-			));*/
+			));
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop',
 				'title' => __( 'My Shop', 'ktt' )
@@ -345,6 +345,34 @@ function my_messages_message_sent($message) {
     }
     return true;
 }
+
+function ec_dokan_rewrite_rules($custom_store_url)
+{
+	add_rewrite_rule( '([^/]+)/?$', 'index.php?pagename=$matches[1]', 'top' );
+    add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]', 'top' );
+
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&term_section=true', 'top' );
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&paged=$matches[3]&term_section=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/toc?$', 'index.php?pagename=$matches[1]&toc=true', 'top' );
+    add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]&toc=true', 'top' );
+}
+add_action('dokan_rewrite_rules_loaded', 'ec_dokan_rewrite_rules', 100, 1);
+
+function ec_post_request($query_vars)
+{
+	if (array_key_exists('pagename', $query_vars)) {
+		// check if it's store
+		$seller = get_user_by( 'slug', $query_vars['pagename']);
+		if ($seller && dokan_get_store_info($seller->data->ID)) {
+			$custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'store' );
+			$query_vars[$custom_store_url] = $query_vars['pagename'];
+			unset($query_vars['pagename']);
+		}
+	}
+	return $query_vars;
+}
+add_filter('request', 'ec_post_request', 100, 1);
 
 /**
  * Adds a 'Ask information' tab in product single page
