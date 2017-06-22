@@ -564,6 +564,9 @@ function add_or_edit_blog()
         $post_thumbnail_id='';
         $post_thumbnail_url='';
         
+        // find the post
+        $queryId = isset($_GET['id']) ? $_GET['id']: null;
+
         if( isset($_GET['id']))
         {
             $request_id = esc_attr($_GET['id']);
@@ -587,6 +590,7 @@ function add_or_edit_blog()
             if (!in_array($_POST['post_status'], ['draft', 'pending','trash']))
             { 
                 _e('<blockquote>Bad request. </blockquote>', 'ktt');
+        		wp_redirect( home_url('my-account/blog') );
                 exit;
             }
             else
@@ -619,7 +623,7 @@ function add_or_edit_blog()
         {
             if($_POST['post_status']==='trash')
             {
-                wp_redirect( home_url('my-account/blog/') );
+                wp_redirect( home_url('my-account/blog') );
                 exit; 
             }
         }

@@ -180,8 +180,7 @@ class EC_Filters
 		if(is_null($page))
 		{
 			include_once('Blocks/Pages/EC_Store_Page.php');
-			$page = new EC_Store_Page();
-			$page->load();
+			$page = EC_Store_Page::getInstance();
 		}
 
 		return $page;
@@ -356,6 +355,9 @@ function ec_dokan_rewrite_rules($custom_store_url)
 
     add_rewrite_rule( '([^/]+)/toc?$', 'index.php?pagename=$matches[1]&toc=true', 'top' );
     add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]&toc=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/blog?$', 'index.php?pagename=$matches[1]&blog=true', 'top' );
+
 }
 add_action('dokan_rewrite_rules_loaded', 'ec_dokan_rewrite_rules', 100, 1);
 
@@ -374,6 +376,40 @@ function ec_post_request($query_vars)
 }
 add_filter('request', 'ec_post_request', 100, 1);
 
+function ec_register_query_vars($vars)
+{
+	$vars[] = 'blog';
+
+	return $vars;
+}
+add_filter('query_vars', 'ec_register_query_vars', 10, 1);
+
+function ec_store_blog( $template )
+{
+	if (get_query_var('blog')) {
+		$custom_store_url = dokan_get_option('custom_store_url', 'dokan_general', 'store');
+		$store_name = get_query_var($custom_store_url);
+		if (!empty($store_name)) {
+			$store_user = get_user_by('slug', $store_name);
+			if (!$store_user) {
+				return get_404_template();
+			}
+			if (!dokan_is_user_seller($store_user->ID)) {
+				return get_404_template();
+			}
+
+
+			include_once('Blocks/Pages/EC_Store_Page.php');
+			$page = EC_Store_Page::getInstance();
+			ob_start();
+			include(dokan_locate_template( 'store-blog.php'));
+			$page->custom_content = ob_get_clean();
+		}
+	}
+	return $template;
+}
+add_filter('template_include', 'ec_store_blog', 10, 1);
+
 /**
  * Adds a 'Ask information' tab in product single page
  *
@@ -390,9 +426,7 @@ function ec_dokan_ask_information_product_tab( $tabs) {
 
     return $tabs;
 }
-
 add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' );
-
 
 /**
  * Prints information asking form in product single page

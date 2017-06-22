@@ -88,7 +88,13 @@ get_header( 'shop' );
 					<?php if(!empty($ec_page->website)): ?>
 					<a href="<?= $ec_page->website ?>" target="_blank" class="ec-store-website-link"><?= $ec_page->website ?></a>
 					<?php endif; ?>
-
+					<div>
+						<ul>
+							<li>
+								<a href="<?= ec_dokan_get_store_url($store_user->ID) ?>blog"><h4><?= __('Blog', 'ktt') ?></h4></a>
+							</li>
+						</ul>
+					</div>
 				</aside>
 
 				<?php // Store related people widget ?>
@@ -115,8 +121,6 @@ get_header( 'shop' );
 									</a>
 								</li>
 							<?php endforeach; ?>
-                        
-                            <li class="co-worker"><a href="<?php echo home_url('store/'.get_query_var( dokan_get_option( 'custom_store_url', 'dokan_general', 'store' )).'/blog/') ; ?>">Blog</a></li>
 						</ul>
 					</div>
 
@@ -160,41 +164,44 @@ get_header( 'shop' );
 
     <div id="dokan-primary" class="dokan-single-store dokan-w8">
         <div id="dokan-content" class="store-page-wrap woocommerce" role="main">
+        	<?php if ($ec_page->custom_content !== null) : ?>
+        		<?= $ec_page->custom_content ?>
+        	<?php else: ?>
+				<?php // Banner ?>
+				<?php if(($banner = $ec_page->banner) && $banner->image_url): ?>
+				<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
+					<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
+				</div>
+				<?php endif; ?>
 
-			<?php // Banner ?>
-			<?php if(($banner = $ec_page->banner) && $banner->image_url): ?>
-			<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
-				<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
-			</div>
-			<?php endif; ?>
+	            <?php // dokan_get_template_part( 'store-header' ); ?>
 
-            <?php // dokan_get_template_part( 'store-header' ); ?>
+	            <?php do_action( 'dokan_store_profile_frame_after', $store_user, $store_info ); ?>
 
-            <?php do_action( 'dokan_store_profile_frame_after', $store_user, $store_info ); ?>
+	            <?php if ( have_posts() ) { ?>
 
-            <?php if ( have_posts() ) { ?>
+	                <div class="seller-items">
 
-                <div class="seller-items">
+	                    <?php woocommerce_product_loop_start(); ?>
 
-                    <?php woocommerce_product_loop_start(); ?>
+	                        <?php while ( have_posts() ) : the_post(); ?>
 
-                        <?php while ( have_posts() ) : the_post(); ?>
+	                            <?php wc_get_template_part( 'content', 'product' ); ?>
 
-                            <?php wc_get_template_part( 'content', 'product' ); ?>
+	                        <?php endwhile; // end of the loop. ?>
 
-                        <?php endwhile; // end of the loop. ?>
+	                    <?php woocommerce_product_loop_end(); ?>
 
-                    <?php woocommerce_product_loop_end(); ?>
+	                </div>
 
-                </div>
+	                <?php dokan_content_nav( 'nav-below' ); ?>
 
-                <?php dokan_content_nav( 'nav-below' ); ?>
+	            <?php } else { ?>
 
-            <?php } else { ?>
+	                <p class="dokan-info"><?php _e( 'No products were found of this seller!', 'dokan' ); ?></p>
 
-                <p class="dokan-info"><?php _e( 'No products were found of this seller!', 'dokan' ); ?></p>
-
-            <?php } ?>
+	            <?php } ?>
+	        <?php endif; ?>
         </div>
 
     </div><!-- .dokan-single-store -->
