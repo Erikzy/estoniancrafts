@@ -58,11 +58,11 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
-            $menu->items[] = new EC_MenuItem(array(
+        /*    $menu->items[] = new EC_MenuItem(array(
 				'id' => 'messages',
 				'title' => __( 'My Messages', 'ktt' ) .(bp_get_total_unread_messages_count() > 0 ? ' ('.bp_get_total_unread_messages_count().')' : ''),
 				'url' => get_site_url(null, 'members/'.$user->user_nicename.'/messages/'),
-			));
+			));*/
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop',
 				'title' => __( 'My Shop', 'ktt' )
@@ -139,6 +139,18 @@ class EC_Filters
 			'url' => get_site_url(null, 'my-account/disputes'),
 			'url_endpoint' => 'my-account/disputes'
 		]);
+        
+        
+        // Global
+		$menu->items[] = new EC_MenuItem([
+			'id' => 'portfolio',
+			'title' => __('Portfolio', 'ktt'),
+			'url' => get_site_url(null, 'my-account/portfolio'),
+			'url_endpoint' => 'my-account/portfolio'
+		]);
+        
+        
+        
 		$menu->items[] = new EC_MenuItem(array(
 			'id' => 'logout',
 			'title' => __( 'Logout', 'woocommerce' ),
