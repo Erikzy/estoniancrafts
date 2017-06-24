@@ -31,7 +31,7 @@
                 <?php } ?> 
                 </label>
                 <?php wp_editor(html_entity_decode($post->post_content),  'post_content', array('editor_height' => 150,  'media_buttons' => true, 'editor_class' => '') ); ?>
-                <label class="publish_notify hide"><?php _e('Carefully look through the post. The post will go to translation', 'ktt'); ?></label>
+                <input type="hidden" name="temp_publish" value="exist">
             </div>
         </p>
         <p class="row">
@@ -42,3 +42,19 @@
             </div>
         </p>
     </form>
+<div class="clear"></div>
+<div class="mfp-bg mfp-ready confirm-publish" style="display:none"></div>
+<div class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready  confirm-publish" id="before_publish" style="display:none;overflow-y: auto;">
+    <div class="mfp-container mfp-s-ready mfp-inline-holder" style="height:40%;">
+        <div class="mfp-content">
+            <div class="white-popup add-to-cart-popup popup-added_to_cart">
+                <div class="added-to-cart">
+                    <p><?php _e('Carefully look through the post. The post will go to translation', 'ktt'); ?></p>
+                    <a href="#" class="btn close-popup  before-publish" data-value="cancle">Review</a>
+                    <a href="#" class="btn btn-color-primary view-cart before-publish" data-value="publish">Publish</a>
+                </div>
+                <button  type="button" class=" mfp-close  before-publish" data-value="cancle">×</button>
+            </div>
+        </div>
+    </div>
+</div>
