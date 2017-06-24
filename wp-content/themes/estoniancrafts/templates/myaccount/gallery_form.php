@@ -12,7 +12,7 @@ foreach($gallery_id as $gallry)
 {
 echo '<li class="col-md-2">';
 $attchment = get_post( intval(preg_replace('/[^0-9]+/', '', $gallry), 10) );
-echo '<img src="'.$attchment->guid.'" ><span>'.$attchment->post_content.'</span>';
+echo '<img src="'. wp_get_attachment_url( $attchment->ID ) .'" ><span>'.$attchment->post_content.'</span>';
 echo '</li>';
 }
         endif;

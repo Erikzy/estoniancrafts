@@ -50,7 +50,6 @@
 			<?php if($page->email): ?>
 				<li><?php echo $page->email ?></li>
 			<?php endif; ?>
-            	<li><a>Portfolio</a></li>
 		</ul>
 
 		<?php // Social media ?>
@@ -160,7 +159,7 @@
                     { ?>
                 <li class="col-md-2">
                     <?php $attchment = get_post( intval(preg_replace('/[^0-9]+/', '', $gallry), 10) ); ?>
-                        <img src="<?php echo $attchment->guid; ?>" ><span><?php echo $attchment->post_content; ?></span>
+                        <img src="<?php echo wp_get_attachment_url( $attchment->ID ); ?>" ><span><?php echo $attchment->post_content; ?></span>
                 </li>
                 <?php } ?>
                 <?php endif; ?>
