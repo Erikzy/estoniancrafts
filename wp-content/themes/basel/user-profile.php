@@ -152,6 +152,7 @@
             <h3 class="title"><?= __('Portfolio', 'ktt') ?></h3>
             <?php 
                 $gallery_content = get_post_meta($page->user->data->ID, 'portfolio_gallery', true);
+                if(!empty($gallery_content)):
                 preg_match('/\[gallery.*ids=.(.*).\]/', $gallery_content, $ids);
                 $images_id = explode(",", $ids[1]); ?>
             <ul class="row">
@@ -162,6 +163,7 @@
                         <img src="<?php echo $attchment->guid; ?>" ><span><?php echo $attchment->post_content; ?></span>
                 </li>
                 <?php } ?>
+                <?php endif; ?>
             </ul>
             <div class="clear"></div>
             <?php endif; ?>
