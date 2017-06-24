@@ -222,5 +222,61 @@ jQuery(document).ready(function($)
 	};
 
 	ec_merchant.init();
+    
+
+
+/*Portfolio media gallery*/
+
+    var mediaUploader;
+    jQuery('.manage_image').click(function( e ){
+        $this = jQuery(this);
+        event.preventDefault();
+        
+        if ( mediaUploader ) {
+            mediaUploader.open();
+            return;
+
+        }
+        
+        // create new media frame
+        // You have to create new frame every time to control the Library state as well as selected images
+        mediaUploader = wp.media.frames.wp_media_frame = wp.media( {
+            title: 'My Gallery', // it has no effect but I really want to change the title
+            frame: "post",
+            state: 'gallery-library',
+            library: {
+                type: 'image'
+            },
+            multiple: true,
+        } );
+        
+        
+        mediaUploader.on('open',function() {
+            // On open, get the id from the hidden input
+            // and select the appropiate images in the media manager
+            var selection =  mediaUploader.state().get('selection');
+            ids = jQuery('input#portfolio_gallery').val().split(',');
+            ids.forEach(function(id) {
+                attachment = wp.media.attachment(id);
+                attachment.fetch();
+                selection.add( attachment ? [ attachment ] : [] );
+            });
+        });
+        
+        /* Update event for image gallery */
+        mediaUploader.on('update', function () {
+            var controller = mediaUploader.states.get('gallery-edit');
+            var library = controller.get('library');
+            var new_shortcode = wp.media.gallery.shortcode(library).string(); // Get the new/updated shortcode here.
+            jQuery('#portfolio_gallery').val(new_shortcode);
+            jQuery('#gallery_form').submit();
+        });
+        // Open the uploader dialog
+        mediaUploader.open();
+    });
+    
+    
 
 });
+
+
