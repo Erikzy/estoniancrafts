@@ -497,6 +497,5 @@ add_shortcode('gallerys', 'gallerys');
 function my_enqueue_media_lib_uploader() {
         //Core media script
         wp_enqueue_media();
-       
 }
 add_action('wp_enqueue_scripts',   'my_enqueue_media_lib_uploader');
