@@ -435,10 +435,11 @@ class EC_UserRelation
 public static function get_gallery_attachments_to_id($users_id, $filed_name ){
 	$ids[] ='';
 	$gallery_content = get_post_meta($users_id, $filed_name, true);
+    if(!empty($gallery_content)):
 	preg_match('/\[gallery.*ids=.(.*).\]/', $gallery_content, $ids);
 	$images_id = explode(",", $ids[1]);
-	
 	return $images_id;
+    endif;
 }
 
 }

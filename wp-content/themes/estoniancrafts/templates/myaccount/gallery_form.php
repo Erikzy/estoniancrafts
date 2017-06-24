@@ -7,6 +7,7 @@
 <div class="gallery">
     <ul class="row">
         <?php $gallery_id =  EC_UserRelation::get_gallery_attachments_to_id($current_user->ID, 'portfolio_gallery');
+        if(!empty($gallery_id)):
 foreach($gallery_id as $gallry)
 {
 echo '<li class="col-md-2">';
@@ -14,6 +15,7 @@ $attchment = get_post( intval(preg_replace('/[^0-9]+/', '', $gallry), 10) );
 echo '<img src="'.$attchment->guid.'" ><span>'.$attchment->post_content.'</span>';
 echo '</li>';
 }
+        endif;
     wp_reset_query();
 ?>
     </ul>
