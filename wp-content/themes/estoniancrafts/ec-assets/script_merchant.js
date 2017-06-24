@@ -228,7 +228,7 @@ jQuery(document).ready(function($)
 /*Portfolio media gallery*/
 
     var mediaUploader;
-    jQuery('.manage_image').click(function( e ){
+    jQuery('.manage_image').click(function( event ){
         $this = jQuery(this);
         event.preventDefault();
         
