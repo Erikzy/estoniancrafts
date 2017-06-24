@@ -277,13 +277,30 @@ jQuery(document).ready(function($)
          
      });
     
+    
     //get post status and notify to merchan when click on publish button
-    $('#edit-blog-post-form input[name="edit_action[publish]"]').click(function(){
-        var $parent_element = $('#edit-blog-post-form');
-       	if (confirm($('.publish_notify', $parent_element).html()) == false) 
-       	{
-            return false;
-       	}
+    $('#edit-blog-post-form input[name="edit_action[publish]"]').click(function(e){
+       var $parent_element = $('#edit-blog-post-form');
+      if($('[name="temp_publish"]').val()=='exist')
+          {
+               jQuery('.confirm-publish').fadeToggle('slow');
+              $('[name="temp_publish"]').val('not-exisat');
+              return false;
+          }
     })
+    
+    
+    $('.before-publish').click(function(e){
+        if($(this).attr('data-value')=='publish')
+            {
+               $('#edit-blog-post-form input[name="edit_action[publish]"]').trigger('click');
+            }
+            else
+            {
+                jQuery('.confirm-publish').fadeToggle('slow');
+               $('[name="temp_publish"]').val('exist');
+                e.preventDefault();
+            }
+    })
+     });
 
-});
