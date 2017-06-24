@@ -476,7 +476,7 @@ function myaccount_blog()
     }
     else
     {
-        _e('<blockquote>Please log in to continue</blockquote> ', 'ktt');
+       wp_redirect( home_url('/my-account'));
     }
 }
 add_shortcode('myaccount_blog', 'myaccount_blog');
@@ -542,6 +542,7 @@ function add_or_edit_blog()
         	$post->post_title = $postTitle;
         	$post->post_content = $postContent;
         	$post->post_picture = $postPicture;
+        	$post->post_category = array(111);
         	// save if no errors
         	if (!count($errors)) {
 	        	// after update
