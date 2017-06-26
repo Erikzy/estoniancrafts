@@ -147,7 +147,7 @@
 			<?php endif; ?>
 
               <?php //portfolio ?>
-            <?php if(get_post_meta($current_user->ID, 'portfolio_gallery')): ?>
+            <?php if(get_post_meta($page->user->data->ID, 'portfolio_gallery')): ?>
             <h3 class="title"><?= __('Portfolio', 'ktt') ?></h3>
             <?php 
                 $gallery_content = get_post_meta($page->user->data->ID, 'portfolio_gallery', true);
