@@ -167,10 +167,14 @@
 											<li role="presentation" class="edit"><a href="<?php echo dokan_edit_product_url( $product->post_id ); ?>"><?php _e( 'Edit', 'dokan' ); ?></a></li>
 											<li role="presentation" class="view"><a href="<?php echo get_permalink( $product->id ); ?>" rel="permalink"><?php _e( 'View', 'dokan' ); ?></a></li>
 											<li role="separator" class="divider"></li>
-											<li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-a4/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF A4</a></li>
+											<?php /* 
+                                            :temporarily disabled based on requirement 2.2 "2.2 PDF hinnasildid - funktsioon hetkel kinni panna" - <marek@dolmit.com>
+                                            ?>
+                                            <li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-a4/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF A4</a></li>
 											<li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-a5/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF A5</a></li>
 											<li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-bcard/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF bcard</a></li>
 											<li role="separator" class="divider"></li>
+                                            <?php */ ?>
 											<li role="presentation" class="delete"><a onclick="return confirm('<?php _e('Are you sure?', 'ktt') ?>');" href="<?php echo wp_nonce_url( add_query_arg( array( 'action' => 'dokan-delete-product', 'product_id' => $product->post_id ), dokan_get_navigation_url('products') ), 'dokan-delete-product' ); ?>"><?php _e( 'Delete Permanently', 'dokan' ); ?></a></li>
 										</ul>
 									</div>
