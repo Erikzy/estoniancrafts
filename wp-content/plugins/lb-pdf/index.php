@@ -236,10 +236,13 @@ class lbPdf{
 	}
 
 	public static function display_bcard_links(){
+		/*
+		:temporarily disabled based on requirement 2.1 "PDF visiitkaardid - Funktsioon herkel kinni panna" - <marek@dolmit.com>
 
 		echo '<a href="'.site_url().'/lbpdf/bc-stand/" target="_blank">'.__( 'Business cards', 'dokan' ).'</a><br>';
 		echo '<a href="'.site_url().'/lbpdf/bc/" target="_blank">'.__( 'A4 business card', 'dokan' ).'</a><br><br>';
 		echo '<a href="'.site_url().'?add-to-cart='.get_option( 'lb_bcard_product_id' ).'" target="_blank">'.__( 'Order a business card', 'dokan' ).'</a><br>';
+		*/
 
 	}
 
