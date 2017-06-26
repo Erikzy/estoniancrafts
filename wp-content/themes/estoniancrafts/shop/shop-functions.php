@@ -469,16 +469,10 @@ function ec_shop_team($atts)
 
 add_shortcode('ec_shop_team', 'ec_shop_team');
 
-
-
-
-
-
-
 function gallerys()
 {
-    global $current_user;
-    wp_get_current_user();
+    $current_user = wp_get_current_user();
+
     if(isset($_POST['gallery_submit'])  && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' ))
     {
         if ( ! add_post_meta( $current_user->ID, 'portfolio_gallery', esc_attr($_POST['portfolio_gallery']), true ) ) { 

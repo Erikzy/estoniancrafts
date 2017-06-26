@@ -152,34 +152,25 @@
             <?php 
                 $gallery_content = get_post_meta($page->user->data->ID, 'portfolio_gallery', true);
                 if(!empty($gallery_content)):
-                preg_match('/\[gallery.*ids=.(.*).\]/', $gallery_content, $ids);
-                $images_id = explode(",", $ids[1]); ?>
-            <ul class="row">
-                <?php foreach($images_id as $gallry)
-                    { ?>
-                <li class="col-md-2">
-                    <?php $attchment = get_post( intval(preg_replace('/[^0-9]+/', '', $gallry), 10) ); ?>
-                        <img src="<?php echo wp_get_attachment_url( $attchment->ID ); ?>" ><span><?php echo $attchment->post_content; ?></span>
-                </li>
-                <?php } ?>
-                <?php endif; ?>
-            </ul>
+	                preg_match('/\[gallery.*ids=.(.*).\]/', $gallery_content, $ids);
+	                $images_id = explode(",", $ids[1]); ?>
+		            <ul class="row">
+		                <?php foreach($images_id as $gallry) : ?>
+			                <li class="col-md-2">
+			                    <?php $attchment = get_post( intval(preg_replace('/[^0-9]+/', '', $gallry), 10) ); ?>
+			                    <img src="<?= wp_get_attachment_url( $attchment->ID ); ?>" ><span><?= $attchment->post_content; ?></span>
+			                </li>
+		                <?php endforeach; ?>
+		            </ul>
+	            <?php endif; ?>
             <div class="clear"></div>
             <?php endif; ?>
-        
-            
-            
-            
             
 			<?php // About ?>
 			<?php if($page->description): ?>
 				<h3 class="title about-title"><?= __('About', 'ktt') ?></h3>
 				<p class="about-text"><?= $page->description ?></p>
 			<?php endif; ?>
-            
-            
-             
-          
 
 			<?php // Education history ?>
 			<?php if(!empty($page->education_history)): ?>
