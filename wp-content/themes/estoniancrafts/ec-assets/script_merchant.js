@@ -227,53 +227,70 @@ jQuery(document).ready(function($)
 
 /*Portfolio media gallery*/
 
-    var mediaUploader;
-    jQuery('.manage_image').click(function( event ){
-        $this = jQuery(this);
-        event.preventDefault();
+       var mediaUploader;
+     var $parent_element;
+     var $this;
+    var $repeater_field;
+    //post picture
+    //Add picture
+      $(document).on('click', '[data-action="add"]', function(e){
         
-        if ( mediaUploader ) {
-            mediaUploader.open();
-            return;
+        e.preventDefault();
+         $parent_element = $(this).parent();
+        $parent_element.addClass('sururu');
+         // If the uploader object has already been created, reopen the dialog
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+          
+                // Extend the wp.media object
+                mediaUploader = wp.media.frames.file_frame = wp.media({
+                    title: 'Choose Image',
+                    button: {
+                        text: 'Choose Image'
+                    },
+                    multiple: false
+                });
 
-        }
-        
-        // create new media frame
-        // You have to create new frame every time to control the Library state as well as selected images
-        mediaUploader = wp.media.frames.wp_media_frame = wp.media( {
-            title: 'My Gallery', // it has no effect but I really want to change the title
-            frame: "post",
-            state: 'gallery-library',
-            library: {
-                type: 'image'
-            },
-            multiple: true,
-        } );
+                // When a file is selected, grab the URL and set it as the text field's value
+                mediaUploader.on('select', function() {
+                    attachment = mediaUploader.state().get('selection').first().toJSON();
+                    $('[name="post_picture[]"]', $parent_element).val(attachment.id);
+                    $('img', $parent_element).attr('src', attachment.url);
+                    $this.addClass('hide');
+                    $('[data-action="remove"]', $parent_element).removeClass('hide');
+                });
+                // Open the uploader dialog
+                mediaUploader.open();
         
         
-        mediaUploader.on('open',function() {
-            // On open, get the id from the hidden input
-            // and select the appropiate images in the media manager
-            var selection =  mediaUploader.state().get('selection');
-            ids = jQuery('input#portfolio_gallery').val().split(',');
-            ids.forEach(function(id) {
-                attachment = wp.media.attachment(id);
-                attachment.fetch();
-                selection.add( attachment ? [ attachment ] : [] );
-            });
-        });
-        
-        /* Update event for image gallery */
-        mediaUploader.on('update', function () {
-            var controller = mediaUploader.states.get('gallery-edit');
-            var library = controller.get('library');
-            var new_shortcode = wp.media.gallery.shortcode(library).string(); // Get the new/updated shortcode here.
-            jQuery('#portfolio_gallery').val(new_shortcode);
-            jQuery('#gallery_form').submit();
-        });
-        // Open the uploader dialog
-        mediaUploader.open();
     });
+    
+    
+     //remove image
+     $(document).on('click', '[data-action="remove"]', function(e){
+        e.preventDefault();
+        $parent_element = $(this).parent();
+        $this = $(this);
+        $('[name="post_picture[]"]', $parent_element).val('');
+        $('img', $parent_element).removeAttr('src');
+        $this.addClass('hide');
+        $('[data-action="add"]', $parent_element).removeClass('hide');
+     });
+          
+    $('.add_more_images').click(function(e){
+        e.preventDefault();
+        $repeater_field = $('#gallery_repeater > fieldset').html();
+        $('#gallery_repeater').append('<fieldset style="display:none">'+$repeater_field+'</fieldset>');
+           $('#gallery_repeater fieldset').last().find('input').val('');
+           $('#gallery_repeater fieldset').last().find('img').attr('src', '');
+           $('#gallery_repeater fieldset').last().find('[data-action="remove"]').addClass('hide');
+           $('#gallery_repeater fieldset').last().find('[data-action="add"]').removeClass('hide');
+         $('#gallery_repeater fieldset').last().slideDown();
+    })
+
+    
     
     
 
