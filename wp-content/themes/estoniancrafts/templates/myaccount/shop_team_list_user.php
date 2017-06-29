@@ -4,7 +4,7 @@
 		<img src="<?= get_avatar_url($user->ID) ?>" />
 	</td>
 	<td class="profile-details">
-		<p><a href="<?php echo esc_url(apply_filters( 'bp_get_member_permalink', bp_core_get_user_domain( $user->ID, $user->user_nicename, $user->user_login ))); ?>"><h3><?= $user->display_name ?></h3></a></p>
+		<p><a href="<?= home_url('/user/'.$user->data->user_login) ?>"><h3><?= $user->display_name ?></h3></a></p>
 		<form class="ec_add_user_relation_value" action="<?= admin_url( 'admin-ajax.php' ) ?>" method="POST">
 			<?php wp_nonce_field( 'ec_add_user_relation_value_' . $relation->id, '_wpnonce') ?>
 			<input name="relation_id" value="<?= $relation->id ?>" type="hidden" />

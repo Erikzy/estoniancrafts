@@ -1,10 +1,5 @@
 <?php
 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
-ob_clean();
-ob_start();
-
 class EC_UserRelation
 {
 	/*
@@ -572,12 +567,12 @@ function add_or_edit_blog()
         		wp_redirect( $listUrl ); // should not happen
         	}
         	// populate
-            $category = get_category_by_description('merchant_blog_post');
+            //$category = get_category_by_description('merchant_blog_post');
         	$post->post_status = $map[$post->post_status];
         	$post->post_title = $postTitle;
         	$post->post_content = $postContent;
         	$post->post_picture = $postPicture;
-        	$post->post_category = array($category->term_id);
+        	$post->post_category = array(111/*$category->term_id*/);
         	// save if no errors
         	if (!count($errors)) {
 	        	// after update
