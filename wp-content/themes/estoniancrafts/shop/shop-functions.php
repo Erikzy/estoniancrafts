@@ -429,18 +429,7 @@ class EC_UserRelation
 	}
     
     
-   /**
- * return $images_id array()
- */
-public static function get_gallery_attachments_to_id($users_id, $filed_name ){
-	$ids[] ='';
-	$gallery_content = get_post_meta($users_id, $filed_name, true);
-    if(!empty($gallery_content)):
-	preg_match('/\[gallery.*ids=.(.*).\]/', $gallery_content, $ids);
-	$images_id = explode(",", $ids[1]);
-	return $images_id;
-    endif;
-}
+
 
 }
 
@@ -468,28 +457,3 @@ function ec_shop_team($atts)
 }
 
 add_shortcode('ec_shop_team', 'ec_shop_team');
-
-function gallerys()
-{
-    $current_user = wp_get_current_user();
-
-    if(isset($_POST['gallery_submit'])  && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' ))
-    {
-        if ( ! add_post_meta( $current_user->ID, 'portfolio_gallery', esc_attr($_POST['portfolio_gallery']), true ) ) { 
-            update_post_meta(  $current_user->ID, 'portfolio_gallery', esc_attr($_POST['portfolio_gallery']) );
-        }
-        else
-        {
-            add_post_meta(  $current_user->ID, 'portfolio_gallery', esc_attr($_POST['portfolio_gallery']), true );
-        }
-    }
-    include(locate_template('templates/myaccount/gallery_form.php'));
-}
-add_shortcode('gallerys', 'gallerys');
-
-/*page design*/
-function my_enqueue_media_lib_uploader() {
-        //Core media script
-        wp_enqueue_media();
-}
-add_action('wp_enqueue_scripts',   'my_enqueue_media_lib_uploader');
