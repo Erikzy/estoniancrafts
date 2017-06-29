@@ -21,6 +21,10 @@ include_once($currentDirname.'/facebook/class-facebook-login.php');
 include_once($currentDirname.'/shop/shop-functions.php');
 
 
+// Load portfolio
+include_once($currentDirname.'/portfolio/portfolio-functions.php');
+
+
 //WC_Cache_Helper::prevent_caching();
 
 /**
