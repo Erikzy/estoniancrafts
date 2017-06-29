@@ -17,23 +17,47 @@
             <button type="submit" name="submit"><?php _e('Save', 'ktt'); ?></button>
         </div>
     </div>
-    <br>
+    <br/>
     <div id="gallery_repeater">
-    <fieldset>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="fetaute-image">
-                <img src="" data-img="post_picture">
-                <input type="hidden" name="post_picture[]" value="">
-                <a href="#" btn-name="post_picture" data-action="add" data-btn="manage_image" class="btn">Add Image</a>
-                <a href="#" btn-name="post_picture" data-action="remove" data-btn="manage_image" class="hide btn">Remove Image</a>
-            </div>
-            </div>
-            <div class="col-md-8">
-             <textarea name="post_discription[]" value=""></textarea>
-            </div>
-        </div>
-    </fieldset>
+        <?php
+        $nextPictureId = 1;
+        if (count($pictures)): 
+            foreach ( $pictures as $key => $picture ):
+                $imageUrl = wp_get_attachment_url($picture['picture']);
+        ?>  
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="<?= $imageUrl ?>">
+                            <input class="picture" type="hidden" name="pictures[<?= $nextPictureId ?>][picture]" value="<?= $picture['picture'] ?>">
+
+                            <button class="btn portfolio_add_image">Add Image</button>
+                            <button class="btn portfolio_remove_image">Remove Image</a>
+                        </div>
+                        <div class="col-md-8">
+                            <textarea name="pictures[<?= $nextPictureId ?>][description]"><?= $picture['description'] ?></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            <?php 
+                ++$nextPictureId;
+            endforeach; ?> 
+        <?php else: ?>
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="" data-img="post_picture">
+                        <input class="picture" type="hidden" name="pictures[0][picture]" value="">
+
+                        <button class="btn portfolio_add_image">Add Image</button>
+                        <button class="hide btn portfolio_remove_image">Remove Image</a>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea name="pictures[0][description]"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        <?php endif; ?>
     </div>
     <a href="#" class="add_more_images btn pull-right">
         <?php _e('Add New images', 'ktt'); ?>
@@ -41,6 +65,8 @@
 </form>
 <br>
 
+<script>var next_picture_id=<?= (int)$nextPictureId ?>;</script>
+<?php /*
 <div class="gallery">
     <ul class="row">
         <?php $gallery_id =  get_gallery_attachments_to_id($current_user->ID, 'portfolio_gallery');
@@ -57,6 +83,7 @@ wp_reset_query();
 ?>
     </ul>
 </div>
+<?php //*/ ?>
 
 
 

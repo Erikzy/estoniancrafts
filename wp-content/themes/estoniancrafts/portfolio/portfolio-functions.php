@@ -21,25 +21,43 @@ ob_start();
 
 function add_edit_portfolio()
 {
-    if(is_user_logged_in())
-    {
+    if( !is_user_logged_in() ) {
+        wp_redirect( home_url('/my-account') );
+    }
+
     $current_user = wp_get_current_user();
-   
     $gallery_id = isset($_GET['id']) ? esc_attr($_GET['id']) : null ;
-        if($gallery_id!==null)
-        {
-           $post = get_post($gallery_id);
-        }
-        else
-        {
-          $post = new WP_Post((object)[]);   
-        }
-    if(isset($_POST['gallery_submit'])  && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' ))
-    {
+    if( $gallery_id !== null ) {
+        $post = get_post($gallery_id);
+    } else {
+        $post = new WP_Post((object)[]);   
+    }
+
+    // populate post pictures
+    $pictures = [];
+    if(isset($_POST['gallery_submit'])  && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' )) {
        
-      
-        
-        $gallery_images = [];
+        $rawPictures = isset($_POST['pictures']) && is_array($_POST['pictures'])? $_POST['pictures'] : [];
+        unset($_POST['pictures']);
+        foreach ($rawPictures as $raw) {
+            if (array_key_exists('picture', $raw) && 
+                array_key_exists('description', $raw) &&
+                ($picture = $raw['picture']) &&
+                ($description = $raw['description'])
+            ) {
+                $pictures[] = [
+                    'picture' => $picture,
+                    'description' => $description
+                ];
+            }
+        }
+
+        echo '<pre>';
+        print_r($_POST);
+        print_r($pictures);
+        echo '</pre>';
+
+        /*$gallery_images = [];
         $post_content = [];
         $postTitle = isset($_POST['post_title']) ? esc_attr($_POST['post_title']) : null ;
         $portfolio_gallery = isset($_POST['portfolio_gallery']) ? esc_attr($_POST['portfolio_gallery']) : null ;
@@ -48,7 +66,6 @@ function add_edit_portfolio()
         {
            array_push($post_content, "picture_url", $_POST['post_picture'][$k]);
         }
-        echo sizeof($_POST['post_picture']);
         echo '<pre>';
         print_r($post_content);
             
@@ -75,14 +92,16 @@ function add_edit_portfolio()
         }
         wp_redirect(home_url('/my-account/portfolio/edit?id='.$post->ID));
             }
+            */
        
     }
+
+    // get image urls
+
+
+    ob_start();
     include(locate_template('templates/myaccount/gallery_form.php'));
-    }
-        else
-    {
-       wp_redirect( home_url('/my-account'));
-    }
+    return ob_get_clean();
 }
 add_shortcode('add_edit_portfolio', 'add_edit_portfolio');
 
