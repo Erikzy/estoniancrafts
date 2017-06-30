@@ -103,6 +103,12 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/team'),
 				'url_endpoint' => 'my-account/team'
 			));
+            $menu->items[] = new EC_MenuItem(array(
+				'id' => 'blog',
+				'title' => $submenuPrefix.__( 'Blog', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/blog'),
+				'url_endpoint' => 'my-account/blog'
+			));
 		}
 		// Not a merchant
 		else
@@ -186,8 +192,7 @@ class EC_Filters
 		if(is_null($page))
 		{
 			include_once('Blocks/Pages/EC_Store_Page.php');
-			$page = new EC_Store_Page();
-			$page->load();
+			$page = EC_Store_Page::getInstance();
 		}
 
 		return $page;
@@ -352,6 +357,75 @@ function my_messages_message_sent($message) {
     return true;
 }
 
+function ec_dokan_rewrite_rules($custom_store_url)
+{
+	add_rewrite_rule( '([^/]+)/?$', 'index.php?pagename=$matches[1]', 'top' );
+    add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]', 'top' );
+
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&term_section=true', 'top' );
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&paged=$matches[3]&term_section=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/toc?$', 'index.php?pagename=$matches[1]&toc=true', 'top' );
+    add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]&toc=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/blog?$', 'index.php?pagename=$matches[1]&blog=true', 'top' );
+
+}
+add_action('dokan_rewrite_rules_loaded', 'ec_dokan_rewrite_rules', 100, 1);
+
+function ec_post_request($query_vars)
+{
+	if (array_key_exists('pagename', $query_vars)) {
+		// check if it's store
+		$seller = get_user_by( 'slug', $query_vars['pagename']);
+		if ($seller && dokan_get_store_info($seller->data->ID)) {
+			$custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'store' );
+			$query_vars[$custom_store_url] = $query_vars['pagename'];
+			unset($query_vars['pagename']);
+		} else if (array_key_exists('blog', $query_vars)) { // blog conflixt fix
+			unset($query_vars['blog']);
+			$query_vars['pagename'] .= '/blog';
+		}
+	}
+	return $query_vars;
+}
+add_filter('request', 'ec_post_request', 0, 1);
+
+function ec_register_query_vars($vars)
+{
+	$vars[] = 'blog';
+
+	return $vars;
+}
+add_filter('query_vars', 'ec_register_query_vars', 10, 1);
+
+function ec_store_blog( $template )
+{
+	if (get_query_var('blog')) {
+		$custom_store_url = dokan_get_option('custom_store_url', 'dokan_general', 'store');
+		$store_name = get_query_var($custom_store_url);
+		if ($store_name) {
+			$store_user = get_user_by('slug', $store_name);
+			if (!$store_user) {
+				return get_404_template();
+			}
+			if (!dokan_is_user_seller($store_user->ID)) {
+				return get_404_template();
+			}
+
+
+			include_once('Blocks/Pages/EC_Store_Page.php');
+			$page = EC_Store_Page::getInstance();
+			ob_start();
+			include(dokan_locate_template( 'store-blog.php'));
+			$page->custom_content = ob_get_clean();
+			return dokan_locate_template('store.php');
+		}
+	}
+	return $template;
+}
+add_filter('template_include', 'ec_store_blog', 1, 1);
+
 /**
  * Adds a 'Ask information' tab in product single page
  *
@@ -368,9 +442,7 @@ function ec_dokan_ask_information_product_tab( $tabs) {
 
     return $tabs;
 }
-
 add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' );
-
 
 /**
  * Prints information asking form in product single page

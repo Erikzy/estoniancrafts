@@ -222,7 +222,6 @@ jQuery(document).ready(function($)
 	};
 
 	ec_merchant.init();
-    
 
 
 	/*Portfolio media gallery*/
@@ -289,12 +288,31 @@ jQuery(document).ready(function($)
         $(last).find('.portfolio_remove_image').addClass('hide');
         $(last).slideDown();
         ++next_picture_id;
-    })
+    });
 
+    //get post status and notify to merchan when click on publish button
+    $('#edit-blog-post-form input[name="edit_action[publish]"]').click(function(e){
+       var $parent_element = $('#edit-blog-post-form');
+      if($('[name="temp_publish"]').val()=='exist')
+          {
+               jQuery('.confirm-publish').fadeToggle('slow');
+              $('[name="temp_publish"]').val('not-exisat');
+              return false;
+          }
+    });
     
-    
-    
+    // post publish
+    $('.before-publish').click(function(e){
+        if($(this).attr('data-value')=='publish')
+            {
+               $('#edit-blog-post-form input[name="edit_action[publish]"]').trigger('click');
+            }
+            else
+            {
+                jQuery('.confirm-publish').fadeToggle('slow');
+               $('[name="temp_publish"]').val('exist');
+                e.preventDefault();
+            }
+    });
 
 });
-
-
