@@ -394,3 +394,8 @@ function ec_dokan_get_store_url( $user_id )
 
     return sprintf( '%s/%s/', home_url(), $user_nicename );
 }
+
+function ec_get_portfolio_url( $portfolio, $user )
+{
+    return home_url('/user/'.$user->data->user_login.'/portfolio/'.$portfolio->ID);
+}

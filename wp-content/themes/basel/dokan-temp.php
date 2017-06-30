@@ -106,7 +106,7 @@ function wpleet_rewrite_add_var( $vars )
 add_rewrite_tag( '%user%', '([^&]+)' );
 add_rewrite_tag( '%lbpdf%', '([^&]+)' );
 add_rewrite_rule(
-    '^user/([^/]*)/?',
+    '^user/([^/]*)/?$',
     'index.php?user=$matches[1]',
     'top'
 );
