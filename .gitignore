@@ -6,3 +6,4 @@
 # Parameters
 /wp-config.php
 /.htaccess
+/wp-content/uploads/*
