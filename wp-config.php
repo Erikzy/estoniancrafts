@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'estoniancrafts2');
+define('DB_NAME', 'madis_estoniancrafts');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'madis');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'a');
+define('DB_PASSWORD', '4u15EnVc');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '127.0.0.1');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -64,7 +64,7 @@ define('NONCE_SALT',       'Lw)rSJ:pv-zhL7wgK+>M0[-V73>K`juF[)Pnn7JKtxx f;18 uJx
  *
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
- */
+ */s<
 $table_prefix  = 'ktt_';
 
 /**
