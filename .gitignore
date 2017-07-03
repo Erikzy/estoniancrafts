@@ -1,3 +1,8 @@
 /.phpintel
 .idea
 /wp-content/uploads/message-attachments
+# Cache, session files and logs (Symfony3)
+/wp-content/cache/*
+# Parameters
+/wp-config.php
+/.htaccess
