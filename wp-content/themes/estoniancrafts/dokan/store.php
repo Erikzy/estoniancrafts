@@ -178,10 +178,24 @@ get_header( 'shop' );
 
 	            <?php do_action( 'dokan_store_profile_frame_after', $store_user, $store_info ); ?>
 
+                <?php
+
+                $video = get_user_meta($store_user->ID, 'ktt_extended_profile', true)['video'];
+
+                preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $video, $videoId);
+
+                ?>
+
 	            <?php if ( have_posts() ) { ?>
 
 	                <div class="seller-items">
-
+                        <?php if ($videoId[0]) { ?>
+                            <div class="video-container video-container-margins">
+                                <iframe width="560" height="315"
+                                        src="<?php echo sprintf("https://www.youtube.com/embed/%s", $videoId[0]); ?>"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        <?php } ?>
 	                    <?php woocommerce_product_loop_start(); ?>
 
 	                        <?php while ( have_posts() ) : the_post(); ?>
