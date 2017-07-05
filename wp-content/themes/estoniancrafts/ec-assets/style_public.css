@@ -1944,3 +1944,12 @@ h3.wsmsb_title {
     width:100%;
     height:100%;
 }
+
+.facebook-share-profile {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.nullify-padding {
+    padding: 0 !important;
+}

@@ -84,6 +84,12 @@ get_header( 'shop' );
 					</div>
 					<?php endif; ?>
 
+                    <?php // Share facebook ?>
+                    <div class="facebook-share-profile">
+                        <h5 class="widget-title nullify-padding"><?= __('Jaga profiili', 'ktt') ?></h5>
+                        <?php do_action( 'dolmit_share_profile_on_facebook'); ?>
+                    </div>
+
 					<?php // Website link ?>
 					<?php if(!empty($ec_page->website)): ?>
 					<a href="<?= $ec_page->website ?>" target="_blank" class="ec-store-website-link"><?= $ec_page->website ?></a>
