@@ -1953,3 +1953,15 @@ h3.wsmsb_title {
 .nullify-padding {
     padding: 0 !important;
 }
+
+.article-linking-title {
+    margin-bottom: 0 !important;
+}
+
+.article-linking-subtitle {
+    margin-bottom: 20px;
+}
+
+.article-head-title {
+    margin-top: 20px;
+}

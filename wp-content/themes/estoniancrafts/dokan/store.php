@@ -190,6 +190,13 @@ get_header( 'shop' );
 
                 preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $video, $videoId);
 
+                $article_links_orig = get_user_meta($store_user->ID, 'ktt_extended_profile', true)['articles_links'];
+
+                if($article_links_orig) {
+                    $article_links = explode(" ", $article_links_orig);
+                } else {
+                    $article_links = [];
+                }
                 ?>
 
 	            <?php if ( have_posts() ) { ?>
@@ -202,6 +209,29 @@ get_header( 'shop' );
                                         frameborder="0" allowfullscreen></iframe>
                             </div>
                         <?php } ?>
+
+                        <?php if (!empty($article_links)) { ?>
+                            <h3 class="widget-title nullify-padding article-head-title"><?= __("Artiklite lingid", "ktt") ?></h3>
+                        <?php } ?>
+
+                        <?php foreach ($article_links as $link) { ?>
+                            <?php
+                            $file_headers = @get_headers($link);
+                            if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                continue;
+                            }
+
+                            $data = file_get_contents($link);
+                            $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $data, $matches) ? $matches[1] : null;
+
+                            $article_meta_tags = get_meta_tags($link);
+
+                            ?>
+                            <a href="<?= $link ?>"><h3 class="article-linking-title product-title"><?php echo ($title ? $title : ($article_meta_tags['title'] ?: __('Tiitel puudub', 'ktt'))) ?></h3></a>
+                            <p class="article-linking-subtitle">(<?= $link ?>)</p>
+                            <p><?= $article_meta_tags['description'] ?: "" ?></p>
+                        <?php } ?>
+
 	                    <?php woocommerce_product_loop_start(); ?>
 
 	                        <?php while ( have_posts() ) : the_post(); ?>
