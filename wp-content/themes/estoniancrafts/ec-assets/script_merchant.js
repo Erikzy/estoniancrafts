@@ -222,62 +222,74 @@ jQuery(document).ready(function($)
 	};
 
 	ec_merchant.init();
-    
-    
-     var mediaUploader;
+
+
+	/*Portfolio media gallery*/
+
+    var mediaUploader;
+    var $parent_element;
+    var $this;
+    var $repeater_field;
     //post picture
     //Add picture
-    $('[data-action="add"]').click(function(e){
-        
-        e.preventDefault();
-        var $parent_element = $(this).parent();
-        var $this = $(this);
-        
-         // If the uploader object has already been created, reopen the dialog
-                if (mediaUploader) {
-                    mediaUploader.open();
-                    return;
-                }
-                // Extend the wp.media object
-                mediaUploader = wp.media.frames.file_frame = wp.media({
-                    title: 'Choose Image',
-                    button: {
-                        text: 'Choose Image'
-                    },
-                    multiple: false
-                });
+    $('body').on('click', '.portfolio_add_image', function(e){
+       	e.preventDefault();
+        parent_element = $(this).parent();
 
-                // When a file is selected, grab the URL and set it as the text field's value
-                mediaUploader.on('select', function() {
-                   
-                    attachment = mediaUploader.state().get('selection').first().toJSON();
-                    $('[name="post_picture"]', $parent_element).val(attachment.id);
-                    $('img', $parent_element).attr('src', attachment.url);
-                    $this.addClass('hide');
-                    $('[data-action="remove"]', $parent_element).removeClass('hide');
-                });
-                // Open the uploader dialog
-                mediaUploader.open();
-        
-        
+        //$parent_element.addClass('sururu');
+         // If the uploader object has already been created, reopen the dialog
+        if (mediaUploader) {
+            mediaUploader.open();
+            return;
+        }
+  
+        // Extend the wp.media object
+        mediaUploader = wp.media.frames.file_frame = wp.media({
+            title: 'Choose Image',
+            button: {
+                text: 'Choose Image'
+            },
+            multiple: false
+        });
+
+        // When a file is selected, grab the URL and set it as the text field's value
+        mediaUploader.on('select', function() {
+            attachment = mediaUploader.state().get('selection').first().toJSON();
+            $('input.picture', parent_element).val(attachment.id);
+            $('img', parent_element).attr('src', attachment.url);
+            $('.portfolio_remove_image', parent_element).removeClass('hide');
+        });
+        // Open the uploader dialog
+        mediaUploader.open();
     });
     
-    
     //remove image
-     $('[data-action="remove"]').click(function(e){
-         
+    $('body').on('click', '.portfolio_remove_image', function(e){
         e.preventDefault();
-        var $parent_element = $(this).parent();
-        var $this = $(this);
-        $('[name="post_picture"]', $parent_element).val('');
-        $('img', $parent_element).removeAttr('src');
-        $this.addClass('hide');
-        $('[data-action="add"]', $parent_element).removeClass('hide');
-         
-         
-     });
-    
-    
+        var parent_element = $(this).parent();
+        $('input.picture', parent_element).val('');
+        $('img', parent_element).removeAttr('src');
+        $(this).addClass('hide');
+        $('[data-action="add"]', parent_element).removeClass('hide');
+    });
+          
+    $('.add_more_images').click(function(e){
+        e.preventDefault();
+        var repeater_field = $('#gallery_repeater fieldset').html();
+        $('#gallery_repeater').append('<fieldset style="display:none">' + repeater_field + '</fieldset>');
+        var last = $('#gallery_repeater fieldset').last();
+        var picture = $(last).find('input.picture');
+        $(picture).val('');
+        $(picture).attr('name', 'pictures['+next_picture_id+'][picture]');
+        var description = $(last).find('textarea');
+        $(description).val('');
+        $(description).attr('name', 'pictures['+next_picture_id+'][description]');
+        $(last).find('img').attr('src', '');
+        $(last).find('.portfolio_remove_image').addClass('hide');
+        $(last).slideDown();
+        ++next_picture_id;
+    });
+
     //get post status and notify to merchan when click on publish button
     $('#edit-blog-post-form input[name="edit_action[publish]"]').click(function(e){
        var $parent_element = $('#edit-blog-post-form');
@@ -287,9 +299,9 @@ jQuery(document).ready(function($)
               $('[name="temp_publish"]').val('not-exisat');
               return false;
           }
-    })
+    });
     
-    
+    // post publish
     $('.before-publish').click(function(e){
         if($(this).attr('data-value')=='publish')
             {
@@ -301,6 +313,6 @@ jQuery(document).ready(function($)
                $('[name="temp_publish"]').val('exist');
                 e.preventDefault();
             }
-    })
-     });
+    });
 
+});
