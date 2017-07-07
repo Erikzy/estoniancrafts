@@ -322,21 +322,26 @@ class EC_vcUserCarousel extends WPBakeryShortCode
             )
         );
 
-        // get users
-        $include = explode(',', $atts['include']);
-        $include = array_map(function ($value) { return (int)$value; }, $include);
-        $tmpusers = get_users(['include' => $include]);
-            // reorder
-        $findUser = function(&$users, $id) {
-            foreach ($users as $user) {
-                if ((int)$user->ID === $id) {
-                    return $user;
-                }
-            }
-        };
         $users = [];
-        foreach ($include as $id) {
-            $users[] = $findUser($tmpusers, (int)$id);
+        if(isset($atts['include'])) {
+
+            // get users
+            $include = explode(',', $atts['include']);
+            $include = array_map(function ($value) {
+                return (int)$value;
+            }, $include);
+            $tmpusers = get_users(['include' => $include]);
+            // reorder
+            $findUser = function (&$users, $id) {
+                foreach ($users as $user) {
+                    if ((int)$user->ID === $id) {
+                        return $user;
+                    }
+                }
+            };
+            foreach ($include as $id) {
+                $users[] = $findUser($tmpusers, (int)$id);
+            }
         }
 
         // get is brand
