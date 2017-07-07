@@ -4,41 +4,56 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 ob_clean();
 ob_start();
-   /**
- * return $images_id array()
- */
- function get_gallery_attachments_to_id($users_id, $filed_name ){
-	$ids[] ='';
-	$gallery_content = get_post_meta($users_id, $filed_name, true);
-    if(!empty($gallery_content)):
-	preg_match('/\[gallery.*ids=.(.*).\]/', $gallery_content, $ids);
-	$images_id = explode(",", $ids[1]);
-	return $images_id;
-    endif;
+
+function get_portfolio_pictures( $portfolio )
+{
+    if ( !$portfolio->post_content ) {
+        return [];
+    }
+
+    $spids = explode(',', $portfolio->post_content);
+    $dbids = array_map(function ($id) { return sprintf("ID = %s", $id); }, $spids);
+
+    global $wpdb;
+    $dbdescriptions = $wpdb->get_results("SELECT ID, post_content FROM `ktt_posts` WHERE " . implode(' OR ', $dbids), OBJECT_K);
+
+    $pictures = [];
+    foreach ($spids as $id) {
+        $url = wp_get_attachment_url((int)$id);
+        $pictures[] = [
+            'picture' => (int)$id,
+            'description' => $dbdescriptions[(int)$id]->post_content,
+            'url' => $url
+        ];
+    }
+
+    return $pictures;
 }
-
-
 
 function add_edit_portfolio()
 {
     if( !is_user_logged_in() ) {
         wp_redirect( home_url('/my-account') );
     }
-
     $current_user = wp_get_current_user();
-    $gallery_id = isset($_GET['id']) ? esc_attr($_GET['id']) : null ;
-    if( $gallery_id !== null ) {
-        $post = get_post($gallery_id);
+
+    $id = isset($_GET['id']) ? esc_attr($_GET['id']) : null ;
+    if( $id !== null ) {
+        $portfolio = get_post($id);
+        // check if this post belong to the user
     } else {
-        $post = new WP_Post((object)[]);   
+        $portfolio = new WP_Post((object)[]);
+        $portfolio->post_author = $current_user->ID;
+        $portfolio->post_type = 'portfolio';
     }
 
-    // populate post pictures
-    $pictures = [];
+    $errors = [];
     if(isset($_POST['gallery_submit'])  && isset( $_POST['post_nonce_field'] ) && wp_verify_nonce( $_POST['post_nonce_field'], 'post_nonce' )) {
-       
+
+        // catch post data
         $rawPictures = isset($_POST['pictures']) && is_array($_POST['pictures'])? $_POST['pictures'] : [];
         unset($_POST['pictures']);
+        $pictures = [];
         foreach ($rawPictures as $raw) {
             if (array_key_exists('picture', $raw) && 
                 array_key_exists('description', $raw) &&
@@ -46,64 +61,76 @@ function add_edit_portfolio()
                 ($description = $raw['description'])
             ) {
                 $pictures[] = [
-                    'picture' => $picture,
+                    'picture' => (int)$picture,
                     'description' => $description
                 ];
             }
         }
+        $title = isset($_POST['post_title']) ? $_POST['post_title'] : null;
 
-        echo '<pre>';
-        print_r($_POST);
-        print_r($pictures);
-        echo '</pre>';
+        if (!$title) {
+            $errors['title'] = __('Portfolio title needed', 'ktt');
+        }
 
-        /*$gallery_images = [];
-        $post_content = [];
-        $postTitle = isset($_POST['post_title']) ? esc_attr($_POST['post_title']) : null ;
-        $portfolio_gallery = isset($_POST['portfolio_gallery']) ? esc_attr($_POST['portfolio_gallery']) : null ;
-        $gallery_images = isset($_POST['post_picture']) ? esc_attr($_POST['post_picture']) : null ;
-        for($k=0; $k < sizeof($_POST['post_picture']); $k++ )
-        {
-           array_push($post_content, "picture_url", $_POST['post_picture'][$k]);
-        }
-        echo '<pre>';
-        print_r($post_content);
-            
-        exit;
-        $post->post_title = $postTitle;
-        $post->post_type = 'portfolio_gallery';
-        $post->post_content = $portfolio_gallery;
-        
-           $errors = [];
-        
-        
-        // validate
-        	if (!$postTitle) {
-        		$errors['post_title'] = __('Empty blog post title', 'ktt');
-        	}
-        // save if no errors
-        	if (!count($errors)) {
-       if ($post->ID) {
-        			wp_update_post($post);
-       }
-        else
-        {
-           $post->ID = (wp_insert_post($post)); 
-        }
-        wp_redirect(home_url('/my-account/portfolio/edit?id='.$post->ID));
+        if (!count($errors)) {
+            $pids = array_map(function ($picture) { return $picture['picture']; }, $pictures);
+            $portfolio->post_content = implode(',', $pids);
+            $portfolio->post_title = $title;
+
+            // save picture descriptions
+            global $wpdb;
+            $prepp = array_map(function ($picture) { return sprintf("(%s,'%s')", $picture['picture'], $picture['description']); }, $pictures);
+            $psql = sprintf("
+                INSERT INTO `ktt_posts` (ID, post_content) 
+                    VALUES %s 
+                ON DUPLICATE KEY 
+                    UPDATE ID = VALUES(ID), 
+                        post_content = VALUES(post_content);", 
+                implode(',', $prepp)
+            );
+            $wpdb->query($psql);
+
+            if ($portfolio->ID) {
+                wp_update_post($portfolio);
+            } else {
+                $portfolio->ID = wp_insert_post($portfolio);
+                wp_redirect(home_url('/my-account/portfolio/edit?id='.$portfolio->ID));
             }
-            */
-       
+        }
+
     }
 
-    // get image urls
-
+    // populate post pictures
+    if (!count($errors)) {
+        $pictures = get_portfolio_pictures($portfolio);
+    } else if (!isset($pictures)) {
+        $pictures = [];
+    }
 
     ob_start();
-    include(locate_template('templates/myaccount/gallery_form.php'));
+    include(locate_template('templates/myaccount/portfolio_edit.php'));
     return ob_get_clean();
 }
 add_shortcode('add_edit_portfolio', 'add_edit_portfolio');
+
+function ec_portfolio_list()
+{
+    if( !is_user_logged_in() ) {
+        wp_redirect( home_url('/my-account') );
+    }
+    $current_user = wp_get_current_user();
+
+    // get portfolios
+    $portfolios = get_posts([
+        'post_author' => $current_user->ID,
+        'post_type' => 'portfolio'
+    ]);
+
+    ob_start();
+    include(locate_template('templates/myaccount/portfolio_list.php'));
+    return ob_get_clean();
+}
+add_shortcode('portfolio_list', 'ec_portfolio_list');
 
 /*page design*/
 function my_enqueue_media_lib_uploader() {

@@ -395,25 +395,7 @@ function ec_dokan_get_store_url( $user_id )
     return sprintf( '%s/%s/', home_url(), $user_nicename );
 }
 
-add_action('dolmit_share_profile_on_facebook', 'dolmit_share_profile_on_facebook');
-
-function dolmit_share_profile_on_facebook()
+function ec_get_portfolio_url( $portfolio, $user )
 {
-    global $wp;
-    $current_url = home_url(add_query_arg(array(), $wp->request));
-    $app_id = get_option('_facebook_app_id');
-
-    $html = <<<HTML
-    <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=$app_id";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-share-button" data-href="$current_url" data-layout="button" data-size="large" data-mobile-iframe="true"></div>
-HTML;
-
-    print $html;
+    return home_url('/user/'.$user->data->user_login.'/portfolio/'.$portfolio->ID);
 }

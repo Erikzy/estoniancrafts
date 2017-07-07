@@ -25,7 +25,23 @@ class EC_Personal_Profile_Page extends EC_Block
 	public $education_history = array();	// Array of EC_Block
 	public $work_history = array();			// Array of EC_Block
 	public $certificates = array();			// Array of EC_Block
-	
+	public $portfolios = array();
+
+
+	public $custom_content = null;		// Custom content
+
+	private static $_instance = null;
+
+	public static function getInstance()
+	{
+		if (self::$_instance === null) {
+			$page = new EC_Personal_Profile_Page();
+			$page->load();
+
+			self::$_instance = $page;
+		}
+		return self::$_instance;
+	}
 
 	/**
 	 * @return boolean
@@ -270,9 +286,16 @@ $mtime1 = microtime(true);
 			}
 		}
 
+		// Portfolios
+		$this->portfolios = get_posts([
+			'post_author' => $user->ID,
+			'post_type' => 'portfolio'
+		]);
+
 $mtime2 = microtime(true);
 //ec_debug_to_console('runtime', sprintf('%f.8', ($mtime2 - $mtime1)));
 
 		return true;
 	}
+
 }

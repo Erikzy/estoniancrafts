@@ -10,8 +10,7 @@
                 <?php } ?> 
                 </label>
             <input type="hidden" name="gallery_submit" value="true">
-            <input type="text" class="form-control" name="post_title" value="<?php echo $post->post_title; ?>">
-            <input type="hidden" id="portfolio_gallery" name="portfolio_gallery" value="<?php echo  $post->post_content; ?>">
+            <input type="text" class="form-control" name="post_title" value="<?php echo $portfolio->post_title; ?>">
         </div>
         <div class="col-md-4">
             <button type="submit" name="submit"><?php _e('Save', 'ktt'); ?></button>
@@ -23,12 +22,11 @@
         $nextPictureId = 1;
         if (count($pictures)): 
             foreach ( $pictures as $key => $picture ):
-                $imageUrl = wp_get_attachment_url($picture['picture']);
         ?>  
                 <fieldset>
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="<?= $imageUrl ?>">
+                            <img src="<?= $picture['url'] ?>">
                             <input class="picture" type="hidden" name="pictures[<?= $nextPictureId ?>][picture]" value="<?= $picture['picture'] ?>">
 
                             <button class="btn portfolio_add_image">Add Image</button>
