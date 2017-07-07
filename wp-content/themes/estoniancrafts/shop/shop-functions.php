@@ -433,8 +433,6 @@ class EC_UserRelation
 
 EC_UserRelation::init();
 
-
-
 /*
 * Team member list page shortcode
 */
@@ -485,11 +483,6 @@ function get_category_by_description($categoryDescription) {
 
     return null;
 }
-
-
-
-
-
 
 /**
  * BLog manage for loggin merchant(seller)
@@ -609,5 +602,3 @@ function add_or_edit_blog()
     return '';
 }
 add_shortcode('add_or_edit_blog', 'add_or_edit_blog');
-
-

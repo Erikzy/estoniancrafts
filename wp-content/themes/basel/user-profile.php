@@ -9,6 +9,7 @@
 <div class="site-content col-sm-12" role="main">
 <?php 
 	$page = apply_filters('ec_get_page_personal_profile', null);
+   
 	if($page->user)
 	{
 		$user = $page->user;
@@ -145,6 +146,26 @@
 				<?php endforeach; ?>
 			<?php endif; ?>
 
+              <?php //portfolio ?>
+            <?php if(get_post_meta($page->user->data->ID, 'portfolio_gallery')): ?>
+            <h3 class="title"><?= __('Portfolio', 'ktt') ?></h3>
+            <?php 
+                $gallery_content = get_post_meta($page->user->data->ID, 'portfolio_gallery', true);
+                if(!empty($gallery_content)):
+	                preg_match('/\[gallery.*ids=.(.*).\]/', $gallery_content, $ids);
+	                $images_id = explode(",", $ids[1]); ?>
+		            <ul class="row">
+		                <?php foreach($images_id as $gallry) : ?>
+			                <li class="col-md-2">
+			                    <?php $attchment = get_post( intval(preg_replace('/[^0-9]+/', '', $gallry), 10) ); ?>
+			                    <img src="<?= wp_get_attachment_url( $attchment->ID ); ?>" ><span><?= $attchment->post_content; ?></span>
+			                </li>
+		                <?php endforeach; ?>
+		            </ul>
+	            <?php endif; ?>
+            <div class="clear"></div>
+            <?php endif; ?>
+            
 			<?php // About ?>
 			<?php if($page->description): ?>
 				<h3 class="title about-title"><?= __('About', 'ktt') ?></h3>
@@ -214,6 +235,11 @@
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
+            
+           
+
+
+           
 
 		</div>
 	</div>
@@ -222,3 +248,6 @@
 
 <?php /* <?php get_sidebar(); ?> */ ?>
 <?php get_footer(); ?>
+
+
+
