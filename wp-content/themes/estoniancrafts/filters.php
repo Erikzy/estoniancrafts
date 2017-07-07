@@ -176,8 +176,7 @@ class EC_Filters
 		if(is_null($page))
 		{
 			include_once('Blocks/Pages/EC_Personal_Profile_Page.php');
-			$page = new EC_Personal_Profile_Page();
-			$page->load();
+			$page = EC_Personal_Profile_Page::getInstance();
 		}
 
 		return $page;
@@ -370,8 +369,10 @@ function ec_dokan_rewrite_rules($custom_store_url)
 
     add_rewrite_rule( '([^/]+)/blog?$', 'index.php?pagename=$matches[1]&blog=true', 'top' );
 
+    add_rewrite_rule( '^user/([^/]*)/portfolio/([^/]*)?$', 'index.php?user=$matches[1]&portfolio=$matches[2]', 'top');
+    flush_rewrite_rules();
 }
-add_action('dokan_rewrite_rules_loaded', 'ec_dokan_rewrite_rules', 100, 1);
+add_action('dokan_rewrite_rules_loaded', 'ec_dokan_rewrite_rules', 999, 1);
 
 function ec_post_request($query_vars)
 {
@@ -387,6 +388,7 @@ function ec_post_request($query_vars)
 			$query_vars['pagename'] .= '/blog';
 		}
 	}
+
 	return $query_vars;
 }
 add_filter('request', 'ec_post_request', 0, 1);
@@ -394,6 +396,7 @@ add_filter('request', 'ec_post_request', 0, 1);
 function ec_register_query_vars($vars)
 {
 	$vars[] = 'blog';
+	$vars[] = 'portfolio';
 
 	return $vars;
 }
@@ -425,6 +428,27 @@ function ec_store_blog( $template )
 	return $template;
 }
 add_filter('template_include', 'ec_store_blog', 1, 1);
+
+function ec_user_portfolio( $template )
+{
+	if (($portfolioId = get_query_var('portfolio'))) {
+		$portfolio = get_post((int)$portfolioId);
+		if (!$portfolio) {
+			return get_404_template();
+		}
+
+		$pictures = get_portfolio_pictures($portfolio);
+
+		include_once('Blocks/Pages/EC_Personal_Profile_Page.php');
+		$page = EC_Personal_Profile_Page::getInstance();
+		ob_start();
+		include (locate_template('templates/myaccount/portfolio-page.php'));
+		$page->custom_content = ob_get_clean();
+		return locate_template('user-profile.php');
+	}
+	return $template;
+}
+add_filter('template_include', 'ec_user_portfolio', 100, 1);
 
 /**
  * Adds a 'Ask information' tab in product single page

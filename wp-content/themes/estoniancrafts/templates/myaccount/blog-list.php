@@ -1,8 +1,8 @@
 <p>
     <a class="btn btn-color-primary" href="<?= home_url('my-account/blog/edit')?>">Add new post</a>
 </p>
+
 <p>
-</p>
     <table class="table table-hover">
         <thead>
         <tr>

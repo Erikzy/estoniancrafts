@@ -190,7 +190,13 @@ get_header( 'shop' );
 
                 preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $video, $videoId);
 
-                $article_links_orig = get_user_meta($store_user->ID, 'ktt_extended_profile', true)['articles_links'];
+                $article_meta = get_user_meta($store_user->ID, 'ktt_extended_profile', true);
+
+                if (isset($article_meta['articles_links'])) {
+                    $article_links_orig = $article_meta['articles_links'];
+                } else {
+                    $article_links_orig = false;
+                }
 
                 if($article_links_orig) {
                     $article_links = explode(" ", $article_links_orig);
@@ -202,7 +208,7 @@ get_header( 'shop' );
 	            <?php if ( have_posts() ) { ?>
 
 	                <div class="seller-items">
-                        <?php if ($videoId[0]) { ?>
+                        <?php if (isset($videoId[0]) && $videoId[0]) { ?>
                             <div class="video-container video-container-margins">
                                 <iframe width="560" height="315"
                                         src="<?php echo sprintf("https://www.youtube.com/embed/%s", $videoId[0]); ?>"
