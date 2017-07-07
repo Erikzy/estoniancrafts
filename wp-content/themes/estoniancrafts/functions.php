@@ -351,7 +351,7 @@ class EC_vcUserCarousel extends WPBakeryShortCode
 
         echo '<div class="top-users">';
         foreach ($users as $user):
-        ?>
+            if ($user) { ?>
             <div class="user-item">
                 <?= get_avatar($user->ID, 128) ?>
                 <h3>
@@ -363,7 +363,8 @@ class EC_vcUserCarousel extends WPBakeryShortCode
                 </h3>
 
             </div>
-        <?php
+            <?php
+        }
         endforeach;
         echo '</div>';
 
