@@ -2,7 +2,7 @@
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
-ob_clean();
+//ob_clean();
 ob_start();
 
 function get_portfolio_pictures( $portfolio )
