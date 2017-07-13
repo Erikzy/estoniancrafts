@@ -1224,3 +1224,15 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     height: auto;
     margin: 0 auto;
 }
+
+/* Institutions */
+.ec-institution { text-align:left; margin-bottom:20px; }
+.ec-institution:after { content:''; display:block; clear:both; }
+.ec-institution h2 { margin-bottom:10px; }
+.ec-institution-logo { float:left; width:150px; }
+.ec-institution-content { float:left; }
+
+/* home page */
+body.home-page #tribe-events .tribe-events-page-title { display:none; }
+body.home-page #tribe-events #tribe-events-footer { display:none; }
+body.home-page #tribe-events .tribe-events-ical { display:none; }

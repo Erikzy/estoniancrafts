@@ -215,3 +215,21 @@ if (!function_exists('is_user_idcard')) {
         return (bool) $user != NULL;
     }
 }
+
+// Institutions
+if(!function_exists('ec_create_posttype_institutes')) {
+	function ec_create_posttype_institutes() {
+		register_post_type( 'institution', array(
+				'labels' => array(
+					'name' => __( 'Institutsioonid' ),
+					'singular_name' => __( 'Institutsioon' ),
+				),
+				'public' => true,
+				'has_archive' => true,
+				'rewrite' => array('slug' => 'institution'),
+				'supports' => array('title','editor','thumbnail','page-attributes')
+			)
+		);
+	}
+}
+add_action( 'init', 'ec_create_posttype_institutes' );
