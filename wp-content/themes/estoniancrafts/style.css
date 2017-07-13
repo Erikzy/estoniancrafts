@@ -124,14 +124,14 @@
 
 
 .zmb-wrap .zmb-menu > li > a {
-     line-height: 14px; 
-     padding: 0px; 
-     text-transform: none; 
+   line-height: 14px; 
+   padding: 0px; 
+   text-transform: none; 
 }
 
 .zmb-wrap .zmb-menu > li.current_page_item > a {
-     background-color: transparent; 
-     color: black;
+   background-color: transparent; 
+   color: black;
 }
 
 .zmb-wrap .zmb-menu > li:hover {
@@ -177,7 +177,26 @@
 }
 
 .vc_custom_1488887543165 {
-     margin-bottom: 80px !important; 
+   margin-bottom: 80px !important; 
+}
+
+.zmb-container .zmb-menu {
+    float: none; 
+}
+
+.zmb-container .zmb-menu {
+   float: none; 
+   margin-left: 0px;
+   margin-right: 0px;
+}
+
+.main-nav .menu>li {
+    display: inline-block;
+    margin-left: 0px;
+}
+
+.zmb-wrap .zmb-menu > li > a {
+    padding: 20px 13px;
 }
 
 /*.wpb_column.vc_column_container.vc_col-sm-12 {
