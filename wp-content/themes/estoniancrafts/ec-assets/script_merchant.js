@@ -235,6 +235,7 @@ jQuery(document).ready(function($)
     $('body').on('click', '.portfolio_add_image', function(e){
        	e.preventDefault();
         parent_element = $(this).parent();
+        fieldset = $(this).parents('fieldset');
 
         //$parent_element.addClass('sururu');
          // If the uploader object has already been created, reopen the dialog
@@ -256,7 +257,7 @@ jQuery(document).ready(function($)
         mediaUploader.on('select', function() {
             attachment = mediaUploader.state().get('selection').first().toJSON();
             $('input.picture', parent_element).val(attachment.id);
-            $('img', parent_element).attr('src', attachment.url);
+            $('img', fieldset).attr('src', attachment.url);
             $('.portfolio_remove_image', parent_element).removeClass('hide');
         });
         // Open the uploader dialog
@@ -281,6 +282,11 @@ jQuery(document).ready(function($)
         var picture = $(last).find('input.picture');
         $(picture).val('');
         $(picture).attr('name', 'pictures['+next_picture_id+'][picture]');
+        var img = $(last).find('.img-portfolio');
+        $(img).attr('data-target', '#myModal_'+next_picture_id);
+        var imgModal = $(last).find('.modal');
+        $(imgModal).attr('id', 'myModal_'+next_picture_id);
+
         var description = $(last).find('textarea');
         $(description).val('');
         $(description).attr('name', 'pictures['+next_picture_id+'][description]');

@@ -1,3 +1,28 @@
+<style>
+    .vertical-alignment-helper {
+        display:table;
+        height: 100%;
+        width: 100%;
+        pointer-events:none;
+    }
+    .vertical-align-center {
+        /* To center vertically */
+        display: table-cell;
+        vertical-align: middle;
+        pointer-events:none;
+    }
+    .modal-content {
+        /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+        width:inherit;
+        height:inherit;
+        /* To center horizontally */
+        margin: 0 auto;
+        pointer-events:all;
+    }
+    .modal-backdrop {
+        display: none;
+    }
+</style>
 <br>
 <form method="post" id="gallery_form">
     <?php wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
@@ -26,7 +51,7 @@
                 <fieldset>
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="<?= $picture['url'] ?>">
+                            <img class="img-portfolio" src="<?= $picture['url'] ?>" data-toggle="modal" data-target="#myModal_<?= $key ?>">
                             <input class="picture" type="hidden" name="pictures[<?= $nextPictureId ?>][picture]" value="<?= $picture['picture'] ?>">
 
                             <button class="btn portfolio_add_image">Add Image</button>
@@ -36,7 +61,21 @@
                             <textarea name="pictures[<?= $nextPictureId ?>][description]"><?= $picture['description'] ?></textarea>
                         </div>
                     </div>
+                    <!-- Modal -->
+                    <div id="myModal_<?= $key ?>" class="modal fade" role="dialog">
+                        <!-- Modal content-->
+                        <div class="vertical-alignment-helper">
+                            <div class="modal-dialog vertical-align-center">
+                                <div class="modal-content text-center">
+                                    <img class="modal-image" src="<?= $picture['url'] ?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </fieldset>
+
+
+
             <?php 
                 ++$nextPictureId;
             endforeach; ?> 
