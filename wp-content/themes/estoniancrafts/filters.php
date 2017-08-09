@@ -58,11 +58,11 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
-            $menu->items[] = new EC_MenuItem(array(
+        /*    $menu->items[] = new EC_MenuItem(array(
 				'id' => 'messages',
 				'title' => __( 'My Messages', 'ktt' ) .(bp_get_total_unread_messages_count() > 0 ? ' ('.bp_get_total_unread_messages_count().')' : ''),
 				'url' => get_site_url(null, 'members/'.$user->user_nicename.'/messages/'),
-			));
+			));*/
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop',
 				'title' => __( 'My Shop', 'ktt' )
@@ -97,6 +97,18 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/dashboard/settings/store'),
 				'url_endpoint' => 'my-account/dashboard/settings/store'
 			));
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-team',
+				'title' => $submenuPrefix.__( 'Team', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/team'),
+				'url_endpoint' => 'my-account/team'
+			));
+            $menu->items[] = new EC_MenuItem(array(
+				'id' => 'blog',
+				'title' => $submenuPrefix.__( 'Blog', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/blog'),
+				'url_endpoint' => 'my-account/blog'
+			));
 		}
 		// Not a merchant
 		else
@@ -127,6 +139,24 @@ class EC_Filters
 		}
 
 		// Global
+		$menu->items[] = new EC_MenuItem([
+			'id' => 'disputes',
+			'title' => __('Disputes', 'ktt'),
+			'url' => get_site_url(null, 'my-account/disputes'),
+			'url_endpoint' => 'my-account/disputes'
+		]);
+        
+        
+        // Global
+		$menu->items[] = new EC_MenuItem([
+			'id' => 'portfolio',
+			'title' => __('Portfolio', 'ktt'),
+			'url' => get_site_url(null, 'my-account/portfolio'),
+			'url_endpoint' => 'my-account/portfolio'
+		]);
+        
+        
+        
 		$menu->items[] = new EC_MenuItem(array(
 			'id' => 'logout',
 			'title' => __( 'Logout', 'woocommerce' ),
@@ -146,8 +176,7 @@ class EC_Filters
 		if(is_null($page))
 		{
 			include_once('Blocks/Pages/EC_Personal_Profile_Page.php');
-			$page = new EC_Personal_Profile_Page();
-			$page->load();
+			$page = EC_Personal_Profile_Page::getInstance();
 		}
 
 		return $page;
@@ -162,8 +191,7 @@ class EC_Filters
 		if(is_null($page))
 		{
 			include_once('Blocks/Pages/EC_Store_Page.php');
-			$page = new EC_Store_Page();
-			$page->load();
+			$page = EC_Store_Page::getInstance();
 		}
 
 		return $page;
@@ -180,6 +208,42 @@ function custom_tribe_event_featured_image($featured_image, $post_id = false, $s
 
     $featured_image = str_replace('<div class="tribe-events-event-image">', '<div class="tribe-events-event-image">'.$tpl, $featured_image);
     return $featured_image;
+}
+
+/* Shipping&Delivery tab */ //  currently not needed for any task, but I added it anyways, because it will be needed in the future
+add_filter( 'woocommerce_product_tabs', 'ec_custom_tabs', 99, 1);
+
+function ec_custom_tabs($tabs)
+{
+	$tabs['basel_additional_tab']['callback'] = 'ec_additional_product_tab_content';
+
+	return $tabs;
+}
+
+function ec_additional_product_tab_content()
+{
+	include (get_stylesheet_directory() . '/woocommerce/single-product/tabs/shipping-delivery-information.php');
+}
+
+// expected delivery
+add_filter('ec_order_review_expected_delivery', 'ec_order_review_expected_delivery', 1, 1);
+
+function ec_order_review_expected_delivery($product)
+{
+	$delivery = '';
+	// if is stock item and has items in stock
+	if ($product->managing_stock() && $product->get_stock_quantity()) {
+		$delivery = get_post_meta( $product->id, '_expected_delivery_in_warehouse', true);
+	} else {
+		$delivery = get_post_meta( $product->id, '_expected_delivery_no_warehouse', true);
+	}
+
+	if ($delivery !== '') {
+		echo '<p>';
+		_e('Delivery');
+		echo ': ' . $delivery;
+		echo '</p>';
+	}
 }
 
 // Insert the email content to user's buddypress inbox
@@ -290,4 +354,132 @@ function my_messages_message_sent($message) {
         }
     }
     return true;
+}
+
+function ec_dokan_rewrite_rules($custom_store_url)
+{
+	add_rewrite_rule( '([^/]+)/?$', 'index.php?pagename=$matches[1]', 'top' );
+    add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]', 'top' );
+
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&term_section=true', 'top' );
+    add_rewrite_rule( '([^/]+)/section/?([0-9]{1,})/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&term=$matches[2]&paged=$matches[3]&term_section=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/toc?$', 'index.php?pagename=$matches[1]&toc=true', 'top' );
+    add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]&toc=true', 'top' );
+
+    add_rewrite_rule( '([^/]+)/blog?$', 'index.php?pagename=$matches[1]&blog=true', 'top' );
+
+    add_rewrite_rule( '^user/([^/]*)/portfolio/([^/]*)?$', 'index.php?user=$matches[1]&portfolio=$matches[2]', 'top');
+    flush_rewrite_rules();
+}
+add_action('dokan_rewrite_rules_loaded', 'ec_dokan_rewrite_rules', 999, 1);
+
+function ec_post_request($query_vars)
+{
+	if (array_key_exists('pagename', $query_vars)) {
+		// check if it's store
+		$seller = get_user_by( 'slug', $query_vars['pagename']);
+		if ($seller && dokan_get_store_info($seller->data->ID)) {
+			$custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'store' );
+			$query_vars[$custom_store_url] = $query_vars['pagename'];
+			unset($query_vars['pagename']);
+		} else if (array_key_exists('blog', $query_vars)) { // blog conflixt fix
+			unset($query_vars['blog']);
+			$query_vars['pagename'] .= '/blog';
+		}
+	}
+
+	return $query_vars;
+}
+add_filter('request', 'ec_post_request', 0, 1);
+
+function ec_register_query_vars($vars)
+{
+	$vars[] = 'blog';
+	$vars[] = 'portfolio';
+
+	return $vars;
+}
+add_filter('query_vars', 'ec_register_query_vars', 10, 1);
+
+function ec_store_blog( $template )
+{
+	if (get_query_var('blog')) {
+		$custom_store_url = dokan_get_option('custom_store_url', 'dokan_general', 'store');
+		$store_name = get_query_var($custom_store_url);
+		if ($store_name) {
+			$store_user = get_user_by('slug', $store_name);
+			if (!$store_user) {
+				return get_404_template();
+			}
+			if (!dokan_is_user_seller($store_user->ID)) {
+				return get_404_template();
+			}
+
+
+			include_once('Blocks/Pages/EC_Store_Page.php');
+			$page = EC_Store_Page::getInstance();
+			ob_start();
+			include(dokan_locate_template( 'store-blog.php'));
+			$page->custom_content = ob_get_clean();
+			return dokan_locate_template('store.php');
+		}
+	}
+	return $template;
+}
+add_filter('template_include', 'ec_store_blog', 1, 1);
+
+function ec_user_portfolio( $template )
+{
+	if (($portfolioId = get_query_var('portfolio'))) {
+		$portfolio = get_post((int)$portfolioId);
+		if (!$portfolio) {
+			return get_404_template();
+		}
+
+		$pictures = get_portfolio_pictures($portfolio);
+
+		include_once('Blocks/Pages/EC_Personal_Profile_Page.php');
+		$page = EC_Personal_Profile_Page::getInstance();
+		ob_start();
+		include (locate_template('templates/myaccount/portfolio-page.php'));
+		$page->custom_content = ob_get_clean();
+		return locate_template('user-profile.php');
+	}
+	return $template;
+}
+add_filter('template_include', 'ec_user_portfolio', 100, 1);
+
+/**
+ * Adds a 'Ask information' tab in product single page
+ *
+ * @param array $tabs
+ * @return array
+ */
+function ec_dokan_ask_information_product_tab( $tabs) {
+
+    $tabs['ask_information'] = array(
+        'title'    => __( 'Ask information', 'ktt' ),
+        'priority' => 90,
+        'callback' => 'ec_dokan_ask_information_tab'
+    );
+
+    return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' );
+
+/**
+ * Prints information asking form in product single page
+ *
+ * @param type $val
+ */
+function ec_dokan_ask_information_tab( $val ) {
+	global $product;
+
+	$user = wp_get_current_user();
+	
+    dokan_get_template_part('global/ask-information-tab', '', [
+    	'product' => $product,
+    	'user' => $user
+    ]);
 }

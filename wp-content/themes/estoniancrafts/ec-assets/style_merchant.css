@@ -29,3 +29,9 @@ form .ec-form-field-description {
 .ec-hidden {
 	display: none;
 }
+
+#ec_add_shop_user input.input-text { width: 300px; }
+#shop_member_container td.profile-avatar { width: 128px; }
+#shop_member_container td.profile-avatar img { width: 96px; min-width: 96px; max-width: 96px; }
+#shop_member_container td.profile-details { text-align: left; }
+#shop_member_container td.profile-details input.input-text { width: 300px; }

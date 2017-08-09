@@ -18,7 +18,20 @@ class EC_Store_Page extends EC_Block
 	public $contact_us_url;				// String
 	public $related_people = array();	// Array of EC_Person
 	public $banner;						// EC_Block
+	public $custom_content = null;		// Custom content
 
+	private static $_instance = null;
+
+	public static function getInstance()
+	{
+		if (self::$_instance === null) {
+			$storePage = new EC_Store_Page();
+			$storePage->load();
+
+			self::$_instance = $storePage;
+		}
+		return self::$_instance;
+	}
 
 	/**
 	 * @return boolean

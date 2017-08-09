@@ -17,11 +17,11 @@ class WooCommerce_Quick_Buy_FrontEnd {
      * Class Constructor
      */
     public function __construct() {
-        add_action( 'wp_enqueue_scripts', array($this,'enqueue_style_script') );
+//        add_action( 'wp_enqueue_scripts', array($this,'enqueue_style_script') ); //TODO: POssibly temporary fix to reduce laod time dramatically!
         add_action('woocommerce_before_add_to_cart_button',array($this,'add_wc_quick_buy_chain'));
         add_filter( 'woocommerce_add_to_cart_redirect',array($this,'quick_buy_redirect'),99);
 		add_action( 'wp_ajax_wc_quick_buy_style', array($this,'render_quick_buy_style') );
-		add_action( 'wp_ajax_nopriv_wc_quick_buy_style', array($this,'render_quick_buy_style' ));		
+		add_action( 'wp_ajax_nopriv_wc_quick_buy_style', array($this,'render_quick_buy_style' ));
     }
 	
 	public function render_quick_buy_style(){

@@ -64,6 +64,7 @@
                         <th><?php _e( 'Image', 'dokan' ); ?></th>
                         <th><?php _e( 'Name', 'dokan' ); ?></th>
                         <th><?php _e( 'Status', 'dokan' ); ?></th>
+                        <th><?php _e( 'Statistics', 'dokan' ); ?></th>
                         <th><?php _e( 'Stock', 'dokan' ); ?></th>
                         <th><?php _e( 'Price', 'dokan' ); ?></th>
                         <th><?php _e( 'Date', 'dokan' ); ?></th>
@@ -96,9 +97,9 @@
                                 </td>
                                 <td class="post-status" data-title="<?php _e( 'Status', 'dokan' ); ?>">
                                     <label class="dokan-label <?php echo $product->status; ?>"><?php echo dokan_get_post_status( $product->status ); ?></label>
-									<br />
-									<span><?php _e( 'Views', 'dokan' ) ?>:</span>&nbsp;
-									<?php echo (int) get_post_meta( $product->post_id, 'pageview', true ); ?>
+                                </td>
+                                <td>
+                                    <a href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=get_product_statistics&product_id=' . $product->post_id), 'ec_get_product_statistics' ) ?>" class="get-product-statistics" style="font-size: 22px;"><i class="fa fa-bar-chart">&nbsp;</i></a>
                                 </td>
                                 <td data-title="<?php _e( 'Stock', 'dokan' ); ?>">
                                     <?php
@@ -166,10 +167,14 @@
 											<li role="presentation" class="edit"><a href="<?php echo dokan_edit_product_url( $product->post_id ); ?>"><?php _e( 'Edit', 'dokan' ); ?></a></li>
 											<li role="presentation" class="view"><a href="<?php echo get_permalink( $product->id ); ?>" rel="permalink"><?php _e( 'View', 'dokan' ); ?></a></li>
 											<li role="separator" class="divider"></li>
-											<li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-a4/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF A4</a></li>
+											<?php /* 
+                                            :temporarily disabled based on requirement 2.2 "2.2 PDF hinnasildid - funktsioon hetkel kinni panna" - <marek@dolmit.com>
+                                            ?>
+                                            <li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-a4/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF A4</a></li>
 											<li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-a5/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF A5</a></li>
 											<li role="presentation"><a href="<?= site_url().'/lbpdf/pricetag-bcard/?id='.$product->post_id ?>" target="_blank" role="menuitem" tabindex="-1">Print PDF bcard</a></li>
 											<li role="separator" class="divider"></li>
+                                            <?php */ ?>
 											<li role="presentation" class="delete"><a onclick="return confirm('<?php _e('Are you sure?', 'ktt') ?>');" href="<?php echo wp_nonce_url( add_query_arg( array( 'action' => 'dokan-delete-product', 'product_id' => $product->post_id ), dokan_get_navigation_url('products') ), 'dokan-delete-product' ); ?>"><?php _e( 'Delete Permanently', 'dokan' ); ?></a></li>
 										</ul>
 									</div>

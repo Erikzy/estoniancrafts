@@ -2029,7 +2029,7 @@ function wp_ajax_upload_attachment() {
 
 	if ( isset( $_REQUEST['post_id'] ) ) {
 		$post_id = $_REQUEST['post_id'];
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		if ( ! current_user_can( 'edit_posts', $post_id ) ) {
 			echo wp_json_encode( array(
 				'success' => false,
 				'data'    => array(

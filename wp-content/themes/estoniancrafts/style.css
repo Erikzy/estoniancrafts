@@ -1,1 +1,185 @@
 /*Theme Name: EstonianCraftsTheme URI: http://www.estoniancrafts.com/Author: Taivo Tamm @ CreativeMekaAuthor URI: http://www.creativemeka.eeDescription: EstonianCrafts ThemeText domain: estoniancraftsTemplate: baselVersion: 1.0.0*/
+
+.main-header form.has-categories-dropdown .search-by-category {
+    line-height: 70px
+}
+
+.main-nav .menu>li>a {
+    line-height: 44px;
+    height: auto;
+}
+
+.main-header form.has-categories-dropdown #searchsubmit {
+    top: 0px; 
+}
+
+#mc4wp-form-1 {
+    margin-top: -34px;
+    margin-bottom: 20px;
+    z-index: 1000;
+}
+
+.footer-container .mc4wp-form input[type=email] {
+    margin-left: 0px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+.topbar-wrapp {
+    height: auto; 
+}
+
+.navigation-wrap {
+    border-top: 2px solid rgb(239, 127, 39);
+    border-bottom: 1px solid rgba(168,168,168,.2);
+    position: relative;
+}
+
+.main-header {
+    margin-bottom: 0px;
+}
+
+.site-logo img {
+    max-height: 55px;
+}
+
+
+.wrapp-header {
+    height: 65px;
+    min-height: 65px; 
+}
+
+.main-header form.has-categories-dropdown input[type=text] {
+    line-height: 18px;
+    padding: 10px 15px;
+}
+
+.main-header form.has-categories-dropdown .search-by-category {
+    line-height: 20px;
+}
+
+.main-header form.has-categories-dropdown #searchsubmit {
+    height: 42px;
+    color: white;
+}
+
+.kt-otsing {
+    width: 60%;
+}
+
+.topbar-wrapp {
+    background-color: #F8F8F8;
+}
+
+.navigation-wrap {
+    background: #F8F8F8;
+}
+
+.vc_custom_1488286936526 {
+    background-color: #F8F8F8 !important;
+}
+
+.topbar-menu {
+    float: left; 
+}
+
+.main-nav.menu-center {
+    text-align: left; 
+}
+
+
+.shopping-cart a {
+    width: 40px;
+    height: 50px;
+}
+
+.basel-cart-number {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+}
+
+#rev_slider_1_1_forcefullwidth {
+    height: 500px !important;
+}
+
+#rev_slider_1_1 {
+    height: 500px !important;
+}
+
+.right-column .wishlist-info-widget>a:after, .right-column .wishlist-info-widget>a:before {
+    font-size: 30px;
+}
+
+.right-column .wishlist-info-widget>a>span {
+    top: -5px;
+    left: 20px;
+}
+
+.vc_custom_1488280634750 {
+    display: none;
+}
+
+
+
+
+.zmb-wrap .zmb-menu > li > a {
+     line-height: 14px; 
+     padding: 0px; 
+     text-transform: none; 
+}
+
+.zmb-wrap .zmb-menu > li.current_page_item > a {
+     background-color: transparent; 
+     color: black;
+}
+
+.zmb-wrap .zmb-menu > li:hover {
+    background-color: transparent;
+}
+
+.footer-container.color-scheme-light ul li a:hover {
+    color: #ef7f27;
+}
+
+.zmb-wrap.zmb-is-vertical-menu .zmb-menu > .menu-item {
+    border-bottom: none;
+}
+
+.basel-counter .counter-label:before {
+    content: "";
+    background-image: url(/wp-content/uploads/2017/04/statbar-icon.png);
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: table;
+    margin: 0 auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 70% auto;
+    margin-top: -30px;
+    top: 0;
+    padding-top: 50px;
+}
+
+.basel-counter .counter-value {
+    margin-bottom: 40px;
+}
+
+
+.title-wrapper.basel-title-style-simple .title:after {
+    bottom: -60px;
+    background-color: transparent !important;
+    background-image: url(/wp-content/uploads/2017/03/divider-icon.png);
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+}
+
+.vc_custom_1488887543165 {
+     margin-bottom: 80px !important; 
+}
+
+/*.wpb_column.vc_column_container.vc_col-sm-12 {
+    display: none;
+}*/

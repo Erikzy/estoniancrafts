@@ -15,6 +15,11 @@ class EC_Actions
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
 //		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_categories_action'), 9 );
 		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_price_action'), 10 );
+
+		// ajax actions
+		add_action( 'wp_ajax_ask_information', array(__CLASS__, 'ask_information_ajax'));
+		add_action( 'wp_ajax_get_product_statistics', array(__CLASS__, 'get_product_statistics_ajax'));
+
 	}
 
 	/**
@@ -35,6 +40,7 @@ class EC_Actions
 
 		wp_enqueue_style('ec-merchant-style', $child_theme_url.'/ec-assets/style_merchant.css');
 		wp_enqueue_script('ec-merchant-script', $child_theme_url.'/ec-assets/script_merchant.js');
+		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
 
         // Unregister font-awsome css registered by dokan plugin
 		wp_deregister_style('fontawesome');
@@ -79,6 +85,7 @@ class EC_Actions
             'popup_pages' => ( basel_get_opt( 'popup_pages' ) ) ? (int) basel_get_opt( 'popup_pages' ) : 0,
             'promo_popup_hide_mobile' => ( basel_get_opt( 'promo_popup_hide_mobile' ) ) ? 'yes' : 'no',
             'find_shop_names_containing' => esc_html__('Find shop names containing', 'basel'),
+            'ajax_loader' => WP_PLUGIN_URL.'/dokan/assets/images/ajax-loader.gif',
         );
 
         wp_localize_script( 'ec-basel-functions', 'basel_settings', $translations );
@@ -369,6 +376,104 @@ HTML;
 			
 			return;
 		endif;
+	}
+
+	public static function ask_information_ajax()
+	{
+		check_ajax_referer('ask-information', 'ask_information_token');
+
+		// get parameters
+		$productId = isset($_POST['product_id']) && (int)$_POST['product_id'] ? (int)$_POST['product_id'] : null;
+		$firstName = isset($_POST['first_name']) ? $_POST['first_name'] : null;
+		$lastName = isset($_POST['last_name']) ? $_POST['last_name'] : null;
+		$email = isset($_POST['email']) ? $_POST['email'] : null;
+		$content = isset($_POST['content']) ? $_POST['content'] : null;
+
+		if (!($firstName && $lastName && $email && $content && $productId)) {
+			ob_clean();
+			die(json_encode(['success' => false, 'message' => false]));
+		}
+
+		$product = get_product($productId);
+		if (!$product) {
+			ob_clean();
+			die(json_encode(['success' => false, 'message' => false]));
+		}
+
+		// get target email
+		$seller = get_user_by( 'id', $product->post->post_author );
+		$to = $seller->user_email;
+		$subject = sprintf(__('Information about %s ', 'ktt'), $product->post->post_title);
+		// generate headers
+		$headers = [
+			'Content-Type: text/html; charset=UTF-8',
+			sprintf('From: %s %s <%s>', $firstName, $lastName, $email)
+		];
+
+		if (!wp_mail($to, $subject, $content , $headers)) {
+			ob_clean();
+			die(json_encode(['success' => false, 'message' => __('Failed to send email', 'ktt')]));
+		}
+
+		ob_clean();
+		die(json_encode(['success' => true, 'message' => __('Your question has been sent', 'ktt')]));
+	}
+
+	public static function get_product_statistics_ajax()
+	{
+		check_ajax_referer('ec_get_product_statistics');
+		
+		// check privileges
+		if ( !is_admin() ) { // accessing it through admin-ajax.php
+            die();
+        }
+
+		$productId = isset($_GET['product_id']) && (int)$_GET['product_id'] ? (int)$_GET['product_id'] : null;
+		if (!$productId) {
+			die();
+		}
+		// check for product ownership
+		$product = wc_get_product($productId);
+		if (!($product && $product->post &&
+			(int)$product->post->post_author === (int)get_current_user_id()
+		)) {
+			die();
+		}
+		unset($productId);
+
+		// get stats
+		$stats = [];
+		$stats[] = [
+			'label' => __( 'Views', 'dokan' ),
+			'value' => (int) get_post_meta( $product->id, 'pageview', true )
+		];
+
+		$stats[] = [
+			'label' => __( 'Favorites', 'dokan' ),
+			'value' => yith_wcwl_count_add_to_wishlist($product->id)
+		];
+
+		if (function_exists('getPostSharesCount')) { // meaning that ec facebook plugin is enabled
+			// get fresh from facebook
+			try {
+				msp_update($product->id);
+			} catch (FacebookSDKException $e) {}
+
+			$stats[] = [
+				'label' => __('Facebook shares', 'ktt'),
+				'value' => getPostSharesCount($product->id)
+			];
+
+		}
+
+		// return statistics
+		echo '<table>';
+		foreach ($stats as $stat) {
+			echo sprintf('<tr><td>%s:</td><td><strong>%s</strong></td></tr>', $stat['label'], $stat['value']);
+		}
+		echo '</table>';
+
+		die();
 	}
 
 }

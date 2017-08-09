@@ -42,7 +42,8 @@
                     <?php dokan_post_input_box( $post_id, '_food_cargo', array('value' => $is_food, 'label' => __( 'Is food', 'ktt' ) ), 'checkbox' ); ?>
 				</div>
                 <div class="show_if_needs_shipping row">
-					<div class="col-md-3">
+					<div class="col-md-3 dfdgd">
+                        
 	                    <label class="control-label"><?php _e( 'length', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_length', array( 'class' => 'form-control' ), 'number' ); ?>
 					</div>
@@ -146,6 +147,32 @@
                         </div>
                     </div>
                 <?php endif; ?>
+                <div class="show_if_needs_shipping">
+                    <div class="dokan-form-group">
+                        <label class="dokan-control-label"><?php _e('Expected delivery time for product in the warehouse', 'ktt'); ?></label>
+                        <?php dokan_post_input_box(
+                            $post_id, 
+                            '_expected_delivery_in_warehouse', 
+                            array( 
+                                'placeholder' => __( 'Expected delivery time for product in the warehouse', 'ktt' ),
+                                'value' => get_post_meta( $post_id, '_expected_delivery_in_warehouse', true)
+                            ),
+                            'text' 
+                        ); ?>
+                    </div>
+                    <div class="dokan-form-group">
+                        <label class="dokan-control-label"><?php _e('Expected delivery time for product not in the warehouse', 'ktt'); ?></label>
+                        <?php dokan_post_input_box(
+                            $post_id, 
+                            '_expected_delivery_no_warehouse', 
+                            array( 
+                                'placeholder' => __( 'Expected delivery time for product not in the warehouse', 'ktt' ),
+                                'value' => get_post_meta( $post_id, '_expected_delivery_no_warehouse', true)
+                            ),
+                            'text' 
+                        ); ?>
+                    </div>
+                </div>
             </div>
         <?php endif; ?>
 

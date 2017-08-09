@@ -144,6 +144,11 @@ $user = get_user_by( 'id', get_current_user_id() );
                     </p>
                     <div class="clear"></div>
 
+                    <p class="form-row form-row-wide">
+                        <label for="account_articles_links"><?php _e( 'Articles linking (separate links with space)', 'ktt' ); ?></label>
+                        <textarea rows="4" class="input-text" name="account_articles_links" id="account_articles_links"><?php echo esc_attr( $ext_profile['articles_links'] ); ?></textarea>
+                    </p>
+
 
                     <fieldset>
                         <legend><?php _e( 'Education', 'ktt' ); ?></legend>

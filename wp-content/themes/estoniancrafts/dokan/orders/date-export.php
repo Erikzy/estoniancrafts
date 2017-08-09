@@ -19,6 +19,11 @@
     </form>
 
     <form action="" method="POST" class="dokan-right">
+        <?php
+        $slug = get_option('_csv_import_export_page_path');
+        if ($slug) : ?>
+            <a href="<?= get_option('home').'/'.$slug ?>" target="_blank"><?= __('CSV import/export', 'ktt') ?></a>
+        <?php endif; ?>
         <div class="dokan-form-group">
             <input type="submit" name="dokan_order_export_all"  class="dokan-btn dokan-btn-sm dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Export All', 'dokan' ); ?>">
             <input type="submit" name="dokan_order_export_filtered"  class="dokan-btn dokan-btn-sm dokan-btn-danger dokan-btn-theme" value="<?php esc_attr_e( 'Export Filtered', 'dokan' ); ?>">

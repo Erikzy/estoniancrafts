@@ -7,6 +7,15 @@
  * @package WooCommerce/Templates
  * @version 2.6.0
  */
+function load_in_footer()
+{
+?>
+
+<div id="status" style="display:none"></div>
+
+<?php
+}
+add_action('wp_footer', 'load_in_footer', 100);
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -94,8 +103,9 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 					<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
 				</label>
 				<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
-			</p>
+            </p>
 
+            <?php echo do_shortcode( '[ec_facebook_login_button]' ); ?>
             <?php echo do_shortcode('[smart_id]') ?>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>

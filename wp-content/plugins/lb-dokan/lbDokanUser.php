@@ -41,6 +41,7 @@ class lbDokanUser {
         $ext_profile['dob'] = '';
         $ext_profile['workyears'] = '';
         $ext_profile['video'] = '';
+        $ext_profile['articles_links'] = '';
         $ext_profile['description'] = '';
         $ext_profile['education'] = '';
         $ext_profile['education_school'] = '';
@@ -142,6 +143,7 @@ class lbDokanUser {
     	$ext_profile['dob'] = ! empty( $_POST['account_dob'] ) ? wc_clean( $_POST['account_dob'] ) : '';
     	$ext_profile['workyears'] = ! empty( $_POST['account_workyears'] ) ? wc_clean( $_POST['account_workyears'] ) : '';
     	$ext_profile['video'] = ! empty( $_POST['account_video'] ) ? wc_clean( $_POST['account_video'] ) : '';
+    	$ext_profile['articles_links'] = ! empty( $_POST['account_articles_links'] ) ? wc_clean( $_POST['account_articles_links'] ) : '';
     	$ext_profile['description'] = ! empty( $_POST['account_description'] ) ? wc_clean( $_POST['account_description'] ) : '';
     	$ext_profile['education'] = ! empty( $_POST['account_education'] ) ? wc_clean( $_POST['account_education'] ) : '';
     	$ext_profile['education_school'] = ! empty( $_POST['account_education_school'] ) ? wc_clean( $_POST['account_education_school'] ) : '';

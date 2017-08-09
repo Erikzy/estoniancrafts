@@ -84,11 +84,23 @@ get_header( 'shop' );
 					</div>
 					<?php endif; ?>
 
+                    <?php // Share facebook ?>
+                    <div class="facebook-share-profile">
+                        <h5 class="widget-title nullify-padding"><?= __('Jaga profiili', 'ktt') ?></h5>
+                        <?php do_action( 'dolmit_share_profile_on_facebook'); ?>
+                    </div>
+
 					<?php // Website link ?>
 					<?php if(!empty($ec_page->website)): ?>
 					<a href="<?= $ec_page->website ?>" target="_blank" class="ec-store-website-link"><?= $ec_page->website ?></a>
 					<?php endif; ?>
-
+					<div>
+						<ul>
+							<li>
+								<a href="<?= ec_dokan_get_store_url($store_user->ID) ?>blog"><h4><?= __('Blog', 'ktt') ?></h4></a>
+							</li>
+						</ul>
+					</div>
 				</aside>
 
 				<?php // Store related people widget ?>
@@ -102,6 +114,9 @@ get_header( 'shop' );
 					<div class="co-workers">
 						<ul>
 							<?php foreach($ec_page->related_people as $person): ?>
+                            <?php //echo '<pre>';
+                                                                                                    //print_r($ec_page); ?>
+                                                                                                    
 								<li class="co-worker">
 									<a href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
 										<?php if(!empty($person->avatar_url)): ?>
@@ -155,41 +170,94 @@ get_header( 'shop' );
 
     <div id="dokan-primary" class="dokan-single-store dokan-w8">
         <div id="dokan-content" class="store-page-wrap woocommerce" role="main">
+        	<?php if ($ec_page->custom_content !== null) : ?>
+        		<?= $ec_page->custom_content ?>
+        	<?php else: ?>
+				<?php // Banner ?>
+				<?php if(($banner = $ec_page->banner) && $banner->image_url): ?>
+				<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
+					<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
+				</div>
+				<?php endif; ?>
 
-			<?php // Banner ?>
-			<?php if(($banner = $ec_page->banner) && $banner->image_url): ?>
-			<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
-				<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
-			</div>
-			<?php endif; ?>
+	            <?php // dokan_get_template_part( 'store-header' ); ?>
 
-            <?php // dokan_get_template_part( 'store-header' ); ?>
+	            <?php do_action( 'dokan_store_profile_frame_after', $store_user, $store_info ); ?>
 
-            <?php do_action( 'dokan_store_profile_frame_after', $store_user, $store_info ); ?>
+                <?php
 
-            <?php if ( have_posts() ) { ?>
+                $video = get_user_meta($store_user->ID, 'ktt_extended_profile', true)['video'];
 
-                <div class="seller-items">
+                preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $video, $videoId);
 
-                    <?php woocommerce_product_loop_start(); ?>
+                $article_meta = get_user_meta($store_user->ID, 'ktt_extended_profile', true);
 
-                        <?php while ( have_posts() ) : the_post(); ?>
+                if (isset($article_meta['articles_links'])) {
+                    $article_links_orig = $article_meta['articles_links'];
+                } else {
+                    $article_links_orig = false;
+                }
 
-                            <?php wc_get_template_part( 'content', 'product' ); ?>
+                if($article_links_orig) {
+                    $article_links = explode(" ", $article_links_orig);
+                } else {
+                    $article_links = [];
+                }
+                ?>
 
-                        <?php endwhile; // end of the loop. ?>
+	            <?php if ( have_posts() ) { ?>
 
-                    <?php woocommerce_product_loop_end(); ?>
+	                <div class="seller-items">
+                        <?php if (isset($videoId[0]) && $videoId[0]) { ?>
+                            <div class="video-container video-container-margins">
+                                <iframe width="560" height="315"
+                                        src="<?php echo sprintf("https://www.youtube.com/embed/%s", $videoId[0]); ?>"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        <?php } ?>
 
-                </div>
+                        <?php if (!empty($article_links)) { ?>
+                            <h3 class="widget-title nullify-padding article-head-title"><?= __("Artiklite lingid", "ktt") ?></h3>
+                        <?php } ?>
 
-                <?php dokan_content_nav( 'nav-below' ); ?>
+                        <?php foreach ($article_links as $link) { ?>
+                            <?php
+                            $file_headers = @get_headers($link);
+                            if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                continue;
+                            }
 
-            <?php } else { ?>
+                            $data = file_get_contents($link);
+                            $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $data, $matches) ? $matches[1] : null;
 
-                <p class="dokan-info"><?php _e( 'No products were found of this seller!', 'dokan' ); ?></p>
+                            $article_meta_tags = get_meta_tags($link);
 
-            <?php } ?>
+                            ?>
+                            <a href="<?= $link ?>"><h3 class="article-linking-title product-title"><?php echo ($title ? $title : ($article_meta_tags['title'] ?: __('Tiitel puudub', 'ktt'))) ?></h3></a>
+                            <p class="article-linking-subtitle">(<?= $link ?>)</p>
+                            <p><?= $article_meta_tags['description'] ?: "" ?></p>
+                        <?php } ?>
+
+	                    <?php woocommerce_product_loop_start(); ?>
+
+	                        <?php while ( have_posts() ) : the_post(); ?>
+
+	                            <?php wc_get_template_part( 'content', 'product' ); ?>
+
+	                        <?php endwhile; // end of the loop. ?>
+
+	                    <?php woocommerce_product_loop_end(); ?>
+
+	                </div>
+
+	                <?php dokan_content_nav( 'nav-below' ); ?>
+
+	            <?php } else { ?>
+
+	                <p class="dokan-info"><?php _e( 'No products were found of this seller!', 'dokan' ); ?></p>
+
+	            <?php } ?>
+	        <?php endif; ?>
         </div>
 
     </div><!-- .dokan-single-store -->
