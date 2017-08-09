@@ -355,7 +355,7 @@ function ubermenu_get_nav_menu_args( $args , $integration_type , $config_id = 0 
 
 	//Basics
 	$args['container_class'] 	= 'ubermenu ubermenu-nojs';
-	$args['menu_class']			= 'ubermenu-nav';
+	$args['menu_class']			= 'ubermenu-nav menu';
 	$args['walker']				= new UberMenuWalker;
 	$args['uber_instance']		= $config_id;
 	$args['fallback_cb']		= 'ubermenu_fallback_cb';

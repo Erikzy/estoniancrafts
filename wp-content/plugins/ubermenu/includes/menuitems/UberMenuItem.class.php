@@ -558,9 +558,9 @@ abstract class UberMenuItem{
 			
 			if( $class ){
 				if( substr( $class , 0 , 4 ) == 'menu' ){
-					$this->item_classes[$i] = 'uber'.$class;
+					$this->item_classes[$i] = 'uber'.$class.' '.$class;
 				}
-				else $this->item_classes[$i] = 'ubermenu-'.$class;
+				else $this->item_classes[$i] = 'ubermenu-'.$class.' '.$class;
 				//add to end if using both
 			}
 		}
@@ -572,7 +572,7 @@ abstract class UberMenuItem{
 		//Item Display
 		if( $this->depth > 0 ){
 			$item_display = $this->getSetting( 'item_display' );
-			$this->item_classes[] = 'ubermenu-item-'.$item_display;
+			$this->item_classes[] = 'ubermenu-item-'.$item_display.' menu-item-'.$item_display;
 
 			//Determine auto
 			if( $item_display == 'auto' ){
@@ -672,7 +672,7 @@ abstract class UberMenuItem{
 				}
 
 				if( $item_display ){
-					$this->item_classes[] = 'ubermenu-item-'.$item_display;
+					$this->item_classes[] = 'ubermenu-item-'.$item_display. ' item-'.$item_display;
 					// $this->settings['item_display_calc'] = $item_display;
 				}
 			}
