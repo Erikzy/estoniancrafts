@@ -69,9 +69,17 @@
 						<?php endif; ?>	
 						
 <?php 
+
+//do_action('wpml_add_language_selector');
 	if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
-		$fullName = $user->first_name . ' ' . $user->last_name;
+	
+		if(strlen($user->first_name) < 1 && strlen($user->last_name) < 1 ){
+			$fullName = $user->first_name . ' ' . $user->last_name;
+		} else { 
+			$fullName = $user->username;
+		}
+
 ?>
  	<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
 	<a href="<?php echo wp_logout_url(home_url()); ?>" title="<?php _e('Log out','woothemes'); ?>"><?php _e('Log out','woothemes') ?></a>
