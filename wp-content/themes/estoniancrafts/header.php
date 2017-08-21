@@ -74,10 +74,10 @@
 	if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
 	
-		if(strlen($user->first_name) < 1 && strlen($user->last_name) < 1 ){
+		if(strlen($user->first_name) > 1 && strlen($user->last_name) > 1 ){
 			$fullName = $user->first_name . ' ' . $user->last_name;
 		} else { 
-			$fullName = $user->username;
+			$fullName = $user->user_login;
 		}
 
 ?>
