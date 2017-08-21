@@ -19,7 +19,7 @@ class EC_Store_Page extends EC_Block
 	public $related_people = array();	// Array of EC_Person
 	public $banner;						// EC_Block
 	public $custom_content = null;		// Custom content
-    public $products  //all products
+    public $products;  //all products
     
     
 	private static $_instance = null;
