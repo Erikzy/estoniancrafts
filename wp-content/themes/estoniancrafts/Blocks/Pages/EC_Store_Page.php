@@ -19,7 +19,9 @@ class EC_Store_Page extends EC_Block
 	public $related_people = array();	// Array of EC_Person
 	public $banner;						// EC_Block
 	public $custom_content = null;		// Custom content
-
+    public $products  //all products
+    
+    
 	private static $_instance = null;
 
 	public static function getInstance()
@@ -46,7 +48,7 @@ class EC_Store_Page extends EC_Block
 		$this->store_info = dokan_get_store_info( $this->user->ID );
 		$this->dokan_profile = get_user_meta( $this->user->ID, 'dokan_profile_settings', true );
 		$this->ktt_extended_settings = get_user_meta( $this->user->ID, 'ktt_extended_settings', true );
-
+        
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Link.php');
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Address.php');
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Person.php');
@@ -147,7 +149,47 @@ class EC_Store_Page extends EC_Block
 			$banner->image_url = wp_get_attachment_url( $banner->image_id );
 		}
 		$this->banner = $banner;
-
+        $this->products = $this->getProducts();
 		return true;
 	}
+    
+    
+    public function getProductCount(){
+      if(sizeof($this->products) == 0){
+          $this->products = $this->getProducts();
+      }
+      return sizeof($this->products);  
+        
+    }
+    
+    public function getProductFilters(){
+        
+        
+    }
+    
+    public function getProducts(){
+    
+        $post_statuses = array('publish');
+        $args = array(
+			'post_type'      => 'product',
+			'post_status'    => $post_statuses,
+			'posts_per_page' => 10,
+			'author'         => $this->user->ID,
+			'tax_query'      => array(
+									array(
+										'taxonomy' => 'product_type',
+										'field'    => 'slug',
+										'terms'    => apply_filters( 'dokan_product_listing_exclude_type', array() ),
+										'operator' => 'NOT IN',
+									),
+								),
+		);
+        
+        $product_query = new WP_Query( apply_filters( 'dokan_product_listing_query', $args ) );
+        $this->products =  $product_query->get_posts();
+        return $this->products;
+    }
+  
+    
+    
 }

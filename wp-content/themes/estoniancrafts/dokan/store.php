@@ -8,10 +8,28 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+$company_types = array(
+			'1'=>  __( 'FIE', 'ktt'),
+		 	'2'=>  __( 'OÜ', 'ktt'),
+			'3'=>  __( 'AS', 'ktt')
+);	
+
+
+
 $ec_page = apply_filters('ec_get_store_page', null);
 $store_user   = $ec_page->user;
 $store_info   = $ec_page->store_info;
 $map_location = isset( $store_info['location'] ) ? esc_attr( $store_info['location'] ) : '';
+$company_nr  = isset( $ec_page->ktt_extended_settings['company_nr'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_nr'] ) : '';
+$company_name  = isset( $ec_page->ktt_extended_settings['company_name'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_name'] ) : '';
+$company_type  = isset( $ec_page->ktt_extended_settings['company_type'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_type'] ) : '';
+
+if($company_type != ''){
+  $company_name .= " ".$company_types[$company_type];
+}
+
+
+
 
 get_header( 'shop' );
 ?>
@@ -37,6 +55,14 @@ get_header( 'shop' );
 
 					<?php // User meta ?>
 					<ul class="user-fields">
+						<?php if(strlen($company_name) > 0): ?>
+							<li><?php echo $company_name ?></li>
+						<?php endif; ?>
+						<?php if(strlen($company_nr) > 0): ?>
+							<li><?php echo $company_nr ?></li>
+						<?php endif; ?>
+						
+					
 						<li class="dokan-store-rating">
 							<i class="fa fa-star"></i>
 							<?php dokan_get_readable_seller_rating( $ec_page->id ); ?>
@@ -78,9 +104,22 @@ get_header( 'shop' );
 					</ul>
 
 					<?php // Contact us button ?>
-					<?php if($ec_page->contact_us_url): ?>
+					<?php if(bp_loggedin_user_domain()): ?>
 					<div class="expanded button-group">
-						<a class="button" href="<?= $ec_page->contact_us_url ?>"><?= __('Võta ühendust', 'ktt') ?></a>
+					
+					
+					
+					 <?php
+					  	if(bp_loggedin_user_domain()){ 
+					     $compose_url  = bp_loggedin_user_domain() . bp_get_messages_slug() . '/compose/?';
+			  		     $compose_url .= 'r=' . bp_core_get_username( $store_user->ID );
+					     echo '<a class="button" href="'.wp_nonce_url($compose_url).'">'.__('Send message', 'ktt').'</a>';
+						}else{
+						 echo __('Log in in order to send a message.','ktt');			
+						}
+					 ?>
+					
+					
 					</div>
 					<?php endif; ?>
 
@@ -241,7 +280,6 @@ get_header( 'shop' );
 	                    <?php woocommerce_product_loop_start(); ?>
 
 	                        <?php while ( have_posts() ) : the_post(); ?>
-
 	                            <?php wc_get_template_part( 'content', 'product' ); ?>
 
 	                        <?php endwhile; // end of the loop. ?>
