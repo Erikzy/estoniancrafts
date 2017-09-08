@@ -10,6 +10,8 @@ class EC_Shortcodes
 	public static function wp_loaded_action()
 	{
 		add_shortcode('ec_institutions', array(__CLASS__, 'ec_institutions'));
+		add_shortcode( 'non_vc_frontpage', array(__CLASS__, 'frontpage_sliders'));
+
 	}
 
 	public static function ec_institutions($atts)
@@ -50,5 +52,15 @@ class EC_Shortcodes
 		$html .= '</div>';
 		return $html;
 	}
+	
+	public static function frontpage_sliders( $atts ) {
+	
+		 include(locate_template('partials/frontpage_sliders.php'));
+	
+   		 return null;
+	}
+	
+	
+	
 }
 EC_Shortcodes::init();

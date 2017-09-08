@@ -25,6 +25,9 @@ include_once($currentDirname.'/shop/shop-functions.php');
 include_once($currentDirname.'/portfolio/portfolio-functions.php');
 
 
+
+
+
 //WC_Cache_Helper::prevent_caching();
 
 /**
@@ -45,6 +48,10 @@ function ec_get_sidebar_name()
 	// Theme default
 	return basel_get_sidebar_name();
 }
+
+
+
+
 
 /**
  * @return boolean

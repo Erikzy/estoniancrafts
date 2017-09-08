@@ -1,0 +1,28 @@
+.owl-carousel-thumb{
+	height:257px;
+	width:257px;
+	border:1px solid rgba(204,204,204,1);
+
+}
+.owl-item{
+	width:259px !important;
+	margin-right:18px;
+
+}
+.product-title{
+  width:100%;
+  text-align:center;
+  font-size: 22px;
+   margin-top:35px;
+}
+.frontpageSliders > h1{
+
+	width:100%
+	text-align:center;
+}
+
+.product-price{
+color:#989898;
+font-size:21px;
+text-align:center;
+}

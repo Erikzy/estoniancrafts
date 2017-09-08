@@ -30,6 +30,11 @@ class EC_Actions
 		$template_url = get_template_directory_uri();
 		$child_theme_url = get_stylesheet_directory_uri();
 
+		wp_enqueue_style('owl-carousel', $template_url.'/css/owl.carousel.css', array(), '1.0.1');
+		wp_enqueue_style('frontpage', $template_url.'/css/frontpage.css', array(), '1.0.1');
+		wp_enqueue_script('owl-carousel-min', $template_url . '/js/owl.carousel.min.js', array('jquery'), '1.0', true);
+
+
         // Public assets
 		wp_enqueue_style('ec-public-style', $child_theme_url.'/ec-assets/style_public.css');
 		wp_enqueue_script('ec-public-script', $child_theme_url.'/ec-assets/script_public.js');

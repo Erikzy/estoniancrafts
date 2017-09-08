@@ -1,5 +1,34 @@
 
 jQuery(document).ready(function($) {
+   $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:30,
+	dots:false,
+    responsiveClass:true,
+    navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+
+    responsive:{
+        0:{
+            items:2,
+            nav:true,
+			margin:10
+        },
+        600:{
+            items:2,
+            nav:true,
+			margin:10
+        },
+        1000:{
+            items:3,
+            nav:true,
+            loop:false,
+			margin:10
+        }
+    }
+});	
+
+
+
 
     var $variation_forms = $('.variations_form');
 

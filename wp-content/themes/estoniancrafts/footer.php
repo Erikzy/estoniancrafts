@@ -22,9 +22,9 @@
 			<?php echo do_shortcode('[mc4wp_form id="322"]'); ?>
 		</div>
 		
-		<?php get_sidebar( 'footer' ); ?>
+		<?php //get_sidebar( 'footer' ); ?>
 		
-		<div class="copyrights-wrapper copyrights-<?php echo esc_attr( basel_get_opt( 'copyrights-layout' ) ); ?>">
+		<div  style="color:white;background-color:#EF7F27;" class="copyrights-wrapper ?>">
 			<div class="container">
 				<div class="min-footer">
 					<div class="col-left">
@@ -33,12 +33,14 @@
 						<?php else: ?>
 							<p>&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo esc_url( home_url('/') ); ?>"><?php bloginfo( 'name' ); ?></a>. <?php _e( 'All rights reserved', 'basel' ) ?></p>
 						<?php endif ?>
-					</div>
-					<?php if ( basel_get_opt( 'copyrights2' ) != ''): ?>
-						<div class="col-right">
+					
+						<?php if ( basel_get_opt( 'copyrights2' ) != ''): ?>
 							<?php echo do_shortcode( basel_get_opt( 'copyrights2' ) ); ?>
+						<?php endif ?>
+					
+					</div>
+						<div class="col-right">
 						</div>
-					<?php endif ?>
 				</div>
 			</div>
 		</div>
