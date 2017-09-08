@@ -37,3 +37,11 @@ display:block;
 
 
 }
+
+.owl-carousel .owl-wrapper-outer {
+    overflow: hidden;
+    position: relative;
+    width: 96% !important;
+    margin-left: auto;
+    margin-right: auto;
+}

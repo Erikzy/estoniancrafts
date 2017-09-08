@@ -18,8 +18,8 @@ jQuery(document).ready(function($) {
             nav:true,
 			margin:10
         },
-        1000:{
-            items:3,
+        1300:{
+            items:5,
             nav:true,
             loop:true,
 			margin:10
