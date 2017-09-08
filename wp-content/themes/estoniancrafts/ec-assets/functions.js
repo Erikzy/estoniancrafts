@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
 	dots:true,
     responsiveClass:true,
     navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-
+	navigation:true,
     responsive:{
         0:{
             items:2,
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
         1000:{
             items:3,
             nav:true,
-            loop:false,
+            loop:true,
 			margin:10
         }
     }

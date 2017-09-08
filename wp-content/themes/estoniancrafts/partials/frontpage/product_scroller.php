@@ -12,7 +12,12 @@ if($productQuery->have_posts()):
             	<a href="<?php echo the_permalink() ?>">
               
                  <div class='owl-carousel-thumb'>
-                   <?php the_post_thumbnail(apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array( 'height' => '285', 'width' => '257' ) );?>
+                   <?php //the_post_thumbnail(apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array( 'height' => '285', 'width' => '257' ) );
+                   
+                      $attachment_id =  get_post_thumbnail_id();
+					  $image_info = wp_get_attachment_image_src($attachment_id, 'product-slider-img');
+                      echo '<img src="'. $image_info[0] .'"  />';
+                   ?>
                  </div>
                 </a>
                 <div class='product-title'><?php 

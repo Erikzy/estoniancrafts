@@ -19,6 +19,8 @@ class EC_Actions
 		// ajax actions
 		add_action( 'wp_ajax_ask_information', array(__CLASS__, 'ask_information_ajax'));
 		add_action( 'wp_ajax_get_product_statistics', array(__CLASS__, 'get_product_statistics_ajax'));
+		add_image_size( 'product-slider-img', 257, 257, true );
+
 
 	}
 
