@@ -22,7 +22,7 @@
 			<?php echo do_shortcode('[mc4wp_form id="322"]'); ?>
 		</div>
 		
-		<?php //get_sidebar( 'footer' ); ?>
+		<?php get_sidebar( 'footer' ); ?>
 		
 		<div  style="color:white;background-color:#EF7F27;" class="copyrights-wrapper ?>">
 			<div class="container">

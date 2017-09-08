@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
    $('.owl-carousel').owlCarousel({
     loop:true,
     margin:30,
-	dots:false,
+	dots:true,
     responsiveClass:true,
     navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
 
