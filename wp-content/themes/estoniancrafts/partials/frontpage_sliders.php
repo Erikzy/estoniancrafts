@@ -6,8 +6,9 @@
 <!--featured events-->	
 
 <!--top products-->	
-
-	<h1>Top tooted</h1>
+    <h2 class="frontpageSubheading"><?php echo __('Made With Heart','ec');?></h2>
+	<h1><?php echo __('Top tooted','ec');?></h1>
+	<div class="heartImgWrapper"><img src="<?php echo bloginfo('template_url').'/images/estonian_crafts_heart.png'; ?>" /></div>
     <?php
     
     $args = array(
@@ -18,13 +19,16 @@
         'orderby'               => 'meta_value_num',
 	);
    include(locate_template('partials/frontpage/product_scroller.php')); 
-    ?>
+   ?>
 
 
 
 <!--most likes-->	
-
-	<h1>Enim like kogunud tooted</h1>
+     
+     <h2 class="frontpageSubheading"><?php echo __('Made With Heart','ec');?></h2>
+	 <h1><?php echo __('Enim like kogunud tooted','ec');?></h1>
+     <div class="heartImgWrapper"><img src="<?php echo bloginfo('template_url').'/images/estonian_crafts_heart.png'; ?>" /></div>
+	
 	 <?php
     
     	$args = array(

@@ -70,7 +70,7 @@
 						
 <?php 
 
-//do_action('wpml_add_language_selector');
+do_action('wpml_add_language_selector');
 	if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
 	
