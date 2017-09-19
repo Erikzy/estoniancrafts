@@ -16,11 +16,15 @@ if($productQuery->have_posts()):
                    
                       $attachment_id =  get_post_thumbnail_id();
 					  $image_info = wp_get_attachment_image_src($attachment_id, 'product-slider-img');
-                      echo '<img src="'. $image_info[0] .'"  />';
-                   ?>
+                  //    echo '<img src="'. $image_info[0] .'"  />';
+                 
+                 			echo get_the_post_thumbnail( $productQuery->post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+					'title' => ""
+					) );
+					  ?>
                  </div>
                 </a>
-                <div class='product-title'><?php 
+                <div class='product-title-fp'><?php 
                 
                     $title = the_title('','',false);
                     if(strlen($title) < 50){

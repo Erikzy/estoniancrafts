@@ -9,7 +9,7 @@
 	margin-right:18px;
 
 }
-.product-title{
+.product-title-fp{
   width:100%;
   text-align:center;
   font-size: 22px;
@@ -60,4 +60,11 @@ display:block;
     width: 96% !important;
     margin-left: auto;
     margin-right: auto;
+}
+.widget_price_filter .ui-slider{
+	top:50px;
+}
+.widget_price_filter .price_slider_amount{
+	position:relative;
+	top:25px;
 }
