@@ -974,7 +974,7 @@ if( ! function_exists( 'basel_header_block_logo' ) ) {
 		$protocol = basel_http() . "://";
 		$logo = $protocol. str_replace(array('http://', 'https://'), '', $logo);
 
-		$logo_img = '<img src="' . $logo . '" alt="' . get_bloginfo( 'name' ) . '" />'
+		$logo_img = '<img style="height:55px !important;" height="55px" src="' . $logo . '" alt="' . get_bloginfo( 'name' ) . '" />'
 
 		?>
 			<div class="site-logo">

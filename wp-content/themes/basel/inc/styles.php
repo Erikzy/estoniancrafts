@@ -90,11 +90,7 @@ if ( ! function_exists( 'basel_load_wp_head' ) ) {
 
             /* Header height configs */
 
-            /* Limit logo image height for according to header height */
-            .site-logo img {
-                max-height: <?php echo esc_html( $header_height ); ?>px;
-            } 
-
+       
             /* And for sticky header logo also */
             .act-scroll .site-logo img,
             .header-clone .site-logo img {
@@ -109,10 +105,7 @@ if ( ! function_exists( 'basel_load_wp_head' ) ) {
 
             <?php if( $header == 'base' || $header == 'logo-center' || $header == 'split' ): ?>
                 /* Header height for layouts that don't have line height for menu links */
-                .wrapp-header {
-                    min-height: <?php echo esc_html( $header_height ); ?>px;
-                } 
-            <?php elseif( $header != 'vertical' ): ?>
+                <?php elseif( $header != 'vertical' ): ?>
                 /* Header height for these layouts based on it's menu links line height */
                 .main-nav .menu > li > a {
                     height: <?php echo esc_html( $header_height ); ?>px;
