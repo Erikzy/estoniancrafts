@@ -19,19 +19,19 @@ h3.title{
 /*AINO FONT*/
 @font-face {
     font-family: 'Aino-Regular';
-    src: url('/wp-content/aino-font/Aino-Regular.woff') format('woff');
+    src: url('../../../aino-font/Aino-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Aino-Bold';
-    src: url('/wp-content/aino-font/Aino-Bold.woff') format('woff');
+    src: url('../../../aino-font/Aino-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
     font-family: 'Aino-Headline';
-    src: url('/wp-content/aino-font/Aino-Headline.woff') format('woff');
+    src: url('../../../aino-font/Aino-Headline.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -129,7 +129,7 @@ border-bottom:none;
 }
 
 .single-breadcrumbs-wrapper {
-    margin-top: 0;
+    margin-top: 0!important;
 padding-top:7px;
 }
 /*LOGO*/
@@ -188,25 +188,7 @@ width: 67%;
 .breadcrumb-last{
     color: #ef7f27;
 }
-.basel-back-btn {
-    line-height: 52px;
-}
-.basel-back-btn>span {
-    background-color: transparent;
-}
-.basel-back-btn>span:before {
-    content: "";
-    top: -14px;
-    font-family: initial;
-    background: url(https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2017/03/arrow-back.png);
-    height: 23px;
-    width: 22px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-.basel-back-btn>span:after {
-display:none;
-}
+
 .basel-products-nav .product-btn {
     margin: 0 15px;
 }
@@ -223,7 +205,7 @@ line-height:22px;
     position: relative;
     display: table;
     margin: 0 auto;
-    background: url(https://estoniancrafts.client.creativemeka.ee/wp-content/uploads/2017/03/circle-arrow.png);
+    background: url(../../../uploads/2017/03/circle-arrow.png);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 30px;
@@ -248,7 +230,7 @@ display:none;
     vertical-align: middle;
 }
 .shopping-cart a {
-    background-image: url(/wp-content/uploads/2017/02/cart-icon.png);
+    background-image: url(../../../uploads/2017/02/cart-icon.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -320,7 +302,7 @@ display:none;
 }
 /*FOOTER*/
 .main-footer {
-    background: url(/wp-content/uploads/2017/02/footer-bf-right.png);
+    background: url(../../../uploads/2017/02/footer-bf-right.png);
     background-repeat: no-repeat;
     background-position: 100% 210%;
     background-size: 25%;
@@ -396,7 +378,7 @@ display:none;
     max-width: 315px !important;
     margin: -6px 30px 0 60px;
     color: #b7b7b7;
-    background-image: url(/wp-content/uploads/2017/02/mail-icon-1.png);
+    background-image: url(../../../uploads/2017/02/mail-icon-1.png);
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 30px;
@@ -581,7 +563,7 @@ border:none;
 }
 .basel-counter .counter-label:before {
     content: "";
-    background-image: url(/wp-content/uploads/2017/04/statbar-icon.png);
+    background-image: url(../../../uploads/2017/04/statbar-icon.png);
     position: relative;
     width: 50px;
     height: 50px;
@@ -728,11 +710,11 @@ h5.widget-title {
 .woocommerce .quantity .minus, 
 .woocommerce-page .quantity .minus {
     left: 0;
-      background: url(/wp-content/themes/estoniancrafts/ec-assets/icon_minus.png);
+      background: url(icon_minus.png);
 }
 .woocommerce .quantity .plus, .woocommerce-page .quantity .plus {
   right:0px;
-   background: url(/wp-content/themes/estoniancrafts/ec-assets/icon_plus.png);
+   background: url(icon_plus.png);
 }
 .woocommerce .quantity .minus, .woocommerce-page .quantity .minus, .woocommerce .quantity .plus, .woocommerce-page .quantity .plus {
     width: 31px;
@@ -1291,19 +1273,19 @@ Version: 1.0.0
 /*AINO FONT*/
 @font-face {
     font-family: 'Aino-Regular';
-    src: url('/wp-content/aino-font/Aino-Regular.woff') format('woff');
+    src: url('../../../aino-font/Aino-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Aino-Bold';
-    src: url('/wp-content/aino-font/Aino-Bold.woff') format('woff');
+    src: url('../../../aino-font/Aino-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
     font-family: 'Aino-Headline';
-    src: url('/wp-content/aino-font/Aino-Headline.woff') format('woff');
+    src: url('../../../aino-font/Aino-Headline.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -1450,16 +1432,18 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     color: #ef7f27;
 }
 .basel-back-btn {
-    line-height: 52px;
+    line-height: 10px !important;
+    margin-top: -16px !important;
 }
 .basel-back-btn>span {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 .basel-back-btn>span:before {
-    content: "";
+    content: " " !important;
     top: -14px;
+    left: 0px;
     font-family: initial;
-    background: url(http://estoniancrafts.localhost.com/wp-content/uploads/2017/03/arrow-back.png);
+    background: url(../../../uploads/2017/03/arrow-back.png);
     height: 23px;
     width: 22px;
     background-size: 100%;
@@ -1484,7 +1468,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     position: relative;
     display: table;
     margin: 0 auto;
-    background: url(http://estoniancrafts.localhost.com/wp-content/uploads/2017/03/circle-arrow.png);
+    background: url(../../../uploads/2017/03/circle-arrow.png);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 30px;
@@ -1509,7 +1493,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     vertical-align: middle;
 }
 .shopping-cart a {
-    background-image: url(/wp-content/uploads/2017/02/cart-icon.png);
+    background-image: url(../../../uploads/2017/02/cart-icon.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1577,7 +1561,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
 }
 /*FOOTER*/
 .main-footer {
-    background: url(/wp-content/uploads/2017/02/footer-bf-right.png);
+    background: url(../../../uploads/2017/02/footer-bf-right.png);
     background-repeat: no-repeat;
     background-position: 100% 210%;
     background-size: 25%;
@@ -1650,7 +1634,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     max-width: 315px !important;
     margin: -6px 30px 0 60px;
     color: #b7b7b7;
-    background-image: url(/wp-content/uploads/2017/02/mail-icon-1.png);
+    background-image: url(../../../uploads/2017/02/mail-icon-1.png);
     background-repeat: no-repeat;
     background-position: left center;
     padding-left: 30px;
@@ -1718,7 +1702,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
 .title-wrapper.basel-title-style-simple .title:after {
     bottom: -60px;
     background-color: transparent !important;
-    background-image: url(http://estoniancrafts.localhost.com/wp-content/uploads/2017/03/divider-icon.png);
+    background-image: url(../../../uploads/2017/03/divider-icon.png);
     height: 50px;
     width: 50px;
     background-repeat: no-repeat;
@@ -1814,7 +1798,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
 }
 .basel-counter .counter-label:before {
     content: "";
-    background-image: url(http://estoniancrafts.localhost.com/wp-content/uploads/2017/03/leaf-icon.png);
+    background-image: url(../../../uploads/2017/03/leaf-icon.png);
     position: relative;
     width: 50px;
     height: 50px;
@@ -1956,4 +1940,44 @@ h3.wsmsb_title {
 
 .article-head-title {
     margin-top: 20px;
+}
+
+/* Product view page */
+.product-tabs-wrapper .panel {
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.basel-products-nav .product-btn > a {
+    line-height: 10px !important;
+    height: 32px !important;
+}
+.basel-products-nav .product-btn > a span::before {
+    content: none !important;
+}
+
+.basel-products-nav .product-btn > a span
+{
+    background-color: transparent !important;
+    font-size: 30px;
+    display: none !important;
+}
+
+
+.single-product-content .price del .amoun {
+    font-size: 28px;
+}
+
+.product-design-alt .product_meta {
+    padding: 0px !important;
+    background-color: transparent !important;
+}
+
+.product-design-alt .product_meta > span {
+    margin: 0 !important;
+    font-weight: normal !important;
+}
+
+.woocommerce-breadcrumb {
+    margin-top: 8px;
 }
