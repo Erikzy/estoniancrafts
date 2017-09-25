@@ -50,7 +50,7 @@ get_header( 'shop' );
 				<aside class="widget ec-store-info">
 
 					<?php // Shop name ?>
-					<h1 class="widget-title"><?= $ec_page->title ?></h1>
+					<h5 class="widget-title"><?= $ec_page->title ?></h5>
 					<div class="clear"></div>
 
 					<?php // User meta ?>
@@ -63,13 +63,13 @@ get_header( 'shop' );
 						<?php endif; ?>
 						
 					
-						<li class="dokan-store-rating">
+						<!--<li class="dokan-store-rating">
 							<i class="fa fa-star"></i>
 							<?php dokan_get_readable_seller_rating( $ec_page->id ); ?>
 						</li>
 						<li>
 							<?php do_action( 'lb_store_after_rating', $ec_page->id ); ?>
-						</li>
+						</li>-->
 						<?php if($ec_page->phone): ?>
 							<li><?php echo $ec_page->phone ?></li>
 						<?php endif; ?>
@@ -77,6 +77,22 @@ get_header( 'shop' );
 							<li><?php echo $ec_page->email ?></li>
 						<?php endif; ?>
 					</ul>
+
+                    <div class="co-workers expanded button-group ">
+                        <?php foreach($ec_page->related_people as $person): ?>
+                            <?php //echo '<pre>';
+                            //print_r($ec_page); ?>
+                                <a class="button" href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
+                                    <?php /* if(!empty($person->avatar_url)): ?>
+                                        <img class="co-worker-img" src="<?= $person->avatar_url ?>">
+                                    <?php endif; */ ?>
+                                    <!--<h4><?= $person->name ?></h4>-->
+
+                                    <?= __('Vaata profiili', 'ktt') ?>
+                                    <?php /* <em>Moekunstnik</em> */ ?>
+                                </a>
+                        <?php endforeach; ?>
+                    </div>
 
 					<?php // Social media ?>
 					<ul class="social-nav">
@@ -110,13 +126,13 @@ get_header( 'shop' );
 					
 					
 					 <?php
-					  	if(bp_loggedin_user_domain()){ 
+					 /* 	if(bp_loggedin_user_domain()){
 					     $compose_url  = bp_loggedin_user_domain() . bp_get_messages_slug() . '/compose/?';
 			  		     $compose_url .= 'r=' . bp_core_get_username( $store_user->ID );
 					     echo '<a class="button" href="'.wp_nonce_url($compose_url).'">'.__('Send message', 'ktt').'</a>';
 						}else{
 						 echo __('Log in in order to send a message.','ktt');			
-						}
+						}*/
 					 ?>
 					
 					
@@ -150,24 +166,7 @@ get_header( 'shop' );
 					<h5 class="widget-title"><?= __('Related people', 'ktt') ?></h5>
 					<div class="clear"></div>
 
-					<div class="co-workers">
-						<ul>
-							<?php foreach($ec_page->related_people as $person): ?>
-                            <?php //echo '<pre>';
-                                                                                                    //print_r($ec_page); ?>
-                                                                                                    
-								<li class="co-worker">
-									<a href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
-										<?php if(!empty($person->avatar_url)): ?>
-											<img class="co-worker-img" src="<?= $person->avatar_url ?>">
-										<?php endif; ?>
-										<h4><?= $person->name ?></h4>
-										<?php /* <em>Moekunstnik</em> */ ?>
-									</a>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
+
 
 				</aside>
 				<?php endif; ?>
@@ -179,8 +178,8 @@ get_header( 'shop' );
                     $args = array(
                         'before_widget' => '<aside class="widget">',
                         'after_widget'  => '</aside>',
-                        'before_title'  => '<h3 class="widget-title">',
-                        'after_title'   => '</h3>',
+                        'before_title'  => '<h5 class="widget-title">',
+                        'after_title'   => '</h5>',
                     );
 
                     if ( class_exists( 'Dokan_Store_Location' ) ) {
@@ -256,7 +255,7 @@ get_header( 'shop' );
                         <?php } ?>
 
                         <?php if (!empty($article_links)) { ?>
-                            <h3 class="widget-title nullify-padding article-head-title"><?= __("Artiklite lingid", "ktt") ?></h3>
+                            <h5 class="widget-title nullify-padding article-head-title"><?= __("Artiklite lingid", "ktt") ?></h5>
                         <?php } ?>
 
                         <?php foreach ($article_links as $link) { ?>
