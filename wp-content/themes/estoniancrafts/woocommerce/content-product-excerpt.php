@@ -33,16 +33,7 @@
 	</div>
 </div>
 
-<div class="rating-wrapper">	
-	<?php
-		/**
-		 * woocommerce_after_shop_loop_item_title hook
-		 *
-		 * @hooked woocommerce_template_loop_rating - 5
-		 * @hooked woocommerce_template_loop_price - 10
-		 */
-	?>
-</div>
+
 
 <div class="product-element-bottom">
 	<?php
@@ -60,6 +51,16 @@
 	<div class="product-excerpt">
 		<?php the_excerpt(); ?>
 	</div>
+</div>
+<div class="rating-wrapper">
+    <?php
+    /**
+     * woocommerce_after_shop_loop_item_title hook
+     *
+     * @hooked woocommerce_template_loop_rating - 5
+     * @hooked woocommerce_template_loop_price - 10
+     */
+    ?>
 </div>
 <div class="btn-add">
 	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>

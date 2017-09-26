@@ -136,12 +136,12 @@
 							<div class="items">
 								<?php foreach($store->featured_products as $product): ?>
 									<?php // ec_debug_to_console($product) ?>
-									<div class="item col-sm-2">
+									<div class="item">
 										<a href="<?= $product->public_url ?>">
 											<?php if($product->image): ?>
 												<img src="<?= $product->image->url ?>">
 											<?php endif; ?>
-											<?= $product->title ?>
+											<span><?= $product->title ?></span>
 										</a>
 									</div>
 								<?php endforeach; ?>
