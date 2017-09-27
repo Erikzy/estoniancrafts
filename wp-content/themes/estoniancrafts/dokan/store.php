@@ -215,6 +215,14 @@ get_header( 'shop' );
 				<?php if(($banner = $ec_page->banner) && $banner->image_url): ?>
 				<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
 					<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
+                    <span class="img-white-layer"></span>
+                    <div class="store-user-image">
+                    <?php foreach($ec_page->related_people as $person): ?>
+                        <?php if(!empty($person->avatar_url)): ?>
+                            <img class="co-worker-img" src="<?= $person->avatar_url ?>">
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    </div>
 				</div>
 				<?php endif; ?>
 

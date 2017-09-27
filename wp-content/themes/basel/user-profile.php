@@ -96,6 +96,7 @@
 				<?php if(($banner = $page->banner) && $banner->image_url): ?>
 				<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
 					<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
+                    <span class="img-white-layer"></span>
 				</div>
 	<?php /* Sven: old vrsion with text on the image
 				<div class="user-hero profile-info-summery-wrapper dokan-clearfix" <?php if($banner->image_url): ?> style="background-image: url(<?= $banner->image_url ?>)"<?php endif; ?>>

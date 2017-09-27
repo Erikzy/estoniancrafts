@@ -2010,3 +2010,45 @@ h3.wsmsb_title {
     text-transform: none;
     color: #f08a39 !important;
 }
+
+
+.img-white-layer {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background: #fff;
+    top: 0;
+    opacity: 0.7;
+}
+.store-user-image {
+    position: absolute;
+}
+
+@media (min-width: 1200px) {
+    .store-user-image {
+        width: 230px;
+        top: 30px;
+        left: 30px;
+    }
+}
+@media (max-width: 1199px) {
+    .store-user-image {
+        width: 200px;
+        top: 20px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .store-user-image {
+        width: 160px;
+        top: 15px;
+        left: 15px;
+    }
+}
+@media (max-width: 767px) {
+    .store-user-image {
+      display: none;
+    }
+}
