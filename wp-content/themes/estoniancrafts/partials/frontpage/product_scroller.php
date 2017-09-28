@@ -8,7 +8,7 @@ if($productQuery->have_posts()):
         <div class="owl-carousel">
         <?php  while($productQuery->have_posts()):$productQuery->the_post(); ?>
            <?php $product = wc_get_product( $productQuery->post->ID);?>
-            <div class="item" style="width:259px;">
+            <div class="item">
             	<a href="<?php echo the_permalink() ?>">
               
                  <div class='owl-carousel-thumb'>

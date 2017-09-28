@@ -2,7 +2,7 @@
 jQuery(document).ready(function($) {
    $('.owl-carousel').owlCarousel({
     loop:true,
-    margin:30,
+    margin:35,
 	dots:true,
     responsiveClass:true,
     navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
@@ -11,18 +11,21 @@ jQuery(document).ready(function($) {
         0:{
             items:2,
             nav:true,
-			margin:10
+			margin:20,
+		    autoHeight:true
         },
         600:{
-            items:2,
+            items:3,
             nav:true,
-			margin:10
+			margin:20,
+			autoHeight:true
         },
-        1300:{
+        1110:{
             items:5,
             nav:true,
             loop:true,
-			margin:10
+			margin:20,
+			autoHeight:true
         }
     }
 });	
