@@ -7,7 +7,7 @@
 .owl-carousel-thumb > img{
 
 height:196px;
-width:auto;
+width:auto !important;
 
 }
 .owl-item{
