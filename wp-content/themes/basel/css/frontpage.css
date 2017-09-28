@@ -2,7 +2,7 @@
 	width:196px;
 	height:196px;
 	border:1px solid rgba(204,204,204,1);
-	object-fit:contain;
+	 object-fit: cover;
 }
 .owl-carousel-thumb > img{
 
