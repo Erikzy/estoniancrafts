@@ -4,13 +4,13 @@
 	border:1px solid rgba(204,204,204,1);
 	 object-fit: cover;
 	  overflow: hidden;
-    object-position: center
+    object-position: 50% 50%;
 }
 .owl-carousel-thumb > img{
 
 height:196px;
 width:auto !important;
-max-width:100000%;
+max-width:100000% !important;
 }
 .owl-item{
 
