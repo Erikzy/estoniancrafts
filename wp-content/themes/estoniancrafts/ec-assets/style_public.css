@@ -1438,7 +1438,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
 }
 .basel-back-btn {
     line-height: 10px !important;
-    margin-top: -16px !important;
+    margin-top: -8px !important;
 }
 .basel-back-btn>span {
     background-color: transparent !important;
@@ -1478,6 +1478,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     background-size: 100%;
     width: 30px;
     height: 30px;
+    margin-bottom: 5px;
 }
 .basel-products-nav .product-prev>a:before {
     -ms-transform: rotate(180deg);
@@ -1960,9 +1961,16 @@ h3.wsmsb_title {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
+.basel-products-nav .product-btn {
+    height: 50px;
+}
+
 .basel-products-nav .product-btn > a {
     line-height: 10px !important;
     height: 32px !important;
+    width: 130px !important;
+    font-size: 14px !important;
 }
 .basel-products-nav .product-btn > a span::before {
     content: none !important;
@@ -1998,6 +2006,10 @@ h3.wsmsb_title {
     width: 120px !important;
 }
 
+.single-breadcrumbs-wrapper .woocommerce-breadcrumb {
+    margin-top: 14px;
+}
+
 .woocommerce-breadcrumb {
     margin-top: 8px;
 }
@@ -2006,7 +2018,7 @@ h3.wsmsb_title {
     margin-top: 40px;
 }
 
-.button {
+.button.button-light {
     text-transform: none;
     color: #f08a39 !important;
 }
@@ -2031,12 +2043,20 @@ h3.wsmsb_title {
         top: 30px;
         left: 30px;
     }
+
+    .single-product-content .tabs li:not(:last-child) {
+        margin-right: 70px !important;
+    }
 }
 @media (max-width: 1199px) {
     .store-user-image {
         width: 200px;
         top: 20px;
         left: 20px;
+    }
+
+    .single-product-content .tabs li:not(:last-child) {
+        margin-right: 50px !important;
     }
 }
 
@@ -2051,4 +2071,36 @@ h3.wsmsb_title {
     .store-user-image {
       display: none;
     }
+}
+
+.dokan-single-store > .woocommerce-breadcrumb {
+    margin-bottom: 20px;
+}
+
+.dokan-store-sidebar {
+    margin-top: 44px;
+}
+
+.single-product-page .product_meta {
+    margin-bottom: 0 !important;
+}
+
+.single-product-page .woo-social-buttons {
+    margin-top: 0 !important;
+}
+
+.single-product-page .compare-btn-wrapper {
+    margin: 0 !important;
+}
+
+.single-product-page .yith-wcwl-add-to-wishlist {
+    margin: 10px 0 0 !important;
+    padding-top: 10px !important;
+    border-top: 1px solid #E4E4E4 !important;
+}
+
+.single-product-content #tab-seller > h2 {
+    max-width: 530px;
+    margin-left: auto;
+    margin-right: auto;
 }

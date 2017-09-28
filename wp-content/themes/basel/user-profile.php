@@ -4,7 +4,7 @@
     *
     */
    
-   get_header(); 
+   get_header();
 ?>
 <div class="site-content col-sm-12" role="main">
 <?php 
@@ -80,7 +80,7 @@
 		<?php // Contact us button ?>
 		<?php if($page->contact_us_url): ?>
 		<div class="expanded button-group">
-			<a class="button" href="<?= $page->contact_us_url ?>"><?= __('Võta ühendust', 'ktt') ?></a>
+			<a class="button button-light" href="<?= $page->contact_us_url ?>"><?= __('Võta ühendust', 'ktt') ?></a>
 		</div>
 		<?php endif; ?>
 

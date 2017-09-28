@@ -10,36 +10,41 @@
 
 <h2><?php _e( 'Seller Information', 'dokan' ); ?></h2>
 
-<ul class="list-unstyled">
 
+<table class="shop_attributes">
+    <tbody>
     <?php if ( !empty( $store_info['store_name'] ) ) { ?>
-        <li class="store-name">
-            <span><?php _e( 'Store Name:', 'dokan' ); ?></span>
-            <span class="details">
+        <tr class="store-name">
+            <th><?php _e( 'Store Name:', 'dokan' ); ?></th>
+            <td>
                 <?php echo esc_html( $store_info['store_name'] ); ?>
-            </span>
-        </li>
+            </td>
+        </tr>
     <?php } ?>
 
-    <li class="seller-name">
-        <span>
+    <tr class="seller-name">
+        <th>
             <?php _e( 'Seller:', 'dokan' ); ?>
-        </span>
+        </th>
 
-        <span class="details">
+        <td>
             <?php printf( '<a href="%s">%s</a>', ec_dokan_get_store_url( $author->ID ), $author->display_name ); ?>
-        </span>
-    </li>
+        </td>
+    </tr>
     <?php if ( !empty( $store_info['address'] ) ) { ?>
-        <li class="store-address">
-            <span><b><?php _e( 'Address:', 'dokan' ); ?></b></span>
-            <span class="details">
+        <tr class="store-address">
+            <th><b><?php _e( 'Address:', 'dokan' ); ?></b></th>
+            <td>
                 <?php echo dokan_get_seller_address( $author->ID ) ?>
-            </span>
-        </li>
+            </td>
+        </tr>
     <?php } ?>
 
-    <li class="clearfix">
-        <?php dokan_get_readable_seller_rating( $author->ID ); ?>
-    </li>
-</ul>
+    <tr class="">
+        <td colspan="2">
+            <?php dokan_get_readable_seller_rating( $author->ID ); ?>
+        </td>
+    </tr>
+
+    </tbody>
+</table>

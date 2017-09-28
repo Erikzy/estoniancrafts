@@ -82,7 +82,7 @@ get_header( 'shop' );
                         <?php foreach($ec_page->related_people as $person): ?>
                             <?php //echo '<pre>';
                             //print_r($ec_page); ?>
-                                <a class="button" href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
+                                <a class="button button-light" href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
                                     <?php /* if(!empty($person->avatar_url)): ?>
                                         <img class="co-worker-img" src="<?= $person->avatar_url ?>">
                                     <?php endif; */ ?>
@@ -207,6 +207,7 @@ get_header( 'shop' );
     ?>
 
     <div id="dokan-primary" class="dokan-single-store dokan-w8">
+        <?php woocommerce_breadcrumb(); ?>
         <div id="dokan-content" class="store-page-wrap woocommerce" role="main">
         	<?php if ($ec_page->custom_content !== null) : ?>
         		<?= $ec_page->custom_content ?>

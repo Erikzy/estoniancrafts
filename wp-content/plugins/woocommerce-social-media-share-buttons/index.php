@@ -356,7 +356,7 @@ function toastie_wc_smsb_form_code_yithqv() {
 }
 
 add_shortcode('woocommerce_social_media_share_buttons', 'toastie_wc_smsb_form_short_code');
-add_action('woocommerce_single_product_summary', 'toastie_wc_smsb_form_code', 31);
+add_action('woocommerce_single_product_summary', 'toastie_wc_smsb_form_code', 100);
 add_action( 'yith_wcqv_product_summary', 'toastie_wc_smsb_form_code_yithqv', 31 );
 add_action('admin_menu', 'toastie_wc_smsb_social_menu');
 add_action('wp_footer', 'toastie_wc_smsb_social_footer');
