@@ -139,18 +139,20 @@
   
   <div class="ec-new-product-grid-right-bottom">
   
-  	<div class="col-md-3" style="padding:0px;">
+  	<div class="col-md-4" style="padding:0px;">
   	  <div class="btn-add">
 	    <?php  do_action( 'woocommerce_after_shop_loop_item' ); ?>
       </div>
   	</div>
-  	<div class="col-md-3" style="padding:0px;">
-	 	<?php
+  	<div class="col-md-4" style="padding:0px;">
 	 	
+	 	
+	 	<?php
+	 	basel_wishlist_btn();
 	 	woocommerce_template_loop_rating();
 	 	?>
   	</div>
-   	<div class="col-md-3" style="padding:0px;text-align:left;">
+   	<div class="col-md-4" style="padding:0px;text-align:left;">
 		<div class="ec-new-author-heading">
 			Author name:
 		</div>

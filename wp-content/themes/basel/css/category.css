@@ -47,8 +47,11 @@
 }
 .ec-new-product-grid-right-bottom .btn-add a {
 	padding:15px 20px !important;
-
+	width:100%;
 }
 .star-rating{
 	margin-top:16px;
+}
+.ec-new-product-grid-right-bottom .btn-add{
+	width:100%;
 }
