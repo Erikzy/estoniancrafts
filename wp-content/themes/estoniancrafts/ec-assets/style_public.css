@@ -2110,6 +2110,17 @@ h3.wsmsb_title {
     font-family: FontAwesome !important;
 }
 
-..basel-hover-excerpt .product-element-bottom {
+.basel-hover-excerpt .product-element-bottom {
     height: 190px;
+}
+
+.product-author {
+    font-size: 14px;
+}
+
+.product-author i {
+    font-size: 18px;
+}
+.product-image-summary > .row {
+    margin-bottom: 0;
 }
