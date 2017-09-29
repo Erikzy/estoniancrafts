@@ -20,6 +20,15 @@ $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 <div class="product_meta">
 	<?php do_action( 'woocommerce_product_meta_start' ); ?>
 
+    <span class="product-author">
+        <i class="fa fa-user-o"></i>
+        <?php
+        echo __( 'Author Name', 'woocommerce' );
+        $author = get_user_by( 'id', $product->post->post_author );
+        printf( ': <a href="%s">%s</a>', ec_dokan_get_store_url( $author->ID ), $author->display_name );
+        ?>
+    </span>
+
 
 	<?php echo $product->get_categories( '<span class="meta-sep">,</span> ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', $cat_count, 'woocommerce' ) . ' ', '</span>' ); ?>
 
