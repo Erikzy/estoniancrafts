@@ -13,8 +13,9 @@ class EC_Actions
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_debug_action'), 9999 );
 
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
+		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating' );
 //		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_categories_action'), 9 );
-		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_price_action'), 10 );
+	//	add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_price_action'), 10 );
 
 		// ajax actions
 		add_action( 'wp_ajax_ask_information', array(__CLASS__, 'ask_information_ajax'));
@@ -34,6 +35,7 @@ class EC_Actions
 
 		wp_enqueue_style('owl-carousel', $template_url.'/css/owl.carousel.css', array(), '1.0.1');
 		wp_enqueue_style('frontpage', $template_url.'/css/frontpage.css', array(), '1.0.1');
+		wp_enqueue_style('category', $template_url.'/css/category.css', array(), '1.0.1');
 		wp_enqueue_script('owl-carousel-min', $template_url . '/js/owl.carousel.min.js', array('jquery'), '1.0', true);
 
 

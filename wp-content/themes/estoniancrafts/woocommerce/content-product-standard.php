@@ -8,6 +8,8 @@
 ?>
 <?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 <div class="product-element-top">
+
+	
 	<a href="<?php echo esc_url( get_permalink() ); ?>">
 		<?php
 			/**
