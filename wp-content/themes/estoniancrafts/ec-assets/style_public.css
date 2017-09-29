@@ -2082,7 +2082,7 @@ h3.wsmsb_title {
 }
 
 .single-product-page .product_meta {
-    margin-bottom: 0 !important;
+    margin: 0 !important;
 }
 
 .single-product-page .woo-social-buttons {
@@ -2097,10 +2097,19 @@ h3.wsmsb_title {
     margin: 10px 0 0 !important;
     padding-top: 10px !important;
     border-top: 1px solid #E4E4E4 !important;
+    width: 100%;
 }
 
 .single-product-content #tab-seller > h2 {
     max-width: 530px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.star-rating, .star-rating span {
+    font-family: FontAwesome !important;
+}
+
+..basel-hover-excerpt .product-element-bottom {
+    height: 190px;
 }
