@@ -41,5 +41,6 @@ $slider_args = array(
 	'title' => __( 'Related Products', 'woocommerce' ),
 	'img_size' => 'shop_catalog'
 );
+echo 'test';
 
 echo basel_generate_posts_slider( $slider_args, $products );

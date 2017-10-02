@@ -124,16 +124,13 @@
   
   <div class="ec-new-product-grid-right-mid">
   	<?php 
-  	
   	 $ex =	get_the_excerpt(); 
   	 $max = 270;
-  	 
   	 if(strlen($ex) > $max){
   	 	echo substr($ex,0,$max).'...';
      }else{
      	echo $ex;
      }
-     
   	?>
   </div>
   
@@ -145,8 +142,6 @@
       </div>
   	</div>
   	<div class="col-md-4" style="padding:0px;">
-	 	
-	 	
 	 	<?php
 	 	basel_wishlist_btn();
 	 	woocommerce_template_loop_rating();

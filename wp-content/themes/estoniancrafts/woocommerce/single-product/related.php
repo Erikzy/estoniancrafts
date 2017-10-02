@@ -34,12 +34,14 @@ $args = apply_filters( 'woocommerce_related_products_args', array(
 ) );
 
 
-$products = new WP_Query( $args );
+/*$products = new WP_Query( $args );
 
 $slider_args = array(
 	'slides_per_view' => apply_filters( 'basel_related_products_per_view', 4 ),
 	'title' => __( 'Related Products', 'woocommerce' ),
 	'img_size' => 'shop_catalog'
-);
+);*/
+//echo 'tet';
+//echo basel_generate_posts_slider( $slider_args, $products );
 
-echo basel_generate_posts_slider( $slider_args, $products );
+include(locate_template('partials/frontpage/product_scroller.php')); 
