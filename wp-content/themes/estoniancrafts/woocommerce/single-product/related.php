@@ -44,6 +44,6 @@ $slider_args = array(
 //echo 'tet';
 //echo basel_generate_posts_slider( $slider_args, $products );
 ?>
-	<h1><?php echo __('Top tooted','ec');?></h1>
+	<h1><?php echo __('Seotud tooted','ec');?></h1>
 <?php
 include(locate_template('partials/frontpage/product_scroller.php')); 
