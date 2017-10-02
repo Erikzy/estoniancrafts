@@ -23,6 +23,7 @@ $map_location = isset( $store_info['location'] ) ? esc_attr( $store_info['locati
 $company_nr  = isset( $ec_page->ktt_extended_settings['company_nr'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_nr'] ) : '';
 $company_name  = isset( $ec_page->ktt_extended_settings['company_name'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_name'] ) : '';
 $company_type  = isset( $ec_page->ktt_extended_settings['company_type'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_type'] ) : '';
+$company_description  = isset( $ec_page->ktt_extended_settings['description'] ) ? esc_attr( $ec_page->ktt_extended_settings['description'] ) : '';
 
 if($company_type != ''){
   $company_name .= " ".$company_types[$company_type];
@@ -217,6 +218,7 @@ get_header( 'shop' );
 				<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
 					<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
                     <span class="img-white-layer"></span>
+                    <span class="store-description"><?= $company_description ?></span>
                     <div class="store-user-image">
                     <?php foreach($ec_page->related_people as $person): ?>
                         <?php if(!empty($person->avatar_url)): ?>
