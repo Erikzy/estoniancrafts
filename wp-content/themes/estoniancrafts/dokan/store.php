@@ -25,7 +25,7 @@ $company_name  = isset( $ec_page->ktt_extended_settings['company_name'] ) ? esc_
 $company_type  = isset( $ec_page->ktt_extended_settings['company_type'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_type'] ) : '';
 $company_description  = isset( $ec_page->ktt_extended_settings['description'] ) ? esc_attr( $ec_page->ktt_extended_settings['description'] ) : '';
 
-if($company_type != '' && $company_type !='none' && isset($company_types[$company_type])){
+if($company_type != '' && $company_type != 'none'){
   $company_name .= " ".$company_types[$company_type];
 }
 
@@ -208,7 +208,9 @@ get_header( 'shop' );
     ?>
 
     <div id="dokan-primary" class="dokan-single-store dokan-w8">
+
         <?php woocommerce_breadcrumb(); ?>
+
         <div id="dokan-content" class="store-page-wrap woocommerce" role="main">
         	<?php if ($ec_page->custom_content !== null) : ?>
         		<?= $ec_page->custom_content ?>
@@ -227,6 +229,12 @@ get_header( 'shop' );
                     <?php endforeach; ?>
                     </div>
 				</div>
+                <?php else: ?>
+                <div class="profile-info-summery-wrapper dokan-clearfix">
+                    <h1><?= $ec_page->title ?></h1>
+                    <p><?= nl2br($company_description) ?></p>
+                </div>
+
 				<?php endif; ?>
 
 	            <?php // dokan_get_template_part( 'store-header' ); ?>

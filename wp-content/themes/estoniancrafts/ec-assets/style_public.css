@@ -2106,6 +2106,9 @@ h3.wsmsb_title {
     margin-top: 44px;
 }
 
+.dokan-store-sidebar.ec-user-profile {
+    margin-top: 0;
+}
 .single-product-page .product_meta {
     margin: 0 !important;
 }
@@ -2154,4 +2157,8 @@ h3.wsmsb_title {
     display: block !important;
     width: 158px !important;
     white-space: nowrap !important;
+}
+
+#dokan-primary.dokan-single-store .store-page-wrap .seller-items .products {
+    margin-left: 0px;
 }
