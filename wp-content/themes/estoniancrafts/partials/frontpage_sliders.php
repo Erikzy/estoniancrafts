@@ -6,7 +6,6 @@
 <!--featured events-->	
 
 <!--top products-->	
-    <h2 class="frontpageSubheading"><?php echo __('Made With Heart','ec');?></h2>
 	<h1><?php echo __('Top tooted','ec');?></h1>
     <?php
     
@@ -24,8 +23,7 @@
 
 <!--most likes-->	
      
-     <h2 class="frontpageSubheading"><?php echo __('Made With Heart','ec');?></h2>
-	 <h1><?php echo __('Enim like kogunud tooted','ec');?></h1>
+ 	 <h1><?php echo __('Enim like kogunud tooted','ec');?></h1>
 	
 	 <?php
     
@@ -47,7 +45,6 @@
 <!--events-->	
 
   
-     <h2 class="frontpageSubheading"><?php echo __('Made With Heart','ec');?></h2>
 	 <h1><?php echo __('Tulevased sündmused','ec');?></h1>
  	
 	 <?php
