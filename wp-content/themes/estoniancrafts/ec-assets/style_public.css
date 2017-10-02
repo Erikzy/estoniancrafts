@@ -2155,3 +2155,7 @@ h3.wsmsb_title {
     width: 158px !important;
     white-space: nowrap !important;
 }
+
+#dokan-primary.dokan-single-store .store-page-wrap .seller-items {
+    margin-left: 15px;
+}
