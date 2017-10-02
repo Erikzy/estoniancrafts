@@ -6,7 +6,7 @@
 	  overflow: hidden;
     object-position: 50% 50%;
 }
-.owl-carousel-thumb > img{
+.product-owl-carousel .owl-carousel-thumb > img{
 
 height:196px;
 width:auto !important;

@@ -46,7 +46,26 @@
 
 
 <!--most viewed-->	
-<!--events-->		
+<!--events-->	
+
+  
+     <h2 class="frontpageSubheading"><?php echo __('Made With Heart','ec');?></h2>
+	 <h1><?php echo __('Enim like kogunud tooted','ec');?></h1>
+     <div class="heartImgWrapper"><img src="<?php echo bloginfo('template_url').'/images/estonian_crafts_heart.png'; ?>" /></div>
+	
+	 <?php
+    
+    $args = array(
+    	'post_type'=>'tribe_events',
+    	'post_status' => 'published',
+    	'posts_per_page' => -1,
+	);
+  	include(locate_template('partials/frontpage/featured_events.php')); 
+    
+    
+    
+     ?>
+	
 <!--posts-->		
 	
 </div><!--container ends-->

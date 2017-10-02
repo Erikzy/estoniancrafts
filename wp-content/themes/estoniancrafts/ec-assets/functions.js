@@ -1,6 +1,6 @@
 
 jQuery(document).ready(function($) {
-   $('.owl-carousel').owlCarousel({
+   $('.product-owl-carousel').owlCarousel({
     loop:true,
     margin:35,
 	dots:true,
@@ -30,6 +30,35 @@ jQuery(document).ready(function($) {
     }
 });	
 
+   $('.event-owl-carousel').owlCarousel({
+    loop:true,
+    margin:35,
+	dots:true,
+    responsiveClass:true,
+    navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+	navigation:true,
+    responsive:{
+        0:{
+            items:2,
+            nav:true,
+			margin:20,
+		    autoHeight:true
+        },
+        600:{
+            items:2,
+            nav:true,
+			margin:20,
+			autoHeight:true
+        },
+        1110:{
+            items:3,
+            nav:true,
+            loop:true,
+			margin:20,
+			autoHeight:true
+        }
+    }
+});	
 
 
 

@@ -25,7 +25,7 @@ $company_name  = isset( $ec_page->ktt_extended_settings['company_name'] ) ? esc_
 $company_type  = isset( $ec_page->ktt_extended_settings['company_type'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_type'] ) : '';
 $company_description  = isset( $ec_page->ktt_extended_settings['description'] ) ? esc_attr( $ec_page->ktt_extended_settings['description'] ) : '';
 
-if($company_type != ''){
+if($company_type != '' && $company_type !='none' && isset($company_types[$company_type])){
   $company_name .= " ".$company_types[$company_type];
 }
 

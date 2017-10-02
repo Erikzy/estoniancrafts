@@ -5,7 +5,7 @@ if($productQuery->have_posts()):
 ?> 
 <div class="row marginTop">
     <div class="col-md-12">
-        <div class="owl-carousel">
+        <div class="owl-carousel product-owl-carousel">
         <?php  while($productQuery->have_posts()):$productQuery->the_post(); ?>
            <?php $product = wc_get_product( $productQuery->post->ID);?>
             <div class="item">
