@@ -14,8 +14,8 @@ get_header(); ?>
 <?php 
 	
 	// Get content width and sidebar position
-	$content_class = basel_get_content_class();
-
+	//$content_class = basel_get_content_class();
+    $content_class = 'col-md-12';
 ?>
 
 <div class="site-content <?php echo esc_attr( $content_class ); ?>" role="main">
@@ -45,6 +45,6 @@ get_header(); ?>
 </div><!-- .site-content -->
 
 
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 
 <?php get_footer(); ?>
