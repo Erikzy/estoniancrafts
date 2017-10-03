@@ -151,7 +151,7 @@ max-width:100000% !important;
 
 	 text-transform: uppercase;
     font-size: 12px;
-    color:#333333;
+    color:#333333 !important;
 }
 .owl-prev {
     left: -50px !important;
