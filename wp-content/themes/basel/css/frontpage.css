@@ -6,12 +6,16 @@
 	  overflow: hidden;
     object-position: 50% 50%;
 }
+
+
+
 .product-owl-carousel .owl-carousel-thumb > img{
 
 height:196px;
 width:auto !important;
 max-width:100000% !important;
 }
+
 .owl-item{
 
 padding:15px;
@@ -21,7 +25,8 @@ padding:15px;
   width:100%;
   text-align:center;
   font-size: 22px;
-   margin-top:35px;
+
+   margin-top:15px;
 }
 .frontpageSliders > h1{
     margin-top: -25px;
@@ -52,7 +57,7 @@ text-align:center;
 
 }
 
-.owl-theme .owl-controls .owl-buttons div {
+.product-owl-carousel .owl-controls .owl-buttons div {
   font-size:0px;
  opacity:1 !important;
  top: 29% !important;
@@ -76,4 +81,54 @@ display:block;
 .widget_price_filter .price_slider_amount{
 	position:relative;
 	top:25px;
+}
+.event-owl-carousel .owl-item{
+	width:380px !important;
+}
+
+.eventDate{
+	position:absolute;
+	top:25px;
+	left:25px;
+	padding:5px;
+	width:110px;
+	background: rgba(255,255,255,0.83);
+	font-size:20px;
+	
+	border-bottom:4px solid #ec7d2c;
+}
+
+.event-owl-carousel .owl-controls .owl-buttons div {
+  font-size:0px;
+ opacity:1 !important;
+ top: 45% !important;
+  -webkit-box-shadow: 0px 0px 6px 2px rgba(189,189,189,1);
+-moz-box-shadow: 0px 0px 6px 2px rgba(189,189,189,1);
+box-shadow: 0px 0px 6px 2px rgba(189,189,189,1);
+display:block;
+
+
+}
+
+
+.event-title{
+  width:100%;
+  text-align:center;
+  font-size: 22px;
+   margin-top:15px;
+}
+.owl-carousel-event-thumb{
+	position:relative;
+	width:360px;
+	height:360px;
+	border:1px solid rgba(204,204,204,1);
+	 object-fit: cover;
+	  overflow: hidden;
+    object-position: 50% 50%;
+}
+ .owl-carousel-event-thumb > img{
+
+height:360px;
+width:auto !important;
+max-width:100000% !important;
 }

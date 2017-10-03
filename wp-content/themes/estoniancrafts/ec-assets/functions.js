@@ -32,30 +32,32 @@ jQuery(document).ready(function($) {
 
    $('.event-owl-carousel').owlCarousel({
     loop:true,
-    margin:35,
+    margin:25,
 	dots:true,
+	items:3,
     responsiveClass:true,
     navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
 	navigation:true,
     responsive:{
         0:{
-            items:2,
+            items:3,
             nav:true,
-			margin:20,
+			margin:10,
 		    autoHeight:true
         },
         600:{
-            items:2,
+            items:3,
             nav:true,
-			margin:20,
+			margin:10,
 			autoHeight:true
         },
         1110:{
             items:3,
             nav:true,
             loop:true,
-			margin:20,
-			autoHeight:true
+			margin:10,
+			autoHeight:true,
+		   
         }
     }
 });	
