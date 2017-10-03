@@ -24,10 +24,14 @@ if($eventQuery->have_posts()):
                   	echo tribe_get_start_date(null, false, "j.M")."&nbsp;-<br> ".tribe_get_end_date(null, false, "j.M");
                   }
                   
-                  ?></div>
-                   
+                  ?>
                  </div>
-                </a>
+                  <div class="eventVenue"><?php
+                  
+                     echo tribe_get_venue();
+                  ?></div>  
+                 </div>
+            
                 <div class='event-title'>
                 	
                 <?php 
@@ -37,7 +41,16 @@ if($eventQuery->have_posts()):
                       echo $title;
                     }else{
                       echo substr($title,0,50).'..';
-                    } ?></div>
+                    } ?>
+                    
+                </div>
+                <div class='event-excerpt'>
+                 <?php
+                	the_excerpt(5);
+              
+               	?>
+                </div> 
+              </a>
             </div>
         <?php endwhile; ?>	
         </div>

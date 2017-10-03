@@ -97,7 +97,17 @@ display:block;
 	
 	border-bottom:4px solid #ec7d2c;
 }
-
+.eventVenue{
+    position: absolute;
+    bottom: 0px;
+    background: #ec7d2c;;
+    width: 80%;
+    left: 10%;
+    color:white;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
 .event-owl-carousel .owl-controls .owl-buttons div {
   font-size:0px;
  opacity:1 !important;
