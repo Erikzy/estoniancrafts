@@ -30,7 +30,7 @@
 }
 
 .navigation-wrap {
-    border-top: 2px solid rgb(239, 127, 39);
+    border-top: thin solid rgb(239, 127, 39);
     border-bottom: 1px solid rgba(168,168,168,.2);
     position: relative;
 }

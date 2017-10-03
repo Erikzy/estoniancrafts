@@ -1265,6 +1265,8 @@ Template: basel
 Version: 1.0.0
 */
 
+
+
 /*NOTE! IF COMPLETE THEN APPEND TO themes/estoniancrafts/style.css */
 .basel-navigation .menu>li>a {
     text-decoration: none;
@@ -1336,7 +1338,7 @@ body {
 }
 /*TOPBAR*/
 .topbar-wrapp {
-    border-bottom: 2px solid rgb(239, 127, 39) !important;
+    border-bottom: thin solid rgb(239, 127, 39) !important;
     height: auto;
 }
 .topbar-menu {
