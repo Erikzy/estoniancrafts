@@ -25,12 +25,14 @@ padding:15px;
   width:100%;
   text-align:center;
   font-size: 22px;
+  color:#333333;
 
    margin-top:15px;
 }
 .frontpageSliders > h1{
     margin-top: -25px;
 	width:100%;
+  color:#333333;
 	text-align:center;
 }
 .heartImgWrapper{
@@ -40,11 +42,11 @@ padding:15px;
 }
 .frontpageSubheading{
   width:100%;
-  color:#9a9a9a;
+
   font-size:24px;
   margin-top:40px;
   text-align:center;
-
+  color:#333333;
 }
 .product-price{
 color:#989898;
@@ -94,7 +96,7 @@ display:block;
 	width:110px;
 	background: rgba(255,255,255,0.83);
 	font-size:20px;
-	
+    color:#333333;
 	border-bottom:4px solid #ec7d2c;
 }
 .eventVenue{
@@ -125,6 +127,7 @@ display:block;
   width:100%;
   text-align:center;
   font-size: 22px;
+    color:#333333;
    margin-top:15px;
 }
 .owl-carousel-event-thumb{
@@ -142,9 +145,24 @@ height:360px;
 width:auto !important;
 max-width:100000% !important;
 }
+
+
 .ubermenu-target-text{
 
 	 text-transform: uppercase;
     font-size: 12px;
     color:#333333;
+}
+.owl-prev {
+    left: -50px !important;
+}
+.owl-next {
+    right: -50px !important;
+}
+.owl-theme .owl-controls .owl-buttons div:before {
+     width: 40px !important;
+    font-size: 20px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+
 }
