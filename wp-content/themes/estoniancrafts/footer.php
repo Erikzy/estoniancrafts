@@ -24,10 +24,9 @@
 		
 		<?php get_sidebar( 'footer' ); ?>
 		
-		<div  style="color:white;background-color:#EF7F27;" class="copyrights-wrapper ?>">
+		<div class="copyrights-wrapper">
 			<div class="container">
 				<div class="min-footer">
-					<div class="col-left">
 						<?php if ( basel_get_opt( 'copyrights' ) != ''): ?>
 							<?php echo do_shortcode( basel_get_opt( 'copyrights' ) ); ?>
 						<?php else: ?>
@@ -37,10 +36,8 @@
 						<?php if ( basel_get_opt( 'copyrights2' ) != ''): ?>
 							<?php echo do_shortcode( basel_get_opt( 'copyrights2' ) ); ?>
 						<?php endif ?>
+				
 					
-					</div>
-						<div class="col-right">
-						</div>
 				</div>
 			</div>
 		</div>

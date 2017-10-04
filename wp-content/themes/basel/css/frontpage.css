@@ -203,3 +203,13 @@ padding-top: 0px
 .new-footer-newsletter > input  {
 	display:inline-block;
 }
+.copyrights-wrapper{
+  color:#333333;
+  background-color:#F8F8F8;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+  font-size:12px;
+  text-transform:uppercase;
+  border-top:thin solid #EF7F27;
+}
