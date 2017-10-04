@@ -342,19 +342,7 @@ display:none;
     padding: 10px 50px;
 }
 	/*Mailchimp*/
-#mc4wp-form-1 {
-    float: none;
-    margin: 0 auto;
-    display: table;
-    width: 100%;
-    max-width: 1000px;
-    background: #fff;
-    margin-top: -34px;
-    position: relative;
-    z-index: 9999;
-    padding: 11px 25px 5px;
-    border: 2px solid #ef7f27;
-}
+
 .mc4wp-form div {
     width: 100%;
     max-width: 1170px;
@@ -1610,14 +1598,10 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     float: none;
     margin: 0 auto;
     display: table;
-    width: 100%;
-    max-width: 1000px;
     background: #fff;
     margin-top: -34px;
     position: relative;
     z-index: 9999;
-    padding: 11px 25px 5px;
-    border: 2px solid #ef7f27;
 }
 .mc4wp-form div {
     width: 100%;
