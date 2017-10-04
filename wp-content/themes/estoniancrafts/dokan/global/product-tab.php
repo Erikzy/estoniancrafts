@@ -8,9 +8,6 @@
  */
 ?>
 
-<h2><?php _e( 'Seller Information', 'dokan' ); ?></h2>
-
-
 <table class="shop_attributes">
     <tbody>
     <?php if ( !empty( $store_info['store_name'] ) ) { ?>

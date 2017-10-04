@@ -23,11 +23,9 @@
 	<div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar ec-user-profile" role="complementary" style="margin-right:3%;">
 
 		<?php // Avatar ?>
-		<?php if($page->avatar_url): ?>
 			<div class="profile-image">
-				<img src="<?= $page->avatar_url ?>" title="<?= $user->first_name ?> <?= $user->last_name ?>" />
+                <?php echo get_avatar($page->id, 150); ?>
 			</div>
-		<?php endif; ?>
 
 		<?php // Name ?>
 		<h5 class="widget-title">

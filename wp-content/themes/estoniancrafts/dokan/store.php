@@ -223,9 +223,11 @@ get_header( 'shop' );
                     <span class="store-description"><?= $company_description ?></span>
                     <div class="store-user-image">
                     <?php foreach($ec_page->related_people as $person): ?>
-                        <?php if(!empty($person->avatar_url)): ?>
+
+                        <?php echo get_avatar($store_user->ID, 150, '', '', array('class' => 'co-worker-img')); ?>
+                        <!--<?php if(!empty($person->avatar_url)): ?>
                             <img class="co-worker-img" src="<?= $person->avatar_url ?>">
-                        <?php endif; ?>
+                        <?php endif; ?>-->
                     <?php endforeach; ?>
                     </div>
 				</div>
