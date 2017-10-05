@@ -72,6 +72,11 @@ padding-left: 13px;
    width:117px !important;
    margin-left:0px;
 }
+.woocommerce .container{
+ width:95% !important
+
+}
+
 .ec-new-product-grid .star-rating span:before {
    font-size:23px !important;
 }
