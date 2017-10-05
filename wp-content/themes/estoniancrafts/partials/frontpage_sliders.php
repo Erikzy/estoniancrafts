@@ -25,7 +25,7 @@
 
 <!--most likes-->	
      
- 	 <h1>
+ 	 <h1 style="position:relative;">
  	 	<?php echo __('Newest products','ec');?>
  		<a style="position:absolute;right:0px;top:14px;font-size: 12px;text-transform: uppercase;color:#989898" href="/shop/?orderby=date"><?php echo __('See more >>','ec')?></a> 	
  	 </h1>
