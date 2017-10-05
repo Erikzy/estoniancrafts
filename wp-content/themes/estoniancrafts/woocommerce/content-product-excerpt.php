@@ -149,12 +149,12 @@
   	</div>
    	<div class="col-md-4" style="padding:0px;text-align:left;">
 		<div class="ec-new-author-heading">
-			Author name:
+			<i class="fa fa-user-o"></i>&nbsp;Author name:
 		</div>
    		<div class="ec-new-author-name"><?php
    			$author     = get_user_by( 'id', $product->post->post_author );
    			if(is_object($author)){
-				echo '<a href="/user/'.bp_core_get_username( $product->post->post_author).'"><i class="fa fa-user-o"></i>'.$author->display_name.'</a>';
+				echo '<a href="/user/'.bp_core_get_username( $product->post->post_author).'">'.$author->display_name.'</a>';
    			}
    			?>
    		</div>
