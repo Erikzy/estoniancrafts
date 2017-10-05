@@ -6,7 +6,9 @@
 <!--featured events-->	
 
 <!--top products-->	
-	<h1><?php echo __('Top tooted','ec');?></h1>
+	<h1 style="position:relative;"><?php echo __('Top products','ec');?>
+		<a style="position:absolute;right:0px;top:14px;font-size: 12px;text-transform: uppercase;color:#989898" href="/shop/?ordeby=popularity"><?php echo __('See more >>','ec')?></a>
+	</h1>
     <?php
     
     $args = array(
@@ -23,7 +25,7 @@
 
 <!--most likes-->	
      
- 	 <h1><?php echo __('Enim like kogunud tooted','ec');?></h1>
+ 	 <h1><?php echo __('Most liked','ec');?></h1>
 	
 	 <?php
     
@@ -45,7 +47,7 @@
 <!--events-->	
 
   
-	 <h1><?php echo __('Tulevased sündmused','ec');?></h1>
+	 <h1><?php echo __('Future events','ec');?></h1>
  	
 	 <?php
     
