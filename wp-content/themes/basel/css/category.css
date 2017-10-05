@@ -27,8 +27,12 @@
     height: 219px;
 }
 .ec-new-author-heading{
-	font-size:19px;
 
+    font-size: 14px;
+    color: #4E4E4E;
+    line-height: 27px;
+    height: 27px;
+    vertical-align: middle;
 }
 .ec-new-author-name{
 
@@ -62,4 +66,15 @@ padding-left: 13px;
 .ec-new-product-grid{
 	width:877px;
 
+}
+.ec-new-product-grid-right-bottom .yith-wcwl-add-to-wishlist{
+
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+    -webkit-transform: scale(1) !important;
+    -moz-transform: scale(1) !important;
+    -o-transform: scale(1) !important;
+    -ms-transform: scale(1) !important;
+    -sand-transform: scale(1) !important;
 }

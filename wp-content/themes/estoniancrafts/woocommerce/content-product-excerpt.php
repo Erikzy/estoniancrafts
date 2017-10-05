@@ -142,9 +142,12 @@
       </div>
   	</div>
   	<div class="col-md-4" style="padding:0px;">
+	 	
+	 	<?php if( class_exists('YITH_WCWL_Shortcode'))  echo YITH_WCWL_Shortcode::add_to_wishlist(array(get_the_ID()));; ?>
 	 	<?php
-	 	basel_wishlist_btn();
-	 	woocommerce_template_loop_rating();
+	 	  
+	 	
+	 	  woocommerce_template_loop_rating();
 	 	?>
   	</div>
    	<div class="col-md-4" style="padding:0px;text-align:left;">

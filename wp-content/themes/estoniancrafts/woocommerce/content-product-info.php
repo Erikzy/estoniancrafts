@@ -42,7 +42,7 @@
 		</div>
 	</div> 
 	<div class="basel-buttons">
-		<?php if( class_exists('YITH_WCWL_Shortcode')) basel_wishlist_btn(); ?>
+		<?php if( class_exists('YITH_WCWL_Shortcode')) echo YITH_WCWL_Shortcode::add_to_wishlist(array()) ?>
 		<?php basel_compare_btn(); ?>
 		<?php basel_quick_view_btn( get_the_ID(), $woocommerce_loop['quick_view_loop'] - 1, 'main-loop' ); ?>
 	</div>
