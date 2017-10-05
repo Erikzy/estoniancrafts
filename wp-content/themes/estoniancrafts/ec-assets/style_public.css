@@ -613,7 +613,7 @@ border:none;
     float: left;
 }
 .products .basel-hover-excerpt .btn-add a {
-    background: #000;
+    background: rgba(121,121,121,1);
     border: none;
     padding: 13px 50px;
     font-size: 15px;
@@ -1847,12 +1847,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     margin-top: 0;
     float: left;
 }
-.products .basel-hover-excerpt .btn-add a {
-    background: #000;
-    border: none;
-    padding: 13px 50px;
-    font-size: 15px;
-}
+
 /*PRODUCT PAGE*/
 .single-product .site-content {
     margin: 0;
