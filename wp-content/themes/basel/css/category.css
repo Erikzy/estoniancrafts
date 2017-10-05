@@ -67,6 +67,14 @@ padding-left: 13px;
 	width:877px;
 
 }
+.ec-new-product-grid .star-rating{
+   font-size:23px !important;
+   width:117px !important;
+   margin-left:0px;
+}
+.ec-new-product-grid .star-rating span:before {
+   font-size:23px !important;
+}
 .ec-new-product-grid-right-bottom .yith-wcwl-add-to-wishlist{
 
     opacity: 1 !important;

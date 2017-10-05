@@ -152,7 +152,7 @@
   	</div>
    	<div class="col-md-4" style="padding:0px;text-align:left;">
 		<div class="ec-new-author-heading">
-			<i class="fa fa-user-o"></i>&nbsp;Author name:
+			<i class="fa fa-user-o" style="font-size: 20px;"></i>&nbsp;Author name:
 		</div>
    		<div class="ec-new-author-name"><?php
    			$author     = get_user_by( 'id', $product->post->post_author );
