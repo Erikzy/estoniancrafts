@@ -70,8 +70,7 @@
 						
 <?php 
 
-do_action('wpml_add_language_selector');
-	if ( is_user_logged_in() ) { 
+    if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
 	
 		if(strlen($user->first_name) > 1 && strlen($user->last_name) > 1 ){
@@ -79,8 +78,19 @@ do_action('wpml_add_language_selector');
 		} else { 
 			$fullName = $user->user_login;
 		}
-
+		$count = messages_get_unread_count();
+		
+		echo '<a href="/my-account/dashboard/new-product/">Sell</a>';
+		
+		$link = bp_loggedin_user_domain() . bp_get_messages_slug() . '/inbox';
+		echo '<a href="'.$link.'"><i style="position:relative;" class="fa fa-envelope-o">';
+		if($count > 0 ){
+			echo '<span class="unreadMessages">'.$count.'</span>'; 
+		}
+		echo '</i>&nbsp;&nbsp;</a>'
 ?>
+
+
  	<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
 	<a href="<?php echo wp_logout_url(home_url()); ?>" title="<?php _e('Log out','woothemes'); ?>"><?php _e('Log out','woothemes') ?></a>
 
