@@ -120,6 +120,13 @@
 		// Price and categories
 		//do_action( 'woocommerce_after_shop_loop_item_title' );
 	?>
+	<div class="sold-list">
+  		   Units sold:
+  		    <?php
+				$units_sold = get_post_meta( $product->id, 'total_sales', true );
+				echo $units_sold;
+			?>
+		</div>
   </div>
   
   <div class="ec-new-product-grid-right-mid">
@@ -137,7 +144,8 @@
   <div class="ec-new-product-grid-right-bottom">
   
   	<div class="col-md-4" style="padding:0px;">
-  	  <div class="btn-add">
+	
+	  <div class="btn-add">
 	    <?php  do_action( 'woocommerce_after_shop_loop_item' ); ?>
       </div>
   	</div>
@@ -152,7 +160,7 @@
   	</div>
    	<div class="col-md-4" style="padding:0px;text-align:left;">
 		<div class="ec-new-author-heading">
-			<i class="fa fa-user-o" style="font-size: 20px;"></i>&nbsp;Author name:
+			<i class="fa fa-user-o" style="font-size: 20px;"></i>&nbsp;Author:
 		</div>
    		<div class="ec-new-author-name"><?php
    			$author     = get_user_by( 'id', $product->post->post_author );
@@ -162,9 +170,7 @@
    			?>
    		</div>
    	</div>  
-  
-
-
+  	
     <?php if ( $timer ): ?>
 	  <?php basel_product_sale_countdown(); ?>
     <?php endif ?> 

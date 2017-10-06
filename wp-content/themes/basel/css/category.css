@@ -9,16 +9,21 @@
 
 }
 .ec-new-product-grid-right-top{
-	height:60px;
+	height:84px;
     font-size: 22px;
 }
 
 .ec-new-product-grid-right-mid{
-	height:112px;
+	height:90px;
 	line-height:2em;
 	text-align:justify;
 }
-
+.sold-list{
+margin-top: 35px;
+font-size:12px;
+color: #bdbdbd;
+text-align: left;
+}
 .ec-new-product-grid-right-bottom{
 	height:40px;
 }
@@ -76,7 +81,9 @@ padding-left: 13px;
  width:95% !important
 
 }
-
+.woocommerce .widget-area{
+  padding-right: 15%;
+}
 .ec-new-product-grid .star-rating span:before {
    font-size:23px !important;
 }
