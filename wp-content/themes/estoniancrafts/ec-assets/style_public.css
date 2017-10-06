@@ -115,15 +115,6 @@ border-bottom:none;
     margin: 0 25px;
     line-height: 50px;
 }
-.top-bar-right a:before {
-    content: " ";
-    position: relative;
-    margin-top: -12px;
-    border-right: 2px solid #333;
-    height: 25px;
-    left: -22px;
-    top: 50%;
-}
 .top-bar-right a:nth-child(1):before {
    display:none;
 }
@@ -1364,13 +1355,16 @@ body {
     line-height: 50px;
 }
 .top-bar-right a:before {
+   
     content: " ";
-    position: relative;
-    margin-top: -12px;
-    border-right: 2px solid #333;
+    display: inline-block;
     height: 25px;
-    left: -22px;
-    top: 50%;
+    width: 1px;
+    background-color: rgba(0,0,0,.05);
+    margin-left: -37px;
+    margin-right: 24px;
+    vertical-align: middle;
+    
 }
 .top-bar-right a:nth-child(1):before {
     display:none;
