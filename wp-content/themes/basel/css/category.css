@@ -72,7 +72,7 @@ padding-left: 13px;
    width:117px !important;
    margin-left:0px;
 }
-.woocommerce .container{
+.woocommerce .container:not(.kt-otsing){
  width:95% !important
 
 }
