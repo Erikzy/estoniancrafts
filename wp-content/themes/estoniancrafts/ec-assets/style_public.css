@@ -901,13 +901,22 @@ h5.widget-title {
       display: table;
       }
       .ec-user-info .items .item{
-      text-align: center;
+          text-align: center;
           width: 120px;
+          float: left;
+
       }
       .ec-user-info .items .item a {
       color: #000;
           text-decoration: none;
       }
+
+    .ec-user-info .items .item a img {
+        border: 1px solid rgba(204,204,204,1);
+        height: 120px;
+        width: 120px;
+    }
+
         .ec-user-info .items .item a > span {
             margin-top: 15px;
         }
@@ -955,38 +964,38 @@ h5.widget-title {
 
 /* Main megamenu */
 .zmb-wrap .zmb-menu > li .sub-menu .zanmenu-content > .vc_row {
-    padding: 20px 0;
+    padding: 20px 0 !important;
 }
 .zmb-container .zmb-menu {
-	float: none;
+	float: none !important;;
 }
 .vc_tta-tabs.vc_tta-tabs-position-top.vc_tta-style-classic .vc_tta-tab::after {
-	content: none;
-	height: auto;
+	content: none !important;;
+	height: auto !important;;
 }
 .zmb-wrap .zmb-menu > li .sub-menu .vc_tta-container .vc_tta-tabs-container .vc_tta-tabs-list .vc_tta-tab {
-	border: 0 none;
+	border: 0 none !important;;
 }
 .zmb-wrap .zmb-menu > li .sub-menu .vc_tta-container .vc_tta-tabs-container .vc_tta-tabs-list .vc_tta-tab.vc_active > a {
-	color: #ef7f27;
-	background-color: inherit;
+	color: #ef7f27 !important;;
+	background-color: inherit !important;;
 }
 .vc_tta-panel-body {
 	padding-top: 0 !important;
 }
 .zmb-wrap .zmb-menu .menu-item-has-children .zmb-dropdown-toggle .caret {
-	display: none;
+	display: none !important;;
 }
 
 .zmb-wrap .zmb-menu > li .sub-menu {
-	border-top: 0 none;
-	display: none;
+	border-top: 0 none !important;;
+	display: none !important;;
 }
 .zmb-wrap .zmb-menu > li:hover > .sub-menu {
-	display: block;
+	display: block !important;;
 }
 .vc_tta-color-grey.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels {
-	background-color: inherit;
+	background-color: inherit !important;;
 }
 .vc_tta-tabs.vc_tta-tabs-position-top .vc_tta-panel-body {
 	padding-top: 0 !important;
@@ -996,18 +1005,18 @@ h5.widget-title {
 }
 
 .zmb-wrap .zmb-menu > li > a {
-	padding-top: 0;
-	padding-bottom: 0;
+	padding-top: 0 !important;;
+	padding-bottom: 0 !important;;
 }
 .zmb-wrap .zmb-menu > li:hover {
-	background-color: inherit;
+	background-color: inherit !important;;
 }
 .zmb-wrap .zmb-menu > li:hover > a {
-	color: #ef7f27;
+	color: #ef7f27 !important;;
 }
 
 .top-bar-right {
-	text-align: right;
+	text-align: right !important;;
 }
 
 
