@@ -993,6 +993,7 @@ h5.widget-title {
 }
 .zmb-wrap .zmb-menu > li:hover > .sub-menu {
 	display: block !important;;
+    margin-top: 1px !important;
 }
 .vc_tta-color-grey.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels {
 	background-color: inherit !important;;
@@ -1004,10 +1005,6 @@ h5.widget-title {
 	padding-top: 0 !important;
 }
 
-.zmb-wrap .zmb-menu > li > a {
-	padding-top: 0 !important;;
-	padding-bottom: 0 !important;;
-}
 .zmb-wrap .zmb-menu > li:hover {
 	background-color: inherit !important;;
 }
@@ -1554,9 +1551,9 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     background: #f2f2f2;
 }
 .main-nav .menu>li>a {
-    text-transform: initial;
-    font-size: 18px;
-    color: #333333;
+    text-transform: initial !important;
+    font-size: 18px !important;;
+    color: #333333 !important;;
 }
 .main-nav .menu>li:before {
     content: " ";
