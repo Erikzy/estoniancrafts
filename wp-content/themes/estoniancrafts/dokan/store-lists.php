@@ -11,7 +11,7 @@
             printf( '<h2>' . __( 'Search Results for: %s', 'dokan' ) . '</h2>', $search_query );
         }
     ?>
-
+  <!--
         <form role="search" method="get" class="dokan-seller-search-form" action="">
             <label>
                 <span class="screen-reader-text"><?php _e( 'Search Seller', 'dokan' ); ?></span>
@@ -21,7 +21,7 @@
             <input type="hidden" id="nonce" name="nonce" value="<?php echo wp_create_nonce( 'dokan-seller-listing-search' ); ?>" />
             <div class="dokan-overlay" style="display: none;"><span class="dokan-ajax-loader"></span></div>
         </form>
-
+-->
     <?php }
     else 
     {

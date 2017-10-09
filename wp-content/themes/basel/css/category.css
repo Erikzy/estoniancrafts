@@ -98,3 +98,42 @@ padding-left: 13px;
     -ms-transform: scale(1) !important;
     -sand-transform: scale(1) !important;
 }
+
+ul.dokan-seller-wrap li.dokan-single-seller:nth-child(2n+1) {
+    /* margin-right: 3%; */
+    clear: none !important;
+}
+
+ul.dokan-seller-wrap li.dokan-single-seller {
+    float: left !important;
+    width: 30% !important;
+    list-style: none !important;
+    margin: 1.5% 1.5% 1.5% 1.5% !important;
+    padding: 10px!important;
+    border: 0px solid #ededed !important;
+}
+.dokan-store-caption{
+	text-align:center !important;
+}
+.dokan-store-caption .btn-add{
+	width:50%;
+	background: rgba(121,121,121,1);
+    border: none;
+    line-height: 16px;
+    font-weight: 600;
+    color: #fff;
+    padding: 15px 20px !important;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    border-radius: 0;        
+}
+.dokan-store-caption .btn-add a:hover{
+
+
+}
+ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
+    width: auto;
+     max-width: auto; 
+    height: 100% !important;
+    margin: 0 auto;
+}
