@@ -127,9 +127,10 @@ ul.dokan-seller-wrap li.dokan-single-seller {
     letter-spacing: .3px;
     border-radius: 0;        
 }
-.dokan-store-caption .btn-add a:hover{
-
-
+.dokan-store-caption .btn-add:hover{
+    border-color: #ef7f27 !important;
+    background-color: #ef7f27 !important;
+	text-decoration: none !important;
 }
 ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     width: auto;
