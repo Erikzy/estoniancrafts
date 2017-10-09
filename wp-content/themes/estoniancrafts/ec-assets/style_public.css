@@ -1556,21 +1556,12 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     color: #333333 !important;;
 }
 .main-nav .menu>li:before {
-/*    content: " ";
+    content: " ";
     position: absolute;
     top: 50%;
     margin-top: -9px;
-    border-right: 1px solid #333;
-    height: 18px;*/
-    content: " ";
-    display: inline-block;
-    height: 25px;
-    width: 1px;
-    background-color: rgba(0,0,0,.05);
-    margin-left: 10px;
-    margin-right: 10px;
-    vertical-align: middle;
-    
+    border-right: 1px solid rgba(0,0,0,0.05);
+    height: 18px;
 }
 .main-nav .menu>li:nth-child(1):before{
     display:none;
