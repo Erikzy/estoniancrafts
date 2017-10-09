@@ -2033,8 +2033,13 @@ h3.wsmsb_title {
 }
 .store-user-image {
     position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
+.avatar {
+    margin-left: 0px !important; 
+}
 .store-description {
     position: absolute;
     color: #000;
