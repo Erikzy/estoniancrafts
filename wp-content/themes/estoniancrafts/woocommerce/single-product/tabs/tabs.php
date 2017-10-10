@@ -30,14 +30,19 @@ $tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
 $tabs_layout = (basel_product_design() == 'compact') ? 'accordion' : 'tabs';
 
+$user = wp_get_current_user();
+$isLoggedIn = $user && $user->ID;
+
 if ( ! empty( $tabs ) ) : ?>
 
 	<div class="woocommerce-tabs wc-tabs-wrapper tabs-layout-<?php echo esc_attr( $tabs_layout ); ?>">
 		<ul class="tabs wc-tabs">
 			<?php foreach ( $tabs as $key => $tab ) : ?>
+                <?php if ($key != 'ask_information' || ($key == 'ask_information' && $isLoggedIn)) { ?>
 				<li class="<?php echo esc_attr( $key ); ?>_tab">
 					<a href="#tab-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?></a>
 				</li>
+                <?php } ?>
 			<?php endforeach; ?>
 		</ul>
 		<?php foreach ( $tabs as $key => $tab ) : ?>

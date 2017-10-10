@@ -628,6 +628,11 @@ h3.wsmsb_title {
 .woo-social-buttons a:hover{
 opacity:0.8;
 }
+.single-product-content .cart {
+    float: left;
+    clear: left;
+}
+
 .single-product-content .cart .button {
     background-color: #333;
     color: #fff;
@@ -2162,9 +2167,9 @@ h3.wsmsb_title {
 
 
 .single-product-content .in-stock, .single-product-content .out-of-stock {
-    display: block !important;
-    width: 158px !important;
+    min-width: 158px !important;
     white-space: nowrap !important;
+    float: left;
 }
 
 #dokan-primary.dokan-single-store .store-page-wrap .seller-items .products {
