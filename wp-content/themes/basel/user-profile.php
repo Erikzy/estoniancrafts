@@ -14,11 +14,6 @@
 	{
 		$user = $page->user;
 //		ec_debug_to_console('$page', $page);
-	}
-	else
-	{
-		echo 'No user found!';
-	}      
 ?>
 	<div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar ec-user-profile" role="complementary" style="margin-right:3%;">
 
@@ -275,6 +270,16 @@
 
 		</div>
 	</div>
+    <?php
+    }
+    else
+    {
+        ?>
+        <div class="user-not-found"><?= __('No user found!', 'ktt') ?></div>
+    <?php
+    }
+?>
+
 </div>
 <!-- .site-content -->
 
