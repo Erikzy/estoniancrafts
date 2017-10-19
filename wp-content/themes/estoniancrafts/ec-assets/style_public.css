@@ -2263,6 +2263,10 @@ h3.wsmsb_title {
     margin-left: -25px;
 }
 
-.woocommerce-MyAccount-content, .dokan-dashboard-wrap {
+.woocommerce-MyAccount-content, .dokan-dashboard-wrap, .basel-my-account-sidebar {
     margin-top: 60px;
+}
+
+.single-product  .owl-carousel-thumb {
+    width: auto;
 }
