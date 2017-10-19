@@ -41,7 +41,9 @@
 				<li><?php echo $page->phone ?></li>
 			<?php endif; ?>
 			<?php if($page->email): ?>
-				<li><?php echo $page->email ?></li>
+				<li>
+                    <a href="<?= $page->contact_us_url ?>"><?php echo $page->email ?></a>
+                </li>
 			<?php endif; ?>
 		</ul>
 

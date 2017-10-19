@@ -124,8 +124,6 @@ get_header( 'shop' );
 
                         <?php // Social media ?>
                         <ul class="social-nav">
-                            <li class="facebook"><a href="test" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
-                            <li class="facebook"><a href="test" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
                             <?php if(($link = isset($ec_page->sm_links['facebook']) ? $ec_page->sm_links['facebook'] : null)): ?>
                                 <li class="facebook"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
                             <?php endif; ?>
@@ -155,9 +153,11 @@ get_header( 'shop' );
 					<a href="<?= $ec_page->website ?>" target="_blank" class="ec-store-website-link"><?= $ec_page->website ?></a>
 					<?php endif; ?>
 					<div>
-						<ul>
+                        <h5 class="widget-title"><?= __('Blog', 'ktt') ?></h5>
+                        <div class="clear"></div>
+						<ul class="user-fields">
 							<li>
-								<a href="<?= ec_dokan_get_store_url($store_user->ID) ?>blog"><h4><?= __('Blog', 'ktt') ?></h4></a>
+								<a href="<?= ec_dokan_get_store_url($store_user->ID) ?>blog"><?= __('Blog', 'ktt') ?></a>
 							</li>
 						</ul>
 					</div>

@@ -521,7 +521,6 @@ border:none;
     text-transform: none;
 }
 .widget-title::before, .widgettitle::before {
-    top: initial;
     background-color: #f08a39 !important;
     height: 4px;
     width: 35px;
@@ -1784,7 +1783,7 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
     text-transform: none !important;
 }
 .widget-title:before, .widgettitle:before {
-    top: 22px;
+    top: 22px !important;
     height: 1px;
     background-color: #f08a39;
     width: 100%;
@@ -2023,7 +2022,7 @@ h3.wsmsb_title {
 }
 
 .ec-store-info .co-workers  {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .button.button-light {
@@ -2234,11 +2233,11 @@ h3.wsmsb_title {
 .single-product-content .tabs li::before {
     content: " ";
     display: inline-block;
-    height: 25px;
+    height: 34px;
     width: 1px;
     background-color: rgba(0,0,0,.05);
     vertical-align: middle;
-
+    margin-top: -10px;
 }
 .single-product-content .woocommerce-main-image > img {
     max-width: 1300px;
@@ -2250,4 +2249,20 @@ h3.wsmsb_title {
 
 .user-not-found {
     font-size: 28px;
+}
+.summary-inner  .woocommerce-product-rating .star-rating {
+    margin-top: 0;
+}
+
+#dokan-primary.dokan-single-store::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid rgba(204,204,204,1);
+    margin-left: -25px;
+}
+
+.woocommerce-MyAccount-content, .dokan-dashboard-wrap {
+    margin-top: 60px;
 }
