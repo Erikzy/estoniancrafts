@@ -77,6 +77,10 @@ get_header( 'shop' );
 						<?php if($ec_page->email): ?>
 							<li><?php echo $ec_page->email ?></li>
 						<?php endif; ?>
+                        <?php // Website link ?>
+                        <?php if(!empty($ec_page->website)): ?>
+                            <li><a href="<?= $ec_page->website ?>" target="_blank" class="ec-store-website-link"><?= $ec_page->website ?></a></li>
+                        <?php endif; ?>
 					</ul>
 
                     <div class="co-workers expanded button-group ">
@@ -148,10 +152,6 @@ get_header( 'shop' );
                         </ul>
                     </div>
 
-					<?php // Website link ?>
-					<?php if(!empty($ec_page->website)): ?>
-					<a href="<?= $ec_page->website ?>" target="_blank" class="ec-store-website-link"><?= $ec_page->website ?></a>
-					<?php endif; ?>
 					<div>
                         <h5 class="widget-title"><?= __('Blog', 'ktt') ?></h5>
                         <div class="clear"></div>
@@ -162,19 +162,6 @@ get_header( 'shop' );
 						</ul>
 					</div>
 				</aside>
-
-				<?php // Store related people widget ?>
-				<?php if(!empty($ec_page->related_people)): ?>
-				<aside class="widget ec-store-related-people">
-
-					<?php // Shop name ?>
-					<h5 class="widget-title"><?= __('Related people', 'ktt') ?></h5>
-					<div class="clear"></div>
-
-
-
-				</aside>
-				<?php endif; ?>
 
 				<?php do_action( 'dokan_sidebar_store_before', $store_user, $store_info ); ?>
                 <?php
@@ -279,7 +266,7 @@ get_header( 'shop' );
                             </div>
                         <?php } ?>
 
-                        <?php if (!empty($article_links)) { ?>
+                        <?php if (!empty($article_links) && !empty($article_links)) { ?>
                             <h5 class="widget-title nullify-padding article-head-title"><?= __("Artiklite lingid", "ktt") ?></h5>
                         <?php } ?>
 
@@ -301,6 +288,7 @@ get_header( 'shop' );
                             <p><?= $article_meta_tags['description'] ?: "" ?></p>
                         <?php } ?>
 
+                        <h5 class="widget-title nullify-padding"><?= __("Productss", "ktt") ?></h5>
 	                    <?php woocommerce_product_loop_start(); ?>
 
 	                        <?php while ( have_posts() ) : the_post(); ?>

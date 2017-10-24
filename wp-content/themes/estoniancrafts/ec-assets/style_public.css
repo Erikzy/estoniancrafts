@@ -2006,10 +2006,6 @@ h3.wsmsb_title {
     padding: 5px;
 }
 
-.product-image-summary  .owl-buttons {
-    margin-top: 2%;
-}
-
 .product-image-summary  .owl-item img {
     border: 1px solid rgba(204,204,204,1);
 }
@@ -2236,7 +2232,7 @@ h3.wsmsb_title {
 .single-product-content .tabs li::before {
     content: " ";
     display: inline-block;
-    height: 34px;
+    height: 25px;
     width: 1px;
     background-color: rgba(0,0,0,.05);
     vertical-align: middle;
@@ -2263,7 +2259,7 @@ h3.wsmsb_title {
     top: 0;
     bottom: 0;
     border-left: 1px solid rgba(204,204,204,1);
-    margin-left: -25px;
+    margin-left: -3%;
 }
 
 .woocommerce-MyAccount-content, .dokan-dashboard-wrap, .basel-my-account-sidebar {
