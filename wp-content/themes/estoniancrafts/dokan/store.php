@@ -79,7 +79,7 @@ get_header( 'shop' );
 						<?php endif; ?>
                         <?php // Website link ?>
                         <?php if(!empty($ec_page->website)): ?>
-                            <li><a href="<?= $ec_page->website ?>" target="_blank" class="ec-store-website-link"><?= $ec_page->website ?></a></li>
+                            <li><a href="<?= $ec_page->website ?>" target="_blank"><?= $ec_page->website ?></a></li>
                         <?php endif; ?>
 					</ul>
 
@@ -266,7 +266,7 @@ get_header( 'shop' );
                             </div>
                         <?php } ?>
 
-                        <?php if (!empty($article_links) && !empty($article_links)) { ?>
+                        <?php if (!empty($article_links) && !empty($article_links) && count($article_links) > 0) { ?>
                             <h5 class="widget-title nullify-padding article-head-title"><?= __("Artiklite lingid", "ktt") ?></h5>
                         <?php } ?>
 
@@ -288,7 +288,7 @@ get_header( 'shop' );
                             <p><?= $article_meta_tags['description'] ?: "" ?></p>
                         <?php } ?>
 
-                        <h5 class="widget-title nullify-padding"><?= __("Productss", "ktt") ?></h5>
+                        <h5 class="widget-title nullify-padding"><?= __("Products", "ktt") ?></h5>
 	                    <?php woocommerce_product_loop_start(); ?>
 
 	                        <?php while ( have_posts() ) : the_post(); ?>

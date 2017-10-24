@@ -2262,7 +2262,7 @@ h3.wsmsb_title {
     margin-left: -3%;
 }
 
-.woocommerce-MyAccount-content, .dokan-dashboard-wrap, .basel-my-account-sidebar {
+.woocommerce-MyAccount-content, .dokan-dashboard-wrap, .basel-my-account-sidebar, .my-account .container, .activity .container {
     margin-top: 60px;
 }
 

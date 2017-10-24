@@ -51,6 +51,8 @@ class EC_Personal_Profile_Page extends EC_Block
 $mtime1 = microtime(true);
 		global $wp_query;
 
+        $current_user = wp_get_current_user();
+
 		$user = get_user_by('login', $wp_query->query_vars['user']);
 		if(!$user) {
 			return false;
@@ -144,7 +146,7 @@ $mtime1 = microtime(true);
 
 		// Contact us url
 		// @todo real contact us url
-		$this->contact_us_url = '/members/admin/messages/compose/?r='.antispambot( $this->email );
+		$this->contact_us_url = '/members/'.$current_user->data->user_login.'/messages/compose/?r='.antispambot( $this->email );
 
 		// Address
 		$address = new EC_Address();
