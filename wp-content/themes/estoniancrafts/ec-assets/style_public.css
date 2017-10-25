@@ -972,7 +972,7 @@ h5.widget-title {
 
 /* Main megamenu */
 .zmb-wrap .zmb-menu > li .sub-menu .zanmenu-content > .vc_row {
-    padding: 20px 0 !important;
+    padding: 5px 0 !important;
 }
 .zmb-container .zmb-menu {
 	float: none !important;;
@@ -1002,6 +1002,7 @@ h5.widget-title {
 .zmb-wrap .zmb-menu > li:hover > .sub-menu {
 	display: block !important;;
     margin-top: 1px !important;
+    border-bottom: 1px solid #ebebeb !important;
 }
 .vc_tta-color-grey.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels {
 	background-color: inherit !important;;
