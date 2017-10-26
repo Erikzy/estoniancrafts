@@ -18,6 +18,8 @@
     
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
 
+</head>
+
 <body <?php body_class(); ?>>
 
 <?php if (basel_needs_header()): ?>
