@@ -2460,11 +2460,11 @@ var baselThemeModule;
                     scrollToTop();
                 });
 
-                $(document).pjax(baselTheme.ajaxLinks, '.main-page-wrapper', {
+            /*    $(document).pjax(baselTheme.ajaxLinks, '.main-page-wrapper', {
                     timeout: 5000,
                     scrollTo: false
                 });
-
+*/
 
                 $( document ).on('click', '.widget_price_filter form .button', function() {
                     var form = $( '.widget_price_filter form');

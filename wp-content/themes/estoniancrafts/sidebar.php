@@ -11,7 +11,7 @@ $sidebar_class = basel_get_sidebar_class();
 
 $sidebar_name = ec_get_sidebar_name();
 
-if( $sidebar_class == 'col-sm-0' )  return; ?>
+//if( $sidebar_class == 'col-sm-0' )  return; ?>
 
 <?php if($sidebar_name == 'sidebar-organisation'): ?>
 	<aside class="sidebar-container ec-organisation <?php echo esc_attr( $sidebar_class ); ?>" role="complementary">
