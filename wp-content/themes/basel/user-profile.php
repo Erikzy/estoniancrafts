@@ -74,8 +74,8 @@
 
 		<?php // Contact us button ?>
 		<?php if($page->contact_us_url): ?>
-		<div class="expanded button-group">
-			<a class="button button-light" href="<?= $page->contact_us_url ?>"><?= __('Võta ühendust', 'ktt') ?></a>
+		<div class="expanded button-group dokan-store-caption ">
+			<a class="button btn-add custom-dokan-left vota-uhen  "  style="width:auto" href="<?= $page->contact_us_url ?>"><?= __('Võta ühendust', 'ktt') ?></a>
 		</div>
 		<?php endif; ?>
 
@@ -285,7 +285,7 @@
 </div>
 <!-- .site-content -->
 
-<?php   get_sidebar();  ?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
 
 

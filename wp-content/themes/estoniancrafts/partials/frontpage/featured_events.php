@@ -3,6 +3,7 @@
 $eventQuery = new WP_Query($args);
 if($eventQuery->have_posts()): 
 ?> 
+
 <div class="row marginTop">
     <div class="col-md-12">
         <div class="event-owl-carousel owl-carousel" owl-init="0" >

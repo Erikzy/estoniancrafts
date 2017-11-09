@@ -37,7 +37,7 @@ get_header( 'shop' );
     <?php do_action( 'woocommerce_before_main_content' ); ?>
 
     <?php if ( dokan_get_option( 'enable_theme_store_sidebar', 'dokan_general', 'off' ) == 'off' ) { ?>
-        <div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar" role="complementary" style="margin-right:3%;">
+        <div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar" role="complementary">
             <div class="dokan-widget-area widget-collapse">
 
 				<?php // Store logo ?>
@@ -87,7 +87,8 @@ get_header( 'shop' );
                         <?php foreach($ec_page->related_people as $person): ?>
                             <?php //echo '<pre>';
                             //print_r($ec_page); ?>
-                                <a class="button button-light" href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
+                            <div class="btn-add">
+                                <span class="basel-tooltip-label" ><div class="dokan-store-caption"><a class="button  btn-add custom-dokan-left "  href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
                                     <?php /* if(!empty($person->avatar_url)): ?>
                                         <img class="co-worker-img" src="<?= $person->avatar_url ?>">
                                     <?php endif; */ ?>
@@ -95,7 +96,9 @@ get_header( 'shop' );
 
                                     <?= __('Vaata profiili', 'ktt') ?>
                                     <?php /* <em>Moekunstnik</em> */ ?>
-                                </a>
+                                </a></div>
+                            </span>
+                            </div>
                         <?php endforeach; ?>
                     </div>
 

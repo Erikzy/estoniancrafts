@@ -149,7 +149,7 @@
 	    <?php  do_action( 'woocommerce_after_shop_loop_item' ); ?>
       </div>
   	</div>
-  	<div class="col-md-4" style="padding:0px;">
+  	<div class="col-md-4 wishlist-p" style="padding:0px;">
 	 	
 	 	<?php if( class_exists('YITH_WCWL_Shortcode'))  echo YITH_WCWL_Shortcode::add_to_wishlist(array(get_the_ID()));; ?>
 	 	<?php
@@ -158,17 +158,18 @@
 	 	  woocommerce_template_loop_rating();
 	 	?>
   	</div>
-   	<div class="col-md-4" style="padding:0px;text-align:left;">
-		<div class="ec-new-author-heading">
-			<i class="fa fa-user-o" style="font-size: 20px;"></i>&nbsp;Author:
-		</div>
-   		<div class="ec-new-author-name"><?php
+   	<div class="col-md-4 autor-p" style="padding:0px;text-align:left;">
+		<div class="ec-new-author-heading ">
+			<i class="fa fa-user-o" style="font-size: 20px;"></i>: 
+			<div class="ec-new-author-name"><?php
    			$author     = get_user_by( 'id', $product->post->post_author );
    			if(is_object($author)){
-				echo '&nbsp;&nbsp;&nbsp;<a href="/user/'.bp_core_get_username( $product->post->post_author).'">'.$author->display_name.'</a>';
+				echo '<a href="/user/'.bp_core_get_username( $product->post->post_author).'">'.$author->display_name.'</a>';
    			}
    			?>
    		</div>
+		</div>
+
    	</div>  
   	
     <?php if ( $timer ): ?>

@@ -198,7 +198,124 @@
 .zmb-wrap .zmb-menu > li > a {
     padding: 20px 13px;
 }
+.main-page-wrapper{
+    margin-top:2%;
+}
+.chart-container{
+    margin-top:30px;
 
+}
+.s-wrapper{
+    width:70%;
+}
+.basel-my-account-sidebar{
+    width:15%;
+}
+.woocommerce-MyAccount-content{
+    width:85%;
+}
+.widget-title::before, .widgettitle::before{
+    height: 2px !important;
+}
+.products .basel-hover-excerpt .btn-add a {
+    
+    border: none;
+    padding: 13px 50px;
+    font-size: 15px;
+}
+.user-hero img{
+    max-width: 800px;
+
+}
+.user-hero{
+    max-width: 800px;
+    display: block;
+    margin: auto;
+    margin-bottom: 70px;
+}
+.autor-p div.ec-new-author-heading , .wishlist-p div.yith-wcwl-add-to-wishlist{
+    padding-top:10px;
+}
+h5.widget-title{
+    margin-bottom: 21px !important;
+}
+.ec-new-author-name{
+    display:inline-block;
+    padding-left: 2px;
+}
+.dokan-w3{
+    width:22%;
+}
+.custom-dokan-left{
+    float:left;
+    margin-bottom:20px;
+}
+.tribe-events-button{
+  background-color: #F17F22 !important; 
+}
+.orange-black-button{
+    color:white;
+    background-color: #F17F22 ;
+    
+}
+.single-product-content .cart .button{
+    border-width:0;
+    background-color: #ef7f27;
+}
+
+input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
+    background-color: #ef7f27;
+    border-width:0;
+}
+@media (max-width:1999px){
+        .store-user-image {
+        width: auto;
+        top: 20px;
+        left: 20px;
+    }
+}
+@media (max-width: 1330px){
+    .right-column .mobile-nav-icon {
+        display: inline-block;
+    }
+    .topbar-wrapp .topbar-menu{
+        display:none;
+    }
+    .main-header .site-logo {
+        width: 30%;
+    }
+}
+@media (max-width:992px){
+        .store-user-image {
+        width: auto;
+        top: 15px;
+        left: 15px;
+    }
+}
+@media (max-width: 830px){
+    .right-column .mobile-nav-icon {
+        display: inline-block;
+    }
+    .right-column{
+        width:20% !important ;
+    }
+    .topbar-wrapp .topbar-menu{
+        display:none;
+    }
+    .main-header .site-logo,.container .kt-otsing {
+        width: 100%;
+        float: left;
+        clear: both
+    }
+    #s{
+        width:100%;
+        position:relative;
+    }
+    .site-logo img{
+        display:block;
+        margin:auto;
+    }
+}
 /*.wpb_column.vc_column_container.vc_col-sm-12 {
     display: none;
 }*/

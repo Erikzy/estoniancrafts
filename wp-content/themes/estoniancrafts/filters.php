@@ -68,18 +68,19 @@ class EC_Filters
 				'id' => 'shop',
 				'title' => __( 'My Shop', 'ktt' )
 			));
-	/*		$menu->items[] = new EC_MenuItem(array(
+			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-dashboard',
 				'title' => $submenuPrefix.__( 'Dashboard', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard'),
 				'url_endpoint' => 'my-account/dashboard'
-			));*/
-			$menu->items[] = new EC_MenuItem(array(
+			));
+/*			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-products',
 				'title' => $submenuPrefix.__( 'Products', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard/products'),
 				'url_endpoint' => 'my-account/dashboard/products'
 			));
+*/
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-orders',
 				'title' => $submenuPrefix.__( 'Orders', 'ktt' ),

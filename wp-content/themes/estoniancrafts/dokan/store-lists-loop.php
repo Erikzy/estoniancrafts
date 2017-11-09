@@ -38,7 +38,7 @@ if ( $sellers['users'] ) {
 
                         </address>
 
-                        <p><a class="btn-add" href="<?php echo $store_url; ?>"><?php _e( 'Visit Store', 'dokan' ); ?></a></p>
+                        <p><a class="button  btn-add  " href="<?php echo $store_url; ?>"><?php _e( 'Visit Store', 'dokan' ); ?></a></p>
 
                     </div> <!-- .caption -->
                 </div> <!-- .thumbnail -->

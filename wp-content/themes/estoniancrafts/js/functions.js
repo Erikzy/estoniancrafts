@@ -2460,7 +2460,7 @@ var baselThemeModule;
                     scrollToTop();
                 });
 
-            /*    $(document).pjax(baselTheme.ajaxLinks, '.main-page-wrapper', {
+/*                $(document).pjax(baselTheme.ajaxLinks, '.main-page-wrapper', {
                     timeout: 5000,
                     scrollTo: false
                 });

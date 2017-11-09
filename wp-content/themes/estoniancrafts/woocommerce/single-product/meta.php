@@ -23,7 +23,7 @@ $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
     <span class="product-author">
         <i class="fa fa-user-o"></i>
         <?php
-        echo __( 'Author Name', 'woocommerce' );
+        echo __( '', 'woocommerce' );
         $author = get_user_by( 'id', $product->post->post_author );
         printf( ': <a href="%s">%s</a>', ec_dokan_get_store_url( $author->ID ), $author->display_name );
         ?>
