@@ -164,7 +164,7 @@
 			<div class="ec-new-author-name"><?php
    			$author     = get_user_by( 'id', $product->post->post_author );
    			if(is_object($author)){
-				echo '<a href="/user/'.bp_core_get_username( $product->post->post_author).'">'.$author->display_name.'</a>';
+				echo '<a href="/'.bp_core_get_username( $product->post->post_author).'">'.$author->display_name.'</a>';
    			}
    			?>
    		</div>
