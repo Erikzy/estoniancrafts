@@ -262,13 +262,13 @@ h5.widget-title{
     border-width:0;
     background-color: #ef7f27;
 }
-.sidebar_widget_left_new ,.user_content_widget_right{
+.sidebar_widget_left_new {
     width:180px;
     display:inline-block!important;
     vertical-align:top;
 }
 
-.dokan-dashboard .dokan-dashboard-wrap{
+.dokan-dashboard .dokan-dashboard-wrap, .user_content_widget_right{
  display:inline-block!important;
  width:calc(100% - 185px);
 }
