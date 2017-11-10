@@ -206,7 +206,7 @@
 
 }
 .s-wrapper{
-    width:100%;
+    max-width:1110px;
 }
 .basel-my-account-sidebar{
     width:15%;
