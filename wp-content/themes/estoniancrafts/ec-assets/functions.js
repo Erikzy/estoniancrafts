@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 			margin:20,
 		    autoHeight:true
         },
-        600:{
+        660:{
             items:3,
             nav:true,
 			margin:20,
@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 			margin:10,
 		    autoHeight:true
         },
-        600:{
+        660:{
             items:3,
             nav:true,
 			margin:10,
