@@ -20,7 +20,7 @@
 }
 
 .footer-container .mc4wp-form input[type=email] {
- 	color:#cdcdcd;
+    color:#cdcdcd;
 }
 
 .topbar-wrapp {
@@ -206,7 +206,7 @@
 
 }
 .s-wrapper{
-    width:70%;
+    width:100%;
 }
 .basel-my-account-sidebar{
     width:15%;
@@ -262,10 +262,28 @@ h5.widget-title{
     border-width:0;
     background-color: #ef7f27;
 }
+.sidebar_widget_left_new ,.user_content_widget_right{
+    width:180px;
+    display:inline-block!important;
+    vertical-align:top;
+}
 
+.dokan-dashboard .dokan-dashboard-wrap{
+ display:inline-block!important;
+ width:calc(100% - 185px);
+}
+.dokan-dashboard-wrap{
+    margin-top:0;
+}
+.legend table{
+    width:90%;
+}
 input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     background-color: #ef7f27;
     border-width:0;
+}
+.yith-wcwl-add-to-wishlist>div>a:before{
+    color:#ef7f27 !important;
 }
 @media (max-width:1999px){
         .store-user-image {
@@ -284,12 +302,18 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     .main-header .site-logo {
         width: 30%;
     }
+    .legend table{
+        width:85%;
+    }
 }
 @media (max-width:992px){
         .store-user-image {
         width: auto;
         top: 15px;
         left: 15px;
+    }
+    .legend table{
+        width:75%;
     }
 }
 @media (max-width: 830px){
@@ -314,6 +338,22 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     .site-logo img{
         display:block;
         margin:auto;
+    }
+}
+@media (max-width: 770px){
+.single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div, .single-product-content .product-images .thumbs-position-left .owl-controls .owl-buttons>div{
+       top: -50px !important;
+    }
+    .legend table{
+        width:65%;
+    }
+}
+@media (max-width: 498px){
+.single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div, .single-product-content .product-images .thumbs-position-left .owl-controls .owl-buttons>div{
+      top: -65px !important;
+    }
+    .legend table{
+        width:55%;
     }
 }
 /*.wpb_column.vc_column_container.vc_col-sm-12 {
