@@ -18,9 +18,14 @@ $content_class = basel_get_content_class();
 
 ?>
 
-    <div class="site-content <?php echo esc_attr( $content_class ); ?>" role="main">
-
-        <?php /* The loop */ ?>
+    <div class="site-content" role="main">
+	<div class="sidebar_widget_left_new">
+        <?php /* The loop */ 
+       
+      echo  	do_shortcode('[vc_widget_sidebar sidebar_id="sidebar-my-account" el_class="sidebar_widget_left_new"]');
+        ?>
+     </div>   
+   	<div class="user_content_widget_right">
         <?php while ( have_posts() ) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -41,10 +46,10 @@ $content_class = basel_get_content_class();
             ?>
 
         <?php endwhile; ?>
-
+	</div>
     </div><!-- .site-content -->
 
 
-<?php get_sidebar(); ?>
+<?php  ?>
 
 <?php get_footer(); ?>
