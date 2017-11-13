@@ -39,9 +39,7 @@ jQuery(document).ready(function($) {
   var file_frame;
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
   var set_to_post_id = <?php echo $banner_instance_id;?>; // Set this
- /* var width = <?php echo $banner_instance_width; ?>;
-  var height = <?php echo $banner_instance_height; ?>;
-   */ 
+
   var wp_nonce = $("#user_banner_upload_form").val();	
   $('#upload_button').live('click', function( event ){
 
@@ -138,7 +136,7 @@ function add_slide(attachment_id,set_to_post_id){
                 'user_banner_upload_form' : nonce_value
                 
             };
-     jQuery.post('/wp-admin/admin-ajax.php', data, function (e) {
+     jQuery.post('<?php echo site_url();?>/wp-admin/admin-ajax.php', data, function (e) {
             console.log(e);
 			location.reload();
       })
@@ -154,7 +152,7 @@ var data = {
                 'user_banner_upload_form' : nonce_value
                 
             };
-     jQuery.post('/wp-admin/admin-ajax.php', data, function (e) {
+     jQuery.post('<?php echo site_url();?>s/wp-admin/admin-ajax.php', data, function (e) {
             console.log(e);
 			location.reload();
       })
