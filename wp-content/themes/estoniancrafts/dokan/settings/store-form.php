@@ -66,14 +66,21 @@
 <?php do_action( 'dokan_settings_before_form', $current_user, $profile_info ); ?>
 
     <?php lbDokan::get_instance()->user->display_shop_profile_completeness($current_user) ?>
+<?php 
+	echo '<div clas="bannerPreview" style="padding:20px;border:1px solid black;box-sizing:border-box;width:670px;">';
+	echo __("Banner preview");
+    echo do_shortcode( '[display_user_banner user_id="'.get_current_user_id().'" banner_name="company_banner" width="630" height="300"]' );
+	echo '</div>';
 
+	echo do_shortcode( '[display_upload_form user_id="'.get_current_user_id().'" banner_name="company_banner" width="630" height="300"]' );
+?>
     <form method="post" id="store-form"  action="" class="dokan-form-horizontal">
 
         <?php wp_nonce_field( 'dokan_store_settings_nonce' ); ?>
         <input type="hidden" value="<?php echo $gravatar; ?>" name="dokan_gravatar">
 
         <?php if ( ! empty( $dokan_appearance['store_header_template'] ) && 'layout3' !== $dokan_appearance['store_header_template'] ): ?>
-            <div class="dokan-banner">
+         <!--   <div class="dokan-banner">
 
                 <div class="image-wrap<?php echo $banner ? '' : ' dokan-hide'; ?>">
                     <?php $banner_url = $banner ? wp_get_attachment_url( $banner ) : ''; ?>
@@ -107,7 +114,7 @@
                         ?>
                     </p>
                 </div>
-            </div> <!-- .dokan-banner -->
+            </div>  .dokan-banner -->
 
             <?php do_action( 'dokan_settings_after_banner', $current_user, $profile_info ); ?>
         <?php endif; ?>
