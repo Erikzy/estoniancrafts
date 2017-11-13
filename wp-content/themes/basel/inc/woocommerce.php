@@ -1029,6 +1029,7 @@ if( ! function_exists( 'basel_product_video_button' ) ) {
 	}
 }
 
+
 if( ! function_exists( 'basel_additional_galleries_open' ) ) {
 	function basel_additional_galleries_open() {
 		?>

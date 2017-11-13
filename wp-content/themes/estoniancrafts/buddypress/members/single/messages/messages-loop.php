@@ -52,7 +52,7 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 
 	<form action="<?php echo bp_loggedin_user_domain() . bp_get_messages_slug() . '/' . bp_current_action() ?>/bulk-manage/" method="post" id="messages-bulk-management">
 
-		<table id="message-threads" class="messages-notices">
+		<table id="message-threads" class="table table-hover">
 
 			<thead>
 				<tr>

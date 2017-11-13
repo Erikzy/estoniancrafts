@@ -412,3 +412,17 @@ function ec_get_portfolio_url( $portfolio, $user )
 {
     return home_url('/user/'.$user->data->user_login.'/portfolio/'.$portfolio->ID);
 }
+if( ! function_exists( 'basel_product_video_car_button' ) ) {
+    function basel_product_video_car_button($postid) {
+        //$meta = get_post_meta($post->ID, '', true);
+        //$meta = $meta["_media_links"]; //dokan data
+        //$video_url = get_post_meta(get_the_ID(),  '_basel_product_video', true );
+       // for ($a =0; $a < sizeof($meta); $a++)
+        ?>
+            
+            <div class="product-video-button owl-item" >
+                <a href="<?php echo esc_url( $video_url ); ?>"><span><?php _e('Watch video', 'basel'); ?></span></a>
+            </div>
+        <?php
+        }
+    }

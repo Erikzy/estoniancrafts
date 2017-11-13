@@ -58,7 +58,7 @@
 
 			<?php // Products table ?>
 			<h1><?= $page->title ?></h1>
-            <table class="dokan-table dokan-table-striped product-listing-table">
+            <table class="product-listing-table table">
                 <thead>
                     <tr>
                         <th><?php _e( 'Image', 'dokan' ); ?></th>

@@ -17,16 +17,21 @@
  *
  * @package WordPress
  */
+//$P$BZ6r/ItT6WWwZCSdhxHbBEw8/3xH.u.    admin
+//$1$baNK9sl0$GI6XsJcyMNPY/3i1uzk9v. kermato
+//a:1:{s:13:"administrator";b:1;}
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'madis_estoniancrafts');
+define('DB_NAME', 'd50771sd162054');
 
 /** MySQL database username */
-define('DB_USER', 'madis');
+//define('DB_USER', 'madis');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '4u15EnVc');
+//define('DB_PASSWORD', '4u15EnVc');
+define('DB_PASSWORD', '');
 
 /** MySQL hostname */
 define('DB_HOST', '127.0.0.1');
@@ -79,10 +84,15 @@ $table_prefix  = 'ktt_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+/*define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
-define('WP_MEMORY_LIMIT', '256M');
-
+define('WP_MEMORY_LIMIT', '256M');*/
+ini_set('log_errors','On');
+ini_set('display_errors','Off');
+ini_set('error_reporting', E_ALL );
+define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

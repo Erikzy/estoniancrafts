@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $product, $woocommerce, $woocommerce_loop;
 
+
 $is_quick_view = (isset($woocommerce_loop['view']) && $woocommerce_loop['view'] == 'quick-view');
 
 $attachment_ids = $product->get_gallery_attachment_ids();
@@ -40,7 +41,14 @@ if ( $attachment_ids ) {
 	$loop 		= 0;
 	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 	?>
-	<div class="thumbnails <?php echo 'columns-' . $columns; ?> <?php if ( $product_design == 'sticky' ): ?>thumbnails-large<?php endif ?> count-<?php echo esc_attr($count); ?>"><?php
+
+	<div class="thumbnails <?php echo 'columns-' . $columns; ?> <?php if ( $product_design == 'sticky' ): ?>thumbnails-large<?php endif ?> count-<?php echo esc_attr($count); ?>">
+	   <?php
+	   		
+
+			//basel_product_video_car_button($post->ID);
+		?>
+		<?php
 			
 		$classes = array( 'image-link' );
 
@@ -103,7 +111,7 @@ if ( $attachment_ids ) {
 			$loop++;
 		}
 
-	?></div>
+	?>	</div>
 
 	<?php // No slider for sticky product (large full size images) ?>
 	<?php if ($product_design != 'sticky'): ?>
