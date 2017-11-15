@@ -281,6 +281,26 @@ class Dokan_Template_Products {
             update_post_meta( $product_id, '_media_links', wc_clean($media));
 
         }
+        
+        if( ! empty( $_POST['_product_videos'] ) ){
+
+            $product_videos= $_POST['_product_videos'];
+
+            // Remove all empty strings first
+            $product_videos = array_diff($product_videos, array('http://', 'https://', ''));
+
+            // Make sure all media links have http:// or https:// in front of them
+            $product_videos= array_map(function($element) {
+                    return (strpos($element, 'http://') !== 0 && strpos($element, 'https://') !== 0)? 'http://'.$element : $element;
+                },
+                $product_videos
+            );
+
+            if(!count($product_videos)){ $product_videos = ['']; }
+            
+            update_post_meta( $product_id, '_product_videos', wc_clean($product_videos));
+
+        }
 
 
 

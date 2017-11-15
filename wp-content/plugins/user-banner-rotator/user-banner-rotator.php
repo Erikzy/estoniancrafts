@@ -266,6 +266,7 @@ function enqueue_assets(){
 	if(!$user_banner_rotator->assetsEnqueued){
 	wp_register_style( 'bxSlider', 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css' );
 	wp_enqueue_style('bxSlider');
+	wp_enqueue_style('main-styles', plugins_url().'/user-banner-rotator/assets/css/user-banner-rotator.css' );
 	wp_register_script( 'jQuery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js', null, null, true );
 	wp_enqueue_script('jQuery');
 

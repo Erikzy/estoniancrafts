@@ -1,0 +1,43 @@
+
+@font-face {
+font-family: 'FontAwesome';
+src: url('https://cdn2.hubspot.net/hubfs/HUBID/fontawesome-webfont.eot?v=4.7.0');
+src: url('https://cdn2.hubspot.net/hubfs/HUBID/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('https://cdn2.hubspot.net/hubfs/HUBID/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('https://cdn2.hubspot.net/hubfs/HUBID/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('https://cdn2.hubspot.net/hubfs/HUBID/Font-awesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('https://cdn2.hubspot.net/hubfs/HUBID/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+.center-block{
+	display: block;
+	margin:auto;
+}
+.bannerPreview{
+	padding:20px;
+	border:1px solid #dddddd;
+	box-sizing:border-box;
+	width:670px;
+	margin-bottom:50px;
+	font-style:italic;
+}
+.bannerPreview img{
+	margin-top: 10px;
+}
+.user-rotator-banner-element{
+	width:200px;
+	height:150px;
+}
+.user-rotator-banner-element, .user-rotator-banner-element img{
+	display:inline-block;
+	margin-bottom: 30px
+
+}
+.user-rotator-banner-element > i {
+	cursor:pointer;
+}
+.img-rot-wrapper{
+	width:70%;
+	margin-bottom:30px;
+}
+#upload_button{
+	display: block;
+	clear:both;
+}

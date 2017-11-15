@@ -12,7 +12,7 @@
 ?>
 
 <div class="dashboard-widget orders">
-    <div class="widget-title"><i class="fa fa-shopping-cart"></i> <?php _e( 'Orders', 'dokan' ); ?></div>
+    <div class="widget-title icont"><i class="fa fa-shopping-cart"></i> <?php _e( 'Orders', 'dokan' ); ?></div>
 
     <div class="content-half-part">
         <ul class="list-unstyled list-count">

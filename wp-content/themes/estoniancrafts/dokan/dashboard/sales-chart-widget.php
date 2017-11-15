@@ -12,7 +12,7 @@
 ?>
 
 <div class="dashboard-widget sells-graph">
-    <div class="widget-title"><i class="fa fa-credit-card"></i> <?php _e( 'Sales', 'dokan' ); ?></div>
+    <div class="widget-title icont"><i class="fa fa-credit-card"></i> <?php _e( 'Sales', 'dokan' ); ?></div>
 
     <?php
 	    require_once DOKAN_INC_DIR . '/reports.php';

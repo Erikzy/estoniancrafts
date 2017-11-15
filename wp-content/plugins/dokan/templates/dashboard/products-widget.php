@@ -12,7 +12,7 @@
 ?>
 
 <div class="dashboard-widget products">
-    <div class="widget-title">
+    <div class="widget-title icont">
         <i class="fa fa-briefcase" aria-hidden="true"></i> <?php _e( 'Products', 'dokan' ); ?>
 
         <span class="pull-right">

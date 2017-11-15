@@ -67,7 +67,7 @@
 
     <?php lbDokan::get_instance()->user->display_shop_profile_completeness($current_user) ?>
 <?php 
-	echo '<div clas="bannerPreview" style="padding:20px;border:1px solid black;box-sizing:border-box;width:670px;">';
+	echo '<div class="bannerPreview center-block" >';
 	echo __("Banner preview");
     echo do_shortcode( '[display_user_banner user_id="'.get_current_user_id().'" banner_name="company_banner" width="630" height="300"]' );
 	echo '</div>';

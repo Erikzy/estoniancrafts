@@ -53,6 +53,7 @@ if ( $attachment_ids ) {
 		$classes = array( 'image-link' );
 
 		if( $show_main ) {
+			basel_product_video_car_button($post->ID);
 			$main_attachment_id = get_post_thumbnail_id( $post->ID );
 
 			$image        = wp_get_attachment_image( $main_attachment_id, apply_filters( 'single_product_small_thumbnail_size', $thumb_image_size ) );

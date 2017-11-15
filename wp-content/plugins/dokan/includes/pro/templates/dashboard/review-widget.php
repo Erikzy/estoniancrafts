@@ -11,7 +11,7 @@
 ?>
 
 <div class="dashboard-widget reviews">
-    <div class="widget-title"><i class="fa fa-comments"></i> <?php _e( 'Reviews', 'dokan' ); ?></div>
+    <div class="widget-title icont"><i class="fa fa-comments"></i> <?php _e( 'Reviews', 'dokan' ); ?></div>
 
     <ul class="list-unstyled list-count">
         <li>

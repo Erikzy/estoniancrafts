@@ -3,7 +3,12 @@
  
  	Html template
  */
- wp_enqueue_media();
+wp_enqueue_style('main-styles', plugins_url().'/user-banner-rotator/assets/css/user-banner-rotator.css' );
+
+wp_register_style( 'font-awe', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
+wp_enqueue_style('font-awe');
+
+wp_enqueue_media();
 require_once( ABSPATH . 'wp-admin/includes/image.php' );
 if ( isset( $_POST['submit_image_selector'] ) && isset( $_POST['image_attachment_id'] ) ) :
 	update_option( 'media_selector_attachment_id', absint( $_POST['image_attachment_id'] ) );
@@ -11,21 +16,23 @@ endif;
 
 ?>
 
-<div>	
+<div class="center-block ">	
+  <div class="img-rot-wrapper center-block">
   <?php
   
   	 if(sizeof($slides) > 0){ 
   	    foreach($slides as $slide){
 		  echo '<div class="user-rotator-banner-element">';
-		  echo '<span class="fa fa-trash" onclick=remove_slide('.$slide->wp_attachment_id.','.$banner_instance_id.')>Delete</span>';
-		  echo wp_get_attachment_image($slide->wp_attachment_id,array($banner_instance_width,$banner_instance_height));
-		  echo '</div>';
+		  echo '<i class="fa fa-trash" onclick=remove_slide('.$slide->wp_attachment_id.','.$banner_instance_id.')>Delete</i>'  ;
+    //  echo '<div class=" center-block >'.wp_get_attachment_image($slide->wp_attachment_id,array($banner_instance_width,$banner_instance_height)).'</div>';
+		  echo '<div class=" center-block" >'.wp_get_attachment_image($slide->wp_attachment_id,'thumbnail').'</div>';
+      echo '</div>';
  	    }
  	 }
    ?>
   <button id="upload_button">Add Slide</button>
+</div>
   <?php wp_nonce_field( 'user_banner_upload', 'user_banner_upload_form' ); ?>
-	
 </div>
 
 <script type="text/javascript">
@@ -152,7 +159,7 @@ var data = {
                 'user_banner_upload_form' : nonce_value
                 
             };
-     jQuery.post('<?php echo site_url();?>s/wp-admin/admin-ajax.php', data, function (e) {
+     jQuery.post('<?php echo site_url();?>/wp-admin/admin-ajax.php', data, function (e) {
             console.log(e);
 			location.reload();
       })

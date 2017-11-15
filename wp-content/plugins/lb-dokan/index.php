@@ -447,6 +447,56 @@ class lbDokan{
             </div>
 
         </div><!-- .lb-dokan-options -->
+        <?php // Product video?>
+        <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
+            <div class="dokan-side-left">
+                <h2>
+                    <?php _e( 'Product video', 'ktt' ); ?>
+                    <i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
+                  
+                </h2>
+                <p>
+                    <?php _e( 'Product video', 'ktt' ); ?>
+                </p>
+            </div>
+
+            <div class="dokan-side-right">
+
+                <div class="lb-elastic-container">
+
+                    <div class="lb-elastic-elements">
+                    <?php
+
+                    $product_videos = get_post_meta($post_id, '_product_videos', true);
+
+                    if(!is_array($product_videos)){
+                        $product_videos = [''];
+                    }
+
+                    foreach($product_videos as $link){
+
+                        ?>
+
+                        <div class="lb-elastic-element lb-input-margins">
+                            <div class="dokan-form-group">
+                                <?php dokan_post_input_box( $post_id, '_product_videos[]', array( 'placeholder' => 'http://', 'value' => $link ), 'text' ); ?>
+                            </div>
+                        </div>
+                        
+                        <?php
+
+                    }
+
+                    ?>
+
+                    </div>
+                    <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                    
+                </div>
+
+            </div>
+
+        </div><!-- .lb-dokan-options -->
 
 		<?php // External media links ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">

@@ -6,7 +6,7 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>#</th>
+           <!--  <th>#</th> -->
             <th><?= __('Title', 'ktt') ?></th>
             <th><?= __('Date', 'ktt') ?></th>
             <th><?= __('Status', 'ktt') ?></th>
@@ -26,7 +26,7 @@
                 $i=1;
                 while ( have_posts() ) : the_post(); ?>
                     <tr>
-                        <th><?= $i ?></th>
+                        <!-- <th><?= $i ?></th> -->
                         <td><?= get_the_title() ?></td>
                         <td><?= get_the_date() ?></td>
                         <td><?= get_post_status() ?></td>

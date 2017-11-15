@@ -414,15 +414,29 @@ function ec_get_portfolio_url( $portfolio, $user )
 }
 if( ! function_exists( 'basel_product_video_car_button' ) ) {
     function basel_product_video_car_button($postid) {
-        //$meta = get_post_meta($post->ID, '', true);
-        //$meta = $meta["_media_links"]; //dokan data
+        $meta = get_post_meta($postid, '', true);
+        //dokan data
         //$video_url = get_post_meta(get_the_ID(),  '_basel_product_video', true );
        // for ($a =0; $a < sizeof($meta); $a++)
+       
+        if(isset($meta["_product_videos"])):
+        $meta = $meta["_product_videos"]; 
+        $a = unserialize( $meta[0] );
+        $code = explode("=",$a[0])[1];
         ?>
             
-            <div class="product-video-button owl-item" >
-                <a href="<?php echo esc_url( $video_url ); ?>"><span><?php _e('Watch video', 'basel'); ?></span></a>
+            <div class="product-video-button owl-item"   >
+                <div style="display:table;">
+                    <div style="display:table-cell; " >
+                    <a href="<?php echo esc_url($a[0]); ?>">
+
+                        <img src="https://img.youtube.com/vi/<?php echo $code; ?>/hqdefault.jpg">
+                        
+                        </a>
+                    </div>
+                </div>
             </div>
         <?php
+        endif;
         }
     }
