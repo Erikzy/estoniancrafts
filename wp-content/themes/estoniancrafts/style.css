@@ -388,8 +388,9 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     .legend table{
         width:65%;
     }
+
 }
-}
+
 @media (max-width: 1330px){
      .single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div{
        top: -70px !important;
@@ -397,13 +398,13 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     .legend table{
         width:65%;
     }
-}
-    .right-column .mobile-nav-icon {
+            .right-column .mobile-nav-icon {
         display: inline-block;
     }
     .topbar-wrapp .topbar-menu{
         display:none;
     }
+
     .main-header .site-logo {
         width: 30%;
     }
