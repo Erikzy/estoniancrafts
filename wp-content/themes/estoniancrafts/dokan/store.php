@@ -210,11 +210,14 @@ get_header( 'shop' );
         		<?= $ec_page->custom_content ?>
         	<?php else: ?>
 				<?php // Banner ?>
-				<?php if(($banner = $ec_page->banner) && $banner->image_url): ?>
+				
 				<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
-					<img src="<?= $banner->image_url ?>" title="<?= $banner->title ?>" />
+		
+                       <?php echo do_shortcode( '[display_user_banner user_id="'.$store_user->ID.'" banner_name="company_banner" width="630" height="300"]' ); 
+
+                       ?>
                     <span class="img-white-layer"></span>
-                    <span class="store-description"><?= $company_description ?></span>
+                    <span class="store-description"><?= $company_description ?> </span>
                     <div class="store-user-image">
                     <?php foreach($ec_page->related_people as $person): ?>
 
@@ -225,13 +228,8 @@ get_header( 'shop' );
                     <?php endforeach; ?>
                     </div>
 				</div>
-                <?php else: ?>
-                <div class="profile-info-summery-wrapper dokan-clearfix">
-                    <h1><?= $ec_page->title ?></h1>
-                    <p><?= nl2br($company_description) ?></p>
-                </div>
 
-				<?php endif; ?>
+
 
 	            <?php // dokan_get_template_part( 'store-header' ); ?>
 
@@ -286,7 +284,7 @@ get_header( 'shop' );
                             $article_meta_tags = get_meta_tags($link);
 
                             ?>
-                            <a href="<?= $link ?>"><h3 class="article-linking-title product-title"><?php echo ($title ? $title : ($article_meta_tags['title'] ?: __('Tiitel puudub', 'ktt'))) ?></h3></a>
+                            <a href="<?= $link ?>"><h3 class="article-linking-title product-title"><?php echo ($title ? $title : ($article_meta_tags['title'] ?: __('Missing title', 'ktt'))) ?></h3></a>
                             <p class="article-linking-subtitle">(<?= $link ?>)</p>
                             <p><?= $article_meta_tags['description'] ?: "" ?></p>
                         <?php } ?>
