@@ -171,10 +171,11 @@ get_header( 'shop' );
 				?>
 			
 					</div>
+				<?php do_action( 'dokan_sidebar_store_before', $store_user, $store_info ); ?>
+             
 				</aside>
 
-				<?php do_action( 'dokan_sidebar_store_before', $store_user, $store_info ); ?>
-                <?php
+			   <?php
                 if ( ! dynamic_sidebar( 'sidebar-store' ) ) {
 
                     $args = array(
