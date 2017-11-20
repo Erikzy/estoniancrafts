@@ -134,7 +134,7 @@ padding-top:7px;
 .kt-otsing {
     display: table-cell;
     vertical-align: middle;
-    width: 500px;
+    width: 500px !important;
 }
 .main-header form.has-categories-dropdown input[type=text] {
     border-width: 1px;
