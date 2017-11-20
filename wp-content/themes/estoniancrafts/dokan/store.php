@@ -166,11 +166,14 @@ get_header( 'shop' );
 								<a href="<?= ec_dokan_get_store_url($store_user->ID) ?>blog"><?= __('Blog', 'ktt') ?></a>
 							</li>
 						</ul>
+			     
 				<?php
 				}
 				?>
 			
 					</div>
+				     <div class="clear"></div>
+				
 				<?php do_action( 'dokan_sidebar_store_before', $store_user, $store_info ); ?>
              
 				</aside>
