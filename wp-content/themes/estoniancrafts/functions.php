@@ -422,7 +422,7 @@ if( ! function_exists( 'basel_product_video_car_button' ) ) {
         if(isset($meta["_product_videos"])):
         $meta = $meta["_product_videos"]; 
         $a = unserialize( $meta[0] );
-        $params = explode("=",$a[0])
+        $params = explode("=",$a[0]);
 		if(isset($params[1])){
         
         $code = $params[1];
