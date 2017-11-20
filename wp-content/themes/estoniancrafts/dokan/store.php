@@ -154,7 +154,9 @@ get_header( 'shop' );
                             <?php endif; ?>
                         </ul>
                     </div>
-
+  				<?php  
+  				if(count_user_posts($store_user->ID,"post") > 0){
+  				?>
 					<div>
                         <h5 class="widget-title"><?= __('Blog', 'ktt') ?></h5>
                         <div class="clear"></div>
@@ -164,6 +166,9 @@ get_header( 'shop' );
 							</li>
 						</ul>
 					</div>
+				<?php
+				}
+				?>
 				</aside>
 
 				<?php do_action( 'dokan_sidebar_store_before', $store_user, $store_info ); ?>
