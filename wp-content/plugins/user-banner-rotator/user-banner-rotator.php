@@ -227,8 +227,10 @@ function user_banner_upload_form($atts = []){
  	$banner_name = $atts['banner_name'];
  	$banner_instance_width = $atts['width'];
   	$banner_instance_height = $atts['height'];
+  	add_image_size( $banner_name, $banner_instance_width, $banner_instance_height);
     $banner_instance_id = $user_banner_rotator->get_or_create_user_rotator($user_id, $banner_name);
     $slides = $user_banner_rotator->get_rotator_slides($user_id, $banner_instance_id);
+
     include ( 'banner-upload-html.php');
     return ob_get_clean();
 
@@ -242,7 +244,7 @@ function user_banner_html($atts = []){
  	$banner_name = $atts['banner_name'];
  	$banner_instance_width = $atts['width'];
   	$banner_instance_height = $atts['height'];
-
+  	add_image_size( $banner_name, $banner_instance_width, $banner_instance_height);
  	$banner_instance = $user_banner_rotator->get_rotator_post_id($user_id, $banner_name);
     if(!isset($banner_instance[0]) || $banner_instance[0] == null){
     	include ( 'placeholder-html.php'); 

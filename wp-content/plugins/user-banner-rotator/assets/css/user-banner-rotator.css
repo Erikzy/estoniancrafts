@@ -14,7 +14,7 @@ font-style: normal;
 	padding:20px;
 	border:1px solid #dddddd;
 	box-sizing:border-box;
-	width:670px;
+	width:800px;
 	margin-bottom:50px;
 	font-style:italic;
 }
@@ -46,4 +46,7 @@ font-style: normal;
 	border:#bbbbbb 1px solid;
 	height:300px;
 	background-color: #eeeeee
+}
+.hid{
+	display:none;
 }

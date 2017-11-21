@@ -11,7 +11,7 @@
  <ul class="user-rotator-banner">
  	<?php
  		foreach($slides as $slide){
-			echo '<li class="user-rotator-banner-slide">'.wp_get_attachment_image($slide->wp_attachment_id,array($banner_instance_width , $banner_instance_height)).'</li>';
+			echo '<li class="user-rotator-banner-slide t-'.$slide->wp_attachment_id.' ">'.wp_get_attachment_image($slide->wp_attachment_id, array($banner_instance_width , $banner_instance_height)).'</li>';
  		}
  	?>
  </ul>

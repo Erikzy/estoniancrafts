@@ -6,7 +6,11 @@
 wp_enqueue_style('main-styles', plugins_url().'/user-banner-rotator/assets/css/user-banner-rotator.css' );
 
 wp_register_style( 'font-awe', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' );
+wp_register_style( 'SA', 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css' );
+wp_register_script( 'SweetAlert', 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js' );
 wp_enqueue_style('font-awe');
+wp_enqueue_script('SweetAlert');
+wp_enqueue_style('SA');
 
 wp_enqueue_media();
 require_once( ABSPATH . 'wp-admin/includes/image.php' );
@@ -22,15 +26,16 @@ endif;
   
   	 if(sizeof($slides) > 0){ 
   	    foreach($slides as $slide){
-		  echo '<div class="user-rotator-banner-element">';
-		  echo '<i class="fa fa-trash" onclick=remove_slide('.$slide->wp_attachment_id.','.$banner_instance_id.')>Delete</i>'  ;
+		  echo '<div class="user-rotator-banner-element" class="t-'.$slide->wp_attachment_id.'">';
+		  echo '<i class="fa fa-trash t-'.$slide->wp_attachment_id.' " onclick=remove_slide('.$slide->wp_attachment_id.','.$banner_instance_id.')>Delete</i>'  ;
     //  echo '<div class=" center-block >'.wp_get_attachment_image($slide->wp_attachment_id,array($banner_instance_width,$banner_instance_height)).'</div>';
-		  echo '<div class=" center-block" >'.wp_get_attachment_image($slide->wp_attachment_id,'thumbnail').'</div>';
+		  echo '<div class=" center-block t-'.$slide->wp_attachment_id.'"    >'.wp_get_attachment_image($slide->wp_attachment_id,'thumbnail').'</div>';
       echo '</div>';
  	    }
  	 }
    ?>
-  <button id="upload_button">Add Slide</button>
+  <button id="upload_button" class="button" >Add Slide</button>
+   <img src="<?php echo plugins_url().'/user-banner-rotator/assets/bo.gif' ?>" class='hid'> 
 </div>
   <?php wp_nonce_field( 'user_banner_upload', 'user_banner_upload_form' ); ?>
 </div>
@@ -46,7 +51,8 @@ jQuery(document).ready(function($) {
   var file_frame;
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
   var set_to_post_id = <?php echo $banner_instance_id;?>; // Set this
-
+  var height = <?php echo $banner_instance_height;?>;
+    var width = <?php echo $banner_instance_width;?>;
   var wp_nonce = $("#user_banner_upload_form").val();	
   $('#upload_button').live('click', function( event ){
 
@@ -83,20 +89,20 @@ jQuery(document).ready(function($) {
                 canSkipCrop: false,
                 instance: true,
                 persistent: true,
-                aspectRatio:'630:300',
-                imageWidth: 630,
-                imageHeight: 300,
+                aspectRatio: width.toString()+':'+height.toString(),
+                imageWidth: width,
+                imageHeight: height,
                 x1: 0,
                 y1: 0,
-                x2: 630,
-                y2:300
+                x2: width,
+                y2: height
             }
          })
       ]	
     });
 
     file_frame.on('select', function() {
-		//attachment = file_frame.state().get('selection').first().toJSON();
+		attachment = file_frame.state().get('selection').first().toJSON();
 		//$( '#image-preview' ).attr( 'src', attachment.url ).css( 'width', 'auto' );
 		//$( '#image_attachment_id' ).val( attachment.id );
 		//add_slide(attachment.id);
@@ -159,9 +165,18 @@ var data = {
                 'user_banner_upload_form' : nonce_value
                 
             };
+     jQuery('#bloading').show();
      jQuery.post('<?php echo site_url();?>/wp-admin/admin-ajax.php', data, function (e) {
             console.log(e);
-			location.reload();
+            console.log('.t-'+data.user_attachment_id);
+
+			//location.reload();
+      }).then(function(){
+          jQuery('.t-'+data.user_attachment_id).fadeOut(500, function(){
+            swal("Removed!");
+            jQuery(this).remove() ;
+            jQuery('#bloading').hide();
+          })
       })
 }
 </script>

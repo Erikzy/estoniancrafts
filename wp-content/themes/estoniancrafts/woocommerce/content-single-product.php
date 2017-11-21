@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	<div class="container">
 		<?php woocommerce_breadcrumb(); ?>
 		<?php basel_products_nav(); ?>
-	</div>
+	</div> 
 </div>
 
 <div class="container">
@@ -151,3 +151,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 </div><!-- #product-<?php the_ID(); ?> -->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+
+
+<script src="<?php echo get_template_directory_uri();?>/js/fixes.js" ></script>

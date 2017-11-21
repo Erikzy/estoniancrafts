@@ -4,7 +4,7 @@
 
 <?php if (count($portfolios)) : ?>
 <p>
-    <table class="table table-hover">
+    <table class="product-listing-table">
         <thead>
         <tr>
             <!-- <th>#</th> -->

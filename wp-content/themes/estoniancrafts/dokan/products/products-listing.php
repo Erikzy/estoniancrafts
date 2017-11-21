@@ -58,7 +58,7 @@
 
 			<?php // Products table ?>
 			<h1><?= $page->title ?></h1>
-            <table class="product-listing-table table">
+            <table class="product-listing-table ">
                 <thead>
                     <tr>
                         <th><?php _e( 'Image', 'dokan' ); ?></th>
@@ -179,7 +179,7 @@
 										</ul>
 									</div>
                                 </td>
-                                <td class="diviader"></td>
+                                <!-- <td class="diviader"></td> -->
                             </tr>
 
 						<?php endforeach; ?>

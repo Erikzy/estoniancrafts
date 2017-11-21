@@ -23,7 +23,8 @@ $user_orders  = dokan_get_seller_orders( $seller_id, $order_status, $order_date,
 
 if ( $user_orders ) {
     ?>
-    <table class="dokan-table dokan-table-striped">
+<!--     <table class="dokan-table dokan-table-striped product-listing-table table"> -->
+    <table class=" dokan-table-striped product-listing-table ">
         <thead>
             <tr>
                 <th><?php _e( 'Order', 'dokan' ); ?></th>
@@ -41,9 +42,9 @@ if ( $user_orders ) {
                 ?>
                 <tr >
                     <td class="dokan-order-id" data-title="<?php _e( 'Order', 'dokan' ); ?>" >
-                        <?php echo '<a href="' . wp_nonce_url( add_query_arg( array( 'order_id' => $the_order->id ), dokan_get_navigation_url( 'orders' ) ), 'dokan_view_order' ) . '"><strong>' . sprintf( __( 'Order %s', 'dokan' ), esc_attr( $the_order->get_order_number() ) ) . '</strong></a>'; ?>
+                        <?php echo '<a href="' . wp_nonce_url( add_query_arg( array( 'order_id' => $the_order->id ), dokan_get_navigation_url( 'orders' ) ), 'dokan_view_order' ) . '">' . sprintf( __( 'Order %s', 'dokan' ), esc_attr( $the_order->get_order_number() ) ) . '</a>'; ?>
                     </td>
-                    <td class="dokan-order-total" data-title="<?php _e( 'Order Total', 'dokan' ); ?>" >
+                    <td class="dokan-order-total dokamount" data-title="<?php _e( 'Order Total', 'dokan' ); ?>" >
                         <?php echo $the_order->get_formatted_order_total(); ?>
                     </td>
                     <td class="dokan-order-status" data-title="<?php _e( 'Status', 'dokan' ); ?>" >
@@ -150,7 +151,7 @@ if ( $user_orders ) {
                         // do_action( 'woocommerce_admin_order_actions_end', $the_order ); // used only by PDF module to add 2 extra buttons
                         ?>
                     </td>
-                    <td class="diviader"></td>
+                   <!--  <td class="diviader"></td> -->
                 </tr>
 
             <?php } ?>

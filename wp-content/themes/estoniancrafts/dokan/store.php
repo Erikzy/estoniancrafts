@@ -130,29 +130,31 @@ get_header( 'shop' );
                         <?php do_action( 'dolmit_share_profile_on_facebook'); ?>
 
                         <?php // Social media ?>
-                        <ul class="social-nav">
-                            <?php if(($link = isset($ec_page->sm_links['facebook']) ? $ec_page->sm_links['facebook'] : null)): ?>
-                                <li class="facebook"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
-                            <?php endif; ?>
-                            <?php if(($link = isset($ec_page->sm_links['googleplus']) ? $ec_page->sm_links['googleplus'] : null)): ?>
-                                <li class="twitter"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
-                            <?php endif; ?>
-                            <?php if(($link = isset($ec_page->sm_links['twitter']) ? $ec_page->sm_links['twitter'] : null)): ?>
-                                <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
-                            <?php endif; ?>
-                            <?php if(($link = isset($ec_page->sm_links['linkedin']) ? $ec_page->sm_links['linkedin'] : null)): ?>
-                                <li class="linkedin"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                            <?php endif; ?>
-                            <?php if(($link = isset($ec_page->sm_links['youtube']) ? $ec_page->sm_links['youtube'] : null)): ?>
-                                <li class="youtube"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
-                            <?php endif; ?>
-                            <?php if(($link = isset($ec_page->sm_links['instagram']) ? $ec_page->sm_links['instagram'] : null)): ?>
-                                <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
-                            <?php endif; ?>
-                            <?php if(($link = isset($ec_page->sm_links['flickr']) ? $ec_page->sm_links['flickr'] : null)): ?>
-                                <li class="flickr"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-flickr fa-lg"></i></a></li>
-                            <?php endif; ?>
-                        </ul>
+                        <div style="width:80%;float:left">
+                            <ul class="social-nav">
+                                <?php if(($link = isset($ec_page->sm_links['facebook']) ? $ec_page->sm_links['facebook'] : null)): ?>
+                                    <li class="facebook"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <?php endif; ?>
+                                <?php if(($link = isset($ec_page->sm_links['googleplus']) ? $ec_page->sm_links['googleplus'] : null)): ?>
+                                    <li class="twitter"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <?php endif; ?>
+                                <?php if(($link = isset($ec_page->sm_links['twitter']) ? $ec_page->sm_links['twitter'] : null)): ?>
+                                    <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
+                                <?php endif; ?>
+                                <?php if(($link = isset($ec_page->sm_links['linkedin']) ? $ec_page->sm_links['linkedin'] : null)): ?>
+                                    <li class="linkedin"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                                <?php endif; ?>
+                                <?php if(($link = isset($ec_page->sm_links['youtube']) ? $ec_page->sm_links['youtube'] : null)): ?>
+                                    <li class="youtube"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
+                                <?php endif; ?>
+                                <?php if(($link = isset($ec_page->sm_links['instagram']) ? $ec_page->sm_links['instagram'] : null)): ?>
+                                    <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
+                                <?php endif; ?>
+                                <?php if(($link = isset($ec_page->sm_links['flickr']) ? $ec_page->sm_links['flickr'] : null)): ?>
+                                    <li class="flickr"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-flickr fa-lg"></i></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
                     </div>
 
 					<div>
@@ -213,7 +215,7 @@ get_header( 'shop' );
 				
 				<div class="user-hero profile-info-summery-wrapper dokan-clearfix">
 		
-                       <?php echo do_shortcode( '[display_user_banner user_id="'.$store_user->ID.'" banner_name="company_banner" width="630" height="300"]' ); 
+                       <?php echo do_shortcode( '[display_user_banner user_id="'.$store_user->ID.'" banner_name="company_banner" width="800" height="300"]' ); 
 
                        ?>
                     <span class="img-white-layer"></span>

@@ -69,10 +69,10 @@
 <?php 
 	echo '<div class="bannerPreview center-block" >';
 	echo __("Banner preview");
-    echo do_shortcode( '[display_user_banner user_id="'.get_current_user_id().'" banner_name="company_banner" width="630" height="300"]' );
+    echo do_shortcode( '[display_user_banner user_id="'.get_current_user_id().'" banner_name="company_banner" width="800" height="300"]' );
 	echo '</div>';
 
-	echo do_shortcode( '[display_upload_form user_id="'.get_current_user_id().'" banner_name="company_banner" width="630" height="300"]' );
+	echo do_shortcode( '[display_upload_form user_id="'.get_current_user_id().'" banner_name="company_banner" width="800" height="300"]' );
 ?>
     <form method="post" id="store-form"  action="" class="dokan-form-horizontal">
 

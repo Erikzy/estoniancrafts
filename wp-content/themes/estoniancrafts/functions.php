@@ -422,21 +422,32 @@ if( ! function_exists( 'basel_product_video_car_button' ) ) {
         if(isset($meta["_product_videos"])):
         $meta = $meta["_product_videos"]; 
         $a = unserialize( $meta[0] );
-        $code = explode("=",$a[0])[1];
-        ?>
+        $params = explode("=",$a[0]);
+		if(isset($params[1])){
+        
+        $code = $params[1];
+       	?>
             
-            <div class="product-video-button owl-item"   >
+              <!--  <div class="product-video-button owl-item"   > -->
+
+
+
+
+            <div class="product-video-button  owl-item product-video-youtube "   >
                 <div style="display:table;">
                     <div style="display:table-cell; " >
-                    <a href="<?php echo esc_url($a[0]); ?>">
+                    <a href="<?php echo esc_url($a[0]); ?>" class="image-linkk">
 
-                        <img src="https://img.youtube.com/vi/<?php echo $code; ?>/hqdefault.jpg">
+                        <!-- <img src="https://img.youtube.com/vi/<?php echo $code; ?>/hqdefault.jpg"> -->
+                        <img src="<?php echo get_template_directory_uri() ?>/images/youtube.jpg" class="ybutton" id="youtube-button" >
                         
                         </a>
                     </div>
                 </div>
+    
             </div>
         <?php
+        }
         endif;
         }
     }
