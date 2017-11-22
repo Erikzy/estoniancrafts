@@ -234,11 +234,13 @@ div.main-page-wrapper > div.container, div.single-product-page > div.container{
     font-size: 15px;
 }
 .user-hero img{
-    max-width: 800px;
+    /*max-width: 800px;*/
+    max-width: 600px;
 
 }
 .user-hero{
-    max-width: 800px;
+    /*max-width: 800px;*/
+    max-width:600px;
     display: block;
     margin: auto;
     margin-bottom: 70px;
@@ -280,7 +282,8 @@ h5.widget-title{
 
 .dokan-dashboard .dokan-dashboard-wrap, .user_content_widget_right{
  display:inline-block!important;
- width:calc(100% - 222px);
+ /*width:calc(100% - 222px);*/
+ width:calc(100% - 305px);
 }
 .dokan-dashboard-wrap{
     margin-top:0;
@@ -395,11 +398,17 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
 .single-product-content .woocommerce-main-image {
     display:inline-block !important;
 }
-.left-block-width,.basel-my-account-sidebar,.sidebar_widget_left_new {
+.left-block-width,.basel-my-account-sidebar {
     width: 300px !important; /*menu width*/
     /*background-color: green;*/
-    padding-left:34px;
+    /*padding-left:34px;*/
+    padding-left:18px;
 
+}
+.sidebar_widget_left_new{
+    width:230px !important;
+    padding-left:18px;
+   /* background-color:green;*/
 }
 .left-block-width-f-store{
 
@@ -461,6 +470,9 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
 }
 .product-design-sticky .thumbs-position-bottom .thumbnails .image-linkk img , .product-video-youtube img{
   width: 100%;
+}
+.shop-loop-head{
+    margin-left:-15px;
 }
 @media (max-width:1999px){
         .store-user-image {
