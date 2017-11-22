@@ -91,7 +91,7 @@
 ?>
 
 
- 	<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
+ 	<a href="/my-account/dashboard/" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
 	<a href="<?php echo wp_logout_url(home_url()); ?>" title="<?php _e('Log out','woothemes'); ?>"><?php _e('Log out','woothemes') ?></a>
 
  <?php
