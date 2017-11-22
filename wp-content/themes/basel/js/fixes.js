@@ -37,15 +37,21 @@ jQuery(document).ready(function(){
 		let leftArrow = jQuery(".owl-prev")[0];
 		let arrowHeight = leftArrow.offsetHeight;
 
-		let newPosition = (itemHeight/2 +10 + arrowHeight/2 -2 ) * -1;
 		
-		leftArrow.style.top = newPosition + "px";
-		rightArrow.style.top = leftArrow.style.top;
+		
+
 /*		console.log(itemHeight);
 		console.log(newPosition);*/
 		let carouselWrapperWidth = jQuery('.owl-wrapper-outer')[0].offsetWidth;
 		let carouselContainerWidth = jQuery('.thumbs-position-bottom')[0].offsetWidth;
 		let space = ((carouselContainerWidth - carouselWrapperWidth)/2) - 4;
+		let newPosition = jQuery('.ybutton').length == 0? (itemHeight/2 +9 + arrowHeight/2 -2 ) * -1 : (itemHeight/2 +25 + arrowHeight/2 -2 ) * -1;
+
+		if(jQuery('.ybutton').length == 0){
+			space = space -5;
+		}
+		leftArrow.style.top = newPosition + "px";
+		rightArrow.style.top = leftArrow.style.top;
 		let im = jQuery('.woocommerce-main-image')[0].style.marginLeft = space+'px';
 		console.log(carouselWrapperWidth);
 		console.log(carouselContainerWidth);
@@ -54,11 +60,12 @@ jQuery(document).ready(function(){
 		if(jQuery('.owl-controls')[0].style.display === 'none'){
 
 				jQuery('.owl-wrapper-outer')[0].style.left = (-6 + space).toString()+ 'px';
-				console.log((9 + space).toString()+ 'px');
 		}
+
+
 	}
 	baselThumbsOwlCarousel.bind(this,OwlButton());
-	jQuery('.y-link').click(function(event){
+/*	jQuery('.y-link').click(function(event){
 		event.preventDefault();
 		event.stopImmediatePropagation();
 		alert('cheese');
@@ -80,12 +87,12 @@ jQuery(document).ready(function(){
                 return false;
 		
 		
-	});
+	});*/
 
 
 });
 
 jQuery(window).resize(function(){
-	baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 900 ));
+	baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 1500 ));
 	//window.setTimeout(OwlButton , 500 );
 })
