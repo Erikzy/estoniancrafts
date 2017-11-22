@@ -395,8 +395,8 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
 .single-product-content .woocommerce-main-image {
     display:inline-block !important;
 }
-.left-block-width,.basel-my-account-sidebar{
-    width: 300px !important; /*menu width*/
+.left-block-width,.basel-my-account-sidebar,.sidebar_widget_left_new {
+    max-width: 300px !important; /*menu width*/
     /*background-color: green;*/
     padding-left:34px;
 
@@ -415,14 +415,7 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
 table tr td, table th{
     background-color:white;
 }
-@media (max-width: 1278px){
-.left-block-width{
-    width: auto !important; /*menu width*/
-    background-color: green;
-    padding-left:auto;
 
-}
-}
 @media (max-width: 1750px){
      .single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div{
        /*top: -85px !important;*/

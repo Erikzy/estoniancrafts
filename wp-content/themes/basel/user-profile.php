@@ -15,7 +15,7 @@
 		$user = $page->user;
 //		ec_debug_to_console('$page', $page);
 ?>
-	<div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar ec-user-profile" role="complementary" style="margin-right:3%;">
+	<div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar ec-user-profile left-block-width" role="complementary" style="margin-right:3%;">
 
 		<?php // Avatar ?>
 			<div class="profile-image">

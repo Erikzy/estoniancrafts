@@ -437,7 +437,7 @@ if( ! function_exists( 'basel_product_video_car_button' ) ) {
             <div class=" owl-item product-video-youtube "   >
                 <div style="display:table;">
                     <div style="display:table-cell; " >
-                    <a href="<?php echo esc_url($a[0]); ?>" class="image-link">
+                    <a href="<?php echo esc_url($a[0]); ?>" class="image-linkk y-link">
 
                         <!-- <img src="https://img.youtube.com/vi/<?php echo $code; ?>/hqdefault.jpg"> -->
                         <img src="<?php echo get_template_directory_uri() ?>/images/youtube.jpg" class="ybutton" id="youtube-button" >
