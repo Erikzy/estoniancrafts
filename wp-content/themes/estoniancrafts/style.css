@@ -434,12 +434,12 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     padding-left:3%;
 }
 .single-product-content .product-images .thumbs-position-bottom .owl-theme .image-linkk,
-.single-product-content .product-images .thumbs-position-left .owl-theme .image-linkk {
+.single-product-content .product-images .thumbs-position-left .owl-theme .image-linkk, .product-video-youtube a {
   padding: 0 2px 0 2px;
   display: block;
 }
 
-.product-design-sticky .thumbs-position-bottom .thumbnails .image-linkk {
+.product-design-sticky .thumbs-position-bottom .thumbnails .image-linkk, .product-video-youtube a {
   padding-right: 3px;
   margin-bottom: 4px;
   display: block;
@@ -453,13 +453,13 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
   -moz-transition: transform 0.45s ease-in-out;
   -o-transition: transform 0.45s ease-in-out;
 }
-.product-design-sticky .thumbs-position-bottom .thumbnails .image-linkk.animate-images {
+.product-design-sticky .thumbs-position-bottom .thumbnails .image-linkk.animate-images, .product-video-youtube a {
   transform: translateY(0px);
   -webkit-transform: translateY(0px);
   -moz-transform: translateY(0px);
   -o-transform: translateY(0px);
 }
-.product-design-sticky .thumbs-position-bottom .thumbnails .image-linkk img {
+.product-design-sticky .thumbs-position-bottom .thumbnails .image-linkk img , .product-video-youtube img{
   width: 100%;
 }
 @media (max-width:1999px){
