@@ -156,8 +156,11 @@ get_header( 'shop' );
                             </ul>
                         </div>
                     </div>
-
-					<div>
+  					<div>
+            	<?php  
+  				if(count_user_posts($store_user->ID,"post") > 0){
+  				?>
+			
                         <h5 class="widget-title"><?= __('Blog', 'ktt') ?></h5>
                         <div class="clear"></div>
 						<ul class="user-fields">
@@ -165,11 +168,19 @@ get_header( 'shop' );
 								<a href="<?= ec_dokan_get_store_url($store_user->ID) ?>blog"><?= __('Blog', 'ktt') ?></a>
 							</li>
 						</ul>
+			     
+				<?php
+				}
+				?>
+			
 					</div>
+				     <div class="clear"></div>
+				
+				<?php do_action( 'dokan_sidebar_store_before', $store_user, $store_info ); ?>
+             
 				</aside>
 
-				<?php do_action( 'dokan_sidebar_store_before', $store_user, $store_info ); ?>
-                <?php
+			   <?php
                 if ( ! dynamic_sidebar( 'sidebar-store' ) ) {
 
                     $args = array(
