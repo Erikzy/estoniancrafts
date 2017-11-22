@@ -280,7 +280,7 @@ h5.widget-title{
 
 .dokan-dashboard .dokan-dashboard-wrap, .user_content_widget_right{
  display:inline-block!important;
- width:calc(100% - 185px);
+ width:calc(100% - 222px);
 }
 .dokan-dashboard-wrap{
     margin-top:0;
@@ -400,6 +400,12 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     /*background-color: green;*/
     padding-left:34px;
 
+}
+.sidebar_widget_left_new {
+    width:202px;
+}
+.zmb-wrap .zmb-menu > li .sub-menu .vc_tta-container .vc_tta-tabs-container{
+    width:215px !important;
 }
 .vc_tta-container{
     margin-top:15px !important;
