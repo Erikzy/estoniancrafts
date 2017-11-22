@@ -60,7 +60,7 @@ jQuery(document).ready(function(){
 	baselThumbsOwlCarousel.bind(this,OwlButton());
 	jQuery('.y-link').click(function(){
 		this.event.preventDefault();
-		alert('cheese')
+		alert('cheese');
 	});
 
 

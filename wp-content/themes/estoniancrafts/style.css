@@ -396,10 +396,20 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     display:inline-block !important;
 }
 .left-block-width,.basel-my-account-sidebar,.sidebar_widget_left_new {
-    max-width: 300px !important; /*menu width*/
+    width: 300px !important; /*menu width*/
     /*background-color: green;*/
     padding-left:34px;
 
+}
+.left-block-width-f-store{
+
+    width: 230px !important; /*menu width*/
+/*    background-color: green;*/
+    padding-left:18px;
+    margin-top:0px !important;
+}
+.dokan-store-width{
+    width:calc(100% - 3% - 300px) !important ;
 }
 .sidebar_widget_left_new {
     width:202px;
@@ -409,6 +419,19 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
 }
 .vc_tta-container{
     margin-top:15px !important;
+}
+.user-hero{
+    margin-left: 0 !important;
+}
+#dokan-primary.dokan-single-store:before{
+    margin-left:0px;
+
+}
+ #dokan-primary.dokan-single-store{
+    width: calc(100% - 230px) !important;
+}
+.store-content-f, .dokan-store-width .woocommerce-breadcrumb{
+    padding-left:3%;
 }
 @media (max-width:1999px){
         .store-user-image {

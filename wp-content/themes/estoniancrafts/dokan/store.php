@@ -37,7 +37,7 @@ get_header( 'shop' );
     <?php do_action( 'woocommerce_before_main_content' ); ?>
 
     <?php if ( dokan_get_option( 'enable_theme_store_sidebar', 'dokan_general', 'off' ) == 'off' ) { ?>
-        <div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar" role="complementary">
+        <div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar left-block-width-f-store" role="complementary">
             <div class="dokan-widget-area widget-collapse">
 
 				<?php // Store logo ?>
@@ -214,11 +214,11 @@ get_header( 'shop' );
     }
     ?>
 
-    <div id="dokan-primary" class="dokan-single-store dokan-w8">
+    <div id="dokan-primary" class="dokan-single-store dokan-w8 dokan-store-width">
 
         <?php woocommerce_breadcrumb(); ?>
 
-        <div id="dokan-content" class="store-page-wrap woocommerce" role="main">
+        <div id="dokan-content" class="store-page-wrap woocommerce store-content-f" role="main">
         	<?php if ($ec_page->custom_content !== null) : ?>
         		<?= $ec_page->custom_content ?>
         	<?php else: ?>

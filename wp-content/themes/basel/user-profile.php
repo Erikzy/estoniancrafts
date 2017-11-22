@@ -15,7 +15,7 @@
 		$user = $page->user;
 //		ec_debug_to_console('$page', $page);
 ?>
-	<div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar ec-user-profile left-block-width" role="complementary" style="margin-right:3%;">
+	<div id="dokan-secondary" class="dokan-clearfix dokan-w3 dokan-store-sidebar ec-user-profile left-block-width-f-store" role="complementary" >
 
 		<?php // Avatar ?>
 			<div class="profile-image">
@@ -80,8 +80,8 @@
 		<?php endif; ?>
 
 	</div>
-	<div id="dokan-primary" class="dokan-single-store dokan-w8 ec-user-info">
-		<div id="dokan-content" class="store-page-wrap woocommerce" role="main">
+	<div id="dokan-primary" class="dokan-single-store dokan-w8 ec-user-info dokan-store-width">
+		<div id="dokan-content" class="store-page-wrap woocommerce store-content-f" role="main">
 
 			<?php if ($page->custom_content) : ?>
 				<?= $page->custom_content ?>
