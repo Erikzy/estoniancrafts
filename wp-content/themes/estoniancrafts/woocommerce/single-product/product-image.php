@@ -26,6 +26,8 @@ if( $product_design == 'sticky' ) {
 }
 
 ?>
+<script type="text/javascript" src="jquery.fancybox-1.3.4/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.fancybox-1.3.4/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 <div class="images row thumbs-position-<?php echo esc_attr( $thums_position ); ?>">
 
 	<div class="<?php if ( $attachment_ids && $thums_position == 'left' && ! $is_quick_view ): ?>col-md-9 col-md-push-3<?php else: ?>col-sm-12<?php endif ?>">
