@@ -11,6 +11,7 @@ form .ec-form-field-description {
 	float: none;
 	overflow: visible;
 	width: 100%;
+	padding:0px;
 }
 
 /* Product edit page */
