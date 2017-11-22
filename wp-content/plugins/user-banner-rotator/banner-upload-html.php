@@ -52,7 +52,7 @@ jQuery(document).ready(function($) {
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
   var set_to_post_id = <?php echo $banner_instance_id;?>; // Set this
   var height = <?php echo $banner_instance_height;?>;
-    var width = <?php echo $banner_instance_width;?>;
+  var width = <?php echo $banner_instance_width;?>;
   var wp_nonce = $("#user_banner_upload_form").val();	
   $('#upload_button').live('click', function( event ){
 
@@ -80,9 +80,9 @@ jQuery(document).ready(function($) {
                         date:      false,
                         priority:  20,
                         canEdit:   false
-         }),
+         })
 
-         new wp.media.controller.Cropper({
+       /*  new wp.media.controller.Cropper({
           	imgSelectOptions:	{
           	    handles: true,
                 keys: true,
@@ -97,7 +97,7 @@ jQuery(document).ready(function($) {
                 x2: width,
                 y2: height
             }
-         })
+         })*/
       ]	
     });
 
@@ -105,10 +105,11 @@ jQuery(document).ready(function($) {
 		attachment = file_frame.state().get('selection').first().toJSON();
 		//$( '#image-preview' ).attr( 'src', attachment.url ).css( 'width', 'auto' );
 		//$( '#image_attachment_id' ).val( attachment.id );
-		//add_slide(attachment.id);
-		//wp.media.model.settings.post.id = wp_media_post_id;
-		file_frame.setState("cropper");
-	    file_frame.open();
+		console.log(attachment);
+		add_slide(attachment.id, set_to_post_id);
+		wp.media.model.settings.post.id = wp_media_post_id;
+		//file_frame.setState("cropper");
+	    //file_frame.open();
     });
 
     file_frame.on('cropped', function(croppedImage) {
