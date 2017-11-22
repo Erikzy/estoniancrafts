@@ -58,9 +58,28 @@ jQuery(document).ready(function(){
 		}
 	}
 	baselThumbsOwlCarousel.bind(this,OwlButton());
-	jQuery('.y-link').click(function(){
-		this.event.preventDefault();
+	jQuery('.y-link').click(function(event){
+		event.preventDefault();
+		event.stopImmediatePropagation();
 		alert('cheese');
+		 jQuery.fancybox({
+                        'padding'        : 0,
+                        'autoScale'      : false,
+                        'transitionIn'   : 'none',
+                        'transitionOut'  : 'none',
+                        'title'          : this.title,
+                        'width'          : 680,
+                        'height'         : 495,
+                        'href'           : this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+                        'type'           : 'swf',
+                        'swf'            : {
+                            'wmode'              : 'transparent',
+                            'allowfullscreen'    : 'true'
+                        }
+                    });
+                return false;
+		
+		
 	});
 
 
