@@ -41,7 +41,7 @@ if ( $attachment_ids ) {
 	$loop 		= 0;
 	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 	?>
-
+	
 	<div class="thumbnails <?php echo 'columns-' . $columns; ?> <?php if ( $product_design == 'sticky' ): ?>thumbnails-large<?php endif ?> count-<?php echo esc_attr($count); ?>">
 	   <?php
 	   		
