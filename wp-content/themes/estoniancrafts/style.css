@@ -12,7 +12,9 @@
 .main-header form.has-categories-dropdown #searchsubmit {
     top: 0px; 
 }
-
+.tax-product_cat > .website-wrapper > .main-page-wrapper > .container > .row > .site-content{
+	left: 18% !important;
+}
 #mc4wp-form-1 {
     margin-top: -28px;
     margin-bottom: 20px;
@@ -406,13 +408,13 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
 
 }
 .sidebar_widget_left_new{
-    width:230px !important;
+    width:227px !important;
     padding-left:18px;
    /* background-color:green;*/
 }
 .left-block-width-f-store{
 
-    width: 230px !important; /*menu width*/
+    width: 227px !important; /*menu width*/
 /*    background-color: green;*/
     padding-left:18px;
     margin-top:0px !important;
