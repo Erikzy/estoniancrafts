@@ -53,7 +53,7 @@ jQuery(document).ready(function(){
 
 		if(jQuery('.owl-controls')[0].style.display === 'none'){
 
-				jQuery('.owl-wrapper-outer')[0].style.left = (-8 + space).toString()+ 'px';
+				jQuery('.owl-wrapper-outer')[0].style.left = (-6 + space).toString()+ 'px';
 				console.log((9 + space).toString()+ 'px');
 		}
 	}
@@ -63,6 +63,6 @@ jQuery(document).ready(function(){
 });
 
 jQuery(window).resize(function(){
-	baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 500 ));
+	baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 900 ));
 	//window.setTimeout(OwlButton , 500 );
 })

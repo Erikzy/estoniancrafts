@@ -23,7 +23,7 @@ if( $sidebar_class == 'col-sm-0' )  return; ?>
 	</aside><!-- .sidebar-container -->
 
 <?php elseif ( is_active_sidebar( $sidebar_name ) ) : ?>
-	<aside class="sidebar-container <?php echo esc_attr( $sidebar_class ); ?>" role="complementary">
+	<aside class="left-block-width sidebar-container <?php echo esc_attr( $sidebar_class ); ?> " role="complementary">
 		<div class="sidebar-inner">
 			<div class="widget-area">
 				<?php dynamic_sidebar( $sidebar_name ); ?>
