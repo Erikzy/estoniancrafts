@@ -176,8 +176,8 @@ function user_banner_add_slide_ajax(){
     || ! wp_verify_nonce( $_POST['user_banner_upload_form'], 'user_banner_upload' ) 
   ) {
 
-   print 'Sorry, your nonce did not verify.';
-   exit;
+   echo 'Sorry, your nonce did not verify.';
+  // exit;
 
   } else {
 	
