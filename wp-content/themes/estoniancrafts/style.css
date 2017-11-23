@@ -236,13 +236,17 @@ div.main-page-wrapper > div.container, div.single-product-page > div.container{
     font-size: 15px;
 }
 .user-hero img{
-    /*max-width: 800px;*/
-    max-width: 600px;
+    max-width: 800px;
+   /*max-width: 600px;*/
 
 }
+.user-rotator-banner-wrapper img{
+	width:800px !important;
+	height:300px !important;
+}
 .user-hero{
-    /*max-width: 800px;*/
-    max-width:600px;
+    max-width: 800px;
+    /*max-width:600px;*/
     display: block;
     margin: auto;
     margin-bottom: 70px;
