@@ -96,22 +96,23 @@ if( ! function_exists( 'basel_has_swatch' ) ) {
 
 		$color = $image = '';
 		$term = get_term_by( 'slug', $value, $attr_name );
-		$color = basel_tax_data( $attr_name, $term->term_id, 'color' );
-		$image = basel_tax_data( $attr_name, $term->term_id, 'image' );
-		$not_dropdown = basel_tax_data( $attr_name, $term->term_id, 'not_dropdown' );
+		if(is_object($term)){
+			$color = basel_tax_data( $attr_name, $term->term_id, 'color' );
+			$image = basel_tax_data( $attr_name, $term->term_id, 'image' );
+			$not_dropdown = basel_tax_data( $attr_name, $term->term_id, 'not_dropdown' );
 
-		if( $color != '' ) {
-			$swatches['color'] = $color;
+			if( $color != '' ) {
+				$swatches['color'] = $color;
+			}
+
+			if( $image != '' ) {
+				$swatches['image'] = $image;
+			}
+
+			if( $not_dropdown != '' ) {
+				$swatches['not_dropdown'] = $not_dropdown;
+			}
 		}
-
-		if( $image != '' ) {
-			$swatches['image'] = $image;
-		}
-
-		if( $not_dropdown != '' ) {
-			$swatches['not_dropdown'] = $not_dropdown;
-		}
-
 		return $swatches;
 	}
 }
