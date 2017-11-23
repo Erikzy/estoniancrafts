@@ -479,6 +479,15 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
 .tax-product_cat > .website-wrapper > .main-page-wrapper > .container > .row > .site-content{
     left: 18% !important;
 }
+.wishlist-p div.yith-wcwl-add-to-wishlist{
+    padding-top:0px;
+}
+div.wishlist-p > div.yith-wcwl-add-to-wishlist > div.yith-wcwl-add-button > a.add_to_wishlist{
+    margin-left:15px;
+} 
+div.wishlist-p > div.yith-wcwl-add-to-wishlist > div.yith-wcwl-add-button{
+    margin-top:-2px;
+}
 @media (max-width:1999px){
         .store-user-image {
         width: auto;
@@ -531,9 +540,7 @@ table tr td, table th{
     .legend table{
         width:85%;
     }
-    .product-video-button{
-    margin-top:6px;
-    }
+
 }
 @media (max-width:992px){
         .store-user-image {
