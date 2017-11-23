@@ -43,7 +43,14 @@
     max-height: 55px;
 }
 
-
+li.my-shop-item:before {
+    content: "\f105";
+    color: #ef7f27;
+    opacity: .7;
+    font-family: FontAwesome;
+    position: absolute;
+    left: 40px;
+}
 .wrapp-header {
     height: 65px;
     min-height: 65px; 
@@ -236,13 +243,13 @@ div.main-page-wrapper > div.container, div.single-product-page > div.container{
     font-size: 15px;
 }
 .user-hero img{
-    /*max-width: 800px;*/
-    max-width: 600px;
+    max-width: 800px;
+   /* max-width: 600px;*/
 
 }
 .user-hero{
-    /*max-width: 800px;*/
-    max-width:600px;
+    max-width: 800px;
+    /*max-width:600px;*/
     display: block;
     margin: auto;
     margin-bottom: 70px;

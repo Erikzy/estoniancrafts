@@ -12,7 +12,7 @@
 	<h5 class="widget-title"><?php echo __('My Account', 'woocommerce') ?></h5>
 	<ul>
 		<?php foreach ( $menu->items as $menuItem ) : ?>
-			<li class="<?php $menuItem->id ?>">
+			<li id="<?php echo $menuItem->id ?>" class="<?php  echo $menuItem->class  ?>">
 				<a href="<?php echo $menuItem->url ?>"><?php echo esc_html( $menuItem->title ); ?></a>
 			</li>
 		<?php endforeach; ?>

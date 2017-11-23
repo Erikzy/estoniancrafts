@@ -46,7 +46,8 @@ class EC_Filters
     public static function ec_get_myaccount_menu_filter( $menu=null )
 	{
 		$user = wp_get_current_user();
-		$submenuPrefix = '&nbsp; - ';
+		//$submenuPrefix = '&nbsp; - ';
+		$submenuPrefix = '&nbsp; &nbsp; &nbsp; ';
 
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Menu.php');
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_MenuItem.php');
@@ -83,6 +84,7 @@ class EC_Filters
 			
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-view',
+				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'View shop', 'ktt' ),
 				'url' => get_site_url(null, bp_core_get_username( $user->ID)),
 				'url_endpoint' => bp_core_get_username( $user->ID)
@@ -99,6 +101,7 @@ class EC_Filters
 */
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-products',
+				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Products', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard/products'),
 				'url_endpoint' => 'my-account/dashboard/products'
@@ -106,30 +109,35 @@ class EC_Filters
 
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-orders',
+				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Orders', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard/orders'),
 				'url_endpoint' => 'my-account/dashboard/orders'
 			));
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-reports',
+				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Reports', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard/reports'),
 				'url_endpoint' => 'my-account/dashboard/reports'
 			));
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-settings',
+				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Settings', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard/settings/store'),
 				'url_endpoint' => 'my-account/dashboard/settings/store'
 			));
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-team',
+				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Team', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/team'),
 				'url_endpoint' => 'my-account/team'
 			));
             $menu->items[] = new EC_MenuItem(array(
 				'id' => 'blog',
+				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Blog', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/blog'),
 				'url_endpoint' => 'my-account/blog'
