@@ -255,7 +255,7 @@ function ec_multiply_flat_rate_price_by_seller( $rates, $package ) {
     return $rates;
 }
 add_filter( 'woocommerce_package_rates', 'ec_multiply_flat_rate_price_by_seller', 2,2);
-add_image_size('user_banner_upload',630,300, array('center','center'));
+add_image_size('user_banner_upload',800,300, false);
 
 if (!function_exists('is_user_idcard')) {
     function is_user_idcard() {
