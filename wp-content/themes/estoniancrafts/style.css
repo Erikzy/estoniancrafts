@@ -244,8 +244,12 @@ div.main-page-wrapper > div.container, div.single-product-page > div.container{
 }
 .user-hero img{
     max-width: 800px;
-   /* max-width: 600px;*/
 
+
+}
+.user-rotator-banner-wrapper img{
+	width:800px !important;
+	height:300px !important;
 }
 .user-hero{
     max-width: 800px;
