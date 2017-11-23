@@ -135,5 +135,5 @@
 
 	<div class="clear"></div>
 	
-	<?php basel_page_top_part(); ?>
+	<?php  //basel_page_top_part(); ?>
 <?php endif ?>
