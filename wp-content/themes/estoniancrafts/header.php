@@ -17,7 +17,13 @@
 	<?php wp_head(); ?>
     
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
+<script>
+		jQuery(document).ready(function(){
 
+			jQuery('.title-blog').remove();
+		})
+		
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -135,5 +141,5 @@
 
 	<div class="clear"></div>
 	
-	<?php basel_page_top_part(); ?>
+	<?php  basel_page_top_part(); ?>
 <?php endif ?>

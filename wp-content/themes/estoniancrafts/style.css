@@ -43,7 +43,14 @@
     max-height: 55px;
 }
 
-
+li.my-shop-item:before {
+    content: "\f105";
+    color: #ef7f27;
+    opacity: .7;
+    font-family: FontAwesome;
+    position: absolute;
+    left: 40px;
+}
 .wrapp-header {
     height: 65px;
     min-height: 65px; 
@@ -237,7 +244,7 @@ div.main-page-wrapper > div.container, div.single-product-page > div.container{
 }
 .user-hero img{
     max-width: 800px;
-   /*max-width: 600px;*/
+
 
 }
 .user-rotator-banner-wrapper img{
@@ -492,6 +499,19 @@ div.wishlist-p > div.yith-wcwl-add-to-wishlist > div.yith-wcwl-add-button > a.ad
 div.wishlist-p > div.yith-wcwl-add-to-wishlist > div.yith-wcwl-add-button{
     margin-top:-2px;
 }
+.site-content{
+    margin-top:50px;
+    
+}
+/*.banner-rotator-white-layer{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background: #fff;
+    opacity: 0.7;
+    top:0px;
+}*/
 @media (max-width:1999px){
         .store-user-image {
         width: auto;
