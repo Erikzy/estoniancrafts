@@ -396,14 +396,24 @@ if ( ! $from_shortcode ) {
                         <div class="dokan-product-short-description">
                             <label for="post_excerpt" class="form-label"><?php _e( 'Short Description', 'dokan' ); ?></label>
 							<span class="ec-form-field-description"><?php _e( 'Product short description description', 'ktt' ); ?></span>
-                            <?php wp_editor( $post_excerpt , 'post_excerpt', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); ?>
+                            <?php 
+/*                            wp_editor( $post_excerpt , 'post_excerpt', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); */
+                            ?>
+
+                                <textarea id="post_excerpt" name="post_excerpt" class="valid"> <?php echo $post_excerpt ; ?></textarea>
+                         
                         </div>
 
 						<?php // Description ?>
                         <div class="dokan-product-description">
                             <label for="post_content" class="form-label"><?php _e( 'Description', 'dokan' ); ?></label>
 							<span class="ec-form-field-description"><?php _e( 'Product description description', 'ktt' ); ?></span>
-                            <?php wp_editor( $post_content , 'post_content', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
+                            <?php 
+
+/*                            wp_editor( $post_content , 'post_content', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') );*/
+
+                             ?>
+                             <textarea id="post_content" name="post_content" class="valid"> <?php echo $post_content ; ?></textarea>
                         </div>
 
                         <?php do_action( 'dokan_new_product_form' ); ?>

@@ -306,14 +306,7 @@ HTML;
 			}
 
 			?>
-				<div class="page-title <?php echo esc_attr( $title_class ); ?> title-blog" style="<?php echo esc_attr( $style ); ?>">
-					<div class="container">
-						<header class="entry-header">
-							<?php if( $page_title ): ?><h1 class="entry-title"><?php echo  $title; ?></h1><?php endif; ?>
-							<?php if( $breadcrumbs ) basel_breadcrumbs(); ?>
-						</header><!-- .entry-header -->
-					</div>
-				</div>
+
 			<?php
 			return;
 		endif;

@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="/wp-content/themes/basel/style.min.css?ver=4.6.4"">
 	
 	<?php wp_head(); ?>
+	
 </head>
 
 <body <?php body_class(); ?>>

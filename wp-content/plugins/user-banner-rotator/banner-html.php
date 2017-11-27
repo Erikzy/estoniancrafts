@@ -8,6 +8,7 @@
 ?>
 
 <div class="user-rotator-banner-wrapper">
+
  <ul class="user-rotator-banner">
  	<?php
  		foreach($slides as $slide){
@@ -18,6 +19,7 @@
  		}
  	?>
  </ul>
+  <span class="banner-rotator-white-layer"></span>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 

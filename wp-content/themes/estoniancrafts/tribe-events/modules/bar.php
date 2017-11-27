@@ -103,7 +103,7 @@ $tribe_events_calendar_options = get_option( 'tribe_events_calendar_options' , a
 
 <?php if (is_user_logged_in()) : ?>
     <?php $tribe_community_events_options = get_option( 'tribe_community_events_options' , array('communityRewriteSlug' => 'community')); ?>
-    <a href="/<?=$tribe_events_calendar_options['eventsSlug']?>/<?=$tribe_community_events_options['communityRewriteSlug']?>/add" class="btn btn-color-primary btn-lg btn-block">Lisa enda üritus <i class="icon-plus icons"></i></a>
+    <a href="/<?=$tribe_events_calendar_options['eventsSlug']?>/<?=$tribe_community_events_options['communityRewriteSlug']?>/add" class="btn btn-color-primary button btn-lg btn-block">Lisa enda üritus <i class="icon-plus icons"></i></a>
 <?php endif; ?>
 
 <?php
