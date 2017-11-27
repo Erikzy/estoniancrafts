@@ -68,7 +68,7 @@ add_filter( 'the_content_more_link', 'basel_modify_read_more_link' );
 
 if( ! function_exists( 'basel_read_more_tag' ) ) {
 	function basel_read_more_tag() {
-		return '<a class="btn btn-style-link btn-read-more more-link" href="' . get_permalink() . '">' . esc_html__('Read more', 'basel') . '</a>';
+		return '<a class="btn btn-style-link btn-read-more more-link button" href="' . get_permalink() . '">' . esc_html__('Read more', 'basel') . '</a>';
 	}
 }
 

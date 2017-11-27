@@ -439,8 +439,12 @@ class lbDokan{
                 <div class="dokan-form-group">
                     <label class="form-label"><?php _e( 'Maintenance info', 'ktt' ); ?></label>
                  
-                    <?php wp_editor( get_post_meta($post_id, '_maintenance_info', true), '_maintenance_info', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); ?>
+                    <?php 
+                    /*wp_editor( get_post_meta($post_id, '_maintenance_info', true), '_maintenance_info', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); */ ?>
+                  <textarea id="_maintenance_info" name="_maintenance_info" class="valid"> <?php echo get_post_meta($post_id, '_maintenance_info', true) ; ?></textarea>
                 
+
+
                 </div>
 
 

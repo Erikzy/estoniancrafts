@@ -4,7 +4,7 @@
 	<?php wp_nonce_field( 'ec_add_shop_user', '_wpnonce') ?>
 	<input name="action" value="ec_add_shop_user" type="hidden" />
 	<input class="input-text" type="email" name="email" autocomplete="email" placeholder="<?= __('Insert new user email', 'ktt') ?>" />
-	<button style="display: none;" class="btn btn-color-primary" type="submit"><?= __('Add user', 'ktt') ?></button>
+	<button style="display: none;" class="btn button btn-color-primary" type="submit"><?= __('Add user', 'ktt') ?></button>
 </form>
 </p>
 <table id="shop_member_container">

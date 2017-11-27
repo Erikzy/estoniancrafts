@@ -48,8 +48,10 @@ li.my-shop-item:before {
     color: #ef7f27;
     opacity: .7;
     font-family: FontAwesome;
-    position: absolute;
-    left: 40px;
+    position:relative;
+    margin-left:10px;
+/*    position: absolute;
+    left: 40px;*/
 }
 .wrapp-header {
     height: 65px;
@@ -357,6 +359,10 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     opacity:0.5;
 
  }*/
+
+ .kids-m{
+    margin-top:40px !important;
+}
   .product-video-youtube {
     margin-top:0;
     padding-top:0 !important;
@@ -500,8 +506,13 @@ div.wishlist-p > div.yith-wcwl-add-to-wishlist > div.yith-wcwl-add-button{
     margin-top:-2px;
 }
 .site-content{
-    margin-top:50px;
-    
+    /*margin-top:50px;
+    left:30px;*/
+
+}
+li.menu-item-active > a{
+    color:#ef7f27;
+
 }
 /*.banner-rotator-white-layer{
     width: 100%;
@@ -512,6 +523,7 @@ div.wishlist-p > div.yith-wcwl-add-to-wishlist > div.yith-wcwl-add-button{
     opacity: 0.7;
     top:0px;
 }*/
+
 @media (max-width:1999px){
         .store-user-image {
         width: auto;

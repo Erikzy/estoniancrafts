@@ -1781,7 +1781,7 @@ var baselThemeModule;
                             '<div class="added-to-cart">',
                                 '<p>' + basel_settings.added_to_cart + '</p>',
                                 '<a href="#" class="btn btn-style-link close-popup">' + basel_settings.continue_shopping + '</a>',
-                                '<a href="' + basel_settings.cart_url + '" class="btn btn-color-primary view-cart">' + basel_settings.view_cart + '</a>',
+                                '<a href="' + basel_settings.cart_url + '" class="btn button  btn-color-primary view-cart">' + basel_settings.view_cart + '</a>',
                             '</div>',
                         ].join("");
 

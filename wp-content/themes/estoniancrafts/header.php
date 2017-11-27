@@ -18,10 +18,10 @@
     
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
 <script>
-		jQuery(document).ready(function(){
+/*		jQuery(document).ready(function(){
 
 			jQuery('.title-blog').remove();
-		})
+		})*/
 		
 	</script>
 </head>

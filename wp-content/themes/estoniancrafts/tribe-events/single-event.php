@@ -68,7 +68,7 @@ $event_id = get_the_ID();
             <?php if (!tribe_is_started_event($event_id)) : ?>
                 <br>
                 <?php if (is_user_logged_in()) : ?>
-                    <a href="#" data-target="#event-send-message" data-toggle-class="hide" class="btn btn-color-primary toggle-class">Soovin osaleda</a>
+                    <a href="#" data-target="#event-send-message" data-toggle-class="hide" class="btn btn-color-primary button toggle-class">Soovin osaleda</a>
 
                     <?php global $current_user; ?>
                     <div id="event-send-message" class="hide">
@@ -98,11 +98,11 @@ $event_id = get_the_ID();
                                 <textarea name="body" cols="30" rows="10" required></textarea>
                             </label>
 
-                            <input type="submit" class="btn btn-color-primary btn-block" value="Saada kiri">
+                            <input type="submit" class="btn btn-color-primary  button btn-block" value="Saada kiri">
                         </form><br>
                     </div>
                 <?php else : ?>
-                    <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>" class="btn btn-color-primary">Soovin osaleda</a>
+                    <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>" class="btn  button btn-color-primary">Soovin osaleda</a>
                 <?php endif; ?>
             <?php endif; ?>
 
