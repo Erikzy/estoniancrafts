@@ -79,7 +79,7 @@ $user = get_user_by( 'id', get_current_user_id() );
                                 <a class="dokan-close dokan-remove-gravatar-image">&times;</a>
                             </div>
                             <div class="gravatar-button-area<?php echo $gravatar ? ' dokan-hide' : ''; ?>">
-                                <a href="#" class="dokan-pro-gravatar-drag dokan-btn dokan-btn-default"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
+                                <a href="#" class="dokan-pro-gravatar-drag dokan-btn dokan-btn-default button medium-orange-button"><!-- <i class="fa fa-cloud-upload"></i>  --><?php _e( 'Upload Photo', 'dokan' ); ?></a>
                             </div>
                         </div>
                     </div>
@@ -403,7 +403,7 @@ $user = get_user_by( 'id', get_current_user_id() );
                     <p>
                         <?php wp_nonce_field( 'dokan_save_account_details' ); ?>
 
-                        <button name="dokan_save_account_details" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
+                        <button name="dokan_save_account_details" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block medium-orange-button" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
                         <input type="hidden" name="action" value="dokan_save_account_details" />
                     </p>
 

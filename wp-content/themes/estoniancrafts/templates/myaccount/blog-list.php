@@ -3,7 +3,7 @@
    // get_sidebar(); // ??
 ?>
 <p>
-    <a class="btn button btn-color-primary" href="<?= home_url('my-account/blog/edit')?>">Add new post</a>
+    <a class="btn button btn-color-primary medium-orange-button" href="<?= home_url('my-account/blog/edit')?>">Add new post</a>
 </p>
 
 <p>

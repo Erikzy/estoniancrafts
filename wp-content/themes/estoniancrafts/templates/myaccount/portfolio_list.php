@@ -1,5 +1,5 @@
 <p>
-    <a class="btn btn-color-primary button" href="<?= home_url('my-account/portfolio/edit')?>">Add new portfolio</a>
+    <a class="btn btn-color-primary button medium-orange-button" href="<?= home_url('my-account/portfolio/edit')?>">Add new portfolio</a>
 </p>
 
 <?php if (count($portfolios)) : ?>
@@ -18,7 +18,7 @@
 	                <!-- <th><?= ++$i ?></th> -->
 	   				<td><?= $portfolio->post_title ?></td>
 	                <td>
-	                    <a class="btn button" href="<?= home_url('my-account/portfolio/edit?id='.$portfolio->ID) ?>"><?= __('Edit', 'ktt') ?></a>
+	                    <a class="btn button smaller-gray-button" href="<?= home_url('my-account/portfolio/edit?id='.$portfolio->ID) ?>"><?= __('Edit', 'ktt') ?></a>
 	                </td>
 	            </tr>
 	        <?php endforeach; ?>

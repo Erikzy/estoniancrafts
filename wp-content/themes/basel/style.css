@@ -5284,7 +5284,7 @@ color:rgba(255,255,255,1)
   -moz-animation: load-spin 450ms infinite linear;
   border-color: #bbbbbb;
 }
-.search-extended form.search-loading #searchsubmit {
+.search-extended form.search-loading #searchsubmit, .search-submit-messages {
   display: none;
 }
 .search-extended input[type="text"] {
@@ -5293,7 +5293,7 @@ color:rgba(255,255,255,1)
 .search-extended .screen-reader-text {
   display: none;
 }
-.search-extended #searchsubmit {
+.search-extended #searchsubmit, .search-submit-messages {
   position: absolute;
   right: 0px;
   top: 0px;
@@ -5306,7 +5306,7 @@ color:rgba(255,255,255,1)
   color: #777777;
   margin: 0;
 }
-.search-extended #searchsubmit:after {
+.search-extended #searchsubmit:after , .search-submit-messages:after {
   content: "\e090";
   font-size: 18px;
   font-weight: bold;
@@ -5314,7 +5314,7 @@ color:rgba(255,255,255,1)
   display: inline-block;
   line-height: 40px;
 }
-.search-extended #searchsubmit:hover {
+.search-extended #searchsubmit:hover, .search-submit-messages:hover {
   color: #3A3A3A;
   background-color: transparent;
 }
@@ -5457,16 +5457,16 @@ form.has-categories-dropdown input[type="text"] {
   border-width: 2px;
   font-size: 15px;
 }
-.main-header form.has-categories-dropdown #searchsubmit {
+.main-header form.has-categories-dropdown #searchsubmit, .search-submit-messages {
   top: 2px;
   width: 50px;
   color: inherit;
 }
-.main-header form.has-categories-dropdown #searchsubmit:after {
+.main-header form.has-categories-dropdown #searchsubmit:after, .search-submit-messages:after {
   line-height: 44px;
   font-size: 22px;
 }
-.main-header form.has-categories-dropdown #searchsubmit:hover {
+.main-header form.has-categories-dropdown #searchsubmit:hover , .search-submit-messages:hover{
   color: inherit;
   opacity: 0.7;
 }
@@ -12968,7 +12968,7 @@ form.has-categories-dropdown input[type="text"] {
 .error404 .page-content > .searchform input[type="text"] {
   padding-right: 105px;
 }
-.error404 .page-content > .searchform #searchsubmit {
+.error404 .page-content > .searchform #searchsubmit , .search-submit-messages{
   position: absolute;
   top: 0;
   right: 0;
@@ -12976,7 +12976,7 @@ form.has-categories-dropdown input[type="text"] {
   color: #ffffff;
   border-color: #1aada3;
 }
-.error404 .page-content > .searchform #searchsubmit:hover, .error404 .page-content > .searchform #searchsubmit:focus {
+.error404 .page-content > .searchform #searchsubmit:hover, .error404 .page-content > .searchform #searchsubmit:focus, .search-submit-messages:hover {
   background-color: #1aada3;
   border-color: #1aada3;
   opacity: 0.8;
@@ -13044,7 +13044,7 @@ form.has-categories-dropdown input[type="text"] {
 .search-no-results .not-found .entry-content .searchform input[type="text"] {
   padding-right: 105px;
 }
-.search-no-results .not-found .entry-content .searchform #searchsubmit {
+.search-no-results .not-found .entry-content .searchform #searchsubmit , .search-submit-messages{
   position: absolute;
   top: 0;
   right: 0;
@@ -13052,7 +13052,7 @@ form.has-categories-dropdown input[type="text"] {
   color: #ffffff;
   border-color: #1aada3;
 }
-.search-no-results .not-found .entry-content .searchform #searchsubmit:hover, .search-no-results .not-found .entry-content .searchform #searchsubmit:focus {
+.search-no-results .not-found .entry-content .searchform #searchsubmit:hover, .search-submit-messages:hover, .search-submit-messages: focus , .search-no-results .not-found .entry-content .searchform #searchsubmit:focus {
   background-color: #1aada3;
   border-color: #1aada3;
   opacity: 0.8;
@@ -13118,7 +13118,7 @@ form.has-categories-dropdown input[type="text"] {
 .no-results .searchform .screen-reader-text {
   display: none;
 }
-.no-results .searchform #searchsubmit {
+.no-results .searchform #searchsubmit , .search-submit-messages{
   position: absolute;
   top: 0px;
   right: 0px;
@@ -13126,7 +13126,7 @@ form.has-categories-dropdown input[type="text"] {
   color: #ffffff;
   border-color: #1aada3;
 }
-.no-results .searchform #searchsubmit:hover, .no-results .searchform #searchsubmit:focus {
+.no-results .searchform #searchsubmit:hover, .no-results .searchform #searchsubmit:focus , .search-submit-messages:hover, .search-submit-messages:focus {
   background-color: #1aada3;
   border-color: #1aada3;
   opacity: 0.8;

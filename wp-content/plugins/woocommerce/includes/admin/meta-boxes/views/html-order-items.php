@@ -226,7 +226,7 @@ if ( wc_tax_enabled() ) {
 			<button type="button" class="button add-order-tax"><?php _e( 'Add tax', 'woocommerce' ); ?></button>
 		<?php endif; ?>
 		<?php if ( 0 < $order->get_total() - $order->get_total_refunded() || 0 < absint( $order->get_item_count() - $order->get_item_count_refunded() ) ) : ?>
-			<button type="button" class="button refund-items"><?php _e( 'Refund', 'woocommerce' ); ?></button>
+			<button type="button" class="button refund-items "><?php _e( 'Refund', 'woocommerce' ); ?></button>
 		<?php endif; ?>
 		<?php
 			// allow adding custom buttons

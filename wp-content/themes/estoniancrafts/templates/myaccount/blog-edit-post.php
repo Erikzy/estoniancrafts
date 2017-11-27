@@ -36,9 +36,9 @@
         </p>
         <p class="row">
             <div class="col-md-8">
-                <input type="submit" class="btn button" name="edit_action[delete]" value="<?php  _e('Delete', 'ktt'); ?>" />
-                <input type="submit" class="btn button" name="edit_action[draft]" value="<?php  _e('Draft', 'ktt'); ?>" />
-                <input type="submit" class="btn btn-color-primary button" name="edit_action[publish]" value="<?php  _e('Publish', 'ktt'); ?>" />
+                <input type="submit" class="btn button medium-gray-button" name="edit_action[delete]" value="<?php  _e('Delete', 'ktt'); ?>" />
+                <input type="submit" class="btn button medium-gray-button" name="edit_action[draft]" value="<?php  _e('Draft', 'ktt'); ?>" />
+                <input type="submit" class="btn btn-color-primary button medium-orange-button" name="edit_action[publish]" value="<?php  _e('Publish', 'ktt'); ?>" />
             </div>
         </p>
     </form>

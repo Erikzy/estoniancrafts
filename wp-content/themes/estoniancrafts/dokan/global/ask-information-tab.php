@@ -36,7 +36,7 @@
 				<span class="textarea-wrap"><textarea name="content" required="true"></textarea></span>
 			</label>
 			<p>
-				<input type="submit" name="send" value="Send" />
+				<input type="submit" class='smaller-orange-button' name="send" value="Send" />
 			</p>
 		</form>
 	</div>

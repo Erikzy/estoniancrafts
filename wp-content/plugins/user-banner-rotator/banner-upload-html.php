@@ -34,7 +34,7 @@ endif;
  	    }
  	 }
    ?>
-  <button id="upload_button" class="button" >Add Slide</button>
+  <button id="upload_button" class="button smaller-gray-button" >Add Slide</button>
    <img src="<?php echo plugins_url().'/user-banner-rotator/assets/bo.gif' ?>" class='hid'> 
 </div>
   <?php wp_nonce_field( 'user_banner_upload', 'user_banner_upload_form' ); ?>
