@@ -784,15 +784,15 @@ function dokan_get_page_url( $page, $context = 'dokan' ) {
  * @return type
  */
 function dokan_edit_product_url( $product_id ) {
-    if ( get_post_field( 'post_status', $product_id ) == 'publish' ) {
+   /* if ( get_post_field( 'post_status', $product_id ) == 'publish' ) {
         return trailingslashit( get_permalink( $product_id ) ). 'edit/';
     }
-/*
+*/
     if ( dokan_get_option( 'product_style', 'dokan_selling', 'old' ) == 'old' ) {
+
     } elseif ( dokan_get_option( 'product_style', 'dokan_selling', 'old' ) == 'new' ) {
         $new_product_url = dokan_get_navigation_url('new-product');
     }
-  */
       $new_product_url = dokan_get_navigation_url('new-product');
 	
 
