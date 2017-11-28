@@ -2630,7 +2630,7 @@ function bp_activity_delete_link() {
 	function bp_get_activity_delete_link() {
 
 		$url   = bp_get_activity_delete_url();
-		$class = 'delete-activity';
+		$class = 'delete-activity smaller-gray-button';
 
 		// Determine if we're on a single activity page, and customize accordingly.
 		if ( bp_is_activity_component() && is_numeric( bp_current_action() ) ) {
