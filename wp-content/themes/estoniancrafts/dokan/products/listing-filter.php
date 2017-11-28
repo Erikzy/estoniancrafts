@@ -39,7 +39,7 @@
         <?php }
         ?>
 
-        <button type="submit" name="product_listing_filter" value="ok" class="dokan-btn dokan-btn-theme"><?php _e( 'Filter', 'dokan'); ?></button>
+        <button type="submit" name="product_listing_filter" value="ok" class="dokan-btn dokan-btn-theme "><?php _e( 'Filter', 'dokan'); ?></button>
 
     </form>
 
@@ -47,7 +47,7 @@
 
     <form method="get" class="dokan-form-inline dokan-w6">
 
-        <button type="submit" name="product_listing_search" value="ok" class="dokan-btn dokan-btn-theme dokan-right"><?php _e( 'Search', 'dokan'); ?></button>
+        <button type="submit" name="product_listing_search" value="ok" class="dokan-btn dokan-btn-theme dokan-right product-search-button-new"></button>
 
         <?php wp_nonce_field( 'dokan_product_search', 'dokan_product_search_nonce' ); ?>
 
