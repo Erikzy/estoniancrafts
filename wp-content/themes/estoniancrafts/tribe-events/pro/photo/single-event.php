@@ -41,7 +41,7 @@ global $post;
         <?php do_action( 'tribe_events_after_the_content' ) ?>
 
         <div class="tribe_events_more_button_wrapper dokan-store-caption">
-            <a href="<?php echo esc_url( tribe_get_event_link() ); ?>" title="<?php the_title() ?>" rel="bookmark" class="button add-btn orange-black-button ">More</a>
+            <a href="<?php echo esc_url( tribe_get_event_link() ); ?>" title="<?php the_title() ?>" rel="bookmark" class="button add-btn orange-black-button medium-orange-button ">More</a>
         </div>
 
     </div><!-- /.tribe-events-event-details -->

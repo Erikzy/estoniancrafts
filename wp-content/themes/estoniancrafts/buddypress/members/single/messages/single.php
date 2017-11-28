@@ -41,7 +41,7 @@
 
 			</span>
 
-			<a class="button confirm button-t" href="<?php bp_the_thread_delete_link(); ?>" title="<?php esc_attr_e( "Delete Conversation", 'buddypress' ); ?>"><?php _e( 'Delete', 'buddypress' ); ?></a>
+			<a class="button confirm smaller-gray-button" href="<?php bp_the_thread_delete_link(); ?>" title="<?php esc_attr_e( "Delete Conversation", 'buddypress' ); ?>"><?php _e( 'Delete', 'buddypress' ); ?></a>
 
 			<?php
 
@@ -135,7 +135,7 @@
 					do_action( 'bp_after_message_reply_box' ); ?>
 
 					<div class="submit">
-						<input type="submit" class="btn btn-style-link btn-read-more more-link button" name="send" value="<?php esc_attr_e( 'Send Reply', 'buddypress' ); ?>" id="send_reply_button"/>
+						<input type="submit" class="btn btn-style-link btn-read-more more-link button medium-orange-button" name="send" value="<?php esc_attr_e( 'Send Reply', 'buddypress' ); ?>" id="send_reply_button"/>
 					</div>
 
 					<input type="hidden" id="thread_id" name="thread_id" value="<?php bp_the_thread_id(); ?>" />

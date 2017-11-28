@@ -80,6 +80,17 @@ li.my-shop-item:before {
 .kt-otsing {
     width: 60%;
 }
+.main-header form.has-categories-dropdown #searchsubmit,.remove_from_wishlist {
+    background-color: #ef7f27 !important;
+    color:#ffffff!important;
+    opacity: 1 !important;
+}
+.main-header form.has-categories-dropdown #searchsubmit:hover,.remove_from_wishlist:hover {
+    color: #ffffff !important;
+    background-color: #dd3b0f !important;
+    opacity: 1 !important;
+    
+}
 
 .topbar-wrapp {
     background-color: #F8F8F8;
@@ -586,7 +597,10 @@ opacity: .4 !important
 #edit-blog-post-form button#insert-media-button{
     margin-top:5px;
 }
-.smaller-gray-button, #edit-blog-post-form button#insert-media-button {
+.blk{
+    color:#1B1919;
+}
+.smaller-gray-button, #edit-blog-post-form button#insert-media-button,div.price_slider_wrapper > div.price_slider_amount > button.button {
     border: 0px !important;
     background-color: #ECECEC !important;
     border-color:#ECECEC;
@@ -601,7 +615,8 @@ opacity: .4 !important
     border: 0px !important;
     height: 34px !important;
 }
-.smaller-gray-button:hover, #edit-blog-post-form button#insert-media-button:hover{
+.smaller-gray-button:hover, #edit-blog-post-form button#insert-media-button:hover,div.price_slider_wrapper > div.price_slider_amount > button.button:hover
+{
     color: #ffffff !important;
     background-color: #373737!important;
     font-size:14px !important;
@@ -615,7 +630,7 @@ opacity: .4 !important
     height:34px !important;
     
 }
-.smaller-orange-button{
+.smaller-orange-button,.wlst-b-wrapper > a, div#tribe-events-content > a.tribe-events-button , div.tribe-events-cal-links > a.tribe-events-button {
     border: 0px !important;
     background-color: #ef7f27 !important;
     border-color:#ECECEC !important;
@@ -629,7 +644,7 @@ opacity: .4 !important
     font-weight:700 !important;
     letter-spacing: : 0 !important;
 }
-.smaller-orange-button:hover{
+.smaller-orange-button:hover,.wlst-b-wrapper > a:hover, div#tribe-events-content > a.tribe-events-button:hover , div.tribe-events-cal-links > a.tribe-events-button:hover{
     color: #ffffff !important;
     background-color: #dd3b0f !important;
     font-size:14px;
@@ -665,7 +680,7 @@ opacity: .4 !important
     border-radius: 5px !important;
 }
 
-.medium-orange-button, .add-to-cart-store a.add_to_cart_button{
+.medium-orange-button, .add-to-cart-store a.add_to_cart_button, div.comment-respond > form.comment-form > p.form-submit > input#submit, .add-to-cart-store a.product_type_simple, .add-to-cart-store a.product_type_variable, .add-to-cart-store a.product_type_external, .add-to-cart-store a.product_type_grouped{
     border: 0px !important;
     background-color: #ef7f27 !important;
     color:#ffffff!important;
@@ -677,7 +692,7 @@ opacity: .4 !important
     border-radius: 5px !important;
     font-weight:700 !important;
 }
-.medium-orange-button:hover, .add-to-cart-store a.add_to_cart_button:hover{
+.medium-orange-button:hover, .add-to-cart-store a.add_to_cart_button:hover, div.comment-respond > form.comment-form > p.form-submit > input#submit:hover, .add-to-cart-store a.product_type_simple:hover, .add-to-cart-store a.product_type_variable:hover, .add-to-cart-store a.product_type_external:hover, .add-to-cart-store a.product_type_grouped:hover{
     color: #ffffff !important;
     background-color: #dd3b0f !important;
     font-size:16px !important;

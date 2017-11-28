@@ -102,7 +102,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<label for="rememberme" class="inline">
 					<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
 				</label>
-				<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
+				<input type="submit" class="woocommerce-Button button medium-orange-button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
             </p>
 
             <?php echo do_shortcode( '[ec_facebook_login_button]' ); ?>
@@ -159,7 +159,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 
 			<p class="woocomerce-FormRow form-row">
 				<?php wp_nonce_field( 'woocommerce-register' ); ?>
-				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
+				<input type="submit" class="woocommerce-Button button medium-orange-button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
