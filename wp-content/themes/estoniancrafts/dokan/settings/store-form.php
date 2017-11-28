@@ -68,8 +68,10 @@
     <?php lbDokan::get_instance()->user->display_shop_profile_completeness($current_user) ?>
 <?php 
 	echo '<div class="bannerPreview center-block" >';
+
 	echo __("Banner preview");
     echo do_shortcode( '[display_user_banner user_id="'.get_current_user_id().'" banner_name="company_banner" width="800" height="300"]' );
+   
 	echo '</div>';
 
 	echo do_shortcode( '[display_upload_form user_id="'.get_current_user_id().'" banner_name="company_banner" width="800" height="300"]' );
@@ -466,7 +468,7 @@
         <div class="dokan-form-group">
 
             <div class="dokan-w4 ajax_prev dokan-text-left" style="margin-left:24%;">
-                <button name="dokan_update_store_settings" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
+                <button name="dokan_update_store_settings" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block call-to-action-button" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
 
             </div>
         </div>

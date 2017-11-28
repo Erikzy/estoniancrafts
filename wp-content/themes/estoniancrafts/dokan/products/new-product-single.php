@@ -120,7 +120,7 @@ if ( ! $from_shortcode ) {
 					<?php // View product button ?>
                     <?php if ( $post->post_status == 'publish' ) { ?>
                         <span class="dokan-right">
-                            <a class="view-product dokan-btn dokan-btn-sm" href="<?php echo get_permalink( $post->ID ); ?>" target="_blank"><?php _e( 'View Product', 'dokan' ); ?></a>
+                            <a class="view-product dokan-btn dokan-btn-sm smaller-gray-button" href="<?php echo get_permalink( $post->ID ); ?>" target="_blank"><?php _e( 'View Product', 'dokan' ); ?></a>
                         </span>
                     <?php } ?>
 
@@ -386,7 +386,7 @@ if ( ! $from_shortcode ) {
                                             <input type="hidden" id="product_image_gallery" name="product_image_gallery" value="<?php echo esc_attr( $product_images ); ?>">
                                         </div>
 
-                                        <a href="#" class="add-product-images dokan-btn dokan-btn-sm dokan-btn-success"><?php _e( '+ Add more images', 'dokan' ); ?></a>
+                                        <a href="#" class="add-product-images dokan-btn dokan-btn-sm dokan-btn-success smaller-gray-button"><?php _e( '+ Add more images', 'dokan' ); ?></a>
                                     </div>
                                 </div> <!-- .product-gallery -->
                             </div><!-- .content-half-part -->
@@ -396,14 +396,24 @@ if ( ! $from_shortcode ) {
                         <div class="dokan-product-short-description">
                             <label for="post_excerpt" class="form-label"><?php _e( 'Short Description', 'dokan' ); ?></label>
 							<span class="ec-form-field-description"><?php _e( 'Product short description description', 'ktt' ); ?></span>
-                            <?php wp_editor( $post_excerpt , 'post_excerpt', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); ?>
+                            <?php 
+/*                            wp_editor( $post_excerpt , 'post_excerpt', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); */
+                            ?>
+
+                                <textarea id="post_excerpt" name="post_excerpt" class="valid"> <?php echo $post_excerpt ; ?></textarea>
+                         
                         </div>
 
 						<?php // Description ?>
                         <div class="dokan-product-description">
                             <label for="post_content" class="form-label"><?php _e( 'Description', 'dokan' ); ?></label>
 							<span class="ec-form-field-description"><?php _e( 'Product description description', 'ktt' ); ?></span>
-                            <?php wp_editor( $post_content , 'post_content', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') ); ?>
+                            <?php 
+
+/*                            wp_editor( $post_content , 'post_content', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') );*/
+
+                             ?>
+                             <textarea id="post_content" name="post_content" class="valid"> <?php echo $post_content ; ?></textarea>
                         </div>
 
                         <?php do_action( 'dokan_new_product_form' ); ?>
@@ -700,11 +710,11 @@ if ( ! $from_shortcode ) {
 */ ?>
 
 						<?php // Publish product ?>
-                        <button name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg ec-product-publish-btn" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up"><?php esc_attr_e( 'Publish', 'ktt' ); ?></button>
+                        <button name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg ec-product-publish-btn  call-to-action-button m10-r" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up"><?php esc_attr_e( 'Publish', 'ktt' ); ?></button>
 
 						<?php // Save as draft. Only available if product not published yet. ?>
                         <?php if($post_status != 'publish'): ?>
-	                        <button name="dokan_add_product" class="dokan-btn dokan-btn-lg ec-merchant-product-save-btn"><?php esc_attr_e( 'Save as draft', 'ktt' ); ?></button>
+	                        <button name="dokan_add_product" class="dokan-btn dokan-btn-lg ec-merchant-product-save-btn call-to-action-button"><?php esc_attr_e( 'Save as draft', 'ktt' ); ?></button>
 						<?php endif; ?>
 
                     </form>

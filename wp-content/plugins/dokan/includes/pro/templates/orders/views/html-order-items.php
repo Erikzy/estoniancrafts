@@ -196,7 +196,7 @@ if ( wc_tax_enabled() ) {
 	<p class="add-items">
 		
 		<?php if ( ( $order->get_total() - $order->get_total_refunded() ) > 0 ) : ?>
-			<button type="button" class="dokan-btn dokan-btn-default refund-items"><?php _e( 'Request Refund', 'dokan' ); ?></button>
+			<button type="button" class="dokan-btn dokan-btn-default refund-items smaller-gray-button"><?php _e( 'Request Refund', 'dokan' ); ?></button>
 		<?php endif; ?>
 	</p>
 	<div class="clear"></div>
@@ -232,10 +232,10 @@ if ( wc_tax_enabled() ) {
 	<div class="clear"></div>
 	<div class="refund-actions">
 		<?php
-		$refund_amount            = '<span class="wc-order-refund-amount">' . wc_price( 0, array( 'currency' => $order->get_order_currency() ) ) . '</span>'; ?>
+		$refund_amount            = '<span class="wc-order-refund-amount p-white">' . wc_price( 0, array( 'currency' => $order->get_order_currency() ) ) . '</span>'; ?>
 		
-		<button type="button" class="dokan-btn dokan-btn-default do-manual-refund tips" data-tip="<?php esc_attr_e( 'You will need to manually issue a refund through your payment gateway after using this.', 'dokan' ); ?>"><?php printf( _x( 'Submit Refund Request %s', 'Submit Refund Request $amount', 'dokan' ), $refund_amount ); ?></button>
-		<button type="button" class="dokan-btn dokan-btn-default cancel-action"><?php _e( 'Cancel', 'dokan' ); ?></button>
+		<button type="button" class="dokan-btn dokan-btn-default do-manual-refund tips smaller-orange-button" data-tip="<?php esc_attr_e( 'You will need to manually issue a refund through your payment gateway after using this.', 'dokan' ); ?>"><?php printf( _x( 'Submit Refund Request %s', 'Submit Refund Request $amount', 'dokan' ), $refund_amount ); ?></button>
+		<button type="button" class="dokan-btn dokan-btn-default cancel-action smaller-gray-button"><?php _e( 'Cancel', 'dokan' ); ?></button>
 		<div class="clear"></div>
 	</div>
 	<div class="clear"></div>

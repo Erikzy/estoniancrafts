@@ -1,4 +1,4 @@
-<?php
+g<?php
 
 global $post;
 
@@ -603,7 +603,7 @@ if ( ! $from_shortcode ) {
 
                         <!--hidden input for Firefox issue-->
                         <input type="hidden" name="dokan_add_product" value="<?php esc_attr_e( 'Save Product', 'dokan' ); ?>"/>
-                        <input type="submit" name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block" value="<?php esc_attr_e( 'Save Product', 'dokan' ); ?>"/>
+                        <input type="submit" name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block call-to-action-button" value="<?php esc_attr_e( 'Save Product', 'dokan' ); ?>"/>
 
                     </form>
                 <?php } else { ?>

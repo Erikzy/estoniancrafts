@@ -13,7 +13,7 @@ $order    = new WC_Order( $order_id );
 ?>
 <div class="dokan-clearfix">
     <div style="text-align: right;">
-        <a style="margin-bottom: 20px;" href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $order->id ), 'generate_wpo_wcpdf' ); ?>" class="dokan-btn dokan-btn-success" target="_blank"><?php echo __('Print invoice and address', 'ktt'); ?></a>
+        <a style="margin-bottom: 20px;" href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $order->id ), 'generate_wpo_wcpdf' ); ?>" class="dokan-btn dokan-btn-success medium-orange-button" target="_blank"><?php echo __('Print invoice and address', 'ktt'); ?></a>
     </div>
     <div class="dokan-w8" style="margin-right:3%;">
         <div class="dokan-clearfix">
@@ -161,7 +161,7 @@ $order    = new WC_Order( $order_id );
                 <div class="dokan-panel dokan-panel-default">
                     <div class="dokan-panel-heading"><strong><?php _e( 'General Details', 'dokan' ); ?></strong></div>
                     <div class="dokan-panel-body general-details">
-                        <ul class="list-unstyled order-status">
+                        <ul class="list-unstyled order-status order-status-f">
                             <li>
                                 <span><?php _e( 'Order Status:', 'dokan' ); ?></span>
                                 <label class="dokan-label dokan-label-<?php echo dokan_get_order_status_class( $order->post_status ); ?>"><?php echo isset( $statuses[$order->post_status] ) ? $statuses[$order->post_status] : $order->post_status; ?></label>
@@ -187,9 +187,9 @@ $order    = new WC_Order( $order_id );
                                     <input type="hidden" name="order_id" value="<?php echo $order->id; ?>">
                                     <input type="hidden" name="action" value="dokan_change_status">
                                     <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce( 'dokan_change_status' ); ?>">
-                                    <input type="submit" class="dokan-btn dokan-btn-success dokan-btn-sm" name="dokan_change_status" value="<?php _e( 'Update', 'dokan' ); ?>">
+                                    <input type="submit" class="dokan-btn dokan-btn-success dokan-btn-sm smaller-orange-button m10" name="dokan_change_status" value="<?php _e( 'Update', 'dokan' ); ?>">
 
-                                    <a href="#" class="dokan-btn dokan-btn-default dokan-btn-sm dokan-cancel-status"><?php _e( 'Cancel', 'dokan' ) ?></a>
+                                    <a href="#" class="dokan-btn dokan-btn-default dokan-btn-sm dokan-cancel-status smaller-gray-button m10"><?php _e( 'Cancel', 'dokan' ) ?></a>
                                 </form>
                             </li>
                             <li>
@@ -299,13 +299,13 @@ $order    = new WC_Order( $order_id );
                                     <input type="hidden" name="delete-note-security" id="delete-note-security" value="<?php echo wp_create_nonce('delete-order-note'); ?>">
                                     <input type="hidden" name="post_id" value="<?php echo $order->id; ?>">
                                     <input type="hidden" name="action" value="dokan_add_order_note">
-                                    <input type="submit" name="add_order_note" class="add_note btn btn-sm btn-theme" value="<?php esc_attr_e( 'Add Note', 'dokan' ); ?>">
+                                    <input type="submit" name="add_order_note" class="add_note btn btn-sm btn-theme medium-orange-button" value="<?php esc_attr_e( 'Add Note', 'dokan' ); ?>">
                                 </div>
                             </form>
 
                             <div class="clearfix dokan-form-group" style="margin-top: 10px;">
                                 <!-- Trigger the modal with a button -->
-                                <input type="button" data-toggle="modal" data-target="#tracking-modal" id="add-tracking-number" name="add_tracking_number" class="dokan-btn dokan-btn-success grant_access" value="<?php esc_attr_e( 'Tracking Number', 'dokan' ); ?>">
+                                <input type="button" data-toggle="modal" data-target="#tracking-modal" id="add-tracking-number" name="add_tracking_number" class="dokan-btn dokan-btn-success grant_access smaller-gray-button" value="<?php esc_attr_e( 'Tracking Number', 'dokan' ); ?>">
                                 
                             </div>
 

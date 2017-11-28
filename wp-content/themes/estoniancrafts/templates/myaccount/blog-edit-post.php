@@ -36,9 +36,9 @@
         </p>
         <p class="row">
             <div class="col-md-8">
-                <input type="submit" class="btn" name="edit_action[delete]" value="<?php  _e('Delete', 'ktt'); ?>" />
-                <input type="submit" class="btn" name="edit_action[draft]" value="<?php  _e('Draft', 'ktt'); ?>" />
-                <input type="submit" class="btn btn-color-primary" name="edit_action[publish]" value="<?php  _e('Publish', 'ktt'); ?>" />
+                <input type="submit" class="btn button medium-gray-button" name="edit_action[delete]" value="<?php  _e('Delete', 'ktt'); ?>" />
+                <input type="submit" class="btn button medium-gray-button" name="edit_action[draft]" value="<?php  _e('Draft', 'ktt'); ?>" />
+                <input type="submit" class="btn btn-color-primary button medium-orange-button" name="edit_action[publish]" value="<?php  _e('Publish', 'ktt'); ?>" />
             </div>
         </p>
     </form>
@@ -51,7 +51,7 @@
                 <div class="added-to-cart">
                     <p><?php _e('Carefully look through the post. The post will go to translation', 'ktt'); ?></p>
                     <a href="#" class="btn close-popup  before-publish" data-value="cancle">Review</a>
-                    <a href="#" class="btn btn-color-primary view-cart before-publish" data-value="publish">Publish</a>
+                    <a href="#" class="btn btn-color-primary button view-cart before-publish" data-value="publish">Publish</a>
                 </div>
                 <button  type="button" class=" mfp-close  before-publish" data-value="cancle">×</button>
             </div>

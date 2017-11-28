@@ -786,9 +786,7 @@ function bp_message_search_form() {
 			esc_html_e( 'Search Messages', 'buddypress' );
 		?></label>
 		<input type="text" name="s" id="messages_search"<?php echo $search_placeholder . $search_value; ?> />
-		<input type="submit" class="button search-submit-messages" id="messages_search_submit"  name="messages_search_submit" value="<?php esc_html_e( 'Search', 'buddypress' ); ?>" />
-	
-
+		<input type="submit" class="button button-t" id="messages_search_submit" name="messages_search_submit" value="<?php esc_html_e( 'Search', 'buddypress' ); ?>" />
 	</form>
 
 	<?php
@@ -978,7 +976,7 @@ function bp_messages_bulk_management_dropdown() {
 			do_action( 'bp_messages_bulk_management_dropdown' );
 		?>
 	</select>
-	<input type="submit" id="messages-bulk-manage" class="button action smaller-gray-button" value="<?php esc_attr_e( 'Apply', 'buddypress' ); ?>">
+	<input type="submit" id="messages-bulk-manage" class="button action" value="<?php esc_attr_e( 'Apply', 'buddypress' ); ?>">
 	<?php
 }
 

@@ -9,7 +9,7 @@
 
 ?>
 <form id="dokan_comments-form" action="" method="post">
-    <table id="dokan-comments-table" class="dokan-table dokan-table-striped">
+    <table id="dokan-comments-table" class="dokan-table  product-listing-table ">
         <thead>
             <tr>
                 <th class="col-check"><input class="dokan-check-all" type="checkbox" ></th>
@@ -68,5 +68,5 @@
 
     <?php wp_nonce_field( 'dokan_comment_nonce_action', 'dokan_comment_nonce' ); ?>
 
-    <input type="submit" value="<?php _e( 'Submit', 'dokan' ); ?>" class="dokan-btn  dokan-danger dokan-btn-theme dokan-btn-sm" name="comt_stat_sub">
+    <input type="submit" value="<?php _e( 'Submit', 'dokan' ); ?>" class="dokan-btn  dokan-danger dokan-btn-theme dokan-btn-sm medium-orange-button m10" name="comt_stat_sub">
 </form>

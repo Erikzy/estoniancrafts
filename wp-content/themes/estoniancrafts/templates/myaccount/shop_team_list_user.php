@@ -12,8 +12,8 @@
 
 			<p>
 				<label for="value"><?= __('Job title', 'ktt') ?></label>
-				<input class="input-text" type="text" name="value" value="<?= $relation->getValue() ?>" width="200px;"/>
-				<button style="display: none;" class="btn btn-color-primary" type="submit"><?= __('Save', 'ktt') ?></button>
+				<input class="input-text team-title" type="text" name="value" value="<?= $relation->getValue() ?>" width="200px;"/>
+				<button style="display: none;" class="btn button btn-color-primary medium-orange-button" type="submit"><?= __('Save', 'ktt') ?></button>
 			</p>
 		</form>
 		<?php if (!$relation->isShopAdmin()): ?>

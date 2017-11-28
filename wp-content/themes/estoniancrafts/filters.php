@@ -47,7 +47,8 @@ class EC_Filters
 	{
 		$user = wp_get_current_user();
 		//$submenuPrefix = '&nbsp; - ';
-		$submenuPrefix = '&nbsp; &nbsp; &nbsp; ';
+		$submenuPrefix = '&nbsp;';
+		//$submenuPrefix = '&nbsp; &nbsp; &nbsp; ';
 
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Menu.php');
 		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_MenuItem.php');

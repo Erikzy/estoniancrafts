@@ -145,8 +145,8 @@
   
   	<div class="col-md-4" style="padding:0px;">
 	
-	  <div class="btn-add">
-	    <?php  do_action( 'woocommerce_after_shop_loop_item' ); ?>
+	  <div class="btn-add"><span class='add-to-cart-store'>
+	    <?php  do_action( 'woocommerce_after_shop_loop_item' ); ?></span>
       </div>
   	</div>
   	<div class="col-md-4 wishlist-p" style="padding:0px;">

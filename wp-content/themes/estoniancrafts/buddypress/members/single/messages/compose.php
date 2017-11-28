@@ -26,7 +26,7 @@
 	<?php do_action( 'bp_load_attachments_assets()' ); ?>
 
 	<div class="submit">
-		<input type="submit" class="btn btn-style-link btn-read-more more-link button" value="<?php esc_attr_e( "Send Message", 'buddypress' ); ?>" name="send" id="send" />
+		<input type="submit" class="btn btn-style-link btn-read-more more-link medium-orange-button" value="<?php esc_attr_e( "Send Message", 'buddypress' ); ?>" name="send" id="send" />
 	</div>
 
 	<?php wp_nonce_field( 'messages_send_message' ); ?>

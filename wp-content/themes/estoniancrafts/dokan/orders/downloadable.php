@@ -69,7 +69,7 @@ global $wpdb;
         </div>
 
         <div class="dokan-w4">
-            <button type="button" class="dokan-btn dokan-btn-success grant_access" data-order-id="<?php echo $order->id; ?>" data-nonce="<?php echo wp_create_nonce( 'grant-access' ); ?>"><?php _e( 'Grant Access', 'dokan' ); ?></button>
+            <button type="button" class="dokan-btn dokan-btn-success grant_access smaller-orange-button" data-order-id="<?php echo $order->id; ?>" data-nonce="<?php echo wp_create_nonce( 'grant-access' ); ?>"><?php _e( 'Grant Access', 'dokan' ); ?></button>
         </div>
 
     </div> <!-- .toolbar -->

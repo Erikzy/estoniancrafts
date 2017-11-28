@@ -113,7 +113,7 @@ for ($i = 0; $i < count($selected_fields); $i++) {
         }
     }
 }
-echo '<input  type="submit" id="crm_form_submit" class="btn btn-primary" data-loading-text="Submitting..." value="Submit Request"> ';
-echo '<input  type="reset" class="btn btn-primary" value="Reset Request"></form>';
+echo '<input  type="submit" id="crm_form_submit" class="btn btn-primary smaller-gray-button" data-loading-text="Submitting..." value="Submit Request"> ';
+echo '<input  type="reset" class="btn btn-primary smaller-gray-button" value="Reset Request"></form>';
 //echo '</div><div class="powered_wsdesk"><span>Powered by </span><a href="https://wsdesk.com" target="_blank">WSDesk</a></div>';
 return ob_get_clean();

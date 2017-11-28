@@ -87,18 +87,18 @@ get_header( 'shop' );
                         <?php foreach($ec_page->related_people as $person): ?>
                             <?php //echo '<pre>';
                             //print_r($ec_page); ?>
-                            <div class="btn-add">
+<!--                             <div class="btn-add">
                                 <span class="basel-tooltip-label" ><div class="dokan-store-caption"><a class="button  btn-add custom-dokan-left "  href="<?= !empty($person->profile_url) ? $person->profile_url : '#' ?>">
                                     <?php /* if(!empty($person->avatar_url)): ?>
                                         <img class="co-worker-img" src="<?= $person->avatar_url ?>">
                                     <?php endif; */ ?>
-                                    <!--<h4><?= $person->name ?></h4>-->
+                                    <h4><?= $person->name ?></h4>
 
                                     <?= __('Vaata profiili', 'ktt') ?>
                                     <?php /* <em>Moekunstnik</em> */ ?>
                                 </a></div>
                             </span>
-                            </div>
+                            </div> -->
                         <?php endforeach; ?>
                     </div>
 

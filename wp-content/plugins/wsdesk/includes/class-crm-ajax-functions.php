@@ -2580,7 +2580,7 @@ class CRM_Ajax {
                         </span>
                     </h3>
                 </div>
-                <table class="table table-hover" id="support-table">
+                <table class="table table-hover product-listing-table" id="support-table">
                     <thead>
                         <tr class="except_view">
                             <th>#</th>
