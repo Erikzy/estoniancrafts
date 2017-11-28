@@ -50,8 +50,8 @@
             <div class="white-popup add-to-cart-popup popup-added_to_cart">
                 <div class="added-to-cart">
                     <p><?php _e('Carefully look through the post. The post will go to translation', 'ktt'); ?></p>
-                    <a href="#" class="btn close-popup  before-publish" data-value="cancle">Review</a>
-                    <a href="#" class="btn btn-color-primary button view-cart before-publish" data-value="publish">Publish</a>
+                    <a href="#" class="btn close-popup  before-publish smaller-gray-button" data-value="cancle">Review</a>
+                    <a href="#" class="btn btn-color-primary button view-cart before-publish smaller-orange-button" data-value="publish">Publish</a>
                 </div>
                 <button  type="button" class=" mfp-close  before-publish" data-value="cancle">×</button>
             </div>
