@@ -283,6 +283,9 @@ if (!function_exists('is_user_idcard')) {
 /*
 * User visual composer carousel widget
 */
+
+if(class_exists('WPBakeryShortCode')):
+
 class EC_vcUserCarousel extends WPBakeryShortCode
 {
 
@@ -403,13 +406,19 @@ if ( 'vc_get_autocomplete_suggestion' === vc_request_param( 'action' ) || 'vc_ed
     }
     add_filter( 'vc_autocomplete_ec_user_carousel_include_render', 'ec_include_field_render', 10, 1 ); // Render exact product. Must return an array (label,value)
 }
-    
+ endif;   
 function ec_dokan_get_store_url( $user_id )
 {
     $userdata = get_userdata( $user_id );
     $user_nicename = ( !false == $userdata ) ? $userdata->user_nicename : '';
 
     return sprintf( '%s/%s/', home_url(), $user_nicename );
+}
+
+function dokan_edit_product_url_custom(){
+
+
+  
 }
 
 function ec_get_portfolio_url( $portfolio, $user )

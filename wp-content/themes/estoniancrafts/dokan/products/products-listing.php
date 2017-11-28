@@ -164,7 +164,7 @@
 											<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
 										</a>
 										<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
-											<li role="presentation" class="edit"><a href="<?php echo dokan_edit_product_url( $product->post_id ); ?>"><?php _e( 'Edit', 'dokan' ); ?></a></li>
+											<li role="presentation" class="edit"><a href="<?php echo dokan_edit_product_url_custom( $product->post_id ); ?>"><?php _e( 'Edit', 'dokan' ); ?></a></li>
 											<li role="presentation" class="view"><a href="<?php echo get_permalink( $product->id ); ?>" rel="permalink"><?php _e( 'View', 'dokan' ); ?></a></li>
 											<li role="separator" class="divider"></li>
 											<?php /* 

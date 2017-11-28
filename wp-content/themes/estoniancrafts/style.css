@@ -247,6 +247,20 @@ div.main-page-wrapper > div.container, div.single-product-page > div.container{
 
 
 }
+.product-search-button-new{
+    margin-left: -9px;
+    height: 40px;
+    line-height: 35px;
+}
+.product-search-button-new:after{
+
+    content: "\e090";
+    font-size: 18px;
+    font-weight: 700;
+    font-family: simple-line-icons;
+    display: inline-block;
+    line-height: 18px;
+}
 .user-rotator-banner-wrapper img{
 	width:800px !important;
 	height:300px !important;
