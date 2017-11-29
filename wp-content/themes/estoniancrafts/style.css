@@ -38,7 +38,12 @@
 .main-header {
     margin-bottom: 0px;
 }
-
+.m-slider-title{
+    margin-top:65px !important;
+}
+.s-bullets-wrapper .owl-controls{
+    margin-top:-10px !important;
+}
 .site-logo img {
     max-height: 55px;
 }
@@ -760,6 +765,12 @@ opacity: .4 !important
     padding:15px 30px !important;
     line-height: 18px !important;
     border-radius: 5px !important;
+}
+.mes-search{
+    margin-left: -8px;
+    height: 32px;
+    width: 37px;
+    line-height: 25px
 }
 
 @media (max-width:1999px){
