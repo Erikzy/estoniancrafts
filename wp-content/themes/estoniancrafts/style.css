@@ -721,7 +721,7 @@ opacity: .4 !important
     border-radius: 5px !important;
 }
 
-.medium-orange-button, .add-to-cart-store a.add_to_cart_button, div.comment-respond > form.comment-form > p.form-submit > input#submit, .add-to-cart-store a.product_type_simple, .add-to-cart-store a.product_type_variable, .add-to-cart-store a.product_type_external, .add-to-cart-store a.product_type_grouped{
+.medium-orange-button, table.compare-list a.button,.add-to-cart-store a.add_to_cart_button, div.comment-respond > form.comment-form > p.form-submit > input#submit, .add-to-cart-store a.product_type_simple, .add-to-cart-store a.product_type_variable, .add-to-cart-store a.product_type_external, .add-to-cart-store a.product_type_grouped{
     border: 0px !important;
     background-color: #ef7f27 !important;
     color:#ffffff!important;
@@ -733,7 +733,7 @@ opacity: .4 !important
     border-radius: 5px !important;
     font-weight:700 !important;
 }
-.medium-orange-button:hover, .add-to-cart-store a.add_to_cart_button:hover, div.comment-respond > form.comment-form > p.form-submit > input#submit:hover, .add-to-cart-store a.product_type_simple:hover, .add-to-cart-store a.product_type_variable:hover, .add-to-cart-store a.product_type_external:hover, .add-to-cart-store a.product_type_grouped:hover{
+.medium-orange-button:hover,table.compare-list a.button:hover, .add-to-cart-store a.add_to_cart_button:hover, div.comment-respond > form.comment-form > p.form-submit > input#submit:hover, .add-to-cart-store a.product_type_simple:hover, .add-to-cart-store a.product_type_variable:hover, .add-to-cart-store a.product_type_external:hover, .add-to-cart-store a.product_type_grouped:hover{
     color: #ffffff !important;
     background-color: #dd3b0f !important;
     font-size:16px !important;
