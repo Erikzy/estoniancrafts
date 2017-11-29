@@ -12,13 +12,13 @@
     <h2><?php _e( 'Sub Orders', 'dokan' ); ?></h2>
 </header>
 
-<div class="dokan-info">
+<div class="dokan-info info-gen">
     <strong><?php _e( 'Note:', 'dokan' ); ?></strong>
     <?php _e( 'This order has products from multiple vendors/sellers. So we divided this order into multiple seller orders.
     Each order will be handled by their respective seller independently.', 'dokan' ); ?>
 </div>
 
-<table class="shop_table my_account_orders table table-striped">
+<table class="shop_table product-listing-table">
 
     <thead>
         <tr>
@@ -51,18 +51,20 @@
                     <?php echo sprintf( _n( '%s for %s item', '%s for %s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
                 </td>
                 <td class="order-actions">
+
                     <?php
                         $actions = array();
 
                         $actions['view'] = array(
                             'url'  => $order->get_view_order_url(),
-                            'name' => __( 'View', 'dokan' )
+                            'name' => __( 'View', 'dokan' ),
+
                         );
 
                         $actions = apply_filters( 'dokan_my_account_my_sub_orders_actions', $actions, $order );
 
                         foreach( $actions as $key => $action ) {
-                            echo '<a href="' . esc_url( $action['url'] ) . '" class="button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+                            echo '<a href="' . esc_url( $action['url'] ) . '" class="button ' . sanitize_html_class( $key ) . ' smaller-gray-button m10">' . esc_html( $action['name'] ) . '</a>';
                         }
                     ?>
                 </td>
