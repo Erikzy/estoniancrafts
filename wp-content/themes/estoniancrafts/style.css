@@ -38,11 +38,16 @@
 .main-header {
     margin-bottom: 0px;
 }
-
+.m-slider-title{
+    margin-top:65px !important;
+}
+.s-bullets-wrapper .owl-controls{
+    margin-top:-10px !important;
+}
 .site-logo img {
     max-height: 55px;
 }
-
+ 
 li.my-shop-item:before {
     content: "\f105";
     color: #ef7f27;
@@ -80,12 +85,12 @@ li.my-shop-item:before {
 .kt-otsing {
     width: 60%;
 }
-.main-header form.has-categories-dropdown #searchsubmit,.remove_from_wishlist {
+.main-header form.has-categories-dropdown #searchsubmit,.remove_from_wishlist , .shop_table a.remove{
     background-color: #ef7f27 !important;
     color:#ffffff!important;
     opacity: 1 !important;
 }
-.main-header form.has-categories-dropdown #searchsubmit:hover,.remove_from_wishlist:hover {
+.main-header form.has-categories-dropdown #searchsubmit:hover,.remove_from_wishlist:hover, .shop_table a.remove:hover {
     color: #ffffff !important;
     background-color: #dd3b0f !important;
     opacity: 1 !important;
@@ -707,6 +712,10 @@ opacity: .4 !important
     border-radius: 5px !important;
     letter-spacing: : 0 !important;
 }
+.pointer-button:hover{
+    cursor:pointer !important;
+
+}
 .medium-gray-button{
     border: 0px !important;
     background-color: #ECECEC !important;
@@ -730,8 +739,16 @@ opacity: .4 !important
     line-height: 14px !important;
     border-radius: 5px !important;
 }
-
-.medium-orange-button, .add-to-cart-store a.add_to_cart_button, div.comment-respond > form.comment-form > p.form-submit > input#submit, .add-to-cart-store a.product_type_simple, .add-to-cart-store a.product_type_variable, .add-to-cart-store a.product_type_external, .add-to-cart-store a.product_type_grouped{
+.info-gen{
+    color:white !important;
+    background-color: #ef7f27 !important;
+    border-color:#ef5b05 !important;
+}
+.info-gen:before{
+    background-color: #ECECEC !important;
+    color: #ef7f27 !important;
+}
+.medium-orange-button,.success-button-wrapper .button, table.compare-list tr.add-to-cart td a.button,.add-to-cart-store a.add_to_cart_button, div.comment-respond > form.comment-form > p.form-submit > input#submit, .add-to-cart-store a.product_type_simple, .add-to-cart-store a.product_type_variable, .add-to-cart-store a.product_type_external, .add-to-cart-store a.product_type_grouped{
     border: 0px !important;
     background-color: #ef7f27 !important;
     color:#ffffff!important;
@@ -743,7 +760,7 @@ opacity: .4 !important
     border-radius: 5px !important;
     font-weight:700 !important;
 }
-.medium-orange-button:hover, .add-to-cart-store a.add_to_cart_button:hover, div.comment-respond > form.comment-form > p.form-submit > input#submit:hover, .add-to-cart-store a.product_type_simple:hover, .add-to-cart-store a.product_type_variable:hover, .add-to-cart-store a.product_type_external:hover, .add-to-cart-store a.product_type_grouped:hover{
+.medium-orange-button:hover,.success-button-wrapper .button:hover,table.compare-list a.button:hover, .add-to-cart-store a.add_to_cart_button:hover, div.comment-respond > form.comment-form > p.form-submit > input#submit:hover, .add-to-cart-store a.product_type_simple:hover, .add-to-cart-store a.product_type_variable:hover, .add-to-cart-store a.product_type_external:hover, .add-to-cart-store a.product_type_grouped:hover{
     color: #ffffff !important;
     background-color: #dd3b0f !important;
     font-size:16px !important;
@@ -754,7 +771,7 @@ opacity: .4 !important
     line-height: 14px !important;
     border-radius: 5px !important;
 }
-.call-to-action-button,.cart  button.single_add_to_cart_button{
+.call-to-action-button,.cart  button.single_add_to_cart_button, .cart-checkout .button , .woocommerce-checkout-review-order #place_order{
     border: 0px !important;
     background-color: #ef7f27 !important;
     color:#ffffff !important;
@@ -766,7 +783,7 @@ opacity: .4 !important
     border-radius: 5px !important;
     font-weight:700;
 }
-.call-to-action-button:hover, .cart  button.single_add_to_cart_button:hover{
+.call-to-action-button:hover, .cart  button.single_add_to_cart_button:hover,.cart-checkout .button:hover, .woocommerce-checkout-review-order #place_order:hover{
     color: #ffffff !important;
     background-color: #dd3b0f !important;
     border-color: #dd3b0f !important;
@@ -775,6 +792,12 @@ opacity: .4 !important
     padding:15px 30px !important;
     line-height: 18px !important;
     border-radius: 5px !important;
+}
+.mes-search{
+    margin-left: -8px;
+    height: 32px;
+    width: 37px;
+    line-height: 25px
 }
 
 @media (max-width:1999px){

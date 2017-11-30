@@ -65,7 +65,8 @@ class EC_Filters
 			));
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'orders',
-				'title' => __( 'My Orders', 'ktt' ),
+				'title' => __( 'My Purchases', 'ktt' ),
+				//'title' => __( 'My Orders', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
@@ -155,7 +156,8 @@ class EC_Filters
 			));
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'my-account/orders',
-				'title' => __( 'My Orders', 'ktt' ),
+				//'title' => __( 'My Orders', 'ktt' ),
+				'title' => __( 'My Purchases', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
@@ -173,7 +175,7 @@ class EC_Filters
 		}
 
 		// Global
-		$menu->items[] = new EC_MenuItem([
+/*		$menu->items[] = new EC_MenuItem([
 			'id' => 'disputes',
 			'title' => __('Disputes', 'ktt'),
 			'url' => get_site_url(null, 'my-account/disputes'),
@@ -187,7 +189,7 @@ class EC_Filters
 			'title' => __('Portfolio', 'ktt'),
 			'url' => get_site_url(null, 'my-account/portfolio'),
 			'url_endpoint' => 'my-account/portfolio'
-		]);
+		]);*/
         
         
         

@@ -131,7 +131,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 	</div>
 	<div class="col-md-6">
 
-		<input type="submit" class="button" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" />
+		<input type="submit" class="button medium-gray-button pointer-button" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" />
 
 		<?php do_action( 'woocommerce_cart_actions' ); ?>
 
