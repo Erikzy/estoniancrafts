@@ -699,6 +699,7 @@ opacity: .4 !important
     border-radius: 5px !important;
     font-weight:700 !important;
     letter-spacing: : 0 !important;
+    text-shadow:none !important;
 }
 .smaller-orange-button:hover,.wlst-b-wrapper > a:hover, div#tribe-events-content > a.tribe-events-button:hover , div.tribe-events-cal-links > a.tribe-events-button:hover{
     color: #ffffff !important;
@@ -711,6 +712,7 @@ opacity: .4 !important
     line-height: 14px !important;
     border-radius: 5px !important;
     letter-spacing: : 0 !important;
+    text-shadow:none !important;
 }
 .pointer-button:hover{
     cursor:pointer !important;
@@ -799,7 +801,39 @@ opacity: .4 !important
     width: 37px;
     line-height: 25px
 }
-
+.archive-button-add a.button {
+   /* margin-top:10px !important;*/
+}
+.d-table{
+    display:table  !important;
+    height: 100% ;
+}
+.d-table > div {
+    display:table-cell !important;
+    vertical-align:  middle !important;
+    /*height:34px !important;*/
+    margin-top:auto !important;
+    float: none!important;
+    /*background-color: green*/
+}
+.wishlist-p > div {
+    width:100% !important;
+}
+.adj-grid{
+    height:55px !important;
+   /* background-color: red*/
+}
+.adj-mid-grid{
+    height:80px !important;
+}
+.stars-wrapper .star-rating{
+    margin:auto !important;
+    display:block !important;
+}
+.adj-grid .autor-p div.ec-new-author-heading,.adj-grid  .wishlist-p div.yith-wcwl-add-to-wishlist{
+    padding-top: 0px !important;
+    margin-top:0px !important;
+}
 @media (max-width:1999px){
         .store-user-image {
         width: auto;
