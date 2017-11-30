@@ -104,7 +104,7 @@
 
 </div>
 
-<div class="ec-new-product-grid-right col-md-9">
+<div class="ec-new-product-grid-right col-md-9 rr">
   
   <div class="ec-new-product-grid-right-top">
   	<?php
@@ -129,7 +129,7 @@
 		</div>
   </div>
   
-  <div class="ec-new-product-grid-right-mid">
+  <div class="ec-new-product-grid-right-mid adj-mid-grid">
   	<?php 
   	 $ex =	get_the_excerpt(); 
   	 $max = 270;
@@ -141,34 +141,41 @@
   	?>
   </div>
   
-  <div class="ec-new-product-grid-right-bottom">
+  <div class="ec-new-product-grid-right-bottom adj-grid">
   
-  	<div class="col-md-4" style="padding:0px;">
+  	<div class="col-md-4 d-table" >
+  	<!-- <div class="col-md-4 d-table" style="padding:0px;"> -->
 	
-	  <div class="btn-add"><span class='add-to-cart-store'>
+	  <div class="btn-add archive-button-add"><span class='add-to-cart-store'>
 	    <?php  do_action( 'woocommerce_after_shop_loop_item' ); ?></span>
       </div>
   	</div>
-  	<div class="col-md-4 wishlist-p" style="padding:0px;">
-	 	
-	 	<?php if( class_exists('YITH_WCWL_Shortcode'))  echo YITH_WCWL_Shortcode::add_to_wishlist(array(get_the_ID()));; ?>
-	 	<?php
-	 	  
-	 	
-	 	  woocommerce_template_loop_rating();
-	 	?>
+  	<div class="col-md-4 wishlist-p d-table" >
+  	<!-- <div class="col-md-4 wishlist-p d-table" style="padding:0px;"> -->
+	 	<div class='stars-wrapper'>
+		 	<?php if( class_exists('YITH_WCWL_Shortcode'))  echo YITH_WCWL_Shortcode::add_to_wishlist(array(get_the_ID()));; ?>
+		 	<?php
+		 	  
+		 	
+		 	  woocommerce_template_loop_rating();
+		 	?>
+	  	</div>
   	</div>
-   	<div class="col-md-4 autor-p" style="padding:0px;text-align:left;">
-		<div class="ec-new-author-heading ">
-			<i class="fa fa-user-o" style="font-size: 20px;"></i> 
-			<div class="ec-new-author-name"><?php
-   			$author     = get_user_by( 'id', $product->post->post_author );
-   			if(is_object($author)){
-				echo '<a href="/'.bp_core_get_username( $product->post->post_author).'">'.$author->display_name.'</a>';
-   			}
-   			?>
-   		</div>
-		</div>
+
+   	<!-- <div class="col-md-4 autor-p d-table" style="padding:0px;text-align:left;"> -->
+   	<div class="col-md-4 autor-p d-table" >
+		
+			<div class="ec-new-author-heading ">
+				<i class="fa fa-user-o" style="font-size: 20px;"></i> 
+				<div class="ec-new-author-name"><?php
+	   			$author     = get_user_by( 'id', $product->post->post_author );
+	   			if(is_object($author)){
+					echo '<a href="/'.bp_core_get_username( $product->post->post_author).'">'.$author->display_name.'</a>';
+	   			}
+	   			?>
+	   		 </div>
+			</div>
+	
 
    	</div>  
   	
@@ -180,3 +187,4 @@
 </div>
 
 </div>
+

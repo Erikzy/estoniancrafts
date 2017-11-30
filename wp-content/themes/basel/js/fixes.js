@@ -52,19 +52,24 @@ jQuery(document).ready(function(){
 		}
 		leftArrow.style.top = newPosition + "px";
 		rightArrow.style.top = leftArrow.style.top;
-		let im = jQuery('.woocommerce-main-image')[0].style.marginLeft = space+'px';
-		console.log(carouselWrapperWidth);
-		console.log(carouselContainerWidth);
-		console.log(space);
+		if(jQuery('.woocommerce-main-image').length > 0) {
+		  jQuery('.woocommerce-main-image')[0].style.marginLeft = space+'px';
+		  console.log(carouselWrapperWidth);
+		  console.log(carouselContainerWidth);
+		  console.log(space);
+          if(jQuery('.owl-controls')[0].style.display === 'none'){
 
-		if(jQuery('.owl-controls')[0].style.display === 'none'){
-
-				jQuery('.owl-wrapper-outer')[0].style.left = (-6 + space).toString()+ 'px';
+					jQuery('.owl-wrapper-outer')[0].style.left = (-6 + space).toString()+ 'px';
+			}
 		}
-
+/*		else{
+			//the user must upload the cover image
+		}
+*/
 
 	}
-	baselThumbsOwlCarousel.bind(this,OwlButton());
+	if(typeof baselThumbsOwlCarousel !== 'undefined' && jQuery.isFunction(baselThumbsOwlCarousel) )
+	 baselThumbsOwlCarousel.bind(this,OwlButton());
 /*	jQuery('.y-link').click(function(event){
 		event.preventDefault();
 		event.stopImmediatePropagation();
@@ -93,6 +98,7 @@ jQuery(document).ready(function(){
 });
 
 jQuery(window).resize(function(){
-	baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 1500 ));
+	if(typeof baselThumbsOwlCarousel !== 'undefined' && jQuery.isFunction(baselThumbsOwlCarousel) )
+	baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 1600 ));
 	//window.setTimeout(OwlButton , 500 );
 })

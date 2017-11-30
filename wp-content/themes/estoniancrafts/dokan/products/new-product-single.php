@@ -344,7 +344,7 @@ if ( ! $from_shortcode ) {
                                         <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="<?php echo $feat_image_id; ?>">
 
                                         <i class="fa fa-cloud-upload"></i>
-                                        <a href="#" class="dokan-feat-image-btn btn btn-sm"><?php _e( 'Upload a product cover image', 'dokan' ); ?></a>
+                                        <a href="#" class="dokan-feat-image-btn btn btn-sm smaller-orange-button"><?php _e( 'Upload a product cover image', 'dokan' ); ?></a>
                                     </div>
 
                                     <div class="image-wrap<?php echo $wrap_class; ?>">
@@ -710,8 +710,19 @@ if ( ! $from_shortcode ) {
 */ ?>
 
 						<?php // Publish product ?>
-                        <button name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg ec-product-publish-btn  call-to-action-button m10-r" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up"><?php esc_attr_e( 'Publish', 'ktt' ); ?></button>
-
+                       <script>
+                            checkImage = (ev)=>{
+                                 
+                                if(jQuery('.dokan-feat-image-upload .instruction-inside').hasClass('dokan-hide') === false){
+                                    ev.preventDefault();
+                                     alert('Remember to upload a cover image!');
+                                }
+                                                
+                              
+                            }
+                        </script>
+                        <button name="dokan_add_product" class="dokan-btn dokan-btn-theme dokan-btn-lg ec-product-publish-btn  call-to-action-button m10-r" data-balloon-length="medium" onclick='checkImage(event)'  data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up"><?php esc_attr_e( 'Publish', 'ktt' ); ?></button>
+ 
 						<?php // Save as draft. Only available if product not published yet. ?>
                         <?php if($post_status != 'publish'): ?>
 	                        <button name="dokan_add_product" class="dokan-btn dokan-btn-lg ec-merchant-product-save-btn call-to-action-button"><?php esc_attr_e( 'Save as draft', 'ktt' ); ?></button>

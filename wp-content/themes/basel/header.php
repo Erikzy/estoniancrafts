@@ -15,6 +15,7 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" href="/wp-content/themes/basel/style.min.css?ver=4.6.4"">
+	<link rel="stylesheet" href="/wp-content/themes/basel/style.css">
 	
 	<?php wp_head(); ?>
 	
