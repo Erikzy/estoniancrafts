@@ -834,6 +834,9 @@ opacity: .4 !important
     padding-top: 0px !important;
     margin-top:0px !important;
 }
+.product-additional-galleries > div.product-video-button{
+    display:none !important;
+}
 @media (max-width:1999px){
         .store-user-image {
         width: auto;

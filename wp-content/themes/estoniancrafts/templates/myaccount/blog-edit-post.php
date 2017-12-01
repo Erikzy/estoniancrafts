@@ -1,13 +1,18 @@
 
+    <?php wp_enqueue_media(); 
+    // Get WordPress' media upload URL
+$upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
+
+    ?>
     <form action="" id="edit-blog-post-form" method="POST">
-        <?php   wp_nonce_field( 'blog_post_token', 'blog_post_token' ); ?>
+       <?php wp_nonce_field( 'user_banner_upload', 'user_banner_upload_form' ); ?>
         <p class="row">
             <div class="col-md-8">
                 <div class="fetaute-image">
-                    <img src="<?php if( $post_thumbnail_url ) echo $post_thumbnail_url[0]; ?>" data-img="post_picture">
-                    <input type="hidden" name="post_picture" value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>">
-                    <a href="#" btn-name="post_picture" data-action="add" data-btn="manage_image"  class=" <?php if( $post_thumbnail_id ) echo 'hide'; ?>">Add Image</a>
-                    <a href="#" btn-name="post_picture" data-action="remove"  data-btn="manage_image" class="<?php if( !$post_thumbnail_id ) echo 'hide'; ?>">Remove Image</a>   
+                    <img src="<?php if( $post_thumbnail_url ) echo $post_thumbnail_url[0]; ?>" id='f-image' data-img="post_picture">
+                    <input type="hidden" name="post_picture" id='hidden-input' value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>">
+                    <a href="<?php echo $upload_link ?>" btn-name="post_picture" data-action="add" data-btn="manage_image"  id='upload_button' class=" <?php if( $post_thumbnail_id ) echo 'hide'; ?>">Add Image</a>
+                    <a href="#" btn-name="post_picture" data-action="remove" id='remove_button'  data-btn="manage_image" class="<?php if( !$post_thumbnail_id ) echo 'hide'; ?>">Remove Image</a>   
                 </div>
             </div>            
         </p>
@@ -58,3 +63,68 @@
         </div>
     </div>
 </div>
+<script>
+    jQuery(document).ready(function($) {
+
+  // Define a variable to be used to store the frame data
+  var file_frame;
+  var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
+  var set_to_post_id = "<?php echo $post->ID; ?>"; // Set this
+  var wp_nonce = $("#user_banner_upload_form").val();   
+  $('#upload_button').live('click', function( event ){
+
+    element = $(this);
+    event.preventDefault();
+
+    if (file_frame) {
+      file_frame.uploader.uploader.param('post_id', set_to_post_id);
+      file_frame.open();
+      return;
+    } else {
+      wp.media.model.settings.post.id = set_to_post_id;
+    }
+    
+    file_frame = wp.media.frames.file_frame = wp.media({
+      title: $(this).data('Add your image '),
+      button: {
+        text: $(this).data('Add'),
+      },
+      multiple: false,  // Set to false to allow only one file to be selected
+
+    });
+
+    file_frame.on('select', function() {
+        attachment = file_frame.state().get('selection').first().toJSON();
+        //$( '#image-preview' ).attr( 'src', attachment.url ).css( 'width', 'auto' );
+        //$( '#image_attachment_id' ).val( attachment.id );
+        jQuery('#hidden-input').val( attachment.id );
+        jQuery('#f-image').attr('src', attachment.url  ) ;
+        jQuery('#upload_button').addClass('hide') ;
+        jQuery('#remove_button').removeClass('hide') ;
+        wp.media.model.settings.post.id = wp_media_post_id;
+        //file_frame.setState("cropper");
+        //file_frame.open();
+    });
+    file_frame.open();
+  });
+
+   jQuery('#remove_button').on( 'click', function( event ){
+
+    event.preventDefault();
+
+    // Clear out the preview image
+    jQuery('#f-image').attr('src', '');
+
+    // Un-hide the add image link
+    jQuery('#upload_button').removeClass( 'hide' );
+
+    // Hide the delete image link
+    jQuery('#remove_button').addClass( 'hide' );
+
+    // Delete the image id from the hidden input
+    jQuery('#hidden-input').val( '' );
+
+  });
+
+});
+</script>

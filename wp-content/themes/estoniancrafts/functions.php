@@ -415,10 +415,50 @@ function ec_dokan_get_store_url( $user_id )
     return sprintf( '%s/%s/', home_url(), $user_nicename );
 }
 
-function dokan_edit_product_url_custom(){
+function ec_dokan_get_store_latests_posts( $user_id )
+{
+
+        $args = array(
+          'author'        =>  $user_id, 
+          'orderby'       =>  'post_date',
+          'order'         =>  'DESC',
+          'posts_per_page' => 3 // no limit
+        );
 
 
-  
+        $user_posts = get_posts( $args );
+        
+    return  $user_posts;
+}
+
+function ec_user_profile_data(){
+     global $wp_query;
+     $username = get_user_by('id',$wp_query->query_vars["author"])->user_login;
+     $user= get_user_by('login', $username);
+     include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Link.php');
+     include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Address.php');
+     $ext_profile = get_user_meta( $user->data->ID, 'ktt_extended_profile', true );
+     $fn = isset($user->first_name) ? $user->first_name : null;
+     $ln = isset($user->last_name) ? $user->last_name : null;
+     $name = $fn. ' '. $ln;
+     $nick = isset($user->data->nickname) ? $user->data->nickname : null;
+     $email = isset($user->data->user_email) ? $user->data->user_email : null;
+     $gender = isset($ext_profile['gender']) ? $ext_profile['gender'] : null;
+     $phone = isset($ext_profile['mobile']) ? $ext_profile['mobile'] : null;
+     $skype = isset($ext_profile['skype']) ? $ext_profile['skype'] : null;
+
+
+     $page_data = array(
+            "name" => $name,
+            "nickname" => $nick,
+            "email" => $email,
+            "gender" => $gender,
+            "phone" => $phone,
+            "skype" => $skype
+        ); 
+
+
+     return $page_data;
 }
 
 function ec_get_portfolio_url( $portfolio, $user )
