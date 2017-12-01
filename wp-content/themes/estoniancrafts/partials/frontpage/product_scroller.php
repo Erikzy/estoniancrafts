@@ -5,11 +5,11 @@ if($productQuery->have_posts()):
 ?> 
 
         <div class="row marginTop">
-            <div class="col-md-12">
-                <div class="owl-carousel product-owl-carousel">
+            <div class="col-md-12 overflowRemove" style="overflow:hidden;height:300px;">
+                <div class="owl-carousel product-owl-carousel" style="width:auto;">
                 <?php  while($productQuery->have_posts()):$productQuery->the_post(); ?>
                    <?php $product = wc_get_product( $productQuery->post->ID);?>
-                    <div class="item">
+                    <div class="item fixStyles" style="float:left;width:222px;padding:15px;">
                     	<a href="<?php echo the_permalink() ?>">
                       
                          <div class='owl-carousel-thumb'>
@@ -50,8 +50,14 @@ if($productQuery->have_posts()):
 
 <?php  endif; wp_reset_query(); wp_reset_postdata(); ?>	
 <script>
+
+jQuery(document).ready(function(){
+	jQuery('.overflowRemove').css("overflow","inherit");
+	jQuery('.overflowRemove').css("height","inherit");
+	jQuery('.fixStyles').css("width","inherit");
+	jQuery('.fixStyles').css("padding","");
  
-  
+})
  
 
 </script>
