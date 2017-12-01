@@ -53,7 +53,7 @@ if ( $sellers['users'] ) {
     $num_of_pages = ceil( $user_count / $limit );
 
     if ( $num_of_pages > 1 ) {
-        echo '<div class="pagination-container clearfix">';
+        echo '<div class="pagination-container clearfix ">';
 
         $pagination_args = array(
             'current'   => $paged,
@@ -73,8 +73,8 @@ if ( $sellers['users'] ) {
         $page_links = paginate_links( $pagination_args );
 
         if ( $page_links ) {
-            $pagination_links  = '<div class="pagination-wrap">';
-            $pagination_links .= '<ul class="pagination"><li>';
+            $pagination_links  = '<div class="woocommerce-pagination">';
+            $pagination_links .= '<ul class="page-numbers"><li class="page-numbers">';
             $pagination_links .= join( "</li>\n\t<li>", $page_links );
             $pagination_links .= "</li>\n</ul>\n";
             $pagination_links .= '</div>';

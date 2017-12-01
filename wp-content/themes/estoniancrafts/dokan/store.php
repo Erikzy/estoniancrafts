@@ -123,10 +123,39 @@ get_header( 'shop' );
 					
 					</div>
 					<?php endif; ?>
+                     <div class="facebook-share-profile">
+                        <h5 class="widget-title nullify-padding"><?= __('User info', 'ktt') ?></h5>
+
+                        <?php 
+
+                           $page =  ec_user_profile_data(); 
+                          // var_dump($page);
+                        
+                        ?>
+                    
+
+                        <?php // Social media ?>
+                        <div style="width:80%;float:left; padding-bottom: 30px">
+                            <ul class="user-fields">
+                                <?php if($page["name"]): ?>
+                                    <li><strong>Name: </strong> <br> <?php echo $page["name"] ?></li>
+                                <?php endif; ?>
+                                <?php if($page["phone"]): ?>
+                                    <li><strong>Phone: </strong>  <br> <?php echo $page["phone"] ?></li>
+                                <?php endif; ?>
+                                <?php if($page["email"]): ?>
+                                    <li>
+                                        <strong>Email: </strong><br> <a href="<?= $page->contact_us_url ?>"><?php echo $page["email"] ?></a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </div>
+
 
                     <?php // Share facebook ?>
                     <div class="facebook-share-profile">
-                        <h5 class="widget-title nullify-padding"><?= __('Jaga profiili', 'ktt') ?></h5>
+                        <h5 class="widget-title nullify-padding"><?= __('Share profile', 'ktt') ?></h5>
                         <?php do_action( 'dolmit_share_profile_on_facebook'); ?>
 
                         <?php // Social media ?>
@@ -163,12 +192,23 @@ get_header( 'shop' );
 			
                         <h5 class="widget-title"><?= __('Blog', 'ktt') ?></h5>
                         <div class="clear"></div>
-						<ul class="user-fields">
-							<li>
-								<a href="<?= ec_dokan_get_store_url($store_user->ID) ?>blog"><?= __('Blog', 'ktt') ?></a>
-							</li>
-						</ul>
-			     
+                           <ul>
+                          <?php 
+                             $postss = ec_dokan_get_store_latests_posts($store_user->ID);
+                             
+                             foreach($postss as $post):
+                                setup_postdata( $post );
+
+                                 ?>
+                                <li><a href='<?php echo get_permalink($post->ID);  ?>' ><?php the_title(); ?> </a></li>                    
+                            <?php    
+                             endforeach;
+                            wp_reset_postdata();
+
+                            ?>
+                         </ul>   
+                        
+                        		     
 				<?php
 				}
 				?>
