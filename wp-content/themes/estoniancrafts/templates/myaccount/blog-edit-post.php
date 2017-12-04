@@ -1,18 +1,28 @@
 
-    <?php wp_enqueue_media(); 
+
+<?php 
+if(isset($_POST['post_picture'])){
+    set_post_thumbnail($post, $_POST['post_picture']);
+    $post_thumbnail_url = get_the_post_thumbnail_url();
+
+    }
+
+wp_enqueue_media(); 
     // Get WordPress' media upload URL
+
 $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
 
     ?>
+
     <form action="" id="edit-blog-post-form" method="POST">
-       <?php wp_nonce_field( 'user_banner_upload', 'user_banner_upload_form' ); ?>
+        <?php   wp_nonce_field( 'blog_post_token', 'blog_post_token' ); ?>
         <p class="row">
             <div class="col-md-8">
                 <div class="fetaute-image">
-                    <img src="<?php if( $post_thumbnail_url ) echo $post_thumbnail_url[0]; ?>" id='f-image' data-img="post_picture">
-                    <input type="hidden" name="post_picture" id='hidden-input' value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>">
-                    <a href="<?php echo $upload_link ?>" btn-name="post_picture" data-action="add" data-btn="manage_image"  id='upload_button' class=" <?php if( $post_thumbnail_id ) echo 'hide'; ?>">Add Image</a>
-                    <a href="#" btn-name="post_picture" data-action="remove" id='remove_button'  data-btn="manage_image" class="<?php if( !$post_thumbnail_id ) echo 'hide'; ?>">Remove Image</a>   
+                    <img src="<?php if( $post_thumbnail_url ) echo $post_thumbnail_url[0]; ?>" id='set-post-thumbnail' data-img="post_picture">
+                    <input type="hidden" name="post_picture" id='hidden-input' value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>"><br><br>
+                    <a href="<?php echo $upload_link ?>" btn-name="post_picture" data-action="add" data-btn="manage_image"  id='upload_button' class=" <?php if( $post_thumbnail_id ) echo 'hide';  ?> smaller-gray-button" >Add Image</a>
+                    <a href="#" btn-name="post_picture" data-action="remove" id='remove_button'  data-btn="manage_image" class="<?php if( !$post_thumbnail_id ) echo 'hide'; ?> smaller-gray-button" >Remove Image</a>   
                 </div>
             </div>            
         </p>
@@ -63,6 +73,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
         </div>
     </div>
 </div>
+
 <script>
     jQuery(document).ready(function($) {
 
@@ -70,7 +81,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
   var file_frame;
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
   var set_to_post_id = "<?php echo $post->ID; ?>"; // Set this
-  var wp_nonce = $("#user_banner_upload_form").val();   
+  var wp_nonce = $("#blog_post_token").val();   
   $('#upload_button').live('click', function( event ){
 
     element = $(this);
@@ -91,6 +102,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
       },
       multiple: false,  // Set to false to allow only one file to be selected
 
+
     });
 
     file_frame.on('select', function() {
@@ -98,7 +110,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
         //$( '#image-preview' ).attr( 'src', attachment.url ).css( 'width', 'auto' );
         //$( '#image_attachment_id' ).val( attachment.id );
         jQuery('#hidden-input').val( attachment.id );
-        jQuery('#f-image').attr('src', attachment.url  ) ;
+        jQuery('#set-post-thumbnail').attr('src', attachment.url  ) ;
         jQuery('#upload_button').addClass('hide') ;
         jQuery('#remove_button').removeClass('hide') ;
         wp.media.model.settings.post.id = wp_media_post_id;
@@ -113,7 +125,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
     event.preventDefault();
 
     // Clear out the preview image
-    jQuery('#f-image').attr('src', '');
+    jQuery('#set-post-thumbnail').attr('src', '');
 
     // Un-hide the add image link
     jQuery('#upload_button').removeClass( 'hide' );
