@@ -655,6 +655,7 @@ opacity: .4 !important
     font-weight:700 !important;
     border: 0px !important;
     height: 34px !important;
+    text-decoration: none !important;
 }
 .smaller-gray-button:hover, #edit-blog-post-form button#insert-media-button:hover,div.price_slider_wrapper > div.price_slider_amount > button.button:hover
 {
@@ -669,6 +670,7 @@ opacity: .4 !important
     border-radius: 5px !important;
     font-weight:700 !important;
     height:34px !important;
+    text-decoration: none !important
     
 }
 .smaller-orange-button,.wlst-b-wrapper > a, div#tribe-events-content > a.tribe-events-button , div.tribe-events-cal-links > a.tribe-events-button {

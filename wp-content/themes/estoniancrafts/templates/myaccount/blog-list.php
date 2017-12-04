@@ -36,7 +36,7 @@
                         <td><?= get_post_status() ?></td>
                         <td>
                             <?php if ( !in_array(get_post_status(), ['pending', 'publish']) ): ?>
-                                <a class="btn" href="<?= home_url('my-account/blog/edit?id='.get_the_ID()) ?>"><?= __('Edit', 'ktt') ?></a>
+                                <a class="smaller-gray-button" href="<?= home_url('my-account/blog/edit?id='.get_the_ID()) ?>"><?= __('Edit', 'ktt') ?></a>
                             <?php endif; ?>
                         </td>
                     </tr>
