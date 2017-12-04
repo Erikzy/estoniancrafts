@@ -1,11 +1,13 @@
 
-    <?php wp_enqueue_media(); 
+
+<?php wp_enqueue_media(); 
     // Get WordPress' media upload URL
 $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
 
     ?>
+   
     <form action="" id="edit-blog-post-form" method="POST">
-       <?php wp_nonce_field( 'user_banner_upload', 'user_banner_upload_form' ); ?>
+        <?php   wp_nonce_field( 'blog_post_token', 'blog_post_token' ); ?>
         <p class="row">
             <div class="col-md-8">
                 <div class="fetaute-image">
@@ -63,6 +65,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
         </div>
     </div>
 </div>
+
 <script>
     jQuery(document).ready(function($) {
 
@@ -70,7 +73,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
   var file_frame;
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
   var set_to_post_id = "<?php echo $post->ID; ?>"; // Set this
-  var wp_nonce = $("#user_banner_upload_form").val();   
+  var wp_nonce = $("#blog_post_token").val();   
   $('#upload_button').live('click', function( event ){
 
     element = $(this);
