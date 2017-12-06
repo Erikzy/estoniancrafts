@@ -58,6 +58,10 @@ li.my-shop-item:before {
 /*    position: absolute;
     left: 40px;*/
 }
+.myaccount-orders-table{
+    width:100%;
+    min-width:594px;
+}
 .wrapp-header {
     height: 65px;
     min-height: 65px; 
@@ -454,6 +458,26 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     padding-left:18px;
 
 }
+#order_shipping_line_items{
+    border: 0px !important;
+}
+.sub-table-total{
+    width: 100%;
+    margin-top:80px;
+}
+.sub-table-total table{
+    width:300px;
+    border: solid 1px #eeeeee;
+}
+.sub-table-total tr , .sub-table-total td{
+    border-color: #eeeeee;
+    color:black;
+    font-weight: bold;
+    text-align:right;
+}
+.myaccount-orders-table .wc-order-refund-items{
+    margin-top:80px;
+}
 .sidebar_widget_left_new{
     width:227px !important;
     padding-left:18px;
@@ -612,7 +636,8 @@ border-bottom-right-radius: 8px !important;
 .lbutton {
     width:150px !important;
     display:block !important;
-    margin:auto !important;
+    margin:50px auto !important;
+
 }
 .button-t{ /*bigger-orange-button */
     border: 0px !important;
@@ -728,7 +753,7 @@ opacity: .4 !important
     margin-top: -3px;
 }
 .rbutton{
-    margin-top: 35px !important;
+    margin-top: 85px !important;
 }
 .smaller-orange-button,.wlst-b-wrapper > a, div#tribe-events-content > a.tribe-events-button , div.tribe-events-cal-links > a.tribe-events-button {
     border: 0px !important;
@@ -881,6 +906,12 @@ opacity: .4 !important
 .product-additional-galleries > div.product-video-button{
     display:none !important;
 }
+.modal {
+    z-index: 70000 !important;
+}
+.modal-backdrop{
+    z-index: 900 !important;
+}
 @media (max-width:1999px){
         .store-user-image {
         width: auto;
@@ -889,8 +920,12 @@ opacity: .4 !important
     }
 
 }
+
 table tr td, table th{
     background-color:white;
+}
+.address-wrapper{
+    margin-bottom: 1px solid #eeeeee;
 }
 
 @media (max-width: 1750px){
@@ -903,13 +938,17 @@ table tr td, table th{
 }
 
 }
-@media (max-width:1400){
+@media (max-width: 1400px){
     .single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div{
        /*top: -60px !important;*/
     }
     .legend table{
         width:65%;
     }
+/*    .mydokan-w12{
+        width:100% !important;
+        margin: 0 !important;
+    }*/
 
 }
 

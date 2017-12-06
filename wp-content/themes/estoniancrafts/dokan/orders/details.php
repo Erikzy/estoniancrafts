@@ -11,13 +11,44 @@ if ( !dokan_is_seller_has_order( $current_user->ID, $order_id ) ) {
 $statuses = wc_get_order_statuses();
 $order    = new WC_Order( $order_id );
 ?>
+<style>
+/* quick fix */
+.mys{
+    display:none;
+}
+@media (max-width: 1400px){
+
+    .mydokan-w12{
+        min-width: 594px !important;
+        width:100% !important;
+        margin: 0 !important;
+        float:right !important;
+    }
+    .movdiv{
+        min-width:594px;
+    }
+    .mys{
+        /*display:block;
+        width:100%;*/
+    }
+    .my{
+       /* display:none;*/
+       float:left;
+       width:100%;
+    }
+
+}
+
+}
+</style>
 <div class="dokan-clearfix view-d">
     <div class=''>
         <a style="margin-bottom: 20px; line-height:14px !important" href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $order->id ), 'generate_wpo_wcpdf' ); ?>" class="dokan-btn dokan-btn-success medium-orange-button"   target="_blank"><?php echo __('Print invoice and address', 'ktt'); ?></a>
     </div>
-    <div class="dokan-w8" style="margin-right:3%;">
+    <div class="dokan-w8 mydokan-w12" style="margin-right:3%;">
+
         <div class="dokan-clearfix">
-            <div class="" style="width:100%">
+            <div class="myaccount-orders-table">
                 <div class="dokan-panel dokan-panel-default">
                     <div class="dokan-panel-heading"><strong><?php printf( __( 'Order', 'dokan' ) . '#%d', $order->id ); ?></strong> &rarr; <?php _e( 'Order Items', 'dokan' ); ?></div>
                     <div class="dokan-panel-body" id="woocommerce-order-items">
@@ -120,13 +151,15 @@ $order    = new WC_Order( $order_id );
                 </div>
             </div>
 
-            <?php do_action( 'dokan_order_detail_after_order_items', $order ); ?>
 
+
+            <?php do_action( 'dokan_order_detail_after_order_items', $order ); ?>
+<!-- 
             <div class="dokan-left" style="min-width: 49%; margin-right:2%">
                 <div class="dokan-panel dokan-panel-default">
                     <div class="dokan-panel-heading"><strong><?php _e( 'Billing Address', 'dokan' ); ?></strong></div>
                     <div class="dokan-panel-body">
-                        <?php echo $order->get_formatted_billing_address(); ?>
+                        <?php //echo $order->get_formatted_billing_address(); ?>
                     </div>
                 </div>
             </div>
@@ -135,30 +168,31 @@ $order    = new WC_Order( $order_id );
                 <div class="dokan-panel dokan-panel-default">
                     <div class="dokan-panel-heading"><strong><?php _e( 'Shipping Address', 'dokan' ); ?></strong></div>
                     <div class="dokan-panel-body">
-                        <?php echo $order->get_formatted_shipping_address(); ?>
+                        <?php //echo $order->get_formatted_shipping_address(); ?>
                     </div>
                 </div>
             </div>
 
-            <div class="clear"></div>
-
-            <div class=" ov-div" >
+            <div class="clear"></div> -->
+           <div class=" ov-div movdiv" >
                 <div class="dokan-panel dokan-panel-default ">
                     <div class="dokan-panel-heading"><strong><?php _e( 'Downloadable Product Permission', 'dokan' ); ?></strong></div>
                     <div class="dokan-panel-body">
                         <?php
-                            dokan_get_template_part( 'orders/downloadable', '', array( 'order'=> $order ) );
+                           dokan_get_template_part( 'orders/downloadable', '', array( 'order'=> $order ) );
                         ?>
                     </div>
                 </div>
-            </div>
+            </div> 
+
+
         </div>
     </div>
 
-    <div class="dokan-w4" style='margin-left:10px'>
-        <div class="row dokan-clearfix">
+    <div class="dokan-w4 mydokan-w12" style='margin-left:10px'>
+       <!--  <div class="row dokan-clearfix"> -->
             <div class="" style="width:100%">
-                <div class="dokan-panel dokan-panel-default">
+                <div class="dokan-panel dokan-panel-default ">
                     <div class="dokan-panel-heading"><strong><?php _e( 'General Details', 'dokan' ); ?></strong></div>
                     <div class="dokan-panel-body general-details">
                         <ul class="list-unstyled order-status order-status-f">
@@ -239,8 +273,31 @@ $order    = new WC_Order( $order_id );
                             <?php } ?>
                         <?php } ?>
                     </div>
+                <div class='address-wrapper dokan-panel-body general-details ' >
+                   <div class="dokan-left"  style="width:48%" >
+                    <div class="dokan-panel dokan-panel-default">
+                        <div class="dokan-panel-heading" style=" background-color:#EF7F27; color:white" ><strong><?php _e( 'Billing Address', 'dokan' ); ?></strong></div>
+                        <div class="dokan-panel-body">
+                            <?php echo $order->get_formatted_billing_address(); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dokan-right"  style="width:48%" >
+                    <div class="dokan-panel dokan-panel-default" >
+                        <div class="dokan-panel-heading" style=" background-color:#EF7F27; color:white" ><strong><?php _e( 'Shipping Address', 'dokan' ); ?></strong></div>
+                        <div class="dokan-panel-body">
+                            <?php echo $order->get_formatted_shipping_address(); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clear"></div> 
+            </div>
+
                 </div>
             </div>
+
 
             <div class="" style="width:100%">
                 <div class="dokan-panel dokan-panel-default">
@@ -340,7 +397,7 @@ $order    = new WC_Order( $order_id );
 
   </div>
 </div> -->
-        <!-- Modal -->                    <div class="modal fade" id="tracking-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!-- Modal -->         <div class="modal fade" id="tracking-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -371,7 +428,7 @@ $order    = new WC_Order( $order_id );
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default smaller-gray-button" data-dismiss="modal"><?php _e('Close','dokan');?></button>
-                                                <input id="add-tracking-details" type="button" class="btn btn-primary smaller-gray-button-button" value="<?php _e('Add Tracking Details','dokan');?>">
+                                                <input id="add-tracking-details" type="button" class="smaller-gray-button" value="<?php _e('Add Tracking Details','dokan');?>">
                                             </div>
                                         </form>
 
@@ -384,6 +441,7 @@ $order    = new WC_Order( $order_id );
                     </div> <!-- .dokan-panel-body -->
                 </div> <!-- .dokan-panel -->
             </div>
+
         </div> <!-- .row -->
     </div> <!-- .col-md-4 -->
 </div>

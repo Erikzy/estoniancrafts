@@ -105,11 +105,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		endif;
 	?>
 
-	<td class="wc-order-edit-line-item">
+<!-- 	<td class="wc-order-edit-line-item">
 		<?php if ( $order->is_editable() ) : ?>
 			<div class="wc-order-edit-line-item-actions">
 				<a class="edit-order-item" href="#"></a><a class="delete-order-item" href="#"></a>
 			</div>
 		<?php endif; ?>
-	</td>
+	</td> -->
 </tr>

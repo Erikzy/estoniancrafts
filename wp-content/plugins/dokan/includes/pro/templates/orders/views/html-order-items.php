@@ -43,18 +43,19 @@ if ( wc_tax_enabled() ) {
 	$show_tax_columns = ! $legacy_order || sizeof( $order_taxes ) === 1;
 }
 ?>
-<div class="woocommerce_order_items_wrapper wc-order-items-editable">
-	<table cellpadding="0" cellspacing="0" class="woocommerce_order_items dokan-table dokan-table-strip">
-		<thead>
+<div class="woocommerce_order_items_wrapper wc-order-items-editable ">
+
+<table class="table product-listing-table">
+		<thead >
 			<tr>
 				<!-- <th><input type="checkbox" class="check-column" /></th> -->
-				<th class="item sortable" colspan="2" data-sort="string-ins"><?php _e( 'Item', 'dokan' ); ?></th>
+				<th scope="col" class="item sortable" colspan="2" data-sort="string-ins"><?php _e( 'Item', 'dokan' ); ?></th>
 
 				<?php do_action( 'woocommerce_admin_order_item_headers' ); ?>
 
-				<th class="item_cost sortable" data-sort="float"><?php _e( 'Cost', 'dokan' ); ?></th>
-				<th class="quantity sortable" data-sort="int"><?php _e( 'Qty', 'dokan' ); ?></th>
-				<th class="line_cost sortable" data-sort="float"><?php _e( 'Total', 'dokan' ); ?></th>
+				<th  scope="col" class="item_cost sortable" data-sort="float"><?php _e( 'Cost', 'dokan' ); ?></th>
+				<th scope="col" class="quantity sortable" data-sort="int"><?php _e( 'Qty', 'dokan' ); ?></th>
+				<th  scope="col" class="line_cost sortable" data-sort="float"><?php _e( 'Total', 'dokan' ); ?></th>
 
 				<?php
 					if ( empty( $legacy_order ) && ! empty( $order_taxes ) ) :
@@ -63,7 +64,7 @@ if ( wc_tax_enabled() ) {
 							$tax_class_name = isset( $classes_options[ $tax_class ] ) ? $classes_options[ $tax_class ] : __( 'Tax', 'dokan' );
 							$column_label   = ! empty( $tax_item['label'] ) ? $tax_item['label'] : __( 'Tax', 'dokan' );
 							?>
-								<th class="line_tax tips" data-tip="<?php
+								<th scope="col" class="line_tax tips" data-tip="<?php
 										echo esc_attr( $tax_item['name'] . ' (' . $tax_class_name . ')' );
 									?>">
 									<?php echo esc_attr( $column_label ); ?>
@@ -74,8 +75,7 @@ if ( wc_tax_enabled() ) {
 						endforeach;
 					endif;
 				?>
-				<th class="wc-order-edit-line-item" width="1%">&nbsp;</th>
-			</tr>
+							</tr>
 		</thead>
 		<tbody id="order_line_items">
 		<?php
@@ -89,7 +89,9 @@ if ( wc_tax_enabled() ) {
 			}
 		?>
 		</tbody>
-		<tbody id="order_shipping_line_items">
+
+
+		<tbody id="order_shipping_line_items" >
 		<?php
 			$shipping_methods = WC()->shipping() ? WC()->shipping->load_shipping_methods() : array();
 			foreach ( $line_items_shipping as $item_id => $item ) {
@@ -113,9 +115,10 @@ if ( wc_tax_enabled() ) {
 			}
 		?>
 		</tbody>
-	</table>
+</table>
+
 </div>
-<div class="wc-order-data-row wc-order-totals-items wc-order-items-editable">
+<div class="wc-order-data-row wc-order-totals-items wc-order-items-editable sub-table-total">
 	<?php
 		$coupons = $order->get_items( array( 'coupon' ) );
 		if ( $coupons ) {
@@ -135,7 +138,7 @@ if ( wc_tax_enabled() ) {
 			<?php
 		}
 	?>
-	<table class="wc-order-totals">
+	<table class="wc-order-totals product-listing-table">
 		<tr>
 			<td><?php _e( 'Discount', 'dokan' ); ?> <span class="tips" data-tip="<?php _e( 'This is the total discount. Discounts are defined per line item.', 'dokan' ); ?>">[?]</span>:</td>
 			<td class="total">
@@ -204,7 +207,7 @@ if ( wc_tax_enabled() ) {
 
 <?php if ( ( $order->get_total() - $order->get_total_refunded() ) > 0 ) : ?>
 <div class="wc-order-data-row wc-order-refund-items" style="display: none;">
-	<table class="wc-order-totals dokan-table dokan-table-strip">
+	<table class="product-listing-table">
 
 		<tr>
 			<td><?php _e( 'Amount already refunded', 'dokan' ); ?>:</td>
