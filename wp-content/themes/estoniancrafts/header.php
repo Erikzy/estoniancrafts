@@ -93,11 +93,19 @@
 		if($count > 0 ){
 			echo '<span class="unreadMessages">'.$count.'</span>'; 
 		}
-		echo '</i>&nbsp;&nbsp;</a>'
+		echo '</i>&nbsp;&nbsp;</a>';
+		if(in_array('seller', $user->roles)){
+			$url = get_site_url().'/my-account/dashboard';
+		} else {
+			$url = get_site_url().'/my-account/edit-account';
+		}
+	
 ?>
 
 
- 	<a href="/my-account/dashboard/" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
+ 	<a href="<?php echo $url; ?>" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
+
+
 	<a href="<?php echo wp_logout_url(home_url()); ?>" title="<?php _e('Log out','woothemes'); ?>"><?php _e('Log out','woothemes') ?></a>
 
  <?php
