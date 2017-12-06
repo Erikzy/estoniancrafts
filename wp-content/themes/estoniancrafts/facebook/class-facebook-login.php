@@ -86,6 +86,7 @@ class FacebookLogin{
 
         $loginUrl = $this->getLoginUrl();
         if ($loginUrl === false) {
+           // return __('Login or register with Facebook is not set up yet.', 'ktt');
             return __('Login or register with Facebook is not set up yet.', 'ktt');
         }
         // We save the URL for the redirection:
@@ -93,12 +94,12 @@ class FacebookLogin{
             $_SESSION['ec_facebook_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
         // Different labels according to whether the user is allowed to register or not
         if (get_option( 'users_can_register' )) {
-            $button_label = __('Login or Register with Facebook', 'alkaweb');
+            $button_label = __('Facebook', 'alkaweb');
         } else {
             $button_label = __('Login with Facebook', 'alkaweb');
         }
         // HTML markup
-        $html = '<div class="ec-facebook-wrapper">';
+        $html = '<div class="ec-facebook-wrapper"  ">';
         // Messages
         if(isset($_SESSION['ec_facebook_message'])) {
             $message = $_SESSION['ec_facebook_message'];
@@ -111,7 +112,7 @@ class FacebookLogin{
         }
 
         // Button
-        $html .= '<a href="'.$this->getLoginUrl().'" class="btn"><img src="https://www.facebook.com/rsrc.php/v3/yC/r/aMltqKRlCHD.png"><span>'.$button_label.'</span></a>';
+        $html .= '<a href="'.$this->getLoginUrl().'" class=""><img src="https://www.facebook.com/rsrc.php/v3/yC/r/aMltqKRlCHD.png"><span>'.$button_label.'</span></a>';
         $html .= '</div>';
         // Write it down
         return $html;

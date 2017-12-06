@@ -102,11 +102,13 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<label for="rememberme" class="inline">
 					<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
 				</label>
-				<input type="submit" class="woocommerce-Button button medium-orange-button" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
+				<input type="submit" class="woocommerce-Button button smaller-orange-button lbutton" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
             </p>
+            <div class='row'>
+	            <div class='col-sm-6 fb-wrapper'><?php echo do_shortcode( '[ec_facebook_login_button]' ); ?></div>
+	            <div class='col-sm-6'><?php echo do_shortcode('[smart_id]') ?></div>
+            </div>
 
-            <?php echo do_shortcode( '[ec_facebook_login_button]' ); ?>
-            <?php echo do_shortcode('[smart_id]') ?>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
@@ -159,7 +161,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 
 			<p class="woocomerce-FormRow form-row">
 				<?php wp_nonce_field( 'woocommerce-register' ); ?>
-				<input type="submit" class="woocommerce-Button button medium-orange-button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
+				<input type="submit" class="woocommerce-Button button smaller-orange-button lbutton rbutton" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
@@ -179,7 +181,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<div class="registration-info"><?php echo ($text); ?></div>
 			<?php endif ?>
 
-			<a href="#" class="btn btn-color-black basel-switch-to-register" data-login="<?php _e( 'Login', 'basel') ?>" data-register="<?php _e( 'Register', 'basel') ?>"><?=strlen($regHash) ?_e( 'Login', 'basel') :_e( 'Register', 'basel')?></a>
+			<a href="#" class="btn btn-color-black basel-switch-to-register " data-login="<?php _e( 'Login', 'basel') ?>" data-register="<?php _e( 'Register', 'basel') ?>"><?=strlen($regHash) ?_e( 'Login', 'basel') :_e( 'Register', 'basel')?></a>
 
 		</div>
 	<?php endif ?>

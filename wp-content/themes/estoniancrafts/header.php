@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<!-- 	<link rel="stylesheet" id="owl-carousel-css" href="http://localhost/ec2/EstonianCrafts/wp-content/themes/basel/css/owl.carousel.css?ver=1.0.1" type="text/css" media="all">
+	<script type="text/javascript" src="http://localhost/ec2/EstonianCrafts/wp-content/themes/basel/js/owl.carousel.min.js?ver=1.0"></script> -->
 	<?php wp_head(); ?>
     
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
