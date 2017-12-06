@@ -583,6 +583,12 @@ border-top-right-radius: 8px !important;
 border-bottom-right-radius: 8px !important;
 
 }
+.ov-div .order_download_permissions{
+    padding-left:15px !important;
+}
+.ov-div button, .vd-add {
+    margin-left:15px !important;
+}
 .search-submit-messages:after{
     content: "\e090" !important;
     font-size: 18px !important; 
@@ -591,7 +597,23 @@ border-bottom-right-radius: 8px !important;
     display: inline-block !important;
     line-height: 40px !important;
 }
+.view-d .minus , .view-d .plus {
+    display:none;
+}
+.view-d p, .view-d a, .view-d span, .view-d div {
+
+    line-height:18px !important;
+}
+.print-wrapper {
+    
+}
 /* m8 buttons */
+
+.lbutton {
+    width:150px !important;
+    display:block !important;
+    margin:auto !important;
+}
 .button-t{ /*bigger-orange-button */
     border: 0px !important;
     background-color: #ef7f27 !important;
@@ -672,6 +694,41 @@ opacity: .4 !important
     height:34px !important;
     text-decoration: none !important
     
+}
+.lost_password a:hover {
+    color:#ef7f27 !important;
+
+}
+.ec-facebook-wrapper a{
+    padding:5px !important;
+    padding-top:9px !important;
+    margin:auto !important;
+    display:block;
+    width: 110px !important;
+    height:36px !important;
+    text-align: center;
+    text-decoration: none
+}
+#smartid-id-login{
+    width:112px !important;
+        margin:auto !important;
+       margin-top: -3px !important;
+    display:block;
+}
+.ec-facebook-wrapper{
+    float:right;
+    height: 36px
+}
+.ec-facebook-wrapper a > span{
+    
+    font-weight:700;
+
+}
+.ec-facebook-wrapper img{
+    margin-top: -3px;
+}
+.rbutton{
+    margin-top: 35px !important;
 }
 .smaller-orange-button,.wlst-b-wrapper > a, div#tribe-events-content > a.tribe-events-button , div.tribe-events-cal-links > a.tribe-events-button {
     border: 0px !important;

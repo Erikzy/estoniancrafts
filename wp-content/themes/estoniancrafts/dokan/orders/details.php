@@ -11,9 +11,9 @@ if ( !dokan_is_seller_has_order( $current_user->ID, $order_id ) ) {
 $statuses = wc_get_order_statuses();
 $order    = new WC_Order( $order_id );
 ?>
-<div class="dokan-clearfix">
-    <div style="text-align: right;">
-        <a style="margin-bottom: 20px;" href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $order->id ), 'generate_wpo_wcpdf' ); ?>" class="dokan-btn dokan-btn-success medium-orange-button" target="_blank"><?php echo __('Print invoice and address', 'ktt'); ?></a>
+<div class="dokan-clearfix view-d">
+    <div class=''>
+        <a style="margin-bottom: 20px; line-height:14px !important" href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $order->id ), 'generate_wpo_wcpdf' ); ?>" class="dokan-btn dokan-btn-success medium-orange-button"   target="_blank"><?php echo __('Print invoice and address', 'ktt'); ?></a>
     </div>
     <div class="dokan-w8" style="margin-right:3%;">
         <div class="dokan-clearfix">
@@ -142,8 +142,8 @@ $order    = new WC_Order( $order_id );
 
             <div class="clear"></div>
 
-            <div class="" style="100%">
-                <div class="dokan-panel dokan-panel-default">
+            <div class=" ov-div" >
+                <div class="dokan-panel dokan-panel-default ">
                     <div class="dokan-panel-heading"><strong><?php _e( 'Downloadable Product Permission', 'dokan' ); ?></strong></div>
                     <div class="dokan-panel-body">
                         <?php
@@ -155,7 +155,7 @@ $order    = new WC_Order( $order_id );
         </div>
     </div>
 
-    <div class="dokan-w4">
+    <div class="dokan-w4" style='margin-left:10px'>
         <div class="row dokan-clearfix">
             <div class="" style="width:100%">
                 <div class="dokan-panel dokan-panel-default">
@@ -299,18 +299,48 @@ $order    = new WC_Order( $order_id );
                                     <input type="hidden" name="delete-note-security" id="delete-note-security" value="<?php echo wp_create_nonce('delete-order-note'); ?>">
                                     <input type="hidden" name="post_id" value="<?php echo $order->id; ?>">
                                     <input type="hidden" name="action" value="dokan_add_order_note">
-                                    <input type="submit" name="add_order_note" class="add_note btn btn-sm btn-theme medium-orange-button" value="<?php esc_attr_e( 'Add Note', 'dokan' ); ?>">
+                                    <input type="submit" name="add_order_note" class="add_note btn btn-sm btn-theme medium-orange-button vd-add" value="<?php esc_attr_e( 'Add Note', 'dokan' ); ?>">
                                 </div>
                             </form>
 
                             <div class="clearfix dokan-form-group" style="margin-top: 10px;">
                                 <!-- Trigger the modal with a button -->
-                                <input type="button" data-toggle="modal" data-target="#tracking-modal" id="add-tracking-number" name="add_tracking_number" class="dokan-btn dokan-btn-success grant_access smaller-gray-button" value="<?php esc_attr_e( 'Tracking Number', 'dokan' ); ?>">
-                                
+                         <!--        <input type="button" data-toggle="modal" data-target="#tracking-modal" id="add-tracking-number" name="add_tracking_number" class=" smaller-gray-button" value="<?php esc_attr_e( 'Tracking Number', 'dokan' ); ?>"> -->
+
+                         <button type="button"  data-toggle="modal" data-target="#tracking-modal" id="add-tracking-number" name="add_tracking_number" class="dokan-btn dokan-btn-default refund-items smaller-gray-button" value="<?php esc_attr_e( 'Tracking Number', 'dokan' ); ?>"d >Tracking Number</button>
+<!--                                                       <script>
+                            document.getElementById("add-tracking-number").addEventListener("click", function(event){
+                                event.preventDefault()
+                            });
+                                                     </script>  -->  
                             </div>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="tracking-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+<!--                             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+
+                            
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+ 
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div> -->
+        <!-- Modal -->                    <div class="modal fade" id="tracking-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -340,8 +370,8 @@ $order    = new WC_Order( $order_id );
                                                 <input type="hidden" name="action" id="action" value="dokan_add_shipping_tracking_info">
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Close','dokan');?></button>
-                                                <input id="add-tracking-details" type="button" class="btn btn-primary" value="<?php _e('Add Tracking Details','dokan');?>">
+                                                <button type="button" class="btn btn-default smaller-gray-button" data-dismiss="modal"><?php _e('Close','dokan');?></button>
+                                                <input id="add-tracking-details" type="button" class="btn btn-primary smaller-gray-button-button" value="<?php _e('Add Tracking Details','dokan');?>">
                                             </div>
                                         </form>
 
