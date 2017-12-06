@@ -23,7 +23,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
             <div class="col-md-8">
                 <div class="fetaute-image">
                     <img src="<?php if( $post_thumbnail_url ) echo $post_thumbnail_url; ?>" id='set-post-thumbnail' data-img="post_picture">
-                    <input type="text" name="post_picture" id='hidden-input' value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>"><br><br>
+                    <input type="hidden" name="post_picture" id='hidden-input' value="<?php if( $post_thumbnail_id ) echo $post_thumbnail_id; ?>"><br><br>
                     <a href="<?php echo $upload_link ?>" btn-name="post_picture" data-action="add" data-btn="manage_image"  id='upload_button' class=" <?php if( $post_thumbnail_id ) echo 'hide';  ?> smaller-gray-button" >Add Image</a>
                     <a href="#" btn-name="post_picture" data-action="remove" id='remove_button'  data-btn="manage_image" class="<?php if( !$post_thumbnail_id ) echo 'hide'; ?> smaller-gray-button" >Remove Image</a>   
                 </div>
