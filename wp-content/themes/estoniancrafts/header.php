@@ -12,6 +12,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <!-- 	<link rel="stylesheet" id="owl-carousel-css" href="http://localhost/ec2/EstonianCrafts/wp-content/themes/basel/css/owl.carousel.css?ver=1.0.1" type="text/css" media="all">
@@ -95,11 +96,19 @@
 		if($count > 0 ){
 			echo '<span class="unreadMessages">'.$count.'</span>'; 
 		}
-		echo '</i>&nbsp;&nbsp;</a>'
+		echo '</i>&nbsp;&nbsp;</a>';
+		if(in_array('seller', $user->roles)){
+			$url = get_site_url().'/my-account/dashboard';
+		} else {
+			$url = get_site_url().'/my-account/edit-account';
+		}
+	
 ?>
 
 
- 	<a href="/my-account/dashboard/" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
+ 	<a href="<?php echo $url; ?>" title="<?php _e('My Account','woothemes'); ?>"><?=$fullName ?></a>
+
+
 	<a href="<?php echo wp_logout_url(home_url()); ?>" title="<?php _e('Log out','woothemes'); ?>"><?php _e('Log out','woothemes') ?></a>
 
  <?php
