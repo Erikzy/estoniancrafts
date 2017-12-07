@@ -31,7 +31,7 @@
                                 <# } #>
                             </select>
                         </th>
-                        <th><a href="#" class="dokan-btn dokan-btn-default add_single_attribute_option"><?php _e( 'Add Option', 'dokan' ) ?></a></th>
+                        <th><a href="#" class="dokan-btn dokan-btn-default add_single_attribute_option smaller-gray-button"><?php _e( 'Add Option', 'dokan' ) ?></a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,7 +91,7 @@
                 </tbody>
             </table>
             <input type="hidden" name="product_id" value="<?php echo $post_id ?>">
-            <input type="submit" class="dokan-btn dokan-btn-theme dokan-right" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>">
+            <input type="submit" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>">
             <span class="dokan-loading dokan-save-single-attr-loader dokan-hide"></span>
             <div class="dokan-clearfix"></div>
         </form>

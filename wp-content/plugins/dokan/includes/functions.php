@@ -485,7 +485,7 @@ function dokan_post_input_box( $post_id, $meta_key, $attr = array(), $type = 'te
         case 'select':
             $options = is_array( $attr['options'] ) ? $attr['options'] : array();
             ?>
-            <select name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="<?php echo $class; ?>">
+            <select name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="<?php echo $class; ?>" >
                 <?php foreach ($options as $key => $label) { ?>
                     <option value="<?php echo esc_attr( $key ); ?>"<?php selected( $value, $key ); ?>><?php echo $label; ?></option>
                 <?php } ?>

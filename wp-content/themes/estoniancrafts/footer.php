@@ -49,6 +49,7 @@
 <?php wp_footer(); ?>
 
 <?php if (basel_needs_footer()) do_action( 'basel_after_footer' ); ?>
+<div id='rndd'></div>
 
 </body>
 </html>

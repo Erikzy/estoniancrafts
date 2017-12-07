@@ -38,7 +38,7 @@
                                     }?>
                                 </select>
                             </th>
-                            <th><a href="#" class="dokan-btn dokan-btn-default add_attribute_option"><?php _e( 'Add Option', 'dokan' ) ?></a></th>
+                            <th><a href="#" class="dokan-btn dokan-btn-default add_attribute_option smaller-gray-button"><?php _e( 'Add Option', 'dokan' ) ?></a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +67,7 @@
                                 $att_val = $options;
                             }
                             ?>
-                            <td colspan="3">
+                            <td colspan="4">
                                 <input type="hidden" name="attribute_values[]" value="<?php echo implode( ',', $options ); ?>">
 
                                 <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
@@ -94,7 +94,7 @@
                                 <input type="text" name="attribute_names[]" value="" class="dokan-form-control dokan-attribute-option-name">
                                 <input type="hidden" name="attribute_is_taxonomy[]" value="0">
                             </td>
-                            <td colspan="4"><input type="text" name="attribute_values[]" value="" data-preset_attr="" class="dokan-form-control dokan-attribute-option-values"></td>
+                            <td colspan="4" class="cons-input" ><input type="text" name="attribute_values[]" value="" data-preset_attr="" class="dokan-form-control dokan-attribute-option-values "></td>
                             <td><button class="dokan-btn dokan-btn-theme remove_attribute"><i class="fa fa-trash-o"></i></button></td>
                         </tr>
                     <?php endif ?>

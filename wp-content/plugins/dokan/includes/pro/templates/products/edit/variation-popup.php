@@ -169,7 +169,7 @@
                                                                             <tfoot>
                                                                                 <tr>
                                                                                     <th colspan="4">
-                                                                                        <a href="#" class="insert-file-row btn btn-sm btn-success" data-row='
+                                                                                        <a href="#" class="insert-file-row btn btn-sm btn-success smaller-orange-button" data-row='
                                                                                             <tr>
                                                                                                 <td class="file_name"><input type="text" class="input_text" placeholder="<?php _e( "File Name", "dokan" ); ?>" name="_wc_variation_file_names[{{ ( !_.isUndefined( data.variation_id ) ) ? data.variation_id[0] : ''  }}][]" value="" /></td>
                                                                                                 <td class="file_url"><input type="text" class="input_text wc_file_url" placeholder="<?php _e( "http://", "dokan" ); ?>" name="_wc_variation_file_urls[{{ ( !_.isUndefined( data.variation_id ) ) ? data.variation_id[0] : ''  }}][]" value="" /></td>
@@ -249,7 +249,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" id="dokan_save_single_variation" name="dokan_save_single_variation" value="<?php _e( 'Save', 'dokan' ) ?>" class="dokan-btn dokan-btn-theme dokan-right">
+                        <input type="submit" id="dokan_save_single_variation" name="dokan_save_single_variation" value="<?php _e( 'Save', 'dokan' ) ?>" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button">
                         <span class="dokan-loading dokan-hide"></span>
                     </form>
                     <div class="dokan-clearfix"></div>

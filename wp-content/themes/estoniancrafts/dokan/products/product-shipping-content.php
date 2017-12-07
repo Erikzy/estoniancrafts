@@ -42,7 +42,7 @@
                     <?php dokan_post_input_box( $post_id, '_food_cargo', array('value' => $is_food, 'label' => __( 'Is food', 'ktt' ) ), 'checkbox' ); ?>
 				</div>
                 <div class="show_if_needs_shipping row">
-					<div class="col-md-3 dfdgd">
+					<div class="col-md-3 cont-labels">
                         
 	                    <label class="control-label"><?php _e( 'length', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_length', array( 'class' => 'form-control' ), 'number' ); ?>
@@ -56,8 +56,8 @@
 	                    <?php dokan_post_input_box( $post_id, '_height', array( 'class' => 'form-control' ), 'number' ); ?>
 					</div>
 					<div class="col-md-3">
-	                    <label class="control-label"><?php _e( 'Dimension unit', 'dokan' ) ?></label>
-						<select name="lb-dimension-unit">
+	                    <label class="control-label "><?php _e( 'Dimension unit', 'dokan' ) ?></label>
+						<select name="lb-dimension-unit" class="select-label selects">
 							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'mm'? 'selected':'' ?>>mm</option>
 							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'cm'? 'selected':'' ?>>cm</option>
 							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'm'? 'selected':'' ?>>m</option>
@@ -139,7 +139,7 @@
 
                         <div class="dokan-form-group show_if_override">
                             <label class="dokan-control-label" for="dps_additional_qty"><?php _e( 'Processing Time', 'dokan' ); ?></label>
-                            <select name="_dps_processing_time" id="_dps_processing_time" class="dokan-form-control">
+                            <select name="_dps_processing_time" id="_dps_processing_time" class="dokan-form-control selects">
                                 <?php foreach ( $processing_time as $processing_key => $processing_value ): ?>
                                       <option value="<?php echo $processing_key; ?>" <?php selected( $porduct_shipping_pt, $processing_key ); ?>><?php echo $processing_value; ?></option>
                                 <?php endforeach ?>

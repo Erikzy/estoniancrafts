@@ -108,7 +108,7 @@ if ( $variations )  {
 
 ?>
 
-<table class="dokan-table dokan-variations-table">
+<table class="dokan-table dokan-variations-table inventory-table">
     <thead>
         <tr>
             <th></th>
@@ -207,8 +207,8 @@ if ( $variations )  {
 </table>
 
 <div class="dokan-variation-action-wrapper">
-    <a href="#dokan-single-attribute-wrapper" data-effect="mfp-zoom-out" data-product_attributes='<?php echo json_encode( $modified_attribute ); ?>' data-predefined_attr='<?php echo json_encode( $attribute_taxonomies ); ?>' class="dokan-btn dokan_add_new_attribute dokan-btn-theme dokan-left"><?php _e( 'Add Options', 'dokan' ); ?></a>
-    <a href="#variation-edit-popup" data-post_id='<?php echo $post_id ?>' class="dokan-btn dokan_add_new_variation dokan-btn-theme dokan-right"><?php _e( 'Add New Variation', 'dokan' ); ?></a>
+    <a href="#dokan-single-attribute-wrapper" data-effect="mfp-zoom-out" data-product_attributes='<?php echo json_encode( $modified_attribute ); ?>' data-predefined_attr='<?php echo json_encode( $attribute_taxonomies ); ?>' class="dokan-btn dokan_add_new_attribute dokan-btn-theme dokan-left smaller-orange-button"><?php _e( 'Add Options', 'dokan' ); ?></a>
+    <a href="#variation-edit-popup" data-post_id='<?php echo $post_id ?>' class="dokan-btn dokan_add_new_variation dokan-btn-theme dokan-right smaller-orange-button"><?php _e( 'Add New Variation', 'dokan' ); ?></a>
     <span class="dokan-loading dokan-hide"></span>
     <div class="dokan-clearfix"></div>
 </div>

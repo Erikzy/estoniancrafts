@@ -199,7 +199,7 @@ if ( ! $from_shortcode ) {
                                     <div class="dokan-form-group dokan-clearfix dokan-price-container">
 
 										<?php // Regular price ?>
-                                        <div class="content-half-part regular-price">
+                                        <div class="content-half-part regular-price mrp">
                                             <label for="_regular_price" class="form-label"><?php _e( 'Price', 'dokan' ); ?></label>
 
                                             <div class="dokan-input-group">
@@ -271,7 +271,7 @@ if ( ! $from_shortcode ) {
                                             'id'               => 'product_cat',
                                             'taxonomy'         => 'product_cat',
                                             'title_li'         => '',
-                                            'class'            => 'product_cat dokan-form-control chosen',
+                                            'class'            => 'product_cat dokan-form-control chosen selects',
                                             'exclude'          => '',
                                             'selected'         => $product_cat,
                                         );
@@ -394,8 +394,8 @@ if ( ! $from_shortcode ) {
 
 						<?php // Short description ?>
                         <div class="dokan-product-short-description">
-                            <label for="post_excerpt" class="form-label"><?php _e( 'Short Description', 'dokan' ); ?></label>
-							<span class="ec-form-field-description"><?php _e( 'Product short description description', 'ktt' ); ?></span>
+                            <label for="post_excerpt" class="form-label desc-pro"><?php _e( 'Short Description', 'dokan' ); ?></label>
+							<span class="ec-form-field-description"><?php _e( 'Product short description', 'ktt' ); ?></span>
                             <?php 
 /*                            wp_editor( $post_excerpt , 'post_excerpt', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); */
                             ?>
@@ -406,8 +406,8 @@ if ( ! $from_shortcode ) {
 
 						<?php // Description ?>
                         <div class="dokan-product-description">
-                            <label for="post_content" class="form-label"><?php _e( 'Description', 'dokan' ); ?></label>
-							<span class="ec-form-field-description"><?php _e( 'Product description description', 'ktt' ); ?></span>
+                            <label for="post_content" class="form-label desc-pro"><?php _e( 'Description', 'dokan' ); ?></label>
+							<span class="ec-form-field-description"><?php _e( 'Product description', 'ktt' ); ?></span>
                             <?php 
 
 /*                            wp_editor( $post_content , 'post_content', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_content') );*/
@@ -447,7 +447,7 @@ if ( ! $from_shortcode ) {
                                     <?php dokan_post_input_box( $post_id, '_manage_stock', array( 'label' => __( 'Enable product stock management', 'dokan' ) ), 'checkbox' ); ?>
                                 </div>
 
-                                <div class="show_if_stock dokan-stock-management-wrapper dokan-form-group dokan-clearfix">
+                                <div class="show_if_stock dokan-stock-management-wrapper dokan-form-group dokan-clearfix mywrapper-stock">
 
                                     <div class="dokan-w2 hide_if_variation">
                                         <label for="_stock" class="dokan-form-label"><?php _e( 'Quantity', 'dokan' ); ?></label>
@@ -514,11 +514,11 @@ if ( ! $from_shortcode ) {
                                     <?php endif; ?>
                                     <div class="dokan-side-body dokan-download-wrapper<?php echo ( $_downloadable == 'yes' ) ? '' : ' dokan-hide'; ?>">
 
-                                        <table class="dokan-table dokan-table-condensed">
+                                        <table class="dokan-table dokan-table-condensed mytab-prod">
                                             <tfoot>
                                                 <tr>
-                                                    <th colspan="2">
-                                                        <a href="#" class="insert-file-row dokan-btn dokan-btn-sm dokan-btn-success" data-row="<?php
+                                                    <th colspan="3">
+                                                        <a href="#" class="insert-file-row dokan-btn dokan-btn-sm dokan-btn-success smaller-orange-button" data-row="<?php
                                                             $file = array(
                                                                 'file' => '',
                                                                 'name' => ''

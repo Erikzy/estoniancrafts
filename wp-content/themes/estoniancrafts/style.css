@@ -20,7 +20,9 @@
     margin-bottom: 20px;
     z-index: 1000;
 }
-
+.inventory-table select.dokan-form-control{
+    margin-right: 20px !important;
+}
 .footer-container .mc4wp-form input[type=email] {
     color:#cdcdcd;
 }
@@ -688,7 +690,98 @@ opacity: .4 !important
 .blk{
     color:#1B1919;
 }
-.smaller-gray-button, #edit-blog-post-form button#insert-media-button,div.price_slider_wrapper > div.price_slider_amount > button.button {
+.cons-input  ul > li.tagit-choice{
+    
+    border: 0px  !important;
+    border-radius: 4px !important;
+    cursor: default !important;
+    float: left !important;
+    margin-right: 5px !important;
+  
+    font-size: 14px !important;
+    line-height: 18px !important;
+    padding: 10px 15px !important;
+    background-color: #e4e4e4 !important;
+
+}
+.dokan-download-wrapper{
+    padding-top:10px !important;
+}
+.dokan-variation-content-wrapper input.dokan-form-control{
+    padding-left:5px;
+}
+.selects, .inventory-table select.dokan-form-control,  .s-wa select, .select-label, select#_tax_status, select#_tax_class,  select#product_shipping_class, select#_manufacturing_method, span.selects-wrapper > select, select#_cert_type, select#predefined_attribute, .mywrapper-stock select {
+    background-color:  white !important;
+    border-radius: 0px !important;
+    border: 1px solid rgba(129,129,129,.25) !important;
+    line-height:  18px !important;
+    font-size: 14px !important;
+    padding: 10px 15px !important;
+    height: 42px !important;
+    -webkit-appearance: none !important;
+}
+.inventory-table select.dokan-form-control{
+    width: calc(50% - 22px );
+}
+#_manufacturing_time,#_regular_price,#_stock_status, #_backorders, #_backorder_time , #_manufacturing_qty, #_length , #_weight, #_width, #_height, #_manufacturing_time_unit, #_manufacturing_qty_unit , .mywrapper-stock input{
+    padding-left: 10px !important;
+    border-radius: 0px !important;
+    height: 42px !important;
+    -webkit-appearance: none !important;
+}
+.mrp{
+    padding-left: 0px !important;
+}
+select#predefined_attribute{
+    height: 32px !important;
+    padding: 0 0 0 5px !important;
+}
+li.select2-selection__choice, li.dokan-attribute-options{
+
+    margin-top:0 !important;
+}
+input.select2-search__field{
+    margin:0 !important;
+}
+span.select2-selection--multiple{
+    border-radius:0px !important;
+    border: 0px !important;
+}
+.cons-input > ul , ul.select2-selection__rendered{
+    border: 1px solid rgba(129,129,129,.25) !important;
+    border-radius: 0px !important;
+    padding: 0 5px !important;
+
+}
+.cons-input > ul > li  input.ui-widget-content,  ul.select2-selection__rendered > li{
+   /* width: 100% !important;*/
+    border: 0px solid rgba(129,129,129,.25) !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    padding: 10px 15px !important;
+    transition: border-color .5s !important;
+}
+.cons-input > ul > li  input.ui-widget-content:focus{
+    outline: 0 !important;
+    outline-color: initial !important;
+    outline-style: initial !important;
+    outline-width: 0px !important;
+    border-color: rgba(0,0,0,.6) !important;
+    border-top-color: rgba(0, 0, 0, 0.6) !important;
+    border-right-color: rgba(0, 0, 0, 0.6) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.6) !important;
+    border-left-color: rgba(0, 0, 0, 0.6) !important;
+    transition: border-color .4s !important;
+    transition-property: border-color !important;
+    transition-duration: 0.4s !important;
+    transition-timing-function: initial !important;
+    transition-delay: initial !important; 
+}
+.mytab-prod  .upload_file_button{
+
+    margin-top: 10px;
+}
+.smaller-gray-button, .mytab-prod a.delete, .mytab-prod  .upload_file_button,#edit-blog-post-form button#insert-media-button,div.price_slider_wrapper > div.price_slider_amount > button.button {
     border: 0px !important;
     background-color: #ECECEC !important;
     border-color:#ECECEC;
@@ -704,7 +797,7 @@ opacity: .4 !important
     height: 34px !important;
     text-decoration: none !important;
 }
-.smaller-gray-button:hover, #edit-blog-post-form button#insert-media-button:hover,div.price_slider_wrapper > div.price_slider_amount > button.button:hover
+.smaller-gray-button:hover, .mytab-prod a.delete:hover,.mytab-prod  .upload_file_button:hover, #edit-blog-post-form button#insert-media-button:hover,div.price_slider_wrapper > div.price_slider_amount > button.button:hover
 {
     color: #ffffff !important;
     background-color: #373737!important;
@@ -755,6 +848,7 @@ opacity: .4 !important
 .rbutton{
     margin-top: 85px !important;
 }
+
 .smaller-orange-button,.wlst-b-wrapper > a, div#tribe-events-content > a.tribe-events-button , div.tribe-events-cal-links > a.tribe-events-button {
     border: 0px !important;
     background-color: #ef7f27 !important;
@@ -885,6 +979,23 @@ opacity: .4 !important
     float: none!important;
     /*background-color: green*/
 }
+.desc-pro{
+    margin-bottom: 10px !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    color: #4E4E4E !important;
+}
+.dokan-product-short-description, .ec-form-field-description{
+
+    margin-bottom: 15px !important;
+    line-height: 1.42 !important;
+    color: #888 !important;
+    font-size: 13px !important;
+
+}
+div.dokan-product-description #post_content, div.dokan-product-short-description #post_excerpt{
+    margin-top:15px !important;
+}
 .wishlist-p > div {
     width:100% !important;
 }
@@ -912,6 +1023,7 @@ opacity: .4 !important
 .modal-backdrop{
     z-index: 900 !important;
 }
+
 @media (max-width:1999px){
         .store-user-image {
         width: auto;
@@ -945,6 +1057,7 @@ table tr td, table th{
     .legend table{
         width:65%;
     }
+  /*  #post-9 .dokan-dashboard-wrap{ width:100% !important; }*/
 /*    .mydokan-w12{
         width:100% !important;
         margin: 0 !important;
