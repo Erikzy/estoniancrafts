@@ -881,7 +881,7 @@ var baselThemeModule;
              */
 
             mobileNavigation: function() {
-
+                
                 var body = $("body"),
                     mobileNav = $(".mobile-nav"),
                     wrapperSite = $(".website-wrapper"),
@@ -907,7 +907,7 @@ var baselThemeModule;
 
 
                 body.on("click", ".mobile-nav-icon", function() {
-
+                    
                     if (body.hasClass("act-mobile-menu")) {
                         closeMenu();
                     } else {
