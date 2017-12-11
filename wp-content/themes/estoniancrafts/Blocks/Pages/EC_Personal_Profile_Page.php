@@ -170,7 +170,9 @@ $mtime1 = microtime(true);
 		$companyTypeTranslationsAry = array(
 			'1' => 'FIE',
 			'2' => 'OÜ',
-			'3' => 'AS'
+			'3' => 'AS',
+			'4' => 'UÜ',
+			'5'  => 'MTÜ'
 		);
 
 		// Stores

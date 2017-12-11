@@ -130,13 +130,13 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/dashboard/settings/store'),
 				'url_endpoint' => 'my-account/dashboard/settings/store'
 			));
-			$menu->items[] = new EC_MenuItem(array(
+	/*		$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-team',
 				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Team', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/team'),
 				'url_endpoint' => 'my-account/team'
-			));
+			));*/
             $menu->items[] = new EC_MenuItem(array(
 				'id' => 'blog',
 				'class'=> 'my-shop-item',
@@ -161,6 +161,15 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
+			
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'my-account/create-shop',
+				//'title' => __( 'My Orders', 'ktt' ),
+				'title' => __( 'Create Shop', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/orders'),
+				'url_endpoint' => 'my-account/orders'
+			));
+			
             $menu->items[] = new EC_MenuItem(array(
 				'id' => 'messages',
 				'title' => __( 'My Messages', 'ktt' ),
