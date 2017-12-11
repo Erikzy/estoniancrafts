@@ -5,7 +5,7 @@ class EC_Filters
 	public static function init()
 	{
 	
-		//add_filter('login_redirect',array(__CLASS__,'redirect_to_dashboard_url',1));
+		add_filter('login_redirect',array(__CLASS__,'redirect_to_user_appropriate_home',1));
 		// Public section
 		add_filter( 'ec_get_page_personal_profile', array(__CLASS__, 'ec_get_page_personal_profile_filter'), 1 );
 		add_filter( 'ec_get_store_page', array(__CLASS__, 'ec_get_store_page_filter'), 1 );
@@ -16,8 +16,13 @@ class EC_Filters
 	}
 
 
-	public static function redirect_to_dashboard_url() {
-  		return '/my-account/dashboard/';
+	public static function redirect_to_user_appropriate_home() {
+		$user = wp_get_current_user();
+		if(in_array('seller', $user->roles)){
+  			return get_site_url(null, 'my-account/edit-account/'),;
+  		}else{
+  			return get_site_url(null, 'my-account/dashboard/'),;
+  		}
 	}
 
 
