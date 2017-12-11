@@ -163,8 +163,9 @@ class FacebookLogin{
             session_start();
         }
         // Set the Redirect URL:
-        $this->redirect_url = (isset($_SESSION['ec_facebook_url'])) ? $_SESSION['ec_facebook_url'] : home_url();
+      //  $this->redirect_url = (isset($_SESSION['ec_facebook_url'])) ? $_SESSION['ec_facebook_url'] : home_url();
         // Start the connection
+
         $fb = $this->initApi();
         // Save the token in our instance
         $this->access_token = $this->getToken($fb);
@@ -175,7 +176,7 @@ class FacebookLogin{
             // Create new user
             $this->createUser();
         }
-
+		$this->redirect_url = redirect_to_user_appropriate_home();
         // Redirect the user
         header("Location: ".$this->redirect_url, true);
         die();

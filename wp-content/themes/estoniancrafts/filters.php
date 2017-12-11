@@ -5,7 +5,6 @@ class EC_Filters
 	public static function init()
 	{
 	
-		//add_filter('login_redirect',array(__CLASS__,'redirect_to_dashboard_url',1));
 		// Public section
 		add_filter( 'ec_get_page_personal_profile', array(__CLASS__, 'ec_get_page_personal_profile_filter'), 1 );
 		add_filter( 'ec_get_store_page', array(__CLASS__, 'ec_get_store_page_filter'), 1 );
@@ -16,9 +15,7 @@ class EC_Filters
 	}
 
 
-	public static function redirect_to_dashboard_url() {
-  		return '/my-account/dashboard/';
-	}
+	
 
 
 
@@ -130,13 +127,13 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/dashboard/settings/store'),
 				'url_endpoint' => 'my-account/dashboard/settings/store'
 			));
-			$menu->items[] = new EC_MenuItem(array(
+	/*		$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-team',
 				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Team', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/team'),
 				'url_endpoint' => 'my-account/team'
-			));
+			));*/
             $menu->items[] = new EC_MenuItem(array(
 				'id' => 'blog',
 				'class'=> 'my-shop-item',
@@ -161,6 +158,15 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/orders'),
 				'url_endpoint' => 'my-account/orders'
 			));
+			
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'my-account/create-shop',
+				//'title' => __( 'My Orders', 'ktt' ),
+				'title' => __( 'Create Shop', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/orders'),
+				'url_endpoint' => 'my-account/orders'
+			));
+			
             $menu->items[] = new EC_MenuItem(array(
 				'id' => 'messages',
 				'title' => __( 'My Messages', 'ktt' ),
