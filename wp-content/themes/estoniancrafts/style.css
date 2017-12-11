@@ -1041,7 +1041,9 @@ div.dokan-product-description #post_content, div.dokan-product-short-description
 .modal-backdrop{
     z-index: 900 !important;
 }
-
+    .search-extended-mob {
+        display: none;
+    }
 @media (max-width:1999px){
         .store-user-image {
         width: auto;
@@ -1101,6 +1103,7 @@ a.products-menu{
 }
 
 @media (max-width: 1330px){
+
      .single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div{
        /*top: -70px !important;*/
     }
@@ -1126,13 +1129,29 @@ a.products-menu{
     }
 
     .main-header .site-logo {
-        width: 30%;
+       /* width: 30%;*/
+       width:288px;
     }
     .legend table{
         width:85%;
     }
    .mobile-nav .zmb-wrap .zmb-menu > li > a{
         color:white;
+    }
+    /* new --- m */
+    .top-bar-right{
+        display:none;
+    }
+    .topbar-wrapp{
+        height:20px;
+    }
+    .right-column{
+        width:190px;
+        display: block;
+    }
+    .kt-otsing .search-extended{
+        margin-left: 0px;
+
     }
 
 }
@@ -1146,27 +1165,41 @@ a.products-menu{
         width:75%;
     }
     .single-product-content .woocommerce-main-image>img{
-    height:auto;
-    width:100%;
-    display: block;
-    margin:auto;
+        height:auto;
+        width:100%;
+        display: block;
+        margin:auto;
+    }
+    .container .kt-otsing{
+        width: calc(100% - 190px - 288px) !important;
+    }
+    .search-extended , .search-extended .searchform{
+        width: auto;
+        margin: auto;
+    }
+
 }
+@media (max-width: 991px){ 
+    .main-header:not(.header-menu-top) .site-logo img {
+        max-width: 288px !important;
+    }
+    .main-header .right-column {
+        width: 190px !important;
+    }
+    .search-extended .search-by-category{
+        display: none !important;
+    }
 }
 @media (max-width: 830px){
     .right-column .mobile-nav-icon {
         display: inline-block;
     }
-    .right-column{
-        width:20% !important ;
-    }
+
+
     .topbar-wrapp .topbar-menu{
         display:none;
     }
-    .main-header .site-logo,.container .kt-otsing {
-        width: 100%;
-        float: left;
-        clear: both
-    }
+
     #s{
         width:100%;
         position:relative;
@@ -1182,6 +1215,12 @@ a.products-menu{
     }
     .legend table{
         width:65%;
+    }
+/*    .search-extended {
+        display: none !important;
+    }*/
+    .search-extended-mob {
+        display: block ;
     }
 }
 @media (max-width: 498px){
