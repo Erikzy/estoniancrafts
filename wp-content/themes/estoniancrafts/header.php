@@ -21,10 +21,24 @@
     
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
 <script>
-/*		jQuery(document).ready(function(){
+		jQuery(document).ready(function(){
+			let readd = () => {
+					
+/*					if(jQuery(window).width() < 770){
+						jQuery('#s').attr('name',);
+						jQuery('.search-extended').clone().insertAfter('.wrapp-header');
+						jQuery('.search-extended')[0].remove();
+						
+					}
+					else{
+						jQuery('.search-extended').clone().insertAfter('.wrapp-header');
+						jQuery('.search-extended')[0].remove();
 
-			jQuery('.title-blog').remove();
-		})*/
+					}*/
+			}
+			readd();
+
+		})
 		
 	</script>
 </head>

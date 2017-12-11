@@ -1368,7 +1368,7 @@ if( ! function_exists( 'basel_header_block_mobile_nav' ) ) {
 			$location = apply_filters( 'basel_mobile_menu_location', 'mobile-menu' );
 		}
 
-		?>
+		?> 
 			<div class="mobile-nav">
 				<?php 
 				
