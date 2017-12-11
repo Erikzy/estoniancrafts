@@ -19,9 +19,9 @@ class EC_Filters
 	public static function redirect_to_user_appropriate_home() {
 		$user = wp_get_current_user();
 		if(in_array('seller', $user->roles)){
-  			return get_site_url(null, 'my-account/edit-account/'),;
+  			return get_site_url(null, 'my-account/edit-account/');
   		}else{
-  			return get_site_url(null, 'my-account/dashboard/'),;
+  			return get_site_url(null, 'my-account/dashboard/');
   		}
 	}
 
