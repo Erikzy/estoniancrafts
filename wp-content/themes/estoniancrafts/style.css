@@ -1080,15 +1080,15 @@ div.dokan-product-description #post_content, div.dokan-product-short-description
     color:red;
 }
 div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-outer > .owl-wrapper{
-    margin:auto;
-    display: block;
+ /*   margin:auto;
+    display: block;*/
 
 }
 div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-outer > .owl-wrapper > .owl-item{
   
-    display: block;
+  /*  display: block;
     margin: auto;
-    float: none;
+    float: none;*/
 }
 /********* PRODUCTS CATEGORY**************/
 #collapse-link{
@@ -1157,8 +1157,8 @@ div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-o
         padding-right:0;
     }
     div#cat-men  .widget-title {
-       /* display:none;*/
-       
+       display:none;
+
     }
 }
 
