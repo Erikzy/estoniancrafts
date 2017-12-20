@@ -332,6 +332,7 @@ class WC_Comments {
 		$verified = false;
 		if ( 'product' === get_post_type( $comment->comment_post_ID ) ) {
 			$verified = wc_customer_bought_product( $comment->comment_author_email, $comment->user_id, $comment->comment_post_ID );
+			//add_comment_meta( $comment_id, 'verified', 1, true );
 			add_comment_meta( $comment_id, 'verified', (int) $verified, true );
 		}
 		return $verified;

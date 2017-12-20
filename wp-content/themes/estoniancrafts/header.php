@@ -20,27 +20,8 @@
 	<?php wp_head(); ?>
     
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
-<script>
-		jQuery(document).ready(function(){
-			let readd = () => {
-					
-/*					if(jQuery(window).width() < 770){
-						jQuery('#s').attr('name',);
-						jQuery('.search-extended').clone().insertAfter('.wrapp-header');
-						jQuery('.search-extended')[0].remove();
-						
-					}
-					else{
-						jQuery('.search-extended').clone().insertAfter('.wrapp-header');
-						jQuery('.search-extended')[0].remove();
+    <script src="<?php echo get_template_directory_uri(); ?>/js/menus.js"> </script>
 
-					}*/
-			}
-			readd();
-
-		})
-		
-	</script>
 </head>
 
 <body <?php body_class(); ?>>

@@ -510,6 +510,20 @@ function ec_dokan_ask_information_product_tab( $tabs) {
 }
 add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' );
 
+
+
+/*function m_wp_set_comment_status($comment_id){
+
+}
+add_filter('wp_set_comment_status','m_wp_set_comment_status');
+*/
+function filter_handler( $approved , $commentdata )
+{
+ 
+  return 1;
+}
+
+add_filter( 'pre_comment_approved' , 'filter_handler' , '99', 2 );
 /**
  * Prints information asking form in product single page
  *

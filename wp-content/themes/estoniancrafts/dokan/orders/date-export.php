@@ -18,7 +18,7 @@
         </div>
     </form>
 
-    <form action="" method="POST" class="dokan-right">
+<!--     <form action="" method="POST" class="dokan-right">
         <?php
         $slug = get_option('_csv_import_export_page_path');
         if ($slug) : ?>
@@ -30,7 +30,7 @@
             <input type="hidden" name="order_date" value="<?php echo isset( $_GET['order_date'] ) ? sanitize_key( $_GET['order_date'] ) : ''; ?>">
             <input type="hidden" name="order_status" value="<?php echo isset( $_GET['order_status'] ) ? sanitize_key( $_GET['order_status'] ) : 'all'; ?>">
         </div>
-    </form>
+    </form> -->
 
     <div class="dokan-clearfix"></div>
 </div>

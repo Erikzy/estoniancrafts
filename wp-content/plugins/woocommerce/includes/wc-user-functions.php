@@ -242,6 +242,24 @@ function wc_customer_bought_product( $customer_email, $user_id, $product_id ) {
 	return in_array( absint( $product_id ), $result );
 }
 
+function commented_before($comment_author,  $product_id ) {
+	global $wpdb;
+
+	$result = false;
+
+	if ( isset($comment_author) && isset($product_id)   ) {
+		
+
+		$query= " SELECT count(*) FROM `ktt_comments` as a inner join `ktt_posts` as b on a.comment_post_ID = b.ID WHERE a.comment_author = ".$comment_author." and b.ID = ".$product_id;
+		$result = $wpdb->get_results($query);  
+		if($result >0 )
+			$result = true;
+		//$result = false;
+			
+	}
+	return $result;
+
+}
 /**
  * Checks if a user has a certain capability.
  *

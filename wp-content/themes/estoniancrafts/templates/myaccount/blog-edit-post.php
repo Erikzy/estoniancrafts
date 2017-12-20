@@ -52,11 +52,22 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
                 <input type="hidden" name="temp_publish" value="exist">
             </div>
         </p>
+        <script>
+            
+             checkImage = (e)=>{
+                   if(jQuery("#hidden-input").val() == '')
+                   {
+                    alert("remember to add an image!");
+                    return false;
+                    }
+
+                }
+        </script>
         <p class="row">
             <div class="col-md-8">
                 <input type="submit" class="btn button medium-gray-button" name="edit_action[delete]" value="<?php  _e('Delete', 'ktt'); ?>" />
                 <input type="submit" class="btn button medium-gray-button" name="edit_action[draft]" value="<?php  _e('Draft', 'ktt'); ?>" />
-                <input type="submit" class="btn btn-color-primary button medium-orange-button" name="edit_action[publish]" value="<?php  _e('Publish', 'ktt'); ?>" />
+                <input type="submit" class="btn btn-color-primary button medium-orange-button" name="edit_action[publish]" onmousedown="checkImage(event);"  value="<?php  _e('Publish', 'ktt'); ?>" />
             </div>
         </p>
     </form>
@@ -69,7 +80,7 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
                 <div class="added-to-cart">
                     <p><?php _e('Carefully look through the post. The post will go to translation', 'ktt'); ?></p>
                     <a href="#" class="btn close-popup  before-publish smaller-gray-button" data-value="cancle">Review</a>
-                    <a href="#" class="btn btn-color-primary button view-cart before-publish smaller-orange-button" data-value="publish">Publish</a>
+                    <a href="#" class="btn btn-color-primary button view-cart before-publish smaller-orange-button"  data-value="publish">Publish</a>
                 </div>
                 <button  type="button" class=" mfp-close  before-publish" data-value="cancle">×</button>
             </div>
@@ -78,8 +89,11 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
 </div>
 
 <script>
-    jQuery(document).ready(function($) {
 
+    jQuery(document).ready(function($) {
+        if(jQuery("#hidden-input").val() == "")
+            jQuery("#set-post-thumbnail").css("display","none");
+console.log(jQuery("#hidden-input").val());
   // Define a variable to be used to store the frame data
   var file_frame;
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
@@ -116,11 +130,16 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
         jQuery('#set-post-thumbnail').attr('src', attachment.url  ) ;
         jQuery('#upload_button').addClass('hide') ;
         jQuery('#remove_button').removeClass('hide') ;
+
         wp.media.model.settings.post.id = wp_media_post_id;
         //file_frame.setState("cropper");
         //file_frame.open();
     });
     file_frame.open();
+          if(jQuery("#hidden-input").val() == ""){
+                
+                jQuery("#set-post-thumbnail").css("display","block");
+            }
   });
 
    jQuery('#remove_button').on( 'click', function( event ){

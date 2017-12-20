@@ -32,27 +32,52 @@ $tabs_layout = (basel_product_design() == 'compact') ? 'accordion' : 'tabs';
 
 $user = wp_get_current_user();
 $isLoggedIn = $user && $user->ID;
+global $product;
+//var_dump(wc_customer_bought_product( '', get_current_user_id(), $product->id ) );
+
+//var_dump(get_post_meta(  $product->id, '', true ));
+$o = get_post_meta( $product->id, '_wc_review_count', true );
 
 if ( ! empty( $tabs ) ) : ?>
 
 	<div class="woocommerce-tabs wc-tabs-wrapper tabs-layout-<?php echo esc_attr( $tabs_layout ); ?>">
 		<ul class="tabs wc-tabs">
-			<?php foreach ( $tabs as $key => $tab ) : ?>
-                <?php if ($key != 'ask_information' || ($key == 'ask_information' && $isLoggedIn)) { ?>
-				<li class="<?php echo esc_attr( $key ); ?>_tab">
-					<a href="#tab-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?></a>
-				</li>
-                <?php } ?>
+			<?php  foreach ( $tabs as $key => $tab ) : ?>
+                <?php
+
+                 if ($key != 'ask_information' || ($key == 'ask_information' && $isLoggedIn)) { ?>
+                		 	<?php
+
+					/*	    if( (esc_attr( $key ) == 'reviews' && $o !== '0' && wc_customer_bought_product( get_current_user_id(), $product->id, $product->post->post_author ) === false   ) || esc_attr( $key ) != 'reviews'  ):*/
+						 	?>
+						<li class="<?php echo esc_attr( $key ); ?>_tab">
+							<a href="#tab-<?php echo esc_attr( $key ); ?>" id="iden-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key );?> </a>
+						</li>
+						<?php
+							//endif;
+						?>
+                <?php }  //echo get_current_user_id(). ' '. $product->id. ' '. $product->post->post_author. ' '.wc_customer_bought_product( get_current_user_id(), $product->id, $product->post->post_author ); ?>
 			<?php endforeach; ?>
 		</ul>
 		<?php foreach ( $tabs as $key => $tab ) : ?>
-			<div class="basel-tab-wrapper">
-				<a href="#tab-<?php echo esc_attr( $key ); ?>" class="basel-accordion-title tab-title-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?></a>
-				<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>">
-					<?php call_user_func( $tab['callback'], $key, $tab ); ?>
+	
+			 	<?php
+			 	/*	if( (esc_attr( $key ) == 'reviews' && $o !== '0' && wc_customer_bought_product( get_current_user_id(), $product->id, $product->post->post_author ) === false )  || esc_attr( $key ) != 'reviews'  ):*/
+
+			 	?>
+				<div class="basel-tab-wrapper">
+					<a href="#tab-<?php echo esc_attr( $key ); ?>" class="basel-accordion-title tab-title-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?></a>
+					<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>">
+						<?php call_user_func( $tab['callback'], $key, $tab ); ?>
+					</div>
 				</div>
-			</div>
+			<?php //endif; ?>
 		<?php endforeach; ?>
 	</div>
 
 <?php endif; ?>
+
+<script>
+	if(jQuery("#iden-reviews").html() === "Reviews (0) ")
+		jQuery(".reviews_tab").css("display","none");
+</script>
