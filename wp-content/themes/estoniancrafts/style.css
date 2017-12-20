@@ -1172,7 +1172,7 @@ div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-o
      div.shop-loop-wrapper .ec-new-product-grid.row{
         margin-top:10px;
      }
-     div.shop-loop-wrapper span.onsale{
+     div.shop-loop-wrapper span.onsale, div.shop-loop-wrapper span.out-of-stock-label {
         top: 5px;
         left:calc(50% - 140px);
      }
