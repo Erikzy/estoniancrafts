@@ -504,3 +504,4 @@ function check_idcard_user_register($user_id) {
 
     return true;
 }
+

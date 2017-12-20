@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 if ( ! comments_open() ) {
-	return;
+	//return;
 }
 
 ?>
@@ -40,16 +40,21 @@ global $wp;
 //echo wc_customer_bought_product( '', get_current_user_id(), $product->id )[0];
 
 //$user_orders = wc_get_account_orders_columns();
-/*$user_orders = wc_get_account_orders_columns();
-var_dump(wc_get_account_orders_columns()); */
+/*$user_orders = wc_get_account_orders_columns();*/
+//var_dump(commented_before( $current_user, $product->id  )); 
 
 
 //echo $product->post->post_author;
 //$t = wc_customer_bought_product( get_current_user_id(), $product->id, $product->post->post_author ) ;
 /*&& commented_before(get_current_user_id(), $product->id, $product->post->post_author ) == true  ) */ 
-?>
-	<?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' ||  (wc_customer_bought_product( '', get_current_user_id(), $product->id ) && commented_before( $current_user, $product->id  ) == false      )  ) : ?>
+//var_dump( wc_customer_bought_product( '', get_current_user_id(), $product->id ) );
+//var_dump(commented_before( $current_user, $product->id  ) );
 
+//echo $current_user." ".$product->id." ".get_option( 'woocommerce_review_rating_verification_required' )." ".get_option( 'woocommerce_enable_review_rating' );
+?>
+	<?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' ||    wc_customer_bought_product( '', get_current_user_id(), $product->id    ) ) : ?>
+	<?php //if( wc_customer_bought_product( '', get_current_user_id(), $product->id )   ) : ?>
+		<?php if( commented_before( $current_user, $product->id  ) == false  ):?> 
 		<div id="review_form_wrapper">
 			<div id="review_form">
 				<?php
@@ -74,7 +79,7 @@ var_dump(wc_get_account_orders_columns()); */
 						$comment_form['must_log_in'] = '<p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a review.', 'woocommerce' ), esc_url( $account_page_url ) ) . '</p>';
 					}
 
-					if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
+					if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) { 
 						$comment_form['comment_field'] = '<p class="comment-form-rating"><label for="rating">' . __( 'Your Rating', 'woocommerce' ) .'</label><select name="rating" id="rating" aria-required="true" required>
 							<option value="">' . __( 'Rate&hellip;', 'woocommerce' ) . '</option>
 							<option value="5">' . __( 'Perfect', 'woocommerce' ) . '</option>
@@ -83,6 +88,7 @@ var_dump(wc_get_account_orders_columns()); */
 							<option value="2">' . __( 'Not that bad', 'woocommerce' ) . '</option>
 							<option value="1">' . __( 'Very Poor', 'woocommerce' ) . '</option>
 						</select></p>';
+
 					}
 
 					$comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . __( 'Your Review', 'woocommerce' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea></p>';
@@ -91,6 +97,7 @@ var_dump(wc_get_account_orders_columns()); */
 				?>
 			</div>
 		</div>
+	<?php endif;?>
 
 	<?php else : ?>
 

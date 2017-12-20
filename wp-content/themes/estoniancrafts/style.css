@@ -1090,6 +1090,11 @@ div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-o
     margin: auto;
     float: none;*/
 }
+div.event-owl-carousel div.owl-wrapper{
+  /*  width:auto;*/
+}
+
+
 /********* PRODUCTS CATEGORY**************/
 #collapse-link{
     margin-bottom:10px;
@@ -1178,6 +1183,10 @@ div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-o
      }
      div.shop-loop-wrapper h3.product-title, div.shop-loop-wrapper  .product-grid-item .price, div.shop-loop-wrapper .product-grid-item .sold-list{
         text-align:center !important;
+    }
+    div.shop-loop-wrapper .ec-new-author-heading {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
     }
 
 }
