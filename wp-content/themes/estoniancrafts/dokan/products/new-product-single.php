@@ -4,6 +4,8 @@ global $post;
 
 $from_shortcode = false;
 
+
+
 if( isset( $post->ID ) && $post->ID && $post->post_type == 'product' ) {
 
     if ( $post->post_author != get_current_user_id() ) {
@@ -66,6 +68,9 @@ $_enable_reviews        = $post->comment_status;
 if ( ! $from_shortcode ) {
     get_header();
 }
+
+
+
 ?>
 
 <?php
@@ -108,6 +113,15 @@ if ( ! $from_shortcode ) {
         ?>
 
         <header class="dokan-dashboard-header dokan-clearfix">
+            <?php 
+            if(isset($_POST["dokan_product_id"])){
+                   // var_dump($_POST);
+              /*      $post_title = isset($_POST["post_title"]) ? $_POST["post_title"] : ""; 
+                    $product_cat = isset($_POST["product_cat"]) ? $_POST["product_cat"] : "";
+                    $regular_price = isset($_POST["_regular_price"]) ? $_POST["_regular_price"]:"0.00";*/
+                 }
+
+             ?>
             <h1 class="entry-title">
                 <?php if ( !$post_id ): ?>
                     <?php _e( 'Add New Product', 'dokan' ); ?>
@@ -333,7 +347,7 @@ if ( ! $from_shortcode ) {
                                     $instruction_class = '';
                                     $feat_image_id     = 0;
 
-                                    if ( has_post_thumbnail( $post_id ) ) {
+                                    if ( has_post_thumbnail( $post_id ) || ( isset($_POST["feat_image_id"]) && isset($_POST["feat_image_url"]) &&  ( $_POST["feat_image_url"] !="" && $_POST["feat_image_id"] != "")   ) ) {
                                         $wrap_class        = '';
                                         $instruction_class = ' dokan-hide';
                                         $feat_image_id     = get_post_thumbnail_id( $post_id );
@@ -348,13 +362,14 @@ if ( ! $from_shortcode ) {
                                         <p style="margin-top:5px"> The minimum image size is  800 x 600 px</p>
                                     </div>
 
-                                    <div class="image-wrap<?php echo $wrap_class; ?>">
+                                    <div class="image-wrap<?php echo $wrap_class; ?>" id="fet-im-a">
                                         <a class="close dokan-remove-feat-image">&times;</a>
                                         <?php if ( $feat_image_id ) { ?>
-                                            <?php echo get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array( 'height' => '', 'width' => '' ) ); ?>
+                                            <?php echo get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array( 'height' => '', 'width' => '')  ); ?>
                                         <?php } else { ?>
                                             <img height="" width="" src="" alt="">
                                         <?php } ?>
+                                        <input type="hidden" name="feat_image_url" value="" id="feat_image_url" >
                                     </div>
                                 </div><!-- .dokan-feat-image-upload -->
 
@@ -505,7 +520,7 @@ if ( ! $from_shortcode ) {
                                 </div><!-- .show_if_stock -->
 
                                 <div class="dokan-form-group">
-                                    <?php dokan_post_input_box( $post_id, '_sold_individually', array('label' => __( 'Allow only one quantity of this product to be bought in a single order', 'dokan' ) ), 'checkbox' ); ?>
+                                    <?php dokan_post_input_box( $post_id, '_sold_individually', array('label' => __( 'Allow only one quantity of this product to be bought in a single order', 'dokan' ), "class" => "form-label" ), 'checkbox' ); ?>
                                 </div>
 
                                 <?php if ( $post_id ): ?>
@@ -513,7 +528,7 @@ if ( ! $from_shortcode ) {
                                 <?php endif; ?>
 
                                 <div class="dokan-divider-top dokan-clearfix downloadable downloadable_files hide_if_variation">
-                                    <label class="dokan-checkbox-inline dokan-form-label" for="_downloadable">
+                                    <label class="dokan-checkbox-inline dokan-form-label form-label " for="_downloadable">
                                         <input type="checkbox" id="_downloadable" name="_downloadable" value="yes" <?php checked( $_downloadable, 'yes' ); ?>>
                                         <?php _e( 'This is a downloadable product', 'dokan' ); ?>
 										<span class="ec-form-field-description"><?php _e( 'Product downloadable products description', 'ktt' ); ?></span>
@@ -701,7 +716,7 @@ if ( ! $from_shortcode ) {
 */ ?>
 
 								<?php if ( $post_id ): ?>
-									<?php do_action( 'ec_merchant_product_edit_other_options' ); ?>
+									<?php //do_action( 'ec_merchant_product_edit_other_options' ); ?>
 								<?php endif; ?>
 
                             </div>
@@ -787,22 +802,21 @@ if ( ! $from_shortcode ) {
 
  <script>
     checkImage = (ev)=>{
-/*                    
+
              storeInfo();       
              if(jQuery('.dokan-feat-image-upload .instruction-inside').hasClass('dokan-hide') === false){
                  ev.preventDefault();
                   alert('Remember to upload a cover image!');
             }
-            if(err === true)
-                ev.preventDefault();*/
+
                           
     }
-    jQuery("#_sku").on("change",function(){
+/*    jQuery("#_sku").on("change",function(){
               jQuery(".check-sku").removeClass("dokan-hide");
               jQuery.post("?product_id=1630&action=edit&message=success",jQuery( ".dokan-product-edit-form" ).serialize(),function(data){
                 let d = data.substring(0, data.indexOf('<div class="dokan-clearfix poxc"></div>'));
                  jQuery(".check-sku").addClass("dokan-hide");
-                /* if(d.indexOf("Error!") >=0) 
+                 if(d.indexOf("Error!") >=0) 
                     { 
                         jQuery("#_sku").addClass("input-red-error");
                         console.log("error"); 
@@ -812,24 +826,32 @@ if ( ! $from_shortcode ) {
                  else{
                     jQuery("#_sku").removeClass("input-red-error");
                     console.log("success");
-                    err=false;
+                     err=false;
 
-                 }*/
+                 }
            }); 
 
-    });
+    });*/
+
+
 </script>
 <script type="text/javascript">
-/*    jQuery(document).ready(function(){
+   jQuery(document).ready(function(){
          var err= false;
-        if( jQuery(".dokan-alert").length ) {
+         var materials_size = "<?php echo isset($_POST['_material_name'])? sizeof($_POST['_material_name']) : '0'; ?>";
+         console.log(materials_size);
+         var id_v = "<?php echo isset($_POST["dokan_product_id"]); ?>";
+
+        if( id_v == "1"){  
             build();
         }
         else{
-            localStorage.setItem("form", "");
+           localStorage.setItem("form", "");
         }
-        let v = JSON.parse(localStorage.getItem("variants"));
-        console.log(v);
+/*        for(let a = 0 ; a < materials_size ; a++  ){
+            jQuery(". a.lb-elastic-add").trigger("click");
+        }*/
+
     });
     showButton = () =>{ 
     if(jQuery(".dokan-feat-image-id").val() == 0)
@@ -838,29 +860,49 @@ if ( ! $from_shortcode ) {
          jQuery(".add-product-images").removeClass("addm-images");
     }
     showButton();
-    jQuery(window).on("mousemove", ()=>{ showButton()} );
+    jQuery(window).on("mousemove", ()=>{ 
+        showButton();
+        jQuery("#feat_image_url").val(jQuery("#fet-im-a > img").attr("src"));
+        //console.log(jQuery("#fet-im-a > img").attr("src") );
 
 
+    } );
+/*    jQuery("#_required_tax").on("change",function(){
+        if(jQuery("input[_required_tax]").val() =="no")
+            jQuery("input[_required_tax]").val("yes")
+        else
+            jQuery("input[_required_tax]").val("no")
+    });
+*/
     function convertValue(id)
     {
         var t = id.replace(/[[]/g,'\\\\[');
         return "#" + t.replace(/]/g,'\\\\]'); 
     }
-    build = () =>{
-        let j =  JSON.parse(localStorage.getItem("form"));
-        let v = JSON.parse(localStorage.getItem("variants"));
+     build = () =>{
+        if( jQuery.trim(localStorage.getItem("form")) !="" && jQuery.trim(localStorage.getItem("variants")) !="" && jQuery.trim(localStorage.getItem("fet-image")) !="" ){
+                    let j =  JSON.parse(localStorage.getItem("form"));
+                    let v = JSON.parse(localStorage.getItem("variants"));
+                    let featImage = JSON.parse(localStorage.getItem("fet-image"));
+                    jQuery("#fet-im-a > img").attr("src",featImage.url);
+                    jQuery(".dokan-feat-image-id").val(featImage.id);
+                    console.log(featImage);
+                   // let form = jQuery(".dokan-product-edit-form").html();
+                    for( var o in j){
+                        jQuery(convertValue(j[o].name)).val(j[o].value);
+                    }
+                    console.log("-----done------")
 
-       // let form = jQuery(".dokan-product-edit-form").html();
-        for( var o in j){
-            jQuery(convertValue(j[o].name)).val(j[o].value);
         }
-        console.log("-----done------")
 
-    }  */
+
+    }  
     storeInfo = ()=>{
         let p = jQuery(".dokan-product-edit-form").serializeArray();
         let variants =  {"labels": jQuery('.dokan-attribute-option-name-label').val() , "options": jQuery('.attributes-prod > input').val() } ;
         localStorage.setItem("form", JSON.stringify(p) );
+        //console.log(jQuery("#fet-im-a > img").attr("src"));
+        localStorage.setItem("fet-image",JSON.stringify({"url":jQuery("#fet-im-a > img").attr("src"), "id": jQuery(".dokan-feat-image-id").val() }));
         localStorage.setItem("variants", JSON.stringify(variants) );
 
 

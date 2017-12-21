@@ -30,16 +30,16 @@
             <div class="dokan-clearfix hide_if_downloadable dokan-shipping-container">
                 <input type="hidden" name="product_shipping_class" value="0">
                 <div class="dokan-form-group">
-                    <label class="dokan-checkbox-inline" for="_disable_shipping">
+                    <label class="dokan-checkbox-inline form-label " for="_disable_shipping">
                         <input type="checkbox" id="_disable_shipping" name="_disable_shipping" <?php checked( $_disable_shipping, 'no' ); ?>>
                         <?php _e( 'This product requires shipping', 'dokan' ); ?>
                     </label>
                 </div>
                 <div class="show_if_needs_shipping dokan-form-group ec-extras">
                     <?php $is_fragile = ( get_post_meta($post_id, '_fragile_cargo', true) == 'yes' ) ? 'yes' : 'no'; ?>
-                    <?php dokan_post_input_box( $post_id, '_fragile_cargo', array('value' => $is_fragile, 'label' => __( 'Fragile cargo', 'ktt' ) ), 'checkbox' ); ?>
+                    <?php dokan_post_input_box( $post_id, '_fragile_cargo', array("class"=>"form-label", 'value' => $is_fragile, 'label' => __( 'Fragile cargo', 'ktt' ) ), 'checkbox' ); ?>
                     <?php $is_food = ( get_post_meta($post_id, '_food_cargo', true) == 'yes' ) ? 'yes' : 'no'; ?>
-                    <?php dokan_post_input_box( $post_id, '_food_cargo', array('value' => $is_food, 'label' => __( 'Is food', 'ktt' ) ), 'checkbox' ); ?>
+                    <?php dokan_post_input_box( $post_id, '_food_cargo', array("class"=> "form-label" , 'value' => $is_food, 'label' => __( 'Is food', 'ktt' ) ), 'checkbox' ); ?>
 				</div>
                 <div class="show_if_needs_shipping row">
 					<div class="col-md-3 cont-labels">
@@ -149,7 +149,7 @@
                 <?php endif; ?>
                 <div class="show_if_needs_shipping">
                     <div class="dokan-form-group">
-                        <label class="dokan-control-label"><?php _e('Expected delivery time for product in the warehouse', 'ktt'); ?></label>
+                        <label class="dokan-control-label form-label "><?php _e('Expected delivery time for product in the warehouse', 'ktt'); ?></label>
                         <?php dokan_post_input_box(
                             $post_id, 
                             '_expected_delivery_in_warehouse', 
@@ -161,7 +161,7 @@
                         ); ?>
                     </div>
                     <div class="dokan-form-group">
-                        <label class="dokan-control-label"><?php _e('Expected delivery time for product not in the warehouse', 'ktt'); ?></label>
+                        <label class="dokan-control-label form-label "><?php _e('Expected delivery time for product not in the warehouse', 'ktt'); ?></label>
                         <?php dokan_post_input_box(
                             $post_id, 
                             '_expected_delivery_no_warehouse', 
@@ -183,9 +183,9 @@
         <?php if ( 'yes' == get_option( 'woocommerce_calc_taxes' ) ) { ?>
         <div class="dokan-clearfix dokan-tax-container">
             <div class="dokan-form-group">
-                <label for="_required_tax" class="dokan-form-label">
+                <label for="_required_tax" class="dokan-form-label form-label ">
                 <input type="hidden" name="_required_tax" value="no">
-                <input type="checkbox" id="_required_tax" name="_required_tax" value="yes" <?php checked( $_required_tax, 'yes' ); ?>>
+                <input type="checkbox" id="_required_tax" name="_required_tax" class="form-label" value="yes" <?php checked( $_required_tax, 'yes' ); ?>>
                 <?php _e( 'The product requires Tax', 'dokan' ); ?>
                 </label>
             </div>
