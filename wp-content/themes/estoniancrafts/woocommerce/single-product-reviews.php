@@ -52,8 +52,8 @@ global $wp;
 
 //echo $current_user." ".$product->id." ".get_option( 'woocommerce_review_rating_verification_required' )." ".get_option( 'woocommerce_enable_review_rating' );
 ?>
-	<?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' ||    wc_customer_bought_product( '', get_current_user_id(), $product->id    ) ) : ?>
-	<?php //if( wc_customer_bought_product( '', get_current_user_id(), $product->id )   ) : ?>
+	<?php //if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' ||    wc_customer_bought_product( '', get_current_user_id(), $product->id    ) ) : ?>
+	<?php if( wc_customer_bought_product( '', get_current_user_id(), $product->id )   ) : ?>
 		<?php if( commented_before( $current_user, $product->id  ) == false  ):?> 
 		<div id="review_form_wrapper">
 			<div id="review_form">
