@@ -200,7 +200,7 @@ if ( ! $from_shortcode ) {
                                 <div class="dokan-form-group">
                                     <input type="hidden" name="dokan_product_id" value="<?php echo $post_id; ?>"/>
 
-                                    <label for="post_title" class="form-label"><?php _e( 'Title', 'dokan' ); ?></label>
+                                    <label for="post_title" class="form-label desc-pro"><?php _e( 'Title', 'dokan' ); ?></label>
 									<span class="ec-form-field-description"><?php _e( 'Product title description', 'ktt' ); ?></span>
                                     <div class="dokan-product-title-alert dokan-hide dokan-alert dokan-alert-danger">
                                             <?php _e('Please choose a Name !!!', 'dokan'); ?>
@@ -214,7 +214,7 @@ if ( ! $from_shortcode ) {
 
 										<?php // Regular price ?>
                                         <div class="content-half-part regular-price mrp">
-                                            <label for="_regular_price" class="form-label"><?php _e( 'Price', 'dokan' ); ?></label>
+                                            <label for="_regular_price" class="form-label desc-pro"><?php _e( 'Price', 'dokan' ); ?></label>
 
                                             <div class="dokan-input-group">
                                                 <span class="dokan-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
@@ -263,7 +263,7 @@ if ( ! $from_shortcode ) {
                                 <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>
                                     <div class="dokan-form-group">
 
-                                        <label for="product_cat" class="form-label"><?php _e( 'Category', 'dokan' ); ?></label>
+                                        <label for="product_cat" class="form-label desc-pro"><?php _e( 'Category', 'dokan' ); ?></label>
 										<span class="ec-form-field-description"><?php _e( 'Product category description', 'ktt' ); ?></span>
                                         <div class="dokan-product-cat-alert dokan-hide dokan-alert dokan-alert-danger">
                                             <?php _e('Please choose a category !!!', 'dokan'); ?>
@@ -409,7 +409,7 @@ if ( ! $from_shortcode ) {
                         </div><!-- .dokan-form-top-area -->
 
 						<?php // Short description ?>
-                        <div class="dokan-product-short-description">
+                        <div class="dokan-product-description">
                             <label for="post_excerpt" class="form-label desc-pro"><?php _e( 'Short Description', 'dokan' ); ?></label>
 							<span class="ec-form-field-description"><?php _e( 'Product short description', 'ktt' ); ?></span>
                             <?php 
@@ -454,7 +454,7 @@ if ( ! $from_shortcode ) {
 
                             <div class="dokan-side-right">
                                 <div class="dokan-form-group hide_if_variation" style="width: 50%;">
-                                    <label for="_sku" class="form-label"><?php _e( 'SKU', 'dokan' ); ?> <span><?php _e( '(Stock Keeping Unit)', 'dokan' ); ?></span><span class="dokan-loading check-sku dokan-hide"></span></label>
+                                    <label for="_sku" class="form-label"><?php _e( 'SKU', 'dokan' ); ?> <span class="ec-form-field-description" ><?php _e( '(Stock Keeping Unit)', 'dokan' ); ?></span><span class="dokan-loading check-sku dokan-hide"></span></label>
 									<span class="ec-form-field-description"><?php _e( 'Product SKU description', 'ktt' ); ?></span>
                                     <?php dokan_post_input_box( $post_id, '_sku' ); ?>
                                 </div>
@@ -470,19 +470,19 @@ if ( ! $from_shortcode ) {
                                 </div> -->
 
                                 <div class="dokan-form-group hide_if_variation">
-                                    <?php dokan_post_input_box( $post_id, '_manage_stock', array( 'label' => __( 'Enable product stock management', 'dokan' ) ), 'checkbox' ); ?>
+                                    <?php dokan_post_input_box( $post_id, '_manage_stock', array( "class"=>"form-label", 'label' => __( 'Enable product stock management', 'dokan' ) ), 'checkbox' ); ?>
                                 </div>
 
                                 <div class="show_if_stock dokan-stock-management-wrapper dokan-form-group dokan-clearfix mywrapper-stock">
 
                                     <div class="dokan-w2 hide_if_variation">
-                                        <label for="_stock" class="dokan-form-label"><?php _e( 'Quantity', 'dokan' ); ?></label>
-										<span class="ec-form-field-description"><?php _e( 'Product quantity description', 'ktt' ); ?></span>
+                                        <label for="_stock" class=" form-label"><?php _e( 'Quantity', 'dokan' ); ?></label>
+										<span class="ec-form-field-description"><?php _e( 'Product quantity <br> description', 'ktt' ); ?></span>
                                         <input type="number" name="_stock" placeholder="<?php __( '1', 'dokan' ); ?>" value="<?php echo wc_stock_amount( $_stock ); ?>" min="0" step="1">
                                     </div>
 
                                     <div class="dokan-w2 hide_if_variation">
-                                        <label for="_stock_status" class="dokan-form-label"><?php _e( 'Stock Status', 'dokan' ); ?></label>
+                                        <label for="_stock_status" class=" form-label"><?php _e( 'Stock Status', 'dokan' ); ?></label>
 										<span class="ec-form-field-description"><?php _e( 'Product stock status description', 'ktt' ); ?></span>
 
                                         <?php dokan_post_input_box( $post_id, '_stock_status', array( 'options' => array(
@@ -492,7 +492,7 @@ if ( ! $from_shortcode ) {
                                     </div>
 
                                     <div class="dokan-w2 hide_if_variation">
-                                        <label for="_backorders" class="dokan-form-label"><?php _e( 'Allow Backorders', 'dokan' ); ?></label>
+                                        <label for="_backorders" class=" form-label"><?php _e( 'Allow Backorders', 'dokan' ); ?></label>
 										<span class="ec-form-field-description"><?php _e( 'Product allow backorders description', 'ktt' ); ?></span>
 
                                         <?php dokan_post_input_box( $post_id, '_backorders', array( 'options' => array(
@@ -654,7 +654,7 @@ if ( ! $from_shortcode ) {
 									<?php _e( 'Other Options', 'dokan' ); ?>
 									<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
 								</h2>
-								<p>
+								<p class="ec-form-field-description" >
 									<?php _e( 'Product Other Options description', 'dokan' ); ?>
 								</p>
                             </div>

@@ -296,7 +296,7 @@ class lbDokan{
 					<?php _e( 'Used materials', 'ktt' ); ?>
 					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
 				</h2>
-				<p>
+				<p class="ec-form-field-description" >
 					<?php _e( 'Product Used materials description', 'ktt' ); ?>
 				</p>
             </div>
@@ -374,7 +374,7 @@ class lbDokan{
                                     <?php lb_display_country_select($material['country'], '_material_country[]') ?></span>
                                 </div>
                                 
-                                <a href="#remove-material" onclick="removeMaterial(event)"  class="center-block text-center rem-center"> - Remove material</a> 
+                                <a href="#remove-material" onclick="removeMaterial(event)"  class="center-block text-center rem-center"> + Remove material</a> 
                                 <br>
                                 <hr>
                             </div>
@@ -401,7 +401,7 @@ class lbDokan{
 					<?php _e( 'Manufacturing info', 'ktt' ); ?>
 					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
 				</h2>
-				<p>
+				<p class="ec-form-field-description" >
 					<?php _e( 'Product Manufacturing info description', 'ktt' ); ?>
 				</p>
             </div>
@@ -474,7 +474,7 @@ class lbDokan{
 					<?php _e( 'Maintenance', 'ktt' ); ?>
 					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
 				</h2>
-				<p>
+				<p class="ec-form-field-description" >
 					<?php _e( 'Product Maintenance description', 'ktt' ); ?>
 				</p>
             </div>
@@ -504,7 +504,7 @@ class lbDokan{
                     <i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
                   
                 </h2>
-                <p>
+                <p class="ec-form-field-description" >
                     <?php _e( 'Product video', 'ktt' ); ?>
                 </p>
             </div>
@@ -555,7 +555,7 @@ class lbDokan{
 					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
                   
 				</h2>
-				<p>
+				<p class="ec-form-field-description">
 					<?php _e( 'Product External media links description', 'ktt' ); ?>
 				</p>
             </div>
@@ -601,17 +601,31 @@ class lbDokan{
         </div><!-- .lb-dokan-options -->
 
 		<?php // Patents / Certificates ?>
+
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
                 <h2>
 					<?php _e( 'Patent / Certificate', 'ktt' ); ?>
 					<i class="fa fa-caret-square-o-down ec-section-toggle-btn" aria-hidden="true"></i>
 				</h2>
-				<p>
+				<p class="ec-form-field-description" >
 					<?php _e( 'Product Patent & Certificate description', 'ktt' ); ?>
 				</p>
             </div>
+        <script type="text/javascript">
+            checkj = (event) =>{
+                console.log('dfds');
+                var l  = jQuery(".cert_file_code");
+          
+                if(jQuery(event.target).closest(l).val() !="" ){
+                    jQuery(event.target).closest(jQuery(".view_cert_link").removeClass("view_cert_link-hide"));
 
+                }
+                else{
+                    jQuery(event.target).closest(jQuery(".view_cert_link").addClass("view_cert_link-hide"));
+                }
+            };
+        </script>
             <div class="dokan-side-right">
                
                 <div class="lb-elastic-container">
@@ -650,17 +664,17 @@ class lbDokan{
                                                             ), 'value' => $cert['type'] ), 'select' ); ?>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="hidden" class="input-text" name="_cert_file[]" value="<?= $file; ?>" />
+                                            <input type="hidden" class="input-text cert_file_code" name="_cert_file[]"  value="<?= $file; ?>" />
 
                                             <a href="#remove" class="lb-file-placeholder <?php if( $file ){ echo 'active'; } ?>"></a>
-                                            <?php if($file)
+                                            <?php if($file){
                                                     ?>
                                                         
-                                                       <!--  <a href="<?php echo wp_get_attachment_url($file); ?>" style="display:block; cursor:pointer" target="_blank" >View </a> -->
-                                                    <?php 
+                                                <!--    <a href="<?php echo wp_get_attachment_url($file); ?>"  class="view_cert_link"  target="_blank" >View </a>   -->
+                                                    <?php }
                                                 ?> 
-                                            <a href="#add-file" class="lb-add-doc <?php if( !$file ){ echo 'active'; } ?>"> + <?php _e( 'Add document', 'ktt' ); ?></a>
-                                            <a href="#add-file" class="lb-remove-doc <?php if( $file ){ echo 'active'; } ?>"> + <?php _e( 'Remove document', 'ktt' ); ?></a>
+                                            <a href="#add-file" class=" lb-add-doc <?php if( !$file ){ echo 'active'; } ?>"> + <?php _e( 'Add document', 'ktt' ); ?></a>
+                                            <a href="#add-file"   class="verif lb-remove-doc <?php if( $file ){ echo 'active'; } ?>"> + <?php _e( 'Remove document', 'ktt' ); ?></a>
                                             
                                         </div>
                                     </div>
@@ -676,8 +690,8 @@ class lbDokan{
                 </div>
 
             </div>
-
         </div><!-- .lb-dokan-options -->
+
 
         <?php
 

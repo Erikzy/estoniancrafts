@@ -157,20 +157,20 @@
         </div>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_company_name"><?php _e( 'Company Name', 'ktt' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="dokan_company_name"><?php _e( 'Company Name *', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
-                <input id="dokan_store_name" required value="<?php echo $company_name; ?>" name="dokan_company_name" placeholder="<?php _e( 'company name', 'ktt'); ?>" class="dokan-form-control" type="text">
+                <input id="dokan_company_name" required value="<?php echo $company_name; ?>" name="dokan_company_name" placeholder="<?php _e( 'company name', 'ktt'); ?>" class="dokan-form-control" type="text">
             </div>
         </div>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_company_type"><?php _e( 'Company type', 'ktt' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="dokan_company_type"><?php _e( 'Company type *', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
 
-                <select name="dokan_company_type" id="dokan_company_type">
-                    <option value="none"> - <?php _e( 'company type', 'ktt'); ?> - </option>
+                <select name="dokan_company_type" required id="dokan_company_type">
+                    <option value=""> - <?php _e( 'company type', 'ktt'); ?> - </option>
                     <option value="1" <?= (($company_type == '1')? 'selected': '') ?>><?php _e( 'FIE', 'ktt'); ?></option>
                     <option value="2" <?= (($company_type == '2')? 'selected': '') ?>><?php _e( 'OÜ', 'ktt'); ?></option>
                     <option value="3" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'AS', 'ktt'); ?></option>
@@ -179,7 +179,7 @@
         </div>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_company_nr"><?php _e( 'Company reg nr', 'ktt' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="dokan_company_nr"><?php _e( 'Company reg nr *', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
                 <input id="dokan_company_nr" required value="<?php echo $company_nr; ?>" name="dokan_company_nr" placeholder="<?php _e( 'company registration number', 'ktt'); ?>" class="dokan-form-control" type="text">
@@ -468,7 +468,7 @@
         <div class="dokan-form-group">
 
             <div class="dokan-w4 ajax_prev dokan-text-left" style="margin-left:24%;">
-                <button name="dokan_update_store_settings" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block call-to-action-button" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
+                <button name="dokan_update_store_settings" id="schanges" class="dokan-btn dokan-btn-theme dokan-btn-lg btn-block call-to-action-button" data-balloon-length="medium" data-balloon="<?php _e( 'Make sure you didn\'t make any spelling mistakes. This data will be sent to our translators shortly.', 'ktt' ); ?>" data-balloon-pos="up" ><?php esc_attr_e( 'Save changes', 'dokan' ); ?></button>
 
             </div>
         </div>
@@ -555,6 +555,60 @@
                 }
             }
         }
+        remClass = ()=>{
+        remClass = (classname)=>{
+               jQuery( ".input-red-error" ).change(function() {
+                let id = this.id;
+               // console.log(jQuery("#"+id).attr("name"));
+                   jQuery("#"+id).removeClass(classname);
+                   jQuery("label[for='"+jQuery("#"+id).attr("name")+"']").removeClass(classname);
+                });
+
+        }
+
+        }
+        errDisp = (elements,jarray) =>{
+            let message = "";
+            let errors = [];
+            for(e in elements){
+                if(elements[e].is("select")){
+                   if(elements[e].val()===""){
+                         errors.push(elements[e]);
+                    }
+                }
+                if(elements[e].is("input")){
+                    if($.trim(elements[e].val())===""){
+                           errors.push(elements[e]);
+                    }
+                }
+            }
+            if(errors.length > 0 )
+            {     
+                for(e in errors){
+                  errors[e].addClass("input-red-error");
+                  jQuery("label[for='"+errors[e].attr("name")+"']").addClass("label-red-error");
+                  message = '<div class="dokan-product-title-alert dokan-alert dokan-alert-danger"> Please fill out this field. </div>';
+                  //jQuery(message).insertBefore(errors[e]);
+                 }
+               jQuery( ".input-red-error" ).change(function() {
+                let id = this.id;
+               // console.log(jQuery("#"+id).attr("name"));
+                   jQuery("#"+id).removeClass("input-red-error");
+                   jQuery("label[for='"+jQuery("#"+id).attr("name")+"']").removeClass("label-red-error");
+                });
+               
+                return false;
+            }
+          
+
+        }
+        $('#schanges').mousedown(function(){
+
+            let elements = [$("#dokan_company_name"),$("#dokan_company_nr"),$("#dokan_company_type")];
+            let jarray = [{},{},{}];
+            remClass();
+            errDisp(elements,jarray);
+    })
 
     })(jQuery);
 </script>
