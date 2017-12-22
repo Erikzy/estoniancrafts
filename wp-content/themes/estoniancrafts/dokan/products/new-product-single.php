@@ -115,7 +115,7 @@ if ( ! $from_shortcode ) {
         <header class="dokan-dashboard-header dokan-clearfix">
             <?php 
             if(isset($_POST["dokan_product_id"])){
-                   // var_dump($_POST);
+                //var_dump($_POST);
               /*      $post_title = isset($_POST["post_title"]) ? $_POST["post_title"] : ""; 
                     $product_cat = isset($_POST["product_cat"]) ? $_POST["product_cat"] : "";
                     $regular_price = isset($_POST["_regular_price"]) ? $_POST["_regular_price"]:"0.00";*/
@@ -907,8 +907,9 @@ if ( ! $from_shortcode ) {
 
 
     }
-  
 
     
 
 </script>
+
+

@@ -324,12 +324,37 @@ class lbDokan{
                         }
 
                         // var_dump($materials);die();
+                     ?>
+<script>
 
+    removeMaterial = (event) =>{ 
+        var l  = jQuery("div.used-material-container");
+       // console.log(jQuery(this).closest(jQuery(".used-material-container")));
+        if( jQuery(".used-material-container").length > 1 ){
+            //jQuery(this).closest(jQuery(".used-material-container")).remove();
+            /*jQuery(event.target).closest(jQuery("div").hasClass(".used-material-container") ).remove();*/
+           
+            jQuery(event.target).closest( l ).remove();
+        
+        console.log("remove")
+        }  
+        else
+        {
+            jQuery("#_material_name\\[\\]").val("");
+            jQuery("#_material_contents\\[\\]").val("");
+            jQuery("#_material_desc\\[\\]").val("");
+            jQuery(".selects-wrapper > select option[value=''] ").attr("selected",true);
+             //jQuery('.selects-wrapperselect option:contains("it\'s me")').prop('selected',true);
+        }
+       
+    }
+</script>
 
+                     <?php   
                         foreach($materials as $material){
 
                         ?>
-                            <div class="lb-elastic-element lb-input-margins">
+                            <div class="lb-elastic-element lb-input-margins used-material-container" >
 
                                 <div class="dokan-form-group">
                                     <label class="form-label"><?php _e( 'Material name', 'ktt' ); ?></label>
@@ -348,15 +373,18 @@ class lbDokan{
                                     <span class='selects-wrapper'>
                                     <?php lb_display_country_select($material['country'], '_material_country[]') ?></span>
                                 </div>
+                                
+                                <a href="#remove-material" onclick="removeMaterial(event)"  class="center-block text-center rem-center"> - Remove material</a> 
+                                <br>
                                 <hr>
                             </div>
 
-                        <?php 
+                        <?php  
                         }
                         ?>
 
                     </div>
-                    <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                    <a href="#lb-add-more" class="lb-elastic-add"  > + add more...</a>
                 </div>
             </div>
 
@@ -625,6 +653,12 @@ class lbDokan{
                                             <input type="hidden" class="input-text" name="_cert_file[]" value="<?= $file; ?>" />
 
                                             <a href="#remove" class="lb-file-placeholder <?php if( $file ){ echo 'active'; } ?>"></a>
+                                            <?php if($file)
+                                                    ?>
+                                                        
+                                                       <!--  <a href="<?php echo wp_get_attachment_url($file); ?>" style="display:block; cursor:pointer" target="_blank" >View </a> -->
+                                                    <?php 
+                                                ?> 
                                             <a href="#add-file" class="lb-add-doc <?php if( !$file ){ echo 'active'; } ?>"> + <?php _e( 'Add document', 'ktt' ); ?></a>
                                             <a href="#add-file" class="lb-remove-doc <?php if( $file ){ echo 'active'; } ?>"> + <?php _e( 'Remove document', 'ktt' ); ?></a>
                                             
@@ -827,3 +861,4 @@ class lbDokan{
 }
 
 lbDokan::get_instance();
+
