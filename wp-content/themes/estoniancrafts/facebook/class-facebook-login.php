@@ -297,7 +297,7 @@ class FacebookLogin{
             'user_login' => wp_slash($username),
             'user_email' => wp_slash($fb_user['email']),
             'user_pass' => wp_generate_password(),
-            'role' => 'seller'
+            'role' => 'customer'
         ]);
         if(is_wp_error($new_user)) {
             // Report our errors
@@ -312,7 +312,7 @@ class FacebookLogin{
         update_user_meta( $new_user, 'last_name', $fb_user['last_name'] );
         update_user_meta( $new_user, 'user_url', $fb_user['link'] );
         update_user_meta( $new_user, 'ec_facebook_id', $fb_user['id'] );
-        update_user_meta( $new_user, 'dokan_enable_selling', 1 );
+     //   update_user_meta( $new_user, 'dokan_enable_selling', 1 );
 
         // Log the user ?
         wp_set_auth_cookie( $new_user );

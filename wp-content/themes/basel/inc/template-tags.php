@@ -1376,10 +1376,11 @@ if( ! function_exists( 'basel_header_block_mobile_nav' ) ) {
 						<div class="zmb-container zmb-container-main-menu">
 							<div class="zmb-wrap zmb-main-menu-wrap zmb-menu-location-main-menu">
 								<a class="zmb-toggle-menu-mobile" href="#zmb-panel-menu-peamenuu"><span class="icon"><span></span><span></span><span></span></span></a>
-								<ul id="menu-peamenuu" class="site-mobile-menu zmb-menu"><li id="menu-item-products" class="menu-item menu-item-type-post_type menu-item-object-zanmenu  zanmenu-menu-item ">
+								<ul id="menu-peamenuu" class="site-mobile-menu zmb-menu">
+								<li id="menu-item-products" class="menu-item menu-item-type-post_type menu-item-object-zanmenu  zanmenu-menu-item ">
 									<a title="Products" class="zmb-item-title zmb-dropdown-toggle products-menu"  href="<?php echo get_site_url(); ?>/?s=&post_type=product">Products</a>
 								</li>
-
+ 								
 							</div>
 						</div>
 						<?php
