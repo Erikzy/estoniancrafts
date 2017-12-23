@@ -503,7 +503,7 @@ if ( ! $from_shortcode ) {
                                     </div>
 
                                     <div class="dokan-w2 hide_if_variation">
-                                        <label for="_backorder_time" class="dokan-form-label"><?php _e( 'Backorder time', 'ktt' ); ?></label>
+                                        <label for="_backorder_time" class=" form-label"><?php _e( 'Backorder time', 'ktt' ); ?></label>
 										<span class="ec-form-field-description"><?php _e( 'Product backorder time description', 'ktt' ); ?></span>
 
                                         <?php dokan_post_input_box( $post_id, '_backorder_time', array( 'options' => array(

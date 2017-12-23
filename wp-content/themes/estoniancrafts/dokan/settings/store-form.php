@@ -135,12 +135,12 @@
 					<a class="dokan-close dokan-remove-gravatar-image">&times;</a>
 				</div>
 				<div class="gravatar-button-area<?php echo $store_logo ? ' dokan-hide' : ''; ?>">
-					<a href="#" class="dokan-pro-gravatar-drag dokan-btn dokan-btn-default"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
+					<a href="#" class="smaller-gray-button"><i class="fa fa-cloud-upload"></i> <?php _e( 'Upload Photo', 'dokan' ); ?></a>
 				</div>
 			</div>
 		</div>
 
-        <div class="dokan-form-group">
+        <div class="dokan-form-group mtt" >
             <label class="dokan-w3 dokan-control-label" for="dokan_store_id"><?php _e( 'Store ID', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
@@ -379,7 +379,7 @@
                 <div class="dokan-w5 dokan-text-left dokan_tock_check">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="dokan_store_tnc_enable" value="on" <?php echo $enable_tnc == 'on' ? 'checked':'' ; ?> name="dokan_store_tnc_enable" ><?php _e( 'Show terms and conditions in store page', 'dokan' ); ?>
+                            <input type="checkbox" id="dokan_store_tnc_enable" value="on" <?php echo $enable_tnc == 'on' ? 'checked':'' ; ?> name="dokan_store_tnc_enable"  ><?php _e( 'Show terms and conditions in store page', 'dokan' ); ?>
                         </label>
                     </div>
                 </div>
