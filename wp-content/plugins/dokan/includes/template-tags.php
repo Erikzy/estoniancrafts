@@ -96,32 +96,36 @@ function dokan_page_navi( $before = '', $after = '', $wp_query ) {
         $start_page = 1;
     }
 
-    echo $before . '<div class="dokan-pagination-container"><ul class="dokan-pagination">' . "";
+    echo $before . '<div class="dokan-pagination-container woocommerce-pagination "><ul class="dokan-pagination page-numbers ">' . "";
     if ( $paged > 1 ) {
         $first_page_text = "&laquo;";
-        echo '<li class="prev"><a href="' . get_pagenum_link() . '" title="First">' . $first_page_text . '</a></li>';
+       /* echo '<li class="prev"><a href="' . get_pagenum_link() . '" title="First" class="page-numbers" >' . $first_page_text . '</a></li>';*/
     }
 
-    $prevposts = get_previous_posts_link( '&larr; Previous' );
+   // $prevposts = get_previous_posts_link( '&larr; Previous' );
+    $prevposts = get_previous_posts_link('');
     if ( $prevposts ) {
+      //  echo '<li><a href="#" class="prev page-numbers">' . $prevposts . '</a></li>';
         echo '<li>' . $prevposts . '</li>';
     } else {
-        echo '<li class="disabled"><a href="#">' . __( '&larr; Previous', 'dokan' ) . '</a></li>';
+       // echo '<li class="disabled"><a href="#">' . __( '&larr; Previous', 'dokan' ) . '</a></li>';
+        echo '<li class="disabled"><a href="#" class="prev page-numbers" >' . __( '<', 'dokan' ) . '</a></li>';
     }
 
     for ($i = $start_page; $i <= $end_page; $i++) {
         if ( $i == $paged ) {
-            echo '<li class="active"><a href="#">' . $i . '</a></li>';
+            echo '<li ><span class="page-numbers current">' . $i . '</span></li>';
         } else {
-            echo '<li><a href="' . get_pagenum_link( $i ) . '">' . number_format_i18n( $i ) . '</a></li>';
+            echo '<li><a href="' . get_pagenum_link( $i ) . '" class="page-numbers">' . number_format_i18n( $i ) . '</a></li>';
         }
     }
     echo '<li class="">';
-    next_posts_link( __('Next &rarr;', 'dokan') );
+    next_posts_link( __('', 'dokan') );
+   // next_posts_link( __('Next &rarr;', 'dokan') );
     echo '</li>';
     if ( $end_page < $max_page ) {
         $last_page_text = "&rarr;";
-        echo '<li class="next"><a href="' . get_pagenum_link( $max_page ) . '" title="Last">' . $last_page_text . '</a></li>';
+        echo '<li class="next"><a href="' . get_pagenum_link( $max_page ) . '" title="Last" class="next page-numbers" >' . $last_page_text . '</a></li>';
     }
     echo '</ul></div>' . $after . "";
 }

@@ -37,6 +37,31 @@
 .lh-prod{
     line-height:18px;
 }
+/*.dokan-pagination .page-numbers li{
+        display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+.dokan-pagination .page-numbers li a{
+
+display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #B1B1B1;
+    color: #000;
+    font-size: 16px;
+    width: 34px;
+    line-height: 32px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.dokan-pagination .page-numbers li a {
+    text-decoration: none;
+}*/
+
 .topbar-wrapp {
     height: auto; 
 }
