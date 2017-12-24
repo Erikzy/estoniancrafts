@@ -950,7 +950,7 @@ span.select2-selection--multiple{
     cursor:pointer !important;
 
 }
-.medium-gray-button{
+.medium-gray-button  , .showSweetAlert .confirm{
     border: 0px !important;
     background-color: #ECECEC !important;
     color:#696969 !important;
@@ -962,10 +962,13 @@ span.select2-selection--multiple{
     border-radius: 5px !important;
     font-weight:700 !important;
 }
+.showSweetAlert .confirm{
+    min-width:150px;
+}
 #cat-men{
     display:none;
 }
-.medium-gray-button:hover {
+.medium-gray-button:hover, .showSweetAlert .confirm:hover {
     color: #ffffff !important;
     background-color: #373737!important;
     font-size:16px !important;
@@ -1113,7 +1116,7 @@ div.dokan-product-description #post_content, div.dokan-product-short-description
     color:red;
 }
 .label-red-error{
-    color:red;
+    color:red !important;
 }
 div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-outer > .owl-wrapper{
  /*   margin:auto;
