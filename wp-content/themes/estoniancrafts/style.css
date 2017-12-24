@@ -28,6 +28,9 @@
     margin-bottom: 20px;
     z-index: 1;
 }
+.shop-loop-wrapper .ec-new-product-grid-left img{
+    max-height:100% ;
+}
 .inventory-table select.dokan-form-control{
     margin-right: 20px !important;
 }
