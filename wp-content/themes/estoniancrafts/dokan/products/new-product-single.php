@@ -358,12 +358,12 @@ if ( ! $from_shortcode ) {
                                         <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="<?php echo $feat_image_id; ?>">
 
                                         <i class="fa fa-cloud-upload"></i>
-                                        <a href="#" class="dokan-feat-image-btn btn btn-sm smaller-orange-button"><?php _e( 'Upload a product cover image', 'dokan' ); ?></a>
-                                        <p style="margin-top:5px"> The minimum image size is  800 x 600 px</p>
+                                        <a href="#" class="dokan-feat-image-btn btn btn-sm smaller-orange-button"  onmousedown="removeImage();" ><?php _e( 'Upload a product cover image', 'dokan' ); ?></a>
+                                        <p style="margin-top:5px"> The minimum image size is  800 x 600 px </p>
                                     </div>
 
                                     <div class="image-wrap<?php echo $wrap_class; ?>" id="fet-im-a">
-                                        <a class="close dokan-remove-feat-image">&times;</a>
+                                        <a class="close dokan-remove-feat-image" " >&times;</a>
                                         <?php if ( $feat_image_id ) { ?>
                                             <?php echo get_the_post_thumbnail( $post_id, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array( 'height' => '', 'width' => '')  ); ?>
                                         <?php } else { ?>
@@ -900,10 +900,14 @@ if ( ! $from_shortcode ) {
     jQuery(window).on("mousemove", ()=>{ 
         showButton();
         jQuery("#feat_image_url").val(jQuery("#fet-im-a > img").attr("src"));
-        //console.log(jQuery("#fet-im-a > img").attr("src") );
-
 
     } );
+    removeImage = ()=>{
+        console.log("rem image");
+       
+                    jQuery("#fet-im-a > img").attr({"src": "", "srcset":"" });
+      
+    }
 
     function convertValue(id)
     {
