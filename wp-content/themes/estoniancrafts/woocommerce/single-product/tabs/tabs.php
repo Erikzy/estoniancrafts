@@ -68,6 +68,7 @@ if ( ! empty( $tabs ) ) : ?>
 					<a href="#tab-<?php echo esc_attr( $key ); ?>" class="basel-accordion-title tab-title-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?></a>
 					<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>">
 
+					
 						<?php call_user_func( $tab['callback'], $key, $tab ); ?>
 					</div>
 				</div>

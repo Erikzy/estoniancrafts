@@ -27,11 +27,12 @@ $alt        = 1;
 $attributes = $product->get_attributes();
 $post_id = $product->id;
 
-ob_start();
+//ob_start();
 
 ?>
-<table class="shop_attributes">
 
+<table class="shop_attributes">
+	
 	<?php //if ( $product->enable_dimensions_display() ) : ?>
 	<?php if ( $product->checkAttributes() ) : ?>
 
@@ -260,7 +261,7 @@ ob_start();
 </table>
 <?php
 if ( $has_row ) {
-	echo ob_get_clean();
+//	echo ob_get_clean();
 } else {
-	ob_end_clean();
+//	ob_end_clean();
 }

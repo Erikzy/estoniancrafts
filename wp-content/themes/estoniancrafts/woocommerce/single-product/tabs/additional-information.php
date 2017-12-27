@@ -27,4 +27,4 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 
 ?>
 
-<?php $product->list_attributes(); ?>
+<?php  $product->list_attributes(); ?>

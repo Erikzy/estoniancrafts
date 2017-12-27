@@ -1074,6 +1074,7 @@ if ( ! function_exists( 'woocommerce_product_additional_information_tab' ) ) {
 	 * @subpackage	Product/Tabs
 	 */
 	function woocommerce_product_additional_information_tab() {
+	
 		wc_get_template( 'single-product/tabs/additional-information.php' );
 	}
 }
