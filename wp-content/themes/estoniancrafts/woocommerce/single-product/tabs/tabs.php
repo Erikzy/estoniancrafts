@@ -36,6 +36,7 @@ global $product;
 //var_dump(wc_customer_bought_product( '', get_current_user_id(), $product->id ) );
 
 //var_dump(get_post_meta(  $product->id, '', true ));
+//var_dump($product->get_attributes());
 $o = get_post_meta( $product->id, '_wc_review_count', true );
 
 
@@ -69,6 +70,9 @@ if ( ! empty( $tabs ) ) : ?>
 				<div class="basel-tab-wrapper">
 					<a href="#tab-<?php echo esc_attr( $key ); ?>" class="basel-accordion-title tab-title-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?></a>
 					<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>">
+						<?php
+							var_dump($tab);
+						?>
 						<?php call_user_func( $tab['callback'], $key, $tab ); ?>
 					</div>
 				</div>

@@ -65,9 +65,9 @@ jQuery(document).ready(function(){
 		rightArrow.style.top = leftArrow.style.top;
 		if(jQuery('.woocommerce-main-image').length > 0) {
 		  jQuery('.woocommerce-main-image')[0].style.marginLeft = space+'px';
-		  console.log(carouselWrapperWidth);
+		/*  console.log(carouselWrapperWidth);
 		  console.log(carouselContainerWidth);
-		  console.log(space);
+		  console.log(space);*/
           if(jQuery('.owl-controls')[0].style.display === 'none'){
 
 					jQuery('.owl-wrapper-outer')[0].style.left = (-6 + space).toString()+ 'px';

@@ -1097,8 +1097,12 @@ if ( ! function_exists( 'woocommerce_default_product_tabs' ) ) {
 	 * @param array $tabs
 	 * @return array
 	 */
+
+
+
 	function woocommerce_default_product_tabs( $tabs = array() ) {
 		global $product, $post;
+
 
 		// Description tab - shows product content
 		if ( $post->post_content ) {
@@ -1110,7 +1114,15 @@ if ( ! function_exists( 'woocommerce_default_product_tabs' ) ) {
 		}
 
 		// Additional information tab - shows attributes
-		if ( $product && ( $product->has_attributes() || ( $product->enable_dimensions_display() && ( $product->has_dimensions() || $product->has_weight() ) ) ) ) {
+/*		if ( $product && ( $product->has_attributes() || ( $product->enable_dimensions_display() && ( $product->has_dimensions() || $product->has_weight() ) ) ) ) {
+			$tabs['additional_information'] = array(
+				'title'    => __( 'Additional Information', 'woocommerce' ),
+				'priority' => 20,
+				'callback' => 'woocommerce_product_additional_information_tab'
+			);
+		}*/
+		$id = $product->id;
+		if ( $product && ( $product->checkAttributes() || ( $product->enable_dimensions_display() && ( $product->has_dimensions() || $product->has_weight() ) ) ) ) {
 			$tabs['additional_information'] = array(
 				'title'    => __( 'Additional Information', 'woocommerce' ),
 				'priority' => 20,

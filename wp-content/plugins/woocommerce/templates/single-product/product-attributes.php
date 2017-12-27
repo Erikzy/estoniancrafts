@@ -26,13 +26,14 @@ $has_row    = false;
 $alt        = 1;
 $attributes = $product->get_attributes();
 $post_id = $product->id;
-//var_dump($product);
+
 ob_start();
 
 ?>
 <table class="shop_attributes">
 
-	<?php if ( $product->enable_dimensions_display() ) : ?>
+	<?php //if ( $product->enable_dimensions_display() ) : ?>
+	<?php if ( $product->checkAttributes() ) : ?>
 
 		<?php if ( $product->has_weight() ) : $has_row = true; ?>
 			<tr class="<?php if ( ( $alt = $alt * -1 ) === 1 ) echo 'alt'; ?>">

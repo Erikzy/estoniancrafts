@@ -513,3 +513,17 @@ if( ! function_exists( 'basel_product_video_car_button' ) ) {
         endif;
         }
     }
+
+function get_attachement_url_ajax(){
+    $id = $_POST['id'];
+    //$response = wp_get_attachment_url($id);
+/*    $response = json_encode($response);
+    header( "Content-Type: application/json" );
+    echo $response;*/
+    echo "test";
+    exit;
+} 
+add_action('wp_ajax_get_attachement_url_ajax', 'get_attachement_url_ajax');
+add_action('wp_ajax_nopriv_get_attachement_url_ajax', 'get_attachement_url_ajax');
+
+

@@ -659,7 +659,7 @@ class lbDokan{
                     }*/
           
         </script>
-        <div id="feedback"></div>
+   <!--      <div id="feedback"></div> -->
         <!-- <button type="button" onclick="test()">button </button> -->
             <div class="dokan-side-right">
                

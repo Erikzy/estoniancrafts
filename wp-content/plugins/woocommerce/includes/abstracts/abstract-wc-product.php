@@ -1441,6 +1441,27 @@ class WC_Product {
 		return false;
 	}
 
+/** CUSTOM FUNCTION CHECKS IF THERE ARE ATTRIBUTES  USING WP_GET_POST_META**/	
+	public function checkAttributes(){
+			
+			$materials = get_post_meta( $this->id, '_materials', true);
+			if(sizeof($materials) > 0 && $materials[0]["name"] !== "" )
+				return true;
+			$manufacturing_method= get_post_meta($this->id, '_manufacturing_method', true) ;
+			if(trim($manufacturing_method) !== "")
+				return true;
+			$maint= get_post_meta($this->id, '_maintenance_info', true) ;
+			if(trim($maint) !== "")
+				return true;
+			$media_links = get_post_meta($this->id, '_media_links', true);
+			if(trim($media_links[0]) !== "") 
+				return true;
+			$certificates = get_post_meta($this->id, '_certificates', true);
+			if(trim($certificates[0]["file"]) !== "")
+				return true;
+	
+			return false;
+	}
 	/**
 	 * Returns whether or not we are showing dimensions on the product page.
 	 *
