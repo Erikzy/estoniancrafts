@@ -52,7 +52,7 @@ class EC_Actions
 		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
 
         // Unregister font-awsome css registered by dokan plugin
-		wp_deregister_style('fontawesome');
+		//wp_deregister_style('fontawesome');
 		wp_deregister_style('bootstrap');
 	}
     /**
@@ -504,4 +504,3 @@ function check_idcard_user_register($user_id) {
 
     return true;
 }
-

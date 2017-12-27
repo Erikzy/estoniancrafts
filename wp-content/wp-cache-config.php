@@ -5,6 +5,15 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+<<<<<<< HEAD
+$wp_cache_preload_on = 0; //Added by WP-Cache Manager
+$wp_cache_preload_taxonomies = 0; //Added by WP-Cache Manager
+$wp_cache_preload_email_volume = 'many'; //Added by WP-Cache Manager
+$wp_cache_preload_email_me = 0; //Added by WP-Cache Manager
+$wp_cache_preload_interval = 0; //Added by WP-Cache Manager
+$wp_cache_preload_posts = 'all'; //Added by WP-Cache Manager
+=======
+>>>>>>> af31092b7a67855e2f88b38b15de0bbec386d659
 $wp_cache_mobile_groups = ''; //Added by WP-Cache Manager
 $wp_cache_mobile_prefixes = 'w3c , w3c-, acs-, alav, alca, amoi, audi, avan, benq, bird, blac, blaz, brew, cell, cldc, cmd-, dang, doco, eric, hipt, htc_, inno, ipaq, ipod, jigs, kddi, keji, leno, lg-c, lg-d, lg-g, lge-, lg/u, maui, maxo, midp, mits, mmef, mobi, mot-, moto, mwbp, nec-, newt, noki, palm, pana, pant, phil, play, port, prox, qwap, sage, sams, sany, sch-, sec-, send, seri, sgh-, shar, sie-, siem, smal, smar, sony, sph-, symb, t-mo, teli, tim-, tosh, tsm-, upg1, upsi, vk-v, voda, wap-, wapa, wapi, wapp, wapr, webc, winw, winw, xda , xda-'; //Added by WP-Cache Manager
 $wp_cache_refresh_single_only = '0'; //Added by WP-Cache Manager
@@ -12,19 +21,32 @@ $wp_cache_make_known_anon = 0; //Added by WP-Cache Manager
 $wp_cache_mod_rewrite = 0; //Added by WP-Cache Manager
 $wp_cache_front_page_checks = 0; //Added by WP-Cache Manager
 $wp_cache_mfunc_enabled = 0; //Added by WP-Cache Manager
+<<<<<<< HEAD
+$wp_supercache_304 = 1; //Added by WP-Cache Manager
+=======
 $wp_supercache_304 = 0; //Added by WP-Cache Manager
+>>>>>>> af31092b7a67855e2f88b38b15de0bbec386d659
 $wp_cache_no_cache_for_get = 0; //Added by WP-Cache Manager
 $wp_cache_disable_utf8 = 0; //Added by WP-Cache Manager
 $cache_time_interval = '600'; //Added by WP-Cache Manager
 $cache_schedule_type = 'interval'; //Added by WP-Cache Manager
+<<<<<<< HEAD
+$cache_page_secret = 'b01c631f5bf0f4fb83f937c04e723988'; //Added by WP-Cache Manager
+=======
 $cache_page_secret = '391fb75abb98fe2654522f8f122822c1'; //Added by WP-Cache Manager
 $wp_cache_home_path = '/ec2/EstonianCrafts/'; //Added by WP-Cache Manager
+>>>>>>> af31092b7a67855e2f88b38b15de0bbec386d659
 $wp_cache_slash_check = 1; //Added by WP-Cache Manager
 if ( ! defined('WPCACHEHOME') )
 	define( 'WPCACHEHOME', WP_CONTENT_DIR . "/plugins/wp-super-cache/" ); //Added by WP-Cache Manager
 
+<<<<<<< HEAD
+$cache_compression = 1; //Added by WP-Cache Manager
+$cache_enabled = true; //Added by WP-Cache Manager
+=======
 $cache_compression = 0; // Super cache compression
 $cache_enabled = false; //Added by WP-Cache Manager
+>>>>>>> af31092b7a67855e2f88b38b15de0bbec386d659
 $super_cache_enabled = true; //Added by WP-Cache Manager
 $cache_max_time = '1800'; //Added by WP-Cache Manager
 //$use_flock = true; // Set it true or false if you know what to use
@@ -38,15 +60,26 @@ $cache_acceptable_files = array( 'wp-comments-popup.php', 'wp-links-opml.php', '
 $cache_rejected_uri = array ( 0 => 'wp-.*\\.php', 1 => 'index\\.php', 2 => 'wishlist', ); //Added by WP-Cache Manager
 $cache_rejected_user_agent = array ( 0 => 'bot', 1 => 'ia_archive', 2 => 'slurp', 3 => 'crawl', 4 => 'spider', 5 => 'Yandex' );
 
+<<<<<<< HEAD
+$cache_rebuild_files = 1; //Added by WP-Cache Manager
+=======
 $cache_rebuild_files = 0; //Added by WP-Cache Manager
+>>>>>>> af31092b7a67855e2f88b38b15de0bbec386d659
 
 // Disable the file locking system.
 // If you are experiencing problems with clearing or creating cache files
 // uncommenting this may help.
+<<<<<<< HEAD
+$wp_cache_mutex_disabled = 0; //Added by WP-Cache Manager
+
+// Just modify it if you have conflicts with semaphores
+$sem_id = 261230111; //Added by WP-Cache Manager
+=======
 $wp_cache_mutex_disabled = 1; //Added by WP-Cache Manager
 
 // Just modify it if you have conflicts with semaphores
 $sem_id = 411359321; //Added by WP-Cache Manager
+>>>>>>> af31092b7a67855e2f88b38b15de0bbec386d659
 
 if ( '/' != substr($cache_path, -1)) {
 	$cache_path .= '/';
@@ -78,6 +111,18 @@ $wp_cache_debug_level = 5;
 $wp_cache_debug_ip = '';
 $wp_cache_debug_log = '';
 $wp_cache_debug_email = '';
+<<<<<<< HEAD
+$wp_cache_pages[ "search" ] = 0;
+$wp_cache_pages[ "feed" ] = 0;
+$wp_cache_pages[ "category" ] = 0;
+$wp_cache_pages[ "home" ] = 0;
+$wp_cache_pages[ "frontpage" ] = 0;
+$wp_cache_pages[ "tag" ] = 0;
+$wp_cache_pages[ "archives" ] = 0;
+$wp_cache_pages[ "pages" ] = 0;
+$wp_cache_pages[ "single" ] = 0;
+$wp_cache_pages[ "author" ] = 0;
+=======
 $wp_cache_pages[ "search" ] = 0; //Added by WP-Cache Manager
 $wp_cache_pages[ "feed" ] = 0; //Added by WP-Cache Manager
 $wp_cache_pages[ "category" ] = 0; //Added by WP-Cache Manager
@@ -88,6 +133,7 @@ $wp_cache_pages[ "archives" ] = 0; //Added by WP-Cache Manager
 $wp_cache_pages[ "pages" ] = 0; //Added by WP-Cache Manager
 $wp_cache_pages[ "single" ] = 0; //Added by WP-Cache Manager
 $wp_cache_pages[ "author" ] = 0; //Added by WP-Cache Manager
+>>>>>>> af31092b7a67855e2f88b38b15de0bbec386d659
 $wp_cache_hide_donation = 0;
 $wp_cache_not_logged_in = 0; //Added by WP-Cache Manager
 $wp_cache_clear_on_post_edit = 0; //Added by WP-Cache Manager
