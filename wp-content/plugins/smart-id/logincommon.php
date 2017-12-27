@@ -6,13 +6,13 @@ if (!class_exists("LoginCommon")) {
 
        public static function login($identityCode, $firstName, $lastName, $email) {
             //$userName = "EST" . $identityCode;
-			$userName = strtolower($firstName).'.'.strtolower($lastName);
+			$userName = mb_strtolower($firstName).'.'.mb_strtolower($lastName);
 			$user = WP_User::get_data_by('login', $userName);
 			if($user){
 				$increment = 0;
 				while($user){
 					$increment++;
-					$userName = $firstName.'.'.$lastName.'.'.$increment;
+					$userName = mb_strtolower($firstName).'.'.mb_strtolower($lastName).'.'.$increment;
 					$user = WP_User::get_data_by('login', $userName);
 				}	
 			
