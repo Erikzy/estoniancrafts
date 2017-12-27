@@ -285,7 +285,7 @@ class FacebookLogin{
         	$emailExisting = WP_User::get_data_by('email', $this->facebook_details['email']);
         	if($emailExisting){
         	   update_user_meta($emailExisting, 'ec_facebook_id',$this->facebook_details['id'] );
-        	   wp_set_auth_cookie( $emailExisting );
+        	   wp_set_auth_cookie( $emailExisting->ID );
         	   return true;
         	//	var_dump($emailExisting);
         	//	die();
