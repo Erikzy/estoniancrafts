@@ -422,7 +422,14 @@ class lbDokanUser {
         <div class="break"></div>
         <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
             <label for="lb_dokan_dob"><?= __('Date of birth', 'ktt') ?></label>
-            <input type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="<?= $day.'.'.$month.'.'.$year ?>" name="dummy" id="dummy_box" list="dates_pattern0_datalist" placeholder="dd.mm.yyyy" onchange="updateValues()" >
+            <?php
+                if(trim($day) !== "" && trim($month) !=="" && trim($year) !=="" )
+                    $val = $day.'.'.$month.'.'.$year;
+                else
+                    $val="";
+
+            ?>
+            <input type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="<?= $val ?>" name="dummy" id="dummy_box" list="dates_pattern0_datalist" placeholder="dd.mm.yyyy" onchange="updateValues()" >
             <div class="dokan-hide">
                  <input type="number" class="lb-small-nr inp" name="lb_dokan_dob_day" id="lb_dokan_day" value="<?= $day ?>" placeholder="dd">
                  <input type="number" class="lb-small-nr inp" name="lb_dokan_dob_month" id="lb_dokan_month" value="<?= $month ?>" placeholder="mm">
