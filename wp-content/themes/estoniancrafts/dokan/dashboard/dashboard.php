@@ -97,7 +97,7 @@
 
     </div><!-- .dokan-dashboard-content -->
 	<div class="dashboard_sidebar">
-		<?php get_sidebar(); ?>
+		<?php //get_sidebar(); ?>
 	</div>
     <?php
 
