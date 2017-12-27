@@ -10,12 +10,16 @@ if (!class_exists("LoginCommon")) {
 			$user = WP_User::get_data_by('user_login', $userName);
 			if($user){
 				$increment = 0;
-				while($user){
+				
+				                echo "ERROR: Idcode not received from the login. Please try again";
+                echo "$identityCode, $firstName, $lastName, $email";
+                die();
+			/*	while($user){
 					$increment++;
 					$userName = $firstName.'.'.$lastName.'.'.$increment;
 					$user = WP_User::get_data_by('user_login', $userName);
 				}	
-			
+			*/
 			
 			}
 			
