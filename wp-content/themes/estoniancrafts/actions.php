@@ -480,6 +480,35 @@ HTML;
 
 }
 EC_Actions::init();
+//create a dokan store profile for a user
+
+add_action('wp_ajax_user-store-create', 'user_store_create');
+
+function user_store_create(){
+  ob_start();
+  if ( 
+    ! isset( $_POST['user_store_create_form'] ) 
+    || ! wp_verify_nonce( $_POST['user_store_create_form'], 'user_store_create' ) 
+
+  ) {
+
+   echo 'Sorry, your nonce did not verify.';
+  // exit;
+
+  } else {
+	
+	 	$user_id = get_current_user_id();
+	    $u = new WP_User( $user_id );
+	    $u->add_role( 'seller' );
+	    update_user_meta( $user_id, 'dokan_enable_selling','yes');
+        update_user_meta( $user_id, 'dokan_publishing', 'yes' );
+	    echo 'role added';
+  }
+  wp_die();
+  return ob_get_clean();
+}
+
+
 
 // Check if the current registered user has IDCARD validation hash code
 add_action('user_register', 'check_idcard_user_register');

@@ -72,10 +72,22 @@ class EC_Shortcodes
         	?>
         	<script type="text/javascript">
         		function addSellerProfile(){
-        			alert("Add seller profile");
-        		}
+        	
+        	 var nonce_value = jQuery('#user_store_create_form').val();
+   			 var data = {
+                'action': 'user-store-create',
+                'user_store_create_form' : nonce_value
+                
+            };
+    		jQuery.post('<?php echo site_url();?>/wp-admin/admin-ajax.php', data, function (e) {
+            	console.log(e);
+				location.reload();
+     		})
+        	
+        	}
         	</script>	
         	<?php 
+        	wp_nonce_field( 'user_store_create', 'user_store_create_form' );
          	echo '<button class="call-to-action-button" onclick=addSellerProfile()>Create shop</button>';
          }
 	}
