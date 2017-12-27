@@ -321,6 +321,8 @@ class FacebookLogin{
             // Report our errors
             $_SESSION['ec_facebook_message'] = $new_user->get_error_message();
             // Redirect
+            
+            echo 'wp-error';
             header("Location: ".$this->redirect_url, true);
             die();
         }
