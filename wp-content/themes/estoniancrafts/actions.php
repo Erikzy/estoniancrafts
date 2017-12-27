@@ -500,8 +500,8 @@ function user_store_create(){
 	 	$user_id = get_current_user_id();
 	    $u = new WP_User( $user_id );
 	    $u->add_role( 'seller' );
-	    update_user_meta( $user_id, 'dokan_enable_selling',1);
-        update_user_meta( $user_id, 'dokan_publishing', 1 );
+	    update_user_meta( $user_id, 'dokan_enable_selling','yes');
+        update_user_meta( $user_id, 'dokan_publishing', 'yes' );
 	    echo 'role added';
   }
   wp_die();
