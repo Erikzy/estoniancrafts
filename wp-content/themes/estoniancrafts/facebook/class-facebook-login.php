@@ -275,9 +275,20 @@ class FacebookLogin{
             'count_total'  => false,
             'fields'       => 'id',
         ));
+        
+        
+        
+        
+        
 
         if(empty($wp_users[0])) {
-            return false;
+        	$emailExisting = WP_User::get_data_by('email', $this->facebook_details['email'])
+        	if($emailExisting){
+        	   update_user_meta($emailExisting, 'ec_facebook_id',$this->facebook_details['email'] );
+        	   wp_set_auth_cookie( $emailExisting );
+        	   return true;
+        	}
+        	return false;
         }
 
         // Log the user ?
@@ -322,7 +333,7 @@ class FacebookLogin{
             $_SESSION['ec_facebook_message'] = $new_user->get_error_message();
             // Redirect
             
-            echo 'wp-error';
+           // echo 'wp-error';
             header("Location: ".$this->redirect_url, true);
             die();
         }
