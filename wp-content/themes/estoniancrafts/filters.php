@@ -510,6 +510,23 @@ function ec_dokan_ask_information_product_tab( $tabs) {
 }
 add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' );
 
+
+
+/*function m_wp_set_comment_status($comment_id){
+
+}
+add_filter('wp_set_comment_status','m_wp_set_comment_status');
+*/
+function filter_handler( $approved , $commentdata )
+{
+ 
+  return 1;
+}
+
+add_filter( 'pre_comment_approved' , 'filter_handler' , '99', 2 );
+
+
+
 /**
  * Prints information asking form in product single page
  *
@@ -524,4 +541,24 @@ function ec_dokan_ask_information_tab( $val ) {
     	'product' => $product,
     	'user' => $user
     ]);
+}
+
+function comments_on( $data ) {
+    if( $data['post_type'] == 'post' ) {
+        $data['comment_status'] = 1;
+    }
+
+    return $data;
+}
+
+add_filter( 'wp_insert_post_data', 'comments_on' );
+
+add_filter('previous_posts_link_attributes', 'posts_link_attributes_1');
+add_filter('next_posts_link_attributes', 'posts_link_attributes_2');
+
+function posts_link_attributes_1() {
+    return 'class="prev page-numbers"';
+}
+function posts_link_attributes_2() {
+    return 'class="next page-numbers"';
 }

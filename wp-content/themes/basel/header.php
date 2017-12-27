@@ -16,7 +16,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="stylesheet" href="/wp-content/themes/basel/style.min.css?ver=4.6.4"">
 	<link rel="stylesheet" href="/wp-content/themes/basel/style.css">
-	
+	<script type="text/javascript" src="/wp-content/themes/estoniancrafts/js/menus.js"></script>
 	<?php wp_head(); ?>
 	
 </head>

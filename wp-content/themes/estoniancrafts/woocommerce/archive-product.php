@@ -18,7 +18,13 @@ if ( ! basel_is_woo_ajax() ) {
 }
 
 ?>
+<div class="shop-loop-wrapper">	
+	<div id="cat-men">
+		<a data-toggle="collapse" data-target="#ccmenu" onmousedown="catMenu()" id="collapse-link" class="toote"> Tootekategooriad</a>
 
+			<div id="ccmenu" class="collapse"></div>
+		<?php //do_action( 'woocommerce_sidebar' );?> 
+	</div>
 	<?php
 		/**
 		 * woocommerce_before_main_content hook
@@ -30,7 +36,7 @@ if ( ! basel_is_woo_ajax() ) {
 	?>
 
 		<?php do_action( 'woocommerce_archive_description' ); ?>
-			
+		
 		<div class="shop-loop-head">
 			
 			<?php woocommerce_breadcrumb(); ?>
@@ -105,18 +111,19 @@ if ( ! basel_is_woo_ajax() ) {
 		 */
 		do_action( 'woocommerce_after_main_content' );
 	?>
-
-	<?php 
-		/**
-		 * woocommerce_sidebar hook
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
-
+	<div id="category-menu-wrapper">
+		<?php 
+			/**
+			 * woocommerce_sidebar hook
+			 *
+			 * @hooked woocommerce_get_sidebar - 10
+			 */
+			do_action( 'woocommerce_sidebar' );
+		?>
+	</div>
+</div>
 <?php 
-	
+
 	if ( ! basel_is_woo_ajax() ) {
 		get_footer( 'shop' ); 
 	} else {

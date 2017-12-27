@@ -456,19 +456,24 @@ class Dokan_Template_Settings {
 
             //update store setttings info
             $dokan_settings = array(
-                'store_name'                   => sanitize_text_field( $_POST['dokan_store_name'] ),
-                'store_ppp'                    => absint( $_POST['dokan_store_ppp'] ),
+                'store_name'                   => isset($_POST['dokan_store_name'] ) ? sanitize_text_field( $_POST['dokan_store_name']):null,
+
+
+
+                'store_ppp'                    => isset($_POST['store_ppp'] )? absint( $_POST['dokan_store_ppp'] ): '' ,
+
                 'address'                      => isset( $_POST['dokan_address'] ) ? $_POST['dokan_address'] : $prev_dokan_settings['address'],
-                'location'                     => sanitize_text_field( $_POST['location'] ),
-                'find_address'                 => sanitize_text_field( $_POST['find_address'] ),
+
+                'location'                     => isset($_POST['location']) ? sanitize_text_field( $_POST['location'] ): '',
+                'find_address'                 => isset($_POST['find_address'] ) ? sanitize_text_field( $_POST['find_address'] ): '',
                 'banner'                       => isset( $_POST['dokan_banner'] ) ? absint( $_POST['dokan_banner'] ) : null,
-                'phone'                        => sanitize_text_field( $_POST['setting_phone'] ),
-                'show_min_order_discount'      => $_POST['setting_show_minimum_order_discount_option'],
-                'setting_minimum_order_amount' => sanitize_text_field( $_POST['setting_minimum_order_amount'] ),
-                'setting_order_percentage'     => sanitize_text_field( $_POST['setting_order_percentage'] ),
-                'show_email'                   => sanitize_text_field( $_POST['setting_show_email'] ),
-                'show_more_ptab'   => sanitize_text_field( $_POST['setting_show_more_ptab'] ),
-                'gravatar'                     => absint( $_POST['dokan_gravatar'] ),
+                'phone'                        => isset( $_POST['setting_phone']  ) ? sanitize_text_field( $_POST['setting_phone'] ): '',
+                'show_min_order_discount'      => isset( $_POST['setting_show_minimum_order_discount_option']  ) ? $_POST['setting_show_minimum_order_discount_option']:'',
+                'setting_minimum_order_amount' => isset($_POST['setting_minimum_order_amount']) ? sanitize_text_field( $_POST['setting_minimum_order_amount'] ): '',
+                'setting_order_percentage'     => isset($_POST['setting_order_percentage']) ? sanitize_text_field( $_POST['setting_order_percentage'] ): '',
+                'show_email'                   => isset($_POST['setting_show_email']) ? sanitize_text_field( $_POST['setting_show_email'] ): '',
+                'show_more_ptab'               => isset( $_POST['setting_show_more_ptab'] ) ? sanitize_text_field( $_POST['setting_show_more_ptab'] ): '',
+                'gravatar'                     => isset( $_POST['dokan_gravatar']) ?  absint( $_POST['dokan_gravatar'] ) : '',
                 'enable_tnc'                   => isset( $_POST['dokan_store_tnc_enable'] ) ? $_POST['dokan_store_tnc_enable'] : '',
                 'store_tnc'                    => isset( $_POST['dokan_store_tnc'] ) ? $_POST['dokan_store_tnc'] : ''
             );

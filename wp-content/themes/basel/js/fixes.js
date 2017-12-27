@@ -1,3 +1,5 @@
+
+
 //fixes for carousel
 function getPosition(el) {
   var xPos = 0;
@@ -23,6 +25,15 @@ function getPosition(el) {
     x: xPos,
     y: yPos
   };
+}
+categoryCollapsibleMenu = ()=>{
+	 	jQuery()
+	 }
+
+//top header searchbox
+headerSearchBox = ()=>{
+	let header = jQuery('wrapp-header');
+
 }
 jQuery(document).ready(function(){
 
@@ -93,12 +104,14 @@ jQuery(document).ready(function(){
 		
 		
 	});*/
-
+ 
 
 });
 
 jQuery(window).resize(function(){
 	if(typeof baselThumbsOwlCarousel !== 'undefined' && jQuery.isFunction(baselThumbsOwlCarousel) )
-	baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 1600 ));
+		baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 1600 ));
 	//window.setTimeout(OwlButton , 500 );
+	if(jQuery(window).width < 1027)
+		console.log('r');
 })

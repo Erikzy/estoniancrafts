@@ -18,6 +18,7 @@ $company_types = array(
 
 $ec_page = apply_filters('ec_get_store_page', null);
 $store_user   = $ec_page->user;
+$user_nicename = $ec_page->user->user_nicename;
 $store_info   = $ec_page->store_info;
 $map_location = isset( $store_info['location'] ) ? esc_attr( $store_info['location'] ) : '';
 $company_nr  = isset( $ec_page->ktt_extended_settings['company_nr'] ) ? esc_attr( $ec_page->ktt_extended_settings['company_nr'] ) : '';
@@ -129,7 +130,6 @@ get_header( 'shop' );
                         <?php 
 
                            $page =  ec_user_profile_data(); 
-                          // var_dump($page);
                         
                         ?>
                     
@@ -211,6 +211,15 @@ get_header( 'shop' );
                         		     
 				<?php
 				}
+
+                    if(count_user_posts($store_user->ID,"post") > 3)
+                     {
+                        ?><br> <a href="<?php echo get_site_url().'/author/'.$user_nicename; ?>/" >View all </a><?php
+                     }
+
+                        ?>
+                     
+                    <?php
 				?>
 			
 					</div>

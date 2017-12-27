@@ -1,6 +1,7 @@
 
 <?php
    // get_sidebar(); // ??
+
 ?>
 <p>
     <a class="btn button btn-color-primary medium-orange-button" href="<?= home_url('my-account/blog/edit')?>">Add new post</a>
@@ -35,9 +36,9 @@
                         <td><?= get_the_date() ?></td>
                         <td><?= get_post_status() ?></td>
                         <td>
-                            <?php if ( !in_array(get_post_status(), ['pending', 'publish']) ): ?>
+                            <?php // if ( !in_array(get_post_status(), ['pending', 'publish']) ): ?>
                                 <a class="smaller-gray-button" href="<?= home_url('my-account/blog/edit?id='.get_the_ID()) ?>"><?= __('Edit', 'ktt') ?></a>
-                            <?php endif; ?>
+                            <?php // endif; ?>
                         </td>
                     </tr>
                 <?php

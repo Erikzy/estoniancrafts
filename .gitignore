@@ -7,3 +7,8 @@
 /wp-config.php
 /.htaccess
 /wp-content/uploads/*
+*.DS_Store
+/wp-content/plugins/wp-super-cache/
+/wp-content/plugins/woocommerce-pdf-invoices-packing-slips/
+/wp-content/plugins/ubermenu/
+/wp-content/plugins/query-monitor/

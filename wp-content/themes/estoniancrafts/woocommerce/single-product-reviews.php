@@ -22,14 +22,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 if ( ! comments_open() ) {
-	return;
+	//return;
 }
 
 ?>
+	<?php 
+global $wp;
+   $r = home_url( $wp->request );
+   $current_user = wp_get_current_user()->user_login;
+
+	 if (strpos($r, 'my-account') == false) :  ?>
 <div id="reviews" class="woocommerce-Reviews">
+<?php  
 
-	<?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product->id ) ) : ?>
 
+//var_dump(wc_customer_bought_product( '', get_current_user_id(), $product->id ) ) ;
+//echo wc_customer_bought_product( '', get_current_user_id(), $product->id )[0];
+
+//$user_orders = wc_get_account_orders_columns();
+/*$user_orders = wc_get_account_orders_columns();*/
+//var_dump(commented_before( $current_user, $product->id  )); 
+
+
+//echo $product->post->post_author;
+//$t = wc_customer_bought_product( get_current_user_id(), $product->id, $product->post->post_author ) ;
+/*&& commented_before(get_current_user_id(), $product->id, $product->post->post_author ) == true  ) */ 
+//var_dump( wc_customer_bought_product( '', get_current_user_id(), $product->id ) );
+//var_dump(commented_before( $current_user, $product->id  ) );
+
+//echo $current_user." ".$product->id." ".get_option( 'woocommerce_review_rating_verification_required' )." ".get_option( 'woocommerce_enable_review_rating' );
+?>
+	<?php //if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' ||    wc_customer_bought_product( '', get_current_user_id(), $product->id    ) ) : ?>
+	<?php if( wc_customer_bought_product( '', get_current_user_id(), $product->id )   ) : ?>
+		<?php if( commented_before( $current_user, $product->id  ) == false  ):?> 
 		<div id="review_form_wrapper">
 			<div id="review_form">
 				<?php
@@ -54,7 +79,7 @@ if ( ! comments_open() ) {
 						$comment_form['must_log_in'] = '<p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a review.', 'woocommerce' ), esc_url( $account_page_url ) ) . '</p>';
 					}
 
-					if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) {
+					if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' ) { 
 						$comment_form['comment_field'] = '<p class="comment-form-rating"><label for="rating">' . __( 'Your Rating', 'woocommerce' ) .'</label><select name="rating" id="rating" aria-required="true" required>
 							<option value="">' . __( 'Rate&hellip;', 'woocommerce' ) . '</option>
 							<option value="5">' . __( 'Perfect', 'woocommerce' ) . '</option>
@@ -63,6 +88,7 @@ if ( ! comments_open() ) {
 							<option value="2">' . __( 'Not that bad', 'woocommerce' ) . '</option>
 							<option value="1">' . __( 'Very Poor', 'woocommerce' ) . '</option>
 						</select></p>';
+
 					}
 
 					$comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . __( 'Your Review', 'woocommerce' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required></textarea></p>';
@@ -71,43 +97,46 @@ if ( ! comments_open() ) {
 				?>
 			</div>
 		</div>
+	<?php endif;?>
 
 	<?php else : ?>
 
-		<p class="woocommerce-verification-required"><?php _e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?></p>
+		<p class="woocommerce-verification-required"><?php //_e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?></p>
 
 	<?php endif; ?>
+		
+		    <div id="comments">
+		        <h2 class="woocommerce-Reviews-title"><?php 
+		            if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' && ( $count = $product->get_review_count() ) )
+		                printf( _n( '%s review for %s%s%s', '%s reviews for %s%s%s', $count, 'woocommerce' ), $count, '<span>', get_the_title(), '</span>' );
+		            else
+		                _e( 'Reviews', 'woocommerce' );
+		            ?></h2>
 
-    <div id="comments">
-        <h2 class="woocommerce-Reviews-title"><?php
-            if ( get_option( 'woocommerce_enable_review_rating' ) === 'yes' && ( $count = $product->get_review_count() ) )
-                printf( _n( '%s review for %s%s%s', '%s reviews for %s%s%s', $count, 'woocommerce' ), $count, '<span>', get_the_title(), '</span>' );
-            else
-                _e( 'Reviews', 'woocommerce' );
-            ?></h2>
+		        <?php if ( have_comments() ) : ?>
 
-        <?php if ( have_comments() ) : ?>
+		            <ol class="commentlist">
+		                <?php wp_list_comments( apply_filters( 'woocommerce_product_review_list_args', array( 'callback' => 'woocommerce_comments' ) ) ); ?>
+		            </ol>
 
-            <ol class="commentlist">
-                <?php wp_list_comments( apply_filters( 'woocommerce_product_review_list_args', array( 'callback' => 'woocommerce_comments' ) ) ); ?>
-            </ol>
+		            <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
+		                echo '<nav class="woocommerce-pagination">';
+		                paginate_comments_links( apply_filters( 'woocommerce_comment_pagination_args', array(
+		                    'prev_text' => '&larr;',
+		                    'next_text' => '&rarr;',
+		                    'type'      => 'list',
+		                ) ) );
+		                echo '</nav>';
+		            endif; ?>
 
-            <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
-                echo '<nav class="woocommerce-pagination">';
-                paginate_comments_links( apply_filters( 'woocommerce_comment_pagination_args', array(
-                    'prev_text' => '&larr;',
-                    'next_text' => '&rarr;',
-                    'type'      => 'list',
-                ) ) );
-                echo '</nav>';
-            endif; ?>
+		        <?php else : ?>
 
-        <?php else : ?>
+		            <p class="woocommerce-noreviews"><?php _e( 'There are no reviews yet.', 'woocommerce' ); ?></p>
 
-            <p class="woocommerce-noreviews"><?php _e( 'There are no reviews yet.', 'woocommerce' ); ?></p>
-
-        <?php endif; ?>
-    </div>
+		        <?php endif; ?>
+		    </div>
 
 	<div class="clear"></div>
+
 </div>
+<?php endif; ?>

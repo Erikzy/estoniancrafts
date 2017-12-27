@@ -516,12 +516,22 @@ function add_or_edit_blog()
         $actionMap = [
         	'delete' => ['draft' => 'trash'],
         	'draft' => ['draft' => 'draft'],
-        	'publish' => ['draft' => 'pending'] // for action 'publish' if the post status is 'draft', move status to 'pending' 
+        	//'publish' => ['pending'=>'pending'],// if publish, and the status is pending ... status remains pending
+        	//'publish' => ['publish'=>'pending'],// if publish, and the status is publish ... move status to  pending
+        	'publish' => ['draft'=>'publish'] // for action 'publish' if the post status is 'draft', move status to 'pending' 
         ];
         // get the post
         $queryId = isset($_GET['id']) ? (int)$_GET['id']: null;
         if ($queryId !== null) {
+
 	        $post = get_post($queryId);
+	        if($post->post_status == 'pending'){
+            		$actionMap['publish'] = array('pending'=>'publish');
+            }
+            elseif($post->post_status == 'publish'){
+            	
+            		$actionMap['publish'] = array('publish'=>'publish');
+            }
 	        if ( $queryId && !$post ) {
 	        	wp_redirect( $listUrl );
 	        }
@@ -530,11 +540,11 @@ function add_or_edit_blog()
 	        	wp_redirect( $listUrl );
 	        }
 	        // not published, pending nor trash
-	        if ( in_array($post->post_status, ['pending', 'publish', 'trash']) ) {
+	   /*     if ( in_array($post->post_status, ['pending', 'publish', 'trash']) ) {
 	        	wp_redirect( $listUrl );
-	        }
+	        }*/
         } else {
-        	// new post
+
         	$post = new WP_Post((object)[]);
         	$post->post_status = 'draft';
         	$post->post_author = $user->ID;
@@ -556,11 +566,15 @@ function add_or_edit_blog()
         	}
         	// handle action changes
         	$map = $actionMap[$action];
+
         	if (!array_key_exists($post->post_status, $map)) {
         		wp_redirect( $listUrl ); // should not happen
         	}
         	// populate
             //$category = get_category_by_description('merchant_blog_post');
+
+
+                        
         	$post->post_status = $map[$post->post_status];
         	$post->post_title = $postTitle;
         	$post->post_content = $postContent;
@@ -597,6 +611,9 @@ function add_or_edit_blog()
         
         ob_start();
         include(locate_template('templates/myaccount/blog-edit-post.php'));
+
+       // $actionMap['publish'] = array('publish'=>'pending');
+       // var_dump( $actionMap);
         return ob_get_clean();
     }
     return '';

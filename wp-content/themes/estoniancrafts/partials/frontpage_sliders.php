@@ -7,7 +7,7 @@
 
 <!--top products-->	
 	<h1 style="position:relative;"><?php echo __('Top products','ec');?>
-		<a style="position:absolute;right:0px;top:14px;font-size: 12px;text-transform: uppercase;color:#989898" href="/shop/?orderby=popularity"><?php echo __('See more >>','ec')?></a>
+		<a style="position:absolute;right:0px;top:14px;font-size: 12px;text-transform: uppercase;color:#989898" class="seemore-link" href="/shop/?orderby=popularity"><?php echo __('See more >>','ec')?></a>
 	</h1>
    <div class='s-wrapper center-block s-bullets-wrapper'>
       <?php
@@ -28,7 +28,7 @@
      
  	 <h1 style="position:relative;" class='m-slider-title'>
  	 	<?php echo __('Newest products','ec');?>
- 		<a style="position:absolute;right:0px;top:14px;font-size: 12px;text-transform: uppercase;color:#989898" href="/shop/?orderby=date"><?php echo __('See more >>','ec')?></a> 	
+ 		<a style="position:absolute;right:0px;top:14px;font-size: 12px;text-transform: uppercase;color:#989898" class="seemore-link" href="/shop/?orderby=date"><?php echo __('See more >>','ec')?></a> 	
  	 </h1>
 	<div class='s-wrapper center-block s-bullets-wrapper '>
   	 <?php
@@ -72,3 +72,7 @@
 <!--posts-->		
 	
 </div><!--container ends-->
+
+<script>
+  console.log(jQuery(".event-owl-carousel .item").children().length) ;
+</script>
