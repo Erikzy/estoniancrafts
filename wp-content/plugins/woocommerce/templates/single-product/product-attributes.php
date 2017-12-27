@@ -96,8 +96,7 @@ ob_start();
 			?>
 			<?php 
 			$manufacturing_method= get_post_meta($post_id, '_manufacturing_method', true) ;
-			//var_dump($mis);
-			
+	
 			if(trim($manufacturing_method) !== "") :
 			?>
 			<tr >
@@ -107,7 +106,7 @@ ob_start();
 							<p><strong>Manufacturing Method: </strong><br> <?php echo $manufacturing_method; ?><br>
 							<?php
 								$md = get_post_meta($post_id, '_manufacturing_desc', true);
-								//var_dump($md);
+								
 								if(trim($md) !==""):
 									?>
 										<strong>Manufacturing Description: </strong> <br><?php echo $md; ?><br>
