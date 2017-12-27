@@ -10,7 +10,8 @@ if (!class_exists("LoginCommon")) {
 			$count = 1;
 			while($existing){
 				$userName =  $userName.'.'.$count;
-				$existing= get_user_by('user_login', $userName);            
+				$existing= get_user_by('user_login', $userName);
+				$count++;            
 			}
 			
 			
