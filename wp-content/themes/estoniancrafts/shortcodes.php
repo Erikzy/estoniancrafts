@@ -76,7 +76,7 @@ class EC_Shortcodes
         		}
         	</script>	
         	<?php 
-         	echo '<button class="" onclick=addSellerProfile()>Create shop</button>';
+         	echo '<button class="call-to-action-button" onclick=addSellerProfile()>Create shop</button>';
          }
 	}
 	
