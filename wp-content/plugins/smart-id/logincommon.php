@@ -8,6 +8,8 @@ if (!class_exists("LoginCommon")) {
             //$userName = "EST" . $identityCode;
 			$userName = $firstName.'.'.$lastName;
 			$user = WP_User::get_data_by('user_login', $userName);
+			var_dump($user);
+			
 			if($user){
 				$increment = 0;
 				
