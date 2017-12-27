@@ -873,6 +873,7 @@ if ( ! $from_shortcode ) {
 
 </script>
 <script type="text/javascript">
+
    jQuery(document).ready(function(){
          var err= false;
          var materials_size = "<?php echo isset($_POST['_material_name'])? sizeof($_POST['_material_name']) : '0'; ?>";
@@ -888,6 +889,12 @@ if ( ! $from_shortcode ) {
 /*        for(let a = 0 ; a < materials_size ; a++  ){
             jQuery(". a.lb-elastic-add").trigger("click");
         }*/
+           
+
+         
+
+      
+     
 
     });
     showButton = () =>{ 
@@ -900,11 +907,10 @@ if ( ! $from_shortcode ) {
     jQuery(window).on("mousemove", ()=>{ 
         showButton();
         jQuery("#feat_image_url").val(jQuery("#fet-im-a > img").attr("src"));
+       //  updatePatentBox();
 
     } );
     removeImage = ()=>{
-        console.log("rem image");
-       
                     jQuery("#fet-im-a > img").attr({"src": "", "srcset":"" });
       
     }

@@ -613,19 +613,54 @@ class lbDokan{
 				</p>
             </div>
         <script type="text/javascript">
-            checkj = (event) =>{
-                console.log('dfds');
-                var l  = jQuery(".cert_file_code");
-          
-                if(jQuery(event.target).closest(l).val() !="" ){
-                    jQuery(event.target).closest(jQuery(".view_cert_link").removeClass("view_cert_link-hide"));
 
-                }
-                else{
-                    jQuery(event.target).closest(jQuery(".view_cert_link").addClass("view_cert_link-hide"));
-                }
-            };
+            
+                    function checkj ( el) {
+                
+                        var l  = jQuery(".cert_file_code");
+           
+                        if(jQuery( el ).closest(l).val() !="" ){
+                           
+                            jQuery( el).closest(jQuery(".view_cert_link").addClass("view_cert_link-hide"));
+
+                        }
+                        else{
+                            jQuery( el ).closest(jQuery(".view_cert_link").removeClass("view_cert_link-hide"));
+                        }
+                    };
+                   function updatePatentBox(){
+                        var l = jQuery(".cert_file_code");
+                       
+                        jQuery.each(l, function(a,val){
+                           // console.log( l[a]);
+                           // 
+                           if(jQuery( l[a] ).val() !="" ){
+                                jQuery(l[a]).closest(jQuery(".view_cert_link-hide").removeClass("view_cert_link-hide"));
+                       
+                               
+                            }
+                            
+                        });
+                        
+            
+                        
+                    }
+/*                    function test(){
+                                     jQuery.ajax({
+                                        type:"POST",
+                                        url: "ec2/EstonianCrafts/wp-admin/admin-ajax.php",
+                                        data: {"id":"1542", "action": "get_attachement_url_ajax" },
+                                        success:function(data){
+                                            console.log(data);
+                                            jQuery("#feedback").html(data);
+                                          //jQuery(l[a]).closest(jQuery(".view_cert_link").attr("src",data.url));
+                                        }
+                                    });
+                    }*/
+          
         </script>
+        <div id="feedback"></div>
+        <!-- <button type="button" onclick="test()">button </button> -->
             <div class="dokan-side-right">
                
                 <div class="lb-elastic-container">
@@ -666,15 +701,18 @@ class lbDokan{
                                         <div class="col-md-6">
                                             <input type="hidden" class="input-text cert_file_code" name="_cert_file[]"  value="<?= $file; ?>" />
 
-                                            <a href="#remove" class="lb-file-placeholder <?php if( $file ){ echo 'active'; } ?>"></a>
+                                           <!--  <a href="#remove" class="lb-file-placeholder <?php if( $file ){ echo 'active'; } ?>"></a> -->
+                                           <span class="v-c">
                                             <?php if($file){
                                                     ?>
                                                         
-                                                <!--    <a href="<?php echo wp_get_attachment_url($file); ?>"  class="view_cert_link"  target="_blank" >View </a>   -->
+                                           <!--         <a href="<?php echo wp_get_attachment_url($file); ?>"  class="view_cert_link"  target="_blank" >View </a>    -->
                                                     <?php }
                                                 ?> 
+                                            </span>
                                             <a href="#add-file" class=" lb-add-doc <?php if( !$file ){ echo 'active'; } ?>"> + <?php _e( 'Add document', 'ktt' ); ?></a>
-                                            <a href="#add-file"   class="verif lb-remove-doc <?php if( $file ){ echo 'active'; } ?>"> + <?php _e( 'Remove document', 'ktt' ); ?></a>
+                                             <a href="#remove"   class="verif lb-remove-doc <?php if( $file ){ echo 'active'; } ?>" > + <?php _e( 'Remove document', 'ktt' ); ?></a>  
+                                    <!--          <a href="#remove"   class="verif lb-remove-doc <?php if( $file ){ echo 'active'; } ?>"  onclick="checkj(this)" > + <?php _e( 'Remove document', 'ktt' ); ?></a>  -->
                                             
                                         </div>
                                     </div>
