@@ -5,8 +5,22 @@ if (!class_exists("LoginCommon")) {
     class LoginCommon {
 
        public static function login($identityCode, $firstName, $lastName, $email) {
-            $userName = "EST" . $identityCode;
-
+            //$userName = "EST" . $identityCode;
+			$userName = $firstName.'.'.$lastName;
+			$user = WP_User::get_data_by('user_login', $userName);
+			if($user){
+				$increment = 0;
+				while($user){
+					$increment++;
+					$userName = $firstName.'.'.$lastName.'.'.$increment;
+					$user = WP_User::get_data_by('user_login', $userName);
+				}	
+			
+			
+			}
+			
+			
+			
             if (strlen($identityCode) == 11) {
                 //Otsime üles sisselogitud inimese või tekitame, kui teda varem polnud
                 $user = LoginCommon::getUser($identityCode);
