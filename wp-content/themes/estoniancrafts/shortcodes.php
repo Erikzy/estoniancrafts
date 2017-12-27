@@ -81,7 +81,7 @@ class EC_Shortcodes
             };
     		jQuery.post('<?php echo site_url();?>/wp-admin/admin-ajax.php', data, function (e) {
             	console.log(e);
-				location.reload();
+				location.href = '<?php echo site_url();?>/my-account/dashboard/settings/store/' ;
      		})
         	
         	}

@@ -29,7 +29,7 @@ if (!class_exists("LoginCommon")) {
                     $user_id = LoginCommon::createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash);
                     $myaccount_page_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
                    // $myaccount_page_url .= '?reghash='.$regHash;
-               		 $myaccount_page_url .= 'edit-account';
+               		 $myaccount_page_url .= '/edit-account';
                
                
                	    wp_set_auth_cookie($user_id);
@@ -76,10 +76,12 @@ if (!class_exists("LoginCommon")) {
                );
            } else {
                $user_id = $current_user->ID;
+               $user_id = wp_update_user( array( 'ID' => $user_id, 'first_name' => $firstName, 'last_name' => $lastName  ) );
+               
                $wpdb->insert($wpdb->prefix . "idcard_users",
                    array(
-                       'firstname'      => $current_user->user_firstname,
-                       'lastname'       => $current_user->user_lastname,
+                       'firstname'      => $firstName,
+                       'lastname'       => $lastName,
                        'identitycode'   => $identityCode,
                        'userid'         => $user_id,
                        'created_at'     => current_time('mysql')
