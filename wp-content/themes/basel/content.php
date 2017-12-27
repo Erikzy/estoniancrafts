@@ -173,7 +173,9 @@ $random = rand(100,999);
 		</div><!-- .entry-summary -->
 	<?php elseif( $parts['text'] ) : ?>
 		<div class="entry-content">
-			<?php basel_get_content( $parts['btn'], is_single() ); ?>
+			<?php basel_get_content( $parts['btn'], is_single() ); 
+
+			?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'basel' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
 		</div><!-- .entry-content -->
 	<?php endif; ?>
