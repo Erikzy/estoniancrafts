@@ -11,6 +11,8 @@ class EC_Shortcodes
 	{
 		add_shortcode('ec_institutions', array(__CLASS__, 'ec_institutions'));
 		add_shortcode( 'non_vc_frontpage', array(__CLASS__, 'frontpage_sliders'));
+		add_shortcode('user_has_idCard_extended', array(__CLASS__,'user_has_idcard_extended'));
+		
 
 	}
 
@@ -51,6 +53,31 @@ class EC_Shortcodes
 		}
 		$html .= '</div>';
 		return $html;
+	}
+	
+	public static function user_has_idcard_extended(){
+		 global $wpdb;
+         $current_user = wp_get_current_user();
+         $user = $wpdb->get_row(
+         $wpdb->prepare(
+                "select * from $wpdb->prefix" . "idcard_users WHERE userid=%s", $current_user->ID
+               )
+         );
+         if (!$user) {
+            echo '<h4>Confirm with ID-card</h4>';
+            $data = do_shortcode('[smart_id]');
+            echo $data;
+         }	else	{
+        	echo '<h4>Create Shop</h4>';
+        	?>
+        	<script type="text/javascript">
+        		function addSellerProfile(){
+        			alert("Add seller profile");
+        		}
+        	</script>	
+        	<?php 
+         	echo '<button class="" onclick=addSellerProfile()>Create shop</button>';
+         }
 	}
 	
 	public static function frontpage_sliders( $atts ) {
