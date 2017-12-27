@@ -303,7 +303,7 @@ class FacebookLogin{
 				$increment++;
 				//$userName = mb_strtolower($firstName).'.'.mb_strtolower($lastName).'.'.$increment;
 				$username = sanitize_user(str_replace(' ', '.', strtolower($this->facebook_details['name']))).'.'.$increment;
-				$user = WP_User::get_data_by('login', $userName);
+				$user = WP_User::get_data_by('login', $username);
 			}	
 			
 		}
