@@ -287,7 +287,8 @@ class FacebookLogin{
         	   update_user_meta($emailExisting, 'ec_facebook_id',$this->facebook_details['id'] );
         	   wp_set_auth_cookie( $emailExisting );
         	  // return true;
-        		du
+        		var_dump($emailExisting);
+        		die();
         	}
         	return false;
         }
