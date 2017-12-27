@@ -8,7 +8,7 @@ if (!class_exists("LoginCommon")) {
             //$userName = "EST" . $identityCode;
 			$userName = strtolower($firstName).'.'.strtolower($lastName);
 		
-			$user = WP_User::get_data_by('user_login', $userName);
+			$user = WP_User::get_data_by('login', $userName);
 			var_dump($user);
 			echo $userName;
 			   die();
