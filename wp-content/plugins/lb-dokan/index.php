@@ -284,7 +284,10 @@ class lbDokan{
 
             </div>
         </div><!-- .lb-dokan-options -->
-*/ ?>
+
+*/ 
+
+        ?>
 
 		<?php // Used materials ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
@@ -302,10 +305,19 @@ class lbDokan{
                 <div class="lb-elastic-container">
                     <div class="lb-elastic-elements">
                         <?php
+                        if(isset($_POST["dokan_product_id"]))
+                         { 
+                            $materials = array();
+                            for( $a = 0 ; $a < sizeof($_POST["_material_name"]); $a++ ) {
+                                  array_push($materials,['country' => $_POST["_material_country"][$a], 'name' => $_POST["_material_name"][$a] , 'contents' => $_POST["_material_contents"][$a] , 'desc' => $_POST["_material_desc"][$a] ]);
+                            }
+                         }
+                        else
+                          {$materials = get_post_meta($post_id, '_materials', true);
 
-                        $materials = get_post_meta($post_id, '_materials', true);
-
-                        // var_dump($materials);die();
+                         }
+                        // var_dump($materials);
+                         //die();
 
                         if( !is_array($materials) || !count($materials) ){
                             $materials = [['country' => '', 'name' => '', 'contents' => '', 'desc' => '']];
@@ -333,7 +345,8 @@ class lbDokan{
                                 </div>
                                 <div class="dokan-form-group">
                                     <label class="form-label"><?php _e( 'Material country', 'ktt' ); ?></label>
-                                    <?php lb_display_country_select($material['country'], '_material_country[]') ?>
+                                    <span class='selects-wrapper'>
+                                    <?php lb_display_country_select($material['country'], '_material_country[]') ?></span>
                                 </div>
                                 <hr>
                             </div>
@@ -349,7 +362,11 @@ class lbDokan{
 
         </div><!-- .lb-dokan-options -->
 
-		<?php // Manufacturing info ?>
+		<?php // Manufacturing info 
+
+
+
+        ?>
         <div class="lb-dokan-options dokan-edit-row dokan-clearfix">
             <div class="dokan-side-left">
                 <h2>
@@ -365,7 +382,7 @@ class lbDokan{
                
                 <div class="dokan-form-group">
                     <label class="form-label"><?php _e( 'Manufacturing method', 'ktt' ); ?></label>
-                 
+
                     <?php dokan_post_input_box( $post_id, '_manufacturing_method', array( 'options' => array(
                                             ''  => __(' - select method - ', 'ktt'),
                                             'hand' => __( 'Hand crafted', 'ktt' ),
@@ -471,7 +488,7 @@ class lbDokan{
                     <div class="lb-elastic-elements">
                     <?php
 
-                    $product_videos = get_post_meta($post_id, '_product_videos', true);
+                    $product_videos = isset($_POST["_product_videos"]) ? $_POST["_product_videos"] : get_post_meta($post_id, '_product_videos', true);
 
                     if(!is_array($product_videos)){
                         $product_videos = [''];
@@ -494,7 +511,7 @@ class lbDokan{
                     ?>
 
                     </div>
-                    <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a>
+                   <!--  <a href="#lb-add-more" class="lb-elastic-add"> + add more...</a> -->
                     
                 </div>
 
@@ -517,14 +534,14 @@ class lbDokan{
 
             <div class="dokan-side-right">
                 <p>
-                <a target="_blank" href="<?= get_option( 'home' ).'/'.get_option('_external_instruction_page_path') ?>"><?php _e( 'Instructions for external links', 'ktt' ); ?></a>
+                <a target="_blank" style="font-weight: bold; margin-bottom: 5px;font-size: 13px; color:#1B1919 ; "  href="<?= get_option( 'home' ).'/'.get_option('_external_instruction_page_path') ?>"><?php _e( 'Instructions for external links', 'ktt' ); ?></a>
                 <p>
                 <div class="lb-elastic-container">
 
                     <div class="lb-elastic-elements">
                     <?php
 
-                    $media_links = get_post_meta($post_id, '_media_links', true);
+                    $media_links = isset($_POST["_media_link"]) ? $_POST["_media_link"] :  get_post_meta($post_id, '_media_links', true);
 
                     if(!is_array($media_links)){
                         $media_links = [''];
@@ -573,8 +590,14 @@ class lbDokan{
                     <div class="lb-elastic-elements">
 
                         <?php
-
-                        $certificates = get_post_meta($post_id, '_certificates', true);
+                        $certificates = array();
+                        if(isset($_POST["_cert_type"])){
+                            for($a = 0 ; $a < sizeof($_POST["_cert_type"]); $a++ ){
+                             array_push($certificates, [ "type"=>$_POST["_cert_type"][$a], "file" => $_POST["_cert_file"][$a] ]);
+                            }
+                        }
+                        else
+                            $certificates = get_post_meta($post_id, '_certificates', true);
 
                         if(!is_array($certificates) ){
                             $certificates = [['type' => '', 'file' => '']];
@@ -590,7 +613,7 @@ class lbDokan{
                                 <div class="dokan-form-group">
                                     
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 s-wa">
                                             <?php dokan_post_input_box( $post_id, '_cert_type[]', array( 'options' => array(
                                                                 '' => __( ' - select type - ', 'ktt' ),
                                                                 'patent' => __( 'Patent', 'ktt' ),
@@ -774,7 +797,8 @@ class lbDokan{
                 <input type="hidden" name="attribute_names[]" value="<?php echo esc_attr( $attribute_taxonomy_name ); ?>" class="dokan-<?php echo $single; ?>attribute-option-name">
                 <input type="hidden" name="attribute_is_taxonomy[]" value="1">
             </td>
-            <td colspan="3">
+            <td colspan="4" class="attributes-prod">
+           <!--  <td colspan="3"> -->
 
                 <input type="hidden" name="attribute_values[]" value="">
 

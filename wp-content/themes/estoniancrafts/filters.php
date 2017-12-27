@@ -524,6 +524,9 @@ function filter_handler( $approved , $commentdata )
 }
 
 add_filter( 'pre_comment_approved' , 'filter_handler' , '99', 2 );
+
+
+
 /**
  * Prints information asking form in product single page
  *
@@ -539,3 +542,12 @@ function ec_dokan_ask_information_tab( $val ) {
     	'user' => $user
     ]);
 }
+
+function comments_on( $data ) {
+    if( $data['post_type'] == 'post' ) {
+        $data['comment_status'] = 1;
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data', 'comments_on' );

@@ -23,7 +23,7 @@
                     <thead>
                         <tr>
                             <th><?php _e( 'Option Name', 'dokan' ) ?> <span class="tips" title="" data-original-title="<?php _e( 'Enter your variation attribute option name', 'dokan' ); ?>">[?]</span></th>
-                            <th width="22%"><?php _e( 'Option Values', 'dokan' ) ?> <span class="tips" title="" data-original-title="<?php _e( 'Enter attribute option values seprated by \'|\' or tab ', 'dokan') ?>">[?]</span></th>
+                            <th width="24%"><?php _e( 'Option Values', 'dokan' ) ?> <span class="tips" title="" data-original-title="<?php _e( 'Enter attribute option values seprated by \'|\' or tab ', 'dokan') ?>">[?]</span></th>
                             <th width="7%">
                                 <span class="dokan-loading dokan-attr-option-loading dokan-hide"></span>
                             </th>
@@ -42,7 +42,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if ( $product_attributes ): ?>
+                    <?php 
+                    if(isset( $_POST["attribute_names"]) )
+                    {
+                        
+                        
+                        $product_attributes = array("pa_suurus" => array() , "pa_varv"=>array());
+                        for($a = 0 ; $a < sizeof($_POST["attribute_names"]) ; $a++  ){
+                       
+                                        $product_attributes[$_POST["attribute_names"][$a] ]["is_taxonomy"]=$_POST["attribute_is_taxonomy"][$a]   ;
+                                        $product_attributes[$_POST["attribute_names"][$a] ]["name"]=$_POST["attribute_names"][$a]   ;
+                           
+
+                        }
+                    }
+
+                    if ( $product_attributes ): 
+                          //  var_dump($product_attributes);
+                    ?>
+
+
                         <?php foreach( $product_attributes as $attribute ): ?>
                         <tr class="dokan-attribute-options">
                             <td width="20%">
@@ -89,14 +108,14 @@
                         </tr>
                     <?php endforeach; ?>
                     <?php else: ?>
-                        <tr class="dokan-attribute-options">
+<!--                         <tr class="dokan-attribute-options">
                             <td width="20%">
                                 <input type="text" name="attribute_names[]" value="" class="dokan-form-control dokan-attribute-option-name">
                                 <input type="hidden" name="attribute_is_taxonomy[]" value="0">
                             </td>
                             <td colspan="4" class="cons-input" ><input type="text" name="attribute_values[]" value="" data-preset_attr="" class="dokan-form-control dokan-attribute-option-values "></td>
                             <td><button class="dokan-btn dokan-btn-theme remove_attribute"><i class="fa fa-trash-o"></i></button></td>
-                        </tr>
+                        </tr> -->
                     <?php endif ?>
 
                         <tr class="dokan-attribute-is-variations">
