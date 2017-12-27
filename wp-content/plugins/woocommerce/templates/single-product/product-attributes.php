@@ -27,14 +27,13 @@ $alt        = 1;
 $attributes = $product->get_attributes();
 $post_id = $product->id;
 
-//ob_start();
+ob_start();
 
 ?>
-
 <table class="shop_attributes">
-	
+
 	<?php //if ( $product->enable_dimensions_display() ) : ?>
-	<?php if ( $product->checkAttributes() ) : ?>
+	<?php if ( $product->checkAttributes()  || $product->enable_dimensions_display() ) : ?>
 
 		<?php if ( $product->has_weight() ) : $has_row = true; ?>
 			<tr class="<?php if ( ( $alt = $alt * -1 ) === 1 ) echo 'alt'; ?>">
@@ -75,8 +74,10 @@ $post_id = $product->id;
     										$countries   = $countries_obj->__get('countries');
 
                             			 ?> 
-                            			
-                            			<strong>Country: </strong> <?php echo $countries[$material['country']]?><br> <br> 
+                            			<?php if($material["country"] !== "" ): ?> 
+
+                            				<strong>Country: </strong> <?php echo $countries[$material['country']]?><br> <br> 
+                            			<?php endif; ?>
 
 
                             		</p>
@@ -261,7 +262,7 @@ $post_id = $product->id;
 </table>
 <?php
 if ( $has_row ) {
-//	echo ob_get_clean();
+	echo ob_get_clean();
 } else {
-//	ob_end_clean();
+	ob_end_clean();
 }
