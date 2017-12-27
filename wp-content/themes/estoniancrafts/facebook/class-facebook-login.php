@@ -291,7 +291,25 @@ class FacebookLogin{
     private function createUser() {
         $fb_user = $this->facebook_details;
         // Create an username
+     
+     
+     
         $username = sanitize_user(str_replace(' ', '.', strtolower($this->facebook_details['name'])));
+     	$user = WP_User::get_data_by('login', $username);
+		
+		if($user){
+			$increment = 0;
+			while($user){
+				$increment++;
+				//$userName = mb_strtolower($firstName).'.'.mb_strtolower($lastName).'.'.$increment;
+				$username = sanitize_user(str_replace(' ', '.', strtolower($this->facebook_details['name']))).'.'.$increment;
+				$user = WP_User::get_data_by('login', $userName);
+			}	
+			
+		}
+     
+     
+     
         // Creating our user
         $new_user = wp_insert_user([
             'user_login' => wp_slash($username),
