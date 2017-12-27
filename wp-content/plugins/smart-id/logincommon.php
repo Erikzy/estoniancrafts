@@ -9,7 +9,7 @@ if (!class_exists("LoginCommon")) {
 			$userName = $firstName.'.'.$lastName;
 			$user = WP_User::get_data_by('user_login', $userName);
 			var_dump($user);
-			
+			   die();
 			if($user){
 				$increment = 0;
 				
