@@ -28,6 +28,35 @@
     margin-bottom: 20px;
     z-index: 1;
 }
+.requided-m{
+    color:red !important;
+}
+.pass-fieldset{
+    margin-top:30px;
+
+    display: block;
+    border: 2px solid #E6E6E6;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    
+}
+.inp{
+    text-align:center;
+}
+.pass-fieldset *{
+        box-sizing: border-box;
+}
+.pass-fieldset legend {
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-family: 'Aino-Regular' !important;
+    width: auto;
+    padding: 0 15px;
+    color: #3b3b3b;
+    letter-spacing: .3px;
+    font-weight: bold !important;
+}
 .shop-loop-wrapper .ec-new-product-grid-left img{
     max-height:100% ;
 }
@@ -1497,6 +1526,12 @@ a.products-menu{
     line-height: 40px;
     line-height: 44px;
     font-size: 22px;
+    }
+    .edit-account-wrapper-user{
+       /* width:100%;*/
+    }
+    #ec-myaccount-sidebar-menu-2{
+        /*display:none;*/
     }
 
 }

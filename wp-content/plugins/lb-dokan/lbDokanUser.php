@@ -422,14 +422,26 @@ class lbDokanUser {
         <div class="break"></div>
         <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
             <label for="lb_dokan_dob"><?= __('Date of birth', 'ktt') ?></label>
-            <input type="number" class="lb-small-nr" name="lb_dokan_dob_day" id="lb_dokan_dob" value="<?= $day ?>" placeholder="dd">
-            <input type="number" class="lb-small-nr" name="lb_dokan_dob_month" id="lb_dokan_dob" value="<?= $month ?>" placeholder="mm">
-            <input type="number" class="lb-med-nr" name="lb_dokan_dob_year" id="lb_dokan_dob" value="<?= $year ?>" placeholder="yyyy" required>
+            <input type="text" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="<?= $day.'.'.$month.'.'.$year ?>" name="dummy" id="dummy_box" list="dates_pattern0_datalist" placeholder="dd.mm.yyyy" onchange="updateValues()" >
+            <div class="dokan-hide">
+                 <input type="number" class="lb-small-nr inp" name="lb_dokan_dob_day" id="lb_dokan_day" value="<?= $day ?>" placeholder="dd">
+                 <input type="number" class="lb-small-nr inp" name="lb_dokan_dob_month" id="lb_dokan_month" value="<?= $month ?>" placeholder="mm">
+                 <input type="number" class="lb-med-nr inp" name="lb_dokan_dob_year" id="lb_dokan_year" value="<?= $year ?>" placeholder="yyyy" >
+             </div>
         </p>
-        <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
+        <script type="text/javascript">
+            updateValues = ()=>{
+                let values = jQuery.trim(jQuery("#dummy_box").val()).split(".");
+                console.log(values);
+                jQuery('#lb_dokan_day').val(values[0]);
+                jQuery('#lb_dokan_month').val(values[1]);
+                jQuery('#lb_dokan_year').val(values[2]);
+            }
+        </script>
+<!--         <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
             <label><?= __('Mailing list opt-in', 'ktt') ?></label>
             <input type="checkbox" name="lb_dokan_mailinglist" value="1">
-        </p>
+        </p> -->
         <?php
         // TODO: integrate mailing list checkbox with the plugin in use
     }
