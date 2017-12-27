@@ -72,3 +72,7 @@
 <!--posts-->		
 	
 </div><!--container ends-->
+
+<script>
+  console.log(jQuery(".event-owl-carousel .item").children().length) ;
+</script>

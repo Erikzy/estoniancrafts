@@ -103,7 +103,7 @@ ob_start();
 				<th><?php _e( 'Manufacturing information', 'woocommerce' ) ?></th>
 				<td class="product_dimensions">
 					 <div class="lb-elastic-element lb-input-margins lh-prod">
-							<strong>Manufacturing Method: </strong><br> <?php echo $manufacturing_method; ?><br>
+							<p><strong>Manufacturing Method: </strong><br> <?php echo $manufacturing_method; ?><br>
 							<?php
 								$md = get_post_meta($post_id, '_manufacturing_desc', true);
 								//var_dump($md);
@@ -128,7 +128,7 @@ ob_start();
 										<strong>Manufacturing Quantity: </strong><br> <?php echo $mq.' '.get_post_meta($post_id, '_manufacturing_qty_unit', true) ; ?>(s)<br>
 									<?php
 								endif;
-							?> 
+							?> </p>
                              
 				 	</div>
 
@@ -150,7 +150,7 @@ ob_start();
 				<th><?php _e( 'Maintenance information', 'woocommerce' ) ?></th>
 				<td class="product_dimensions">
 					 <div class="lb-elastic-element lb-input-margins lh-prod">
-							 <?php echo $maint; ?>
+							 <p><?php echo $maint; ?></p>
 
                              
 				 	</div>
@@ -180,7 +180,7 @@ ob_start();
 
                         <div class="lb-elastic-element lb-input-margins">
                             
-                                <a href="<?php echo $link ?>" target="_blank" ><?php echo $link ?></a><br>
+                                <p><a href="<?php echo $link ?>" target="_blank" ><?php echo $link ?></a><br></p>
                             
                         </div>
                         
@@ -196,23 +196,24 @@ ob_start();
 			?>
 
 			<?php 
-			$media_links = get_post_meta($post_id, '_media_links', true);
+			$certificates = get_post_meta($post_id, '_certificates', true);
 			
 			
-			if(trim($media_links[0]) !== "") :
+			if(trim($certificates[0]["file"]) !== "") :
 			?>
-<!-- 			<tr >
+			<tr >
 				<th><?php _e( 'Patent / Certificate', 'woocommerce' ) ?></th>
 				<td class="product_dimensions">
 					 <div class="lb-elastic-element lb-input-margins lh-prod">
 					<?php		 
-                    foreach($media_links as $link){
+                    foreach($certificates as $certificate){
 
                         ?>
 
                         <div class="lb-elastic-element lb-input-margins">
                             
-                                <a href="<?php echo $link ?>" target="_blank" ><?php echo $link ?></a><br>
+                             <p><strong>Type: </strong> <br><?php echo $certificate["type"]; ?> <br>
+                              <strong>  File: </strong> <a href="<?php echo wp_get_attachment_url( $certificate['file']); ?>"  class="view_cert_link"  target="_blank" >View  file</a> <br><br></p>
                             
                         </div>
                         
@@ -221,10 +222,10 @@ ob_start();
                     }?>     
 				 	</div>
 				 </td>
-			</tr> -->
-		
+			</tr>
+		 
 			<?php
-			endif; //end media links
+			endif; //end mpatents
 			?>
 
 

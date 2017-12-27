@@ -33,8 +33,7 @@ categoryCollapsibleMenu = ()=>{
 //top header searchbox
 headerSearchBox = ()=>{
 	let header = jQuery('wrapp-header');
-	header.insert('<p>fdsfdsfsdf</p>');
-	console.log('fdfdfdfdf')
+
 }
 jQuery(document).ready(function(){
 
@@ -114,5 +113,5 @@ jQuery(window).resize(function(){
 		baselThumbsOwlCarousel.bind(this,window.setTimeout(OwlButton , 1600 ));
 	//window.setTimeout(OwlButton , 500 );
 	if(jQuery(window).width < 1027)
-		console.log('gggg');
+		console.log('r');
 })

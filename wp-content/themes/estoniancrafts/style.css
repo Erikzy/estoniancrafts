@@ -8,17 +8,28 @@
     line-height: 25px;
     height: auto;
 }
-
+.view_cert_link{
+    display:block; cursor:pointer;
+}
+.view_cert_link-hide {
+    display:none !important;
+}
 .main-header form.has-categories-dropdown #searchsubmit {
     top: 0px; 
 }
 .tax-product_cat > .website-wrapper > .main-page-wrapper > .container > .row > .site-content{
 	left: 18% !important;
 }
+.mtt{
+    margin-top:28px;
+}
 #mc4wp-form-1 {
     margin-top: -28px;
     margin-bottom: 20px;
     z-index: 1;
+}
+.shop-loop-wrapper .ec-new-product-grid-left img{
+    max-height:100% ;
 }
 .inventory-table select.dokan-form-control{
     margin-right: 20px !important;
@@ -29,6 +40,31 @@
 .lh-prod{
     line-height:18px;
 }
+/*.dokan-pagination .page-numbers li{
+        display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+.dokan-pagination .page-numbers li a{
+
+display: inline-block;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #B1B1B1;
+    color: #000;
+    font-size: 16px;
+    width: 34px;
+    line-height: 32px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.dokan-pagination .page-numbers li a {
+    text-decoration: none;
+}*/
+
 .topbar-wrapp {
     height: auto; 
 }
@@ -914,7 +950,7 @@ span.select2-selection--multiple{
     cursor:pointer !important;
 
 }
-.medium-gray-button{
+.medium-gray-button  , .showSweetAlert .confirm{
     border: 0px !important;
     background-color: #ECECEC !important;
     color:#696969 !important;
@@ -926,10 +962,13 @@ span.select2-selection--multiple{
     border-radius: 5px !important;
     font-weight:700 !important;
 }
+.showSweetAlert .confirm{
+    min-width:150px;
+}
 #cat-men{
     display:none;
 }
-.medium-gray-button:hover {
+.medium-gray-button:hover, .showSweetAlert .confirm:hover {
     color: #ffffff !important;
     background-color: #373737!important;
     font-size:16px !important;
@@ -1077,7 +1116,7 @@ div.dokan-product-description #post_content, div.dokan-product-short-description
     color:red;
 }
 .label-red-error{
-    color:red;
+    color:red !important;
 }
 div.frontpageSliders .event-owl-carousel.owl-carousel.owl-theme > .owl-wrapper-outer > .owl-wrapper{
  /*   margin:auto;

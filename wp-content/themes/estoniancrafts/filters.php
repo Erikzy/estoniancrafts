@@ -550,4 +550,15 @@ function comments_on( $data ) {
 
     return $data;
 }
+
 add_filter( 'wp_insert_post_data', 'comments_on' );
+
+add_filter('previous_posts_link_attributes', 'posts_link_attributes_1');
+add_filter('next_posts_link_attributes', 'posts_link_attributes_2');
+
+function posts_link_attributes_1() {
+    return 'class="prev page-numbers"';
+}
+function posts_link_attributes_2() {
+    return 'class="next page-numbers"';
+}

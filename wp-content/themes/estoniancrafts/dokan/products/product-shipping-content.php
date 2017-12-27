@@ -44,19 +44,19 @@
                 <div class="show_if_needs_shipping row">
 					<div class="col-md-3 cont-labels">
                         
-	                    <label class="control-label"><?php _e( 'length', 'dokan' ) ?></label>
+	                    <label class="form-label"><?php _e( 'length', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_length', array( 'class' => 'form-control' ), 'number' ); ?>
 					</div>
 					<div class="col-md-3">
-	                    <label class="control-label"><?php _e( 'width', 'dokan' ) ?></label>
+	                    <label class="form-label"><?php _e( 'width', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_width', array( 'class' => 'form-control' ), 'number' ); ?>
 					</div>
 					<div class="col-md-3">
-	                    <label class="control-label"><?php _e( 'height', 'dokan' ) ?></label>
+	                    <label class="form-label"><?php _e( 'height', 'dokan' ) ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_height', array( 'class' => 'form-control' ), 'number' ); ?>
 					</div>
 					<div class="col-md-3">
-	                    <label class="control-label "><?php _e( 'Dimension unit', 'dokan' ) ?></label>
+	                    <label class="form-label "><?php _e( 'Dimension unit', 'dokan' ) ?></label>
 						<select name="lb-dimension-unit" class="select-label selects">
 							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'mm'? 'selected':'' ?>>mm</option>
 							<option <?= get_option( 'woocommerce_dimension_unit' ) == 'cm'? 'selected':'' ?>>cm</option>
@@ -89,11 +89,11 @@
                 <?php endif; ?>
                 <div class="show_if_needs_shipping dokan-form-group row">
 					<div class="col-md-3">
-	                    <label class="control-label"><?php _e( 'weight (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'dokan' ); ?></label>
+	                    <label class="form-label"><?php _e( 'weight (' . esc_html( get_option( 'woocommerce_weight_unit' ) ) . ')', 'dokan' ); ?></label>
 	                    <?php dokan_post_input_box( $post_id, '_weight', array( 'class' => 'form-control' ), 'number' ); ?>
 					</div>
 					<div class="col-md-9">
-						<label class="control-label" for="product_shipping_class"><?php _e( 'Shipping Class', 'dokan' ); ?></label>
+						<label class="form-label" for="product_shipping_class"><?php _e( 'Shipping Class', 'dokan' ); ?></label>
 						<div class="dokan-text-left">
 							<?php
 							// Shipping Class
@@ -116,7 +116,7 @@
 							?>
 
 							<?php wp_dropdown_categories( $args ); ?>
-							<p class="help-block"><?php _e( 'Shipping classes are used by certain shipping methods to group similar products.', 'dokan' ); ?></p>
+							<p class="ec-form-field-description"><?php _e( 'Shipping classes are used by certain shipping methods to group similar products.', 'dokan' ); ?></p>
 						</div>
 					</div>
                 </div>
@@ -183,7 +183,7 @@
         <?php if ( 'yes' == get_option( 'woocommerce_calc_taxes' ) ) { ?>
         <div class="dokan-clearfix dokan-tax-container">
             <div class="dokan-form-group">
-                <label for="_required_tax" class="dokan-form-label form-label ">
+                <label for="_required_tax" class="form-label ">
                 <input type="hidden" name="_required_tax" value="no">
                 <input type="checkbox" id="_required_tax" name="_required_tax" class="form-label" value="yes" <?php checked( $_required_tax, 'yes' ); ?>>
                 <?php _e( 'The product requires Tax', 'dokan' ); ?>
@@ -191,7 +191,7 @@
             </div>
             <div class="show_if_needs_tax dokan-tax-product-options">
                 <div class="dokan-form-group dokan-w">
-                    <label class="dokan-control-label" for="_tax_status"><?php _e( 'Tax Status', 'dokan' ); ?></label>
+                    <label class="form-label" for="_tax_status"><?php _e( 'Tax Status', 'dokan' ); ?></label>
                     <div class="dokan-text-left">
                         <?php dokan_post_input_box( $post_id, '_tax_status', array( 'options' => array(
                             'taxable'   => __( 'Taxable', 'dokan' ),
@@ -203,7 +203,7 @@
                 </div>
 
                 <div class="dokan-form-group dokan-w">
-                    <label class="dokan-control-label" for="_tax_class"><?php _e( 'Tax Class', 'dokan' ); ?></label>
+                    <label class="form-label" for="_tax_class"><?php _e( 'Tax Class', 'dokan' ); ?></label>
                     <div class="dokan-text-left">
                         <?php dokan_post_input_box( $post_id, '_tax_class', array( 'options' => $classes_options ), 'select' ); ?>
                     </div>

@@ -22,6 +22,9 @@ font-style: normal;
 .bannerPreview img{
 	margin-top: 10px;
 }
+.sm-store-w{
+	width:45%;
+}
 .user-rotator-banner-element{
 	width:200px;
 	height:150px;
@@ -53,7 +56,7 @@ font-style: normal;
     left: 0;
 }
 .placeholder{
-	width:800px;
+	/*width:800px;*/
 	border:#bbbbbb 1px solid;
 	height:300px;
 	background-color: #eeeeee

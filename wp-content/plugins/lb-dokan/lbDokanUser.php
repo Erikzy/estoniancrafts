@@ -496,8 +496,8 @@ class lbDokanUser {
                 <tr>
                     <th><label><?php _e( 'Company type', 'ktt' ); ?></label></th>
                     <td>
-                        <select name="dokan_company_type" id="dokan_company_type" style="max-width: 300px">
-                            <option value="none"> - <?php _e( 'company type', 'ktt'); ?> - </option>
+                        <select name="dokan_company_type" required  id="dokan_company_type" style="max-width: 300px">
+                            <option value=""> - <?php _e( 'company type', 'ktt'); ?> - </option>
                             <option value="1" <?= (($company_type == '1')? 'selected': '') ?>><?php _e( 'FIE', 'ktt'); ?></option>
                             <option value="2" <?= (($company_type == '2')? 'selected': '') ?>><?php _e( 'OÜ', 'ktt'); ?></option>
                             <option value="3" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'AS', 'ktt'); ?></option>
