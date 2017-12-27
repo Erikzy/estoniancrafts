@@ -5,17 +5,26 @@ if (!class_exists("LoginCommon")) {
     class LoginCommon {
 
        public static function login($identityCode, $firstName, $lastName, $email) {
-            $userName = "EST" . $identityCode;
-
+            $userName =  $firstName.'.'.$lastName;
+			$existing= get_user_by('user_login', $userName);            
+			$count = 1;
+			while($existing){
+				$userName =  $userName.'.'.$count;
+				$existing= get_user_by('user_login', $userName);            
+			}
+			
+			
             if (strlen($identityCode) == 11) {
                 //Otsime üles sisselogitud inimese või tekitame, kui teda varem polnud
                 $user = LoginCommon::getUser($identityCode);
                 if (($user == NULL) and ( NULL == username_exists($userName))) {
                     $regHash = sha1($identityCode.$firstName.$lastName.time());
-
+					
+					
+										
                     $user_id = LoginCommon::createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash);
-                    $myaccount_page_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
-                    $myaccount_page_url .= '?reghash='.$regHash;
+                    $myaccount_page_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ).'edit-account';
+                   // $myaccount_page_url .= '?reghash='.$regHash;
                
                
                	    wp_set_auth_cookie($user_id);
