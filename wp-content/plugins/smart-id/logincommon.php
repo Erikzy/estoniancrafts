@@ -7,27 +7,16 @@ if (!class_exists("LoginCommon")) {
        public static function login($identityCode, $firstName, $lastName, $email) {
             //$userName = "EST" . $identityCode;
 			$userName = strtolower($firstName).'.'.strtolower($lastName);
-		
 			$user = WP_User::get_data_by('login', $userName);
-			var_dump($user);
-			echo $userName;
-			   die();
 			if($user){
 				$increment = 0;
-				
-				                echo "ERROR: Idcode not received from the login. Please try again";
-                echo "$identityCode, $firstName, $lastName, $email";
-                die();
-			/*	while($user){
+				while($user){
 					$increment++;
 					$userName = $firstName.'.'.$lastName.'.'.$increment;
-					$user = WP_User::get_data_by('user_login', $userName);
+					$user = WP_User::get_data_by('login', $userName);
 				}	
-			*/
 			
 			}
-			
-			
 			
             if (strlen($identityCode) == 11) {
                 //Otsime üles sisselogitud inimese või tekitame, kui teda varem polnud
