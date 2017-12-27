@@ -16,6 +16,9 @@ if (!class_exists("LoginCommon")) {
                     $user_id = LoginCommon::createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash);
                     $myaccount_page_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
                     $myaccount_page_url .= '?reghash='.$regHash;
+               
+               
+               	    wp_set_auth_cookie($user_id);
                     return bp_core_redirect( $myaccount_page_url );
                 } else {
                     $user_id = $user->userid;
