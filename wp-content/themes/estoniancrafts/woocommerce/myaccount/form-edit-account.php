@@ -47,7 +47,9 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 	</p>
 
     <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-        <?php echo do_shortcode('[user_has_idCard]') ?>
+  
+        <?php echo do_shortcode('[user_has_idCard_extended]') ?>
+  
     </p>
 
 	<?php do_action( 'woocommerce_edit_account_form' ); ?>
