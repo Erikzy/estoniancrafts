@@ -275,9 +275,22 @@ class FacebookLogin{
             'count_total'  => false,
             'fields'       => 'id',
         ));
+        
+        
+        
+        
+        
 
         if(empty($wp_users[0])) {
-            return false;
+        	$emailExisting = WP_User::get_data_by('email', $this->facebook_details['email']);
+        	if($emailExisting){
+        	   update_user_meta($emailExisting, 'ec_facebook_id',$this->facebook_details['id'] );
+        	   wp_set_auth_cookie( $emailExisting->ID );
+        	   return true;
+        	//	var_dump($emailExisting);
+        	//	die();
+        	}
+        	return false;
         }
 
         // Log the user ?
@@ -291,18 +304,38 @@ class FacebookLogin{
     private function createUser() {
         $fb_user = $this->facebook_details;
         // Create an username
+     
+     
+     
         $username = sanitize_user(str_replace(' ', '.', strtolower($this->facebook_details['name'])));
+     	$user = WP_User::get_data_by('login', $username);
+		
+		if($user){
+			$increment = 0;
+			while($user){
+				$increment++;
+				//$userName = mb_strtolower($firstName).'.'.mb_strtolower($lastName).'.'.$increment;
+				$username = sanitize_user(str_replace(' ', '.', strtolower($this->facebook_details['name']))).'.'.$increment;
+				$user = WP_User::get_data_by('login', $username);
+			}	
+			
+		}
+     
+     
+     
         // Creating our user
         $new_user = wp_insert_user([
             'user_login' => wp_slash($username),
             'user_email' => wp_slash($fb_user['email']),
             'user_pass' => wp_generate_password(),
-            'role' => 'seller'
+            'role' => 'customer'
         ]);
         if(is_wp_error($new_user)) {
             // Report our errors
             $_SESSION['ec_facebook_message'] = $new_user->get_error_message();
             // Redirect
+            
+           // echo 'wp-error';
             header("Location: ".$this->redirect_url, true);
             die();
         }
@@ -312,7 +345,7 @@ class FacebookLogin{
         update_user_meta( $new_user, 'last_name', $fb_user['last_name'] );
         update_user_meta( $new_user, 'user_url', $fb_user['link'] );
         update_user_meta( $new_user, 'ec_facebook_id', $fb_user['id'] );
-        update_user_meta( $new_user, 'dokan_enable_selling', 1 );
+     //   update_user_meta( $new_user, 'dokan_enable_selling', 1 );
 
         // Log the user ?
         wp_set_auth_cookie( $new_user );
