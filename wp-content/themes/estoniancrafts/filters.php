@@ -400,6 +400,9 @@ function my_messages_message_sent($message) {
 
 function ec_dokan_rewrite_rules($custom_store_url)
 {
+
+
+	 add_rewrite_rule( '([^/]+)/generallogin/userhome/', redirect_to_user_appropriate_home(), 'top' );
 	add_rewrite_rule( '([^/]+)/?$', 'index.php?pagename=$matches[1]', 'top' );
     add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]', 'top' );
 
@@ -410,7 +413,7 @@ function ec_dokan_rewrite_rules($custom_store_url)
     add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]&toc=true', 'top' );
 
     add_rewrite_rule( '([^/]+)/blog?$', 'index.php?pagename=$matches[1]&blog=true', 'top' );
-
+		
     add_rewrite_rule( '^user/([^/]*)/portfolio/([^/]*)?$', 'index.php?user=$matches[1]&portfolio=$matches[2]', 'top');
     flush_rewrite_rules();
 }
