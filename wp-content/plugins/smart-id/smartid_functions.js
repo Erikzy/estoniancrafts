@@ -11,7 +11,7 @@ function startSmartIdLogin(loginUri) {
             console.log(win.document.URL);
             if (win.document.URL.indexOf("code") !== -1) {
                 window.clearInterval(pollTimer);
-                var url = win.document.URL + '/generallogin/userhome/';
+                var url = win.document.URL;
                 
                 
                 code = gup(url, 'code');
@@ -24,8 +24,6 @@ function startSmartIdLogin(loginUri) {
     }, 100);
 }
 
-function gup(url, name) {
-    name = name.replace(/[[]/, "\[").replace(/[]]/, "\]");
     var regexS = "[\?&]" + name + "=([^&#]*)";
     var regex = new RegExp(regexS);
     var results = regex.exec(url);
