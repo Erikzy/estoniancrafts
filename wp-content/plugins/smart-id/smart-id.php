@@ -70,6 +70,8 @@ if (!class_exists("IdCardLogin")) {
                 if (strpos($redirectUrl, "wp-login") > 0) {
                     $redirectUrl = home_url("/");
                 }
+                
+                $redirectUrl = redirect_to_user_appropriate_home();
                 ?>
 
                 <script type="text/javascript">
