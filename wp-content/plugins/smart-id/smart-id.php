@@ -151,7 +151,7 @@ if (!class_exists("IdCardLogin")) {
             }
             $loginUri = 'https://id.smartid.ee/oauth/authorize'
                     . '?client_id=' . get_option("smartid_client_id")
-                    . '&redirect_uri=' . urlencode(get_option("smartid_redirect_uri"))
+                    . '&redirect_uri=' . urlencode(redirect_to_user_appropriate_home())
                     . '&response_type=code';
 
             $loginCode = '<script src="' . IdCardLogin::getPluginBaseUrl() . '/smartid_functions.js"></script>';
