@@ -7,7 +7,7 @@ if(isset($_POST['post_picture']) ){
     $post_thumbnail_url = get_the_post_thumbnail_url($post);
     }
 elseif(has_post_thumbnail($post) == 1 )
-    $post_thumbnail_url = get_the_post_thumbnail_url();
+    $post_thumbnail_url = get_the_post_thumbnail_url($post->ID);
 
 
 wp_enqueue_media(); 
@@ -48,7 +48,12 @@ $upload_link = esc_url( get_upload_iframe_src( 'image', $post->ID ) );
                     <div class="clearfix"></div>
                 <?php } ?> 
                 </label>
-                <?php wp_editor(html_entity_decode($post->post_content),  'post_content', array('editor_height' => 150,  'media_buttons' => true, 'editor_class' => '') ); ?>
+
+                <?php
+
+
+                ?>
+                <?php wp_editor(stripslashes($post->post_content),  'post_content', array('editor_height' => 150,  'media_buttons' => true, 'editor_class' => '') ); ?>
                 <input type="hidden" name="temp_publish" value="exist">
             </div>
         </p>

@@ -79,6 +79,6 @@ if ( ! empty( $tabs ) ) : ?>
 <?php endif; ?>
 
 <script>
-	//if(jQuery("#iden-reviews").html() === "Reviews (0) ")
-	//	jQuery(".reviews_tab").css("display","none");
+	if(jQuery("#iden-reviews").html() === "Reviews (0) ")
+		jQuery(".reviews_tab").css("display","none");
 </script>

@@ -13755,7 +13755,7 @@ form.has-categories-dropdown input[type="text"] {
   text-transform: uppercase;
 }
 .popup-added_to_cart a {
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
   margin-left: 10px;
   margin-right: 10px;
 }

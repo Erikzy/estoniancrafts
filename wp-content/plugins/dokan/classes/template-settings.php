@@ -510,6 +510,9 @@ class Dokan_Template_Settings {
             }
 
         }
+	if(!is_array($prev_dokan_settings)){
+	  $prev_dokan_settings = array();	
+	}
 
         $dokan_settings = array_merge($prev_dokan_settings,$dokan_settings);
 
