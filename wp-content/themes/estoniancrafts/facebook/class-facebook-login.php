@@ -178,8 +178,10 @@ class FacebookLogin{
         }
 		$this->redirect_url = redirect_to_user_appropriate_home();
         // Redirect the user
-        header("Location: ".$this->redirect_url, true);
+		echo $this->redirect_url;
         die();
+
+//        header("Location: ".$this->redirect_url, true);
     }
 
     /**
