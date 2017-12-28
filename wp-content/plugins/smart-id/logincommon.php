@@ -33,16 +33,12 @@ if (!class_exists("LoginCommon")) {
                
                
                	    wp_set_auth_cookie($user_id);
-					$redirect_url = redirect_to_user_appropriate_home();
-           	 		header("Location: ".$redirect_url);                 
                  
-                    //return bp_core_redirect( $myaccount_page_url );
+                 
+                    return bp_core_redirect( $myaccount_page_url );
                 } else {
                     $user_id = $user->userid;
                 }
-                
-                
-                
             } else {
                 //At least some form of error handling
                 echo "ERROR: Idcode not received from the login. Please try again";
@@ -51,9 +47,7 @@ if (!class_exists("LoginCommon")) {
             }
      	
             wp_set_auth_cookie($user_id);
-            $redirect_url = redirect_to_user_appropriate_home();
-            header("Location: ".$redirect_url);
-         
+            
             
             
         }
