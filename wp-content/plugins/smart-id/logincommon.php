@@ -29,22 +29,33 @@ if (!class_exists("LoginCommon")) {
                     $user_id = LoginCommon::createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash);
                     $myaccount_page_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
                    // $myaccount_page_url .= '?reghash='.$regHash;
-               		 $myaccount_page_url .= '/edit-account';
+               		// $myaccount_page_url .= '/edit-account';
                
                
                	    wp_set_auth_cookie($user_id);
-                    return bp_core_redirect( $myaccount_page_url );
+					$this->redirect_url = redirect_to_user_appropriate_home();
+           	 		header("Location: ".$this->redirect_url);                 
+                 
+                    //return bp_core_redirect( $myaccount_page_url );
                 } else {
                     $user_id = $user->userid;
                 }
+                
+                
+                
             } else {
                 //At least some form of error handling
                 echo "ERROR: Idcode not received from the login. Please try again";
                 echo "$identityCode, $firstName, $lastName, $email";
                 die();
             }
-
+     	
             wp_set_auth_cookie($user_id);
+            $this->redirect_url = redirect_to_user_appropriate_home();
+            header("Location: ".$this->redirect_url);
+         
+            
+            
         }
 
        private static function createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash = '') {
