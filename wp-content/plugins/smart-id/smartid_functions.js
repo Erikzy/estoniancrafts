@@ -11,9 +11,12 @@ function startSmartIdLogin(loginUri) {
             console.log(win.document.URL);
             if (win.document.URL.indexOf("code") !== -1) {
                 window.clearInterval(pollTimer);
-                var url = win.document.URL;
+                var url = win.document.URL + '/generallogin/userhome/';
+                
+                
                 code = gup(url, 'code');
                 win.close();
+            	
                 window.location = url + "&login=true";
             }
         } catch (e) {
