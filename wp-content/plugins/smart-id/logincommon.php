@@ -33,7 +33,7 @@ if (!class_exists("LoginCommon")) {
                
                
                	    wp_set_auth_cookie($user_id);
-					$this->redirect_url = redirect_to_user_appropriate_home();
+					$redirect_url = redirect_to_user_appropriate_home();
            	 		header("Location: ".$this->redirect_url);                 
                  
                     //return bp_core_redirect( $myaccount_page_url );
@@ -51,7 +51,7 @@ if (!class_exists("LoginCommon")) {
             }
      	
             wp_set_auth_cookie($user_id);
-            $this->redirect_url = redirect_to_user_appropriate_home();
+            $redirect_url = redirect_to_user_appropriate_home();
             header("Location: ".$this->redirect_url);
          
             
