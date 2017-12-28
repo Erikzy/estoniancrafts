@@ -91,7 +91,8 @@
                 </tbody>
             </table>
             <input type="hidden" name="product_id" value="<?php echo $post_id ?>">
-            <input type="submit" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>">
+           <input type="submit" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>"> 
+        <!--     <input type="button" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>" onclick="saveProductAttributesT()" > -->
             <span class="dokan-loading dokan-save-single-attr-loader dokan-hide"></span>
             <div class="dokan-clearfix"></div>
         </form>

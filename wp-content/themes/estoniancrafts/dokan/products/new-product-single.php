@@ -115,7 +115,7 @@ if ( ! $from_shortcode ) {
         <header class="dokan-dashboard-header dokan-clearfix">
             <?php 
             if(isset($_POST["dokan_product_id"])){
-                //var_dump($_POST);
+               
               /*      $post_title = isset($_POST["post_title"]) ? $_POST["post_title"] : ""; 
                     $product_cat = isset($_POST["product_cat"]) ? $_POST["product_cat"] : "";
                     $regular_price = isset($_POST["_regular_price"]) ? $_POST["_regular_price"]:"0.00";*/
@@ -200,7 +200,7 @@ if ( ! $from_shortcode ) {
                                 <div class="dokan-form-group">
                                     <input type="hidden" name="dokan_product_id" value="<?php echo $post_id; ?>"/>
 
-                                    <label for="post_title" class="form-label desc-pro"><?php _e( 'Title *', 'dokan' ); ?></label>
+                                    <label for="post_title" class="form-label desc-pro"><?php _e( 'Title ', 'dokan' ); ?><span class="required-m">*</span></label>
 									<span class="ec-form-field-description"><?php _e( 'Product title description', 'ktt' ); ?></span>
                                     <div class="errfield">
                     
@@ -263,7 +263,7 @@ if ( ! $from_shortcode ) {
                                 <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>
                                     <div class="dokan-form-group">
 
-                                        <label for="product_cat" class="form-label desc-pro"><?php _e( 'Category *', 'dokan' ); ?></label>
+                                        <label for="product_cat" class="form-label desc-pro"><?php _e( 'Category ', 'dokan' ); ?><span class="required-m">*</span></label>
 										<span class="ec-form-field-description"><?php _e( 'Product category description', 'ktt' ); ?></span>
                                         <div class="dokan-product-cat-alert dokan-hide dokan-alert dokan-alert-danger">
                                             <?php _e('Please choose a category !!!', 'dokan'); ?>
@@ -877,24 +877,20 @@ if ( ! $from_shortcode ) {
    jQuery(document).ready(function(){
          var err= false;
          var materials_size = "<?php echo isset($_POST['_material_name'])? sizeof($_POST['_material_name']) : '0'; ?>";
-         console.log(materials_size);
+        
          var id_v = "<?php echo isset($_POST["dokan_product_id"]); ?>";
 
         if( id_v == "1"){  
             build();
         }
         else{
-           localStorage.setItem("form", "");
+          localStorage.setItem("form", "");
         }
 /*        for(let a = 0 ; a < materials_size ; a++  ){
             jQuery(". a.lb-elastic-add").trigger("click");
         }*/
            
 
-         
-
-      
-     
 
     });
     showButton = () =>{ 
@@ -908,8 +904,10 @@ if ( ! $from_shortcode ) {
         showButton();
         jQuery("#feat_image_url").val(jQuery("#fet-im-a > img").attr("src"));
        //  updatePatentBox();
+       validateVariation();
 
     } );
+
     removeImage = ()=>{
                     jQuery("#fet-im-a > img").attr({"src": "", "srcset":"" });
       
@@ -948,6 +946,70 @@ if ( ! $from_shortcode ) {
 
 
     }
+
+    validateVariation = () =>{
+        
+        if(jQuery(".inventory-table").val() == undefined) {
+            console.log(jQuery(".dokan-attribute-option-name") .val());
+            if(  jQuery(".dokan-attribute-option-name").val() == undefined    ){
+                 jQuery("#_create_variation").attr("disabled","true");
+                 jQuery("#variation-message").html("Please, add an option to create a variation.");
+            }
+            else{
+                       jQuery("#_create_variation").removeAttr("disabled");
+                jQuery("#variation-message").html('Create variation using those attribute options'); 
+                 console.log("validated");
+            }
+        }
+        else
+            console.log("this is undefined");
+/*       
+        if( jQuery.trim(jQuery(".dokan-attribute-option-name").val()) ===""    ){
+            jQuery("#_create_variation").attr("disabled","true");
+            jQuery("#variation-message").html("Please, add an option to create a variation.");
+        }
+        else{
+             jQuery("#_create_variation").removeAttr("disabled");
+            jQuery("#variation-message").html('Create variation using those attribute options'); 
+             console.log("validated");
+        }
+       if( jQuery.trim(jQuery(".attributes-prod > input").val()) ===""    ){
+            jQuery("#_create_variation").attr("disabled","true");
+            jQuery("#variation-message").html("Please, add an option to create a variation.");
+        }
+        else{
+             jQuery("#_create_variation").removeAttr("disabled");
+            jQuery("#variation-message").html('Create variation using those attribute options'); 
+             console.log("validated");
+        }*/
+    }
+
+
+   saveProductAttributesT = ()=>{
+                //e.preventDefault();
+                
+                    data = {
+                        action : 'dokan_save_attributes_options',
+                        formdata: jQuery("#dokan-single-attribute-form").serialize()
+                    },
+                 //   loadUrl = window.location.href;
+
+                jQuery(this).find('.dokan-save-single-attr-loader').removeClass('dokan-hide');
+                jQuery.post( dokan.ajaxurl, data, function( resp ) {
+                    if( resp.success ) {
+                        jQuery('.dokan-variation-container').addClass('dokan-blur-effect');
+                        jQuery('.dokan-variation-container').append('<div class="dokan-variation-loader"></div>');
+
+                        jQuery.magnificPopup.close();
+                        console.log("done");
+       /*                 $('.dokan-variation-container').load(loadUrl+' .dokan-variation-container', function() {
+                            $('#_create_variation').trigger('change');
+                            $('.dokan-variation-container').removeClass('dokan-blur-effect');
+                            $('.dokan-variation-container').remove('.dokan-variation-loader');
+                        });*/
+                    }
+                });
+   }
 
     
 

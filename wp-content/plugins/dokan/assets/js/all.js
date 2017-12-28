@@ -1252,7 +1252,6 @@ jQuery(function($) {
             removeSingleAttributeOption: function(e) {
                 e.preventDefault();
 
-                e.preventDefault();
                 var self = $(this);
 
                 var row = self.closest('tbody').find('tr').length;
@@ -1271,7 +1270,7 @@ jQuery(function($) {
                         action : 'dokan_save_attributes_options',
                         formdata: $(this).serialize()
                     },
-                    loadUrl = window.location.href;
+                 //   loadUrl = window.location.href;
 
                 self.find('.dokan-save-single-attr-loader').removeClass('dokan-hide');
                 $.post( dokan.ajaxurl, data, function( resp ) {
@@ -1280,12 +1279,12 @@ jQuery(function($) {
                         $('.dokan-variation-container').append('<div class="dokan-variation-loader"></div>');
 
                         $.magnificPopup.close();
-
-                        $('.dokan-variation-container').load(loadUrl+' .dokan-variation-container', function() {
+                        console.log("done");
+       /*                 $('.dokan-variation-container').load(loadUrl+' .dokan-variation-container', function() {
                             $('#_create_variation').trigger('change');
                             $('.dokan-variation-container').removeClass('dokan-blur-effect');
                             $('.dokan-variation-container').remove('.dokan-variation-loader');
-                        });
+                        });*/
                     }
                 });
             },

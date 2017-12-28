@@ -14,7 +14,7 @@
             <input name="_has_attribute" value="no" type="hidden">
             <input name="_has_attribute" id="_has_attribute" value="yes" type="checkbox" <?php checked( $_has_attribute, 'yes' ); ?>>
             <?php _e( 'This product has multiple options', 'dokan' ); ?>
-            <span><?php _e( 'e.g. Multiple sizes and/or colors', 'dokan' ); ?></span>
+            <span><?php _e( 'e.g. Multiple sizes and/or coldgdfgfdgdfgdgdgdfors', 'dokan' ); ?></span>
         </label>
 
         <?php if ( $_create_variations != 'yes' ): ?>
