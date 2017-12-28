@@ -11,9 +11,7 @@ function startSmartIdLogin(loginUri) {
             console.log(win.document.URL);
             if (win.document.URL.indexOf("code") !== -1) {
                 window.clearInterval(pollTimer);
-                var url = win.document.URL + '/generallogin/userhome/';
-                
-                
+                var url = win.document.URL;
                 code = gup(url, 'code');
                 win.close();
             	
