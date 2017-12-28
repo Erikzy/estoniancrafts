@@ -1445,21 +1445,38 @@ class WC_Product {
 	public function checkAttributes(){
 			
 			$materials = get_post_meta( $this->id, '_materials', true);
-			if(sizeof($materials) > 0 && $materials[0]["name"] !== "" )
-				return true;
+		
+
+			if($materials !="") {
+				if(sizeof($materials) > 0 && $materials[0]["name"] !== "" )
+					return true;
+			}
+
 			$manufacturing_method= get_post_meta($this->id, '_manufacturing_method', true) ;
-			if(trim($manufacturing_method) !== "")
-				return true;
+			if($manufacturing_method != NULL)
+			{	if(isset($manufacturing_method)){
+					if(trim($manufacturing_method) !== "")
+					return true;
+				}
+			}
+
 			$maint= get_post_meta($this->id, '_maintenance_info', true) ;
-			if(trim($maint) !== "")
-				return true;
+			if($maint != NULL){
+				if(trim($maint) !== "")
+					return true;
+			}
 			$media_links = get_post_meta($this->id, '_media_links', true);
-			if(trim($media_links[0]) !== "") 
-				return true;
+			
+			if($media_links !=""){
+				if(trim($media_links[0]) !== "") 
+					return true;
+			}
 			$certificates = get_post_meta($this->id, '_certificates', true);
-			if(trim($certificates[0]["file"]) !== "")
-				return true;
-	
+			
+			if($certificates != ""){
+				if(trim($certificates[0]["file"]) !== "")
+					return true;
+			}
 			return false;
 	}
 	/**
