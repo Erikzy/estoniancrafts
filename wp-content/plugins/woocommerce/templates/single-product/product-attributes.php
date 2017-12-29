@@ -48,154 +48,178 @@ $post_id = $product->id;
 				<td class="product_dimensions"><?php echo $product->get_dimensions(); ?></td>
 			</tr>
 		<?php endif; ?>
-		<?php 
-			$materials = get_post_meta($post_id, '_materials', true);
-			
-			if(sizeof($materials) > 0 && $materials[0]["name"] !== "" ) :
-			?>
-			<tr >
-				<th><?php _e( 'Used materials', 'woocommerce' ) ?></th>
-				<td class="product_dimensions">
-					 <div class="lb-elastic-element lb-input-margins">
-					<?php 
-						
-						foreach($materials as $material){
 
-                        ?>
-
-                           
-                            	<div class="material-container">
-                            		<p>
-                            			<strong>Name: </strong> <?php echo $material['name']?><br> 
-                            			<strong>Contents: </strong> <?php echo $material['contents']?><br> 
-                            			<strong>Description: </strong> <?php echo $material['desc']?><br> 
-                            			<?php
-                            				 $countries_obj   = new WC_Countries();
-    										$countries   = $countries_obj->__get('countries');
-
-                            			 ?> 
-                            			<?php if($material["country"] !== "" ): ?> 
-
-                            				<strong>Country: </strong> <?php echo $countries[$material['country']]?><br> <br> 
-                            			<?php endif; ?>
-
-
-                            		</p>
-                            	</div>
-
-                        <?php 
-                        }
-                        ?>
-				 	</div>
-
-
-
-				 </td>
-			</tr>
-		
-			<?php
-			endif; //end materials
-			?>
 			<?php 
 			$manufacturing_method= get_post_meta($post_id, '_manufacturing_method', true) ;
 	
 			if(trim($manufacturing_method) !== "") :
 			?>
-			<tr >
-				<th><?php _e( 'Manufacturing information', 'woocommerce' ) ?></th>
+			
+			<tr><th><?php _e( 'Manufacturing method', 'woocommerce' ) ?></th>
 				<td class="product_dimensions">
 					 <div class="lb-elastic-element lb-input-margins lh-prod">
-							<p><strong>Manufacturing Method: </strong><br> <?php echo $manufacturing_method; ?><br>
-							<?php
+
+							<p><?php echo $manufacturing_method; ?></p>
+                             
+				 	</div>
+			</tr>
+					<?php
 								$md = get_post_meta($post_id, '_manufacturing_desc', true);
 								
-								if(trim($md) !==""):
-									?>
-										<strong>Manufacturing Description: </strong> <br><?php echo $md; ?><br>
-									<?php
-								endif;
-							?> 
-							<?php
+								if(trim($md) !==""): ?>
+			<tr><th><?php _e( 'Manufacturing description', 'woocommerce' ) ?></th>
+				<td class="product_dimensions">
+					 <div class="lb-elastic-element lb-input-margins lh-prod">
+							<p><?php echo $md; ?></p>
+                             
+				 	</div>
+			</tr> <?php endif; ?>
+					<?php
 								$mt = get_post_meta($post_id, '_manufacturing_time', true);
 								if(trim($mt) !== ""):
 									?>
-										<strong>Manufacturing Time: </strong> <br><?php echo $mt.' '.get_post_meta($post_id, '_manufacturing_time_unit', true) ; ?>(s)<br>
-									<?php
-								endif;
-							?> 
-							<?php
+			<tr><th><?php _e( 'Manufacturing time', 'woocommerce' ) ?></th>
+				<td class="product_dimensions">
+					 <div class="lb-elastic-element lb-input-margins lh-prod">
+							<p><?php echo $mt.' '.get_post_meta($post_id, '_manufacturing_time_unit', true) ; ?>(s)</p>
+                             
+				 	</div>
+			</tr> <?php endif; ?>
+					<?php
 								$mq = get_post_meta($post_id, '_manufacturing_qty', true);
 								if(trim($mq) !== ""):
 									?>
-										<strong>Manufacturing Quantity: </strong><br> <?php echo $mq.' '.get_post_meta($post_id, '_manufacturing_qty_unit', true) ; ?>(s)<br>
-									<?php
-								endif;
-							?> </p>
+			<tr><th><?php _e( 'Manufacturing quantity', 'woocommerce' ) ?></th>
+				<td class="product_dimensions">
+					 <div class="lb-elastic-element lb-input-margins lh-prod">
+							<p><?php echo $mq.' '.get_post_meta($post_id, '_manufacturing_qty_unit', true) ; ?>(s)</p>
                              
 				 	</div>
-
-
-
-				 </td>
-			</tr>
+			</tr> <?php endif; ?>
 		
 			<?php
 			endif; // end manufacturing
 			?>
-			<?php 
-			$maint= get_post_meta($post_id, '_maintenance_info', true) ;
-			
-			
-			if(trim($maint) !== "") :
-			?>
-			<tr >
-				<th><?php _e( 'Maintenance information', 'woocommerce' ) ?></th>
-				<td class="product_dimensions">
-					 <div class="lb-elastic-element lb-input-margins lh-prod">
-							 <p><?php echo $maint; ?></p>
-
-                             
-				 	</div>
-
-
-
-				 </td>
-			</tr>
 		
-			<?php
-			endif; //end maintenance
-			?>
-			<?php 
-			$media_links = get_post_meta($post_id, '_media_links', true);
+
+
+	<?php endif; ?>
+
+
+
+</table>
+
+<div class="tab-sep"> </div>
+<h1 class="shop_attributes tab-header">Used Materials</h1>
+<!-- USED MATERIALS -->
+
+<table class="shop_attributes">
+
+		
+			<tbody>
+<?php 
+			$materials = get_post_meta($post_id, '_materials', true);
 			
-			
-			if(trim($media_links[0]) !== "") :
+			if(sizeof($materials) > 0 && $materials[0]["name"] !== "" ) :
 			?>
-			<tr >
-				<th><?php _e( 'External media links', 'woocommerce' ) ?></th>
-				<td class="product_dimensions">
-					 <div class="lb-elastic-element lb-input-margins lh-prod">
-					<?php		 
-                    foreach($media_links as $link){
+					<?php 
+						
+						foreach($materials as $material){
 
                         ?>
+			<tr >
+				<th> 		
+	                            			<strong>Material Name: </strong><br> 
+											<?php echo $material['name']?><br>
 
-                        <div class="lb-elastic-element lb-input-margins">
-                            
-                                <p><a href="<?php echo $link ?>" target="_blank" ><?php echo $link ?></a><br></p>
-                            
-                        </div>
+	                            		</th>
+				<td class="product_dimensions product_materials_m">
+					 <div class="lb-elastic-element lb-input-margins">
+			
+
+                           
+                            	<div class="material-container">
                         
-                        <?php
+	                           
+	                            		<p> 
+	                            			 <?php echo $material['contents']?><br> <br>
+	                            			<!-- <strong>Description: </strong>  -->
+	                            			<?php echo $material['desc']?><br> 
+	     
+	                	                    <?php
+	                            				 $countries_obj   = new WC_Countries();
+	    										$countries   = $countries_obj->__get('countries');
 
-                    }?>     
+	                            			 ?> 
+	                            			<?php if($material["country"] !== "" ): ?> 
+
+	                            				<!-- <strong>Country: </strong> --> <?php echo $countries[$material['country']]?><br> <br> 
+	                            			<?php endif; ?>
+	       
+
+	                            		 </p>
+	                          
+                            	</div>
+
+                   
 				 	</div>
+
+
+
 				 </td>
 			</tr>
-		
+		     <?php 
+                        }
+                        ?>
 			<?php
-			endif; //end media links
-			?>
+			endif; //end materials?>
+			
+</tbody></table>
+
+<div class="tab-sep"> </div>
+<h1 class="shop_attributes tab-header">Maintenance</h1>
+<!-- MAINTENANCE -->
+
+<table class="shop_attributes">
+
+		
+			<tbody>
+				<?php 
+						$maint= get_post_meta($post_id, '_maintenance_info', true) ;
+						
+						
+						if(trim($maint) !== "") :
+						?>
+						<tr >
+							
+							<td class="product_dimensions">
+								 <div class="lb-elastic-element lb-input-margins lh-prod">
+										 <p class="text-left" ><?php echo $maint; ?></p>
+
+			                             
+							 	</div>
+
+
+
+							 </td>
+						</tr>
+					
+						<?php
+						endif; //end maintenance
+						?>
+			
+</tbody></table>
+
+
+
+<div class="tab-sep"> </div>
+<h1 class="shop_attributes tab-header">Links</h1>
+<!--  LINKS -->
+
+<table class="shop_attributes">
+
+		
+			<tbody>
 
 			<?php 
 			$certificates = get_post_meta($post_id, '_certificates', true);
@@ -203,63 +227,76 @@ $post_id = $product->id;
 			
 			if(trim($certificates[0]["file"]) !== "") :
 			?>
-			<tr >
-				<th><?php _e( 'Patent / Certificate', 'woocommerce' ) ?></th>
-				<td class="product_dimensions">
-					 <div class="lb-elastic-element lb-input-margins lh-prod">
+
 					<?php		 
                     foreach($certificates as $certificate){
 
                         ?>
+			<tr >
+			
+				<td class="product_dimensions">
+					 <div class="lb-elastic-element lb-input-margins lh-prod">
 
                         <div class="lb-elastic-element lb-input-margins">
                             
-                             <p><strong>Type: </strong> <br><?php echo $certificate["type"]; ?> <br>
-                              <strong>  File: </strong> <a href="<?php echo wp_get_attachment_url( $certificate['file']); ?>"  class="view_cert_link"  target="_blank" >View  file</a> <br><br></p>
+                             <p><i class="fa fa-file-o"></i><a href="<?php echo wp_get_attachment_url( $certificate['file']); ?>"  class="view_cert_link"  target="_blank" > View <?php echo $certificate["type"]; ?> 
+                             </a> <br></p>
                             
                         </div>
-                        
+                     </div>
+				 </td>
+			</tr>
                         <?php
 
                     }?>     
-				 	</div>
-				 </td>
-			</tr>
+
 		 
 			<?php
 			endif; //end mpatents
 			?>
 
 
-	<?php endif; ?>
 
-	<?php foreach ( $attributes as $attribute ) :
-		if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) ) {
-			continue;
-		} else {
-			$has_row = true;
-		}
-		?>
-		<tr class="<?php if ( ( $alt = $alt * -1 ) == 1 ) echo 'alt'; ?>">
-			<th><?php echo wc_attribute_label( $attribute['name'] ); ?></th>
-			<td><?php
-				if ( $attribute['is_taxonomy'] ) {
 
-					$values = wc_get_product_terms( $product->id, $attribute['name'], array( 'fields' => 'names' ) );
-					echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
 
-				} else {
 
-					// Convert pipes to commas and display values
-					$values = array_map( 'trim', explode( WC_DELIMITER, $attribute['value'] ) );
-					echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
 
-				}
-			?></td>
-		</tr>
-	<?php endforeach; ?>
 
-</table>
+<?php 
+			$media_links = get_post_meta($post_id, '_media_links', true);
+			
+			
+			if(trim($media_links[0]) !== "") :
+			?>
+			
+					<?php		 
+                    foreach($media_links as $link){
+
+                        ?>
+				<tr >
+				
+					<td class="product_dimensions">
+						 <div class="lb-elastic-element lb-input-margins lh-prod">
+	                        <div class="lb-elastic-element lb-input-margins">
+	                            
+	                                <p class="text-left"><a href="<?php echo $link ?>" target="_blank" ><i class="fa  fa-external-link aa " ></i> External article<?php //echo $link ?></a><br></p>
+	                            
+	                        </div>
+	              				 	</div>
+					 </td>
+				</tr>          
+                        <?php
+
+                    }?>     
+
+		
+			<?php
+			endif; //end media links
+			?>
+
+			
+</tbody></table>
+
 <?php
 if ( $has_row ) {
 	//echo ob_get_clean();

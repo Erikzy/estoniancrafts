@@ -194,16 +194,18 @@
                 </tbody>
             </table>
 
-			<?php // Pagination ?>
+			<?php // Pagination   ?>
 			<?php if($page->products_pagination): ?>
 
-				<div class="pagination-wrap">
-					<ul class="pagination">
+				<!-- <div class="pagination-wrap"> -->
+                <nav class="woocommerce-pagination">
+					<ul class="page-numbers">
 						<li>
 							<?php echo join("</li>\n\t<li>", $page->products_pagination->links) ?>
 						</li>
 					</ul>
-				</div>
+				<!-- </div> -->
+            </nav>
 
 			<?php endif; ?>
 
@@ -235,3 +237,5 @@
     ?>
 
 </div><!-- .dokan-dashboard-wrap -->
+
+

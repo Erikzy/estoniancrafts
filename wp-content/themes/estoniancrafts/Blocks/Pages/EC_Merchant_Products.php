@@ -127,7 +127,7 @@ class EC_Merchant_Products extends EC_Block
 
 		$base_url = dokan_get_navigation_url('products');
 		$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-
+		
 		$pagination = new EC_Block();
 		$pagination->current_page_num = $pagenum;
 		$pagination->total_pages = $this->product_query->max_num_pages;
@@ -138,8 +138,8 @@ class EC_Merchant_Products extends EC_Block
 			'format'    => '?pagenum=%#%',
 			'add_args'  => false,
 			'type'      => 'array',
-			'prev_text' => __( '&laquo; Previous', 'dokan' ),
-			'next_text' => __( 'Next &raquo;', 'dokan' )
+			'prev_text' => __( '&laquo;', 'dokan' ),
+			'next_text' => __( '&rarr;', 'dokan' )
 		) );
 
 		$this->products_pagination = $pagination;

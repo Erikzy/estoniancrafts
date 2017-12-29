@@ -54,12 +54,13 @@
 
                     <?php
                         $actions = array();
+                        if(is_user_logged_in()):
+                            $actions['view'] = array(
+                                'url'  => $order->get_view_order_url(),
+                                'name' => __( 'View', 'dokan' ),
 
-                        $actions['view'] = array(
-                            'url'  => $order->get_view_order_url(),
-                            'name' => __( 'View', 'dokan' ),
-
-                        );
+                            );
+                        endif;
 
                         $actions = apply_filters( 'dokan_my_account_my_sub_orders_actions', $actions, $order );
 

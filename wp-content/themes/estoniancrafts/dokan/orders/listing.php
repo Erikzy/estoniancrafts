@@ -165,7 +165,7 @@ if ( $user_orders ) {
     $num_of_pages = ceil( $order_count / $limit );
     $base_url  = dokan_get_navigation_url( 'orders' );
     if ( $num_of_pages > 1 ) {
-        echo '<div class="pagination-wrap">';
+        echo '<nav class="woocommerce-pagination">';
         $page_links = paginate_links( array(
             'current'   => $paged,
             'total'     => $num_of_pages,
@@ -175,10 +175,10 @@ if ( $user_orders ) {
             'type'      => 'array',
         ) );
 
-        echo "<ul class='pagination'>\n\t<li>";
+        echo "<ul class='page-numbers'>\n\t<li>";
         echo join("</li>\n\t<li>", $page_links);
         echo "</li>\n</ul>\n";
-        echo '</div>';
+        echo '</nav>';
     }
     ?>
 
