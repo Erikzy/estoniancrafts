@@ -677,6 +677,7 @@ jQuery(function($) {
         },
 
         onChangeProductType: function() {
+         
             var selected = $('#_product_type').val();
             if ( selected === 'simple' ) {
                 product_type = 'simple';
@@ -1136,9 +1137,11 @@ jQuery(function($) {
                     data = {
                         attribute_data : self.data('product_attributes'),
                         attribute_taxonomies : self.data('predefined_attr')
-                    },
-                    attribute_option = wp.template( 'dokan-single-attribute' ),
-                    attribute_single = attribute_option( data );
+                    };
+                 //   console.log(data);
+                  var  attribute_option = wp.template( 'dokan-single-attribute' );
+                  var   attribute_single = attribute_option( data );
+
 
                 $.magnificPopup.open({
 

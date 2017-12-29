@@ -51,7 +51,7 @@
                             <td colspan="3">
                                 <# if ( attr_val.is_taxonomy ) { #>
 
-                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.term_value.replace(/ +\|+ /g, ',' ) }}">
+                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.term_value.replace(/ +\\|+ /g, ',' ) }}">
                                     
                                     <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
 
@@ -63,7 +63,7 @@
 
                                 <# } else { #>
 
-                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.value.replace(/ +\|+ /g, ',' ) }}">
+                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.value.replace(/ +\\|+ /g, ',' ) }}">
                                     
                                     <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
 

@@ -961,55 +961,10 @@ if ( ! $from_shortcode ) {
                  console.log("validated");
             }
         }
-        else
-            console.log("this is undefined");
-/*       
-        if( jQuery.trim(jQuery(".dokan-attribute-option-name").val()) ===""    ){
-            jQuery("#_create_variation").attr("disabled","true");
-            jQuery("#variation-message").html("Please, add an option to create a variation.");
-        }
-        else{
-             jQuery("#_create_variation").removeAttr("disabled");
-            jQuery("#variation-message").html('Create variation using those attribute options'); 
-             console.log("validated");
-        }
-       if( jQuery.trim(jQuery(".attributes-prod > input").val()) ===""    ){
-            jQuery("#_create_variation").attr("disabled","true");
-            jQuery("#variation-message").html("Please, add an option to create a variation.");
-        }
-        else{
-             jQuery("#_create_variation").removeAttr("disabled");
-            jQuery("#variation-message").html('Create variation using those attribute options'); 
-             console.log("validated");
-        }*/
+
     }
 
 
-   saveProductAttributesT = ()=>{
-                //e.preventDefault();
-                
-                    data = {
-                        action : 'dokan_save_attributes_options',
-                        formdata: jQuery("#dokan-single-attribute-form").serialize()
-                    },
-                 //   loadUrl = window.location.href;
-
-                jQuery(this).find('.dokan-save-single-attr-loader').removeClass('dokan-hide');
-                jQuery.post( dokan.ajaxurl, data, function( resp ) {
-                    if( resp.success ) {
-                        jQuery('.dokan-variation-container').addClass('dokan-blur-effect');
-                        jQuery('.dokan-variation-container').append('<div class="dokan-variation-loader"></div>');
-
-                        jQuery.magnificPopup.close();
-                        console.log("done");
-       /*                 $('.dokan-variation-container').load(loadUrl+' .dokan-variation-container', function() {
-                            $('#_create_variation').trigger('change');
-                            $('.dokan-variation-container').removeClass('dokan-blur-effect');
-                            $('.dokan-variation-container').remove('.dokan-variation-loader');
-                        });*/
-                    }
-                });
-   }
 
     
 
