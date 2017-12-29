@@ -1180,6 +1180,12 @@ div.event-owl-carousel div.owl-wrapper{
     margin-top:20px;
 }
 
+.woocommerce-pagination .page-numbers li
+.current{
+    background-color: #dd3b0f !important;
+    border-color:#dd3b0f !important;
+}
+
 @media (max-width:1278px) {
     /*.shop-loop-wrapper ---> wrapper*/
     div.shop-loop-wrapper div.ec-new-product-grid.row{
