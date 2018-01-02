@@ -1640,6 +1640,8 @@ jQuery(function($) {
 
             addImage: function(e) {
                 e.preventDefault();
+                wp.media.controller.Library.prototype.defaults.contentUserSetting=false;
+
 
                 var self = $(this);
 
