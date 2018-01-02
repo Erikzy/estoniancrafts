@@ -1653,9 +1653,12 @@ jQuery(function($) {
                     title: 'Upload featured image',
                     button: {
                         text: 'Set featured image',
-                    }
-                });
+                    },
+                    type: 'image'
 
+                     
+                });
+     
                 product_featured_frame.on('select', function() {
                     var selection = product_featured_frame.state().get('selection');
 

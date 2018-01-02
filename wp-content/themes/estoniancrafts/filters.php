@@ -565,3 +565,9 @@ function posts_link_attributes_1() {
 function posts_link_attributes_2() {
     return 'class="next page-numbers"';
 }
+
+add_filter('media_upload_default_tab', 'wpse74422_switch_tab');
+function wpse74422_switch_tab($tab)
+{
+    return 'type';
+}
