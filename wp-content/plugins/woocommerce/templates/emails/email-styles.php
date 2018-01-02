@@ -148,7 +148,9 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 	border-bottom: 2px solid #ef7f27 ;
 	color: ##1B1919 !important;
 }
-
+#h1main{
+	padding: 20px 48px 0px 48px;
+}
 h1 {
 	color:  <?php  echo esc_attr( $estonian_craft_dark_head ); ?>;
 	font-family: "Aino-Regular", Helvetica Neue, Helvetica, Roboto, sans-serif;
@@ -221,7 +223,7 @@ img {
 }
 #ec_logo{
 	width:60%;
-	padding-bottom:40px
+	padding:5px 0px;
 }
 .social-nav {
     float: left;

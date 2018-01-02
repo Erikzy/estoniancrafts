@@ -72,7 +72,8 @@
                     </tr>
                 </thead>
                 <tbody>
-					<?php if(!empty($page->products)): ?>
+					<?php 
+                     if(!empty($page->products)): ?>
 						<?php foreach($page->products as $product): ?>
 
                             <tr<?php echo $product->tr_class; ?>>

@@ -39,13 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 										<tr>
 											<td valign="top">
 												<table border="0" cellpadding="10" cellspacing="0" width="100%">
-													<tr>
-														<td colspan="2" valign="bottom" id="credit">
-
-															<img src="http://www.m8solutions.ee/images/kasitooturg_logo-1.png"  id="ec_logo" class="center-block">
-
-														</td>
-													</tr>
+						
 													<tr>
 														<td colspan="2" valign="bottom" id="sm">
 										                 <div class=" center-block">

@@ -6,7 +6,7 @@ class EC_Merchant_Products extends EC_Block
 	public $post;
 	public $actions;				// array of EC_Block
 	public $products;				// array of EC_Block
-	public $products_query;			// WP_Query
+	public $product_query;			// WP_Query
 	public $products_pagination;	// EC_Block
 
 	/**
@@ -19,6 +19,7 @@ class EC_Merchant_Products extends EC_Block
 		$this->loadActions();
 		$this->loadProducts();
 		$this->loadProductsPagination();
+
 
 		return $this;
 	}
@@ -116,7 +117,7 @@ class EC_Merchant_Products extends EC_Block
 
 	public function loadProductsPagination()
 	{
-		if(is_null($this->products_query)) {
+		if(is_null($this->product_query)) {
 			return false;
 		}
 		if($this->product_query->max_num_pages <= 1) {
