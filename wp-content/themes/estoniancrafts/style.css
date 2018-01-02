@@ -47,6 +47,9 @@
     margin-bottom: 20px;
     
 }
+.newsletter-submit{
+    border-color:#EF7F27 !important;
+}
 .inp{
     text-align:center;
 }

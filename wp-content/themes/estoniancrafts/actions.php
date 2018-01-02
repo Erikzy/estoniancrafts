@@ -411,8 +411,9 @@ HTML;
 			'Content-Type: text/html; charset=UTF-8',
 			sprintf('From: %s %s <%s>', $firstName, $lastName, $email)
 		];
-
-		if (!wp_mail($to, $subject, $content , $headers)) {
+		$email_heading = $subject;
+		include('templates/email-template.php');
+		if (!wp_mail($to, $subject, $body , $headers)) {
 			ob_clean();
 			die(json_encode(['success' => false, 'message' => __('Failed to send email', 'ktt')]));
 		}

@@ -1654,11 +1654,15 @@ jQuery(function($) {
                     button: {
                         text: 'Set featured image',
                     },
-                    type: 'image'
 
                      
                 });
-     
+                product_featured_frame.on('close',function(){
+                   // console.log(product_featured_frame.views);
+              /*       let v = document.getElementsByClassName("media-menu-item");
+                     v[0].click();*/
+
+                });
                 product_featured_frame.on('select', function() {
                     var selection = product_featured_frame.state().get('selection');
 
