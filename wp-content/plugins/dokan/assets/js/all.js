@@ -1643,7 +1643,7 @@ jQuery(function($) {
 
                 var self = $(this);
 
-                if ( product_featured_frame ) {
+              if ( product_featured_frame ) {
                     product_featured_frame.open();
                     return;
                 }
@@ -1661,6 +1661,8 @@ jQuery(function($) {
                    // console.log(product_featured_frame.views);
               /*       let v = document.getElementsByClassName("media-menu-item");
                      v[0].click();*/
+                    //  wp.media.controller.Library.prototype.defaults
+                      console.log(wp.media.controller.Library.prototype.defaults);
 
                 });
                 product_featured_frame.on('select', function() {
@@ -2217,7 +2219,8 @@ jQuery(function($) {
                         date:      false,
                         priority:  20,
                         suggestedWidth: dokan_refund.store_banner_dimension.width,
-                        suggestedHeight: dokan_refund.store_banner_dimension.height
+                        suggestedHeight: dokan_refund.store_banner_dimension.height,
+
                     }),
                     new wp.media.controller.Cropper({
                         suggestedWidth: 5000,
@@ -2225,6 +2228,7 @@ jQuery(function($) {
                     })
                 ]
             });
+//wp.media.controller.Library.prototype.defaults
 
             settings.frame.on('select', settings.onSelect, settings);
             settings.frame.on('cropped', settings.onCropped, settings);
