@@ -38,6 +38,9 @@
     font-size: 13px;
     color:#1B1919 !important;
 }
+.tribe-events-list-photo-description.tribe-events-content p {
+    min-height: 69px !important;
+}
 .pass-fieldset{
     margin-top:30px;
 
@@ -49,6 +52,9 @@
 }
 .newsletter-submit{
     border-color:#EF7F27 !important;
+}
+.newsletter-submit:hover {
+    background-color: #dd3b0f !important
 }
 .inp{
     text-align:center;
@@ -1215,10 +1221,32 @@ text-align:left !important;
 .seller-rating .star-rating:before {
  content: "\f006\f006\f006\f006\f006" !important;
 }
+.tribe-events-photo-event .tribe-events-event-image{
+    height:326px !important;
+    background: white;
+}
+
+.tribe-events-photo-event .tribe-events-photo-event-wrap img {
+    height:326px !important;
+   width: 523px !important;
+
+}
+
+.tribe-events-photo-event-wrap, .tribe-events-list .tribe-events-loop .tribe-event-featured{
+    background:#F6F6F6 !important;
+   
+}
+.tribe-events-event-details.tribe-clearfix{
+    height:178.34px !important;
+}
+
+.tribe-events-list .tribe-events-loop .tribe-event-featured{
+     color: #4C4C4C !important;
+}
 .woocommerce-pagination .page-numbers li
 .current, .basel-pagination .current , .dokan-orders-content .pagination-wrap .current {
-    background-color: #dd3b0f !important;
-    border-color:#dd3b0f !important;
+    background-color: #ef7f27 !important;
+    border-color:#ef7f27 !important;
     color:#fff !important;
 }
 .dokan-orders-content .pagination-wrap {
