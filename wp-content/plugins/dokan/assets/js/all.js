@@ -1645,10 +1645,10 @@ jQuery(function($) {
 
                 var self = $(this);
 
-              if ( product_featured_frame ) {
+/*              if ( product_featured_frame ) {
                     product_featured_frame.open();
                     return;
-                }
+                }*/
 
                 product_featured_frame = wp.media({
                     // Set the title of the modal.
