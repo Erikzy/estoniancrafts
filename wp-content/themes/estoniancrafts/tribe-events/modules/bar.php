@@ -88,7 +88,7 @@ $tribe_events_calendar_options = get_option( 'tribe_events_calendar_options' , a
 						</div>
 					<?php endforeach; ?>
 					<div class="tribe-bar-submit">
-						<input class="tribe-events-button tribe-no-param" type="submit" name="submit-bar" value="<?php printf( esc_attr__( 'Find %s', 'the-events-calendar' ), tribe_get_event_label_plural() ); ?>" />
+						<input class="medium-orange-button" type="submit" name="submit-bar" value="<?php printf( esc_attr__( 'Find %s', 'the-events-calendar' ), tribe_get_event_label_plural() ); ?>" />
 					</div>
 					<!-- .tribe-bar-submit -->
 				</div>
@@ -103,7 +103,7 @@ $tribe_events_calendar_options = get_option( 'tribe_events_calendar_options' , a
 
 <?php if (is_user_logged_in()) : ?>
     <?php $tribe_community_events_options = get_option( 'tribe_community_events_options' , array('communityRewriteSlug' => 'community')); ?>
-    <a href="/<?=$tribe_events_calendar_options['eventsSlug']?>/<?=$tribe_community_events_options['communityRewriteSlug']?>/add" class="btn btn-color-primary button btn-lg btn-block">Lisa enda üritus <i class="icon-plus icons"></i></a>
+    <a href="/<?=$tribe_events_calendar_options['eventsSlug']?>/<?=$tribe_community_events_options['communityRewriteSlug']?>/add" class="medium-orange-button">Lisa enda üritus <i class="icon-plus icons"></i></a>
 <?php endif; ?>
 
 <?php

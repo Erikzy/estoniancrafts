@@ -927,7 +927,7 @@ if ( class_exists( 'Tribe__Events__Main' ) ) {
 		 * @param int    $post_id
 		 * @param string $size
 		 */
-		return apply_filters( 'tribe_event_featured_image', $featured_image, $post_id, $size );
+		return apply_filters( 'tribe_event_featured_image', $featured_image, $post_id, $size , $wrapper);
 	}
 
 	/**

@@ -38,9 +38,7 @@
     font-size: 13px;
     color:#1B1919 !important;
 }
-.tribe-events-list-photo-description.tribe-events-content p {
-    min-height: 69px !important;
-}
+
 .pass-fieldset{
     margin-top:30px;
 
@@ -1221,28 +1219,8 @@ text-align:left !important;
 .seller-rating .star-rating:before {
  content: "\f006\f006\f006\f006\f006" !important;
 }
-.tribe-events-photo-event .tribe-events-event-image{
-    height:326px !important;
-    background: white;
-}
 
-.tribe-events-photo-event .tribe-events-photo-event-wrap img {
-    height:326px !important;
-   width: 523px !important;
 
-}
-
-.tribe-events-photo-event-wrap, .tribe-events-list .tribe-events-loop .tribe-event-featured{
-    background:#F6F6F6 !important;
-   
-}
-.tribe-events-event-details.tribe-clearfix{
-    height:178.34px !important;
-}
-
-.tribe-events-list .tribe-events-loop .tribe-event-featured{
-     color: #4C4C4C !important;
-}
 .woocommerce-pagination .page-numbers li
 .current, .basel-pagination .current , .dokan-orders-content .pagination-wrap .current {
     background-color: #ef7f27 !important;
@@ -1265,6 +1243,123 @@ font-family: 'Aino-Regular' !important;
     vertical-align: middle;
     margin-right: 3px;
 }
+.basel-pagination .inactive:focus {
+    background-color: white !important
+    color:#000 !important;
+}
+/********* FAIRS **************/
+
+
+.tribe-events-photo-event .tribe-events-photo-event-wrap img {
+/*    height:326px !important;
+   width: 523px !important;*/
+
+}
+.tribe-events-photo-event .tribe-events-event-image{
+    /*height:326px !important;*/
+    background: white;
+}
+
+.tribe-image-c-event{
+    max-height:600px !important;
+}
+.tribe-events-list-photo-description.tribe-events-content, .tribe-events-list-photo-description.tribe-events-content{
+    min-height:90px !important;
+}
+.tribe-events-photo-event-wrap, .tribe-events-list .tribe-events-loop .tribe-event-featured{
+    background:#F6F6F6 !important;
+   
+}
+ .tribe-events-list  .tribe-events-list-photo-description.tribe-events-content {
+    padding: 0px ;
+}
+.tribe-events-event-details.tribe-clearfix{
+   /* height:178.34px !important;*/
+}
+
+.tribe-events-list .tribe-events-loop .tribe-event-featured, .tribe-event-featured .tribe-events-list-photo-description.tribe-events-content p,  .tribe-events-list .tribe-events-loop .tribe-event-featured .tribe-events-list-event-title a, .tribe-events-list .tribe-events-loop .tribe-event-featured .tribe-events-list-event-title a:hover{
+     color: #4C4C4C !important;
+}
+.tribe-events-list-event-title{
+    width:100%;
+}
+.tribe-events-list .tribe-events-loop .tribe-event-featured .tribe-events-list-event-title a, .tribe-events-list .tribe-events-loop .tribe-event-featured .tribe-events-list-event-title a:hover{
+
+    text-align:center !important;
+}
+.tribe-events-list-event-title{
+    height:35px;
+}
+
+.tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header{
+       
+            margin: 0 1.5rem;
+    }
+#tribe-events-photo-events .tribe-events-photo-event{
+        border-bottom: 0;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 29%  !important;
+    float: left;
+    margin: 0 4% 30px 0;
+    padding: 0;
+    border-bottom: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1265px){
+/*    .tribe-events-list-event-title{
+        height:35px;
+    }*/
+    .tribe-events-list-photo-description.tribe-events-content, .tribe-events-list-photo-description.tribe-events-content{
+        min-height:150px !important;
+    }
+    .tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header-time{
+        font-size: 1em;
+    }
+}
+@media (max-width: 885px){
+    .tribe-events-list-photo-description.tribe-events-content, .tribe-events-list-photo-description.tribe-events-content{
+        min-height:190px !important;
+    }
+    .tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header-time{
+        font-size: 1.07em;
+    }
+    .tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header{
+        font-size:1.2rem;
+
+    }
+    
+}
+@media (max-width: 770px){
+    #tribe-events-photo-events .tribe-events-photo-event {
+        width:523px !important;
+        float: none;
+        margin:auto;
+    }
+    .tribe-events-list-photo-description.tribe-events-content, .tribe-events-list-photo-description.tribe-events-content{
+        min-height:230px !important;
+    }
+    .tribe-events-list-event-title a{
+        font-size: 1.1rem !important;
+    }
+    .tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header-time{
+        font-size: 0.8em;
+        padding: 1rem 0.75rem;
+    }
+    .tribe-events-photo-event .tribe-events-event-image .tribe-events-image-header{
+        
+        padding: 1.5rem 0.6rem;
+        font-size:1rem;
+    }
+
+    
+}
+
+/************ /
 @media (max-width:1278px) {
     /*.shop-loop-wrapper ---> wrapper*/
     div.shop-loop-wrapper div.ec-new-product-grid.row{
