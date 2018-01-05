@@ -11,7 +11,7 @@ class lbDokanUser {
         add_action( 'woocommerce_save_account_details', [$this, 'save_user_details'] );
 
         add_action( 'woocommerce_edit_account_form', [$this, 'woocommerce_user_form'] );
-        add_action( 'woocommerce_save_account_details', [$this, 'woocommerce_user_save'] );
+        add_action( 'ec_save_account_details', [$this, 'woocommerce_user_save'] );
 
         add_action( 'show_user_profile', [$this, 'admin_user_profile_fields'], 22 );
         add_action( 'edit_user_profile', [$this, 'admin_user_profile_fields'], 22 );
