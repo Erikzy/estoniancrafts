@@ -581,6 +581,8 @@ function ec_save_account_details(){
 			wc_add_notice( __( 'New passwords do not match.', 'dokan' ), 'error' );
 			$save_pass = false;
 		}
+		
+		wc_add_notice( __( 'unsetting id card user', 'dokan' ), 'error' );
 		unset($pass_cur);
 		$save_pass = true;
 		
@@ -634,7 +636,7 @@ function ec_save_account_details(){
 }
 add_filter( 'woocommerce_save_account_details_required_fields','custom_woocommerce_save_account_details_required_fields' );
 function custom_woocommerce_save_account_details_required_fields( $required_fields ) {
-unset($required_fields["password_current"]);
+	unset($required_fields["password_current"]);
 return $required_fields;
 }
 
