@@ -1247,6 +1247,24 @@ font-family: 'Aino-Regular' !important;
     background-color: white !important
     color:#000 !important;
 }
+
+/********* TERMS AND CONDITIONS *********/
+.t-c-olist li{
+    margin-left:35px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+.t-c-main-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+@media (max-width:500px){
+   .t-c-title{
+     margin-bottom: 50px !important;
+     height: auto !important;
+    } 
+}
+
 /********* FAIRS **************/
 
 
