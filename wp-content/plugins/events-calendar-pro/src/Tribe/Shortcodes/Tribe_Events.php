@@ -278,7 +278,7 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 		wp_enqueue_script( 'jquery' );
 		Tribe__Events__Template_Factory::asset_package( 'bootstrap-datepicker' );
 		Tribe__Events__Template_Factory::asset_package( 'calendar-script' );
-		Tribe__Events__Template_Factory::asset_package( 'jquery-resize' );
+		//Tribe__Events__Template_Factory::asset_package( 'jquery-resize' );
 		Tribe__Events__Template_Factory::asset_package( 'events-css' );
 		Tribe__Events__Pro__Template_Factory::asset_package( 'events-pro-css' );
 
@@ -296,7 +296,7 @@ class Tribe__Events__Pro__Shortcodes__Tribe_Events {
 
 			Tribe__Events__Template_Factory::asset_package( 'jquery-placeholder' );
 			Tribe__Events__Pro__Template_Factory::asset_package( 'ajax-maps' );
-			Tribe__Events__Template_Factory::asset_package( 'jquery-resize' );
+			//Tribe__Events__Template_Factory::asset_package( 'jquery-resize' );
 
 			add_action( 'tribe_events_bar_before_template', array( Tribe__Events__Bar::instance(), 'disabled_bar_before' ) );
 			add_action( 'tribe_events_bar_after_template', array( Tribe__Events__Bar::instance(), 'disabled_bar_after' ) );

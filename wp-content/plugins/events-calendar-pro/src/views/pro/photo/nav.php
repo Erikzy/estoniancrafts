@@ -32,3 +32,19 @@ $events_label_plural = tribe_get_event_label_plural();
 		</li>
 	<?php endif; ?>
 </ul>
+<script>
+	checkSize = () => {
+		console.log(window.innerWidth);
+		if(window.innerWidth < 770){
+					//jQuery(".tribe-events-photo-event").css("left","calc((100% - 523px)/2) !important");
+					let wind = window.innerWidth;
+					let val = ((wind- 592)/2) ;
+					jQuery(".tribe-events-photo-event").css("left",val+"px");
+						
+				}
+	}
+	jQuery(document).on("mousemove",function(){
+		checkSize();
+	});
+
+</script>

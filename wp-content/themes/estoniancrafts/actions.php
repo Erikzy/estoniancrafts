@@ -413,8 +413,8 @@ HTML;
 			sprintf('From: %s %s <%s>', $firstName, $lastName, $email)
 		];
 		$email_heading = $subject;
-		include('templates/email-template.php');
-		if (!wp_mail($to, $subject, $body , $headers)) {
+		//include('templates/email-template.php');
+		if (!wp_mail($to, $subject, $content , $headers)) {
 			ob_clean();
 			die(json_encode(['success' => false, 'message' => __('Failed to send email', 'ktt')]));
 		}
