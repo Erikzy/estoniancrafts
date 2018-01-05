@@ -569,10 +569,7 @@ function ec_save_account_details(){
 		$user->user_email = $account_email;
 	}
 
-	if ( ! empty( $pass1 ) && ! wp_check_password( $pass_cur, $current_user->user_pass, $current_user->ID ) ) {
-		wc_add_notice( __( 'Your current password is incorrect.', 'dokan' ), 'error' );
-		$save_pass = false;
-	}
+
 	if(is_user_idcard()){
 		if ( ! empty( $pass1 ) && empty( $pass2 ) ) {
 			wc_add_notice( __( 'Please re-enter your password.', 'dokan' ), 'error' );
@@ -587,6 +584,11 @@ function ec_save_account_details(){
 		$save_pass = true;
 		
 	} else {
+		if ( ! empty( $pass1 ) && ! wp_check_password( $pass_cur, $current_user->user_pass, $current_user->ID ) ) {
+			wc_add_notice( __( 'Your current password is incorrect.', 'dokan' ), 'error' );
+			$save_pass = false;
+		}
+		
 		if ( ! empty( $pass_cur ) && empty( $pass1 ) && empty( $pass2 ) ) {
 			wc_add_notice( __( 'Please fill out all password fields.', 'dokan' ), 'error' );
 			$save_pass = false;
