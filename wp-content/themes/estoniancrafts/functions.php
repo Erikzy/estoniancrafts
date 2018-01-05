@@ -304,7 +304,7 @@ if (!function_exists('is_user_facebook')) {
 		if ( $current_user ) {
     		$permission = get_user_meta( $current_user->ID, 'ec_facebook_id' , true );
      
-    		if ( ! empty( $permission ) {
+    		if ( ! empty( $permission )) {
         		return true;
     		}
 		}
