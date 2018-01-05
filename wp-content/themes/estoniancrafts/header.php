@@ -77,15 +77,18 @@
 <?php 
 	if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
+		$ww= 0;
 		$wlink = '<a href="./my-account/blog/edit/">Write</a>';
 		for($q = 0 ; $q < sizeof($user->roles) ; $q++ ){
-			if($user->roles[$q] == "seller")
+			if($user->roles[$q] == "seller" && $ww == 0){
 				echo $wlink;
+				$ww++;
+				}
 		}
 		
 	}
 	
-	echo '<a href="./my-account/dashboard/new-product/">Sell</a>';
+	echo '<a href="/my-account/dashboard/new-product/">Sell</a>';
     if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
 	
