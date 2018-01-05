@@ -677,6 +677,7 @@ jQuery(function($) {
         },
 
         onChangeProductType: function() {
+         
             var selected = $('#_product_type').val();
             if ( selected === 'simple' ) {
                 product_type = 'simple';
@@ -1136,9 +1137,11 @@ jQuery(function($) {
                     data = {
                         attribute_data : self.data('product_attributes'),
                         attribute_taxonomies : self.data('predefined_attr')
-                    },
-                    attribute_option = wp.template( 'dokan-single-attribute' ),
-                    attribute_single = attribute_option( data );
+                    };
+                 //   console.log(data);
+                  var  attribute_option = wp.template( 'dokan-single-attribute' );
+                  var   attribute_single = attribute_option( data );
+
 
                 $.magnificPopup.open({
 
@@ -1252,7 +1255,6 @@ jQuery(function($) {
             removeSingleAttributeOption: function(e) {
                 e.preventDefault();
 
-                e.preventDefault();
                 var self = $(this);
 
                 var row = self.closest('tbody').find('tr').length;
@@ -1282,9 +1284,11 @@ jQuery(function($) {
                         $.magnificPopup.close();
 
                         $('.dokan-variation-container').load(loadUrl+' .dokan-variation-container', function() {
+                        
                             $('#_create_variation').trigger('change');
                             $('.dokan-variation-container').removeClass('dokan-blur-effect');
                             $('.dokan-variation-container').remove('.dokan-variation-loader');
+                 
                         });
                     }
                 });
@@ -1636,22 +1640,33 @@ jQuery(function($) {
 
             addImage: function(e) {
                 e.preventDefault();
+                wp.media.controller.Library.prototype.defaults.contentUserSetting=false;
+
 
                 var self = $(this);
 
-                if ( product_featured_frame ) {
+/*              if ( product_featured_frame ) {
                     product_featured_frame.open();
                     return;
-                }
+                }*/
 
                 product_featured_frame = wp.media({
                     // Set the title of the modal.
                     title: 'Upload featured image',
                     button: {
                         text: 'Set featured image',
-                    }
-                });
+                    },
 
+                     
+                });
+                product_featured_frame.on('close',function(){
+                   // console.log(product_featured_frame.views);
+              /*       let v = document.getElementsByClassName("media-menu-item");
+                     v[0].click();*/
+                    //  wp.media.controller.Library.prototype.defaults
+                      console.log(wp.media.controller.Library.prototype.defaults);
+
+                });
                 product_featured_frame.on('select', function() {
                     var selection = product_featured_frame.state().get('selection');
 
@@ -2206,7 +2221,8 @@ jQuery(function($) {
                         date:      false,
                         priority:  20,
                         suggestedWidth: dokan_refund.store_banner_dimension.width,
-                        suggestedHeight: dokan_refund.store_banner_dimension.height
+                        suggestedHeight: dokan_refund.store_banner_dimension.height,
+
                     }),
                     new wp.media.controller.Cropper({
                         suggestedWidth: 5000,
@@ -2214,6 +2230,7 @@ jQuery(function($) {
                     })
                 ]
             });
+//wp.media.controller.Library.prototype.defaults
 
             settings.frame.on('select', settings.onSelect, settings);
             settings.frame.on('cropped', settings.onCropped, settings);

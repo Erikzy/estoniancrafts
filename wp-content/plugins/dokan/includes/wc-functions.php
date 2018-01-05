@@ -2814,12 +2814,14 @@ function dokan_get_readable_seller_rating( $seller_id ) {
     $text = sprintf( __( 'Rated %s out of %d', 'dokan' ), $rating['rating'], number_format( 5 ) );
     $width = ( $rating['rating']/5 ) * 100;
     ?>
+       <!--  <div class="star-rating"> -->
         <span class="seller-rating">
             <span title="<?php echo esc_attr( $text ); ?>" class="star-rating" itemtype="http://schema.org/Rating" itemscope="" itemprop="reviewRating">
                 <span class="width" style="width: <?php echo $width; ?>%"></span>
                 <span style=""><strong itemprop="ratingValue"><?php echo $rating['rating']; ?></strong></span>
             </span>
         </span>
+ <!--    </div> -->
 
         <span class="text"><a href="<?php echo dokan_get_review_url( $seller_id ); ?>"><?php printf( $long_text, $rating['rating'], $rating['count'] ); ?></a></span>
 

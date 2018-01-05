@@ -38,15 +38,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 									echo '<p style="margin-top:0;"><img src="' . esc_url( $img ) . '" alt="' . get_bloginfo( 'name', 'display' ) . '" /></p>';
 								}
 							?>
+
 						</div>
+
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
+										<tr>
+														<td colspan="2" valign="bottom" id="credit" style="	padding: 20px 48px 15px 48px; display: block; border-bottom: 2px solid #ef7f27 ;color: #1B1919 !important;" >
+
+															<img src="http://www.m8solutions.ee/images/kasitooturg_logo-1.png"  id="ec_logo" class="center-block">
+
+														</td>
+													</tr>
 							<tr>
 								<td align="center" valign="top">
 									<!-- Header -->
 									<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
 										<tr>
-											<td id="header_wrapper">
-												<h1><?php echo $email_heading; ?></h1>
+											<td id="header_wrapper" >
+												<h1 id="h1main"><?php echo $email_heading; ?></h1>
 											</td>
 										</tr>
 									</table>

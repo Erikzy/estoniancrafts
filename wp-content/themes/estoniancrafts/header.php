@@ -75,7 +75,17 @@
 						<?php endif; ?>	
 						
 <?php 
-	echo '<a href="/my-account/dashboard/new-product/">Sell</a>';
+	if ( is_user_logged_in() ) { 
+		$user = wp_get_current_user();
+		$wlink = '<a href="./my-account/blog/edit/">Write</a>';
+		for($q = 0 ; $q < sizeof($user->roles) ; $q++ ){
+			if($user->roles[$q] == "seller")
+				echo $wlink;
+		}
+		
+	}
+	
+	echo '<a href="./my-account/dashboard/new-product/">Sell</a>';
     if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
 	

@@ -21,6 +21,7 @@ class EC_Actions
 		add_action( 'wp_ajax_ask_information', array(__CLASS__, 'ask_information_ajax'));
 		add_action( 'wp_ajax_get_product_statistics', array(__CLASS__, 'get_product_statistics_ajax'));
 		add_image_size( 'product-slider-img', 257, 257, true );
+		//add_image_size( 'event-calendar-image',523, 326, true );
 
 
 	}
@@ -411,8 +412,9 @@ HTML;
 			'Content-Type: text/html; charset=UTF-8',
 			sprintf('From: %s %s <%s>', $firstName, $lastName, $email)
 		];
-
-		if (!wp_mail($to, $subject, $content , $headers)) {
+		$email_heading = $subject;
+		include('templates/email-template.php');
+		if (!wp_mail($to, $subject, $body , $headers)) {
 			ob_clean();
 			die(json_encode(['success' => false, 'message' => __('Failed to send email', 'ktt')]));
 		}

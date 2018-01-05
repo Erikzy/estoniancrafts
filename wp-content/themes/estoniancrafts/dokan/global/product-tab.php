@@ -14,12 +14,13 @@
         <tr class="store-name">
             <th><?php _e( 'Store Name:', 'dokan' ); ?></th>
             <td>
-                <?php echo esc_html( $store_info['store_name'] ); ?>
+                <!-- <?php echo esc_html( $store_info['store_name'] ); ?> -->
+                <?php printf( '<a href="%s">%s</a>', ec_dokan_get_store_url( $author->ID ), $store_info['store_name'] ); ?>
             </td>
         </tr>
     <?php } ?>
 
-    <tr class="seller-name">
+<!--     <tr class="seller-name">
         <th>
             <?php _e( 'Seller:', 'dokan' ); ?>
         </th>
@@ -27,7 +28,7 @@
         <td>
             <?php printf( '<a href="%s">%s</a>', ec_dokan_get_store_url( $author->ID ), $author->display_name ); ?>
         </td>
-    </tr>
+    </tr> -->
     <?php if ( !empty( $store_info['address'] ) ) { ?>
         <tr class="store-address">
             <th><b><?php _e( 'Address:', 'dokan' ); ?></b></th>

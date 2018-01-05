@@ -67,11 +67,11 @@ get_header( 'shop' );
 					
 						<!--<li class="dokan-store-rating">
 							<i class="fa fa-star"></i>
-							<?php dokan_get_readable_seller_rating( $ec_page->id ); ?>
+							<?php // dokan_get_readable_seller_rating( $ec_page->id ); ?>
 						</li>
 						<li>
-							<?php do_action( 'lb_store_after_rating', $ec_page->id ); ?>
-						</li>-->
+							<?php  // do_action( 'lb_store_after_rating', $ec_page->id ); ?>
+						</li> -->
 						<?php if($ec_page->phone): ?>
 							<li><?php echo $ec_page->phone ?></li>
 						<?php endif; ?>
@@ -153,7 +153,11 @@ get_header( 'shop' );
                     </div>
 
 
-                    <?php // Share facebook ?>
+                    <?php // Share facebook
+                    if(sizeof($ec_page->sm_links) > 0):
+                     ?>
+
+
                     <div class="facebook-share-profile">
                         <h5 class="widget-title nullify-padding"><?= __('Share profile', 'ktt') ?></h5>
                         <?php do_action( 'dolmit_share_profile_on_facebook'); ?>
@@ -165,10 +169,10 @@ get_header( 'shop' );
                                     <li class="facebook"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['googleplus']) ? $ec_page->sm_links['googleplus'] : null)): ?>
-                                    <li class="twitter"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                    <li class="twitter"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-google fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['twitter']) ? $ec_page->sm_links['twitter'] : null)): ?>
-                                    <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
+                                    <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['linkedin']) ? $ec_page->sm_links['linkedin'] : null)): ?>
                                     <li class="linkedin"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
@@ -184,7 +188,8 @@ get_header( 'shop' );
                                 <?php endif; ?>
                             </ul>
                         </div>
-                    </div>
+                    </div><?php endif; ?>
+
   					<div>
             	<?php  
   				if(count_user_posts($store_user->ID,"post") > 0){
@@ -328,8 +333,10 @@ get_header( 'shop' );
                                         frameborder="0" allowfullscreen></iframe>
                             </div>
                         <?php } ?>
-
-                        <?php if (!empty($article_links) && !empty($article_links) && count($article_links) > 0) { ?>
+<div style="display:none">
+                        <?php 
+                          
+                        if (!empty($article_links) && !empty($article_links) && count($article_links) > 0) { ?>
                             <h5 class="widget-title nullify-padding article-head-title"><?= __("Artiklite lingid", "ktt") ?></h5>
                         <?php } ?>
 
@@ -349,8 +356,9 @@ get_header( 'shop' );
                             <a href="<?= $link ?>"><h3 class="article-linking-title product-title"><?php echo ($title ? $title : ($article_meta_tags['title'] ?: __('Missing title', 'ktt'))) ?></h3></a>
                             <p class="article-linking-subtitle">(<?= $link ?>)</p>
                             <p><?= $article_meta_tags['description'] ?: "" ?></p>
-                        <?php } ?>
-
+                        <?php 
+                    } ?>
+</div>
                         <h5 class="widget-title nullify-padding"><?= __("Products", "ktt") ?></h5>
 	                    <?php woocommerce_product_loop_start(); ?>
 

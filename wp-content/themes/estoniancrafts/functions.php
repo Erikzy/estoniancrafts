@@ -645,10 +645,26 @@ function get_attachement_url_ajax(){
 /*    $response = json_encode($response);
     header( "Content-Type: application/json" );
     echo $response;*/
-    echo "test";
+ 
     exit;
 } 
 add_action('wp_ajax_get_attachement_url_ajax', 'get_attachement_url_ajax');
 add_action('wp_ajax_nopriv_get_attachement_url_ajax', 'get_attachement_url_ajax');
+
 remove_action( 'template_redirect', 'dokan_save_account_details' );
 add_action( 'template_redirect', 'ec_save_account_details' );
+
+add_action( 'after_setup_theme', 'setup' );
+function setup(){
+ add_theme_support( 'post-thumbnails' );
+  //add_image_size( 'featured-image', 620, 200, true );
+  add_image_size( 'event-calendar-image',523, 326, true );
+    
+}
+
+add_filter( 'image_size_names_choose', 'wpshout_custom_sizes' );
+function wpshout_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'event-calendar-image' => __( 'Event Calendar Image' ),
+    ) );
+}

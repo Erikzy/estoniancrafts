@@ -51,7 +51,7 @@
                             <td colspan="3">
                                 <# if ( attr_val.is_taxonomy ) { #>
 
-                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.term_value.replace(/ +\|+ /g, ',' ) }}">
+                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.term_value.replace(/ +\\|+ /g, ',' ) }}">
                                     
                                     <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
 
@@ -63,7 +63,7 @@
 
                                 <# } else { #>
 
-                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.value.replace(/ +\|+ /g, ',' ) }}">
+                                    <input type="hidden" name="attribute_values[]" value="{{ attr_val.value.replace(/ +\\|+ /g, ',' ) }}">
                                     
                                     <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
 
@@ -91,7 +91,8 @@
                 </tbody>
             </table>
             <input type="hidden" name="product_id" value="<?php echo $post_id ?>">
-            <input type="submit" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>">
+           <input type="submit" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>"> 
+        <!--     <input type="button" class="dokan-btn dokan-btn-theme dokan-right smaller-orange-button" name="dokan_new_attribute_option_save" value="<?php esc_attr_e( 'Save', 'dokan' ); ?>" onclick="saveProductAttributesT()" > -->
             <span class="dokan-loading dokan-save-single-attr-loader dokan-hide"></span>
             <div class="dokan-clearfix"></div>
         </form>

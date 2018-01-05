@@ -80,14 +80,14 @@ add_option('toastie_smsb_opengraph', 'false');
 
 function toastie_wc_smsb_form_code() {
     global $post;
-    $social_val = '<div class="woo-social-buttons">';
+    $social_val = '<ul class="social-nav">';
 	if (get_option('toastie_smsb_title') != '' ) {
-		$social_val.='<h3 class="wsmsb_title">'.get_option('toastie_smsb_title').'</h3>';
+		$social_val.='<li><h3 class="wsmsb_title" style="padding-right:10px" > '.get_option('toastie_smsb_title').'</h3></li>';
 	};
 	
 	if (get_option('toastie_smsb_fb') == 'true') {	// Facebook
 		if (get_option('toastie_smsb_custom_fb')) { // Custom button
-			$social_val.='<span class="smsb_facebook custom"><a href="https://www.facebook.com/sharer/sharer.php?u='.get_permalink($post->ID).'" target="_blank"><img src="'.get_option('toastie_smsb_custom_fb').'" alt="Facebook"/></a></span>';
+			$social_val.='<li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u='.get_permalink($post->ID).'" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>';
 		} else if (get_option('toastie_smsb_format') == 'button') { // Button
 			$social_val.='<span class="smsb_facebook nocount fb-share-button" data-href="' . get_permalink($post->ID) . '" data-layout="button"></span>';
 		} else if (get_option('toastie_smsb_format') == 'button_count') { // Button with counter
@@ -99,7 +99,7 @@ function toastie_wc_smsb_form_code() {
 	
 	if (get_option('toastie_smsb_tw') == 'true') { // Twitter
 		if (get_option('toastie_smsb_custom_tw')) { // Custom button
-			$social_val.='<span class="smsb_twitter custom"><a href="https://twitter.com/intent/tweet?source=webclient&amp;original_referer='.get_permalink($post->ID).'&amp;text='.get_the_title($post->ID).'&amp;url='.get_permalink($post->ID).'" target="_blank"><img src="'.get_option('toastie_smsb_custom_tw').'" alt="Twitter"/></a></span>';
+			$social_val.='<li class="twitter"><a href="https://twitter.com/intent/tweet?source=webclient&amp;original_referer='.get_permalink($post->ID).'&amp;text='.get_the_title($post->ID).'&amp;url='.get_permalink($post->ID).'" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>';
 		} else if (get_option('toastie_smsb_format') == 'button') { // Button
 			$social_val.='<span class="smsb_twitter nocount"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></span>';
 		} else if (get_option('toastie_smsb_format') == 'button_count') { // Button with counter
@@ -111,7 +111,7 @@ function toastie_wc_smsb_form_code() {
 		
 	if (get_option('toastie_smsb_gp') == 'true') { // Google Plus
 		if (get_option('toastie_smsb_custom_gp')) { // Custom button
-			$social_val.='<span class="smsb_googleplus custom"><a href="https://plus.google.com/share?url='.get_permalink($post->ID).'" target="_blank"><img src="'.get_option('toastie_smsb_custom_gp').'" alt="Google Plus"/></a></span>';
+			$social_val.='<li class="google"><a href="https://plus.google.com/share?url='.get_permalink($post->ID).'" target="_blank"><i class="fa fa-google fa-lg"></i></a></li>';
 		} else if (get_option('toastie_smsb_format') == 'button') { // Button
 			$social_val.='<span class="smsb_googleplus nocount"><span class="g-plus" data-action="share" data-annotation="none" data-href="' . get_permalink($post->ID) . '"></span></span>';
 		} else if (get_option('toastie_smsb_format') == 'button_count') { // Button with counter
@@ -123,7 +123,7 @@ function toastie_wc_smsb_form_code() {
 	
 	if (get_option('toastie_smsb_pi') == 'true') {  // Pinterest
 		if (get_option('toastie_smsb_custom_pi')) { // Custom button
-			$social_val.='<span class="smsb_pinterest custom"><a href="http://pinterest.com/pin/create/bookmarklet/?media='.wp_get_attachment_url( get_post_thumbnail_id() ).'&amp;url='.get_permalink($post->ID).'&amp;title='.get_the_title($post->ID).'&amp;description='.get_the_title($post->ID).'" target="_blank"><img src="'.get_option('toastie_smsb_custom_pi').'" alt="Pinterest"/></a></span>';
+			$social_val.='<li class="pinterest"><a href="http://pinterest.com/pin/create/bookmarklet/?media='.wp_get_attachment_url( get_post_thumbnail_id() ).'&amp;url='.get_permalink($post->ID).'&amp;title='.get_the_title($post->ID).'&amp;description='.get_the_title($post->ID).'" target="_blank"><i class="fa fa-pinterest fa-lg"></i></a></li>';
 		} else if (get_option('toastie_smsb_format') == 'button') { // Button
 			 $social_val.='<span class="smsb_pinterest nocount"><a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" null  data-pin-color="red" >
 			 <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_20.png" /></a><script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script></span>';
@@ -186,7 +186,7 @@ function toastie_wc_smsb_form_code() {
 		
 	if (get_option('toastie_smsb_em') == 'true') { // Email
 		if (get_option('toastie_smsb_custom_em')) { // Custom button
-			$social_val.='<span class="smsb_email custom"><a href="mailto:?subject='.get_the_title($post->ID).'&amp;body='.get_option('toastie_smsb_email').'%0D%0A' . get_permalink($post->ID) . '"><img src="'.get_option('toastie_smsb_custom_em').'" alt="Email"/></a></span>';
+			$social_val.='<li class="pinterest"><a href="mailto:?subject='.get_the_title($post->ID).'&amp;body='.get_option('toastie_smsb_email').'%0D%0A' . get_permalink($post->ID) . '"><i class="fa fa-envelope fa-lg"></i></a></li>';
 		} else if (get_option('toastie_smsb_format') == 'button') { // Button
 			$social_val.='<span class="smsb_email nocount"><a href="mailto:?subject='.get_the_title($post->ID).'&amp;body='.get_option('toastie_smsb_email').'%0D%0A' . get_permalink($post->ID) . '"><img src="'. plugins_url( 'img/email-share-button.png', __FILE__ ) . '" alt="Email" /></a></span>';
 		} else if (get_option('toastie_smsb_format') == 'button_count') { // Button with counter
@@ -196,7 +196,7 @@ function toastie_wc_smsb_form_code() {
 		};
 	};
 		
-	$social_val.='<div style="clear:both"></div></div>';
+	$social_val.='</ul>';
     echo $social_val;
 }
 

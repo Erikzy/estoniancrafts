@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                     <?php 
-                    if(isset( $_POST["attribute_names"]) )
+/*                    if(isset( $_POST["attribute_names"]) )
                     {
                         
                         
@@ -55,10 +55,10 @@
                            
 
                         }
-                    }
+                    }*/
 
                     if ( $product_attributes ): 
-                          //  var_dump($product_attributes);
+                        // var_dump($product_attributes);
                     ?>
 
 
@@ -123,7 +123,7 @@
                                 <label class="checkbox-inline form-label" for="_create_variation">
                                     <input name="_create_variation" value="no" type="hidden">
                                     <input name="_create_variation" id="_create_variation" value="yes" type="checkbox">
-                                    <?php _e( 'Create variation using those attribute options', 'dokan' ); ?>
+                                    <span id="variation-message"><?php _e( 'Create variation using those attribute options', 'dokan' ); ?></span>
                                 </label>
                             </td>
                         </tr>
@@ -149,3 +149,5 @@
             <input type="hidden" name="_variation_product_update" value="<?php esc_attr_e( 'yes', 'dokan' ); ?>">
         <?php endif ?>
     </div><!-- .dokan-divider-top -->
+
+

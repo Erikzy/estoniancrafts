@@ -109,7 +109,7 @@ function dokan_page_navi( $before = '', $after = '', $wp_query ) {
         echo '<li>' . $prevposts . '</li>';
     } else {
        // echo '<li class="disabled"><a href="#">' . __( '&larr; Previous', 'dokan' ) . '</a></li>';
-        echo '<li class="disabled"><a href="#" class="prev page-numbers" >' . __( '<', 'dokan' ) . '</a></li>';
+        echo '<li class="disabled"><a href="#" class="prev page-numbers" >' . __( '&laquo;', 'dokan' ) . '</a></li>';
     }
 
     for ($i = $start_page; $i <= $end_page; $i++) {

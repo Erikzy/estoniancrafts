@@ -241,13 +241,33 @@ class EC_Filters
 }
 EC_Filters::init();
 
+
+
+
 add_filter( 'tribe_event_featured_image', 'custom_tribe_event_featured_image' );
 
-function custom_tribe_event_featured_image($featured_image, $post_id = false, $size = false)
+function custom_tribe_event_featured_image($featured_image, $post_id = null, $size = false)
 {
     $tpl = '<div class="tribe-events-image-header">'.tribe_get_venue().'</div>';
     $tpl .= '<div class="tribe-events-image-header-time">'.custom_tribe_events_event_schedule_details().'</div>';
+    $class = "tribe-image-c";
+   global $wp;
 
+    if( strpos(home_url( $wp->request ) , "event") === false){
+    	$featured_image =  wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'event-calendar-image');
+    	
+    }
+    else{ 
+    	$featured_image =  wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'full');
+    	$class .= " tribe-image-c-event";
+    }
+	$featured_image = '<img class="'.$class. '" src="'. $featured_image[0].'"  />';
+	if ( ! empty( $featured_image ) ) {
+			$featured_image = '<a href="' . esc_url( tribe_get_event_link( $post_id ) ) . '">' . $featured_image . '</a>';
+		}
+	if ( ! empty( $featured_image )) {
+			$featured_image = '<div class="tribe-events-event-image">' . $featured_image . '</div>';
+		}
     $featured_image = str_replace('<div class="tribe-events-event-image">', '<div class="tribe-events-event-image">'.$tpl, $featured_image);
     return $featured_image;
 }
@@ -565,3 +585,10 @@ function posts_link_attributes_1() {
 function posts_link_attributes_2() {
     return 'class="next page-numbers"';
 }
+
+add_filter('media_upload_default_tab', 'wpse74422_switch_tab');
+function wpse74422_switch_tab($tab)
+{
+    return 'type';
+}
+

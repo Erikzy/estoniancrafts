@@ -26,8 +26,10 @@ get_header(); ?>
 				<?php get_template_part( 'content', get_post_format() ); ?>
 
 				<?php if ( basel_get_opt( 'blog_share' ) ): ?>
-					<div class="single-post-social">
-						<?php if( function_exists( 'basel_shortcode_social' ) ) echo basel_shortcode_social(array('type' => 'share', 'tooltip' => 'yes', 'style' => 'colored')) ?>
+					<div class="single-post-social-p">
+						<div class=" center-block">
+						<?php if( function_exists( 'basel_shortcode_social' ) ) echo basel_shortcode_social(array('type' => 'share', 'tooltip' => 'no', 'style' => 'colored')) ?>
+					</div>
 					</div>
 				<?php endif ?>
 			

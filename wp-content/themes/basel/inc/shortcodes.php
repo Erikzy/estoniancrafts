@@ -2273,69 +2273,69 @@ if( ! function_exists( 'basel_shortcode_social' )) {
 		ob_start();
 		?>
 		
-			<ul class="social-icons text-<?php echo esc_attr( $align ); ?> icons-design-<?php echo esc_attr( $style ); ?> icons-size-<?php echo esc_attr( $size ); ?> social-<?php echo esc_attr( $type ); ?> <?php echo esc_attr( $el_class ); ?>">
+			<ul class="social-nav">
 				<?php if ( $type == 'share' || basel_get_opt( 'fb_link' ) != ''): ?>
-					<li class="social-facebook"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'fb_link' ) : 'https://www.facebook.com/sharer/sharer.php?u=' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-facebook"></i><?php _e('Facebook', 'basel') ?></a></li>
+					<li class="facebook"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'fb_link' ) : 'https://www.facebook.com/sharer/sharer.php?u=' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-facebook"></i></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'share' || basel_get_opt( 'twitter_link' ) != ''): ?>
-					<li class="social-twitter"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'twitter_link' ) : 'http://twitter.com/share?url=' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-twitter"></i><?php _e('Twitter', 'basel') ?></a></li>
+					<li class="twitter"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'twitter_link' ) : 'http://twitter.com/share?url=' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-twitter"></i></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'share' || basel_get_opt( 'google_link' ) != ''): ?>
-					<li class="social-google"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'google_link' ) : 'http://plus.google.com/share?url=' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-google-plus"></i><?php _e('Google', 'basel') ?></a></li>
+					<li class="google"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'google_link' ) : 'http://plus.google.com/share?url=' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-google-plus"></i></a></li>
 				<?php endif ?>
 
 				<?php if ( basel_get_opt( 'social_email' ) != ''): ?>
-					<li class="social-email"><a href="mailto:<?php echo '?subject=' . __('Check this ', 'basel') . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-envelope"></i><?php _e('Email', 'basel') ?></a></li>
+					<li class="email"><a href="mailto:<?php echo '?subject=' . __('Check this ', 'basel') . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-envelope"></i></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'isntagram_link' ) != ''): ?>
-					<li class="social-instagram"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'isntagram_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-instagram"></i><?php _e('Instagram', 'basel') ?></a></li>
+					<li class="instagram"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'isntagram_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-instagram"></i></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'youtube_link' ) != ''): ?>
-					<li class="social-youtube"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'youtube_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-youtube"></i><?php _e('YouTube', 'basel') ?></a></li>
+					<li class="youtube"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'youtube_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-youtube"></i></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'share' || basel_get_opt( 'pinterest_link' ) != ''): ?>
-					<li class="social-pinterest"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'pinterest_link' ) : 'http://pinterest.com/pin/create/button/?url=' . get_the_permalink() . '&media=' . $thumb_url[0]; ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-pinterest"></i><?php _e('Pinterest', 'basel') ?></a></li>
+					<li class="pinterest"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'pinterest_link' ) : 'http://pinterest.com/pin/create/button/?url=' . get_the_permalink() . '&media=' . $thumb_url[0]; ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-pinterest"></i></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'tumblr_link' ) != ''): ?>
-					<li class="social-tumblr"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'tumblr_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-tumblr"></i><?php _e('Tumblr', 'basel') ?></a></li>
+					<li class="tumblr"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'tumblr_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-tumblr"></i><?php _e('Tumblr', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'linkedin_link' ) != ''): ?>
-					<li class="social-linkedin"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'linkedin_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-linkedin"></i><?php _e('LinkedIn', 'basel') ?></a></li>
+					<li class="linkedin"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'linkedin_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-linkedin"></i><?php _e('LinkedIn', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'vimeo_link' ) != ''): ?>
-					<li class="social-vimeo"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'vimeo_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-vimeo"></i><?php _e('Vimeo', 'basel') ?></a></li>
+					<li class="vimeo"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'vimeo_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-vimeo"></i><?php _e('Vimeo', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'flickr_link' ) != ''): ?>
-					<li class="social-flickr"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'flickr_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-flickr"></i><?php _e('Flickr', 'basel') ?></a></li>
+					<li class="flickr"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'flickr_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-flickr"></i><?php _e('Flickr', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'github_link' ) != ''): ?>
-					<li class="social-github"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'github_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-github"></i><?php _e('GitHub', 'basel') ?></a></li>
+					<li class="github"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'github_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-github"></i><?php _e('GitHub', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'dribbble_link' ) != ''): ?>
-					<li class="social-dribbble"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'dribbble_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-dribbble"></i><?php _e('Dribbble', 'basel') ?></a></li>
+					<li class="dribbble"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'dribbble_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-dribbble"></i><?php _e('Dribbble', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'behance_link' ) != ''): ?>
-					<li class="social-behance"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'behance_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-behance"></i><?php _e('Behance', 'basel') ?></a></li>
+					<li class="behance"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'behance_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-behance"></i><?php _e('Behance', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'soundcloud_link' ) != ''): ?>
-					<li class="social-soundcloud"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'soundcloud_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-soundcloud"></i><?php _e('Soundcloud', 'basel') ?></a></li>
+					<li class="soundcloud"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'soundcloud_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-soundcloud"></i><?php _e('Soundcloud', 'basel') ?></a></li>
 				<?php endif ?>
 
 				<?php if ( $type == 'follow' && basel_get_opt( 'spotify_link' ) != ''): ?>
-					<li class="social-spotify"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'spotify_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-spotify"></i><?php _e('Spotify', 'basel') ?></a></li>
+					<li class="spotify"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'spotify_link' ) : '' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-spotify"></i><?php _e('Spotify', 'basel') ?></a></li>
 				<?php endif ?>
 
 			</ul>

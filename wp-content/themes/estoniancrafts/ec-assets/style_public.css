@@ -757,7 +757,7 @@ h5.widget-title {
     box-sizing: border-box;
     margin-bottom: 20px;
     padding: 0;
-    width: 29% !important;
+    width: 29% ;
     float: left;
     margin: 0 4% 30px 0;
     padding: 0;
