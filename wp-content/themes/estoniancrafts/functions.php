@@ -582,7 +582,7 @@ function ec_save_account_details(){
 			$save_pass = false;
 		}
 		
-		wc_add_notice( __( 'unsetting id card user', 'dokan' ), 'error' );
+		//wc_add_notice( __( 'unsetting id card user', 'dokan' ), 'error' );
 		unset($pass_cur);
 		$save_pass = true;
 		
@@ -627,7 +627,7 @@ function ec_save_account_details(){
 
 		wc_add_notice( __( 'Account details changed successfully.', 'dokan' ) );
 
-		do_action( 'woocommerce_save_account_details', $user->ID );
+		//do_action( 'woocommerce_save_account_details', $user->ID );
 
 		wp_safe_redirect( dokan_get_navigation_url( ' edit-account' ) );
 		exit;
