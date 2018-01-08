@@ -68,6 +68,8 @@ if (!class_exists("LoginCommon")) {
                    'role' => 'customer'// Use default role or another role, e.g. 'editor'
                );
                $user_id = wp_insert_user($user_data);
+               do_action( 'ec_user_register', $new_user->ID );
+               
 //               $user_id = 0;
                $wpdb->insert($wpdb->prefix . "idcard_users",
                    array(
