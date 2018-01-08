@@ -24,8 +24,7 @@ $body            = get_option( 'woocommerce_email_body_background_color' );
 $base            = get_option( 'woocommerce_email_base_color' );
 $base_text       = wc_light_or_dark( $base, '#202020', '#ffffff' );
 $text            = get_option( 'woocommerce_email_text_color' );
-$estonian_craft_dark_head = "#1B1919";
-$estonian_craft_orange = "#ef7f27";
+
 $bg_darker_10    = wc_hex_darker( $bg, 10 );
 $body_darker_10  = wc_hex_darker( $body, 10 );
 $base_lighter_20 = wc_hex_lighter( $base, 20 );
@@ -34,26 +33,6 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 
 // !important; is a gmail hack to prevent styles being stripped if it doesn't like something.
 ?>
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-@font-face {
-    font-family: 'Aino-Regular';
-    src: url('https://beta.estoniancrafts.com/wp-content/themes/estoniancrafts/aino-font/Aino-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Aino-Bold';
-    src: url('../../../aino-font/Aino-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Aino-Headline';
-    src: url('../../../aino-font/Aino-Headline.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
 #wrapper {
 	background-color: <?php echo esc_attr( $bg ); ?>;
 	margin: 0;
@@ -70,9 +49,9 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 }
 
 #template_header {
-	background-color: #ffffff <?php //echo esc_attr( $bg ); ?>;
+	background-color: <?php echo esc_attr( $base ); ?>;
 	border-radius: 3px 3px 0 0 !important;
-	color:  <?php echo esc_attr( $base_text ); ?>;
+	color: <?php echo esc_attr( $base_text ); ?>;
 	border-bottom: 0;
 	font-weight: bold;
 	line-height: 100%;
@@ -80,9 +59,8 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
-#template_header h1,
-#template_header h1 a {
-	color: <?php echo esc_attr( $estonian_craft_dark_head); ?>;
+#template_header h1 {
+	color: <?php echo esc_attr( $base_text ); ?>;
 }
 
 #template_footer td {
@@ -97,7 +75,7 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 	font-size:12px;
 	line-height:125%;
 	text-align:center;
-	/*padding: 0 48px 48px 48px;*/
+	padding: 0 48px 48px 48px;
 }
 
 #body_content {
@@ -143,28 +121,24 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 }
 
 #header_wrapper {
-	padding: 20px 48px 15px 48px;
+	padding: 36px 48px;
 	display: block;
-	border-bottom: 2px solid #ef7f27 ;
-	color: ##1B1919 !important;
 }
-#h1main{
-	padding: 20px 48px 0px 48px;
-}
+
 h1 {
-	color:  <?php  echo esc_attr( $estonian_craft_dark_head ); ?>;
-	font-family: "Aino-Regular", Helvetica Neue, Helvetica, Roboto, sans-serif;
+	color: <?php echo esc_attr( $base ); ?>;
+	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-size: 30px;
-	font-weight: 500;
+	font-weight: 300;
 	line-height: 150%;
 	margin: 0;
 	text-align: <?php echo is_rtl() ? 'right' : 'left'; ?>;
-	text-shadow: 0 0px 0 <?php echo esc_attr( $base_lighter_20 ); ?>;
+	text-shadow: 0 1px 0 <?php echo esc_attr( $base_lighter_20 ); ?>;
 	-webkit-font-smoothing: antialiased;
 }
 
 h2 {
-	color: <?php  echo esc_attr( $estonian_craft_dark_head ); ?>;
+	color: <?php echo esc_attr( $base ); ?>;
 	display: block;
 	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-size: 18px;
@@ -175,7 +149,7 @@ h2 {
 }
 
 h3 {
-	color:  <?php echo esc_attr( $estonian_craft_dark_head); ?>;
+	color: <?php echo esc_attr( $base ); ?>;
 	display: block;
 	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	font-size: 16px;
@@ -190,9 +164,7 @@ a {
 	font-weight: normal;
 	text-decoration: underline;
 }
-.center-block{
-	margin:auto; display:block;
-}
+
 img {
 	border: none;
 	display: inline;
@@ -203,31 +175,5 @@ img {
 	outline: none;
 	text-decoration: none;
 	text-transform: capitalize;
-}
-#footer_cell {
-	border-radius : 0 !important;
-	display:block;
-	background-color: <?php echo esc_attr($estonian_craft_orange); ?> ;
-}
-#footer_text_estonian_crafts{
-	background-color: <?php echo esc_attr($estonian_craft_orange); ?> ;
-	height:100%;
-	padding-top:2px
-	
-
-}
-#footer_text_p, #footer_text_estonian_crafts p{
-	color:white;
-	text-align:center;
-	font-family:"Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-}
-#ec_logo{
-	width:60%;
-	padding:5px 0px;
-}
-.social-nav {
-    float: left;
-    width: 100%;
-    margin: 10px 0;
 }
 <?php

@@ -41,10 +41,6 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
 	</p>
 
-    <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-        <?php echo do_shortcode('[user_has_idCard]') ?>
-    </p>
-
 	<fieldset>
 		<legend><?php _e( 'Password Change', 'woocommerce' ); ?></legend>
 

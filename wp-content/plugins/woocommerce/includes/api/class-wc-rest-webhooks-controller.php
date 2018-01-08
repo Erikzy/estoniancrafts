@@ -67,19 +67,13 @@ class WC_REST_Webhooks_Controller extends WC_REST_Posts_Controller {
 				'permission_callback' => array( $this, 'create_item_permissions_check' ),
 				'args'                => array_merge( $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ), array(
 					'topic' => array(
-						'required'    => true,
-						'type'        => 'string',
-						'description' => __( 'Webhook topic.', 'woocommerce' ),
+						'required' => true,
 					),
 					'delivery_url' => array(
-						'required'    => true,
-						'type'        => 'string',
-						'description' => __( 'Webhook delivery URL.', 'woocommerce' ),
+						'required' => true,
 					),
 					'secret' => array(
-						'required'    => true,
-						'type'        => 'string',
-						'description' => __( 'Webhook secret.', 'woocommerce' ),
+						'required' => true,
 					),
 				) ),
 			),
@@ -87,12 +81,6 @@ class WC_REST_Webhooks_Controller extends WC_REST_Posts_Controller {
 		) );
 
 		register_rest_route( $this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', array(
-			'args' => array(
-				'id' => array(
-					'description' => __( 'Unique identifier for the resource.', 'woocommerce' ),
-					'type'        => 'integer',
-				),
-			),
 			array(
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => array( $this, 'get_item' ),
@@ -114,7 +102,6 @@ class WC_REST_Webhooks_Controller extends WC_REST_Posts_Controller {
 				'args'                => array(
 					'force' => array(
 						'default'     => false,
-						'type'        => 'boolean',
 						'description' => __( 'Required to be true, as resource does not support trashing.', 'woocommerce' ),
 					),
 				),
@@ -520,9 +507,6 @@ class WC_REST_Webhooks_Controller extends WC_REST_Posts_Controller {
 					'type'        => 'array',
 					'context'     => array( 'view', 'edit' ),
 					'readonly'    => true,
-					'items'       => array(
-						'type'    => 'string',
-					),
 				),
 				'delivery_url' => array(
 					'description' => __( 'The URL where the webhook payload is delivered.', 'woocommerce' ),
