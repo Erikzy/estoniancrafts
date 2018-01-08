@@ -287,8 +287,31 @@ if (!function_exists('is_user_idcard')) {
 
         return (bool) $user != NULL;
     }
+  
 }
 
+if (!function_exists('is_user_facebook')) {
+    function is_user_facebook() {
+        // Just to be sure if user is currently logged in
+        if (!is_user_logged_in()) {
+            return false;
+        }
+
+		global $current_user; 
+ 
+		get_currentuserinfo();
+ 
+		if ( $current_user ) {
+    		$permission = get_user_meta( $current_user->ID, 'ec_facebook_id' , true );
+     
+    		if ( ! empty( $permission )) {
+        		return true;
+    		}
+		}
+		return false;
+    }
+  
+}
 /*
 * User visual composer carousel widget
 */
@@ -528,7 +551,9 @@ function ec_save_account_details(){
 
 	$user->ID     = (int) get_current_user_id();
 	$current_user = get_user_by( 'id', $user->ID );
-
+	
+	
+	
 	if ( $user->ID <= 0 ) {
 		return;
 	}
@@ -564,24 +589,32 @@ function ec_save_account_details(){
 		if ( ! is_email( $account_email ) ) {
 			wc_add_notice( __( 'Please provide a valid email address.', 'dokan' ), 'error' );
 		} elseif ( email_exists( $account_email ) && $account_email !== $current_user->user_email ) {
-			wc_add_notice( __( 'This email address is already registered.', 'dokan' ), 'error' );
+			wc_add_notice( __( 'This email address is already registered. '.$current_user->user_email.' / '.$account_email, 'dokan' ), 'error' );
 		}
 		$user->user_email = $account_email;
 	}
 
 
-	if(is_user_idcard()){
+	if(is_user_idcard() || is_user_facebook()){
 		if ( ! empty( $pass1 ) && empty( $pass2 ) ) {
 			wc_add_notice( __( 'Please re-enter your password.', 'dokan' ), 'error' );
 			$save_pass = false;
 		} elseif ( ( ! empty( $pass1 ) || ! empty( $pass2 ) ) && $pass1 !== $pass2 ) {
 			wc_add_notice( __( 'New passwords do not match.', 'dokan' ), 'error' );
 			$save_pass = false;
+		} 
+		if(empty($pass1)){
+		
+			$save_pass = false;
+		
+		}else{
+			unset($pass_cur);
+			$save_pass = true;
+		
 		}
 		
+		
 		//wc_add_notice( __( 'unsetting id card user', 'dokan' ), 'error' );
-		unset($pass_cur);
-		$save_pass = true;
 		
 	} else {
 		if ( ! empty( $pass1 ) && ! wp_check_password( $pass_cur, $current_user->user_pass, $current_user->ID ) ) {
@@ -629,8 +662,8 @@ function ec_save_account_details(){
 
 		wc_add_notice( __( 'Account details changed successfully.', 'dokan' ) );
 
-		//do_action( 'woocommerce_save_account_details', $user->ID );
-
+		do_action( 'ec_save_account_details', $user->ID );
+		
 		wp_safe_redirect( dokan_get_navigation_url( ' edit-account' ) );
 		exit;
 	}

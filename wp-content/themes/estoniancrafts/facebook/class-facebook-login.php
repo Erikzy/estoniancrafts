@@ -178,7 +178,7 @@ class FacebookLogin{
         }
 		$this->redirect_url = redirect_to_user_appropriate_home();
         // Redirect the user
-	///	echo $this->redirect_url;
+		///	echo $this->redirect_url;
         header("Location: ".$this->redirect_url);
     
         die();
@@ -348,7 +348,8 @@ class FacebookLogin{
         update_user_meta( $new_user, 'user_url', $fb_user['link'] );
         update_user_meta( $new_user, 'ec_facebook_id', $fb_user['id'] );
      //   update_user_meta( $new_user, 'dokan_enable_selling', 1 );
-
+		
+		do_action( 'ec_user_register', $new_user->ID );
         // Log the user ?
         wp_set_auth_cookie( $new_user );
     }

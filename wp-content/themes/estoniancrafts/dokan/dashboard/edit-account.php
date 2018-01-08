@@ -382,7 +382,7 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                         <p class="form-row form-row-wide">
                             <label for="password_current"><?php _e( 'Current Password (leave blank to leave unchanged)', 'dokan' ); ?></label>
-                            <input type="password" class="input-text" name="password_current" id="password_current" />
+                            <input type="password" class="input-text" name="password_current" id="password_current" value="" />
                         </p>
 
                         <p class="form-row form-row-wide">

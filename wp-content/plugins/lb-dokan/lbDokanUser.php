@@ -11,7 +11,10 @@ class lbDokanUser {
         add_action( 'woocommerce_save_account_details', [$this, 'save_user_details'] );
 
         add_action( 'woocommerce_edit_account_form', [$this, 'woocommerce_user_form'] );
-        add_action( 'woocommerce_save_account_details', [$this, 'woocommerce_user_save'] );
+        add_action( 'ec_save_account_details', [$this, 'save_user_details'] );
+
+   		add_action( 'ec_user_register', [$this, 'user_register']);
+     
 
         add_action( 'show_user_profile', [$this, 'admin_user_profile_fields'], 22 );
         add_action( 'edit_user_profile', [$this, 'admin_user_profile_fields'], 22 );
@@ -131,11 +134,11 @@ class lbDokanUser {
 
         if( isset($_POST['dokan_gravatar']) ){
     		$user_avatar = get_user_meta( $user_ID, 'dokan_profile_settings', true );
-    	    $user_avatar['gravatar'] = $_POST['dokan_gravatar'];
+    	   
+     	    $user_avatar['gravatar'] = $_POST['dokan_gravatar'];
     	    update_user_meta( $user_ID, 'dokan_profile_settings', $user_avatar );
         }
-
-		$ext_profile = get_user_meta( $user_ID, 'ktt_extended_profile', true );
+	 	$ext_profile = get_user_meta( $user_ID, 'ktt_extended_profile', true );
 
     	$ext_profile['mobile'] = ! empty( $_POST['account_mobile'] ) ? wc_clean( $_POST['account_mobile'] ) : '';
     	$ext_profile['skype'] = ! empty( $_POST['account_skype'] ) ? wc_clean( $_POST['account_skype'] ) : '';
