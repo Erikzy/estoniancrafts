@@ -591,4 +591,41 @@ function wpse74422_switch_tab($tab)
 {
     return 'type';
 }
+function get_order_number_link($message){
+	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
+	 if( !empty($match) ){
+	 	return array("order_number"=>$match[1], "order_link"=>home_url()."/my-account/view-order/". $match[1]);
+	 }
+	 else
+	 	return false;	 
+}
 
+function check_message_type($message){
+
+	if( strpos($message->subject, "order")  !== false )
+		return "order";
+}
+
+add_filter('bp_get_the_thread_message_content', 'custom_bp_get_the_thread_message_content' );
+function custom_bp_get_the_thread_message_content(){
+	global $thread_template;
+	$user = wp_get_current_user();
+	$role =$user->roles[0];
+	$message =$thread_template->message->message;
+	
+	if(check_message_type($thread_template->message) === "order"){
+		$on_link = get_order_number_link($thread_template->message->message);
+		if($on_link !== false)
+			$message = "<a href=\"".$on_link["order_link"]."\" > Order #".$on_link["order_number"]."</a>";
+
+			
+/*		if($role === "customer"){
+			// show purchases link
+		}
+		elseif( $role === "seller" || "administrator" ){
+			//show orders link
+		}*/
+	}
+
+	return  $message;
+}

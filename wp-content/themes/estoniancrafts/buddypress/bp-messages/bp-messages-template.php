@@ -1994,7 +1994,7 @@ function bp_the_thread_message_content() {
 	 */
 	function bp_get_the_thread_message_content() {
 		global $thread_template;
-
+		
 		/**
 		 * Filters the content of the current message in the loop.
 		 *

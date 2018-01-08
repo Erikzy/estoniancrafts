@@ -162,7 +162,7 @@ function bp_message_thread_subject() {
  * Output an excerpt from the current message in the loop.
  */
 function bp_message_thread_excerpt() {
-	echo bp_get_message_thread_excerpt();
+	echo  bp_get_message_thread_excerpt();
 }
 	/**
 	 * Generate an excerpt from the current message in the loop.
