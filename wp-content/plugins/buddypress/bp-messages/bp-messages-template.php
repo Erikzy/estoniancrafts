@@ -789,7 +789,8 @@ function bp_message_search_form() {
 		<input type="submit" class="button search-submit-messages" id="messages_search_submit"  name="messages_search_submit" value="<?php esc_html_e( 'Search', 'buddypress' ); ?>" /> 
 		  <button type="submit" name="messages_search_submit""  value="<?php esc_html_e( 'Search', 'buddypress' ); ?>"  class="button 
 search-submit-messages  message-search-button-new mes-search"></button> -->
-		 <button type="submit" name="messages_search_submit""  value="<?php esc_html_e( 'Search', 'buddypress' ); ?>"  class="dokan-btn dokan-btn-theme dokan-right product-search-button-new"></button>
+		 <button type="submit" name="messages_search_submit""  value="<?php esc_html_e( 'Search', 'buddypress' ); ?>"  class="dokan-btn 
+dokan-btn-theme dokan-right message-search-button-new"></button>
 
         <div class="dokan-form-group dokan-right">
         	<input type="text" class="dokan-form-control search-f"  name="s" id="messages_search"<?php echo $search_placeholder . $search_value; ?> />
