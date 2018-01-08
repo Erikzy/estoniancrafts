@@ -109,7 +109,7 @@ class WC_Settings_Payment_Gateways extends WC_Settings_Page {
 				'type'            => 'checkbox',
 				'checkboxgroup'   => '',
 				'show_if_checked' => 'option',
-				'desc_tip'        => sprintf( __( 'Force SSL (HTTPS) on the checkout pages (<a href="%s">an SSL Certificate is required</a>).', 'woocommerce' ), 'https://docs.woocommerce.com/document/ssl-and-https/#section-3' ),
+				'desc_tip'        => __( 'Force SSL (HTTPS) on the checkout pages (an SSL Certificate is required).', 'woocommerce' ),
 			),
 
 			'unforce_ssl_checkout' => array(

@@ -225,7 +225,13 @@ class WC_Shortcodes {
 			'ids'        => ''
 		), $atts, 'product_categories' );
 
-		$ids        = array_filter( array_map( 'trim', explode( ',', $atts['ids'] ) ) );
+		if ( isset( $atts['ids'] ) ) {
+			$ids = explode( ',', $atts['ids'] );
+			$ids = array_map( 'trim', $ids );
+		} else {
+			$ids = array();
+		}
+
 		$hide_empty = ( $atts['hide_empty'] == true || $atts['hide_empty'] == 1 ) ? 1 : 0;
 
 		// get terms and workaround WP bug with parents/pad counts

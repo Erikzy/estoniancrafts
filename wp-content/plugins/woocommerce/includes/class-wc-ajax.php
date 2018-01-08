@@ -3083,9 +3083,7 @@ class WC_AJAX {
 			}
 
 			if ( isset( $data['postcode'] ) ) {
-				$postcode = array_map( 'wc_clean', $data['postcode'] );
-				$postcode = array_map( 'wc_normalize_postcode', $postcode );
-				WC_Tax::_update_tax_rate_postcodes( $tax_rate_id, $postcode );
+				WC_Tax::_update_tax_rate_postcodes( $tax_rate_id, array_map( 'wc_clean', $data['postcode'] ) );
 			}
 			if ( isset( $data['city'] ) ) {
 				WC_Tax::_update_tax_rate_cities( $tax_rate_id, array_map( 'wc_clean', $data['city'] ) );

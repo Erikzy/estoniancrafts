@@ -60,9 +60,7 @@ class WC_REST_Product_Attributes_Controller extends WC_REST_Controller {
 				'permission_callback' => array( $this, 'create_item_permissions_check' ),
 				'args'                => array_merge( $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ), array(
 					'name' => array(
-						'description' => __( 'Name for the resource.', 'woocommerce' ),
-						'type'        => 'string',
-						'required'    => true,
+						'required' => true,
 					),
 				) ),
 			),
@@ -70,12 +68,6 @@ class WC_REST_Product_Attributes_Controller extends WC_REST_Controller {
 		));
 
 		register_rest_route( $this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', array(
-			'args' => array(
-				'id' => array(
-					'description' => __( 'Unique identifier for the resource.', 'woocommerce' ),
-					'type'        => 'integer',
-				),
-			),
 			array(
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => array( $this, 'get_item' ),
@@ -96,8 +88,7 @@ class WC_REST_Product_Attributes_Controller extends WC_REST_Controller {
 				'permission_callback' => array( $this, 'delete_item_permissions_check' ),
 				'args'                => array(
 					'force' => array(
-						'default'     => true,
-						'type'        => 'boolean',
+						'default'     => false,
 						'description' => __( 'Required to be true, as resource does not support trashing.', 'woocommerce' ),
 					),
 				),
@@ -309,7 +300,7 @@ class WC_REST_Product_Attributes_Controller extends WC_REST_Controller {
 	public function get_item( $request ) {
 		global $wpdb;
 
-		$attribute = $this->get_attribute( (int) $request['id'] );
+		$attribute = $this->get_attribute( $request['id'] );
 
 		if ( is_wp_error( $attribute ) ) {
 			return $attribute;
@@ -415,7 +406,7 @@ class WC_REST_Product_Attributes_Controller extends WC_REST_Controller {
 			return new WP_Error( 'woocommerce_rest_trash_not_supported', __( 'Resource does not support trashing.', 'woocommerce' ), array( 'status' => 501 ) );
 		}
 
-		$attribute = $this->get_attribute( (int) $request['id'] );
+		$attribute = $this->get_attribute( $request['id'] );
 
 		if ( is_wp_error( $attribute ) ) {
 			return $attribute;

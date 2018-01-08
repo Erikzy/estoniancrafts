@@ -14,9 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * WC_REST_Exception class.
- */
 class WC_REST_Exception extends Exception {
 
 	/**
@@ -27,25 +24,16 @@ class WC_REST_Exception extends Exception {
 	protected $error_code;
 
 	/**
-	 * Error extra data.
-	 *
-	 * @var array
-	 */
-	protected $error_data;
-
-	/**
 	 * Setup exception.
 	 *
-	 * @param string $code             Machine-readable error code, e.g `woocommerce_invalid_product_id`.
-	 * @param string $message          User-friendly translated error message, e.g. 'Product ID is invalid'.
-	 * @param int    $http_status_code Proper HTTP status code to respond with, e.g. 400.
-	 * @param array  $data             Extra error data.
+	 * @param string $error_code Machine-readable error code.
+	 * @param string $error_message User-friendly translated error message.
+	 * @param int $http_status_code HTTP status code to respond with.
 	 */
-	public function __construct( $code, $message, $http_status_code = 400, $data = array() ) {
-		$this->error_code = $code;
-		$this->error_data = array_merge( array( 'status' => $http_status_code ), $data );
+	public function __construct( $error_code, $error_message, $http_status_code ) {
+		$this->error_code = $error_code;
 
-		parent::__construct( $message, $http_status_code );
+		parent::__construct( $error_message, $http_status_code );
 	}
 
 	/**
@@ -55,14 +43,5 @@ class WC_REST_Exception extends Exception {
 	 */
 	public function getErrorCode() {
 		return $this->error_code;
-	}
-
-	/**
-	 * Returns error data.
-	 *
-	 * @return array
-	 */
-	public function getErrorData() {
-		return $this->error_data;
 	}
 }

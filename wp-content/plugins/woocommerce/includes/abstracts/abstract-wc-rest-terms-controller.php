@@ -45,9 +45,7 @@ abstract class WC_REST_Terms_Controller extends WC_REST_Controller {
 				'permission_callback' => array( $this, 'create_item_permissions_check' ),
 				'args'                => array_merge( $this->get_endpoint_args_for_item_schema( WP_REST_Server::CREATABLE ), array(
 					'name' => array(
-						'type'        => 'string',
-						'description' => __( 'Name for the resource.', 'woocommerce' ),
-						'required'    => true,
+						'required' => true,
 					),
 				) ),
 			),
@@ -55,12 +53,6 @@ abstract class WC_REST_Terms_Controller extends WC_REST_Controller {
 		));
 
 		register_rest_route( $this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)', array(
-			'args' => array(
-				'id' => array(
-					'description' => __( 'Unique identifier for the resource.', 'woocommerce' ),
-					'type'        => 'integer',
-				),
-			),
 			array(
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => array( $this, 'get_item' ),
@@ -82,7 +74,6 @@ abstract class WC_REST_Terms_Controller extends WC_REST_Controller {
 				'args'                => array(
 					'force' => array(
 						'default'     => false,
-						'type'        => 'boolean',
 						'description' => __( 'Required to be true, as resource does not support trashing.', 'woocommerce' ),
 					),
 				),
@@ -387,15 +378,15 @@ abstract class WC_REST_Terms_Controller extends WC_REST_Controller {
 
 		$term = wp_insert_term( $name, $taxonomy, $args );
 		if ( is_wp_error( $term ) ) {
-			$error_data = array( 'status' => 400 );
 
-			// If we're going to inform the client that the term exists,
-			// give them the identifier they can actually use.
-			if ( $term_id = $term->get_error_data( 'term_exists' ) ) {
-				$error_data['resource_id'] = $term_id;
+			// If we're going to inform the client that the term exists, give them the identifier
+			// they can actually use.
+			if ( ( $term_id = $term->get_error_data( 'term_exists' ) ) ) {
+				$existing_term = get_term( $term_id, $taxonomy );
+				$term->add_data( $existing_term->term_id, 'term_exists' );
 			}
 
-			return new WP_Error( $term->get_error_code(), $term->get_error_message(), $error_data );
+			return $term;
 		}
 
 		$term = get_term( $term['term_id'], $taxonomy );
@@ -690,22 +681,16 @@ abstract class WC_REST_Terms_Controller extends WC_REST_Controller {
 		$params['context']['default'] = 'view';
 
 		$params['exclude'] = array(
-			'description'       => __( 'Ensure result set excludes specific ids.', 'woocommerce' ),
-			'type'              => 'array',
-			'items'             => array(
-				'type'          => 'integer',
-			),
-			'default'           => array(),
-			'sanitize_callback' => 'wp_parse_id_list',
+			'description'        => __( 'Ensure result set excludes specific ids.', 'woocommerce' ),
+			'type'               => 'array',
+			'default'            => array(),
+			'sanitize_callback'  => 'wp_parse_id_list',
 		);
 		$params['include'] = array(
-			'description'       => __( 'Limit result set to specific ids.', 'woocommerce' ),
-			'type'              => 'array',
-			'items'             => array(
-				'type'          => 'integer',
-			),
-			'default'           => array(),
-			'sanitize_callback' => 'wp_parse_id_list',
+			'description'        => __( 'Limit result set to specific ids.', 'woocommerce' ),
+			'type'               => 'array',
+			'default'            => array(),
+			'sanitize_callback'  => 'wp_parse_id_list',
 		);
 		if ( ! $taxonomy->hierarchical ) {
 			$params['offset'] = array(

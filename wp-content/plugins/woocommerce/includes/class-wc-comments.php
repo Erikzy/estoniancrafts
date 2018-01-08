@@ -254,11 +254,10 @@ class WC_Comments {
 	}
 
 	/**
-	 * Remove order notes and webhook delivery logs from wp_count_comments().
-	 *
+	 * Remove order notes from wp_count_comments().
 	 * @since  2.2
-	 * @param  object $stats   Comment stats.
-	 * @param  int    $post_id Post ID.
+	 * @param  object $stats
+	 * @param  int $post_id
 	 * @return object
 	 */
 	public static function wp_count_comments( $stats, $post_id ) {
@@ -270,25 +269,14 @@ class WC_Comments {
 			if ( ! $stats ) {
 				$stats = array();
 
-				$count = $wpdb->get_results( "
-					SELECT comment_approved, COUNT(*) AS num_comments
-					FROM {$wpdb->comments}
-					WHERE comment_type NOT IN ('order_note', 'webhook_delivery')
-					GROUP BY comment_approved
-				", ARRAY_A );
+				$count = $wpdb->get_results( "SELECT comment_approved, COUNT( * ) AS num_comments FROM {$wpdb->comments} WHERE comment_type != 'order_note' GROUP BY comment_approved", ARRAY_A );
 
 				$total = 0;
-				$approved = array(
-					'0'            => 'moderated',
-					'1'            => 'approved',
-					'spam'         => 'spam',
-					'trash'        => 'trash',
-					'post-trashed' => 'post-trashed',
-				);
+				$approved = array( '0' => 'moderated', '1' => 'approved', 'spam' => 'spam', 'trash' => 'trash', 'post-trashed' => 'post-trashed' );
 
 				foreach ( (array) $count as $row ) {
-					// Don't count post-trashed toward totals.
-					if ( 'post-trashed' !== $row['comment_approved'] && 'trash' !== $row['comment_approved'] ) {
+					// Don't count post-trashed toward totals
+					if ( 'post-trashed' != $row['comment_approved'] && 'trash' != $row['comment_approved'] ) {
 						$total += $row['num_comments'];
 					}
 					if ( isset( $approved[ $row['comment_approved'] ] ) ) {
@@ -332,7 +320,6 @@ class WC_Comments {
 		$verified = false;
 		if ( 'product' === get_post_type( $comment->comment_post_ID ) ) {
 			$verified = wc_customer_bought_product( $comment->comment_author_email, $comment->user_id, $comment->comment_post_ID );
-			//add_comment_meta( $comment_id, 'verified', 1, true );
 			add_comment_meta( $comment_id, 'verified', (int) $verified, true );
 		}
 		return $verified;

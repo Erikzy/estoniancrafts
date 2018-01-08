@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $comment;
 $verified = wc_review_is_from_verified_owner( $comment->comment_ID );
-//var_dump($comment);
+
 if ( '0' === $comment->comment_approved ) { ?>
 
 	<p class="meta"><em><?php esc_attr_e( 'Your comment is awaiting approval', 'woocommerce' ); ?></em></p>

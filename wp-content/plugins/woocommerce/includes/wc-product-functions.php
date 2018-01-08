@@ -38,7 +38,7 @@ function wc_get_product( $the_product = false, $args = array() ) {
 function wc_update_product_stock( $product_id, $new_stock_level ) {
 	$product = wc_get_product( $product_id );
 
-	if ( $product && ( ! metadata_exists( 'post', $product_id, '_stock' ) || $product->get_stock_quantity() !== $new_stock_level ) ) {
+	if ( ! metadata_exists( 'post', $product_id, '_stock' ) || $product->get_stock_quantity() !== $new_stock_level ) {
 		$product->set_stock( $new_stock_level );
 	}
 }
@@ -228,11 +228,8 @@ function wc_product_post_type_link( $permalink, $post ) {
 	$terms = get_the_terms( $post->ID, 'product_cat' );
 
 	if ( ! empty( $terms ) ) {
-		if ( function_exists( 'wp_list_sort' ) ) {
-			$terms = wp_list_sort( $terms, 'term_id', 'ASC' );
-		} else {
-			usort( $terms, '_usort_terms_by_ID' );
-		}
+		usort( $terms, '_usort_terms_by_ID' ); // order by ID
+
 		$category_object = apply_filters( 'wc_product_post_type_link_product_cat', $terms[0], $terms, $post );
 		$category_object = get_term( $category_object, 'product_cat' );
 		$product_cat     = $category_object->slug;
@@ -597,7 +594,7 @@ function wc_get_product_id_by_sku( $sku ) {
  * @param string $date_to
  */
 function _wc_save_product_price( $product_id, $regular_price, $sale_price = '', $date_from = '', $date_to = '' ) {
-	$product_id    = absint( $product_id );
+	$product_id  = absint( $product_id );
 	$regular_price = wc_format_decimal( $regular_price );
 	$sale_price    = $sale_price === '' ? '' : wc_format_decimal( $sale_price );
 	$date_from     = wc_clean( $date_from );
@@ -611,8 +608,7 @@ function _wc_save_product_price( $product_id, $regular_price, $sale_price = '', 
 	update_post_meta( $product_id, '_sale_price_dates_to', $date_to ? strtotime( $date_to ) : '' );
 
 	if ( $date_to && ! $date_from ) {
-		$date_from = strtotime( 'NOW', current_time( 'timestamp' ) );
-		update_post_meta( $product_id, '_sale_price_dates_from', $date_from );
+		update_post_meta( $product_id, '_sale_price_dates_from', strtotime( 'NOW', current_time( 'timestamp' ) ) );
 	}
 
 	// Update price if on sale
