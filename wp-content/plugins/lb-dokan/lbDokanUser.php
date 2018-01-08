@@ -124,7 +124,9 @@ class lbDokanUser {
     	$ext_settings['ec_store_sm_youtube'] = ! empty( $_POST['ec_store_sm_youtube'] ) ? wc_clean( $_POST['ec_store_sm_youtube'] ) : '';
     	$ext_settings['ec_store_sm_instagram'] = ! empty( $_POST['ec_store_sm_instagram'] ) ? wc_clean( $_POST['ec_store_sm_instagram'] ) : '';
     	$ext_settings['ec_store_sm_flickr'] = ! empty( $_POST['ec_store_sm_flickr'] ) ? wc_clean( $_POST['ec_store_sm_flickr'] ) : '';
-
+		
+		update_user_meta( $store_id, 'user_nicename',  sanitize_title($_POST['dokan_store_name']));
+		
 		update_user_meta( $store_id, 'ktt_extended_settings', $ext_settings );
 
 	}
