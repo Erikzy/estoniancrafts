@@ -163,7 +163,7 @@ class EC_Filters
 				'id' => 'my-account/create-shop',
 				//'title' => __( 'My Orders', 'ktt' ),
 				'title' => __( 'Create Shop', 'ktt' ),
-				'url' => get_site_url(null, 'my-account/orders'),
+				'url' => get_site_url(null, 'create-shop'),
 				'url_endpoint' => 'my-account/orders'
 			));
 			
@@ -422,7 +422,7 @@ function ec_dokan_rewrite_rules($custom_store_url)
 {
 
 
-	 add_rewrite_rule( '([^/]+)/generallogin/userhome/', redirect_to_user_appropriate_home(), 'top' );
+	add_rewrite_rule( '([^/]+)/generallogin/userhome/', redirect_to_user_appropriate_home(), 'top' );
 	add_rewrite_rule( '([^/]+)/?$', 'index.php?pagename=$matches[1]', 'top' );
     add_rewrite_rule( '([^/]+)/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]', 'top' );
 
