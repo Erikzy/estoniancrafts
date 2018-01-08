@@ -1254,6 +1254,9 @@ font-family: 'Aino-Regular' !important;
     margin-bottom:10px;
     margin-top:10px;
 }
+h2.t-c-title {
+       margin-bottom:40px !important;
+}
 .t-c-main-title{
     text-align:center;
     margin-bottom:40px;
@@ -1266,7 +1269,11 @@ font-family: 'Aino-Regular' !important;
 }
 
 /********* FAIRS **************/
-
+.basel-pagination a:focus{
+    background-color: #ffffff !important;
+    border-color: #000000!important;
+    color: #000 !important;
+}
 
 .tribe-events-photo-event .tribe-events-photo-event-wrap img {
 /*    height:326px !important;
