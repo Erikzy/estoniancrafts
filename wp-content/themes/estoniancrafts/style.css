@@ -1335,6 +1335,57 @@ h2.t-c-title {
     box-sizing: border-box;
 }
 
+/* CREATE STORE */
+.tuto-class{
+    display: table-cell;
+    background-color: #ef7f27;
+    border-radius: 100%;
+    width: 100px;
+    vertical-align: middle;
+    margin-right: 80px;
+    height: 100px;
+    float: right
+}
+.tuto-class > h1{
+    color: white !important;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 0;
+}
+.cell-class{
+        display: table-cell;
+        margin-top: 20px;
+}
+.tutoimage{
+    width:80%;
+    float:left;
+}
+.cont-tuto{
+    width:80%;
+}
+@media (max-width: 775px){
+    .tutoimage{
+        width:100%;
+        float:left;
+    }
+    .cell-class{
+        display: block;
+        margin-top: 20px;
+
+    }
+    .tuto-class > h1{
+        margin-top:0px;
+    }
+    .tuto-class {
+        float:none;
+        margin:auto;
+        display: block;
+        padding-top:20px;
+        margin-top:0px;
+    }
+}
 @media (max-width: 1265px){
 /*    .tribe-events-list-event-title{
         height:35px;
