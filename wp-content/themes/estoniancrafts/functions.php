@@ -551,7 +551,9 @@ function ec_save_account_details(){
 
 	$user->ID     = (int) get_current_user_id();
 	$current_user = get_user_by( 'id', $user->ID );
-
+	
+	
+	
 	if ( $user->ID <= 0 ) {
 		return;
 	}
@@ -600,11 +602,19 @@ function ec_save_account_details(){
 		} elseif ( ( ! empty( $pass1 ) || ! empty( $pass2 ) ) && $pass1 !== $pass2 ) {
 			wc_add_notice( __( 'New passwords do not match.', 'dokan' ), 'error' );
 			$save_pass = false;
+		} 
+		if(empty($pass1)){
+		
+			$save_pass = false;
+		
+		}else{
+			unset($pass_cur);
+			$save_pass = true;
+		
 		}
 		
+		
 		//wc_add_notice( __( 'unsetting id card user', 'dokan' ), 'error' );
-		unset($pass_cur);
-		$save_pass = true;
 		
 	} else {
 		if ( ! empty( $pass1 ) && ! wp_check_password( $pass_cur, $current_user->user_pass, $current_user->ID ) ) {
@@ -653,7 +663,7 @@ function ec_save_account_details(){
 		wc_add_notice( __( 'Account details changed successfully.', 'dokan' ) );
 
 		do_action( 'ec_save_account_details', $user->ID );
-
+		echo 'calling save account';
 		//do_action( 'woocommerce_save_account_details', array(lbDokanUser, ) );
 
 		wp_safe_redirect( dokan_get_navigation_url( ' edit-account' ) );
