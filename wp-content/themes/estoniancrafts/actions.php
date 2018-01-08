@@ -489,7 +489,7 @@ add_action('wp_ajax_user-store-create', 'user_store_create');
 function user_store_create(){
   ob_start();
   if ( 
-    ! isset( $_POST['user_store_create_form'] ) 
+    !isset( $_POST['user_store_create_form'] ) 
     || ! wp_verify_nonce( $_POST['user_store_create_form'], 'user_store_create' ) 
 
   ) {

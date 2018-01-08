@@ -88,7 +88,7 @@ class EC_Shortcodes
         	</script>	
         	<?php 
         	wp_nonce_field( 'user_store_create', 'user_store_create_form' );
-         	echo '<button class="call-to-action-button" onclick=addSellerProfile()>Create shop</button>';
+         	echo '<button type="button" class="call-to-action-button" onclick=addSellerProfile()>Create shop</button>';
          }
 	}
 	
