@@ -131,10 +131,12 @@ class lbDokanUser {
 
         if( isset($_POST['dokan_gravatar']) ){
     		$user_avatar = get_user_meta( $user_ID, 'dokan_profile_settings', true );
+    	   
+     	    var_dump($user_avatar);
     	    $user_avatar['gravatar'] = $_POST['dokan_gravatar'];
     	    update_user_meta( $user_ID, 'dokan_profile_settings', $user_avatar );
         }
-		die("save user details");
+	 	die("save user details");
 		$ext_profile = get_user_meta( $user_ID, 'ktt_extended_profile', true );
 
     	$ext_profile['mobile'] = ! empty( $_POST['account_mobile'] ) ? wc_clean( $_POST['account_mobile'] ) : '';
