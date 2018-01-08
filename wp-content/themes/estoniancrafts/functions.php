@@ -663,9 +663,7 @@ function ec_save_account_details(){
 		wc_add_notice( __( 'Account details changed successfully.', 'dokan' ) );
 
 		do_action( 'ec_save_account_details', $user->ID );
-		echo 'calling save account';
-		//do_action( 'woocommerce_save_account_details', array(lbDokanUser, ) );
-
+		
 		wp_safe_redirect( dokan_get_navigation_url( ' edit-account' ) );
 		exit;
 	}
