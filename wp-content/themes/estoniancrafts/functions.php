@@ -589,7 +589,7 @@ function ec_save_account_details(){
 		if ( ! is_email( $account_email ) ) {
 			wc_add_notice( __( 'Please provide a valid email address.', 'dokan' ), 'error' );
 		} elseif ( email_exists( $account_email ) && $account_email !== $current_user->user_email ) {
-			wc_add_notice( __( 'This email address is already registered.', 'dokan' ), 'error' );
+			wc_add_notice( __( 'This email address is already registered. '.$current_user->user_email.' / '.$account_email, 'dokan' ), 'error' );
 		}
 		$user->user_email = $account_email;
 	}
