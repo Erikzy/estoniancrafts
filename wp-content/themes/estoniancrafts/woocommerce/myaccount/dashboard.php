@@ -25,11 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php
 
 	$user = wp_get_current_user();
-	if($user->ID > 0){
+	if($user){
 	
 		do_shortcode('redirect_to_user_home');
 	}
-	echo 'test';
 	
 ?>
 
