@@ -592,9 +592,20 @@ function wpse74422_switch_tab($tab)
     return 'type';
 }
 function get_order_number_link($message){
+	$user = wp_get_current_user();
+	$role =$user->roles[0];
 	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
+	if($role === "customer"){
+			// show purchases link
+		 $link  = home_url()."/my-account/view-order/". $match[1];
+		}
+	elseif( $role === "seller" || "administrator" ){
+			//show orders link
+			$link = home_url()."/dashboard/my-account/dashboard/orders/?order_id=". $match[1];
+		}
+
 	 if( !empty($match) ){
-	 	return array("order_number"=>$match[1], "order_link"=>home_url()."/my-account/view-order/". $match[1]);
+	 	return array("order_number"=>$match[1], "order_link"=> $link );
 	 }
 	 else
 	 	return false;	 
@@ -606,11 +617,10 @@ function check_message_type($message){
 		return "order";
 }
 
-add_filter('bp_get_the_thread_message_content', 'custom_bp_get_the_thread_message_content' );
+// add_filter('bp_get_the_thread_message_content', 'custom_bp_get_the_thread_message_content' );
 function custom_bp_get_the_thread_message_content(){
 	global $thread_template;
-	$user = wp_get_current_user();
-	$role =$user->roles[0];
+
 	$message =$thread_template->message->message;
 	
 	if(check_message_type($thread_template->message) === "order"){
@@ -619,13 +629,15 @@ function custom_bp_get_the_thread_message_content(){
 			$message = "<a href=\"".$on_link["order_link"]."\" > Order #".$on_link["order_number"]."</a>";
 
 			
-/*		if($role === "customer"){
-			// show purchases link
-		}
-		elseif( $role === "seller" || "administrator" ){
-			//show orders link
-		}*/
+
 	}
 
 	return  $message;
 }
+
+
+//add_filter('bp_email_get_template','custom_bp_email_get_template');
+function custom_bp_email_get_template( $object) {
+ 	$single = "templates/bd-template.php" ;
+}
+

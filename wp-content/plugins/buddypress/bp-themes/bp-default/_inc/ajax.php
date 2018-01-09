@@ -856,7 +856,10 @@ function bp_dtheme_ajax_messages_send_reply() {
 
 	$result = messages_new_message( array( 'thread_id' => (int) $_REQUEST['thread_id'], 'content' => $_REQUEST['content'] ) );
 
-	if ( $result ) { ?>
+	if ( $result ) { 
+
+
+		?>
 		<div class="message-box new-message">
 			<div class="message-metadata">
 				<?php do_action( 'bp_before_message_meta' ); ?>
