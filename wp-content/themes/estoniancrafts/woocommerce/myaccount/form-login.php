@@ -62,6 +62,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 
 ?>
 
+	
 <?php wc_print_notices(); ?>
 
 <?php do_action( 'woocommerce_before_customer_login_form' ); ?>
@@ -80,7 +81,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 
 		<form method="post" class="login">
 
-			<?php do_action( 'woocommerce_login_form_start' ); ?>
+		<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="username"><?php _e( 'Username or email address', 'woocommerce' ); ?> <span class="required">*</span></label>

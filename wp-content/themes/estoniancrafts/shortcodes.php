@@ -12,7 +12,7 @@ class EC_Shortcodes
 		add_shortcode('ec_institutions', array(__CLASS__, 'ec_institutions'));
 		add_shortcode( 'non_vc_frontpage', array(__CLASS__, 'frontpage_sliders'));
 		add_shortcode('user_has_idCard_extended', array(__CLASS__,'user_has_idcard_extended'));
-		
+		add_shortcode('redirect_to_user_home', array(__CLASS__,'redirect_to_user_home'));
 
 	}
 
@@ -53,6 +53,21 @@ class EC_Shortcodes
 		}
 		$html .= '</div>';
 		return $html;
+	}
+	
+	public static function redirect_to_user_home(){
+	
+	
+		$user = wp_get_current_user();
+
+		if(in_array('seller', $user->roles)){
+  			$_url =  get_site_url(null, 'my-account/dashboard/');
+  		}else{
+  			$_url = get_site_url(null, 'my-account/edit-account/');
+  		}
+
+		header("Location: ".$_url, true);
+	
 	}
 	
 	public static function user_has_idcard_extended(){

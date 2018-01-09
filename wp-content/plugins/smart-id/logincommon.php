@@ -18,6 +18,9 @@ if (!class_exists("LoginCommon")) {
 			
 			}
 			
+			
+			
+			
             if (strlen($identityCode) == 11) {
                 //Otsime üles sisselogitud inimese või tekitame, kui teda varem polnud
                 $user = LoginCommon::getUser($identityCode);
@@ -28,14 +31,12 @@ if (!class_exists("LoginCommon")) {
 										
                     $user_id = LoginCommon::createUser($userName, $firstName, $lastName, $email, $identityCode, $regHash);
                     $myaccount_page_url = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
-                   // $myaccount_page_url .= '?reghash='.$regHash;
+                    // $myaccount_page_url .= '?reghash='.$regHash;
                		// $myaccount_page_url .= '/edit-account';
                
-               
-               	    wp_set_auth_cookie($user_id);
-                 
-                 
-                    return bp_core_redirect( $myaccount_page_url );
+               		$this->redirect_url = redirect_to_user_appropriate_home();
+            		wp_set_auth_cookie($user_id);
+            		header("Location: ".$this->redirect_url);	
                 } else {
                     $user_id = $user->userid;
                 }
@@ -45,9 +46,11 @@ if (!class_exists("LoginCommon")) {
                 echo "$identityCode, $firstName, $lastName, $email";
                 die();
             }
-     	
+     		
+     		
+     		$this->redirect_url = redirect_to_user_appropriate_home();
             wp_set_auth_cookie($user_id);
-            
+            header("Location: ".$this->redirect_url);	
             
             
         }
