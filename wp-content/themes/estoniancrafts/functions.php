@@ -53,10 +53,11 @@ function ec_get_sidebar_name()
 
  function redirect_to_user_appropriate_home() {
 		return get_site_url(null, 'user-home-redirect');
-	}
+ }
 
-	add_filter('login_redirect','redirect_to_user_appropriate_home');
-	
+ add_filter('login_redirect','redirect_to_user_appropriate_home');
+
+
 /**
  * @return boolean
  */
