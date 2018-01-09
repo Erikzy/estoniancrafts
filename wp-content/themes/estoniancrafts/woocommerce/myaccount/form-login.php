@@ -80,6 +80,16 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 
 		<form method="post" class="login">
 
+<?php
+
+	$user = wp_get_current_user();
+	if($user->ID > 0){
+	
+		do_shortcode('redirect_to_user_home');
+	}
+
+?>
+
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
