@@ -59,13 +59,13 @@ class EC_Shortcodes
 	
 	
 		$user = wp_get_current_user();
+
 		if(in_array('seller', $user->roles)){
-		
   			$_url =  get_site_url(null, 'my-account/dashboard/');
   		}else{
   			$_url = get_site_url(null, 'my-account/edit-account/');
-  		
   		}
+
 		header("Location: ".$_url, true);
 	
 	}
