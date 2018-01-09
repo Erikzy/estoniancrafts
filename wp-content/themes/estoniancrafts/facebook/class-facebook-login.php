@@ -176,7 +176,7 @@ class FacebookLogin{
             // Create new user
             $this->createUser();
         }
-		$this->redirect_url = get_user_redirect_url();
+		$this->redirect_url = redirect_to_user_appropriate_home();
         // Redirect the user
 		echo $this->redirect_url;
         //header("Location: ".$this->redirect_url);
