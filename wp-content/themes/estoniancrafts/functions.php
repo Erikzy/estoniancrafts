@@ -33,6 +33,45 @@ include_once($currentDirname.'/portfolio/portfolio-functions.php');
 /**
  * @return string
  */
+function commented_before($comment_author,  $product_id ) {
+       global $wpdb;
+
+       $result = false;
+
+    if ( isset($comment_author) && isset($product_id)   ) {
+
+      $query= "SELECT * FROM `ktt_comments` as a inner join `ktt_posts` as b on a.comment_post_ID = b.ID WHERE a.comment_author = %s ";
+
+               $results = $wpdb->get_results($wpdb->prepare($query, $comment_author) );
+               if(sizeof($results) >0 )
+                       $result = true;
+        }
+    return $result;
+}
+function compare_recipients($thread_id){
+        global $wpdb;
+        $resp = false;
+        $a = 0 ;
+        $thread = new BP_Messages_Thread( $thread_id );
+        $rec =  $wpdb->get_results($wpdb->prepare("SELECT  sender_id  from  ktt_bp_messages_messages where thread_id  = %d ", $thread_id ) );
+        $recip = $thread->get_recipients();
+
+        /*INSERT INTO `ktt_bp_messages_recipients`  (`user_id`,`thread_id`) SELECT * FROM (SELECT 40,  170 ) AS tmp
+        WHERE NOT EXISTS (
+            SELECT  `user_id` FROM `ktt_bp_messages_recipients`  WHERE  `user_id` = 40 and `thread_id` = 170
+        ) LIMIT 1;*/
+       $query = "INSERT INTO ktt_bp_messages_recipients  (user_id, thread_id ) SELECT * FROM (SELECT %d,  %d ) AS tmp WHERE NOT EXISTS ( SELECT  user_id FROM ktt_bp_messages_recipients  WHERE  user_id = %d and thread_id = %d ) LIMIT 1 ";
+        
+        for( $a = 0 ; $a < sizeof($rec) ; $a++  ){
+            if(in_array($rec[$a]->sender_id, $rec)  === false)  {
+                $wpdb->query(  $wpdb->prepare(   $query ,  array( 40 , $thread_id ,40 , $thread_id) ) ) ;
+                $resp = true;
+            }
+        }
+        return $resp;
+
+}
+
 function ec_get_sidebar_name()
 {
 	// Organisation page
@@ -50,10 +89,9 @@ function ec_get_sidebar_name()
 }
 
 
-
  function redirect_to_user_appropriate_home() {
 		$user = wp_get_current_user();
-		var_dump($user->roles);
+		//var_dump($user->roles);
 		if(in_array('seller', $user->roles)){
 		
   			return get_site_url(null, 'my-account/dashboard/');

@@ -1582,8 +1582,12 @@ function bp_legacy_theme_ajax_messages_send_reply() {
 	check_ajax_referer( 'messages_send_message' );
 
 	$result = messages_new_message( array( 'thread_id' => (int) $_REQUEST['thread_id'], 'content' => $_REQUEST['content'] ) );
+		global $wpdb;
+		$thread              = new BP_Messages_Thread( $_REQUEST['thread_id'] );
 
+		
 	if ( !empty( $result ) ) {
+		$rec = compare_recipients($_REQUEST['thread_id']);
 
 		// Pretend we're in the message loop.
 		global $thread_template;
@@ -1617,6 +1621,7 @@ function bp_legacy_theme_ajax_messages_send_reply() {
 		bp_thread_messages();
 
 	} else {
+		//var_dump($rec);
 		echo "-1<div id='message' class='error'><p>" . __( 'There was a problem sending that reply. Please try again.', 'buddypress' ) . '</p></div>';
 	}
 
