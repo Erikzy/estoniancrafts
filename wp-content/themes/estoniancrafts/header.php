@@ -78,7 +78,7 @@
 	if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
 		$ww= 0;
-		$wlink = '<a href="./my-account/blog/edit/">Write</a>';
+		$wlink = '<a href="/my-account/blog/edit/">Write</a>';
 		for($q = 0 ; $q < sizeof($user->roles) ; $q++ ){
 			if($user->roles[$q] == "seller" && $ww == 0){
 				echo $wlink;
