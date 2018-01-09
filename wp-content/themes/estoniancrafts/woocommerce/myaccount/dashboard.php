@@ -29,7 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	
 		do_shortcode('redirect_to_user_home');
 	}
-
+	echo 'test';
+	
 ?>
 
 <p>
