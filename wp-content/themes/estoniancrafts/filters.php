@@ -410,7 +410,7 @@ function my_messages_message_sent($message) {
 
                 // Check if the user is found
                 if ($user) {
-                    wp_mail($user->data->user_email,$message->subject, $message->message,['ignore_bb' => true]);
+                    //wp_mail($user->data->user_email,$message->subject, $message->message,['ignore_bb' => true]);
                 }
             }
         }
@@ -597,10 +597,12 @@ function get_order_number_link($message){
 	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
 	if($role === "customer"){
 			// show purchases link
+		if(!empty($match))
 		 $link  = home_url()."/my-account/view-order/". $match[1];
 		}
 	elseif( $role === "seller" || "administrator" ){
 			//show orders link
+		if(!empty($match))
 			$link = home_url()."/dashboard/my-account/dashboard/orders/?order_id=". $match[1];
 		}
 
@@ -611,13 +613,16 @@ function get_order_number_link($message){
 	 	return false;	 
 }
 
+/** checks the message type ***/
 function check_message_type($message){
-
+	$p= null;
 	if( strpos($message->subject, "order")  !== false )
-		return "order";
+		$p = "order";
+
+	return $p;
 }
 
-// add_filter('bp_get_the_thread_message_content', 'custom_bp_get_the_thread_message_content' );
+add_filter('bp_get_the_thread_message_content', 'custom_bp_get_the_thread_message_content' );
 function custom_bp_get_the_thread_message_content(){
 	global $thread_template;
 
@@ -626,15 +631,18 @@ function custom_bp_get_the_thread_message_content(){
 	if(check_message_type($thread_template->message) === "order"){
 		$on_link = get_order_number_link($thread_template->message->message);
 		if($on_link !== false)
-			$message = "<a href=\"".$on_link["order_link"]."\" > Order #".$on_link["order_number"]."</a>";
-
-			
-
+			$message = "<a href=\"".$on_link["order_link"]."\" > Click here to view the order #".$on_link["order_number"]."</a>";
 	}
-
+	else
+		$message = strip_tags(trim($message));
+/*	var_dump($thread_template);
+	die();*/
 	return  $message;
 }
+/*add_filter('woocommerce_payment_successful_result','custom_woocommerce_payment_successful_result');
+function woocommerce_payment_successful_result($result, $order_id){
 
+}*/
 
 //add_filter('bp_email_get_template','custom_bp_email_get_template');
 function custom_bp_email_get_template( $object) {

@@ -58,7 +58,15 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 														<td valign="top">
 															<div id="body_content_inner">
 
-
+															<table cellspacing="0" cellpadding="0" border="0" width="100%">
+																  <tr>
+																		<td style="padding: 20px; font-family: sans-serif; mso-height-rule: exactly; line-height:'12px' ; color:#ffffff; font-size: '12px' );" class="body_text_color body_text_size">
+																			<span style="font-weight: bold; font-size:12px" class="welcome"> <?php bp_email_the_salutation( $settings ); ?> </span>
+																			<hr color="#fffffff"><br>
+																			
+																		</td>
+																  </tr>
+															</table>
 															$content
 
 
@@ -76,16 +84,16 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 							<tr>
 								<td align="center" valign="top">
 									<!-- Footer -->
-									<table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer">
+									<table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer" style="background-color:#ef7f27 " >
 										<tr>
 											<td valign="top">
 												<table border="0" cellpadding="10" cellspacing="0" width="100%">
 
 													<tr>
 														<td id="footer-cell"  style="padding: 0; -webkit-border-radius: 0px;border-radius : 0 !important;
-				display:block; background-color: '#ef7f27' " >
+				display:block; background-color: #ef7f27 " >
 															<div tyle="padding: 0; -webkit-border-radius: 0px;border-radius : 0 !important;
-				display:block; background-color: '#ef7f27' width:100%; height:100%" >
+				display:block; background-color: #ef7f27 width:100%; height:100%" >
 														<p id="footer_text_p" style='color:white;text-align:center;	font-family:"Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;'  > Käsitööturg </p>
 													</div>
 													</td>

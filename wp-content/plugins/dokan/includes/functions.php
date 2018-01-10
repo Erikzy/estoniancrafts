@@ -972,7 +972,7 @@ function dokan_get_store_info( $seller_id ) {
         'location'   => '',
         'banner'     => 0
     );
-
+   
     $info               = wp_parse_args( $info, $defaults );
     $info['store_name'] = empty( $info['store_name'] ) ? get_user_by( 'id', $seller_id )->display_name : $info['store_name'];
 

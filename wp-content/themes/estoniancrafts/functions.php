@@ -71,7 +71,11 @@ function compare_recipients($thread_id){
         return $resp;
 
 }
+/*function ec_get_buyer_seller( $order_id ){
+    global $wpdb;
 
+
+}*/
 function ec_get_sidebar_name()
 {
 	// Organisation page

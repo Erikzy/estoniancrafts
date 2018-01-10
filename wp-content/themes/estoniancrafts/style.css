@@ -678,6 +678,16 @@ div.wishlist-p > div.yith-wcwl-add-to-wishlist > div.yith-wcwl-add-button{
     left:30px;*/
 
 }
+/******** WISHLIST **************/
+.wishlist-h{
+    text-align:center;
+}
+.lf-m{
+    margin-left:5px;
+}
+.social-nav-container{
+    width:145px;
+}
 
 
 .team-mail, .team-title{

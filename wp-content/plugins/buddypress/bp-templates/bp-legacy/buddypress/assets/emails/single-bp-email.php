@@ -118,13 +118,36 @@ $settings = bp_email_get_appearance_settings();
 	</style>
 
 </head>
-<body class="email_bg" width="100%" height="100%" bgcolor="<?php echo esc_attr( $settings['email_bg'] ); ?>" style="Margin: 0;">
-<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
+<body <?php echo is_rtl() ? 'rightmargin' : 'leftmargin'; ?>="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+		<div id="wrapper" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'?>">
+			<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+				<tr>
+					<td align="center" valign="top">
+						<div id="template_header_image">
+							<?php
+								if ( $img = get_option( 'woocommerce_email_header_image' ) ) {
+									echo '<p style="margin-top:0;"><img src="' . esc_url( $img ) . '" alt="' . get_bloginfo( 'name', 'display' ) . '" /></p>';
+								}
+							?>
+
+						</div>
+
+						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
+										<tr>
+														<td colspan="2" valign="bottom" id="credit" style="	padding: 20px 48px 15px 48px; display: block; border-bottom: 2px solid #ef7f27 ;color: #1B1919 !important;" >
+
+															<img src="http://www.m8solutions.ee/images/kasitooturg_logo-1.png"  id="ec_logo" class="center-block">
+
+														</td>
+													</tr>
+							<tr>
+								<td align="center" valign="top">
+									<!-- Header -->
+									<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
 										<tr>
 											<td id="header_wrapper" >
-												<h1 id="h1main" style="	color: '#1B1919' ; font-family: "Aino-Regular", Helvetica Neue, Helvetica, Roboto, sans-serif;font-size: 30px;font-weight: 500;	line-height: 150%;margin: 0;	text-align:  left;  
-				text-shadow: 0 0px 0   esc_attr( $base_lighter_20 );  
-				-webkit-font-smoothing: antialiased;">   Message from EstonianCrafts </h1>
+
+												<h1 id="h1main"> Message from Estonian Crafts</h1>
 											</td>
 										</tr>
 									</table>
@@ -141,29 +164,17 @@ $settings = bp_email_get_appearance_settings();
 												<table border="0" cellpadding="20" cellspacing="0" width="100%">
 													<tr>
 														<td valign="top">
-																		<table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="100%" style="max-width: 600px; border-radius: 5px;" class="body_bg">
-
-														<!-- 1 Column Text : BEGIN -->
-														<tr>
-															<td>
+															<div id="body_content_inner">
 																<table cellspacing="0" cellpadding="0" border="0" width="100%">
 																  <tr>
 																		<td style="padding: 20px; font-family: sans-serif; mso-height-rule: exactly; line-height:'12px' ; color:#ffffff; font-size: '12px' );" class="body_text_color body_text_size">
-																			<span style="font-weight: bold; font-size:12px" class="welcome">bp_email_the_salutation( $settings ); </span>
+																			<span style="font-weight: bold; font-size:12px" class="welcome"> <?php bp_email_the_salutation( $settings ); ?> </span>
 																			<hr color="#fffffff"><br>
 																			{{{content}}}
 																		</td>
 																  </tr>
 																</table>
-															</td>
-														</tr>
-														<!-- 1 Column Text : BEGIN -->
-
-													</table>
-
-
-
-																														</div>
+															</div>
 														</td>
 													</tr>
 												</table>
@@ -175,23 +186,32 @@ $settings = bp_email_get_appearance_settings();
 								</td>
 							</tr>
 							<tr>
-								<td align="center" valign="top">
+								<td align="center" valign="top" style="background-color: #ef7f27" >
 									<!-- Footer -->
 									<table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer">
 										<tr>
 											<td valign="top">
 												<table border="0" cellpadding="10" cellspacing="0" width="100%">
+												<tbody><tr>
+												<td colspan="2" valign="bottom" id="m_837866153695539094sm" style="padding:0">
+																						                 <div  style="margin:auto;display:block">
 
-													<tr>
-														<td id="footer-cell"  style="padding: 0; -webkit-border-radius: 0px;border-radius : 0 !important;
-				display:block; background-color: '#ef7f27' " >
-															<div tyle="padding: 0; -webkit-border-radius: 0px;border-radius : 0 !important;
-				display:block; background-color: '#ef7f27' width:100%; height:100%" >
-														<p id="footer_text_p" style='color:white;text-align:center;	font-family:"Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;'  > Käsitööturg </p>
-													</div>
-													</td>
-													</tr>
-												</table>
+																								
+																									</div>
+																										
+
+																										</td>
+																									</tr>
+												<tr>
+												<td id="m_837866153695539094footer-cell" style="padding:0">
+																											<div id="footer_text_estonian_crafts" style="background-color:#ef7f27;height:100%;padding-top:2px">
+																										<p id=" footer_text_p" style="color:white;text-align:center;font-family:'Helvetica Neue',Helvetica,Roboto,Arial,sans-serif">
+																														Käsitööturg</p>
+
+																									</div>
+																									</td>
+																									</tr>
+												</tbody></table>
 											</td>
 										</tr>
 									</table>
@@ -202,6 +222,6 @@ $settings = bp_email_get_appearance_settings();
 					</td>
 				</tr>
 			</table>
-<?php if ( function_exists( 'is_customize_preview' ) && is_customize_preview() ) wp_footer(); ?>
-</body>
+		</div>
+	</body>
 </html>

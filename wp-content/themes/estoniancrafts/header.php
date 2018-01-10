@@ -161,4 +161,8 @@
 	<div class="clear"></div>
 	
 	<?php  basel_page_top_part(); ?>
+	<?php
+/*		$user = wp_get_current_user();
+		var_dump($user);*/
+	?>
 <?php endif ?>

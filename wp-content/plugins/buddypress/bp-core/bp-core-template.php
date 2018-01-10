@@ -1017,10 +1017,10 @@ function bp_create_excerpt( $text, $length = 225, $options = array() ) {
 			$is_word_boundary = ' ' === $truncate[ $pos ];
 			if ( ! $is_word_boundary && isset( $truncate_tags[ $pos - 1 ] ) ) {
 				$preceding_tag    = $truncate_tags[ $pos - 1 ];
-				if ( ' ' === $truncate[ $preceding_tag['start'] - 1 ] ) {
+/*				if ( ' ' === $truncate[ $preceding_tag['start'] - 1 ] ) {
 					$is_word_boundary = true;
 					break;
-				}
+				}*/
 			}
 
 			if ( ! $is_word_boundary ) {
