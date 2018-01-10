@@ -905,14 +905,15 @@ class WC_Product {
 
 				} else {
 
-					$price = $price * $qty;
+					$price = (double)$price * (int)$qty;
 
 				}
 
 			}
 
 		} else {
-			$price = $price * $qty;
+			
+			$price = (double)$price * (int)$qty;
 		}
 
 		return apply_filters( 'woocommerce_get_price_including_tax', $price, $qty, $this );
