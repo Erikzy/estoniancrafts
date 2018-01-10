@@ -621,6 +621,14 @@ function check_message_type($message){
 
 	return $p;
 }
+function getContentBetween($content,$start,$end){
+    $w = explode($start, $content);
+    if (isset($w[1])){
+        $w = explode($end, $w[1]);
+        return $w[0];
+    }
+    return $content;
+}
 
 add_filter('bp_get_the_thread_message_content', 'custom_bp_get_the_thread_message_content' );
 function custom_bp_get_the_thread_message_content(){
@@ -633,10 +641,9 @@ function custom_bp_get_the_thread_message_content(){
 		if($on_link !== false)
 			$message = "<a href=\"".$on_link["order_link"]."\" > Click here to view the order #".$on_link["order_number"]."</a>";
 	}
-	else
-		$message = strip_tags(trim($message));
-/*	var_dump($thread_template);
-	die();*/
+	else{ 
+		$message = strip_tags(getBetween(trim($message), "<div id=\"body_content_inner\">", "</div>") );
+	}
 	return  $message;
 }
 /*add_filter('woocommerce_payment_successful_result','custom_woocommerce_payment_successful_result');
