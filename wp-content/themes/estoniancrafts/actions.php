@@ -535,3 +535,28 @@ function check_idcard_user_register($user_id) {
 
     return true;
 }
+//in progress
+//add_action('woocommerce_order_status_completed', 'bd_woocommerce_order_status_completed');
+function bd_woocommerce_order_status_completed($id){
+		// validate if seller
+		global $wpdb;
+		$current_user_id = get_current_user_id();  // the buyer
+		$query = "SELECT message_id FROM  ktt_bp_messages_meta where meta_key = %d AND meta_value = %s";
+		$open_thread_id = $wpdb->get_results($wpdb->prepare($query, array( "order_conversation_post_order_id" , $id ) )); 
+		$message_id = $open_thread_id[0]->message_id;
+	 	//this is the new thread that was just added
+		$query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
+		$thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
+		$thread_id = $thread_id[0]->thread_id;
+		//retrieve the data from the old record
+		$data = bp_messages_get_meta($message_id, "order_conversation");
+		$data = json_decode($data,true);
+		// we need to add the seller to the conversation
+		//$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $data["seller_id"] ,  $thread_id ) ) );
+		// we add metadata
+        $meta_value = json_encode( array("order_id"=>$id, "thread_id"=>$thread_id ,  "seller_id" => $data["seller_id"] , "buyer_id" => $data["buyer_id"] ) );
+       
+		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s")  );
+		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation_post_order_id", "meta_value" => $id ) , array( "%s")  );
+
+}
