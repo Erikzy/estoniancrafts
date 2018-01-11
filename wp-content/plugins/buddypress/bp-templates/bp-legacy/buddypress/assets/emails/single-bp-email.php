@@ -192,16 +192,7 @@ $settings = bp_email_get_appearance_settings();
 										<tr>
 											<td valign="top">
 												<table border="0" cellpadding="10" cellspacing="0" width="100%">
-												<tbody><tr>
-												<td colspan="2" valign="bottom" id="m_837866153695539094sm" style="padding:0">
-																						                 <div  style="margin:auto;display:block">
-
-																								
-																									</div>
-																										
-
-																										</td>
-																									</tr>
+												<tbody>
 												<tr>
 												<td id="m_837866153695539094footer-cell" style="padding:0">
 																											<div id="footer_text_estonian_crafts" style="background-color:#ef7f27;height:100%;padding-top:2px">

@@ -52,10 +52,10 @@ function compare_recipients($thread_id){
         global $wpdb;
         $resp = false;
         $a = 0 ;
-        $thread = new BP_Messages_Thread( $thread_id );
+       // $thread = new BP_Messages_Thread( $thread_id );
         $rec =  $wpdb->get_results($wpdb->prepare("SELECT  sender_id  from  ktt_bp_messages_messages where thread_id  = %d ", $thread_id ) );
-        $recip = $thread->get_recipients();
-
+       // $recip = $thread->get_recipients();
+        $userid = get_current_user_id();
         /*INSERT INTO `ktt_bp_messages_recipients`  (`user_id`,`thread_id`) SELECT * FROM (SELECT 40,  170 ) AS tmp
         WHERE NOT EXISTS (
             SELECT  `user_id` FROM `ktt_bp_messages_recipients`  WHERE  `user_id` = 40 and `thread_id` = 170
@@ -64,18 +64,14 @@ function compare_recipients($thread_id){
         
         for( $a = 0 ; $a < sizeof($rec) ; $a++  ){
             if(in_array($rec[$a]->sender_id, $rec)  === false)  {
-                $wpdb->query(  $wpdb->prepare(   $query ,  array( 40 , $thread_id ,40 , $thread_id) ) ) ;
+                $wpdb->query(  $wpdb->prepare(   $query ,  array( $rec[$a]->sender_id, $thread_id ,$rec[$a]->sender_id , $thread_id) ) ) ;
                 $resp = true;
             }
         }
         return $resp;
 
 }
-/*function ec_get_buyer_seller( $order_id ){
-    global $wpdb;
 
-
-}*/
 function ec_get_sidebar_name()
 {
 	// Organisation page

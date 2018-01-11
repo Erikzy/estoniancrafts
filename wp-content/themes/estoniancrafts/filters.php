@@ -592,9 +592,15 @@ function wpse74422_switch_tab($tab)
     return 'type';
 }
 function get_order_number_link($message){
+	global $wpdb;
 	$user = wp_get_current_user();
-	$role =$user->roles[0];
 	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
+	$q = "SELECT  COUNT(*) as count FROM  ktt_posts WHERE ID = %d and post_author = %d";
+	$pa = $wpdb->get_results($wpdb->prepare($q , array($match[1] , get_current_user_id() ) ) );
+	$role = (int)$pa[0]->count ===  0  ? "customer" : "seller";
+	$nonce = wp_create_nonce('delete_my_rec');
+	 //var_dump($pa);
+	$role = $user->roles[0];
 	if($role === "customer"){
 			// show purchases link
 		if(!empty($match))
@@ -602,8 +608,9 @@ function get_order_number_link($message){
 		}
 	elseif( $role === "seller" || "administrator" ){
 			//show orders link
-		if(!empty($match))
-			$link = home_url()."/dashboard/my-account/dashboard/orders/?order_id=". $match[1];
+		if(!empty($match)){
+			$link  = wp_nonce_url( add_query_arg( array( 'order_id' => $match[1] ), dokan_get_navigation_url( 'orders' ) ) );
+			}
 		}
 
 	 if( !empty($match) ){
@@ -616,8 +623,19 @@ function get_order_number_link($message){
 /** checks the message type ***/
 function check_message_type($message){
 	$p= null;
-	if( strpos($message->subject, "order")  !== false )
-		$p = "order";
+	$od = null;
+	global $wpdb;
+	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
+	if(sizeof($match) > 1 )
+		$od =$match[1];
+	if(preg_match("/[0-9]/", $od)) { 
+		$query = "SELECT  post_type FROM ktt_posts WHERE id = %d ";
+		$res = $wpdb->get_results($wpdb->prepare( $query , array($od) )  );
+		if(!empty($res)) {
+			if( $res[0]->post_type  ===  "shop_order" )
+				$p = "order";
+			}
+	 }
 
 	return $p;
 }
@@ -636,13 +654,13 @@ function custom_bp_get_the_thread_message_content(){
 
 	$message =$thread_template->message->message;
 	
-	if(check_message_type($thread_template->message) === "order"){
+	if(check_message_type($thread_template->message->message) === "order"){
 		$on_link = get_order_number_link($thread_template->message->message);
 		if($on_link !== false)
 			$message = "<a href=\"".$on_link["order_link"]."\" > Click here to view the order #".$on_link["order_number"]."</a>";
 	}
 	else{ 
-		$message = strip_tags(getBetween(trim($message), "<div id=\"body_content_inner\">", "</div>") );
+		$message = strip_tags(getContentBetween(trim($message), "<div id=\"body_content_inner\">", "</div>") );
 	}
 	return  $message;
 }
@@ -655,4 +673,26 @@ function woocommerce_payment_successful_result($result, $order_id){
 function custom_bp_email_get_template( $object) {
  	$single = "templates/bd-template.php" ;
 }
-
+add_filter('woocommerce_payment_successful_result', 'bd_woocommerce_payment_successful_result');
+function bd_woocommerce_payment_successful_result($r, $order_id){
+	global $wpdb;
+	if($r["result"] === "success"){
+		$oid = getContentBetween($r["redirect"],"order-received/","?key");
+		$current_user_id = get_current_user_id();  // the buyer
+		$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
+		$seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
+		$seller_id = $seller_id[0]->seller_id;
+		$query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
+		$thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
+		$thread_id = $thread_id[0]->thread_id;
+		// we need to add the seller to the conversation
+		$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id ,  $thread_id ) ) );
+		// we add metadata
+        $meta_value = json_encode( array("order_id"=>$oid, "thread_id"=>$thread_id ,  "seller_id" => $seller_id , "buyer_id" => $current_user_id ) );
+        var_dump($meta_value) ;
+		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s", "%s")  );
+		
+		// $wpdb->get_results($wpdb->prepare("select sender_id from ktt_bp_messages_messages where limit 1 desc") );
+	}
+	
+}
