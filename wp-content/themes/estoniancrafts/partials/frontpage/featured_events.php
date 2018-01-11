@@ -1,13 +1,20 @@
 <?php 
 
 $eventQuery = new WP_Query($args);
+
+         var_dump($eventQuery ) ;
+         echo "<br><br>";
+        //  die();
 if($eventQuery->have_posts()): 
+
 ?> 
 
 <div class="row marginTop"  >
     <div class="col-md-12">
         <div class="event-owl-carousel owl-carousel" owl-init="0" >
-        <?php  while($eventQuery->have_posts()):$eventQuery->the_post(); ?>
+        <?php  while($eventQuery->have_posts()):
+
+        $eventQuery->the_post();  ?>
             <div class="item" style="width:380px;">
             	<a href="<?php echo the_permalink() ?>">
                  <div class='owl-carousel-event-thumb'>
