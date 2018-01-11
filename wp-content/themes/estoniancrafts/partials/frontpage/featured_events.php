@@ -2,9 +2,6 @@
 
 $eventQuery = new WP_Query($args);
 
-         var_dump($eventQuery ) ;
-         echo "<br><br>";
-        //  die();
 if($eventQuery->have_posts()): 
 
 ?> 
