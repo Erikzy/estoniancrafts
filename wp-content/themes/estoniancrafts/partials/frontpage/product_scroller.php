@@ -44,7 +44,7 @@ if($productQuery->have_posts()):
                                     echo '<span style="color:#fc693d">'.$product->get_sale_price().'€</span>';
                                   } 
                                   elseif( method_exists($product, 'get_variation_regular_price') && ( trim($product->get_variation_sale_price('min',true)) !== '' || trim($product->get_variation_sale_price('min',true)) !== '')  ) {
-                                    echo '<span style="margin-left:-13px" >'.$product->get_variation_sale_price('min',true).'-'.$product->get_variation_sale_price('max',true).'€</span>';
+                                    echo '<span  >'.$product->get_variation_sale_price('min',true).'-'.$product->get_variation_sale_price('max',true).'€</span>';
                                   }
 
                                   else {
@@ -59,9 +59,7 @@ if($productQuery->have_posts()):
             </div>
 </div>      
 <?php 
-/*$testp =wc_get_product( 1780 );
 
-  var_dump($testp);*/
  ?> 
 <?php  endif; wp_reset_query(); wp_reset_postdata(); ?>	
 <script>
