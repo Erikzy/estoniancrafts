@@ -689,10 +689,12 @@ function bd_woocommerce_payment_successful_result($r, $order_id){
 		$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id ,  $thread_id ) ) );
 		// we add metadata
         $meta_value = json_encode( array("order_id"=>$oid, "thread_id"=>$thread_id ,  "seller_id" => $seller_id , "buyer_id" => $current_user_id ) );
-        var_dump($meta_value) ;
+       
 		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s", "%s")  );
 		
 		// $wpdb->get_results($wpdb->prepare("select sender_id from ktt_bp_messages_messages where limit 1 desc") );
 	}
+
+	return $r;
 	
 }
