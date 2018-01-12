@@ -560,3 +560,5 @@ function bd_woocommerce_order_status_completed($id){
 		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation_post_order_id", "meta_value" => $id ) , array( "%s")  );
 
 }
+
+

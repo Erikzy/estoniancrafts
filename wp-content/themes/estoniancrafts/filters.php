@@ -309,7 +309,7 @@ function ec_order_review_expected_delivery($product)
 }
 
 // Insert the email content to user's buddypress inbox
-add_filter( 'wp_mail', 'my_mail');
+//add_filter( 'wp_mail', 'my_mail');
 
 function my_mail($data){
 
@@ -343,6 +343,7 @@ function my_mail($data){
             }
 
             // Add an recipient entry for all recipients.
+    /*        $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 )", $recipient_id, $thread_id ) );*/
             $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 )", $recipient_id, $thread_id ) );
         }
     }
@@ -606,7 +607,7 @@ function get_order_number_link($message, $order_number){
 			       
 			       $link  = home_url()."/my-account/view-order/". $order_number ;
 			      }
-			    elseif( $role === "seller" || "administrator" ){
+			    elseif( $role === "seller" ){
 			        //show orders link
 			       
 			        $link  = wp_nonce_url( add_query_arg( array( 'order_id' => $order_number  ), dokan_get_navigation_url( 'orders' ) ) );
@@ -631,7 +632,7 @@ function check_message_type($order_number){
 	$res = $wpdb->get_results($wpdb->prepare( $query , array($od) )  );
 	if(!empty($res)) {
 		if( $res[0]->post_type  ===  "shop_order" )
-			$p = "order";
+			$p = $res[0]->post_type;
 	}
 
 	return $p;
@@ -658,8 +659,8 @@ function custom_bp_get_the_thread_message_content(){
 	$thread_id = $thread_template->message->thread_id;
 	$order_number = get_order_from_messages_data($thread_id);
 	$message =$thread_template->message->message;
-	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
-	if(check_message_type($order_number) === "order"){
+	//preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
+	if(check_message_type($order_number) === "shop_order"){
 		$on_link = get_order_number_link($thread_template->message->message, $order_number );
 		if($on_link !== false)
 			$message = "<a href=\"".$on_link["order_link"]."\" > Click here to view the order #".$on_link["order_number"]."</a>";

@@ -9,7 +9,12 @@
     height: auto;
 }
 .view_cert_link{
-    display:block; cursor:pointer;
+    display:inline-block; 
+    cursor:pointer;
+    margin-left:4px;
+}
+a.links-attributes:hover,a.links-attributes:active, a.links-attributes:visited{
+    color:#4C4C4C;
 }
 .view_cert_link-hide {
     display:none !important;
