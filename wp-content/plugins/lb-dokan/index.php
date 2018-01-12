@@ -340,9 +340,7 @@ class lbDokan{
         }  
         else
         {
-            jQuery("#_material_name\\[\\]").val("");
-            jQuery("#_material_contents\\[\\]").val("");
-            jQuery("#_material_desc\\[\\]").val("");
+            jQuery(".used-material-container  .dokan-form-control").val("");
             jQuery(".selects-wrapper > select option[value=''] ").attr("selected",true);
              //jQuery('.selects-wrapperselect option:contains("it\'s me")').prop('selected',true);
         }
