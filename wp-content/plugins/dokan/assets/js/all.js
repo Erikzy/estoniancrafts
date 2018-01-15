@@ -629,6 +629,14 @@ jQuery(function($) {
             }else{
                 $( 'div.dokan-product-title-alert' ).hide();
             }
+            if(  parseFloat($('#_regular_price').val() )  <= 0 || $('#_regular_price').val().trim()   ==  ''   ){
+                $( '#_regular_price' ).focus();
+                $( 'div.dokan-product-title-alert' ).removeClass('dokan-hide');
+                return;
+            }
+            else{
+                $( 'div.dokan-product-cat-alert' ).hide();
+            }
 
             if ( $( 'select.product_cat' ).val() == -1 ) {
                 $( 'select.product_cat' ).focus();

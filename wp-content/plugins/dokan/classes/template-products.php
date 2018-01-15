@@ -125,6 +125,7 @@ class Dokan_Template_Products {
             $sku                     = isset( $_POST['_sku'] ) ? trim( $_POST['_sku'] ) : '';
             $is_lot_discount         = isset( $_POST['_is_lot_discount'] ) ? $_POST['_is_lot_discount'] : 'no';
 
+
             if ( empty( $post_title ) ) {
                 $errors[] = __( 'Please enter product title', 'dokan' );
             }
@@ -169,6 +170,8 @@ class Dokan_Template_Products {
             {
                 $errors[] = __('Short description is too long', 'ktt');
             }
+           
+      
 
             if( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ) {
                 $product_cat    = intval( $_POST['product_cat'] );
@@ -190,6 +193,18 @@ class Dokan_Template_Products {
                     AND $wpdb->postmeta.meta_key = '_sku' AND $wpdb->postmeta.meta_value = '%s'
                  ", $sku ) );
             
+            if($_POST["_create_variation"] == "yes"){
+                 if(isset($_POST['variable_regular_price'])){
+                    for($a = 0 ; $a < sizeof($_POST['variable_regular_price'] ) ; $a++ ){
+                        if($_POST['variable_regular_price'][$a] == 0 )
+                            $errors[] = __( 'Please select add a price', 'dokan' );
+                    }
+                 }
+            }
+            if($price <= 0 ){
+                if(   $_POST["_create_variation"] == "no"  )
+                 $errors[] = __( 'Please add a price', 'dokan' );
+            }
 
             if ( isset( $_POST['dokan_product_id'] ) && empty( $_POST['dokan_product_id'] ) ) {
                
@@ -206,6 +221,8 @@ class Dokan_Template_Products {
                 
                 self::$errors = apply_filters( 'dokan_can_edit_product', $errors );
             }
+
+       
 
             if ( !self::$errors ) {
                 
@@ -450,7 +467,7 @@ class Dokan_Template_Products {
             $post_title     = trim( $_POST['post_title'] );
             $post_content   = trim( $_POST['post_content'] );
             $post_excerpt   = trim( $_POST['post_excerpt'] );
-            $price          = floatval( $_POST['price'] );
+            $price          = floatval( $_POST['_regular_price'] );
             $featured_image = absint( $_POST['feat_image_id'] );
 
             if ( empty( $post_title ) ) {
@@ -467,6 +484,9 @@ class Dokan_Template_Products {
                 if( !isset( $_POST['product_cat'] ) && empty( $_POST['product_cat'] ) ) {
                     $errors[] = __( 'Please select AT LEAST ONE category', 'dokan' );
                 }
+            }
+            if($price <= 0){
+                $errors[] = __( 'Please add a price', 'dokan' );
             }
 
             self::$errors = apply_filters( 'dokan_can_add_product', $errors );

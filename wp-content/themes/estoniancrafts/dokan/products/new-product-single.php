@@ -214,11 +214,12 @@ if ( ! $from_shortcode ) {
 
 										<?php // Regular price ?>
                                         <div class="content-half-part regular-price mrp  f-top">
-                                            <label for="_regular_price" class="form-label desc-pro"><?php _e( 'Price', 'dokan' ); ?></label>
+
+                                            <label for="_regular_price" class="form-label desc-pro"><?php _e( 'Price', 'dokan' ); ?><span class="required-m">*</span></label>
 
                                             <div class="dokan-input-group">
                                                 <span class="dokan-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                                <?php dokan_post_input_box( $post_id, '_regular_price', array( 'placeholder' => __( '0.00', 'dokan' ) ), 'number' ); ?>
+                                                <?php dokan_post_input_box( $post_id, '_regular_price', array( 'placeholder' => __( '0.00', 'dokan' ), "class"=> "dokan-w3 dokan-control-label", "id"=> "_product_price"  ), 'number' ); ?>
                                             </div>
                                         </div>
 
@@ -808,7 +809,7 @@ if ( ! $from_shortcode ) {
                  ev.preventDefault();
                   alert('Remember to upload a cover image!');
             }
-            let el = [jQuery("#post_title"),jQuery("#product_cat")];
+            let el = [jQuery("#post_title"),jQuery("#product_cat"), jQuery("#_regular_price")];
             errDisp(el , [{},{}]);
                           
     }
@@ -822,7 +823,7 @@ if ( ! $from_shortcode ) {
                     }
                 }
                 if(elements[e].is("input")){
-                    if(jQuery.trim(elements[e].val())===""){
+                    if(jQuery.trim(elements[e].val())==="" || elements[e].val() =="0" ){
                            errors.push(elements[e]);
                     }
                 }
@@ -904,7 +905,7 @@ if ( ! $from_shortcode ) {
         showButton();
         jQuery("#feat_image_url").val(jQuery("#fet-im-a > img").attr("src"));
        //  updatePatentBox();
-       validateVariation();
+      // validateVariation();
 
     } );
 
@@ -930,7 +931,7 @@ if ( ! $from_shortcode ) {
                     for( var o in j){
                         jQuery(convertValue(j[o].name)).val(j[o].value);
                     }
-                    console.log("-----done------")
+                    
 
         }
 
@@ -958,7 +959,6 @@ if ( ! $from_shortcode ) {
             else{
                        jQuery("#_create_variation").removeAttr("disabled");
                 jQuery("#variation-message").html('Create variation using those attribute options'); 
-                 console.log("validated");
             }
         }
 
