@@ -680,7 +680,7 @@ add_filter('woocommerce_payment_successful_result', 'bd_woocommerce_payment_succ
 function bd_woocommerce_payment_successful_result($r = array() , $order_id = null ){
 	global $wpdb;
 	
-		if( !empty($r) && $order_id > 0){ 
+		if( !empty($r)){ 
 			$oid = getContentBetween($r["redirect"],"order-received/","?key");
 			$current_user_id = get_current_user_id();  // the buyer
 			$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
@@ -706,7 +706,7 @@ function bd_woocommerce_payment_successful_result($r = array() , $order_id = nul
 
 remove_filter( 'wp_mail', 'my_mail');
 add_filter('wp_mail', 'my_custom_mail');
-function my_custom_mail($data){
+function my_custom_mail($data = array() ){
 
     // Lets not get into loop
     if (isset($data['headers']['ignore_bb'])) {
