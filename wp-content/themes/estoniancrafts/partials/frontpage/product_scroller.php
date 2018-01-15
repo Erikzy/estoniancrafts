@@ -9,6 +9,9 @@ if($productQuery->have_posts()):
                 <div class="owl-carousel product-owl-carousel" style="width:auto;">
                 <?php  while($productQuery->have_posts()):$productQuery->the_post(); ?>
                    <?php $product = wc_get_product( $productQuery->post->ID);?>
+                   <?php 
+
+                   ?>
                     <div class="item fixStyles" style="float:left;width:222px;padding:15px;">
                     	<a href="<?php echo the_permalink() ?>">
                       
@@ -34,12 +37,20 @@ if($productQuery->have_posts()):
                               echo substr($title,0,50).'..';
                             } ?></div>
                         <div class="product-price">
-                        	<?php if ( $product->get_sale_price()) {
-                                    echo '<span style="text-decoration: line-through;">'.$product->get_price().'€</span> /';
+                        	<?php 
+
+                                  if ( $product->get_sale_price()) {
+                                    echo '<span style="text-decoration: line-through;">'.$product->get_price().' €</span> /';
                                     echo '<span style="color:#fc693d">'.$product->get_sale_price().'€</span>';
-                                  } else {
-                    	            echo '<span >'.$product->get_regular_price().'€</span>';
-            	 	              }
+                                  } 
+                                  elseif( method_exists($product, 'get_variation_regular_price') && ( trim($product->get_variation_sale_price('min',true)) !== '' || trim($product->get_variation_sale_price('min',true)) !== '')  ) {
+                                    echo '<span  >'.$product->get_variation_sale_price('min',true).'-'.$product->get_variation_sale_price('max',true).'€</span>';
+                                  }
+
+                                  else {
+                    	              echo '<span >'.$product->get_regular_price().'€</span>';
+            	 	                  }
+
                             ?>
                         </div>
                     </div>
@@ -47,7 +58,9 @@ if($productQuery->have_posts()):
                 </div>
             </div>
 </div>      
+<?php 
 
+ ?> 
 <?php  endif; wp_reset_query(); wp_reset_postdata(); ?>	
 <script>
 

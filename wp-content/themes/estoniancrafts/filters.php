@@ -343,6 +343,7 @@ function my_mail($data){
             }
 
             // Add an recipient entry for all recipients.
+    /*        $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 )", $recipient_id, $thread_id ) );*/
             $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 )", $recipient_id, $thread_id ) );
         }
     }
@@ -591,51 +592,48 @@ function wpse74422_switch_tab($tab)
 {
     return 'type';
 }
-function get_order_number_link($message){
+function get_order_number_link($message, $order_number){
 	global $wpdb;
 	$user = wp_get_current_user();
 	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
-	$q = "SELECT  COUNT(*) as count FROM  ktt_posts WHERE ID = %d and post_author = %d";
-	$pa = $wpdb->get_results($wpdb->prepare($q , array($match[1] , get_current_user_id() ) ) );
-	$role = (int)$pa[0]->count ===  0  ? "customer" : "seller";
-	$nonce = wp_create_nonce('delete_my_rec');
-	 //var_dump($pa);
-	$role = $user->roles[0];
-	if($role === "customer"){
-			// show purchases link
-		if(!empty($match))
-		 $link  = home_url()."/my-account/view-order/". $match[1];
-		}
-	elseif( $role === "seller" || "administrator" ){
-			//show orders link
-		if(!empty($match)){
-			$link  = wp_nonce_url( add_query_arg( array( 'order_id' => $match[1] ), dokan_get_navigation_url( 'orders' ) ) );
-			}
-		}
 
-	 if( !empty($match) ){
-	 	return array("order_number"=>$match[1], "order_link"=> $link );
+	if( !empty($match) ){
+			$q = "SELECT  COUNT(*) as count FROM  ktt_posts WHERE ID = %d and post_author = %d";
+			$pa = $wpdb->get_results($wpdb->prepare($q , $order_number , get_current_user_id() ) ) ;
+		    $role = (int)$pa[0]->count ===  0  ? "customer" : "seller";
+		    if(!empty($pa)) {
+			    if($role === "customer"){
+			        // show purchases link
+			       
+			       $link  = home_url()."/my-account/view-order/". $order_number ;
+			      }
+			    elseif( $role === "seller" ){
+			        //show orders link
+			       
+			        $link  = wp_nonce_url( add_query_arg( array( 'order_id' => $order_number  ), dokan_get_navigation_url( 'orders' ) ) );
+			         
+			      }
+			      return array("order_number"=>$order_number , "order_link"=> $link );
+		      }
+		      else
+		      	return false;
 	 }
 	 else
 	 	return false;	 
 }
 
 /** checks the message type ***/
-function check_message_type($message){
+function check_message_type($order_number){
 	$p= null;
-	$od = null;
+	$od = $order_number;
 	global $wpdb;
-	preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
-	if(sizeof($match) > 1 )
-		$od =$match[1];
-	if(preg_match("/[0-9]/", $od)) { 
-		$query = "SELECT  post_type FROM ktt_posts WHERE id = %d ";
-		$res = $wpdb->get_results($wpdb->prepare( $query , array($od) )  );
-		if(!empty($res)) {
-			if( $res[0]->post_type  ===  "shop_order" )
-				$p = "order";
-			}
-	 }
+
+	$query = "SELECT  post_type FROM ktt_posts WHERE id = %d ";
+	$res = $wpdb->get_results($wpdb->prepare( $query , array($od) )  );
+	if(!empty($res)) {
+		if( $res[0]->post_type  ===  "shop_order" )
+			$p = $res[0]->post_type;
+	}
 
 	return $p;
 }
@@ -647,15 +645,23 @@ function getContentBetween($content,$start,$end){
     }
     return $content;
 }
+/**** gets the order number from buddypress messages meta ****/
+function get_order_from_messages_data($message_id) {
+	 $data = bp_messages_get_meta($message_id, "order_conversation");
+	 $d = json_decode($data,true);
+	 return $d["order_id"];
+}
+
 
 add_filter('bp_get_the_thread_message_content', 'custom_bp_get_the_thread_message_content' );
 function custom_bp_get_the_thread_message_content(){
 	global $thread_template;
-
+	$thread_id = $thread_template->message->thread_id;
+	$order_number = get_order_from_messages_data($thread_id);
 	$message =$thread_template->message->message;
-	
-	if(check_message_type($thread_template->message->message) === "order"){
-		$on_link = get_order_number_link($thread_template->message->message);
+	//preg_match('/>Order #(.*?)<\/h2>/', $message, $match);
+	if(check_message_type($order_number) === "shop_order"){
+		$on_link = get_order_number_link($thread_template->message->message, $order_number );
 		if($on_link !== false)
 			$message = "<a href=\"".$on_link["order_link"]."\" > Click here to view the order #".$on_link["order_number"]."</a>";
 	}
@@ -664,37 +670,78 @@ function custom_bp_get_the_thread_message_content(){
 	}
 	return  $message;
 }
-/*add_filter('woocommerce_payment_successful_result','custom_woocommerce_payment_successful_result');
-function woocommerce_payment_successful_result($result, $order_id){
 
-}*/
-
-//add_filter('bp_email_get_template','custom_bp_email_get_template');
 function custom_bp_email_get_template( $object) {
  	$single = "templates/bd-template.php" ;
 }
 add_filter('woocommerce_payment_successful_result', 'bd_woocommerce_payment_successful_result');
-function bd_woocommerce_payment_successful_result($r, $order_id){
+
+
+function bd_woocommerce_payment_successful_result($r = array() , $order_id = null ){
 	global $wpdb;
-	if($r["result"] === "success"){
-		$oid = getContentBetween($r["redirect"],"order-received/","?key");
-		$current_user_id = get_current_user_id();  // the buyer
-		$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
-		$seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
-		$seller_id = $seller_id[0]->seller_id;
-		$query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
-		$thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
-		$thread_id = $thread_id[0]->thread_id;
-		// we need to add the seller to the conversation
-		$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id ,  $thread_id ) ) );
-		// we add metadata
-        $meta_value = json_encode( array("order_id"=>$oid, "thread_id"=>$thread_id ,  "seller_id" => $seller_id , "buyer_id" => $current_user_id ) );
-       
-		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s", "%s")  );
-		
-		// $wpdb->get_results($wpdb->prepare("select sender_id from ktt_bp_messages_messages where limit 1 desc") );
-	}
+	
+		if( !empty($r)){ 
+			$oid = getContentBetween($r["redirect"],"order-received/","?key");
+			$current_user_id = get_current_user_id();  // the buyer
+			$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
+			$seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
+			$seller_id = $seller_id[0]->seller_id;
+			$query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
+			$thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
+			$thread_id = $thread_id[0]->thread_id;
+			// we need to add the seller to the conversation
+			$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id,  $thread_id ) ) );
+			//$wpdb->query( $wpdb->prepare ( "UPDATE ktt_bp_messages_messages set  sender_id = %d WHERE thread_id = %d " , array( $seller_id , $thread_id) ) );
+			// we add metadata
+	        $meta_value = json_encode( array("order_id"=>$oid,  "seller_id" => $seller_id , "buyer_id" => $current_user_id, "email_completed"=> 0 , "email_on_hold" =>1 ) );
+	        //$meta_value = json_encode( array("order_id"=>$oid, "thread_id"=>$thread_id ,  "seller_id" => $seller_id , "buyer_id" => $current_user_id ) );
+	       
+			$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s", "%s")  );
+			$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation_post_order_id", "meta_value" => $oid ) , array( "%s")  );
+		}
 
 	return $r;
 	
+}
+
+remove_filter( 'wp_mail', 'my_mail');
+add_filter('wp_mail', 'my_custom_mail');
+function my_custom_mail($data = array() ){
+
+    // Lets not get into loop
+    if (isset($data['headers']['ignore_bb'])) {
+        return $data;
+    }
+
+    if (isset($data['to']) && !empty($data['to']) && is_string($data['to'])) {
+
+        $user = get_user_by( 'email', $data['to'] );
+        if ($user) {
+            global $wpdb;
+            $bp = buddypress();
+
+            // Get new thread ID
+            $thread_id = (int) $wpdb->get_var( "SELECT MAX(thread_id) FROM {$bp->messages->table_name_messages}" ) + 1;
+
+            // If we have a logged inuser then use it
+            $sender_id = bp_loggedin_user_id() ? bp_loggedin_user_id() : 1;
+            $recipient_id = $user->data->ID;
+            $subject = ! empty( $data['subject'] ) ? $data['subject'] : false;
+            $message = ! empty( $data['message'] ) ? $data['message'] : false;
+//            $message = strip_tags($message, '<a><p><h1><h2><h3><h4><table><thead><tbody><tfoot><th><td><tr>');
+
+            $date_sent = bp_core_current_time();
+
+            // First insert the message into the messages table.
+            if ( ! $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_messages} ( thread_id, sender_id, subject, message, date_sent ) VALUES ( %d, %d, %s, %s, %s )", $thread_id, $sender_id, $subject, $message, $date_sent ) ) ) {
+                return false;
+            }
+
+            // Add an recipient entry for all recipients.
+    /*        $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 )", $recipient_id, $thread_id ) );*/
+            $wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 )", $recipient_id, $thread_id ) );
+        }
+    }
+
+    return $data;
 }

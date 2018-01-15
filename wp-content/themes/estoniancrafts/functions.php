@@ -740,3 +740,46 @@ function wpshout_custom_sizes( $sizes ) {
         'event-calendar-image' => __( 'Event Calendar Image' ),
     ) );
 }
+
+function checkAttributes($id){
+            
+            $materials = get_post_meta( $id, '_materials', true);
+        
+
+            if($materials !="") {
+                if(sizeof($materials) > 0 && $materials[0]["name"] !== "" )
+                    return true;
+            }
+
+            $manufacturing_method= get_post_meta( $id, '_manufacturing_method', true) ;
+            if($manufacturing_method != NULL)
+            {   if(isset($manufacturing_method)){
+                    if(trim($manufacturing_method) !== "")
+                    return true;
+                }
+            }
+
+            $maint= get_post_meta( $id, '_maintenance_info', true) ;
+            if($maint != NULL){
+                if(trim($maint) !== "")
+                    return true;
+            }
+            $media_links = get_post_meta( $id, '_media_links', true);
+            
+            if($media_links !=""){
+                if(trim($media_links[0]) !== "") 
+                    return true;
+            }
+            $certificates = get_post_meta( $id, '_certificates', true);
+            
+            if($certificates != ""){
+                if(trim($certificates[0]["file"]) !== "")
+                    return true;
+            }
+            return false;
+    }
+
+
+
+
+
