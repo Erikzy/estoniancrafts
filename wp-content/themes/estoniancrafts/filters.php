@@ -670,40 +670,35 @@ function custom_bp_get_the_thread_message_content(){
 	}
 	return  $message;
 }
-/*add_filter('woocommerce_payment_successful_result','custom_woocommerce_payment_successful_result');
-function woocommerce_payment_successful_result($result, $order_id){
 
-}*/
-
-//add_filter('bp_email_get_template','custom_bp_email_get_template');
 function custom_bp_email_get_template( $object) {
  	$single = "templates/bd-template.php" ;
 }
 add_filter('woocommerce_payment_successful_result', 'bd_woocommerce_payment_successful_result');
 
 
-function bd_woocommerce_payment_successful_result($r, $order_id){
+function bd_woocommerce_payment_successful_result($r = array() , $order_id = null ){
 	global $wpdb;
-	if($r["result"] === "success"){
-		$oid = getContentBetween($r["redirect"],"order-received/","?key");
-		$current_user_id = get_current_user_id();  // the buyer
-		$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
-		$seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
-		$seller_id = $seller_id[0]->seller_id;
-		$query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
-		$thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
-		$thread_id = $thread_id[0]->thread_id;
-		// we need to add the seller to the conversation
-		$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id,  $thread_id ) ) );
-		//$wpdb->query( $wpdb->prepare ( "UPDATE ktt_bp_messages_messages set  sender_id = %d WHERE thread_id = %d " , array( $seller_id , $thread_id) ) );
-		// we add metadata
-        $meta_value = json_encode( array("order_id"=>$oid, "thread_id"=>$thread_id ,  "seller_id" => $seller_id , "buyer_id" => $current_user_id ) );
-       
-		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s", "%s")  );
-		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation_post_order_id", "meta_value" => $oid ) , array( "%s")  );
-		
-		// $wpdb->get_results($wpdb->prepare("select sender_id from ktt_bp_messages_messages where limit 1 desc") );
-	}
+	
+		if( !empty($r) && $order_id > 0){ 
+			$oid = getContentBetween($r["redirect"],"order-received/","?key");
+			$current_user_id = get_current_user_id();  // the buyer
+			$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
+			$seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
+			$seller_id = $seller_id[0]->seller_id;
+			$query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
+			$thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
+			$thread_id = $thread_id[0]->thread_id;
+			// we need to add the seller to the conversation
+			$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id,  $thread_id ) ) );
+			//$wpdb->query( $wpdb->prepare ( "UPDATE ktt_bp_messages_messages set  sender_id = %d WHERE thread_id = %d " , array( $seller_id , $thread_id) ) );
+			// we add metadata
+	        $meta_value = json_encode( array("order_id"=>$oid,  "seller_id" => $seller_id , "buyer_id" => $current_user_id, "email_completed"=> 0 , "email_on_hold" =>1 ) );
+	        //$meta_value = json_encode( array("order_id"=>$oid, "thread_id"=>$thread_id ,  "seller_id" => $seller_id , "buyer_id" => $current_user_id ) );
+	       
+			$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s", "%s")  );
+			$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation_post_order_id", "meta_value" => $oid ) , array( "%s")  );
+		}
 
 	return $r;
 	
