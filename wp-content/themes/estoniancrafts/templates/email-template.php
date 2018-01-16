@@ -61,7 +61,7 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 															<table cellspacing="0" cellpadding="0" border="0" width="100%">
 																  <tr>
 																		<td style="padding: 20px; font-family: sans-serif; mso-height-rule: exactly; line-height:'12px' ; color:#ffffff; font-size: '12px' );" class="body_text_color body_text_size">
-																			<span style="font-weight: bold; font-size:12px" class="welcome"> <?php bp_email_the_salutation( $settings ); ?> </span>
+																			<span style="font-weight: bold; font-size:12px" class="welcome"></span>
 																			<hr color="#fffffff"><br>
 																			
 																		</td>

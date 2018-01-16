@@ -780,6 +780,34 @@ function checkAttributes($id){
     }
 
 
-
-
+//gets the meta data from buddypress using the order_id as a parameter, there are two records wich metakeys are order_conversation and order_conversation_post_order_id, returns an object with the meta_value and the message_id (thread_id), if there's nothing it returns null
+function ec_get_bd_meta($order_id){
+    global $wpdb;
+    $query = "SELECT meta_value , message_id  FROM  ktt_bp_messages_meta  where  message_id = (select message_id from ktt_bp_messages_meta where meta_value = %s  and meta_key = %s order by message_id desc limit 1) AND meta_key = %s order by message_id desc limit 1"; 
+    $meta_thread = $wpdb->get_results( $wpdb->prepare( $query, array( (string)$order_id , "order_conversation_post_order_id" ,  "order_conversation" ) ));
+     if(!empty($meta_thread) ) 
+      return $meta_thread[0];
+    else 
+        return null;
+}
+function bd_wc_generate_meta($oid){
+    global $wpdb;
+    
+            $current_user_id = get_current_user_id();  // the buyer
+            $query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
+            $seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
+            $seller_id = $seller_id[0]->seller_id;
+            $query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
+            $thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
+            $thread_id = $thread_id[0]->thread_id;
+            // we need to add the seller to the conversation
+            $wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id,  $thread_id ) ) );
+            //$wpdb->query( $wpdb->prepare ( "UPDATE ktt_bp_messages_messages set  sender_id = %d WHERE thread_id = %d " , array( $seller_id , $thread_id) ) );
+            // we add metadata
+            $meta_value = json_encode( array("order_id"=>$oid,  "seller_id" => $seller_id , "buyer_id" => $current_user_id, "email_completed"=> 0 , "email_on_hold" =>1 ) );
+            //$meta_value = json_encode( array("order_id"=>$oid, "thread_id"=>$thread_id ,  "seller_id" => $seller_id , "buyer_id" => $current_user_id ) );
+           
+            $wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s", "%s")  );
+            $wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation_post_order_id", "meta_value" => $oid ) , array( "%s")  );
+}
 

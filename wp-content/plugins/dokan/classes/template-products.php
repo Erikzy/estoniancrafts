@@ -10,6 +10,7 @@
 class Dokan_Template_Products {
 
     public static $errors;
+    public static $draft_errors;
     public static $product_cat;
     public static $post_content;
 
@@ -104,6 +105,7 @@ class Dokan_Template_Products {
         }
 
         $errors = array();
+        $draft_errors = array();
         self::$product_cat  = -1;
         self::$post_content = __( 'Details of your product ...', 'dokan' );
 
@@ -113,8 +115,8 @@ class Dokan_Template_Products {
 
 
         global $wpdb;
-
-        if ( isset( $_POST['dokan_add_product'] ) && wp_verify_nonce( $_POST['dokan_add_new_product_nonce'], 'dokan_add_new_product' ) ) {
+       
+        if ( ( isset( $_POST['dokan_add_product'] ) ||  ( isset( $_POST["dokan_save_draft_product"] ) && $_POST["dokan_save_draft_product"]  == "true"  ) ) && wp_verify_nonce( $_POST['dokan_add_new_product_nonce'], 'dokan_add_new_product' ) ) {
             
             $post_title              = trim( $_POST['post_title'] );
             $post_content            = trim( $_POST['post_content'] );
@@ -128,6 +130,7 @@ class Dokan_Template_Products {
 
             if ( empty( $post_title ) ) {
                 $errors[] = __( 'Please enter product title', 'dokan' );
+                $draft_errors[] = __( 'Please enter product title', 'dokan' );
             }
             
             // product dimensions
@@ -192,15 +195,27 @@ class Dokan_Template_Products {
                     AND $wpdb->posts.post_status = 'publish'
                     AND $wpdb->postmeta.meta_key = '_sku' AND $wpdb->postmeta.meta_value = '%s'
                  ", $sku ) );
-            
+   
             if($_POST["_create_variation"] == "yes"){
                  if(isset($_POST['variable_regular_price'])){
                     for($a = 0 ; $a < sizeof($_POST['variable_regular_price'] ) ; $a++ ){
                         if($_POST['variable_regular_price'][$a] == 0 )
-                            $errors[] = __( 'Please select add a price', 'dokan' );
+                            $errors[] = __( 'Please add a price', 'dokan' );
+
                     }
                  }
+                 if( ( isset($_POST['_variation_product_update']) && $_POST['_variation_product_update'] == "yes"  && !isset($_POST['variable_regular_price'])  ) || ( !isset($_POST["attribute_names"]) && !isset($_POST["variable_regular_price"])  ) ){
+                        $errors[] = __( 'Please  add a variation', 'dokan' );
+                 }
+
+                 if(isset($_POST["attribute_names"]) && !isset($_POST["variable_regular_price"]) &&   ( empty($_POST["attribute_values"][0]) ) ){
+                    $errors[] = __( 'Please  add an attribute', 'dokan' );
+
+                 }
             }
+ /*           var_dump(sizeof($_POST["attribute_values"]));
+            var_dump($_POST["attribute_values"]);
+            die();*/
             if($price <= 0 ){
                 if(   $_POST["_create_variation"] == "no"  )
                  $errors[] = __( 'Please add a price', 'dokan' );
@@ -224,15 +239,17 @@ class Dokan_Template_Products {
 
        
 
-            if ( !self::$errors ) {
+            if (  !self::$errors  ||  ( !self::$draft_errors  && ( isset( $_POST["dokan_save_draft_product"] ) && $_POST["dokan_save_draft_product"]  == "true"  ) )  ) {
                 
                 $_POST['dokan_product_id'] = isset( $_POST['dokan_product_id'] ) ? $_POST['dokan_product_id'] : '';
                 
                 if( isset( $_POST['dokan_product_id'] ) && empty( $_POST['dokan_product_id'] ) ) {
                     $product_status = dokan_get_new_post_status();
+                    if( $_POST["_create_variation"]  === "yes"  && !isset($_POST['variable_regular_price'] ) )
+                        $product_status= "draft";
                     $post_data = apply_filters( 'dokan_insert_product_post_data', array(
                         'post_type'    => 'product',
-                        'post_status'  => $product_status,
+                        'post_status'  => ( isset( $_POST["dokan_save_draft_product"] ) && $_POST["dokan_save_draft_product"]  == "true"  ) ? "draft" : $product_status,
                         'post_title'   => $post_title,
                         'post_content' => $post_content,
                         'post_excerpt' => $post_excerpt,
