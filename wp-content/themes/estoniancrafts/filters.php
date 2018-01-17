@@ -62,10 +62,29 @@ class EC_Filters
 				if($finish == ''){
 					$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
 				}
+				$fragile = (int)$order->get_meta('fragile');
 				
-		
-				
-		foreach($requestData['interchange']['itemlist'] as $item){
+				foreach($requestData['interchange']['itemlist'] as $item){
+				if($fragile == 1){
+					if(isset($item['add_service'])){
+							$item['add_service']['option'][] = array(
+                                '@attributes' => array(
+                                    'code' => 'BC'
+                                ),
+                            );
+					}else{
+						$item['add_service'] = array(
+							'option' = array();
+						);
+						$item['add_service']['option'][] = array(
+                              '@attributes' => array(
+                                 'code' => 'BC'
+                              ),
+                        );
+					}
+				}
+			
+			
 			$item['returnAddressee'] = array(
                             'person_name' => $sender_name,
                             'mobile' => $sender_phone,
