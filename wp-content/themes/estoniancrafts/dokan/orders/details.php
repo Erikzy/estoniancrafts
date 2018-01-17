@@ -291,7 +291,15 @@ $order    = new WC_Order( $order_id );
                         </div>
                     </div>
                 </div>
-
+				<?php
+					if(true){
+					?>
+						<div class="shipping-pickup-time">
+						
+						</div>					
+					<?
+					}
+				?>
                 <div class="clear"></div> 
             </div>
 

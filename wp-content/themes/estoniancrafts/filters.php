@@ -12,6 +12,7 @@ class EC_Filters
 		// Merchant section
 		add_filter( 'ec_get_page_merchant_products', array(__CLASS__, 'ec_get_page_merchant_products_filter'), 1 );
         add_filter( 'ec_get_myaccount_menu', array(__CLASS__, 'ec_get_myaccount_menu_filter'), 1 );
+        add_filter( 'eabi_postoffice_action_' . WC_Eabi_Postoffice::ACTION_AUTOSEND . '_eabi_omniva_courier',array(__CLASS__,'ec_get_sender_data_filter'),1);
 	}
 
 
@@ -34,6 +35,85 @@ class EC_Filters
 		}
 
 		return $page;
+	}
+
+	public static function ec_get_sender_data_filter($requestData = array(), $order, $packageValue, $selectedOffice, $codCurrency, $shippingModel, $mainShippingModel){
+		/*
+		var_dump($requestData);
+		$order->update_meta_data( 'my_custom_meta_key', 'my data' );
+    	$order->save();
+		*/
+		
+	
+		
+		
+				$sender_name = '';
+				$sender_phone = '';
+				$sender_email = '';
+				$postcode = '';
+				$country = '';
+				$street = '';
+				$deliverypoint = '';
+				$start = $order->get_meta('shippingPickup_start');
+				if($start == ''){
+					$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
+				}
+				$finish = $order->get_meta('shippingPickup_finish');
+				if($finish == ''){
+					$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
+				}
+				
+		
+				
+		foreach($requestData['interchange']['itemlist'] as $item){
+			$item['returnAddressee'] = array(
+                            'person_name' => $sender_name,
+                            'mobile' => $sender_phone,
+                            'phone' => $sender_phone,
+                            'email' => $sender_email,
+                            'address' => array(
+                                '@attributes' => array(
+                                    'postcode' => $postcode,
+                                    'deliverypoint' => $country,
+                                    'country' => $street,
+                                    'street' => $deliverypoint,
+                                ),
+                            ),
+                    	);
+        	$item['onloadAddressee'] =  array(
+                            'person_name' => $sender_name,
+                            'mobile' => $sender_phone,
+                            'phone' => $sender_phone,
+                            'email' => $sender_email,
+                            'address' => array(
+                                '@attributes' => array(
+                                    'postcode' => $postcode,
+                                    'deliverypoint' => $country,
+                                    'country' => $street,
+                                    'street' => $deliverypoint,
+                                ),
+                            ),
+                            'pick_up_time' =>array(
+                            	'@attributes' => array(
+                                    'start' => $start,
+                                    'finish' => $finish,
+                                ),
+                            )
+                        );               
+                        
+     /*   $xml = '<onloadAddressee>
+                     <person_name>Sender Name</person_name>
+                     <phone>6347384</phone>
+                     <mobile>55665566</mobile>
+                     <email>test@test.ee</email>
+                     <address postcode="10101" deliverypoint="Tallinn" country="EE" street="Pallasti 27"/>
+                     <pick_up_time start="2018-12-31T00:00:00" finish="2018-12-31T00:00:00"/>
+				</onloadAddressee>';*/
+                              
+		
+		}
+	
+		return $requestData;
 	}
 
 	/**

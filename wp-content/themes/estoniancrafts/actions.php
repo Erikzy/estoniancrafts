@@ -510,6 +510,32 @@ function user_store_create(){
   return ob_get_clean();
 }
 
+add_action('wp_ajax_order-update-picuptime', 'order_update_pickuptime');
+
+function order_update_pickuptime(){
+  ob_start();
+  if ( 
+    !isset( $_POST['order_update_pickuptime_form'] ) 
+    || ! wp_verify_nonce( $_POST['order_update_pickuptime_form'], 'order_update_pickuptime' ) 
+
+  ) {
+
+   echo 'Sorry, your nonce did not verify.';
+  // exit;
+
+  } else {
+		$order_id = $_POST['order_id'];
+		$start  =  $_POST['start'];
+		$finish  =  $_POST['finish'];
+		$order = new WC_Order($order_id);
+		$order->update_meta_data( 'shippingPickup_start', $start);
+		$order->update_meta_data( 'shippingPickup_finish', $finish );
+    	$order->save();
+	    echo 'shipping updated';
+  }
+  wp_die();
+  return ob_get_clean();
+}
 
 
 // Check if the current registered user has IDCARD validation hash code
