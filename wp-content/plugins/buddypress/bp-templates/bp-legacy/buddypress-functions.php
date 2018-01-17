@@ -1587,7 +1587,7 @@ function bp_legacy_theme_ajax_messages_send_reply() {
 
 		
 	if ( !empty( $result ) ) {
-		$rec = compare_recipients($_REQUEST['thread_id']);
+		//$rec = compare_recipients($_REQUEST['thread_id']);
 
 		// Pretend we're in the message loop.
 		global $thread_template;

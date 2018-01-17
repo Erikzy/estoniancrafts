@@ -392,7 +392,8 @@ HTML;
 		$email = isset($_POST['email']) ? $_POST['email'] : null;
 		$content = isset($_POST['content']) ? $_POST['content'] : null;
 
-		if (!($firstName && $lastName && $email && $content && $productId)) {
+		//if (!($firstName && $lastName && $email && $content && $productId)) {
+		if (!( $email && $content && $productId)) {
 			ob_clean();
 			die(json_encode(['success' => false, 'message' => false]));
 		}
@@ -562,29 +563,138 @@ function check_idcard_user_register($user_id) {
     return true;
 }
 //in progress
-//add_action('woocommerce_order_status_completed', 'bd_woocommerce_order_status_completed');
-function bd_woocommerce_order_status_completed($id){
-		// validate if seller
-		global $wpdb;
-		$current_user_id = get_current_user_id();  // the buyer
-		$query = "SELECT message_id FROM  ktt_bp_messages_meta where meta_key = %d AND meta_value = %s";
-		$open_thread_id = $wpdb->get_results($wpdb->prepare($query, array( "order_conversation_post_order_id" , $id ) )); 
-		$message_id = $open_thread_id[0]->message_id;
-	 	//this is the new thread that was just added
-		$query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
-		$thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
-		$thread_id = $thread_id[0]->thread_id;
-		//retrieve the data from the old record
-		$data = bp_messages_get_meta($message_id, "order_conversation");
-		$data = json_decode($data,true);
-		// we need to add the seller to the conversation
-		//$wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $data["seller_id"] ,  $thread_id ) ) );
-		// we add metadata
-        $meta_value = json_encode( array("order_id"=>$id, "thread_id"=>$thread_id ,  "seller_id" => $data["seller_id"] , "buyer_id" => $data["buyer_id"] ) );
-       
-		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation", "meta_value" => $meta_value ) , array( "%s", "%s")  );
-		$wpdb->insert("ktt_bp_messages_meta",array("message_id"=> $thread_id , "meta_key"=> "order_conversation_post_order_id", "meta_value" => $id ) , array( "%s")  );
+// removes the custom trigger method, we need to add a new one to use the thread_id and update the db when the message is sent
+function remove_woocommerce_order_status_completed_notification(WC_Emails $wc_emails){
 
+	remove_action('woocommerce_order_status_completed_notification', array($wc_emails->emails['WC_Email_Customer_Completed_Order'], 'trigger'));
+	//add_action('woocommerce_order_status_completed_notification', 'my_c_trigger' );
+	
+}
+//add_action('woocommerce_email', 'remove_woocommerce_order_status_completed_notification' );
+
+
+
+
+
+add_action('woocommerce_order_status_changed', 'my_c_trigger' , 10 , 3);
+function my_c_trigger($order_id = null , $from , $to ){
+		global  $wpdb;
+		$sender_id= bp_loggedin_user_id() ? bp_loggedin_user_id() : 1;
+		$bp = buddypress();
+		$wc = new WC_Email_Customer_Completed_Order();
+
+		switch($to){ 
+			case "completed":
+			    $meta_thread_content =ec_get_bd_meta($order_id);
+			    if($meta_thread_content !== null){
+			    	$meta_thread = json_decode($meta_thread_content->meta_value, true);
+			    	$thread_id = $meta_thread_content->message_id;
+			    	//if email sent
+				    if($meta_thread["email_completed"] != 1){
+
+				        		
+								if ( $order_id ) {
+									$wc->object                  = wc_get_order( $order_id );
+									$wc->recipient               = $wc->object->billing_email;
+
+									$wc->find['order-date']      = '{order_date}';
+									$wc->find['order-number']    = '{order_number}';
+
+									$wc->replace['order-date']   = date_i18n( wc_date_format(), strtotime( $wc->object->order_date ) );
+									$wc->replace['order-number'] = $wc->object->get_order_number();
+								}
+
+								if ( ! $wc->is_enabled() || ! $wc->get_recipient() ) {
+									return;
+								}
+							if( $wc->send( $wc->get_recipient(), $wc->get_subject(), $wc->get_content(), $wc->get_headers(), $wc->get_attachments() ) )
+							{
+						        $meta_thread["email_completed"] = 1;
+						        $meta_thread = json_encode($meta_thread);
+						        bp_messages_update_meta($thread_id , "order_conversation" ,  $meta_thread);
+						        $query = "INSERT INTO {$bp->messages->table_name_messages} ( thread_id, sender_id, subject, message, date_sent ) VALUES ( %d, %d, %s, %s, %s )";
+						        $wpdb->query( $wpdb->prepare( $query , $thread_id, $sender_id,  $wc->get_subject(), $wc->get_content(), bp_core_current_time() ) ) ;
+							}
+						}
+			    }
+
+			break;
+			case "on-hold":
+			if ( $order_id ) {
+				$meta_thread_content = ec_get_bd_meta($order_id);
+
+
+			    //$author_id = $author_id[0]->seller_id;
+				// if there is no content, it means that the on-hold message has never been sent
+ 				if( $meta_thread_content == null) {
+ 					if ( $order_id ) {
+									$wc->object                  = wc_get_order( $order_id );
+									$wc->recipient               = $wc->object->billing_email;
+
+									$wc->find['order-date']      = '{order_date}';
+									$wc->find['order-number']    = '{order_number}';
+
+									$wc->replace['order-date']   = date_i18n( wc_date_format(), strtotime( $wc->object->order_date ) );
+									$wc->replace['order-number'] = $wc->object->get_order_number();
+								}
+ 					$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
+					$seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $order_id )); 
+					$seller_id = $seller_id[0]->seller_id;
+ 					$user = get_user_by( 'id', $seller_id);
+ 					$thread_id = (int) $wpdb->get_var( "SELECT MAX(thread_id) FROM {$bp->messages->table_name_messages}" ) + 1;
+					$sender_id = bp_loggedin_user_id() ? bp_loggedin_user_id() : 1;
+	          		$recipient_id = $seller_id;
+	
+					$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_messages} ( thread_id, sender_id, subject, message, date_sent ) VALUES ( %d, %d, %s, %s, %s )", $thread_id, $sender_id, "Your Käsitööturg order receipt" , $wc->get_content() , bp_core_current_time()) );
+					$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 ), (%d, %d, 1)", $recipient_id, $thread_id , $sender_id, $thread_id) );
+					//compare_recipients($thread_id);
+					bd_wc_generate_meta($order_id);
+
+
+				}
+			}
+
+			break;
+
+		}
 }
 
 
+
+/*add_action('woocommerce_order_status_completed', 'bd_woocommerce_order_status_completed');
+
+function bd_woocommerce_order_status_completed($order_id){
+		// validate if seller
+		global $wpdb;
+        $bp = buddypress();
+        $query = "SELECT meta_value , message_id  FROM  ktt_bp_messages_meta  where  message_id = (select message_id from ktt_bp_messages_meta where meta_value = %s  and meta_key = %s order by message_id desc limit 1) AND meta_key = %s order by message_id desc limit 1";
+        $open_thread = $wpdb->get_results($wpdb->prepare($query, array( (string)$order_id , "order_conversation_post_order_id" ,  "order_conversation" ) ));
+   
+        $meta_thread = json_decode($open_thread[0]->meta_value, true);
+        $thread_id = $open_thread[0]->message_id;
+        //if email sent
+      if($meta_thread["email_completed"] != 1){
+
+        		$wc = new WC_Email_Customer_Completed_Order();
+				if ( $order_id ) {
+					$wc->object                  = wc_get_order( $order_id );
+					$wc->recipient               = $wc->object->billing_email;
+
+					$wc->find['order-date']      = '{order_date}';
+					$wc->find['order-number']    = '{order_number}';
+
+					$wc->replace['order-date']   = date_i18n( wc_date_format(), strtotime( $wc->object->order_date ) );
+					$wc->replace['order-number'] = $wc->object->get_order_number();
+				}
+
+				if ( ! $wc->is_enabled() || ! $wc->get_recipient() ) {
+					return;
+				}
+	        $meta_thread["email_completed"] = 1;
+	        $meta_thread = json_encode($meta_thread);
+	        bp_messages_update_meta($thread_id , "order_conversation" ,  $meta_thread);
+
+
+	   }
+}
+*/

@@ -150,11 +150,20 @@ if ( ! $from_shortcode ) {
         <?php lbDokan::display_product_completeness($post_id); ?>
 
         <div class="product-edit-new-container">
-            <?php if ( Dokan_Template_Products::$errors ) { ?>
+            <?php if ( Dokan_Template_Products::$errors  &&  isset($_POST["dokan_add_product"]))  { ?>
                 <div class="dokan-alert dokan-alert-danger">
                     <a class="dokan-close" data-dismiss="alert">&times;</a>
 
                     <?php foreach ( Dokan_Template_Products::$errors as $error) { ?>
+                        <strong><?php _e( 'Error!', 'dokan' ); ?></strong> <?php echo $error ?>.<br>
+                    <?php } ?>
+                </div>
+            <?php }
+            elseif( Dokan_Template_Products::$draft_errors  &&  ( isset( $_POST["dokan_save_draft_product"] ) && $_POST["dokan_save_draft_product"]  == "true"  )  )  { ?>
+                <div class="dokan-alert dokan-alert-danger">
+                    <a class="dokan-close" data-dismiss="alert">&times;</a>
+
+                    <?php foreach ( Dokan_Template_Products::$draft_errors as $error) { ?>
                         <strong><?php _e( 'Error!', 'dokan' ); ?></strong> <?php echo $error ?>.<br>
                     <?php } ?>
                 </div>
@@ -214,11 +223,12 @@ if ( ! $from_shortcode ) {
 
 										<?php // Regular price ?>
                                         <div class="content-half-part regular-price mrp  f-top">
-                                            <label for="_regular_price" class="form-label desc-pro"><?php _e( 'Price', 'dokan' ); ?></label>
+
+                                            <label for="_regular_price" class="form-label desc-pro"><?php _e( 'Price', 'dokan' ); ?><span class="required-m">*</span></label>
 
                                             <div class="dokan-input-group">
                                                 <span class="dokan-input-group-addon"><?php echo get_woocommerce_currency_symbol(); ?></span>
-                                                <?php dokan_post_input_box( $post_id, '_regular_price', array( 'placeholder' => __( '0.00', 'dokan' ) ), 'number' ); ?>
+                                                <?php dokan_post_input_box( $post_id, '_regular_price', array( 'placeholder' => __( '0.00', 'dokan' ), "class"=> "dokan-w3 dokan-control-label", "id"=> "_product_price"  ), 'number' ); ?>
                                             </div>
                                         </div>
 
@@ -741,7 +751,9 @@ if ( ! $from_shortcode ) {
  
 						<?php // Save as draft. Only available if product not published yet. ?>
                         <?php if($post_status != 'publish'): ?>
-	                        <button name="dokan_add_product" class="dokan-btn dokan-btn-lg ec-merchant-product-save-btn call-to-action-button"><?php esc_attr_e( 'Save as draft', 'ktt' ); ?></button>
+          
+	                        <button name="dokan_save_draft_product" class="dokan-btn dokan-btn-lg ec-merchant-product-save-btn call-to-action-button" onclick='document.getElementById("bdraft").value = "true"; ' ><?php esc_attr_e( 'Save as draft', 'ktt' );  ?></button>
+                            <input type="hidden"  name="dokan_save_draft_product" id="bdraft" value="<?php esc_attr_e( 'Save Draft Product', 'dokan' ); ?>"/>
 						<?php endif; ?>
 
                     </form>
@@ -801,6 +813,8 @@ if ( ! $from_shortcode ) {
 ?>
 
  <script>
+
+
     checkImage = (ev)=>{
 
              storeInfo();       
@@ -808,11 +822,14 @@ if ( ! $from_shortcode ) {
                  ev.preventDefault();
                   alert('Remember to upload a cover image!');
             }
-            let el = [jQuery("#post_title"),jQuery("#product_cat")];
-            errDisp(el , [{},{}]);
+           let arr = jQuery("input[name^='variable_regular_price'") ;
+            let el = [jQuery("#post_title"),jQuery("#product_cat"), jQuery("#_regular_price"), arr];
+            
+            errDisp(el);
                           
     }
-    errDisp = (elements,jarray) =>{
+    errDisp = (elements) =>{
+       
             let message = "";
             let errors = [];
             for(e in elements){
@@ -822,11 +839,12 @@ if ( ! $from_shortcode ) {
                     }
                 }
                 if(elements[e].is("input")){
-                    if(jQuery.trim(elements[e].val())===""){
+                    if(jQuery.trim(elements[e].val())==="" || ( elements[e].val() =="0" &&  jQuery('input#_create_variation').is(':checked') == false ) ){
                            errors.push(elements[e]);
                     }
                 }
             }
+
             if(errors.length > 0 )
             {     
                 for(e in errors){
@@ -848,32 +866,11 @@ if ( ! $from_shortcode ) {
           
 
         }    
-/*    jQuery("#_sku").on("change",function(){
-              jQuery(".check-sku").removeClass("dokan-hide");
-              jQuery.post("?product_id=1630&action=edit&message=success",jQuery( ".dokan-product-edit-form" ).serialize(),function(data){
-                let d = data.substring(0, data.indexOf('<div class="dokan-clearfix poxc"></div>'));
-                 jQuery(".check-sku").addClass("dokan-hide");
-                 if(d.indexOf("Error!") >=0) 
-                    { 
-                        jQuery("#_sku").addClass("input-red-error");
-                        console.log("error"); 
-                        err = true;
-
-                    }
-                 else{
-                    jQuery("#_sku").removeClass("input-red-error");
-                    console.log("success");
-                     err=false;
-
-                 }
-           }); 
-
-    });*/
 
 
 </script>
 <script type="text/javascript">
-
+  
    jQuery(document).ready(function(){
          var err= false;
          var materials_size = "<?php echo isset($_POST['_material_name'])? sizeof($_POST['_material_name']) : '0'; ?>";
@@ -891,7 +888,6 @@ if ( ! $from_shortcode ) {
         }*/
            
 
-
     });
     showButton = () =>{ 
     if(jQuery(".dokan-feat-image-id").val() == 0)
@@ -904,7 +900,7 @@ if ( ! $from_shortcode ) {
         showButton();
         jQuery("#feat_image_url").val(jQuery("#fet-im-a > img").attr("src"));
        //  updatePatentBox();
-       validateVariation();
+      // validateVariation();
 
     } );
 
@@ -925,12 +921,11 @@ if ( ! $from_shortcode ) {
                     let featImage = JSON.parse(localStorage.getItem("fet-image"));
                     jQuery("#fet-im-a > img").attr("src",featImage.url);
                     jQuery(".dokan-feat-image-id").val(featImage.id);
-                    console.log(featImage);
                    // let form = jQuery(".dokan-product-edit-form").html();
                     for( var o in j){
                         jQuery(convertValue(j[o].name)).val(j[o].value);
                     }
-                    console.log("-----done------")
+                    
 
         }
 
@@ -950,7 +945,7 @@ if ( ! $from_shortcode ) {
     validateVariation = () =>{
         
         if(jQuery(".inventory-table").val() == undefined) {
-            console.log(jQuery(".dokan-attribute-option-name") .val());
+            //console.log(jQuery(".dokan-attribute-option-name") .val());
             if(  jQuery(".dokan-attribute-option-name").val() == undefined    ){
                  jQuery("#_create_variation").attr("disabled","true");
                  jQuery("#variation-message").html("Please, add an option to create a variation.");
@@ -958,7 +953,6 @@ if ( ! $from_shortcode ) {
             else{
                        jQuery("#_create_variation").removeAttr("disabled");
                 jQuery("#variation-message").html('Create variation using those attribute options'); 
-                 console.log("validated");
             }
         }
 

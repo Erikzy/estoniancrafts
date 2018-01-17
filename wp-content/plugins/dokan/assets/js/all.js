@@ -620,26 +620,60 @@ jQuery(function($) {
         },
 
         inputValidate: function( e ) {
-            e.preventDefault();
+            let values = $(this).serializeArray();
 
-            if ( $( '#post_title' ).val().trim() == '' ) {
-                $( '#post_title' ).focus();
-                $( 'div.dokan-product-title-alert' ).removeClass('dokan-hide');
-                return;
-            }else{
-                $( 'div.dokan-product-title-alert' ).hide();
-            }
+             console.log(values);
+             let draft = false;
+             let create_variation = false;
+             for(j in values){
+                if(values[j].value == "true" &&  values[j].name == "dokan_save_draft_product" )
+                    draft = true;
+                if(values[j].value == "yes" &&  values[j].name == "_create_variation" )
+                    create_variation = true;
+                //if(values[j].name == "attribute_values[]" )
+             }
+              e.preventDefault();
+              if( draft !== true ){
+                 
+                        if ( $( '#post_title' ).val().trim() == '' ) {
+                        $( '#post_title' ).focus();
+                        $( 'div.dokan-product-title-alert' ).removeClass('dokan-hide');
+                        return;
+                    }else{
+                        $( 'div.dokan-product-title-alert' ).hide();
+                    }
+                    if(  parseFloat($('#_regular_price').val() )  <= 0 || $('#_regular_price').val().trim()   ==  ''  &&  $('input#_create_variation').is(':checked') == false  ){
+                        $( '#_regular_price' ).focus();
+                        $( 'div.dokan-product-title-alert' ).removeClass('dokan-hide');
+                        return;
+                    }
+                    else{
+                        $( 'div.dokan-product-cat-alert' ).hide();
+                    }
 
-            if ( $( 'select.product_cat' ).val() == -1 ) {
-                $( 'select.product_cat' ).focus();
-                $( 'div.dokan-product-cat-alert' ).removeClass('dokan-hide');
-                return;
-            }else{
-                $( 'div.dokan-product-cat-alert' ).hide();
-            }
-            
-            $( 'input[type=submit]' ).attr( 'disabled', 'disabled' );
-            this.submit();
+                    if ( $( 'select.product_cat' ).val() == -1 ) {
+                        $( 'select.product_cat' ).focus();
+                        $( 'div.dokan-product-cat-alert' ).removeClass('dokan-hide');
+                        return;
+                    }else{
+                        $( 'div.dokan-product-cat-alert' ).hide();
+                    }
+
+
+              }
+              else{
+               
+                    if ( $( '#post_title' ).val().trim() == '' ) {
+                        $( '#post_title' ).focus();
+                        $( 'div.dokan-product-title-alert' ).removeClass('dokan-hide');
+                        return;
+                    }else{
+                        $( 'div.dokan-product-title-alert' ).hide();
+                    }
+              }
+              $( 'input[type=submit]' ).attr( 'disabled', 'disabled' );
+             this.submit();
+
         },
 
         loadTagChosen: function() {
