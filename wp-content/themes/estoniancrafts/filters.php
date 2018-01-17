@@ -803,12 +803,13 @@ function custom_bp_get_the_thread_message_content(){
 remove_filter( 'wp_mail', 'my_mail');
 add_filter('wp_mail', 'my_custom_mail');
 function my_custom_mail($data = array() ){
-	preg_match('/>Order #(.*?)<\/h2>/', $data['message'], $match);
+	//preg_match('/>Order #(.*?)<\/h2>/', $data['message'], $match);
     // Lets not get into loop
-/*	var_dump(empty($match));
+/*	var_dump( $data['headers']);
 	die();*/
-    if(empty($match))   {
-	    if (isset($data['headers']['ignore_bb'])) {
+   // if(empty($match))   {
+   		// if the header is a string, then it is an order email
+	    if (isset($data['headers']['ignore_bb']) ) {
 	        return $data;
 	    }
 
@@ -842,7 +843,7 @@ function my_custom_mail($data = array() ){
 	            compare_recipients($thread_id);
 	        }
 	    }
-	  }
+	  //}
     return $data;
 }
 

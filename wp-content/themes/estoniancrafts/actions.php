@@ -582,7 +582,16 @@ function my_c_trigger($order_id = null , $from , $to ){
 		$sender_id= bp_loggedin_user_id() ? bp_loggedin_user_id() : 1;
 		$bp = buddypress();
 		$wc = new WC_Email_Customer_Completed_Order();
+		if ( $order_id ) {
+				$wc->object                  = wc_get_order( $order_id );
+				$wc->recipient               = $wc->object->billing_email;
 
+				$wc->find['order-date']      = '{order_date}';
+				$wc->find['order-number']    = '{order_number}';
+
+				$wc->replace['order-date']   = date_i18n( wc_date_format(), strtotime( $wc->object->order_date ) );
+				$wc->replace['order-number'] = $wc->object->get_order_number();
+		}
 		switch($to){ 
 			case "completed":
 			    $meta_thread_content =ec_get_bd_meta($order_id);
@@ -592,17 +601,7 @@ function my_c_trigger($order_id = null , $from , $to ){
 			    	//if email sent
 				    if($meta_thread["email_completed"] != 1){
 
-				        		
-								if ( $order_id ) {
-									$wc->object                  = wc_get_order( $order_id );
-									$wc->recipient               = $wc->object->billing_email;
 
-									$wc->find['order-date']      = '{order_date}';
-									$wc->find['order-number']    = '{order_number}';
-
-									$wc->replace['order-date']   = date_i18n( wc_date_format(), strtotime( $wc->object->order_date ) );
-									$wc->replace['order-number'] = $wc->object->get_order_number();
-								}
 
 								if ( ! $wc->is_enabled() || ! $wc->get_recipient() ) {
 									return;
@@ -623,32 +622,18 @@ function my_c_trigger($order_id = null , $from , $to ){
 			if ( $order_id ) {
 				$meta_thread_content = ec_get_bd_meta($order_id);
 
-
-			    //$author_id = $author_id[0]->seller_id;
-				// if there is no content, it means that the on-hold message has never been sent
  				if( $meta_thread_content == null) {
- 					if ( $order_id ) {
-									$wc->object                  = wc_get_order( $order_id );
-									$wc->recipient               = $wc->object->billing_email;
-
-									$wc->find['order-date']      = '{order_date}';
-									$wc->find['order-number']    = '{order_number}';
-
-									$wc->replace['order-date']   = date_i18n( wc_date_format(), strtotime( $wc->object->order_date ) );
-									$wc->replace['order-number'] = $wc->object->get_order_number();
-								}
+ 
  					$query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
 					$seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $order_id )); 
-					$seller_id = $seller_id[0]->seller_id;
- 					$user = get_user_by( 'id', $seller_id);
+					$recipient_id = $seller_id[0]->seller_id; // seller id
  					$thread_id = (int) $wpdb->get_var( "SELECT MAX(thread_id) FROM {$bp->messages->table_name_messages}" ) + 1;
 					$sender_id = bp_loggedin_user_id() ? bp_loggedin_user_id() : 1;
-	          		$recipient_id = $seller_id;
-	
+
 					$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_messages} ( thread_id, sender_id, subject, message, date_sent ) VALUES ( %d, %d, %s, %s, %s )", $thread_id, $sender_id, "Your Käsitööturg order receipt" , $wc->get_content() , bp_core_current_time()) );
 					$wpdb->query( $wpdb->prepare( "INSERT INTO {$bp->messages->table_name_recipients} ( user_id, thread_id, unread_count ) VALUES ( %d, %d, 1 ), (%d, %d, 1)", $recipient_id, $thread_id , $sender_id, $thread_id) );
 					//compare_recipients($thread_id);
-					bd_wc_generate_meta($order_id);
+					bd_wc_generate_meta($order_id, $recipient_id , $sender_id );
 
 
 				}
@@ -658,43 +643,10 @@ function my_c_trigger($order_id = null , $from , $to ){
 
 		}
 }
-
-
-
-/*add_action('woocommerce_order_status_completed', 'bd_woocommerce_order_status_completed');
-
-function bd_woocommerce_order_status_completed($order_id){
-		// validate if seller
-		global $wpdb;
-        $bp = buddypress();
-        $query = "SELECT meta_value , message_id  FROM  ktt_bp_messages_meta  where  message_id = (select message_id from ktt_bp_messages_meta where meta_value = %s  and meta_key = %s order by message_id desc limit 1) AND meta_key = %s order by message_id desc limit 1";
-        $open_thread = $wpdb->get_results($wpdb->prepare($query, array( (string)$order_id , "order_conversation_post_order_id" ,  "order_conversation" ) ));
-   
-        $meta_thread = json_decode($open_thread[0]->meta_value, true);
-        $thread_id = $open_thread[0]->message_id;
-        //if email sent
-      if($meta_thread["email_completed"] != 1){
-
-        		$wc = new WC_Email_Customer_Completed_Order();
-				if ( $order_id ) {
-					$wc->object                  = wc_get_order( $order_id );
-					$wc->recipient               = $wc->object->billing_email;
-
-					$wc->find['order-date']      = '{order_date}';
-					$wc->find['order-number']    = '{order_number}';
-
-					$wc->replace['order-date']   = date_i18n( wc_date_format(), strtotime( $wc->object->order_date ) );
-					$wc->replace['order-number'] = $wc->object->get_order_number();
-				}
-
-				if ( ! $wc->is_enabled() || ! $wc->get_recipient() ) {
-					return;
-				}
-	        $meta_thread["email_completed"] = 1;
-	        $meta_thread = json_encode($meta_thread);
-	        bp_messages_update_meta($thread_id , "order_conversation" ,  $meta_thread);
-
-
-	   }
+function new_wc_headers(  $headers, $object   ){
+	$new_header = array("header"=>$headers , "ignore_bb"  => "true");
+	return $new_header ;
 }
-*/
+
+add_filter('woocommerce_email_headers', 'new_wc_headers', 10, 2);
+

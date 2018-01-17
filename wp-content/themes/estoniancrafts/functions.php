@@ -74,24 +74,24 @@ function compare_recipients($thread_id){
 
 function ec_get_sidebar_name()
 {
-	// Organisation page
-	if(bp_is_current_component( 'groups' ) && bp_is_group_single()) {
-		return 'sidebar-organisation';
-	}
+    // Organisation page
+    if(bp_is_current_component( 'groups' ) && bp_is_group_single()) {
+        return 'sidebar-organisation';
+    }
 
-	// Mailbox
-	if(ec_is_mailbox_page()) {
-		return 'sidebar-my-account';
-	}
+    // Mailbox
+    if(ec_is_mailbox_page()) {
+        return 'sidebar-my-account';
+    }
 
-	// Theme default
-	return basel_get_sidebar_name();
+    // Theme default
+    return basel_get_sidebar_name();
 }
 
 
  function redirect_to_user_appropriate_home() {
 
-		return get_site_url(null, 'user-home-redirect');
+        return get_site_url(null, 'user-home-redirect');
  }
 
  add_filter('login_redirect','redirect_to_user_appropriate_home');
@@ -102,17 +102,17 @@ function ec_get_sidebar_name()
  */
 function ec_is_personal_profile_page()
 {
-	$url_parts = wp_parse_url($_SERVER['REQUEST_URI']);
-	if(is_array($url_parts) && isset($url_parts['path']) && !empty($url_parts['path']))
-	{
-		$url_parts['path'] = trim($url_parts['path'], '/');
-		$url_path_parts = explode('/', $url_parts['path']);
-		if($url_path_parts[0] == 'user') {
-			return true;
-		}
-	}
+    $url_parts = wp_parse_url($_SERVER['REQUEST_URI']);
+    if(is_array($url_parts) && isset($url_parts['path']) && !empty($url_parts['path']))
+    {
+        $url_parts['path'] = trim($url_parts['path'], '/');
+        $url_path_parts = explode('/', $url_parts['path']);
+        if($url_path_parts[0] == 'user') {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -120,11 +120,11 @@ function ec_is_personal_profile_page()
  */
 function ec_is_organisation_page()
 {
-	if(bp_is_current_component( 'groups' ) && bp_is_group_single()) {
-		return true;
-	}
+    if(bp_is_current_component( 'groups' ) && bp_is_group_single()) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -132,38 +132,38 @@ function ec_is_organisation_page()
  */
 function ec_is_mailbox_page()
 {
-	$url_parts = wp_parse_url($_SERVER['REQUEST_URI']);
-	if(is_array($url_parts) && isset($url_parts['path']) && !empty($url_parts['path']))
-	{
-		$url_parts['path'] = trim($url_parts['path'], '/');
-		$url_path_parts = explode('/', $url_parts['path']);
-		if(count($url_path_parts) >= 3 && $url_path_parts[0] == 'members' && $url_path_parts[2] == 'messages') {
-			return true;
-		}
-	}
+    $url_parts = wp_parse_url($_SERVER['REQUEST_URI']);
+    if(is_array($url_parts) && isset($url_parts['path']) && !empty($url_parts['path']))
+    {
+        $url_parts['path'] = trim($url_parts['path'], '/');
+        $url_path_parts = explode('/', $url_parts['path']);
+        if(count($url_path_parts) >= 3 && $url_path_parts[0] == 'members' && $url_path_parts[2] == 'messages') {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 function ec_debug()
 {
-	print '<pre>';
-	foreach(func_get_args() as $arg)
-	{
-		print_r($arg);
-		print "\n";
-	}
-	print '</pre>';
+    print '<pre>';
+    foreach(func_get_args() as $arg)
+    {
+        print_r($arg);
+        print "\n";
+    }
+    print '</pre>';
 }
 
 function ec_debug_to_console()
 {
-	if(WP_DEBUG === true) {
-		foreach(func_get_args() as $arg)
-		{
-			print '<script>console.log('. json_encode( $arg ) .');</script>';
-		}
-	}
+    if(WP_DEBUG === true) {
+        foreach(func_get_args() as $arg)
+        {
+            print '<script>console.log('. json_encode( $arg ) .');</script>';
+        }
+    }
 }
 
 /**
@@ -332,18 +332,18 @@ if (!function_exists('is_user_facebook')) {
             return false;
         }
 
-		global $current_user; 
+        global $current_user; 
  
-		get_currentuserinfo();
+        get_currentuserinfo();
  
-		if ( $current_user ) {
-    		$permission = get_user_meta( $current_user->ID, 'ec_facebook_id' , true );
+        if ( $current_user ) {
+            $permission = get_user_meta( $current_user->ID, 'ec_facebook_id' , true );
      
-    		if ( ! empty( $permission )) {
-        		return true;
-    		}
-		}
-		return false;
+            if ( ! empty( $permission )) {
+                return true;
+            }
+        }
+        return false;
     }
   
 }
@@ -543,10 +543,10 @@ if( ! function_exists( 'basel_product_video_car_button' ) ) {
         $meta = $meta["_product_videos"]; 
         $a = unserialize( $meta[0] );
         $params = explode("=",$a[0]);
-		if(isset($params[1])){
+        if(isset($params[1])){
         
         $code = $params[1];
-       	?>
+        ?>
             
                <div class="product-video-button product-video-youtube owl-item"   >
 
@@ -574,139 +574,139 @@ if( ! function_exists( 'basel_product_video_car_button' ) ) {
 
 function ec_save_account_details(){
  if ( 'POST' !== strtoupper( $_SERVER[ 'REQUEST_METHOD' ] ) ) {
-		return;
-	}
+        return;
+    }
 
-	if ( empty( $_POST[ 'action' ] ) || 'dokan_save_account_details' !== $_POST[ 'action' ] || empty( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'dokan_save_account_details' ) ) {
-		return;
-	}
+    if ( empty( $_POST[ 'action' ] ) || 'dokan_save_account_details' !== $_POST[ 'action' ] || empty( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'dokan_save_account_details' ) ) {
+        return;
+    }
 
-	$errors       = new WP_Error();
-	$user         = new stdClass();
+    $errors       = new WP_Error();
+    $user         = new stdClass();
 
-	$user->ID     = (int) get_current_user_id();
-	$current_user = get_user_by( 'id', $user->ID );
-	
-	
-	
-	if ( $user->ID <= 0 ) {
-		return;
-	}
+    $user->ID     = (int) get_current_user_id();
+    $current_user = get_user_by( 'id', $user->ID );
+    
+    
+    
+    if ( $user->ID <= 0 ) {
+        return;
+    }
 
-	$account_first_name = ! empty( $_POST[ 'account_first_name' ] ) ? wc_clean( $_POST[ 'account_first_name' ] ) : '';
-	$account_last_name  = ! empty( $_POST[ 'account_last_name' ] ) ? wc_clean( $_POST[ 'account_last_name' ] ) : '';
-	$account_email      = ! empty( $_POST[ 'account_email' ] ) ? sanitize_email( $_POST[ 'account_email' ] ) : '';
-	$pass_cur           = ! empty( $_POST[ 'password_current' ] ) ? $_POST[ 'password_current' ] : '';
-	$pass1              = ! empty( $_POST[ 'password_1' ] ) ? $_POST[ 'password_1' ] : '';
-	$pass2              = ! empty( $_POST[ 'password_2' ] ) ? $_POST[ 'password_2' ] : '';
-	$save_pass          = true;
+    $account_first_name = ! empty( $_POST[ 'account_first_name' ] ) ? wc_clean( $_POST[ 'account_first_name' ] ) : '';
+    $account_last_name  = ! empty( $_POST[ 'account_last_name' ] ) ? wc_clean( $_POST[ 'account_last_name' ] ) : '';
+    $account_email      = ! empty( $_POST[ 'account_email' ] ) ? sanitize_email( $_POST[ 'account_email' ] ) : '';
+    $pass_cur           = ! empty( $_POST[ 'password_current' ] ) ? $_POST[ 'password_current' ] : '';
+    $pass1              = ! empty( $_POST[ 'password_1' ] ) ? $_POST[ 'password_1' ] : '';
+    $pass2              = ! empty( $_POST[ 'password_2' ] ) ? $_POST[ 'password_2' ] : '';
+    $save_pass          = true;
 
-	$user->first_name   = $account_first_name;
-	$user->last_name    = $account_last_name;
+    $user->first_name   = $account_first_name;
+    $user->last_name    = $account_last_name;
 
-	// Prevent emails being displayed, or leave alone.
-	$user->display_name = is_email( $current_user->display_name ) ? $user->first_name : $current_user->display_name;
+    // Prevent emails being displayed, or leave alone.
+    $user->display_name = is_email( $current_user->display_name ) ? $user->first_name : $current_user->display_name;
 
-	// Handle required fields
-	$required_fields = apply_filters( 'woocommerce_save_account_details_required_fields', array(
-		'account_first_name' => __( 'First Name', 'dokan' ),
-		'account_last_name'  => __( 'Last Name', 'dokan' ),
-		'account_email'      => __( 'Email address', 'dokan' ),
-	) );
+    // Handle required fields
+    $required_fields = apply_filters( 'woocommerce_save_account_details_required_fields', array(
+        'account_first_name' => __( 'First Name', 'dokan' ),
+        'account_last_name'  => __( 'Last Name', 'dokan' ),
+        'account_email'      => __( 'Email address', 'dokan' ),
+    ) );
 
-	foreach ( $required_fields as $field_key => $field_name ) {
-		if ( empty( $_POST[ $field_key ] ) ) {
-			wc_add_notice( '<strong>' . esc_html( $field_name ) . '</strong> ' . __( 'is a required field.', 'dokan' ), 'error' );
-		}
-	}
+    foreach ( $required_fields as $field_key => $field_name ) {
+        if ( empty( $_POST[ $field_key ] ) ) {
+            wc_add_notice( '<strong>' . esc_html( $field_name ) . '</strong> ' . __( 'is a required field.', 'dokan' ), 'error' );
+        }
+    }
 
-	if ( $account_email ) {
-		if ( ! is_email( $account_email ) ) {
-			wc_add_notice( __( 'Please provide a valid email address.', 'dokan' ), 'error' );
-		} elseif ( email_exists( $account_email ) && $account_email !== $current_user->user_email ) {
-			wc_add_notice( __( 'This email address is already registered. '.$current_user->user_email.' / '.$account_email, 'dokan' ), 'error' );
-		}
-		$user->user_email = $account_email;
-	}
+    if ( $account_email ) {
+        if ( ! is_email( $account_email ) ) {
+            wc_add_notice( __( 'Please provide a valid email address.', 'dokan' ), 'error' );
+        } elseif ( email_exists( $account_email ) && $account_email !== $current_user->user_email ) {
+            wc_add_notice( __( 'This email address is already registered. '.$current_user->user_email.' / '.$account_email, 'dokan' ), 'error' );
+        }
+        $user->user_email = $account_email;
+    }
 
 
-	if(is_user_idcard() || is_user_facebook()){
-		if ( ! empty( $pass1 ) && empty( $pass2 ) ) {
-			wc_add_notice( __( 'Please re-enter your password.', 'dokan' ), 'error' );
-			$save_pass = false;
-		} elseif ( ( ! empty( $pass1 ) || ! empty( $pass2 ) ) && $pass1 !== $pass2 ) {
-			wc_add_notice( __( 'New passwords do not match.', 'dokan' ), 'error' );
-			$save_pass = false;
-		} 
-		if(empty($pass1)){
-		
-			$save_pass = false;
-		
-		}else{
-			unset($pass_cur);
-			$save_pass = true;
-		
-		}
-		
-		
-		//wc_add_notice( __( 'unsetting id card user', 'dokan' ), 'error' );
-		
-	} else {
-		if ( ! empty( $pass1 ) && ! wp_check_password( $pass_cur, $current_user->user_pass, $current_user->ID ) ) {
-			wc_add_notice( __( 'Your current password is incorrect.', 'dokan' ), 'error' );
-			$save_pass = false;
-		}
-		
-		if ( ! empty( $pass_cur ) && empty( $pass1 ) && empty( $pass2 ) ) {
-			wc_add_notice( __( 'Please fill out all password fields.', 'dokan' ), 'error' );
-			$save_pass = false;
-		} elseif ( ! empty( $pass1 ) && empty( $pass_cur ) ) {
-			wc_add_notice( __( 'Please enter your current password.', 'dokan' ), 'error' );
-			$save_pass = false;
-		} elseif ( ! empty( $pass1 ) && empty( $pass2 ) ) {
-			wc_add_notice( __( 'Please re-enter your password.', 'dokan' ), 'error' );
-			$save_pass = false;
-		} elseif ( ( ! empty( $pass1 ) || ! empty( $pass2 ) ) && $pass1 !== $pass2 ) {
-			wc_add_notice( __( 'New passwords do not match.', 'dokan' ), 'error' );
-			$save_pass = false;
-		}
-	}
+    if(is_user_idcard() || is_user_facebook()){
+        if ( ! empty( $pass1 ) && empty( $pass2 ) ) {
+            wc_add_notice( __( 'Please re-enter your password.', 'dokan' ), 'error' );
+            $save_pass = false;
+        } elseif ( ( ! empty( $pass1 ) || ! empty( $pass2 ) ) && $pass1 !== $pass2 ) {
+            wc_add_notice( __( 'New passwords do not match.', 'dokan' ), 'error' );
+            $save_pass = false;
+        } 
+        if(empty($pass1)){
+        
+            $save_pass = false;
+        
+        }else{
+            unset($pass_cur);
+            $save_pass = true;
+        
+        }
+        
+        
+        //wc_add_notice( __( 'unsetting id card user', 'dokan' ), 'error' );
+        
+    } else {
+        if ( ! empty( $pass1 ) && ! wp_check_password( $pass_cur, $current_user->user_pass, $current_user->ID ) ) {
+            wc_add_notice( __( 'Your current password is incorrect.', 'dokan' ), 'error' );
+            $save_pass = false;
+        }
+        
+        if ( ! empty( $pass_cur ) && empty( $pass1 ) && empty( $pass2 ) ) {
+            wc_add_notice( __( 'Please fill out all password fields.', 'dokan' ), 'error' );
+            $save_pass = false;
+        } elseif ( ! empty( $pass1 ) && empty( $pass_cur ) ) {
+            wc_add_notice( __( 'Please enter your current password.', 'dokan' ), 'error' );
+            $save_pass = false;
+        } elseif ( ! empty( $pass1 ) && empty( $pass2 ) ) {
+            wc_add_notice( __( 'Please re-enter your password.', 'dokan' ), 'error' );
+            $save_pass = false;
+        } elseif ( ( ! empty( $pass1 ) || ! empty( $pass2 ) ) && $pass1 !== $pass2 ) {
+            wc_add_notice( __( 'New passwords do not match.', 'dokan' ), 'error' );
+            $save_pass = false;
+        }
+    }
 
-	
+    
 
-	if ( $pass1 && $save_pass ) {
-		$user->user_pass = $pass1;
-	}
-	
-	
-	
-	
-	
-	// Allow plugins to return their own errors.
-	do_action_ref_array( 'woocommerce_save_account_details_errors', array( &$errors, &$user ) );
+    if ( $pass1 && $save_pass ) {
+        $user->user_pass = $pass1;
+    }
+    
+    
+    
+    
+    
+    // Allow plugins to return their own errors.
+    do_action_ref_array( 'woocommerce_save_account_details_errors', array( &$errors, &$user ) );
 
-	if ( $errors->get_error_messages() ) {
-		foreach ( $errors->get_error_messages() as $error ) {
-			wc_add_notice( $error, 'error' );
-		}
-	}
+    if ( $errors->get_error_messages() ) {
+        foreach ( $errors->get_error_messages() as $error ) {
+            wc_add_notice( $error, 'error' );
+        }
+    }
 
-	if ( wc_notice_count( 'error' ) === 0 ) {
+    if ( wc_notice_count( 'error' ) === 0 ) {
 
-		wp_update_user( $user ) ;
+        wp_update_user( $user ) ;
 
-		wc_add_notice( __( 'Account details changed successfully.', 'dokan' ) );
+        wc_add_notice( __( 'Account details changed successfully.', 'dokan' ) );
 
-		do_action( 'ec_save_account_details', $user->ID );
-		
-		wp_safe_redirect( dokan_get_navigation_url( ' edit-account' ) );
-		exit;
-	}
+        do_action( 'ec_save_account_details', $user->ID );
+        
+        wp_safe_redirect( dokan_get_navigation_url( ' edit-account' ) );
+        exit;
+    }
 
 }
 add_filter( 'woocommerce_save_account_details_required_fields','custom_woocommerce_save_account_details_required_fields' );
 function custom_woocommerce_save_account_details_required_fields( $required_fields ) {
-	unset($required_fields["password_current"]);
+    unset($required_fields["password_current"]);
 return $required_fields;
 }
 
@@ -790,18 +790,21 @@ function ec_get_bd_meta($order_id){
     else 
         return null;
 }
-function bd_wc_generate_meta($oid){
+function bd_wc_generate_meta($oid , $seller_id = null , $current_user_id = null ){
     global $wpdb;
     
-            $current_user_id = get_current_user_id();  // the buyer
-            $query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
-            $seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
-            $seller_id = $seller_id[0]->seller_id;
+            if($current_user_id === null )
+                $current_user_id = get_current_user_id();  // the buyer
+            if($seller_id === null ){
+                $query = "SELECT seller_id FROM ktt_dokan_orders where order_id = %d";
+                $seller_id = $wpdb->get_results($wpdb->prepare($query, (int) $oid )); // the seller
+                $seller_id = $seller_id[0]->seller_id;
+            }
             $query = "SELECT thread_id from ktt_bp_messages_messages where sender_id = %d order by thread_id desc limit 1";
             $thread_id = $wpdb->get_results($wpdb->prepare($query, (int) $current_user_id )); 
             $thread_id = $thread_id[0]->thread_id;
             // we need to add the seller to the conversation
-            $wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id,  $thread_id ) ) );
+          //  $wpdb->query( $wpdb->prepare ( "INSERT INTO ktt_bp_messages_recipients (user_id, thread_id) VALUES (%d, %d) " , array( $seller_id,  $thread_id ) ) );
             //$wpdb->query( $wpdb->prepare ( "UPDATE ktt_bp_messages_messages set  sender_id = %d WHERE thread_id = %d " , array( $seller_id , $thread_id) ) );
             // we add metadata
             $meta_value = json_encode( array("order_id"=>$oid,  "seller_id" => $seller_id , "buyer_id" => $current_user_id, "email_completed"=> 0 , "email_on_hold" =>1 ) );

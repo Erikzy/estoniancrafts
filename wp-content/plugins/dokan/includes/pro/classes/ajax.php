@@ -377,6 +377,21 @@ class Dokan_Pro_Ajax {
 
         // Save Attributes
         $attributes = array();
+        $pa_varv = get_terms( array(
+            'taxonomy' => 'pa_varv',
+            'hide_empty' => false,
+            ) );
+            $pa_suurus = get_terms( array(
+            'taxonomy' => 'pa_suurus',
+            'hide_empty' => false,
+            ) );
+       $pa_varv_arr = array();
+        for($a = 0 ; $a < sizeof($pa_varv) ; $a++ ){
+                $pa_varv_arr[$a] = $pa_varv[$a]->name;
+            }
+        for($a = 0 ; $a < sizeof($pa_suurus) ; $a++ ){
+                $pa_suurus_arr[$a] = $pa_suurus[$a]->name;
+            }
 
         if ( isset( $data['attribute_names'] ) ) {
 
@@ -423,8 +438,18 @@ class Dokan_Pro_Ajax {
                     }
 
                     // Update post terms
-                    if ( taxonomy_exists( $attribute_names[ $i ] ) )
-                        wp_set_object_terms( $post_id, $values, $attribute_names[ $i ] );
+     /*               if ( taxonomy_exists( $attribute_names[ $i ] ) )
+                        wp_set_object_terms( $post_id, $values, $attribute_names[ $i ] );*/
+                        if ( taxonomy_exists( $attribute_names[ $i ] ) ) {
+
+                         $n = array();
+                         for($a = 0 ; $a < sizeof($values) ; $a++ ){
+                            if( ( in_array($values[$a] , $pa_suurus_arr) &&  $attribute_names[ $i ] == "pa_suurus" )  || (in_array($values[$a] , $pa_varv_arr) &&  $attribute_names[ $i ] == "pa_varv" )  )
+                                $n[$a] = $values[$a];
+                         }
+
+                        //wp_set_object_terms( $post_id, $n, $attribute_names[ $i ] );
+                    }
 
                     if ( $values ) {
                         // Add attribute to array, but don't set values
@@ -438,7 +463,7 @@ class Dokan_Pro_Ajax {
                         );
                     }
 
-                } elseif ( isset( $attribute_values[ $i ] ) ) {
+                } /*elseif ( isset( $attribute_values[ $i ] ) ) {
 
                     // Text based, separate by pipe
                     $values = implode( ' ' . WC_DELIMITER . ' ', array_map( 'wc_clean', array_map( 'stripslashes', $attribute_values[ $i ] ) ) );
@@ -452,7 +477,7 @@ class Dokan_Pro_Ajax {
                         'is_variation'  => $is_variation,
                         'is_taxonomy'   => $is_taxonomy
                     );
-                }
+                }*/
 
              }
         }
@@ -493,21 +518,43 @@ class Dokan_Pro_Ajax {
             $attr_values = isset( $data['attribute_values'] ) ? $data['attribute_values'] : array();
 
             $attr_tax = $attr_pos = $attr_visible = $attr_variation = array();
-
+            $pa_varv = get_terms( array(
+            'taxonomy' => 'pa_varv',
+            'hide_empty' => false,
+            ) );
+            $pa_suurus = get_terms( array(
+            'taxonomy' => 'pa_suurus',
+            'hide_empty' => false,
+            ) );
+            $pa_varv_arr = array();
+            for($a = 0 ; $a < sizeof($pa_varv) ; $a++ ){
+                $pa_varv_arr[$a] = $pa_varv[$a]->name;
+            }
+            for($a = 0 ; $a < sizeof($pa_suurus) ; $a++ ){
+                $pa_suurus_arr[$a] = $pa_suurus[$a]->name;
+            }
+        
             foreach ( $attribute_names as $key => $value ) {
                 $attr_pos[$key]       = $key;
                 $attr_visible[$key]   = 1;
                 $attr_variation[$key] = 1;
-                $attribute_values[$key] = explode(',', $attr_values[$key] );
+                $val = explode(',', $attr_values[$key] );
+                $attribute_values[$key] = $val;
             }
-
+/*            for($a = 0 ; $a< sizeof($attribute_values)  ; $a++ ){
+                for($b = 0 ; $b < sizeof($attribute_values[$a] ; $b++) ){
+                    if( in_array($attribute_values[$a][$b] , $pa_suurus_arr ) == false   ||  in_array($attribute_values[$a][$b] , $pa_varv_arr ) == false ) ){
+                        unset($attribute_values[$a][$b]);
+                    }
+                }
+            }
+         */
 
             $attribute_visibility = $attr_visible;
             $attribute_variation = $attr_variation;
             $attribute_is_taxonomy = $data['attribute_is_taxonomy'];
             $attribute_position = $attr_pos;
             $attribute_names_count = sizeof( $attribute_names );
-
 
             for ( $i=0; $i < $attribute_names_count; $i++ ) {
                 if ( ! $attribute_names[ $i ] )
@@ -536,10 +583,18 @@ class Dokan_Pro_Ajax {
                     } else {
                         $values = array();
                     }
-
+  
                     // Update post terms
-                    if ( taxonomy_exists( $attribute_names[ $i ] ) )
-                        wp_set_object_terms( $post_id, $values, $attribute_names[ $i ] );
+                    if ( taxonomy_exists( $attribute_names[ $i ] ) ) {
+
+                         $n = array();
+                         for($a = 0 ; $a < sizeof($values) ; $a++ ){
+                            if( ( in_array($values[$a] , $pa_suurus_arr) &&  $attribute_names[ $i ] == "pa_suurus" )  || (in_array($values[$a] , $pa_varv_arr) &&  $attribute_names[ $i ] == "pa_varv" )  )
+                                $n[$a] = $values[$a];
+                         }
+
+                        wp_set_object_terms( $post_id, $n, $attribute_names[ $i ] );
+                    }
 
                     if ( $values ) {
                         // Add attribute to array, but don't set values

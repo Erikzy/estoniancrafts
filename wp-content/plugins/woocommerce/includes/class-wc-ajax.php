@@ -639,7 +639,7 @@ class WC_AJAX {
 	public static function save_attributes() {
 
 		check_ajax_referer( 'save-attributes', 'security' );
-
+		//die();
 		if ( ! current_user_can( 'edit_products' ) ) {
 			die(-1);
 		}
