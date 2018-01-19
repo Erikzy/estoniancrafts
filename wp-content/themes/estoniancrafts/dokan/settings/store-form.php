@@ -40,6 +40,7 @@
     $address_zip     = isset( $profile_info['address']['zip'] ) ? $profile_info['address']['zip'] : '';
     $address_country = isset( $profile_info['address']['country'] ) ? $profile_info['address']['country'] : '';
     $address_state   = isset( $profile_info['address']['state'] ) ? $profile_info['address']['state'] : '';
+	$address_postcode   = isset( $profile_info['address']['postcode'] ) ? $profile_info['address']['postcode'] : '';
 
     $map_location   = isset( $profile_info['location'] ) ? esc_attr( $profile_info['location'] ) : '';
     $map_address    = isset( $profile_info['find_address'] ) ? esc_attr( $profile_info['find_address'] ) : '';
@@ -52,12 +53,13 @@
         $map_location = $_POST['location'];
         $map_address  = $_POST['find_address'];
 
-        $address_street1 = $_POST['dokan_address']['street_1'];
-        $address_street2 = $_POST['dokan_address']['street_2'];
-        $address_city    = $_POST['dokan_address']['city'];
-        $address_zip     = $_POST['dokan_address']['zip'];
-        $address_country = $_POST['dokan_address']['country'];
-        $address_state   = $_POST['dokan_address']['state'];
+        $address_street1  = $_POST['dokan_address']['street_1'];
+        $address_street2  = $_POST['dokan_address']['street_2'];
+        $address_city     = $_POST['dokan_address']['city'];
+        $address_zip      = $_POST['dokan_address']['zip'];
+        $address_country  = $_POST['dokan_address']['country'];
+        $address_state    = $_POST['dokan_address']['state'];
+        $address_postcode = $_POST['dokan_address']['postcode'];
     }
 
     $dokan_appearance = get_option( 'dokan_appearance' );
@@ -263,6 +265,8 @@
                                 <input value="<?= $address['address'] ?>" name="dokan_address[<?= $i ?>][address]" placeholder="<?php _e( 'Address', 'ktt'); ?>" class="dokan-form-control" type="text">
                                 <input value="<?= $address['email'] ?>" name="dokan_address[<?= $i ?>][email]" placeholder="<?php _e( 'Shop e-mail', 'ktt'); ?>" class="dokan-form-control" type="email">
                                 <input value="<?= $address['phone'] ?>" name="dokan_address[<?= $i ?>][phone]" placeholder="<?php _e( 'Shop phone', 'ktt'); ?>" class="dokan-form-control" type="text">
+                                <input value="<?= $address['postcode'] ?>" name="dokan_address[<?= $i ?>][postcode]" placeholder="<?php _e( 'Shop postcode', 'ktt'); ?>" class="dokan-form-control" type="text">
+                    
                             </div>
                         <?php $i++; } ?>
                 

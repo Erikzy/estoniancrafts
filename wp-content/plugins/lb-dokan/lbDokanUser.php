@@ -54,6 +54,7 @@ class lbDokanUser {
         $ext_profile['state'] = '';
         $ext_profile['city'] = '';
         $ext_profile['address'] = '';
+        $ext_profile['postcode'] = '';
         $ext_profile['org'] = [['name' => '', 'link' => '', 'start' => '', 'end' => '']];
         $ext_profile['work_exp'] = [['name' => '', 'field' => '', 'start' => '', 'end' => '']];
         $ext_profile['certificates'] = [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']];
@@ -104,7 +105,7 @@ class lbDokanUser {
     		}
 
     		if(!count($addresses)){ 
-    			$addresses = [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '']]; 
+    			$addresses = [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '','postcode'=>'']]; 
     		}
 
     		$ext_settings['address'] = wc_clean( array_values($addresses) );

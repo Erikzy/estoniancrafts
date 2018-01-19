@@ -74,6 +74,8 @@ class EC_Store_Page extends EC_Block
 			$address->city = isset($original_address['city']) ? $original_address['city'] : null;
 			$address->state = isset($original_address['state']) ? $original_address['state'] : null;
 			$address->country_code = isset($original_address['country']) ? $original_address['country'] : null;
+			$address->postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
+
 			$this->address = $address;
 		}
 
