@@ -117,7 +117,7 @@ class Dokan_Template_Products {
         global $wpdb;
        
         if ( ( isset( $_POST['dokan_add_product'] ) ||  ( isset( $_POST["dokan_save_draft_product"] ) && $_POST["dokan_save_draft_product"]  == "true"  ) ) && wp_verify_nonce( $_POST['dokan_add_new_product_nonce'], 'dokan_add_new_product' ) ) {
-           
+             
             $post_title              = trim( $_POST['post_title'] );
             $post_content            = trim( $_POST['post_content'] );
             $post_excerpt            = isset( $_POST['post_excerpt'] ) ? trim( $_POST['post_excerpt'] ) : '';
@@ -281,7 +281,6 @@ class Dokan_Template_Products {
                     
                     
                     
-                    
                     update_post_meta( $product_id, '_backorder_time', wc_clean($_POST['_backorder_time']));
         update_post_meta( $product_id, '_fragile_cargo', wc_clean($_POST['_fragile_cargo']));
         update_post_meta( $product_id, '_manufacturing_method', wc_clean($_POST['_manufacturing_method']));
@@ -421,6 +420,7 @@ class Dokan_Template_Products {
                     if ( isset( $_POST['product-type'] ) ) {
                         wp_set_object_terms( $product_id, $_POST['product-type'], 'product_type' );
                     } else {
+
                         /** Set Product type by default simple */
                         if ( isset( $_POST['_create_variation'] ) && $_POST['_create_variation'] == 'yes' ) {
                             wp_set_object_terms( $product_id, 'variable', 'product_type' );
@@ -435,7 +435,7 @@ class Dokan_Template_Products {
                     update_post_meta( $product_id, '_visibility', 'visible' );
 
                     dokan_new_process_product_meta( $product_id );
-                   
+                
                     if( isset( $_POST['dokan_product_id'] ) && !empty( $_POST['dokan_product_id'] ) ) {                        
                         do_action( 'dokan_product_updated', $product_id );
                     }  else {

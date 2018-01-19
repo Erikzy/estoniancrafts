@@ -643,10 +643,6 @@ function my_c_trigger($order_id = null , $from , $to ){
 
 		}
 }
-function new_wc_headers(  $headers, $object   ){
-	$new_header = array("header"=>$headers , "ignore_bb"  => "true");
-	return $new_header ;
-}
 
-add_filter('woocommerce_email_headers', 'new_wc_headers', 10, 2);
+
 

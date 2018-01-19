@@ -77,7 +77,6 @@
 <?php 
 	if ( is_user_logged_in() ) { 
 		$user = wp_get_current_user();
-		$ww= 0;
 		$wlink = '<a href="/my-account/blog/edit/">Write</a>';
 		if(in_array("seller",$user->roles) ){
 			echo $wlink;
