@@ -15,7 +15,7 @@
 
     $media_links  = isset( $extended_settings['media'] ) ? $extended_settings['media'] : [''];
     
-    $addresses  = isset( $extended_settings['address'] ) ? $extended_settings['address'] : [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '']];
+    $addresses  = isset( $extended_settings['address'] ) ? $extended_settings['address'] : [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '', 'postcode']];
 
 
     $gravatar   = isset( $profile_info['gravatar'] ) ? absint( $profile_info['gravatar'] ) : 0;
