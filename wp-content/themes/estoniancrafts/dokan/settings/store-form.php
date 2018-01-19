@@ -265,8 +265,13 @@
                                 <input value="<?= $address['address'] ?>" name="dokan_address[<?= $i ?>][address]" placeholder="<?php _e( 'Address', 'ktt'); ?>" class="dokan-form-control" type="text">
                                 <input value="<?= $address['email'] ?>" name="dokan_address[<?= $i ?>][email]" placeholder="<?php _e( 'Shop e-mail', 'ktt'); ?>" class="dokan-form-control" type="email">
                                 <input value="<?= $address['phone'] ?>" name="dokan_address[<?= $i ?>][phone]" placeholder="<?php _e( 'Shop phone', 'ktt'); ?>" class="dokan-form-control" type="text">
-                                <input value="<?= $address['postcode'] ?>" name="dokan_address[<?= $i ?>][postcode]" placeholder="<?php _e( 'Shop postcode', 'ktt'); ?>" class="dokan-form-control" type="text">
-                    
+                
+                				<?php if(isset($address['postcode'])):?>
+                        	        <input value="<?= $address['postcode'] ?>" name="dokan_address[<?= $i ?>][postcode]" placeholder="<?php _e( 'Shop postcode', 'ktt'); ?>" class="dokan-form-control" type="text">
+                    			<?php else:?>
+                    		        <input value="" name="dokan_address[<?= $i ?>][postcode]" placeholder="<?php _e( 'Shop postcode', 'ktt'); ?>" class="dokan-form-control" type="text">
+                    		
+                    			<?php endif;?>
                             </div>
                         <?php $i++; } ?>
                 
