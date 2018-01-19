@@ -1094,6 +1094,10 @@ span.select2-selection--multiple{
     line-height: 18px !important;
     border-radius: 5px !important;
 }
+#eabi_postoffice_pickup_location, #eabi_postoffice_pickup_group{
+    max-width: 250px;
+    width: 100% !important;
+}
 .mes-search{
     margin-left: -8px;
     height: 32px;
@@ -1573,6 +1577,14 @@ a.products-menu{
     color:white !important;
 }
 }
+
+/*-------- checkout ---------*/
+@media (max-width: 1366px){
+    #shipping_method  label{
+        display:block !important;
+        padding-top:5px !important;
+    }
+}
 @media (max-width: 1750px){
      .single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div{
        /*top: -85px !important;*/
@@ -1706,6 +1718,12 @@ a.products-menu{
     }
 }
 @media (max-width: 770px){
+   
+    #shipping_method label{
+        display:inline !important;
+        padding-top:0px !important;
+    }
+
  .single-product-content .product-images .thumbs-position-bottom .owl-controls .owl-buttons>div{
       /* top: -50px !important;*/
     }
