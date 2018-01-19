@@ -622,7 +622,7 @@ jQuery(function($) {
         inputValidate: function( e ) {
             let values = $(this).serializeArray();
 
-             console.log(values);
+          //   console.log(values);
              let draft = false;
              let create_variation = false;
              for(j in values){

@@ -748,4 +748,20 @@ function my_custom_mail($data = array() ){
     return $data;
 }
 
+function new_wc_headers(  $headers, $object   ){
+	$new_header = array("header"=>$headers , "ignore_bb"  => "true");
+	return $new_header ;
+}
+
+add_filter('woocommerce_email_headers', 'new_wc_headers', 10, 2);
+
+add_filter( 'pre_insert_term', 'prevent_terms', 1, 2 );
+function prevent_terms ( $term, $taxonomy ) {
+    $user = wp_get_current_user();
+    if(in_array("administrator",$user->roles) == false)	
+      return new WP_Error( 'term_addition_blocked', __( 'You cannot add terms to this taxonomy' ) );
+  	else
+  		return $term;
+    
+}
 
