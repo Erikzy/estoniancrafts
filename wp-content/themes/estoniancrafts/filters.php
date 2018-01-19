@@ -44,46 +44,55 @@ class EC_Filters
     	$order->save();
 		*/
 		
-	
+		$dokan_store_id = dokan_get_seller_id_by_order($order->ID);
+		$store_info = dokan_get_store_info( $dokan_store_id );
+		$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
+			// Address
+		$original_address = isset($this->ktt_extended_settings['address'][0]) ? $this->ktt_extended_settings['address'][0] : null;
+		if(is_array($original_address))
+		{
+			$street = isset($original_address['address']) ? $original_address['address'] : null;
+			$city = isset($original_address['city']) ? $original_address['city'] : null;
+			$state = isset($original_address['state']) ? $original_address['state'] : null;
+			$country_code = isset($original_address['country']) ? $original_address['country'] : null;
+		}
 		
-		
-				$sender_name = '';
-				$sender_phone = '';
-				$sender_email = '';
-				$postcode = '';
-				$country = '';
-				$street = '';
-				$deliverypoint = '';
-				$start = $order->get_meta('shippingPickup_start');
-				if($start == ''){
-					$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
-				}
-				$finish = $order->get_meta('shippingPickup_finish');
-				if($finish == ''){
-					$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
-				}
-				$fragile = (int)$order->get_meta('fragile');
-				
-				foreach($requestData['interchange']['itemlist'] as $item){
-				if($fragile == 1){
-					if(isset($item['add_service'])){
-							$item['add_service']['option'][] = array(
-                                '@attributes' => array(
-                                    'code' => 'BC'
-                                ),
-                            );
-					}else{
-						$item['add_service'] = array(
-							'option' = array();
-						);
-						$item['add_service']['option'][] = array(
-                              '@attributes' => array(
-                                 'code' => 'BC'
-                              ),
-                        );
-					}
-				}
+		$sender_name = '';
+		$sender_phone = '';
+		$sender_email = '';
+		$postcode = '';
+		$country = '';
+		$street = '';
+		$deliverypoint = '';
+		$start = $order->get_meta('shippingPickup_start');
+		if($start == ''){
+			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
+		}
+		$finish = $order->get_meta('shippingPickup_finish');
+		if($finish == ''){
+			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
+		}
+		$fragile = (int)$order->get_meta('fragile');
 			
+		foreach($requestData['interchange']['itemlist'] as $item){
+			if($fragile == 1){
+				if(isset($item['add_service'])){
+						$item['add_service']['option'][] = array(
+                               '@attributes' => array(
+                                   'code' => 'BC'
+                               ),
+                           );
+				}else{
+					$item['add_service'] = array(
+						'option' = array();
+					);
+					$item['add_service']['option'][] = array(
+                        '@attributes' => array(
+                        'code' => 'BC'
+                    	),
+                 	);
+				}
+			}
 			
 			$item['returnAddressee'] = array(
                             'person_name' => $sender_name,
@@ -93,9 +102,9 @@ class EC_Filters
                             'address' => array(
                                 '@attributes' => array(
                                     'postcode' => $postcode,
-                                    'deliverypoint' => $country,
-                                    'country' => $street,
-                                    'street' => $deliverypoint,
+                                    'deliverypoint' => $deliverypoint,
+                                    'country' => $country,
+                                    'street' => $street,
                                 ),
                             ),
                     	);
@@ -107,9 +116,9 @@ class EC_Filters
                             'address' => array(
                                 '@attributes' => array(
                                     'postcode' => $postcode,
-                                    'deliverypoint' => $country,
-                                    'country' => $street,
-                                    'street' => $deliverypoint,
+                                    'deliverypoint' => $deliverypoint,
+                                    'country' => $country,
+                                    'street' => $street,
                                 ),
                             ),
                             'pick_up_time' =>array(
@@ -120,7 +129,7 @@ class EC_Filters
                             )
                         );               
                         
-     /*   $xml = '<onloadAddressee>
+    	/*   $xml = '<onloadAddressee>
                      <person_name>Sender Name</person_name>
                      <phone>6347384</phone>
                      <mobile>55665566</mobile>
