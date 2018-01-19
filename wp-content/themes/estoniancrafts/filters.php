@@ -84,7 +84,7 @@ class EC_Filters
                            );
 				}else{
 					$item['add_service'] = array(
-						'option' = array();
+						'option' => array();
 					);
 					$item['add_service']['option'][] = array(
                         '@attributes' => array(
