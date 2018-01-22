@@ -43,13 +43,13 @@ class EC_Filters
 	}
 
 
-	public static function ec_get_sender_data_filter($requestData = array(), 
-													 $order = null, 
-													 $packageValue = null, 
-													 $selectedOffice = null, 
-													 $codCurrency = null, 
-													 $shippingModel = null,
-													 $mainShippingModel = null){
+	public static function ec_get_sender_data_filter($requestData, 
+													 $order, 
+													 $packageValue , 
+													 $selectedOffice, 
+													 $codCurrency, 
+													 $shippingModel,
+													 $mainShippingModel){
 		/*
 		var_dump($requestData);
 		$order->update_meta_data( 'my_custom_meta_key', 'my data' );
