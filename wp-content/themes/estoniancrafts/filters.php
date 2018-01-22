@@ -12,7 +12,7 @@ class EC_Filters
 		// Merchant section
 		add_filter( 'ec_get_page_merchant_products', array(__CLASS__, 'ec_get_page_merchant_products_filter'), 1 );
         add_filter( 'ec_get_myaccount_menu', array(__CLASS__, 'ec_get_myaccount_menu_filter'), 1 );
-        add_filter( 'eabi_postoffice_action_' . WC_Eabi_Postoffice::ACTION_AUTOSEND . '_eabi_omniva_courier',array(__CLASS__,'ec_get_sender_data_filter'),9, 5);
+        add_filter( 'eabi_omniva_autosend_data_before',array(__CLASS__,'ec_get_sender_data_filter'),9, 5);
 	}
 
 
@@ -43,13 +43,19 @@ class EC_Filters
 	}
 
 
-	public static function ec_get_sender_data_filter($requestData = array(), $order = null, $packageValue = null, $selectedOffice = null, $codCurrency = null, $shippingModel = null, $mainShippingModel = null){
+	public static function ec_get_sender_data_filter($requestData = array(), 
+													 $order = null, 
+													 $packageValue = null, 
+													 $selectedOffice = null, 
+													 $codCurrency = null, 
+													 $shippingModel = null,
+													 $mainShippingModel = null){
 		/*
 		var_dump($requestData);
 		$order->update_meta_data( 'my_custom_meta_key', 'my data' );
     	$order->save();
 		*/
-		
+		if(get_class($shippingModel) == "WC_Eabi_Omniva_Courier"){
 		$dokan_store_id = dokan_get_seller_id_by_order($order->ID);
 		$store_info = dokan_get_store_info( $dokan_store_id );
 		$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
@@ -150,7 +156,7 @@ class EC_Filters
                               
 		
 		}
-	
+		}
 		return $requestData;
 	}
 
