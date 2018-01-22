@@ -61,10 +61,9 @@ class EC_Filters
 	
 	var_dump($order);	
 			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
-			echo $dokan_store_id;
 			$store_info = dokan_get_store_info( $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
-			// Address
+			var_dump($store_info);
 		
 		$sender_name = $store_info->firstname;
 		$sender_phone = $store_info->lastname;
