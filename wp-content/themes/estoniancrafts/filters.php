@@ -37,7 +37,7 @@ class EC_Filters
 		return $page;
 	}
 
-	public static function ec_pdf_invoice_filter($address = '';){
+	public static function ec_pdf_invoice_filter($address = ''){
 	
 	
 	}
