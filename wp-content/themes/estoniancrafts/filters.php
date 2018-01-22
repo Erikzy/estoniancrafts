@@ -12,7 +12,7 @@ class EC_Filters
 		// Merchant section
 		add_filter( 'ec_get_page_merchant_products', array(__CLASS__, 'ec_get_page_merchant_products_filter'), 1 );
         add_filter( 'ec_get_myaccount_menu', array(__CLASS__, 'ec_get_myaccount_menu_filter'), 1 );
-        add_filter( 'eabi_postoffice_action_' . WC_Eabi_Postoffice::ACTION_AUTOSEND . '_eabi_omniva_courier',array(__CLASS__,'ec_get_sender_data_filter'),1);
+        add_filter( 'eabi_postoffice_action_' . WC_Eabi_Postoffice::ACTION_AUTOSEND . '_eabi_omniva_courier',array(__CLASS__,'ec_get_sender_data_filter'),9, 5);
 	}
 
 
