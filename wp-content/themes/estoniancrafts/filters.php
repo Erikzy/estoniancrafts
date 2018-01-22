@@ -60,7 +60,7 @@ class EC_Filters
 		if($shippingModel->id == "eabi_omniva_courier"){
 	
 	var_dump($order);	
-			$dokan_store_id = dokan_get_seller_id_by_order($order->ID);
+			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
 			
 			$store_info = dokan_get_store_info( $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
@@ -82,7 +82,10 @@ class EC_Filters
 			$postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
 		}
 		
-		$start = $order->get_meta('shippingPickup_start');
+			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
+			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
+		
+	/*	$start = $order->get_meta('shippingPickup_start');
 		if($start == ''){
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 		}
@@ -92,7 +95,7 @@ class EC_Filters
 			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
 		}
 		$fragile = (int)$order->get_meta('fragile');
-			
+		*/	
 		foreach($requestData['interchange']['itemlist'] as $item){
 			if($fragile == 1){
 				if(isset($item['add_service'])){
