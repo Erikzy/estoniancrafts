@@ -56,10 +56,8 @@ class EC_Filters
     	$order->save();
 		*/
 	
-		var_dump($shippingModel);
 	
-		die();	
-		if(get_class($shippingModel) == "WC_Eabi_Omniva_Courier"){
+		if($shippingModel->id == "eabi_omniva_courier"){
 		$dokan_store_id = dokan_get_seller_id_by_order($order->ID);
 		$store_info = dokan_get_store_info( $dokan_store_id );
 		$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
