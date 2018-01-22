@@ -58,9 +58,12 @@ class EC_Filters
 	
 	
 		if($shippingModel->id == "eabi_omniva_courier"){
-		$dokan_store_id = dokan_get_seller_id_by_order($order->ID);
-		$store_info = dokan_get_store_info( $dokan_store_id );
-		$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
+	
+	
+			$dokan_store_id = dokan_get_seller_id_by_order($order->ID);
+			var_dump($dokan_store_id);
+			$store_info = dokan_get_store_info( $dokan_store_id );
+			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
 			// Address
 		
 		$sender_name = $store_info->firstname;
@@ -70,9 +73,7 @@ class EC_Filters
 		$country = '';
 		$street = '';
 		$deliverypoint = '';
-		
-		
-		$original_address = isset($this->ktt_extended_settings['address'][0]) ? $this->ktt_extended_settings['address'][0] : null;
+		$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
 		if(is_array($original_address))
 		{
 			$street = isset($original_address['address']) ? $original_address['address'] : null;
