@@ -37,7 +37,13 @@ class EC_Filters
 		return $page;
 	}
 
-	public static function ec_get_sender_data_filter($requestData = array(), $order, $packageValue, $selectedOffice, $codCurrency, $shippingModel, $mainShippingModel){
+	public static function ec_pdf_invoice_filter($address = '';){
+	
+	
+	}
+
+
+	public static function ec_get_sender_data_filter($requestData = array(), $order = null, $packageValue = null, $selectedOffice = null, $codCurrency = null, $shippingModel = null, $mainShippingModel = null){
 		/*
 		var_dump($requestData);
 		$order->update_meta_data( 'my_custom_meta_key', 'my data' );
@@ -48,26 +54,30 @@ class EC_Filters
 		$store_info = dokan_get_store_info( $dokan_store_id );
 		$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
 			// Address
+		
+		$sender_name = $store_info->firstname;
+		$sender_phone = $store_info->lastname;
+		$sender_email =  $store_info->email;
+		$postcode = '';
+		$country = '';
+		$street = '';
+		$deliverypoint = '';
+		
+		
 		$original_address = isset($this->ktt_extended_settings['address'][0]) ? $this->ktt_extended_settings['address'][0] : null;
 		if(is_array($original_address))
 		{
 			$street = isset($original_address['address']) ? $original_address['address'] : null;
 			$city = isset($original_address['city']) ? $original_address['city'] : null;
-			$state = isset($original_address['state']) ? $original_address['state'] : null;
-			$country_code = isset($original_address['country']) ? $original_address['country'] : null;
+			$country = isset($original_address['country']) ? $original_address['country'] : null;
+			$postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
 		}
 		
-		$sender_name = '';
-		$sender_phone = '';
-		$sender_email = '';
-		$postcode = '';
-		$country = '';
-		$street = '';
-		$deliverypoint = '';
 		$start = $order->get_meta('shippingPickup_start');
 		if($start == ''){
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 		}
+	
 		$finish = $order->get_meta('shippingPickup_finish');
 		if($finish == ''){
 			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
@@ -102,7 +112,7 @@ class EC_Filters
                             'address' => array(
                                 '@attributes' => array(
                                     'postcode' => $postcode,
-                                    'deliverypoint' => $deliverypoint,
+                                    'deliverypoint' => $city,
                                     'country' => $country,
                                     'street' => $street,
                                 ),
