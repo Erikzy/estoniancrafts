@@ -87,7 +87,7 @@ class EC_Filters
 				throw new Eabi_Woocommerce_Postoffice_Exception("Missing address details!");
 			}
 
-			echo $ddd[0];
+			echo $street->goDoThis();
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
 			$fragile = 0;	
