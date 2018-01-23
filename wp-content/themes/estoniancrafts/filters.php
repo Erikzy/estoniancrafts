@@ -61,8 +61,8 @@ class EC_Filters
 			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
 			$store_user = get_user_by('id', $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
-			$sender_name = $store_user->first_name.' '.$store_user->last_name;
-			echo var_dump($store_user);
+			$sender_name = $extended_settings['store_name'];
+			echo var_dump($extended_settings);
 			$postcode = '';
 			$country = '';
 			$street = '';
