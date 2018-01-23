@@ -62,7 +62,7 @@ class EC_Filters
 			$store_user = get_user_by('id', $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
 			$sender_name = $store_user->nicename;
-
+			echo var_dump($store_user);
 			$postcode = '';
 			$country = '';
 			$street = '';
@@ -93,10 +93,7 @@ class EC_Filters
 		}
 		$fragile = (int)$order->get_meta('fragile');
 		*/	
-								echo '<pre>';
-			var_dump($requestData);
-						echo '</pre>';
-
+			
 		
 		foreach($requestData['interchange']['item_list'] as &$item){
 			if($fragile == 1){
