@@ -69,6 +69,12 @@ class EC_Filters
 			$street = '';
 			$deliverypoint = '';
 			$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
+			echo '<pre>';
+					var_dump($original_address);
+			echo '</pre>';	
+						echo '<pre>';
+			var_dump ($extended_settings)
+						echo '</pre>';
 			if(is_array($original_address))
 			{
 				$street = isset($original_address['address']) ? $original_address['address'] : null;
