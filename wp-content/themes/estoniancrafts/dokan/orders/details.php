@@ -310,7 +310,7 @@ $order    = new WC_Order( $order_id );
                		<input type="text" name="shipping_from_date" class="form-control date_picker" value="<?php echo $from_date ?>" />
 					<select name="shipping_from_time" >
 					<?php
-						for($i = 0,$i<24,$i++){
+						for($i = 0;$i<24;$i++){
 							$hour = $i;
 							if(strlen($i) == 1){
 								$hour = '0'.$i; 
@@ -329,7 +329,7 @@ $order    = new WC_Order( $order_id );
 					<input type="text" name="shipping_to_date" class="form-control date_picker" value="<?php echo $to_date ?>" />
 					<select name="shipping_to_time" >
 					<?php
-						for($i = 0,$i<24,$i++){
+						for($i = 0;$i<24;$i++){
 							$hour = $i;
 							if(strlen($i) == 1){
 								$hour = '0'.$i; 
