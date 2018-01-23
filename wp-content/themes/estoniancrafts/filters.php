@@ -97,7 +97,9 @@ class EC_Filters
 		}
 		$fragile = (int)$order->get_meta('fragile');
 		*/	
-		var_dump($requestData);
+								echo '<pre>';
+			var_dump($requestData);
+						echo '</pre>';
 
 		
 		foreach($requestData['interchange']['item_list'] as $item){
@@ -167,7 +169,9 @@ class EC_Filters
 		
 		}
 		}
-		var_dump($requestData);
+										echo '<pre>';
+			var_dump($requestData);
+						echo '</pre>';
 		
 		return $requestData;
 	}
