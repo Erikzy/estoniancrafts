@@ -87,6 +87,12 @@ class EC_Filters
 				throw new Eabi_Woocommerce_Postoffice_Exception("Missing address details!");
 			}
 			echo '<pre>';
+				global $wp_filter;
+
+	$hooks = $wp_filter;
+	ksort( $hooks );
+	var_dump($hooks);
+			
 			echo $street->goDoThis();
 			echo '</pre>';
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
