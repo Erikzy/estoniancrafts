@@ -58,28 +58,26 @@ class EC_Filters
 	
 	
 		if($shippingModel->id == "eabi_omniva_courier"){
-	
-	var_dump($order);	
 			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
 			$store_info = dokan_get_store_info( $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
 			var_dump($store_info);
 		
-		$sender_name = $store_info->firstname;
-		$sender_phone = $store_info->lastname;
-		$sender_email =  $store_info->email;
-		$postcode = '';
-		$country = '';
-		$street = '';
-		$deliverypoint = '';
-		$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
-		if(is_array($original_address))
-		{
-			$street = isset($original_address['address']) ? $original_address['address'] : null;
-			$city = isset($original_address['city']) ? $original_address['city'] : null;
-			$country = isset($original_address['country']) ? $original_address['country'] : null;
-			$postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
-		}
+			$sender_name = $store_info['firstname'];
+			$sender_phone = $store_info['lastname'];
+			$sender_email =  $store_info['email'];
+			$postcode = '';
+			$country = '';
+			$street = '';
+			$deliverypoint = '';
+			$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
+			if(is_array($original_address))
+			{
+				$street = isset($original_address['address']) ? $original_address['address'] : null;
+				$city = isset($original_address['city']) ? $original_address['city'] : null;
+				$country = isset($original_address['country']) ? $original_address['country'] : null;
+				$postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
+			}
 		
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
