@@ -73,7 +73,7 @@ class EC_Filters
 					var_dump($original_address);
 			echo '</pre>';	
 						echo '<pre>';
-			var_dump ($extended_settings)
+			var_dump ($extended_settings);
 						echo '</pre>';
 			if(is_array($original_address))
 			{
