@@ -83,8 +83,11 @@ class EC_Filters
 				$city = isset($original_address['city']) ? $original_address['city'] : null;
 				$country = isset($original_address['country']) ? $original_address['country'] : null;
 				$postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
+			}else{
+				throw new Eabi_Woocommerce_Postoffice_Exception("Missing address details!");
 			}
-		
+			throw new Eabi_Woocommerce_Postoffice_Exception("Missing address details!");
+				
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
 			$fragile = 0;	
