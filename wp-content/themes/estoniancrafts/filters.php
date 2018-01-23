@@ -61,22 +61,18 @@ class EC_Filters
 			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
 			$store_user = get_user_by('id', $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
-			$sender_name = $store_user->firstname;
-			$sender_phone = $store_user->lastname;
-			$sender_email =  $store_user->email;
+			$sender_name = $store_user->nicename;
+
 			$postcode = '';
 			$country = '';
 			$street = '';
 			$deliverypoint = '';
 			$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
-			echo '<pre>';
-					var_dump($original_address);
-			echo '</pre>';	
-						echo '<pre>';
-			var_dump ($extended_settings);
-						echo '</pre>';
+
 			if(is_array($original_address))
 			{
+				$sender_phone = isset($original_address['phone']) ? $original_address['phone'] : null;
+				$sender_email = isset($original_address['email']) ? $original_address['email'] : null;
 				$street = isset($original_address['address']) ? $original_address['address'] : null;
 				$city = isset($original_address['city']) ? $original_address['city'] : null;
 				$country = isset($original_address['country']) ? $original_address['country'] : null;
