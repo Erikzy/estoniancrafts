@@ -286,20 +286,21 @@ $order    = new WC_Order( $order_id );
               					if(!$from){
               						add_post_meta($order->id,'courier_pickup_from', date("Y-m-d",strtotime("tomorrow"))."T12:00:00" ,true);
               						$from =  get_post_meta($order->id,'courier_pickup_from',true);
-              						$from_time = explode("T",$from);
-              						$from_time_units = explode(":",$from_time[1]);
-              						$from_hour = $from_time_units[0];
-              						$from_date = $from_time[0];
               					}
+              					$from_time = explode("T",$from);
+              					$from_time_units = explode(":",$from_time[1]);
+              					$from_hour = $from_time_units[0];
+              					$from_date = $from_time[0];
+              					
               					$to =  get_post_meta($order->id,'courier_pickup_to',true);
               					if(!$to){
               						add_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
               						$to =  get_post_meta($order->id,'courier_pickup_to',true);
-              						$to_time = explode("T",$to);
-              						$to_time_units = explode(":",$to_time[1]);
-              						$to_hour = $to_time_units[0];
-              						$to_date = $to_time[0];
               					}
+              					$to_time = explode("T",$to);
+              					$to_time_units = explode(":",$to_time[1]);
+              					$to_hour = $to_time_units[0];
+              					$to_date = $to_time[0];
               					
               					
               				}
