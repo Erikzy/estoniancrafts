@@ -191,6 +191,8 @@ class EC_Filters
 	 * @param EC_Menu $menu
 	 * @return \EC_Menu
 	 */
+	 
+		 
     public static function ec_get_myaccount_menu_filter( $menu=null )
 	{
 		$user = wp_get_current_user();
@@ -916,3 +918,36 @@ function prevent_terms ( $term, $taxonomy ) {
     
 }
 
+
+function dump_hook( $tag, $hook ) {
+    ksort($hook);
+
+    echo "<pre>>>>>>\t$tag<br>";
+
+    foreach( $hook as $priority => $functions ) {
+
+	echo $priority;
+
+	foreach( $functions as $function )
+	    if( $function['function'] != 'list_hook_details' ) {
+
+		echo "\t";
+
+		if( is_string( $function['function'] ) )
+		    echo $function['function'];
+
+		elseif( is_string( $function['function'][0] ) )
+		     echo $function['function'][0] . ' -> ' . $function['function'][1];
+
+		elseif( is_object( $function['function'][0] ) )
+		    echo "(object) " . get_class( $function['function'][0] ) . ' -> ' . $function['function'][1];
+
+		else
+		    print_r($function);
+
+		echo ' (' . $function['accepted_args'] . ') <br>';
+		}
+    }
+
+    echo '</pre>';
+}
