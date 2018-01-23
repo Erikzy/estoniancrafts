@@ -335,7 +335,7 @@ $order    = new WC_Order( $order_id );
 					</div>
 					
 				<div class="col-md-6">
-				<label for="shipping_from"><?php _e('Courier pickup from'); ?></label>	
+				<label for="shipping_from"><?php _e('Courier pickup to'); ?></label>	
 					<div class="col-md-6">
 						<input type="text" name="shipping_to_date" class="form-control date_picker" value="<?php echo $to_date ?>" />
 					</div>    
@@ -363,10 +363,15 @@ $order    = new WC_Order( $order_id );
 					<script type="text/javascript">
    						jQuery(document).ready(function($) {
        						 $('.date_picker').datepicker({
-           						 dateFormat : 'yyyy-mm-dd'
+           						 dateFormat : 'yy-mm-dd'
        						 });
   						});
   						
+  						
+  						function update_shipping_data(){
+  						
+  							
+  						}
   						
 					</script>
                		
