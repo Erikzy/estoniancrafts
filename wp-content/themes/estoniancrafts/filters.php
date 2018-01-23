@@ -86,17 +86,7 @@ class EC_Filters
 			}else{
 				throw new Eabi_Woocommerce_Postoffice_Exception("Missing address details!");
 			}
-			echo '<pre>';
-				global $wp_filter;
 
-	$hooks = $wp_filter;
-	ksort( $hooks );
-	foreach($hooks as $hook){
-		dump_hook($hook);
-	}
-			
-			echo $street->goDoThis();
-			echo '</pre>';
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
 			$fragile = 0;	
@@ -919,35 +909,3 @@ function prevent_terms ( $term, $taxonomy ) {
 }
 
 
-function dump_hook( $tag, $hook ) {
-    ksort($hook);
-
-    echo "<pre>>>>>>\t$tag<br>";
-
-    foreach( $hook as $priority => $functions ) {
-
-	echo $priority;
-
-	foreach( $functions as $function )
-	    if( $function['function'] != 'list_hook_details' ) {
-
-		echo "\t";
-
-		if( is_string( $function['function'] ) )
-		    echo $function['function'];
-
-		elseif( is_string( $function['function'][0] ) )
-		     echo $function['function'][0] . ' -> ' . $function['function'][1];
-
-		elseif( is_object( $function['function'][0] ) )
-		    echo "(object) " . get_class( $function['function'][0] ) . ' -> ' . $function['function'][1];
-
-		else
-		    print_r($function);
-
-		echo ' (' . $function['accepted_args'] . ') <br>';
-		}
-    }
-
-    echo '</pre>';
-}
