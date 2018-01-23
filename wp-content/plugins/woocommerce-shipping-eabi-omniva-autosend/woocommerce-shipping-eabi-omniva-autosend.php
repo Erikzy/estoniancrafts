@@ -282,12 +282,12 @@ if (is_eabi_postoffice_active()) {
                             $errors[] = $requestResult->faultyPacketInfo->barcodeInfo->message;
                         } else {
                             
-			    foreach ($requestResult->faultyPacketInfo->barcodeInfo as $barcodeInfo) {
+			   			foreach ($requestResult->faultyPacketInfo->barcodeInfo as $barcodeInfo) {
                         	if(is_object($barcodeInfo)){       	
-				 $errors[] = $barcodeInfo->message;
-				}
-                            }
-			    $errors[] = $requestResult->prompt;
+				 				$errors[] = $barcodeInfo->message;
+							}
+                        }
+			    		$errors[] = $requestResult->prompt;
                         }
                     }
                     if (count($errors)) {
@@ -307,6 +307,8 @@ if (is_eabi_postoffice_active()) {
 
 
                     if (count($barCodes)) {
+                    	add_post_meta($order->id,'omniva_barcode',$barCodes );
+                    
                         return array('barcodes' => $barCodes);
                     }
                     return array();
