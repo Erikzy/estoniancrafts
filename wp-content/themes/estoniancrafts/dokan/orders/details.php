@@ -306,10 +306,15 @@ $order    = new WC_Order( $order_id );
               				}
               			} 		
                		?>
-	
-					<label for="shipping_from"><?php _e('Shipping from'); ?></label><br />    
-               		<input type="text" name="shipping_from_date" class="form-control date_picker" value="<?php echo $from_date ?>" />
+				<div class="row">
+					
+					<div class="col-md-3">
+               			<label for="shipping_from"><?php _e('Shipping from'); ?></label>
+						<input type="text" name="shipping_from_date" class="form-control date_picker" value="<?php echo $from_date ?>" />
+					</div>    
+               		<div class="col-md-3">
 					<select name="shipping_from_time" >
+					
 					<?php
 						for($i = 0;$i<24;$i++){
 							$hour = $i;
@@ -326,10 +331,14 @@ $order    = new WC_Order( $order_id );
 						}
 					?>
 					</select>
+					</div>
 					
-					<input type="text" name="shipping_to_date" class="form-control date_picker" value="<?php echo $to_date ?>" />
-					<select name="shipping_to_time" >
-					<?php
+					<div class="col-md-3">
+						<input type="text" name="shipping_to_date" class="form-control date_picker" value="<?php echo $to_date ?>" />
+					</div>    
+               		<div class="col-md-3">
+						<select name="shipping_to_time" >
+						<?php
 						for($i = 0;$i<24;$i++){
 							$hour = $i;
 							if(strlen($i) == 1){
@@ -343,10 +352,11 @@ $order    = new WC_Order( $order_id );
 							}
 							echo '<option value="'.$hour.':00:00">'.$hour.':00</option>';
 						}
-					?>
-					</select>
-					
-					
+						?>
+						</select>
+						
+					</div>    
+               		
 					<script type="text/javascript">
    						jQuery(document).ready(function($) {
        						 $('.date_picker').datepicker({
