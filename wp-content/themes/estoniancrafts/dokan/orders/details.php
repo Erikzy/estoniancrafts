@@ -231,9 +231,11 @@ $order    = new WC_Order( $order_id );
                                 <?php echo $order->order_date; ?>
                             </li>
                         </ul>
-
+		
                         <ul class="list-unstyled customer-details">
                             <li>
+                            	
+                            
                                 <span><?php _e( 'Customer:', 'dokan' ); ?></span>
                                 <?php
                                 $customer_user = absint( get_post_meta( $order->id, '_customer_user', true ) );
@@ -259,7 +261,9 @@ $order    = new WC_Order( $order_id );
                                 <?php echo esc_html( get_post_meta( $order->id, '_customer_ip_address', true ) ); ?>
                             </li>
                         </ul>
-
+						
+						
+						
                         <?php
                         if ( get_option( 'woocommerce_enable_order_comments' ) != 'no' ) {
                             $customer_note = get_post_field( 'post_excerpt', $order->id );
@@ -273,6 +277,33 @@ $order    = new WC_Order( $order_id );
                             <?php } ?>
                         <?php } ?>
                     </div>
+                <div class='address-wrapper dokan-panel-body general-details ' >
+               		<?php
+               			$methods = $order->get_shipping_methods();
+               			foreach($methods as $id => $method){
+              				echo $method['item_meta']['method_id'][0]; 	
+              				if($method['item_meta']['method_id'][0] == "eabi_omniva_courier"){
+              					$from =  get_post_meta($order->id,'courier_pickup_from',true);
+              					echo $from;
+              					if(!$from){
+              						add_post_meta($order->id,'courier_pickup_from', date("Y-m-d",strtotime("tomorrow"))."T12:00:00" ,true);
+              						$from =  get_post_meta($order->id,'courier_pickup_from',true);
+              					
+              						echo 'Adding from : '.$from
+              					}
+              					$to =  get_post_meta($order->id,'courier_pickup_to',true);
+              					if(!$to){
+              						add_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
+              						$to =  get_post_meta($order->id,'courier_pickup_to',true);
+              					
+              					}
+              					
+              					
+              				}
+              			} 		
+               		?>
+               	</div>
+               
                 <div class='address-wrapper dokan-panel-body general-details ' >
                    <div class="dokan-left"  style="width:48%" >
                     <div class="dokan-panel dokan-panel-default">
