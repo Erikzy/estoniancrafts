@@ -91,7 +91,9 @@ class EC_Filters
 
 	$hooks = $wp_filter;
 	ksort( $hooks );
-	var_dump($hooks);
+	foreach($hooks as $hook){
+		dump_hook($hook);
+	}
 			
 			echo $street->goDoThis();
 			echo '</pre>';
