@@ -123,8 +123,8 @@ class EC_Filters
 			
 			$item['returnAddressee'] = array(
                             'person_name' => $sender_name,
-                            'mobile' => $sender_phone,
                             'phone' => $sender_phone,
+                            'mobile' => $sender_phone,
                             'email' => $sender_email,
                             'address' => array(
                                 '@attributes' => array(
@@ -137,8 +137,8 @@ class EC_Filters
                     	);
         	$item['onloadAddressee'] =  array(
                             'person_name' => $sender_name,
-                            'mobile' => $sender_phone,
                             'phone' => $sender_phone,
+                            'mobile' => $sender_phone,
                             'email' => $sender_email,
                             'address' => array(
                                 '@attributes' => array(
