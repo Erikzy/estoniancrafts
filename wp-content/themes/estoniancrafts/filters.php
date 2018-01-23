@@ -3,11 +3,7 @@
 class EC_Filters
 {
 
-	public static $company_types = array(
-			'1'=>  __( 'FIE', 'ktt'),
-		 	'2'=>  __( 'OÜ', 'ktt'),
-			'3'=>  __( 'AS', 'ktt')
-		);	
+	
 
 	public static function init()
 	{
@@ -57,17 +53,16 @@ class EC_Filters
 													 $codCurrency, 
 													 $shippingModel,
 													 $mainShippingModel){
-		/*
-		var_dump($requestData);
-		$order->update_meta_data( 'my_custom_meta_key', 'my data' );
-    	$order->save();
-		*/
-	
+		$company_types = array(
+			'1'=>  __( 'FIE', 'ktt'),
+		 	'2'=>  __( 'OÜ', 'ktt'),
+			'3'=>  __( 'AS', 'ktt')
+		);	
 		
 		$dokan_store_id = dokan_get_seller_id_by_order($order->id);
 		$store_user = get_user_by('id', $dokan_store_id );
 		$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
-		$sender_name = $extended_settings['company_name'].' '.self::$company_types[$extended_settings['company_type']];
+		$sender_name = $extended_settings['company_name'].' '.$company_types[$extended_settings['company_type']];
 		$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
 		if(is_array($original_address))
 		{
