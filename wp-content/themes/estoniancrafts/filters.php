@@ -79,7 +79,7 @@ class EC_Filters
 		
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
-		
+			$fragile = 0;	
 	/*	$start = $order->get_meta('shippingPickup_start');
 		if($start == ''){
 			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
@@ -92,7 +92,7 @@ class EC_Filters
 		$fragile = (int)$order->get_meta('fragile');
 		*/	
 		var_dump($requestData);
-		$fragile = 0;
+
 		
 		foreach($requestData['interchange']['item_list'] as $item){
 			if($fragile == 1){
@@ -161,6 +161,8 @@ class EC_Filters
 		
 		}
 		}
+		var_dump($requestData);
+		
 		return $requestData;
 	}
 
