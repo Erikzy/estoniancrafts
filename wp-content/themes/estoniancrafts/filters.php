@@ -61,8 +61,6 @@ class EC_Filters
 			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
 			$store_user = get_user_by('id', $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
-			var_dump($store_info);
-		
 			$sender_name = $store_user->firstname;
 			$sender_phone = $store_user->lastname;
 			$sender_email =  $store_user->email;
@@ -93,6 +91,8 @@ class EC_Filters
 		}
 		$fragile = (int)$order->get_meta('fragile');
 		*/	
+		var_dump($requestData);
+		
 		foreach($requestData['interchange']['itemlist'] as $item){
 			if($fragile == 1){
 				if(isset($item['add_service'])){
