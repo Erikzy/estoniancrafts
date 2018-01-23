@@ -73,12 +73,12 @@ if (is_woocommerce_active()) {
                     $this->_selectPickupLocationErrorText = __('Please select a pickup location', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN);
                     $this->_selectPickupLocationRefreshPageErrorText = __('Please refresh the page and select a different pickup location', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN);
                     $this->_chosenPickupLocationChangedText = __('Pickup location changed to %s', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN);
-                    $this->supports = array(
+/*                    $this->supports = array(
                         'shipping-zones',
 						'instance-settings',
 						'instance-settings-modal',
                     );
-
+*/
                     if (!$disableActions) {
                         $this->includes();
                         $this->__init_hooks();

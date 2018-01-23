@@ -281,9 +281,13 @@ if (is_eabi_postoffice_active()) {
                         if (isset($requestResult->faultyPacketInfo->barcodeInfo->barcode)) {
                             $errors[] = $requestResult->faultyPacketInfo->barcodeInfo->message;
                         } else {
-                            foreach ($requestResult->faultyPacketInfo->barcodeInfo as $barcodeInfo) {
-                                $errors[] = $barcodeInfo->message;
+                            
+			    foreach ($requestResult->faultyPacketInfo->barcodeInfo as $barcodeInfo) {
+                        	if(is_object($barcodeInfo)){       	
+				 $errors[] = $barcodeInfo->message;
+				}
                             }
+			    $errors[] = $requestResult->prompt;
                         }
                     }
                     if (count($errors)) {

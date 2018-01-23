@@ -127,11 +127,14 @@ class Eabi_Woocommerce_Postoffice_Helper_Data {
                 if ($itemWeight > $maximumWeight) {
                     return false;
                 }
-                $weight += $itemWeight;
-                if ($weight > $maximumWeight) {
-                    $numPackages++;
-                    $weight = $itemWeight;
-                }
+
+		if($itemWeight != ""){
+              	     $weight += (int)$itemWeight;
+               	     if ($weight > $maximumWeight) {
+                	    $numPackages++;
+                	    $weight = $itemWeight;
+                	}
+		}
             }
             
         }
