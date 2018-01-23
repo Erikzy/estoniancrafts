@@ -102,7 +102,7 @@ class EC_Filters
 						echo '</pre>';
 
 		
-		foreach($requestData['interchange']['item_list'] as $item){
+		foreach($requestData['interchange']['item_list'] as &$item){
 			if($fragile == 1){
 				if(isset($item['add_service'])){
 						$item['add_service']['option'][] = array(
