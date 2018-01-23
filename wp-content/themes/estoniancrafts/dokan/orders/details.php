@@ -307,12 +307,12 @@ $order    = new WC_Order( $order_id );
               			} 		
                		?>
 				<div class="row">
-					
-					<div class="col-md-3">
-               			<label for="shipping_from"><?php _e('Shipping from'); ?></label>
-						<input type="text" name="shipping_from_date" class="form-control date_picker" value="<?php echo $from_date ?>" />
+					<div class="col-md-6">
+					<label for="shipping_from"><?php _e('Courier pickup from'); ?></label>	
+					<div class="col-md-6">
+               			<input type="text" name="shipping_from_date" class="form-control date_picker" value="<?php echo $from_date ?>" />
 					</div>    
-               		<div class="col-md-3">
+               		<div class="col-md-6">
 					<select name="shipping_from_time" >
 					
 					<?php
@@ -332,11 +332,14 @@ $order    = new WC_Order( $order_id );
 					?>
 					</select>
 					</div>
+					</div>
 					
-					<div class="col-md-3">
+				<div class="col-md-6">
+				<label for="shipping_from"><?php _e('Courier pickup from'); ?></label>	
+					<div class="col-md-6">
 						<input type="text" name="shipping_to_date" class="form-control date_picker" value="<?php echo $to_date ?>" />
 					</div>    
-               		<div class="col-md-3">
+               		<div class="col-md-6">
 						<select name="shipping_to_time" >
 						<?php
 						for($i = 0;$i<24;$i++){
@@ -356,7 +359,7 @@ $order    = new WC_Order( $order_id );
 						</select>
 						
 					</div>    
-               		
+               </div>		
 					<script type="text/javascript">
    						jQuery(document).ready(function($) {
        						 $('.date_picker').datepicker({
