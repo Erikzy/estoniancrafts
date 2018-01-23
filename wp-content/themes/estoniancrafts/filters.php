@@ -2,6 +2,13 @@
 
 class EC_Filters
 {
+
+	public static $company_types = array(
+			'1'=>  __( 'FIE', 'ktt'),
+		 	'2'=>  __( 'OÜ', 'ktt'),
+			'3'=>  __( 'AS', 'ktt')
+		);	
+
 	public static function init()
 	{
 	
@@ -56,51 +63,28 @@ class EC_Filters
     	$order->save();
 		*/
 	
-		$company_types = array(
-			'1'=>  __( 'FIE', 'ktt'),
-		 	'2'=>  __( 'OÜ', 'ktt'),
-			'3'=>  __( 'AS', 'ktt')
-	);	
-
-
-		if($shippingModel->id == "eabi_omniva_courier"){
-			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
-			$store_user = get_user_by('id', $dokan_store_id );
-			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
-			$sender_name = $extended_settings['company_name'].' '.$company_types[$extended_settings['company_type']];
-			echo var_dump($extended_settings);
-			$postcode = '';
-			$country = '';
-			$street = '';
-			$deliverypoint = '';
-			$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
-
-			if(is_array($original_address))
-			{
-				$sender_phone = isset($original_address['phone']) ? $original_address['phone'] : null;
-				$sender_email = isset($original_address['email']) ? $original_address['email'] : null;
-				$street = isset($original_address['address']) ? $original_address['address'] : null;
-				$city = isset($original_address['city']) ? $original_address['city'] : null;
-				$country = isset($original_address['country']) ? $original_address['country'] : null;
-				$postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
-			}else{
+		
+		$dokan_store_id = dokan_get_seller_id_by_order($order->id);
+		$store_user = get_user_by('id', $dokan_store_id );
+		$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
+		$sender_name = $extended_settings['company_name'].' '.self::$company_types[$extended_settings['company_type']];
+		$original_address = isset($extended_settings['address'][0]) ? $extended_settings['address'][0] : null;
+		if(is_array($original_address))
+		{
+			$sender_phone = isset($original_address['phone']) ? $original_address['phone'] : null;
+			$sender_email = isset($original_address['email']) ? $original_address['email'] : null;
+			$street = isset($original_address['address']) ? $original_address['address'] : null;
+			$city = isset($original_address['city']) ? $original_address['city'] : null;
+			$country = isset($original_address['country']) ? $original_address['country'] : null;
+			$postcode = isset($original_address['postcode']) ? $original_address['postcode'] : null;
+		}else{
 				throw new Eabi_Woocommerce_Postoffice_Exception("Missing address details!");
-			}
-
-			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
-			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
+		}
+		if($shippingModel->id == "eabi_omniva_courier"){
+			$from =  get_post_meta($order->id,'courier_pickup_from',true);
+            $to =  get_post_meta($order->id,'courier_pickup_from',true);
 			$fragile = 0;	
-	/*	$start = $order->get_meta('shippingPickup_start');
-		if($start == ''){
-			$start = date("Y-m-d",strtotime("tomorrow"))."T12:00:00";
 		}
-	
-		$finish = $order->get_meta('shippingPickup_finish');
-		if($finish == ''){
-			$finish = date("Y-m-d",strtotime("tomorrow"))."T15:00:00";
-		}
-		$fragile = (int)$order->get_meta('fragile');
-		*/	
 			
 		
 		foreach($requestData['interchange']['item_list'] as &$item){
@@ -137,7 +121,8 @@ class EC_Filters
                                 ),
                             ),
                     	);
-        	$item['onloadAddressee'] =  array(
+        	if($shippingModel->id == "eabi_omniva_courier"){
+        		$item['onloadAddressee'] =  array(
                             'person_name' => $sender_name,
                             'phone' => $sender_phone,
                             'mobile' => $sender_phone,
@@ -152,28 +137,15 @@ class EC_Filters
                             ),
                             'pick_up_time' =>array(
                             	'@attributes' => array(
-                                    'start' => $start,
-                                    'finish' => $finish,
+                                    'start' => $from,
+                                    'finish' => $to,
                                 ),
                             )
-                        );               
-                        
-    	/*   $xml = '<onloadAddressee>
-                     <person_name>Sender Name</person_name>
-                     <phone>6347384</phone>
-                     <mobile>55665566</mobile>
-                     <email>test@test.ee</email>
-                     <address postcode="10101" deliverypoint="Tallinn" country="EE" street="Pallasti 27"/>
-                     <pick_up_time start="2018-12-31T00:00:00" finish="2018-12-31T00:00:00"/>
-				</onloadAddressee>';*/
-                              
+                        ); 
+            }              
+  		}
 		
-		}
-		}
-										echo '<pre>';
-			var_dump($requestData);
-						echo '</pre>';
-		
+
 		return $requestData;
 	}
 

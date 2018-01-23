@@ -711,6 +711,17 @@ return $required_fields;
 }
 
 
+function update_courier_pickup_time(){
+    $id = $_POST['id'];
+    //$response = wp_get_attachment_url($id);
+/*    $response = json_encode($response);
+    header( "Content-Type: application/json" );
+    echo $response;*/
+ 
+    exit;
+} 
+add_action('wp_ajax_update-courier-pickup-time', 'update_courier_pickup_time');
+
 function get_attachement_url_ajax(){
     $id = $_POST['id'];
     //$response = wp_get_attachment_url($id);

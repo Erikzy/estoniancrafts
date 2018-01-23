@@ -280,42 +280,48 @@ $order    = new WC_Order( $order_id );
                 <div class='address-wrapper dokan-panel-body general-details ' >
                		<?php
                			$methods = $order->get_shipping_methods();
+               			$courier = false;
                			foreach($methods as $id => $method){
               				if($method['item_meta']['method_id'][0] == "eabi_omniva_courier"){
-              					$from =  get_post_meta($order->id,'courier_pickup_from',true);
-              					if(!$from){
-              						add_post_meta($order->id,'courier_pickup_from', date("Y-m-d",strtotime("tomorrow"))."T12:00:00" ,true);
-              						$from =  get_post_meta($order->id,'courier_pickup_from',true);
-              					}
-              					$from_time = explode("T",$from);
-              					$from_time_units = explode(":",$from_time[1]);
-              					$from_hour = $from_time_units[0];
-              					$from_date = $from_time[0];
-              					
-              					$to =  get_post_meta($order->id,'courier_pickup_to',true);
-              					if(!$to){
-              						add_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
-              						$to =  get_post_meta($order->id,'courier_pickup_to',true);
-              					}
-              					$to_time = explode("T",$to);
-              					$to_time_units = explode(":",$to_time[1]);
-              					$to_hour = $to_time_units[0];
-              					$to_date = $to_time[0];
-              					
+              					$courier = true;
+              				
+              				
               					
               				}
-              			} 		
+              			}
+              	if($courier):		
+              			$from =  get_post_meta($order->id,'courier_pickup_from',true);
+            			if(!$from){
+              				add_post_meta($order->id,'courier_pickup_from', date("Y-m-d",strtotime("tomorrow"))."T12:00:00" ,true);
+              				$from =  get_post_meta($order->id,'courier_pickup_from',true);
+              			}
+    					$from_time = explode("T",$from);
+      					$from_time_units = explode(":",$from_time[1]);
+    					$from_hour = $from_time_units[0];
+              			$from_date = $from_time[0];
+              			$to =  get_post_meta($order->id,'courier_pickup_to',true);
+              			if(!$to){
+              				add_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
+              				$to =  get_post_meta($order->id,'courier_pickup_to',true);
+              			}
+              			$to_time = explode("T",$to);
+              			$to_time_units = explode(":",$to_time[1]);
+              			$to_hour = $to_time_units[0];
+              			$to_date = $to_time[0];
+              				 		
                		?>
 				<div class="row">
 					<div class="col-md-6">
 					<label for="shipping_from"><?php _e('Courier pickup from'); ?></label>	
 					<div class="col-md-6">
-               			<input type="text" name="shipping_from_date" class="form-control date_picker" value="<?php echo $from_date ?>" />
+               			<input type="text" name="shipping_from_date" id="shipping_from_date" onchange="updateShipment()" class="form-control date_picker" value="<?php echo $from_date ?>" />
 					</div>    
                		<div class="col-md-6">
-					<select name="shipping_from_time" >
+					<select name="shipping_from_time"  id="shipping_from_time" onchange="updateShipment()" >
 					
 					<?php
+			
+			
 						for($i = 0;$i<24;$i++){
 							$hour = $i;
 							if(strlen($i) == 1){
@@ -337,10 +343,10 @@ $order    = new WC_Order( $order_id );
 				<div class="col-md-6">
 				<label for="shipping_from"><?php _e('Courier pickup to'); ?></label>	
 					<div class="col-md-6">
-						<input type="text" name="shipping_to_date" class="form-control date_picker" value="<?php echo $to_date ?>" />
+						<input type="text" name="shipping_to_date" id="shipping_to_date" onchange="updateShipment()" class="form-control date_picker" value="<?php echo $to_date ?>" />
 					</div>    
                		<div class="col-md-6">
-						<select name="shipping_to_time" >
+						<select name="shipping_to_time" id="shipping_to_time" onchange="updateShipment()">
 						<?php
 						for($i = 0;$i<24;$i++){
 							$hour = $i;
@@ -369,14 +375,29 @@ $order    = new WC_Order( $order_id );
   						
   						
   						function update_shipping_data(){
-  						
+  							var form_time = jQuery("#shipment_from_time").val();
+  							var form_date = jQuery("#shipment_from_date").val();
+  							var to_date = jQuery("#shipment_to_time").val();
+  							var to_time = jQuery("#shipment_to_date").val();
   							
+  							var data = {
+                				'action': 'update-courier-pickup-time',
+               					'order' : '<?php echo $order->id; ?>',
+               					'from_time' : from_time,
+               					'to_time':to_time,
+               					'from_date':from_date,
+               					'to_date':to_date
+           					};    
+							
+  							jQuery.post('<?php echo site_url();?>/wp-admin/admin-ajax.php', data, function (e) {
+        						
+							});		
   						}
   						
 					</script>
                		
                	</div>
-               
+            	<?php endif; ?>   
                 <div class='address-wrapper dokan-panel-body general-details ' >
                    <div class="dokan-left"  style="width:48%" >
                     <div class="dokan-panel dokan-panel-default">
