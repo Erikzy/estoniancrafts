@@ -289,7 +289,7 @@ $order    = new WC_Order( $order_id );
               						add_post_meta($order->id,'courier_pickup_from', date("Y-m-d",strtotime("tomorrow"))."T12:00:00" ,true);
               						$from =  get_post_meta($order->id,'courier_pickup_from',true);
               					
-              						echo 'Adding from : '.$from
+              						echo 'Adding from : '.$from;
               					}
               					$to =  get_post_meta($order->id,'courier_pickup_to',true);
               					if(!$to){
