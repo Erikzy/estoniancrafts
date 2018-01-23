@@ -56,12 +56,18 @@ class EC_Filters
     	$order->save();
 		*/
 	
-	
+		$company_types = array(
+			'1'=>  __( 'FIE', 'ktt'),
+		 	'2'=>  __( 'OÜ', 'ktt'),
+			'3'=>  __( 'AS', 'ktt')
+	);	
+
+
 		if($shippingModel->id == "eabi_omniva_courier"){
 			$dokan_store_id = dokan_get_seller_id_by_order($order->id);
 			$store_user = get_user_by('id', $dokan_store_id );
 			$extended_settings =  get_user_meta( $dokan_store_id , 'ktt_extended_settings', true );
-			$sender_name = $extended_settings['store_name'];
+			$sender_name = $extended_settings['company_name'].' '.$company_types[$extended_settings['company_type']];
 			echo var_dump($extended_settings);
 			$postcode = '';
 			$country = '';
