@@ -260,6 +260,22 @@ $order    = new WC_Order( $order_id );
                                 <span><?php _e( 'Customer IP:', 'dokan' ); ?></span>
                                 <?php echo esc_html( get_post_meta( $order->id, '_customer_ip_address', true ) ); ?>
                             </li>
+                            <li>
+                                <span><?php _e( 'Selected method:', 'dokan' ); ?></span>
+                            
+                            <?php
+                                $methods = $order->get_shipping_methods();
+        		     			$courier = false;
+    	        	   			foreach($methods as $id => $method){
+              						echo $method['title'];
+              						if($method['item_meta']['method_id'][0] == "eabi_omniva_courier"){
+        								$courier = true;
+              						}
+              					}
+              			
+                            ?>
+                      	 </li>
+                         
                         </ul>
 						
 						
@@ -279,17 +295,7 @@ $order    = new WC_Order( $order_id );
                     </div>
                 <div class='address-wrapper dokan-panel-body general-details ' >
                		<?php
-               			$methods = $order->get_shipping_methods();
-               			$courier = false;
-               			foreach($methods as $id => $method){
-              				if($method['item_meta']['method_id'][0] == "eabi_omniva_courier"){
-              					$courier = true;
-              				
-              				
-              					
-              				}
-              			}
-              			
+     
               			
               			
               	if($courier):		
@@ -311,7 +317,7 @@ $order    = new WC_Order( $order_id );
               			$to_time_units = explode(":",$to_time[1]);
               			$to_hour = $to_time_units[0];
               			$to_date = $to_time[0];
-              				 		
+					              				 		
                		?>
 				<div class="row">
 					<div class="col-md-6">
@@ -330,7 +336,6 @@ $order    = new WC_Order( $order_id );
 							if(strlen($i) == 1){
 								$hour = '0'.$i; 
 							}
-						
 						
 							$selected ='';
 							if($hour == $from_hour){
