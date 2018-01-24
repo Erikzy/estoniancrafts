@@ -519,13 +519,7 @@ $order    = new WC_Order( $order_id );
                                             <div class="modal-body">
                                                 <h5><?php _e('Shipping Provider','dokan');?></h5>
                                                 <select name="shipping_provider" id="shipping_provider" class="form-control">
-                                                    <optgroup label="Australia">
-                                                        <option><?php _e('Australia','dokan');?></option>
-                                                        <option><?php _e('Fedex','dokan');?></option>
-                                                    </optgroup>
-                                                    <optgroup label="Canada">
-                                                        <option><?php _e('Canada Post','dokan');?></option>
-                                                    </optgroup>
+                                                        <option><?php _e('Omniva','dokan');?></option>
                                                 </select>
                                                 <h5><?php _e('Tracking Number','dokan');?></h5>
                                                 <input type="text" name="tracking_number" id="tracking_number" value="">
