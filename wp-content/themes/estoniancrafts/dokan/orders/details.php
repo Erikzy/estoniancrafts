@@ -314,10 +314,10 @@ $order    = new WC_Order( $order_id );
 					<div class="col-md-6">
 					<label for="shipping_from"><?php _e('Courier pickup from'); ?></label>	
 					<div class="col-md-6">
-               			<input type="text" name="shipping_from_date" id="shipping_from_date" onchange="updateShipment()" class="form-control date_picker" value="<?php echo $from_date ?>" />
+               			<input type="text" name="shipping_from_date" id="shipping_from_date" onchange="update_shipping_data()" class="form-control date_picker" value="<?php echo $from_date ?>" />
 					</div>    
                		<div class="col-md-6">
-					<select name="shipping_from_time"  id="shipping_from_time" onchange="updateShipment()" >
+					<select name="shipping_from_time"  id="shipping_from_time" onchange="update_shipping_data()" >
 					
 					<?php
 			
@@ -343,10 +343,10 @@ $order    = new WC_Order( $order_id );
 				<div class="col-md-6">
 				<label for="shipping_from"><?php _e('Courier pickup to'); ?></label>	
 					<div class="col-md-6">
-						<input type="text" name="shipping_to_date" id="shipping_to_date" onchange="updateShipment()" class="form-control date_picker" value="<?php echo $to_date ?>" />
+						<input type="text" name="shipping_to_date" id="shipping_to_date" onchange="update_shipping_data()" class="form-control date_picker" value="<?php echo $to_date ?>" />
 					</div>    
                		<div class="col-md-6">
-						<select name="shipping_to_time" id="shipping_to_time" onchange="updateShipment()">
+						<select name="shipping_to_time" id="shipping_to_time" onchange="update_shipping_data()">
 						<?php
 						for($i = 0;$i<24;$i++){
 							$hour = $i;
