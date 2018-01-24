@@ -267,7 +267,7 @@ $order    = new WC_Order( $order_id );
                                 $methods = $order->get_shipping_methods();
         		     			$courier = false;
     	        	   			foreach($methods as $id => $method){
-              						echo $method['title'];
+              						echo $method['name'];
               						if($method['item_meta']['method_id'][0] == "eabi_omniva_courier"){
         								$courier = true;
               						}
