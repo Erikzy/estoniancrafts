@@ -289,6 +289,9 @@ $order    = new WC_Order( $order_id );
               					
               				}
               			}
+              			
+              			
+              			
               	if($courier):		
               			$from =  get_post_meta($order->id,'courier_pickup_from',true);
             			if(!$from){
