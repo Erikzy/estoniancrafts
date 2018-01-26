@@ -296,7 +296,7 @@ $order    = new WC_Order( $order_id );
                 <div class='address-wrapper dokan-panel-body general-details ' >
                		<?php
      			$barcodes = get_post_meta($order->id, 'barcode');
-                echo ' <strong><a class="eabi-print-packing-slip" href="' .site_url().'/wp-admin/admin-ajax.php?action=' . WC_Eabi_Postoffice::ACTION_PRINT_PACKING_SLIP . '&order_id=' . $order->id . '&slip_index=0'. '">(' . __('Print packing slip', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN) . ')</a></strong>';
+                echo ' <strong><a class="eabi-print-packing-slip" href="' .site_url().'/wp-admin/admin-ajax.php?action=' . WC_Eabi_Postoffice::ACTION_PRINT_PACKING_SLIP_DOKAN . '&order_id=' . $order->id . '&slip_index=0'. '">(' . __('Print packing slip', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN) . ')</a></strong>';
                               		
               			
               	if($courier):		
