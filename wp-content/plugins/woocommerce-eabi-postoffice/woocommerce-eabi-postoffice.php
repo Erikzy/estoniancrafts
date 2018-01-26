@@ -314,7 +314,7 @@ if (is_woocommerce_active()) {
                 }
 
 
-				public function doDokanFriendlyPackingSlipAction{
+				public function doDokanFriendlyPackingSlipAction(){
                     $order_id = absint($_GET['order_id']);
 			        $order = $this->_getWoocommerceOrder($order_id);
 			        $shippingModelName = maybe_unserialize(get_post_meta($order->id, self::SHIPPING_METHOD, true));
