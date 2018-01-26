@@ -55,7 +55,7 @@ if (is_woocommerce_active()) {
                 const REGISTRATION_URL = 'https://www.e-abi.ee/eabi_licence/register/';
                 const ACTION_AUTOSEND = 'eabi_autosend_data';
                 const ACTION_PRINT_PACKING_SLIP = 'eabi_print_slip';
-
+				const ACTION_PRINT_PACKING_SLIP_DOKAN = 'eabi_print_slip_dokan';
                 private static $_self;
                 protected $_choosePickupLocationText = '';
                 protected $_chosenPickupLocationText = '';
@@ -595,8 +595,8 @@ if (is_woocommerce_active()) {
                         add_action('wp_ajax_nopriv_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doPrintPackingSlipAction'));
                         add_action('wp_ajax_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doPrintPackingSlipAction'));
 
-						add_action('wp_ajax_nopriv_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doDokanFriendlyPackingSlipAction'));
-                        add_action('wp_ajax_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doDokanFriendlyPackingSlipAction'));
+						add_action('wp_ajax_nopriv_' . self::ACTION_PRINT_PACKING_SLIP_DOKAN, array($this, 'doDokanFriendlyPackingSlipAction'));
+                        add_action('wp_ajax_' . self::ACTION_PRINT_PACKING_SLIP_DOKAN, array($this, 'doDokanFriendlyPackingSlipAction'));
 
 
                         add_action('wp_ajax_nopriv_' . self::ACTION_AUTOSEND, array($this, 'doAutoSendAction'));
