@@ -261,7 +261,7 @@ $order    = new WC_Order( $order_id );
                                 <?php echo esc_html( get_post_meta( $order->id, '_customer_ip_address', true ) ); ?>
                             </li>
                             <li>
-                                <span><?php _e( 'Selected method:', 'dokan' ); ?></span>
+                                <span><?php _e( 'Selected shipping method:', 'dokan' ); ?></span>
                             
                             <?php
                                 $methods = $order->get_shipping_methods();
@@ -272,8 +272,8 @@ $order    = new WC_Order( $order_id );
         								$courier = true;
               						}
               					}
-              			
-                            ?>
+              					
+	                         ?>
                       	 </li>
                          
                         </ul>
@@ -295,8 +295,9 @@ $order    = new WC_Order( $order_id );
                     </div>
                 <div class='address-wrapper dokan-panel-body general-details ' >
                		<?php
-     
-              			
+     			$barcodes = get_post_meta($order->id, 'barcode');
+                echo ' <strong><a class="eabi-print-packing-slip" href="' . ('admin-ajax.php?action=' . self::ACTION_PRINT_PACKING_SLIP . '&order_id=' . $order->id . '&slip_index=0'), 'eabi-print-packing-slip')) . '">(' . __('Print packing slip', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN) . ')</a></strong>';
+                              		
               			
               	if($courier):		
               			$from =  get_post_meta($order->id,'courier_pickup_from',true);
@@ -390,7 +391,7 @@ $order    = new WC_Order( $order_id );
   							
   							var data = {
                 				'action': 'update-courier-pickup-time',
-               					'order' : '<?php echo $order->id; ?>',
+               					'order_id' : '<?php echo $order->id; ?>',
                					'from_time' : from_time,
                					'to_time':to_time,
                					'from_date':from_date,

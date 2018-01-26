@@ -313,6 +313,41 @@ if (is_woocommerce_active()) {
                     return false;
                 }
 
+
+				public function doDokanFriendlyPackingSlipAction{
+                    $order_id = absint($_GET['order_id']);
+			        $order = $this->_getWoocommerceOrder($order_id);
+			        $shippingModelName = maybe_unserialize(get_post_meta($order->id, self::SHIPPING_METHOD, true));
+                    if (!$shippingModelName) {
+                      $shippingModelName = $this->_getShippingMethod($order);
+                    }
+                    if ($shippingModelName && $this->helper()->isServiceAvailableCached('autosend/' . $shippingModelName, $this->_getShippingCountry($order))) {
+	                   $shippingModel = $this->helper()->getShippingMethodByCode($shippingModelName, true);
+	                   $logger = $shippingModel->getLogger();
+                       $logger->debug(array(
+                            'printing packing slip for order' => $order->id,
+                            'method' => $shippingModel->id,
+                        ));
+                        $mainConfigurationClass = $this->helper()->getMainConfigurationMethod($shippingModel);
+                        $barCodes = $this->_getBarcodes($order);
+                        $index = isset($_GET['slip_index']) && isset($barCodes[$_GET['slip_index']]) ? $_GET['slip_index'] : 0;
+                        try {
+        	               $printSlipResult = apply_filters('eabi_postoffice_action_' . self::ACTION_PRINT_PACKING_SLIP . '_' . $shippingModel->id, false, $order, $barCodes[$index], $shippingModel, $mainConfigurationClass);
+                            if (!$printSlipResult) {
+                                throw new Eabi_Woocommerce_Postoffice_Exception(__('No packing slip found', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN));
+                                }
+                                header("Content-Disposition: attachment; filename=" . 'packing-slip-order-' . $order->id . ".pdf");
+                                header("Content-Length: " . strlen($printSlipResult));
+                                header('Content-type: application/octet-stream');
+                                echo $printSlipResult;
+                                exit;
+                            } catch (Eabi_Woocommerce_Postoffice_Exception $ex) {
+                                $order->add_order_note(sprintf(__('Packing slip printing failed. Message: %s', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN), $ex->getMessage()));
+                            }
+                        }
+                    
+				}	
+
                 /**
                  * <p>Print packing slip for the specified order</p>
                  */
@@ -559,6 +594,10 @@ if (is_woocommerce_active()) {
 
                         add_action('wp_ajax_nopriv_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doPrintPackingSlipAction'));
                         add_action('wp_ajax_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doPrintPackingSlipAction'));
+
+						add_action('wp_ajax_nopriv_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doDokanFriendlyPackingSlipAction'));
+                        add_action('wp_ajax_' . self::ACTION_PRINT_PACKING_SLIP, array($this, 'doDokanFriendlyPackingSlipAction'));
+
 
                         add_action('wp_ajax_nopriv_' . self::ACTION_AUTOSEND, array($this, 'doAutoSendAction'));
                         add_action('wp_ajax_' . self::ACTION_AUTOSEND, array($this, 'doAutoSendAction'));

@@ -712,12 +712,19 @@ return $required_fields;
 
 
 function update_courier_pickup_time(){
-    $id = $_POST['id'];
+    $order_id = $_POST['order_id'];
     //$response = wp_get_attachment_url($id);
 /*    $response = json_encode($response);
     header( "Content-Type: application/json" );
     echo $response;*/
- 
+ 	$from_time = $_POST['from_time'];
+ 	$from_date = $_POST['from_date'];
+ 	$to_time = $_POST['to_time'];
+ 	$to_date = $_POST['to_date'];
+ 	$from = $from_date."T".$from_time.":00:00";
+ 	$to = $to_date."T".$to_time.":00:00"; 	
+ 	update_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
+    update_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
     exit;
 } 
 add_action('wp_ajax_update-courier-pickup-time', 'update_courier_pickup_time');
