@@ -723,8 +723,8 @@ function update_courier_pickup_time(){
  	$to_date = $_POST['to_date'];
  	$from = $from_date."T".$from_time.":00:00";
  	$to = $to_date."T".$to_time.":00:00"; 	
- 	update_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
-    update_post_meta($order->id,'courier_pickup_to',date("Y-m-d",strtotime("tomorrow"))."T15:00:00" ,true);
+ 	update_post_meta($order->id,'courier_pickup_from',$from ,true);
+    update_post_meta($order->id,'courier_pickup_to',$to ,true);
     exit;
 } 
 add_action('wp_ajax_update-courier-pickup-time', 'update_courier_pickup_time');

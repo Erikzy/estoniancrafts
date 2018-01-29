@@ -77,7 +77,7 @@ class EC_Filters
 		}
 		if($shippingModel->id == "eabi_omniva_courier"){
 			$from =  get_post_meta($order->id,'courier_pickup_from',true);
-            $to =  get_post_meta($order->id,'courier_pickup_from',true);
+            $to =  get_post_meta($order->id,'courier_pickup_to',true);
 			$fragile = 0;	
 		}
 			
