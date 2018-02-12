@@ -1458,9 +1458,10 @@ h2.t-c-title {
 @media (max-width:1278px) {
     /*.shop-loop-wrapper ---> wrapper*/
     div.shop-loop-wrapper div.ec-new-product-grid.row{
-        width: auto !important;
+        /*width: auto !important;*/
         /*background-color: pink*/
     }
+
     div.shop-loop-wrapper div.ec-new-product-grid-right-mid.adj-mid-grid{
         min-height:80px !important;
         height:auto !important;
@@ -1485,6 +1486,8 @@ h2.t-c-title {
     }
 }
 @media (max-width:1026px){
+
+
     div.shop-loop-wrapper .site-content.col-sm-9.col-sm-push-3{
         width: 100%;
         left:0;
