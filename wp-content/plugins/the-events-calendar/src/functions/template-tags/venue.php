@@ -104,6 +104,9 @@ if ( class_exists( 'Tribe__Events__Main' ) ) {
 			$name       = tribe_get_venue( $ven_id );
 			$attr_title = the_title_attribute( array( 'post' => $ven_id, 'echo' => false ) );
 			$link       = ! empty( $url ) && ! empty( $name ) ? '<a href="' . esc_url( $url ) . '" title="' . $attr_title . '">' . $name . '</a>' : false;
+			/* IN THE INTEREST OF SAVING TIME, OVERRIDING LAZILY*/
+			$link =  $name;
+
 		} else {
 			$link = $url;
 		}
