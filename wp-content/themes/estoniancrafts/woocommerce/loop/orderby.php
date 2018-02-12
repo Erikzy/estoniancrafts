@@ -10,7 +10,14 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
+			$catalog_orderby_options = apply_filters( 'woocommerce_catalog_orderby', array(
+				'menu_order' => __( 'Default', 'basel' ),
+				'popularity' => __( 'Popularity', 'basel' ),
+				'rating'     => __( 'Highest rating', 'basel' ),
+				'date'       => __( 'Most recent', 'basel' ),
+				'price'      => __( 'Lowest price', 'basel' ),
+				'price-desc' => __( 'Highest price', 'basel' )
+			) );
 ?>
 <form class="woocommerce-ordering <?php if ( ! empty( $list ) ): ?>with-list<?php endif; ?>" method="get">
 	<?php if ( ! empty( $list ) ): ?>
