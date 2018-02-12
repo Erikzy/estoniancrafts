@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 			$catalog_orderby_options = apply_filters( 'woocommerce_catalog_orderby', array(
 				'menu_order' => __( 'Default', 'basel' ),
-				'popularity' => __( 'Popularity', 'basel' ),
-				'rating'     => __( 'Highest rating', 'basel' ),
-				'date'       => __( 'Most recent', 'basel' ),
-				'price'      => __( 'Lowest price', 'basel' ),
-				'price-desc' => __( 'Highest price', 'basel' )
+				'popularity' => __( 'Sort by popularity', 'basel' ),
+				'rating'     => __( 'Sort by highest rating', 'basel' ),
+				'date'       => __( 'Sort by most recent', 'basel' ),
+				'price'      => __( 'Sort by lowest price', 'basel' ),
+				'price-desc' => __( 'Sort by highest price', 'basel' )
 			) );
 ?>
 <form class="woocommerce-ordering <?php if ( ! empty( $list ) ): ?>with-list<?php endif; ?>" method="get">
