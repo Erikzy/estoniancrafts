@@ -51,7 +51,7 @@
 <!--events-->	
 
   
-	 <h1 class='m-slider-title'><?php echo __('Future events','ec');?></h1>
+	 <h1 class='m-slider-title'><?php echo __('Future fairs','ec');?></h1>
    	
   	 <?php
       

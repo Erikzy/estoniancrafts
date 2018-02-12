@@ -16,6 +16,10 @@ class EC_Filters
 		add_filter( 'ec_get_page_merchant_products', array(__CLASS__, 'ec_get_page_merchant_products_filter'), 1 );
         add_filter( 'ec_get_myaccount_menu', array(__CLASS__, 'ec_get_myaccount_menu_filter'), 1 );
         add_filter( 'eabi_omniva_autosend_data_before',array(__CLASS__,'ec_get_sender_data_filter'),9, 7);
+        //dokan_store_listing_per_page
+        add_filter( 'dokan_store_listing_per_page',array(__CLASS__,'ec_store_listing_per_page'),9, 1);
+        
+        
 	}
 
 
@@ -44,7 +48,11 @@ class EC_Filters
 	
 	
 	}
-
+	public static function ec_store_listing_per_page($array){
+		$array['per_page'] = 12;
+		return $array;
+		
+	}
 
 	public static function ec_get_sender_data_filter($requestData, 
 													 $order, 
