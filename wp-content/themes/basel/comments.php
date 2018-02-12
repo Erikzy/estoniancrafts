@@ -58,8 +58,12 @@ if ( post_password_required() )
 
 	<?php endif; // have_comments() ?>
 
-	<?php comment_form(array(
+	<?php
+	if(is_user_logged_in()){
+	 comment_form(array(
 		'comment_notes_after' => ''
-	)); ?>
+	)); 
+	}
+	?>
 
 </div><!-- #comments -->
