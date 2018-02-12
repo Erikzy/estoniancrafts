@@ -60,9 +60,9 @@ if ( post_password_required() )
 
 	<?php
 	if(is_user_logged_in()){
-	 comment_form(array(
-		'comment_notes_after' => ''
-	)); 
+		 comment_form(array(
+			'comment_notes_after' => ''
+		)); 
 	}
 	?>
 

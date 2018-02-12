@@ -49,10 +49,10 @@ if ( ! class_exists( 'BASEL_Widget_Sorting' ) ) {
 			$catalog_orderby_options = apply_filters( 'woocommerce_catalog_orderby', array(
 				'menu_order' => __( 'Default', 'basel' ),
 				'popularity' => __( 'Popularity', 'basel' ),
-				'rating'     => __( 'Average rating', 'basel' ),
-				'date'       => __( 'Newness', 'basel' ),
-				'price'      => __( 'Price: low to high', 'basel' ),
-				'price-desc' => __( 'Price: high to low', 'basel' )
+				'rating'     => __( 'Highest rating', 'basel' ),
+				'date'       => __( 'Most recent', 'basel' ),
+				'price'      => __( 'Lowest price', 'basel' ),
+				'price-desc' => __( 'Highest price', 'basel' )
 			) );
 
 			if ( ! $show_default_orderby ) {
