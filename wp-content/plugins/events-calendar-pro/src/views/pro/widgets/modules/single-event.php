@@ -115,7 +115,7 @@ $has_address_details = ! empty( $city_name ) || ! empty( $region_name ) || ! emp
 			<!-- // Price, Venue Name, Address, City, State or Province, Postal Code, Country, Venue Phone, Organizer Name-->
 			<?php ob_start(); ?>
 			<?php if ( isset( $venue ) && $venue && tribe_get_venue() != '' ) : ?>
-				<span class="tribe-events-venue"><?php echo tribe_get_venue_link(); ?></span>
+				<span class="tribe-events-venue"><?php echo tribe_get_venue(); ?></span>
 			<?php endif ?>
 
 			<?php if ( isset( $address ) && $address && tribe_get_address() != '' ): ?>
