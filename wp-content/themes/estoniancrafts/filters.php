@@ -18,7 +18,8 @@ class EC_Filters
         add_filter( 'eabi_omniva_autosend_data_before',array(__CLASS__,'ec_get_sender_data_filter'),9, 7);
         //dokan_store_listing_per_page
         add_filter( 'dokan_store_listing_per_page',array(__CLASS__,'ec_store_listing_per_page'),9, 1);
-        
+        //tribe_events_list_show_ical_link
+        add_filter( 'tribe_events_list_show_ical_link',array(__CLASS__,'ec_events_list_show_ical_link'),9, 1);
         
 	}
 
@@ -52,6 +53,10 @@ class EC_Filters
 		$array['per_page'] = 12;
 		return $array;
 		
+	}
+
+	public static function ec_events_list_show_ical_link($bool = true){
+		return false;
 	}
 
 	public static function ec_get_sender_data_filter($requestData, 
