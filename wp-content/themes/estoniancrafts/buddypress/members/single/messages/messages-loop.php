@@ -63,8 +63,8 @@ do_action( 'bp_before_member_messages_loop' ); ?>
                     <?php if ( bp_is_active( 'messages', 'star' ) ) : ?>
                         <th scope="col" class="thread-from">&nbsp;</th>
                     <?php endif; ?>
-					<th scope="col" class="thread-from"><?php _e( 'From', 'buddypress' ); ?></th>
-					<th scope="col" class="thread-info"><?php _e( 'Subject', 'buddypress' ); ?></th>
+					<th scope="col" class="thread-from" style="text-align:left;"><?php _e( 'From', 'buddypress' ); ?></th>
+					<th scope="col" class="thread-info" style="text-align:left;"><?php _e( 'Subject', 'buddypress' ); ?></th>
 
 					<?php
 
@@ -102,19 +102,13 @@ do_action( 'bp_before_member_messages_loop' ); ?>
                         <?php endif; ?>
 
 						<?php if ( 'sentbox' != bp_current_action() ) : ?>
-							<td class="thread-from">
+							<td class="thread-from" style="text-align:left;">
 
-                                <?php
-                                    $dokanPrifleSettings = get_user_meta( bp_get_message_thread_from_id(), 'dokan_profile_settings', true );
-                                    if(!empty($dokanPrifleSettings['gravatar'])) {
-                                        echo '<img src="'. wp_get_attachment_thumb_url( $dokanPrifleSettings['gravatar'] ).'" alt="" />';
-                                    }
-                                ?>
 
 								<?php #bp_message_thread_avatar( array( 'width' => 25, 'height' => 25 ) ); ?>
-								<span class="from"><?php _e( 'From:', 'buddypress' ); ?></span> <?php bp_message_thread_from(); ?>
+							        <?php bp_message_thread_from(); ?>
 								<?php bp_message_thread_total_and_unread_count(); ?>
-								<span class="activity"><?php bp_message_thread_last_post_date(); ?></span>
+								<br><span class="activity"><?php bp_message_thread_last_post_date(); ?></span>
 							</td>
 						<?php else: ?>
 							<td class="thread-from">
@@ -131,7 +125,7 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 							</td>
 						<?php endif; ?>
 
-						<td class="thread-info">
+						<td class="thread-info" style="text-align:left;">
 							<p><a href="<?php bp_message_thread_view_link(); ?>" title="<?php esc_attr_e( "View Message", 'buddypress' ); ?>"><?php bp_message_thread_subject(); ?></a></p>
 							<p class="thread-excerpt"><?php bp_message_thread_excerpt(); ?></p>
 						</td>
