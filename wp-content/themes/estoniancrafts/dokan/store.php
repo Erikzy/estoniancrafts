@@ -166,25 +166,67 @@ get_header( 'shop' );
                         <div style="width:80%;float:left">
                             <ul class="social-nav">
                                 <?php if(($link = isset($ec_page->sm_links['facebook']) ? $ec_page->sm_links['facebook'] : null)): ?>
-                                    <li class="facebook"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                    <li class="facebook"><a href="<?php 
+                                        $url = $link->url;
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+     									   $url = "http://" . $url;
+   										 }
+                                    	echo $url 
+                                    ?>" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['googleplus']) ? $ec_page->sm_links['googleplus'] : null)): ?>
-                                    <li class="twitter"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-google fa-lg"></i></a></li>
+                                    <li class="twitter"><a href="<?php 
+                                        $url = $link->url;
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+     									   $url = "http://" . $url;
+   										 }
+                                    	echo $url 
+                                    ?>" target="_blank"><i class="fa fa-google fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['twitter']) ? $ec_page->sm_links['twitter'] : null)): ?>
-                                    <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                    <li class="instagram"><a href="<?php 
+                                        $url = $link->url;
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+     									   $url = "http://" . $url;
+   										 }
+                                    	echo $url 
+                                    ?>" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['linkedin']) ? $ec_page->sm_links['linkedin'] : null)): ?>
-                                    <li class="linkedin"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                                    <li class="linkedin"><a href="<?php 
+                                        $url = $link->url;
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+     									   $url = "http://" . $url;
+   										 }
+                                    	echo $url 
+                                    ?>" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['youtube']) ? $ec_page->sm_links['youtube'] : null)): ?>
-                                    <li class="youtube"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
+                                    <li class="youtube"><a href="<?php 
+                                        $url = $link->url;
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+     									   $url = "http://" . $url;
+   										 }
+                                    	echo $url 
+                                    ?>" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['instagram']) ? $ec_page->sm_links['instagram'] : null)): ?>
-                                    <li class="instagram"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
+                                    <li class="instagram"><a href="<?php 
+                                        $url = $link->url;
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+     									   $url = "http://" . $url;
+   										 }
+                                    	echo $url 
+                                    ?>" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
                                 <?php endif; ?>
                                 <?php if(($link = isset($ec_page->sm_links['flickr']) ? $ec_page->sm_links['flickr'] : null)): ?>
-                                    <li class="flickr"><a href="<?php echo $link->url ?>" target="_blank"><i class="fa fa-flickr fa-lg"></i></a></li>
+                                    <li class="flickr"><a href="<?php 
+                                        $url = $link->url;
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+     									   $url = "http://" . $url;
+   										 }
+                                    	echo $url 
+                                    ?>" target="_blank"><i class="fa fa-flickr fa-lg"></i></a></li>
                                 <?php endif; ?>
                             </ul>
                         </div>
