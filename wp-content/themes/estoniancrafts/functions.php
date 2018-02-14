@@ -844,7 +844,7 @@ function ec_save_account_details_nondokan(){
 
         do_action( 'ec_save_account_details_nondokan', $user->ID );
         
-        wp_safe_redirect( dokan_get_navigation_url( ' edit-account' ) );
+        wp_safe_redirect( '/my-account/edit-account/' );
         exit;
     }
 
