@@ -20,7 +20,7 @@ if ( ! basel_is_woo_ajax() ) {
 ?>
 <div class="shop-loop-wrapper">	
 	<div id="cat-men">
-		<a data-toggle="collapse" data-target="#ccmenu" onmousedown="catMenu()" id="collapse-link" class="toote"> Tootekategooriad</a>
+		<a data-toggle="collapse" data-target="#ccmenu" onmousedown="catMenu()" id="collapse-link" class="toote"> All Categories</a>
 
 			<div id="ccmenu" class="collapse"></div>
 		<?php //do_action( 'woocommerce_sidebar' );?> 

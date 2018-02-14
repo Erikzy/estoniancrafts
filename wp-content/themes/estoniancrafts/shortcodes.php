@@ -65,8 +65,7 @@ class EC_Shortcodes
   		}else{
   			$_url = get_site_url(null, 'my-account/edit-account/');
   		}
-
-		header("Location: ".$_url, true);
+		wp_safe_redirect($_url);
 	
 	}
 	
