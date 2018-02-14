@@ -77,10 +77,10 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
             <input type="checkbox" name="lb_dokan_mailinglist" value="1">
         </p>
 	<p>
-		<?php wp_nonce_field( 'save_account_details' ); ?>
+		<?php wp_nonce_field( 'dokan_save_account_details' ); ?>
 		<input type="submit" class=" dokan-btn dokan-btn-theme dokan-btn-lg btn-block medium-orange-button" name="save_account_details" value="<?php esc_attr_e( 'Save changes', 'woocommerce' ); ?>" />
 		
-		<input type="hidden" name="action" value="save_account_details" />
+		<input type="hidden" name="action" value="dokan_save_account_details" />
 	</p>
 
 	<?php do_action( 'woocommerce_edit_account_form_end' ); ?>
