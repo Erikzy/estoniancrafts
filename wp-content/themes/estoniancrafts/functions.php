@@ -596,6 +596,12 @@ function ec_save_account_details(){
     $account_first_name = ! empty( $_POST[ 'account_first_name' ] ) ? wc_clean( $_POST[ 'account_first_name' ] ) : '';
     $account_last_name  = ! empty( $_POST[ 'account_last_name' ] ) ? wc_clean( $_POST[ 'account_last_name' ] ) : '';
     $account_email      = ! empty( $_POST[ 'account_email' ] ) ? sanitize_email( $_POST[ 'account_email' ] ) : '';
+    $account_phone      = ! empty( $_POST[ 'billing_phone' ] ) ? sanitize_email( $_POST[ 'billing_phone' ] ) : '';
+    if(strlen($account_phone) > 5){
+    	
+   	 update_user_meta( $user->ID, 'billing_phone', $account_phone );
+    
+    }
     $pass_cur           = ! empty( $_POST[ 'password_current' ] ) ? $_POST[ 'password_current' ] : '';
     $pass1              = ! empty( $_POST[ 'password_1' ] ) ? $_POST[ 'password_1' ] : '';
     $pass2              = ! empty( $_POST[ 'password_2' ] ) ? $_POST[ 'password_2' ] : '';
