@@ -6,13 +6,13 @@ function ec_calculatestrength(password1){
 	
 	if(password1.length > 5 && hasNumber(password1)){
 		var result = {
-			score:-1;
+			score:3;
 		}
 	
-	
+	alert('test');
 	}else{
 		var result = {
-			score:3;
+			score:-1;
 		}
 	
 	}
@@ -47,7 +47,7 @@ var passwordStrength;
 			}
 
 			//var result = zxcvbn( password1, blacklist );
-			var res = ec_calculatestrength()
+			var res = ec_calculatestrength(password1);
 			
 			return result.score;
 		},
