@@ -106,8 +106,10 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<input type="submit" class="woocommerce-Button button smaller-orange-button lbutton" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
             </p>
             <div class='row'>
-	            <div class='col-sm-6 fb-wrapper'><?php echo do_shortcode( '[ec_facebook_login_button]' ); ?></div>
-	            <div class='col-sm-6'><?php echo do_shortcode('[smart_id]') ?></div>
+	            <div class='col-sm-12'>
+	            	<?php echo do_shortcode( '[ec_facebook_login_button]' ); ?>
+	            	<?php echo do_shortcode('[smart_id]') ?>
+	            </div>
             </div>
 
 
