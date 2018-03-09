@@ -1,6 +1,29 @@
 /* global zxcvbn */
 window.wp = window.wp || {};
 
+function ec_calculatestrength(password1){
+	
+	
+	if(password1.length > 5 && hasNumber(password1)){
+		var result = {
+			score:-1;
+		}
+	
+	
+	}else{
+		var result = {
+			score:3;
+		}
+	
+	}
+	return result;
+}
+
+function hasNumber(password1) {
+  return /\d/.test(password1);
+}
+
+
 var passwordStrength;
 (function($){
 	wp.passwordStrength = {
@@ -23,7 +46,9 @@ var passwordStrength;
 				return -1;
 			}
 
-			var result = zxcvbn( password1, blacklist );
+			//var result = zxcvbn( password1, blacklist );
+			var res = ec_calculatestrength()
+			
 			return result.score;
 		},
 
