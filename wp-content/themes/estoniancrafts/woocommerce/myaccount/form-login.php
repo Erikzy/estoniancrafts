@@ -169,6 +169,15 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<input type="submit" class="woocommerce-Button button smaller-orange-button lbutton rbutton" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
 
+			 <div class='row' style="text-align:center;">
+	           		<?php
+	            	 	 echo do_shortcode('[ec_facebook_login_button]' ); 
+	            	 	?>
+	            	 
+	            	<?php echo do_shortcode('[smart_id]') ?>
+	            
+            </div>
+
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
 
 		</form>
