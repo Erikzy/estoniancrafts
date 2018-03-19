@@ -27,6 +27,7 @@ class EC_Myaccount_Sidebar_Menu_Widget extends WPH_Widget
 	function widget( $args, $instance )
 	{
 		extract($args);
+
 		$menu = apply_filters('ec_get_myaccount_menu', null);
 
 		echo $before_widget;
@@ -34,10 +35,26 @@ class EC_Myaccount_Sidebar_Menu_Widget extends WPH_Widget
 		if(!empty($instance['title'])) { echo $before_title . $instance['title'] . $after_title; };
 
 		do_action( 'wpiw_before_widget', $instance );
-
+		$title = 'My Account';
 		include(locate_template('templates/myaccount/sidebar_menu_widget.php'));
 
 		do_action( 'wpiw_after_widget', $instance );
+		$user = wp_get_current_user();
+		if(in_array('seller', $user->roles))
+		{
+	
+		$menu = apply_filters('ec_get_myaccount_menu_shop', null);
+		$title = 'My Shop';
+		if(!empty($instance['title'])) { echo $before_title . $instance['title'] . $after_title; };
+
+		do_action( 'wpiw_before_widget', $instance );
+		
+		include(locate_template('templates/myaccount/sidebar_menu_widget.php'));
+
+		do_action( 'wpiw_after_widget', $instance );
+		}
+
+	
 
 		echo $after_widget;
 	}

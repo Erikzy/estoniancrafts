@@ -15,6 +15,8 @@ class EC_Filters
 		// Merchant section
 		add_filter( 'ec_get_page_merchant_products', array(__CLASS__, 'ec_get_page_merchant_products_filter'), 1 );
         add_filter( 'ec_get_myaccount_menu', array(__CLASS__, 'ec_get_myaccount_menu_filter'), 1 );
+        add_filter( 'ec_get_myaccount_menu_shop', array(__CLASS__, 'ec_get_myaccount_menu_shop_filter'), 1 );
+        
         add_filter( 'eabi_omniva_autosend_data_before',array(__CLASS__,'ec_get_sender_data_filter'),9, 7);
         //dokan_store_listing_per_page
         add_filter( 'dokan_store_listing_per_page',array(__CLASS__,'ec_store_listing_per_page'),9, 1);
@@ -196,14 +198,14 @@ class EC_Filters
 				'url' => get_site_url(null, 'members/'.$user->user_nicename.'/messages/'),
 			));
 			
-			$menu->items[] = new EC_MenuItem(array(
+/*				$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop',
 				'title' => __( 'My Shop', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/dashboard'),
 				'url_endpoint' => 'my-account/dashboard'
 			));
 			
-			
+		
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-view',
 				'class'=> 'my-shop-item',
@@ -221,7 +223,7 @@ class EC_Filters
 				'url_endpoint' => 'my-account/dashboard'
 			));
 */
-			$menu->items[] = new EC_MenuItem(array(
+/*			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-products',
 				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Products', 'ktt' ),
@@ -257,13 +259,15 @@ class EC_Filters
 				'url' => get_site_url(null, 'my-account/team'),
 				'url_endpoint' => 'my-account/team'
 			));*/
-            $menu->items[] = new EC_MenuItem(array(
+  /*          $menu->items[] = new EC_MenuItem(array(
 				'id' => 'blog',
 				'class'=> 'my-shop-item',
 				'title' => $submenuPrefix.__( 'Blog', 'ktt' ),
 				'url' => get_site_url(null, 'my-account/blog'),
 				'url_endpoint' => 'my-account/blog'
 			));
+			
+			*/
 		}
 		// Not a merchant
 		else
@@ -331,6 +335,134 @@ class EC_Filters
 
 		return $menu;
     }
+
+	 
+    public static function ec_get_myaccount_menu_shop_filter( $menu=null )
+	{
+		$user = wp_get_current_user();
+		//$submenuPrefix = '&nbsp; - ';
+		$submenuPrefix = '&nbsp;';
+		//$submenuPrefix = '&nbsp; &nbsp; &nbsp; ';
+
+		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_Menu.php');
+		include_once(get_stylesheet_directory().'/Blocks/Objects/EC_MenuItem.php');
+		$menu = new EC_Menu();
+
+		// Is merchant
+		if(in_array('seller', $user->roles))
+		{
+			
+			
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-dashboard',
+				'title' => __( 'Dashboard', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/dashboard'),
+				'url_endpoint' => 'my-account/dashboard'
+			));
+			
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-view',
+				'title' => __( 'View shop', 'ktt' ),
+				'url' => get_site_url(null, bp_core_get_username( $user->ID)),
+				'url_endpoint' => bp_core_get_username( $user->ID)
+			));
+
+
+
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-products',
+				'title' => __( 'Products', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/dashboard/products'),
+				'url_endpoint' => 'my-account/dashboard/products'
+			));
+
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-orders',
+				'title' => __( 'Orders', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/dashboard/orders'),
+				'url_endpoint' => 'my-account/dashboard/orders'
+			));
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-reports',
+				'title' =>__( 'Reports', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/dashboard/reports'),
+				'url_endpoint' => 'my-account/dashboard/reports'
+			));
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'shop-settings',
+				'title' => __( 'Settings', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/dashboard/settings/store'),
+				'url_endpoint' => 'my-account/dashboard/settings/store'
+			));
+            $menu->items[] = new EC_MenuItem(array(
+				'id' => 'blog',
+				'title' => __( 'Blog', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/blog'),
+				'url_endpoint' => 'my-account/blog'
+			));
+		}
+		// Not a merchant
+		else
+		{
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'edit-account',
+				'title' => __( 'Edit Account', 'woocommerce' ),
+				'url' => get_site_url(null, 'my-account/edit-account'),
+				'url_endpoint' => 'my-account/edit-account'
+			));
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'my-account/orders',
+				//'title' => __( 'My Orders', 'ktt' ),
+				'title' => __( 'My Purchases', 'ktt' ),
+				'url' => get_site_url(null, 'my-account/orders'),
+				'url_endpoint' => 'my-account/orders'
+			));
+			
+			$menu->items[] = new EC_MenuItem(array(
+				'id' => 'my-account/create-shop',
+				//'title' => __( 'My Orders', 'ktt' ),
+				'title' => __( 'Create Shop', 'ktt' ),
+				'url' => get_site_url(null, 'create-shop'),
+				'url_endpoint' => 'my-account/orders'
+			));
+			
+            $menu->items[] = new EC_MenuItem(array(
+				'id' => 'messages',
+				'title' => __( 'My Messages', 'ktt' ),
+				'url' => get_site_url(null, 'members/'.$user->user_nicename.'/messages/'),
+			));
+//			$menu->items[] = new EC_MenuItem(array(
+//				'id' => 'my-account/student',
+//				'title' => __( 'Student pages', 'ktt' ),
+//				'url' => get_site_url(null, 'student'),
+//				'url_endpoint' => 'student'
+//			));
+		}
+
+		// Global
+/*		$menu->items[] = new EC_MenuItem([
+			'id' => 'disputes',
+			'title' => __('Disputes', 'ktt'),
+			'url' => get_site_url(null, 'my-account/disputes'),
+			'url_endpoint' => 'my-account/disputes'
+		]);
+        
+        
+        // Global
+		$menu->items[] = new EC_MenuItem([
+			'id' => 'portfolio',
+			'title' => __('Portfolio', 'ktt'),
+			'url' => get_site_url(null, 'my-account/portfolio'),
+			'url_endpoint' => 'my-account/portfolio'
+		]);*/
+        
+        
+      
+
+		return $menu;
+    }
+
+
 
 	/**
 	 * @param WP_User $user

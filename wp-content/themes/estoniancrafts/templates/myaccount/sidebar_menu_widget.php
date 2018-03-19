@@ -13,7 +13,7 @@
 	$active_class = "";
 ?>
 <div id="ec-myaccount-sidebar-menu" class="sidebar-widget woocommerce widget_product_categories">
-	<h5 class="widget-title"><?php echo __('My Account', 'woocommerce') ?></h5>
+	<h5 class="widget-title"><?php echo $title ?></h5>
 	<ul>
 		<?php foreach ( $menu->items as $menuItem ) : 
 			if($menuItem->url == $current_url.'/' || $menuItem->url == $current_url )

@@ -273,11 +273,13 @@ if ( ! $from_shortcode ) {
                                 <?php if ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'single' ): ?>
                                     <div class="dokan-form-group">
 
-                                        <label for="product_cat" class="form-label desc-pro"><?php _e( 'Category ', 'dokan' ); ?><span class="required-m">*</span></label>
-										<span class="ec-form-field-description"><?php _e( 'Product category description', 'ktt' ); ?></span>
+                                        <label for="product_cat" class="form-label desc-pro"><?php _e( 'Category ', 'dokan' ); ?>:&nbsp;<span id="selected_cat_string" class="required-m">*</span></label>
+									   
+                                     
                                         <div class="dokan-product-cat-alert dokan-hide dokan-alert dokan-alert-danger">
                                             <?php _e('Please choose a category !!!', 'dokan'); ?>
                                         </div>
+                                       
                                         <?php
                                         $product_cat = -1;
                                         $term = array();
@@ -286,7 +288,12 @@ if ( ! $from_shortcode ) {
                                         if ( $term ) {
                                             $product_cat = reset( $term );
                                         }
-
+                                        
+                                        ?>
+                                         	<input name="product_cat" id="product_cat_to_submit" type="hidden" value="<?php print $product_cat; ?>"/>
+                                      <?php
+  /*
+                                       
                                         $category_args =  array(
                                             'show_option_none' => __( '- Select a category -', 'dokan' ),
                                             'hierarchical'     => 1,
@@ -301,9 +308,39 @@ if ( ! $from_shortcode ) {
                                         );
 
                                         wp_dropdown_categories( apply_filters( 'dokan_product_cat_dropdown_args', $category_args ) );
-                                    ?>
+                                   		*/
+                                   		?>
+                                   		<span class="dokan-btn dokan-btn-sm dokan-btn-success smaller-gray-button" onclick="showCategoryPicker()">Select category</span>
+                                   		
+                                	<div class="ec-modal-category-backdrop" id="ec-category-bg" style="display:none">
+                                	    <div class="ec-modal-category" id="ec-category-modal-box">
+                                      	<h5 class="widget-title">Select category:</h5>
+                                      	<ul class="dokan-checkbox-cat">
+                                            <?php
+                                            $term = array();
+                                            $term = wp_get_post_terms( $post_id, 'product_cat', array( 'fields' => 'ids') );
+											
+										
+											
+                                            include_once DOKAN_LIB_DIR.'/class.category-walker.php';
+                                            wp_list_categories(array(
+                                                'walker'       => new DokanCategoryWalker(),
+                                                'title_li'     => '',
+                                                'id'           => 'product_cat',
+                                                'hide_empty'   => 0,
+                                                'taxonomy'     => 'product_cat',
+                                                'hierarchical' => 1,
+                                                'selected'     => $term
+                                            ));
+                                            ?>
+                                        </ul>
+                                        </div>
+                                   	</div>
+
                                     </div>
                                 <?php elseif ( dokan_get_option( 'product_category_style', 'dokan_selling', 'single' ) == 'multiple' ): ?>
+                                    
+                                    
                                     <div class="dokan-form-group dokan-list-category-box">
                                         <h5><?php _e( 'Choose a category', 'dokan' );  ?></h5>
                                         <ul class="dokan-checkbox-cat">
@@ -887,6 +924,19 @@ if ( ! $from_shortcode ) {
             jQuery(". a.lb-elastic-add").trigger("click");
         }*/
            
+jQuery('.subcats').each(function(){
+		if(jQuery(this).children().length == 0){
+			 var id = jQuery(this).attr("subcat-id");
+			 jQuery("#"+id+"-handle").html("&nbsp;&nbsp;&nbsp;");
+
+		}else{
+			 var id = jQuery(this).attr("subcat-id");
+			 jQuery("#"+id+"-handle").html("+");
+		}
+		
+	})
+
+
 
     });
     showButton = () =>{ 
@@ -959,9 +1009,131 @@ if ( ! $from_shortcode ) {
     }
 
 
+function toggleEcSubcatsEdit(cat_id){
+	var target = ".subcats-"+cat_id;
+	jQuery(target).toggle("fast");
+	return false;
+	
+}
+function showCategoryPicker(){
+	jQuery("#ec-category-bg").toggle();
+}
+function setCategory(cat_id){
+   jQuery("#product_cat_to_submit").val(cat_id);
+   
+   jQuery(".checkbox-category").each(function(){
+   		var sel_id = jQuery(this).attr("cat-term-id");
+   		
+   		if(sel_id == cat_id){
+   			jQuery(this).prop("checked",true);
+   		} else { 
+   			jQuery(this).prop("checked",false);
+   		}
+   }) 
+	
+	var breadcrumbString =  " > " + jQuery("#category-"+cat_id).attr("cat-term-name")+ " (Unsaved) ";
+	ec_category_breadcrumbs(jQuery("#category-"+cat_id), breadcrumbString);
+	jQuery("#ec-category-bg").toggle();
+}
 
-    
+
+jQuery('#ec-category-bg').on('click', function(e){
+		if(!jQuery("#ec-category-modal-box").is(":hover")){
+    		jQuery("#ec-category-bg").toggle();
+  		}
+		
+});
+
+
+function ec_category_breadcrumbs(catElm, breadcrumbstring){
+ 	parentCatElm = catElm.parent().closest('div.subcats');
+ 	parentCatElmCheck = catElm.parent().closest('input.checkbox-category');
+ 	
+	if(parentCatElm.length) {
+		var breadcrumbstring = " > "+parentCatElm.attr("parentcat-name") + breadcrumbstring
+		ec_category_breadcrumbs(parentCatElm, breadcrumbstring);
+	} else {
+		jQuery("#selected_cat_string").html(breadcrumbstring.substring(3));
+	}
+
+}
+
+
+function ec_category_open(catElm, breadcrumbstring)
+{
+	catElm.css('margin-left', '15px');
+    catElm.css('display', 'block');
+ 	parentCatElm = catElm.parent().closest('div.subcats');
+ 	parentCatElmCheck = catElm.parent().closest('input.checkbox-category');
+ 	
+	if(parentCatElm.length) {
+		breadcrumbstring = " > " + parentCatElm.attr("parentcat-name") + breadcrumbstring
+		ec_category_open(parentCatElm, breadcrumbstring);
+	} else {
+	
+		
+		jQuery("#selected_cat_string").html(breadcrumbstring.substring(3));
+	}
+}
+jQuery(document).ready(function($)
+{
+	
+	var breadcrumbstring = "";
+	
+	catElm = $('.dokan-checkbox-cat input.checkbox-category[checked=checked]');
+	parentCatElm = catElm.parent().closest('div.subcats');
+	if(parentCatElm.length){
+		parentstring = " > " + parentCatElm.attr("parentcat-name");
+	}else{
+		parentstring = "";
+	}
+	
+	
+	if(catElm.length) {
+		breadcrumbstring = parentstring + " > " +catElm.attr("cat-term-name") + breadcrumbstring
+		ec_category_open( catElm.closest('div.subcats'), breadcrumbstring  );
+	}
+	
+
+	
+});
+
 
 </script>
-
-
+<style>
+ .dokan-checkbox-cat label{
+ 	display:inline-block;
+ }
+ 
+ .subcat-togglehandle{
+	cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 20px;
+    display: inline-block;
+}
+#ec-category-bg{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	overflow-y:scroll;
+	box-sizing:border-box;
+	padding-bottom:10%;
+	background-color:rgba(200,200,200,0.5);
+	z-index:99999999999999;
+}
+.ec-modal-category{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10%;
+	width:400px;
+	padding:20px;
+	border:2px solid #cdcdcd;
+	background:white;
+	
+}
+ }
+</style>
+                                   
