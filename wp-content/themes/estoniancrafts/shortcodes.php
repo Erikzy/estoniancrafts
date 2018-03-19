@@ -70,6 +70,8 @@ class EC_Shortcodes
 	
 	}
 	public static function redirect_to_user_shop(){
+		$user = wp_get_current_user();
+
 		$_url = get_site_url(null, bp_core_get_username( $user->ID));
 		wp_safe_redirect($_url);
 	
