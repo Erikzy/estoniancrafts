@@ -14,7 +14,7 @@
       
       $args = array(
       	'post_type'=>'product',
-      	'post_status' => 'published',
+      	'post_status' => 'publish',
       	'posts_per_page' => 25,
       	'meta_key'              => 'total_sales',
           'orderby'               => 'meta_value_num',
@@ -35,7 +35,7 @@
       
       	$args = array(
       		'post_type'=>'product',
-      		'post_status' => 'published',
+      		'post_status' => 'publish',
       		'posts_per_page' => 25,
   		);
     	 include(locate_template('partials/frontpage/product_scroller.php')); 

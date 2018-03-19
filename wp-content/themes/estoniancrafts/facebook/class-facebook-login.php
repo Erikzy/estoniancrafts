@@ -99,7 +99,7 @@ class FacebookLogin{
             $button_label = __('Login with Facebook', 'alkaweb');
         }
         // HTML markup
-        $html = '<div class="ec-facebook-wrapper"  ">';
+        $html = '<span class="ec-facebook-wrapper" style="display:inline-block;float:none;">';
         // Messages
         if(isset($_SESSION['ec_facebook_message'])) {
             $message = $_SESSION['ec_facebook_message'];
@@ -113,8 +113,9 @@ class FacebookLogin{
 
         // Button
         $html .= '<a href="'.$this->getLoginUrl().'" class=""><img src="https://www.facebook.com/rsrc.php/v3/yC/r/aMltqKRlCHD.png"><span>'.$button_label.'</span></a>';
-        $html .= '</div>';
-        // Write it down
+        
+	$html .= '</span>';
+	// Write it down
         return $html;
     }
 

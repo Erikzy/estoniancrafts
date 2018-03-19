@@ -1,4 +1,4 @@
-.basel-navigation .menu>li>a {
+w.basel-navigation .menu>li>a {
     text-decoration: none;
     letter-spacing: .5px;
     text-transform: uppercase;
@@ -419,7 +419,7 @@ display:none;
 }
 .widget-title, .widgettitle {
     padding-top: 20px;
-  float:left;
+ /* float:left;*/
   width:100%;
 }
 .title-wrapper.basel-title-style-simple .title:after {

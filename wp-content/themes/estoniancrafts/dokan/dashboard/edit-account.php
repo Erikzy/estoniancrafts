@@ -377,7 +377,7 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                     </fieldset>
 
-                    <fieldset>
+                    <fieldset style="position:relative;">
                         <legend><?php _e( 'Password Change', 'dokan' ); ?></legend>
 
                         <p class="form-row form-row-wide">
@@ -387,9 +387,64 @@ $user = get_user_by( 'id', get_current_user_id() );
 
                         <p class="form-row form-row-wide">
                             <label for="password_1"><?php _e( 'New Password (leave blank to leave unchanged)', 'dokan' ); ?></label>
-                            <input type="password" class="input-text" name="password_1" id="password_1" />
-                        </p>
+                            <input onchange=triggerPasswordCheck()  oninput=triggerPasswordCheck() type="password" class="input-text" name="password_1" id="password_1" />
+			    <div id="ec-wc-pass-hint" class="ec-woocommerce-password-hint">The password must be at least 6 characters long and contain both letters and numbers.</div>	               			
+		         </p>
+			<script type="text/javascript">
+				function triggerPasswordCheck(){
+					var pass = jQuery("#password_1").val();
+					
+					str = ec_calculatestrength(pass);
+					
+					console.log(str);	
+					if(str.score < 3 && pass.length > 0){
+					 jQuery('#ec-wc-pass-hint').show();
+					}else{
+					 jQuery('#ec-wc-pass-hint').hide();
+					
+					}	
+					
 
+				}
+
+	
+			</script>
+			<style>
+#ec-wc-pass-hint{
+	display:none;
+}
+.ec-woocommerce-password-hint:after{
+
+    content: "\\f0d7";
+    position: absolute;
+    top: 100%;
+    left: 30px;
+    font-size: 26px;
+    line-height: 7px;
+    text-shadow: 0 2px 3px rgba(0,0,0,.1);
+    color: #fff;
+    font-family: FontAwesome;
+}
+
+.ec-woocommerce-password-hint{
+      position: absolute;
+    top: 60px;
+    right: 0;
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    margin-bottom: -10px;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,.15);
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    transition: opacity .5s,visibility .5s;
+    -webkit-transition: opacity .5s,visibility .5s;
+    animation: fade-in .5s;
+    -webkit-animation: fade-in .5s;
+}
+
+</style>
                         <p class="form-row form-row-wide">
                             <label for="password_2"><?php _e( 'Confirm New Password', 'dokan' ); ?></label>
                             <input type="password" class="input-text" name="password_2" id="password_2" />

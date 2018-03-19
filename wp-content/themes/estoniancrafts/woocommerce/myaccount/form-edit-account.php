@@ -54,7 +54,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 	<?php do_action( 'woocommerce_edit_account_form' ); ?>
 
-	<fieldset class="pass-fieldset">
+	<fieldset class="pass-fieldset" style="position:relative;">
 		<legend><?php _e( 'Password Change', 'woocommerce' ); ?></legend>
 
 		<p class="form-row form-row-wide">
@@ -64,12 +64,63 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 		</p>
 		<p class="form-row form-row-wide">
 			<label for="password_1"   ><?php _e( 'New Password (leave blank to leave unchanged)', 'woocommerce' ); ?></label>
-			<input type="password" class="woocommerce-Input woocommerce-Input--password input-text " name="password_1" id="password_1" autocomplete="off"  />
+			<input type="password" oninput=triggerPasswordCheck() class="woocommerce-Input woocommerce-Input--password input-text " name="password_1" id="password_1" autocomplete="off"  />
+			<small class="woocommerce-password-hint">The password must be at least 6 characters long and contain both letters and numbers.</small>
 		</p>
 		<p class="form-row form-row-wide">
 			<label for="password_2"  ><?php _e( 'Confirm New Password', 'woocommerce' ); ?></label>
 			<input type="password" class="woocommerce-Input woocommerce-Input--password input-text " name="password_2" id="password_2" autocomplete="off"  />
 		</p>
+		<div id="ec-wc-pass-hint" class="ec-woocommerce-password-hint">The password must be at least 6 characters long and contain both letters and numbers.</div>
+                        <script type="text/javascript">
+                                function triggerPasswordCheck(){
+                                        var pass = jQuery("#password_1").val();
+                                        str = ec_calculatestrength(pass);
+                                        if(str.score < 3 && pass.length > 0){
+                                         jQuery('#ec-wc-pass-hint').show();
+                                        }else{
+                                         jQuery('#ec-wc-pass-hint').hide();
+                                        }
+                                }
+                        </script>
+                                                <style>
+#ec-wc-pass-hint{
+        display:none;
+}
+.ec-woocommerce-password-hint:after{
+
+    content: "\\f0d7";
+    position: absolute;
+    top: 100%;
+    left: 30px;
+    font-size: 26px;
+    line-height: 7px;
+    text-shadow: 0 2px 3px rgba(0,0,0,.1);
+    color: #fff;
+    font-family: FontAwesome;
+}
+
+.ec-woocommerce-password-hint{
+      position: absolute;
+    top: 60px;
+    right: 0;
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    margin-bottom: -10px;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,.15);
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    transition: opacity .5s,visibility .5s;
+    -webkit-transition: opacity .5s,visibility .5s;
+    animation: fade-in .5s;
+    -webkit-animation: fade-in .5s;
+}
+
+</style>
+
+
 	</fieldset>
 	<div class="clear"></div>
         <p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">

@@ -473,8 +473,9 @@ input[type="submit"].dokan-btn-theme, a.dokan-btn-theme, .dokan-btn-theme{
     color:#ef7f27;
 }
 .single-product-content .woocommerce-main-image>img{
-    height:290px!important;
-    width:auto;
+    height:auto;
+    width:100%;
+    max-width:500px;
     display: block;
     margin:auto;
 }
