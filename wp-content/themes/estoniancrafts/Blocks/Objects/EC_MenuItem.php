@@ -9,6 +9,7 @@ class EC_MenuItem extends EC_Base
 	public $url;					// string
 	public $url_endpoint;			// string
 	public $url_target = '_self';	// string
+	public $target = "";
 	public $is_open = false;		// boolean
 	public $is_current = false;		// boolean
 	public $class;					// string

@@ -21,7 +21,13 @@
 		?>
 
 			<li id="<?php echo $menuItem->id ?>" class="<?php  echo $menuItem->class.' '.$active_class  ?>">
-				<a href="<?php echo $menuItem->url ?>"><?php echo esc_html( $menuItem->title ); ?></a>
+				<a
+				 <?php
+				 	if($menuItem->target == "_blank"){
+				 		echo 'target="_blank"';
+				 	}
+				 ?>	
+				 href="<?php echo $menuItem->url ?>"><?php echo esc_html( $menuItem->title ); ?></a>
 			</li>
 		<?php 
 		$active_class ="";

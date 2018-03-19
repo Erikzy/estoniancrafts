@@ -363,7 +363,8 @@ class EC_Filters
 			$menu->items[] = new EC_MenuItem(array(
 				'id' => 'shop-view',
 				'title' => __( 'View shop', 'ktt' ),
-				'url' => get_site_url(null, bp_core_get_username( $user->ID)),
+				'target'=>'_blank',
+				'url' =>  get_site_url(null, 'redirect-to-user-shop'),
 				'url_endpoint' => bp_core_get_username( $user->ID)
 			));
 

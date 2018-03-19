@@ -13,6 +13,7 @@ class EC_Shortcodes
 		add_shortcode( 'non_vc_frontpage', array(__CLASS__, 'frontpage_sliders'));
 		add_shortcode('user_has_idCard_extended', array(__CLASS__,'user_has_idcard_extended'));
 		add_shortcode('redirect_to_user_home', array(__CLASS__,'redirect_to_user_home'));
+		add_shortcode('redirect_to_user_shop', array(__CLASS__,'redirect_to_user_shop'));
 
 	}
 
@@ -68,7 +69,11 @@ class EC_Shortcodes
 		wp_safe_redirect($_url);
 	
 	}
+	public static function redirect_to_user_shop(){
+		$_url = get_site_url(null, bp_core_get_username( $user->ID));
+		wp_safe_redirect($_url);
 	
+	}
 	public static function user_has_idcard_extended(){
 		 global $wpdb;
          $current_user = wp_get_current_user();
