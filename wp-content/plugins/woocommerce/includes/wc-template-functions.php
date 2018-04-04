@@ -25,7 +25,13 @@ function wc_template_redirect() {
 		wp_safe_redirect( get_post_type_archive_link('product') );
 		exit;
 	}
-
+	
+/*	if(is_search()){
+		var_dump($wp_query);
+	
+		wp_die();
+	}
+	*/
 	// When on the checkout with an empty cart, redirect to cart page
 	elseif ( is_page( wc_get_page_id( 'checkout' ) ) && WC()->cart->is_empty() && empty( $wp->query_vars['order-pay'] ) && ! isset( $wp->query_vars['order-received'] ) ) {
 		wc_add_notice( __( 'Checkout is not available whilst your cart is empty.', 'woocommerce' ), 'notice' );

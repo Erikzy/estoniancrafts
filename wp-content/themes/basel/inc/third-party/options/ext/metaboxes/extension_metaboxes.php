@@ -1307,6 +1307,12 @@
                     delete_post_meta( $post_id, $key );
                 }
 
+				 if ( isset( $_POST['_size_chart'] ) ) {
+                    update_post_meta( $post_id, '_size_chart', stripslashes( $_POST['_size_chart'] ) );
+					               	 die('size');
+               	 }
+
+            
                 //update_post_meta( $post_id, $this->parent->args['opt_name'], $toSave );
                 //print_r($toSave);
                 //exit();
@@ -1326,6 +1332,7 @@
                 if ( isset( $_POST['_visibility'] ) ) {
                     update_post_meta( $post_id, '_visibility', stripslashes( $_POST['_visibility'] ) );
                 }
+            
                 if ( isset( $_POST['_stock_status'] ) ) {
                     update_post_meta( $post_id, '_stock_status', stripslashes( $_POST['_stock_status'] ) );
                 }

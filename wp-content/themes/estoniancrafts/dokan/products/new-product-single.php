@@ -52,6 +52,7 @@ if ( !empty( $_sale_price_dates_from ) && !empty( $_sale_price_dates_to ) ) {
     $show_schedule = true;
 }
 
+
 $_featured              = get_post_meta( $post_id, '_featured', true );
 $_downloadable          = get_post_meta( $post_id, '_downloadable', true );
 $_is_lot_discount       = get_post_meta( $post_id, '_is_lot_discount', true );
@@ -61,6 +62,8 @@ $is_enable_op_discount  = dokan_get_option( 'discount_edit', 'dokan_selling' );
 $is_enable_op_discount  = $is_enable_op_discount ? $is_enable_op_discount : array();
 $_stock                 = get_post_meta( $post_id, '_stock', true );
 $_stock_status          = get_post_meta( $post_id, '_stock_status', true );
+
+$_size_chart            = get_post_meta( $post_id, 'size_chart');
 $_visibility            = get_post_meta( $post_id, '_visibility', true );
 $_enable_reviews        = $post->comment_status;
 
@@ -132,7 +135,13 @@ if ( ! $from_shortcode ) {
                     </span>
 
 					<?php // View product button ?>
+                       <span style="margin-left:15px;" class="dokan-right">
+                            <a class="view-product dokan-btn dokan-btn-sm smaller-gray-button" href="<?php echo get_clone_link( $post->ID ); ?>" target="_blank"><?php _e( 'Make a copy', 'dokan' ); ?></a>
+                        </span>
                     <?php if ( $post->post_status == 'publish' ) { ?>
+                    
+                     
+                    
                         <span class="dokan-right">
                             <a class="view-product dokan-btn dokan-btn-sm smaller-gray-button" href="<?php echo get_permalink( $post->ID ); ?>" target="_blank"><?php _e( 'View Product', 'dokan' ); ?></a>
                         </span>
@@ -199,7 +208,10 @@ if ( ! $from_shortcode ) {
                         <?php if ( $post_id ): ?>
                             <?php do_action( 'dokan_product_data_panel_tabs' ); ?>
                         <?php endif; ?>
-                        <?php do_action( 'dokan_product_edit_before_main' ); ?>
+                        <?php 
+                        
+
+                        	do_action( 'dokan_product_edit_before_main' ); ?>
 
                         <div class="dokan-form-top-area">
 
@@ -217,6 +229,60 @@ if ( ! $from_shortcode ) {
                                     <?php dokan_post_input_box( $post_id, 'post_title', array( 'placeholder' => __( 'Product name..', 'dokan' ), 'value' => $post_title , "class"=> "dokan-w3 dokan-control-label") ); ?>
                                 </div>
 
+
+
+           						 <div class="dokan-form-group" style="margin-top:20px;">
+                                    <input type="hidden" name="dokan_product_id" value="<?php echo $post_id; ?>"/>
+
+                                    <label for="post_title" class="form-label desc-pro"><?php _e( 'Meta keywords', 'dokan' ); ?><span class="required-m">*</span></label>
+									<span class="ec-form-field-description"><?php _e( 'Releated search tags', 'ktt' ); ?></span>
+                                    <div class="errfield">
+                    
+                                    </div>
+                                    <textarea rows="3" id="product-tags" name="product-tags" >
+                                    
+                                    </textarea>
+                                    
+                      	<!--  jquery tag  --->
+                             		<script type="text/javascript">
+                             			jQuery('#product-tags').tagEditor({
+                             				maxLength:255,
+                             				placeholder:"Enter tags related to your product to improve search appearance.",
+                             				initialTags: [<?php 
+                             					 $tags = get_post_meta( $post_id, 'product-tags', true );
+                             					 $tagArray =  explode(",",$tags);
+                             					 $glued = array();
+                             					 foreach($tagArray as $tag){
+                             					 	$glued[] = "'".$tag."'";
+                             					 }
+                             					 echo implode(",",$glued);
+                             				 ?>]
+                             			});
+                             		</script>
+                             		<style>
+                             			.tag-editor  input[type=text]:focus,.tag-editor  input[type=email]:focus,.tag-editor  input[type=password]:focus,.tag-editor  input[type=number]:focus,.tag-editor  input[type=tel]:focus, .tag-editor select:focus,.tag-editor  textarea:focus {
+                             				border:0px;
+                             				padding:inherit;
+                             			}
+                             			.tag-editor:focus{
+                             			border: 1px solid rgba(29,29,29,.5);
+                             			}
+                             			.tag-editor li{
+                             				margin:5px !important;
+                             				margin-left:0px !important;
+                             			}
+                             			.tag-editor{
+                             				padding:5px;
+                             				padding-left:0px;
+                             				border: 1px solid rgba(129,129,129,.25);
+                             			}
+                             			.tag-editor .placeholder{
+                             				color:rgb(141,141,141);
+                             			}
+                             		</style>
+                                </div>
+                                
+                                
                                 <div class="hide_if_variation dokan-clearfix">
 
                                     <div class="dokan-form-group dokan-clearfix dokan-price-container">
@@ -478,6 +544,24 @@ if ( ! $from_shortcode ) {
                              ?>
                              <textarea id="post_content" name="post_content" class="valid"> <?php echo $post_content ; ?></textarea>
                         </div>
+
+						     <div class="dokan-form-group">
+                                 
+                                 <!--size_chart-->
+                                 <label class="dokan-checkbox-inline dokan-form-label form-label " for="size_chart">
+                                 <?php if($_size_chart == 'on'){
+                                 	$checked=true;
+                                 
+                                 
+                                 }else{
+                                 	$checked=false;
+                                 }; ?>
+                                        <input type="checkbox" id="size_chart" name="size_chart" <?php if($checked){echo 'checked';}?>  >
+                                        <?php _e( 'Size Chart', 'dokan' ); ?>
+										<span class="ec-form-field-description"><?php _e( 'This product displays a size chart', 'ktt' ); ?></span>
+                                    </label>
+
+                                               </div>
 
                         <?php do_action( 'dokan_new_product_form' ); ?>
 

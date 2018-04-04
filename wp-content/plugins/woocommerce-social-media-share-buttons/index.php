@@ -196,7 +196,22 @@ function toastie_wc_smsb_form_code() {
 		};
 	};
 		
-	$social_val.='</ul>';
+	$social_val.='</ul>
+	   
+   			<script type="text/javascript">
+   			jQuery(".social-nav > li > a ").click(function(e){
+     				e.preventDefault();
+  				})
+			jQuery(document).ready(function(){
+				jQuery(".social-nav > li > a ").each(function(){
+					jQuery(this).attr("href",  "");
+					jQuery(this).attr("target", "");
+						
+				});
+				
+			});	
+			</script>
+	';
     echo $social_val;
 }
 
@@ -574,6 +589,8 @@ function toastie_wc_smsb_social_init() {
             </form>
             <p style="text-align:right">&copy; All rights reserved, <a href="http://www.toastiestudio.com" target="_blank">Toastie Studio</a></p>
     </div>
+
+	
     
         <script language="JavaScript">
 		jQuery(document).ready(function($){

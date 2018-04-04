@@ -497,7 +497,29 @@ class EC_Filters
 }
 EC_Filters::init();
 
+function intercept_query_clauses( $pieces )
+{
 
+	if(is_search()){
+		//echo '<style>#post-clauses-dump { display: block; background-color: #777; color: #fff; white-space: pre-line; }</style>';
+		// >>>> Inspect & Debug the Query 
+		// NEVER EVER show this to anyone other than an admin user - unless you're in your local installation
+		///$dump = var_export( $pieces, true );
+		//echo "<PRE id='post-clauses-dump'>{$dump}</PRE>";
+		if(isset($_GET['s'])){
+			$tag = sanitize_text_field($_GET['s']);
+		}
+		$pieces['where'] = ' AND ktt_posts.ID IN ( SELECT submeta.post_id FROM ktt_postmeta submeta WHERE meta_key="product-tags" AND meta_value LIKE \'%'.$tag.'%\' ) OR '.substr($pieces['where'], 4);
+		
+		
+		
+	//	die("searching");
+	
+	}
+	return $pieces;
+	
+}
+add_filter( 'posts_clauses', 'intercept_query_clauses', 20, 1 );
 
 
 add_filter( 'tribe_event_featured_image', 'custom_tribe_event_featured_image' );
@@ -552,15 +574,28 @@ function ec_order_review_expected_delivery($product)
 	// if is stock item and has items in stock
 	if ($product->managing_stock() && $product->get_stock_quantity()) {
 		$delivery = get_post_meta( $product->id, '_expected_delivery_in_warehouse', true);
+		$durations_array =  ec_get_shipping_durations_array();
+		if($delivery !== ''){
+			if(is_numeric($delivery) && isset($durations_array[$delivery])){
+				$delivery = $durations_array[$delivery];
+			}else{
+				$delivery = '';
+			}
+		}
+		
+			
 	} else {
 		$delivery = get_post_meta( $product->id, '_expected_delivery_no_warehouse', true);
 	}
 
 	if ($delivery !== '') {
 		echo '<p>';
-		_e('Delivery');
-		echo ': ' . $delivery;
+		//_e('Delivery');
+		
+		echo 'Ready to ship in: ' . $delivery.'<br>';
+		echo 'Expected delivery time: Up to 7 days.';
 		echo '</p>';
+
 	}
 }
 
@@ -715,6 +750,60 @@ function ec_post_request($query_vars)
 }
 add_filter('request', 'ec_post_request', 0, 1);
 
+add_filter( 'woocommerce_duplicate_product_exclude_meta','filter_duplicate_meta');
+function filter_duplicate_meta ($array){
+	array_push( $array,'_thumbnail_id','_product_image_gallery','_downloadable_files' );
+	return $array;
+}
+add_filter( 'woocommerce_duplicate_product_exclude_children','filter_allow_variations',0,2);
+function filter_allow_variations ($can_clone, $product){
+	
+	return false;
+}
+
+
+
+
+
+add_filter('request', 'ec_product_clone_request', 1, 1);
+
+function ec_product_clone_request($query_vars){
+	
+	if (array_key_exists('pagename', $query_vars)) {
+		if($query_vars['pagename'] == "clone"){
+	  		global $post;
+	  		$args = array(
+  				'p'         => $query_vars['page'], // ID of a page, post, or custom type
+  				'post_type' => 'any'
+			);
+			///var_dump($query_vars);
+			$post_query = new WP_Query($args);
+			if ( $post_query->have_posts() ) { 
+					while ( $post_query->have_posts() ) { 
+					$post_query->the_post();
+			
+					$userid = get_current_user_id();
+					$author = get_the_author_meta('ID');
+					if($author == $userid){
+						$new_product = duplicate_product();
+						wp_safe_redirect(dokan_edit_product_url($new_product));
+					
+					}else{
+						die("Invalid product");
+					}
+			
+				} 
+			} else {
+				return get_404_template();
+			}
+			wp_reset_postdata();
+			die();
+	
+		}
+	}
+	return $query_vars;
+}
+
 function ec_register_query_vars($vars)
 {
 	$vars[] = 'blog';
@@ -788,7 +877,54 @@ function ec_dokan_ask_information_product_tab( $tabs) {
 
     return $tabs;
 }
-add_filter( 'woocommerce_product_tabs', 'ec_dokan_ask_information_product_tab' );
+add_filter( 'woocommerce_product_tabs', 'ec_dokan_clean_empty_tabs',10,1 );
+
+function ec_dokan_clean_empty_tabs( $tabs) {
+
+ /*   $tabs['ask_information'] = array(
+        'title'    => __( 'Ask information', 'ktt' ),
+        'priority' => 90,
+        'callback' => 'ec_dokan_ask_information_tab'
+    );
+*/  	global $product;
+		
+		if(isset($tabs['basel_additional_tab'])){
+			$expectedDelivery = '';
+		// if is stock product and some products exist at stock
+		if ($product->managing_stock() && $product->get_stock_quantity() ) {
+			$expectedDelivery = get_post_meta( $product->id, '_expected_delivery_in_warehouse', true);
+		} else {
+			$expectedDelivery = get_post_meta( $product->id, '_expected_delivery_no_warehouse', true);
+		}
+
+		if ($expectedDelivery == ''){ 
+			unset($tabs['basel_additional_tab']);
+		}
+			
+	}
+
+	if(isset($tabs['additional_information'])){
+		ob_start();
+		$product->list_attributes();
+		$attributes = ob_get_clean();
+		$attributes = strip_tags($attributes);
+		$attributes = preg_replace('/\s+/', '', $attributes);
+		if(strlen($attributes)  < 4){
+			unset($tabs['additional_information']);
+		}
+	}
+
+	if(isset($tabs['description'])){
+		$desc = $product->post->post_content;
+		$desc = strip_tags($desc);
+		$desc = preg_replace('/\s+/', '', $desc);
+		if(strlen($desc) < 4){
+			unset($tabs['description']);
+		}		
+	}
+
+    return $tabs;
+}
 
 
 
@@ -822,6 +958,8 @@ function ec_dokan_ask_information_tab( $val ) {
     	'user' => $user
     ]);
 }
+
+
 
 function comments_on( $data ) {
     if( $data['post_type'] == 'post' ) {

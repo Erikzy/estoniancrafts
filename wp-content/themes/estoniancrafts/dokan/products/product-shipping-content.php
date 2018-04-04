@@ -149,46 +149,83 @@
                 <?php endif; ?>
                 <div class="show_if_needs_shipping">
                     <div class="dokan-form-group">
-                        <label class="dokan-control-label form-label "><?php _e('Expected delivery time for product in the warehouse', 'ktt'); ?></label>
-                        <?php dokan_post_input_box(
+                        <label class="dokan-control-label form-label "><?php _e('Ready to ship time for products in stock', 'ktt'); ?></label>
+                        <input id="_expected_delivery_in_warehouse" type="hidden" name="_expected_delivery_in_warehouse" value="<?php echo get_post_meta( $post_id, '_expected_delivery_in_warehouse', true);?>" />
+                        <select name="expectedDeliveryPicker" onchange="updateExpectedDelivery()" id="expectedDeliveryPickerProd" >
+                        <?php
+						$options  = ec_get_shipping_durations_array();                        
+                        
+                        
+                        foreach($options as $k=>$v){
+                        	$meta = get_post_meta( $post_id, '_expected_delivery_in_warehouse', true);
+                        	if($k == $meta){
+                        		echo '<option value='.$k.' selected>'.$v.'</option>';
+                        	} else {
+                        		echo '<option value='.$k.'>'.$v.'</option>';
+                        	}
+                        }
+                        
+                        /*
+                         dokan_post_input_box(
                             $post_id, 
                             '_expected_delivery_in_warehouse', 
                             array( 
-                                'placeholder' => __( 'Expected delivery time for product in the warehouse', 'ktt' ),
+                                'placeholder' => __( 'Ready to ship time for products in stock', 'ktt' ),
                                 'value' => get_post_meta( $post_id, '_expected_delivery_in_warehouse', true)
                             ),
                             'text' 
-                        ); ?>
+                        ); 
+                        */
+                        
+                        
+                        
+                        ?>
+                        </select>
+                        <script type="text/javascript">
+                        	function updateExpectedDelivery(){
+								var exDel = jQuery("#expectedDeliveryPickerProd").val();
+								   if(exDel == 0){
+								   jQuery("#_expected_delivery_in_warehouse").val("");                        	
+                        			
+								   }else{
+									jQuery("#_expected_delivery_in_warehouse").val(exDel);                        	
+                        			}
+                        	}
+                        </script>
                     </div>
                     <div class="dokan-form-group">
-                        <label class="dokan-control-label form-label "><?php _e('Expected delivery time for product not in the warehouse', 'ktt'); ?></label>
+                        <label class="dokan-control-label form-label "><?php _e('Ready to ship time for products not in stock', 'ktt'); ?></label>
                         <?php dokan_post_input_box(
                             $post_id, 
                             '_expected_delivery_no_warehouse', 
                             array( 
-                                'placeholder' => __( 'Expected delivery time for product not in the warehouse', 'ktt' ),
+                                'placeholder' => __( 'Ready to ship time for products not in stock', 'ktt' ),
                                 'value' => get_post_meta( $post_id, '_expected_delivery_no_warehouse', true)
                             ),
                             'text' 
                         ); ?>
+                        
+                        
+                         <p class="ec-form-field-description">Please fill the blank in a simple and understandable fashion. For example: 1 week; up to 3 days; minimum 2 weeks.</p>
                     </div>
                 </div>
             </div>
         <?php endif; ?>
 
         <?php if ( 'yes' == get_option('woocommerce_calc_shipping') && 'yes' == get_option( 'woocommerce_calc_taxes' ) ): ?>
-            <div class="dokan-divider-top hide_if_downloadable"></div>
+        <!--    <div class="dokan-divider-top hide_if_downloadable"></div> !-->
         <?php endif ?>
-
+ 		<input type="hidden" name="_required_tax" value="yes">
         <?php if ( 'yes' == get_option( 'woocommerce_calc_taxes' ) ) { ?>
-        <div class="dokan-clearfix dokan-tax-container">
-            <div class="dokan-form-group">
+      
+        <!--  <div class="dokan-clearfix dokan-tax-container">
+          <div class="dokan-form-group">
                 <label for="_required_tax" class="form-label ">
-                <input type="hidden" name="_required_tax" value="no">
-                <input type="checkbox" id="_required_tax" name="_required_tax" class="form-label" value="yes" <?php checked( $_required_tax, 'yes' ); ?>>
+                <input type="hidden" name="_required_tax" value="yes">
                 <?php _e( 'The product requires Tax', 'dokan' ); ?>
                 </label>
             </div>
+          
             <div class="show_if_needs_tax dokan-tax-product-options">
                 <div class="dokan-form-group dokan-w">
                     <label class="form-label" for="_tax_status"><?php _e( 'Tax Status', 'dokan' ); ?></label>
@@ -210,6 +247,7 @@
                 </div>
             </div>
         </div>
+          --!>
         <?php } ?>
     </div><!-- .dokan-side-right -->
 </div><!-- .dokan-product-inventory -->

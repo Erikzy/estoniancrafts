@@ -48,11 +48,16 @@ if ( ! empty( $tabs ) ) : ?>
                 		 	<?php
 
 						   if( (esc_attr( $key ) == 'reviews' && ( (int) $o > 0  || (wc_customer_bought_product( '', get_current_user_id(), $product->id    ) && commented_before( wp_get_current_user()->user_login, $product->id  ) == false  )  ) ) || esc_attr( $key ) != 'reviews'   ):
+						 	
+						 	if(isset($tab['title'])):
 						 	?>
+						 	
+						 	
 						<li class="<?php echo esc_attr( $key ); ?>_tab">
 							<a href="#tab-<?php echo esc_attr( $key ); ?>" id="iden-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key );?> </a>
 						</li>
 						<?php
+						endif;
 							endif;
 						?>
                 <?php }  //echo get_current_user_id(). ' '. $product->id. ' '. $product->post->post_author. ' '.wc_customer_bought_product( get_current_user_id(), $product->id, $product->post->post_author ); ?>

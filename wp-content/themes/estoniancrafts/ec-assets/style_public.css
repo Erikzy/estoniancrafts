@@ -1519,6 +1519,60 @@ form.has-categories-dropdown .input-dropdown-inner>a:after {
 .icons-design-line .shopping-cart>a:before{
     display:none;
 }
+
+
+.edit-button-custom:before{
+    content: "\f040";
+    font-size: 15px;
+    font-weight: bold;
+    height: 32px;
+    text-align: center;
+    font-family: FontAwesome;
+    display: inline-block;
+    line-height: 32px;
+    background-color: rgb(221,59,15);
+    color: white;
+    width: 32px;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid rgb(221,59,15);
+    position:relative;
+    right:10px;
+    top:-1px;
+        -webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+       
+}
+.edit-button-custom{
+	line-height: 32px;
+    border: 1px solid rgb(221,59,15);
+    height:32px;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 15px;
+    font-weight:300;
+	display:inline-block;
+	 text-align:center;
+     padding-right:10px;
+     margin-left:10px;
+     color: rgb(221,59,15);
+         -webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+
+.edit-button-custom:hover{
+color: #ef7f27;
+border: 1px solid  #ef7f27;
+}
+.edit-button-custom:hover::before{
+background-color: #ef7f27;
+border: 1px solid  #ef7f27;
+
+
+}
+
 /*wishlist*/
 .right-column .wishlist-info-widget {
     margin-right: 30px;

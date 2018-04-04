@@ -291,6 +291,8 @@ class Dokan_Template_Products {
         update_post_meta( $product_id, '_manufacturing_qty_unit', wc_clean($_POST['_manufacturing_qty_unit']));
 
         update_post_meta( $product_id, '_maintenance_info', $_POST['_maintenance_info']);
+    	
+    	do_action('ec_extra_product_meta', $product_id,$_POST);    
         
         if( ! empty( $_POST['_media_link'] ) ){
 

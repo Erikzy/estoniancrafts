@@ -22,7 +22,7 @@ get_header(); ?>
 
 		<?php /* The loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-
+				 
 				<?php get_template_part( 'content', get_post_format() ); ?>
 
 				<?php if ( basel_get_opt( 'blog_share' ) ): ?>
@@ -30,8 +30,32 @@ get_header(); ?>
 						<div class=" center-block">
 						<?php if( function_exists( 'basel_shortcode_social' ) ) echo basel_shortcode_social(array('type' => 'share', 'tooltip' => 'no', 'style' => 'colored')) ?>
 					</div>
+					<script type="text/javascript">
+   			jQuery(".social-nav > li > a ").click(function(e){
+     				e.preventDefault();
+  				})
+			jQuery(document).ready(function(){
+				jQuery(".social-nav > li > a ").each(function(){
+					jQuery(this).attr("href",  "");
+					jQuery(this).attr("target", "");
+						
+				});
+				
+			});	
+			</script>
+					
 					</div>
-				<?php endif ?>
+				<?php endif;
+				
+				$userid = get_current_user_id();
+				$author = get_the_author_meta('ID');
+				if($author == $userid){
+					$id = get_the_ID();
+				  //	echo  '<a href="/my-account/blog/edit?id='.$id.'"><span style="margin-bottom:10px;" class="edit-button-custom" >EDIT POST</span></a>';
+				}
+				
+				
+				 ?>
 			
 				<?php if ( basel_get_opt( 'blog_navigation' ) ): ?>
 					<div class="single-post-navigation">

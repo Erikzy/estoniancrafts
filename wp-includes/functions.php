@@ -3554,7 +3554,9 @@ function wp_list_pluck( $list, $field, $index_key = null ) {
 			if ( is_object( $value ) ) {
 				$list[ $key ] = $value->$field;
 			} else {
-				$list[ $key ] = $value[ $field ];
+				if(is_array($list)){	
+					$list[ $key ] = $value[ $field ];
+				}
 			}
 		}
 		return $list;

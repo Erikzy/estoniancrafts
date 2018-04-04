@@ -28,14 +28,16 @@ if($productQuery->have_posts()):
         					  ?>
                          </div>
                         </a>
-                        <div class='product-title-fp'><?php 
+                        <div class='product-title-fp'><a href="<?php
+                        echo the_permalink();
+                        ?>"><?php 
                         
                             $title = the_title('','',false);
                             if(strlen($title) < 50){
                               echo $title;
                             }else{
                               echo substr($title,0,50).'..';
-                            } ?></div>
+                            } ?></a></div>
                         <div class="product-price">
                         	<?php 
 

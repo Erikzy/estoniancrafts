@@ -11,6 +11,7 @@ class EC_Actions
         add_action( 'wp_enqueue_scripts', array(__CLASS__, 'ec_override_styles_js_action'), 10001 );
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_action') );
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_debug_action'), 9999 );
+		add_action('ec_extra_product_meta',array(__CLASS__, 'ec_new_prod_save'),9,2 );
 
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating' );
@@ -37,6 +38,8 @@ class EC_Actions
 		wp_enqueue_style('owl-carousel', $template_url.'/css/owl.carousel.css', array(), '1.0.1');
 		wp_enqueue_style('frontpage', $template_url.'/css/frontpage.css', array(), '1.0.1');
 		wp_enqueue_style('category', $template_url.'/css/category.css', array(), '1.0.1');
+		wp_enqueue_style('tag-editor', $child_theme_url.'/css/jquery.tag-editor.css', array(), '1.0.1');
+
 		wp_enqueue_script('owl-carousel-min', $template_url . '/js/owl.carousel.min.js', array('jquery'), '1.0', true);
 
 
@@ -51,6 +54,8 @@ class EC_Actions
 		wp_enqueue_style('ec-merchant-style', $child_theme_url.'/ec-assets/style_merchant.css');
 		wp_enqueue_script('ec-merchant-script', $child_theme_url.'/ec-assets/script_merchant.js');
 		wp_enqueue_script('ec-functions-script', $child_theme_url.'/ec-assets/functions.js');
+		wp_enqueue_script('jquery-tag-editor', $child_theme_url.'/js/jquery.tag-editor.js');
+		wp_enqueue_script('jquery-caret-min', $child_theme_url.'/js/jquery.caret.min.js');
 
         // Unregister font-awsome css registered by dokan plugin
 		//wp_deregister_style('fontawesome');
@@ -125,6 +130,22 @@ class EC_Actions
 	public static function shop_loop_item_price_action()
 	{
 		woocommerce_template_loop_price();
+	}
+	
+	public static function ec_new_prod_save($product_id, $post_data)
+	{
+ 	 update_post_meta( $product_id, 'product-tags', wc_clean($post_data['product-tags']));
+		
+		var_dump($post_data);
+		//die();
+		if(isset($post_data['size_chart'])   && $post_data['size_chart'] == 'on' ){
+
+			update_post_meta( $product_id, 'size_chart', wc_clean($post_data['size_chart']));
+
+		}else{
+			update_post_meta( $product_id, 'size_chart', false);
+
+		}
 	}
 
 	public static function shop_loop_item_categories_action()

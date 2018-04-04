@@ -26,4 +26,18 @@ $is_quick_view = ( isset( $woocommerce_loop['view'] ) && $woocommerce_loop['view
 
 ?>
 
+<?php
+				
+				$userid = get_current_user_id();
+				$author = get_the_author_meta('ID');
+				if($author == $userid){
+					$id = get_the_ID();
+				//http://laskminedev.blackbutterfly.ee/my-account/dashboard/new-product/?product_id=1494&action=edit
+					echo  '<a href="/my-account/dashboard/new-product/?product_id='.$id.'&action=edit"><span class="edit-button-custom" >EDIT PRODUCT</span></a>';
+				
+				}
+				
+
+
+?>
 <h1 itemprop="name" class="product_title entry-title"><?php if( $is_quick_view ): ?><a href="<?php the_permalink(); ?>"><?php endif; ?><?php the_title(); ?><?php if( $is_quick_view ): ?></a><?php endif; ?></h1>

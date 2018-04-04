@@ -67,8 +67,31 @@ $random = rand(100,999);
 		<?php endif ?>
 
 		<?php if ( is_single() && $parts['title'] ) : ?>
+			<?php
+					$userid = get_current_user_id();
+				$author = get_the_author_meta('ID');
+				if($author == $userid){
+					$id = get_the_ID();
+				  	echo  '<a href="/my-account/blog/edit?id='.$id.'"><span style="margin-bottom:10px;" class="edit-button-custom" >EDIT POST</span></a>';
+				}
+				
+				
+				?>
+
+			
 			<h3 class="entry-title"><?php the_title(); ?></h3>
 		<?php elseif( $parts['title'] ) : ?>
+			<?php
+					$userid = get_current_user_id();
+				$author = get_the_author_meta('ID');
+				if($author == $userid){
+					$id = get_the_ID();
+				  	echo  '<a href="/my-account/blog/edit?id='.$id.'"><span style="margin-bottom:10px;" class="edit-button-custom" >EDIT POST</span></a>';
+				}
+				
+				
+				?>
+
 			<h3 class="entry-title">
 				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h3>
@@ -146,8 +169,31 @@ $random = rand(100,999);
 				<?php endif ?>
 
 				<?php if ( is_single() && $parts['title'] ) : ?>
+				<?php
+					$userid = get_current_user_id();
+				$author = get_the_author_meta('ID');
+				if($author == $userid){
+					$id = get_the_ID();
+				  	echo  '<div><a href="/my-account/blog/edit?id='.$id.'"><span style="margin-bottom:10px;" class="edit-button-custom" >EDIT POST</span></a></div>';
+				}
+				
+				
+				?>
+
+				
 					<h3 class="entry-title"><?php the_title(); ?></h3>
 				<?php elseif( $parts['title'] ) : ?>
+<?php
+					$userid = get_current_user_id();
+				$author = get_the_author_meta('ID');
+				if($author == $userid){
+					$id = get_the_ID();
+				  	echo  '<div><a href="/my-account/blog/edit?id='.$id.'"><span style="margin-bottom: 20px;margin-top:10px;" class="edit-button-custom" >EDIT POST</span></a></div>';
+				}
+				
+				
+				?>
+
 					<h3 class="entry-title">
 						<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_title(); ?></a>
 					</h3>

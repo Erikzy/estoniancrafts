@@ -11,7 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 $company_types = array(
 			'1'=>  __( 'FIE', 'ktt'),
 		 	'2'=>  __( 'OÜ', 'ktt'),
-			'3'=>  __( 'AS', 'ktt')
+			'3'=>  __( 'AS', 'ktt'),
+			'4'=>  __( 'Private Person', 'ktt')
 );	
 
 
@@ -48,22 +49,42 @@ get_header( 'shop' );
 					</div>
 				<?php endif; ?>
 
+
+
 				<?php // Store info widget ?>
 				<aside class="widget ec-store-info">
-
+					<?php 
+						$userid = get_current_user_id();
+					  	if($userid == $store_user->ID){
+					  		echo  '<a href="/my-account/dashboard/settings/store/"><span style="margin-bottom:10px;" class="edit-button-custom" >EDIT PROFILE</span></a>';
+				
+					  	}					
+					?>
 					<?php // Shop name ?>
-					<h5 class="widget-title"><?= $ec_page->title ?></h5>
+					<h5 class="widget-title"><?php
+					if($company_type != 4){
+					 	echo $ec_page->title; 
+					 }else{
+					 	$data = ec_user_profile_data(); 
+					 	echo $data['name'];
+					 }
+					 
+					 ?></h5>
 					<div class="clear"></div>
-
+					
 					<?php // User meta ?>
 					<ul class="user-fields">
+						<?php if($company_type != 4): ?>
+						
 						<?php if(strlen($company_name) > 0): ?>
 							<li><?php echo $company_name ?></li>
 						<?php endif; ?>
+						
+						
 						<?php if(strlen($company_nr) > 0): ?>
 							<li><?php echo $company_nr ?></li>
 						<?php endif; ?>
-						
+						<?php endif; ?>
 					
 						<!--<li class="dokan-store-rating">
 							<i class="fa fa-star"></i>
@@ -72,12 +93,13 @@ get_header( 'shop' );
 						<li>
 							<?php  // do_action( 'lb_store_after_rating', $ec_page->id ); ?>
 						</li> -->
-						<?php if($ec_page->phone): ?>
+							<!--<?php if($ec_page->phone): ?>
 							<li><?php echo $ec_page->phone ?></li>
 						<?php endif; ?>
 						<?php if($ec_page->email): ?>
 							<li><?php echo $ec_page->email ?></li>
 						<?php endif; ?>
+						 -->
                         <?php // Website link ?>
                         <?php if(!empty($ec_page->website)): ?>
                             <li><a href="<?= $ec_page->website ?>" target="_blank"><?= $ec_page->website ?></a></li>
@@ -135,11 +157,13 @@ get_header( 'shop' );
                     
 
                         <?php // Social media ?>
-                        <div style="width:80%;float:left; padding-bottom: 30px">
+                        <div style="width:80%;padding-bottom: 30px">
                             <ul class="user-fields">
                                 <?php if($page["name"]): ?>
                                     <li><strong>Name: </strong> <br> <?php echo $page["name"] ?></li>
                                 <?php endif; ?>
+                               <!--
+                               
                                 <?php if($page["phone"]): ?>
                                     <li><strong>Phone: </strong>  <br> <?php echo $page["phone"] ?></li>
                                 <?php endif; ?>
@@ -148,6 +172,7 @@ get_header( 'shop' );
                                         <strong>Email: </strong><br> <a href="<?= $page->contact_us_url ?>"><?php echo $page["email"] ?></a>
                                     </li>
                                 <?php endif; ?>
+  								--!>
                             </ul>
                         </div>
                     </div>
@@ -159,7 +184,7 @@ get_header( 'shop' );
 
 
                     <div class="facebook-share-profile">
-                        <h5 class="widget-title nullify-padding"><?= __('Share profile', 'ktt') ?></h5>
+                        <h5 class="widget-title nullify-padding"><?= __('Find us on', 'ktt') ?></h5>
                         <?php do_action( 'dolmit_share_profile_on_facebook'); ?>
 
                         <?php // Social media ?>

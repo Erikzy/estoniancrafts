@@ -167,6 +167,8 @@
 										<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
 											<li role="presentation" class="edit"><a href="<?php echo dokan_edit_product_url( $product->post_id ); ?>"><?php _e( 'Edit', 'dokan' ); ?></a></li>
 											<li role="presentation" class="view"><a href="<?php echo get_permalink( $product->id ); ?>" rel="permalink"><?php _e( 'View', 'dokan' ); ?></a></li>
+											<li role="presentation" class="clone"><a href="<?php echo get_clone_link( $product->post_id ); ?>" rel="permalink"><?php _e( 'Make a copy', 'dokan' ); ?></a></li>
+											
 											<li role="separator" class="divider"></li>
 											<?php /* 
                                             :temporarily disabled based on requirement 2.2 "2.2 PDF hinnasildid - funktsioon hetkel kinni panna" - <marek@dolmit.com>

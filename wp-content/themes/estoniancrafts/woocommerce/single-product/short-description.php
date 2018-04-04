@@ -30,3 +30,11 @@ if ( ! $post->post_excerpt ) {
 <div itemprop="description">
 	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
 </div>
+  		    <?php
+				$_size_chart = get_post_meta( $post->id, '_size_chart', true );
+				if($_size_chart == "yes"){
+					echo '<div class="sold-list">';
+					echo '<a href="'.get_site_url(null, 'size-chart').'">Size chart</a>';
+					echo '</div>';
+				}	
+			?>
