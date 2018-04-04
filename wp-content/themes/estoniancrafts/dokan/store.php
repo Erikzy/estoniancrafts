@@ -135,7 +135,7 @@ get_header( 'shop' );
                     
 
                         <?php // Social media ?>
-                        <div style="width:80%;float:left; padding-bottom: 30px">
+                        <div style="width:80%; padding-bottom: 30px">
                             <ul class="user-fields">
                                 <?php if($page["name"]): ?>
                                     <li><strong>Name: </strong> <br> <?php echo $page["name"] ?></li>
@@ -145,7 +145,7 @@ get_header( 'shop' );
                                 <?php endif; ?>
                                 <?php if($page["email"]): ?>
                                     <li>
-                                        <strong>Email: </strong><br> <a href="<?= $page->contact_us_url ?>"><?php echo $page["email"] ?></a>
+                                        <strong>Email: </strong><br> <a href="#"><?php echo $page["email"] ?></a>
                                     </li>
                                 <?php endif; ?>
                             </ul>
