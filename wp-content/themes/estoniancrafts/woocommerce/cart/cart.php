@@ -36,7 +36,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 		<?php
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 			$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-			$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+			$_product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				?>
@@ -70,8 +70,29 @@ do_action( 'woocommerce_before_cart' ); ?>
 							echo WC()->cart->get_item_data( $cart_item );
 
                				// Backorder notification
-               				if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) )
+               				if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ){
                					echo '<p class="backorder_notification">' . __( 'Available on backorder', 'woocommerce' ) . '</p>';
+               					}
+               					
+               					
+               					if ($_product->managing_stock() && $_product->get_stock_quantity() ) {
+								$delivery = get_post_meta( $_product->id, '_expected_delivery_in_warehouse', true);
+								$durations_array =  ec_get_shipping_durations_array();
+								if($delivery !== ''){
+									if(is_numeric($delivery) && isset($durations_array[$delivery])){
+										$delivery = $durations_array[$delivery];
+									}else{
+										$delivery = '';
+									}
+								}
+								
+								}else{
+									$delivery = get_post_meta( $_product->id, '_expected_delivery_no_warehouse', true);
+								}
+								if(strlen($delivery) > 0){
+									echo '<p class="backorder_notification">Ready to ship in: '.$delivery.' '."<br>".' Expected delivery: Up to 7 days </p>';
+	           					}
+               					
 						?>
 					</td>
 
@@ -84,9 +105,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<td class="product-quantity">
 						<?php
 							if ( $_product->is_sold_individually() ) {
-								$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
+								$_product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
 							} else {
-								$product_quantity = woocommerce_quantity_input( array(
+								$_product_quantity = woocommerce_quantity_input( array(
 									'input_name'  => "cart[{$cart_item_key}][qty]",
 									'input_value' => $cart_item['quantity'],
 									'max_value'   => $_product->backorders_allowed() ? '' : $_product->get_stock_quantity(),
@@ -94,7 +115,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								), $_product, false );
 							}
 
-							echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key );
+							echo apply_filters( 'woocommerce_cart_item_quantity', $_product_quantity, $cart_item_key );
 						?>
 					</td>
 

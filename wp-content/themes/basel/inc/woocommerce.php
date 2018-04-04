@@ -953,7 +953,7 @@ if( ! function_exists( 'basel_woocommerce_hooks' ) ) {
 
 
 		// Custom tab 
-		add_filter( 'woocommerce_product_tabs', 'basel_additional_product_tab' );
+		add_filter( 'woocommerce_product_tabs', 'basel_additional_product_tab',9,1  );
 
 		// Instagram by hashbat for product
 		add_action( 'basel_woocommerce_after_sidebar', 'basel_product_instagram', 80 );

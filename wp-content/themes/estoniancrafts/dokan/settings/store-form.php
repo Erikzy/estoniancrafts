@@ -74,12 +74,18 @@
 	echo __("Banner preview");
     echo do_shortcode( '[display_user_banner user_id="'.get_current_user_id().'" banner_name="company_banner" width="800" height="300"]' );
    
+   	 $user= get_user_by('ID', get_current_user_id());
+     $fn = isset($user->first_name) ? $user->first_name : null;
+     $ln = isset($user->last_name) ? $user->last_name : null;
+     $name = $fn. ' '. $ln;
+					 	
+   	echo '<input type="hidden" id="person_name_handle_for_private" value="'.$name.'">';
 	echo '</div>';
 
 	echo do_shortcode( '[display_upload_form user_id="'.get_current_user_id().'" banner_name="company_banner" width="800" height="300"]' );
 ?>
     <form method="post" id="store-form"  action="" class="dokan-form-horizontal">
-
+		
         <?php wp_nonce_field( 'dokan_store_settings_nonce' ); ?>
         <input type="hidden" value="<?php echo $gravatar; ?>" name="dokan_gravatar">
 
@@ -142,14 +148,14 @@
 			</div>
 		</div>
 
-        <div class="dokan-form-group mtt" >
+   <!--     <div class="dokan-form-group mtt" >
             <label class="dokan-w3 dokan-control-label" for="dokan_store_id"><?php _e( 'Store ID', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
                 <input id="dokan_store_id" required value="<?php echo $user->user_nicename; ?>" name="dokan_store_id" class="dokan-form-control" type="text" disabled>
             </div>
         </div>
-
+--!>
         <div class="dokan-form-group">
             <label class="dokan-w3 dokan-control-label" for="dokan_store_name"><?php _e( 'Store Name', 'dokan' ); ?></label>
 
@@ -158,7 +164,13 @@
             </div>
         </div>
 
-        <div class="dokan-form-group">
+        <div class="dokan-form-group" id="company_name_form_group"
+        <?php
+        	if($company_type== 4){
+        		echo 'style="display:none;"';
+        	}
+        ?>
+        >
             <label class="dokan-w3 dokan-control-label" for="dokan_company_name"><?php _e( 'Company Name *', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
@@ -171,16 +183,24 @@
 
             <div class="dokan-w5 dokan-text-left">
 
-                <select name="dokan_company_type" required id="dokan_company_type">
+                <select name="dokan_company_type"  onchange="showHidePrivateFields()" required id="dokan_company_type">
                     <option value=""> - <?php _e( 'company type', 'ktt'); ?> - </option>
                     <option value="1" <?= (($company_type == '1')? 'selected': '') ?>><?php _e( 'FIE', 'ktt'); ?></option>
                     <option value="2" <?= (($company_type == '2')? 'selected': '') ?>><?php _e( 'OÜ', 'ktt'); ?></option>
                     <option value="3" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'AS', 'ktt'); ?></option>
+                    <option value="4" <?= (($company_type == '4')? 'selected': '') ?>><?php _e( 'Private person', 'ktt'); ?></option>
                 </select>
             </div>
         </div>
 
-        <div class="dokan-form-group">
+        <div class="dokan-form-group"  id="company_reg_form_group"
+        	<?php 
+        	if($company_type== 4){
+        		echo 'style="display:none;"';
+        	}
+        	?>
+        
+        	>
             <label class="dokan-w3 dokan-control-label" for="dokan_company_nr"><?php _e( 'Company reg nr *', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
@@ -381,7 +401,8 @@
         <!--terms and conditions enable or not -->
         <?php
         $tnc_enable = dokan_get_option( 'seller_enable_terms_and_conditions', 'dokan_general', 'off' );
-        if ( $tnc_enable == 'on' ) :
+	      
+        if ( false) :
             ?>
             <div class="dokan-form-group">
                 <label class="dokan-w3 dokan-control-label"><?php _e( 'Terms and Conditions', 'dokan' ); ?></label>
@@ -486,8 +507,29 @@
     <?php do_action( 'dokan_settings_after_form', $current_user, $profile_info ); ?>
 
 <script type="text/javascript">
+function showHidePrivateFields(){
 
+				if(jQuery("#dokan_company_type").val() == 4){
+					jQuery("#dokan_company_name").attr("required",false);
+					jQuery("#dokan_company_nr").attr("required",false);
+					jQuery("#company_name_form_group").css("display","none");
+					jQuery("#company_reg_form_group").css("display","none");
+					jQuery("#dokan_store_name").val(jQuery("#person_name_handle_for_private").val());
+					jQuery("#dokan_store_name").attr("disabled",true);
+					jQuery("#dokan_store_name").css("background-color","#cdcdcd");
+				}else{
+					jQuery("#company_name_form_group").css("display","block");
+					jQuery("#company_reg_form_group").css("display","block");
+					jQuery("#dokan_company_name").attr("required",true);
+					jQuery("#dokan_company_nr").attr("required",true);
+					jQuery("#dokan_store_name").attr("disabled",false);
+					jQuery("#dokan_store_name").css("background-color","#ffffff");
+				}
+
+}
     (function($) {
+    	
+    
         var dokan_address_wrapper = $( '.dokan-address-fields' );
         var dokan_address_select = {
             init: function () {
@@ -611,13 +653,38 @@
           
 
         }
-        $('#schanges').mousedown(function(){
+        $('document').ready(function(){
+        
+        	if($("#dokan_company_type").val() == 4){
+				$("#dokan_company_name").attr("required",false);
+				$("#dokan_company_nr").attr("required",false);
+				$("#dokan_store_name").attr("disabled",true);
+				$("#dokan_store_name").css("background-color","#cdcdcd");
+			};
+			
+			
+		
+        })
+        
 
-            let elements = [$("#dokan_company_name"),$("#dokan_company_nr"),$("#dokan_company_type")];
-            let jarray = [{},{},{}];
-            remClass();
-            errDisp(elements,jarray);
-    })
+
+        
+        $('#schanges').mousedown(function(){
+			if($("#dokan_company_type").val() == 4){
+				$("#dokan_store_name").attr("disabled",false);
+				$("#dokan_store_name").val($("#person_name_handle_for_private").val());
+			}else{
+				
+	            let elements = [$("#dokan_company_name"),$("#dokan_company_nr"),$("#dokan_company_type")];
+    	        let jarray = [{},{},{}];
+        	    remClass();
+            	errDisp(elements,jarray);
+	
+			}
+			
+		})
 
     })(jQuery);
+    
+    
 </script>

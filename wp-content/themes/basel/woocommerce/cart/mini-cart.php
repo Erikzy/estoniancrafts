@@ -20,7 +20,7 @@ $items_to_show = 3;
 <?php do_action( 'woocommerce_before_mini_cart' ); ?>
 
 <ul class="cart_list product_list_widget <?php echo $args['list_class']; ?>">
-
+wwwwww
 	<?php if ( ! WC()->cart->is_empty() ) : ?>
 
 		<?php
@@ -44,6 +44,8 @@ $items_to_show = 3;
 							esc_attr( $_product->get_sku() )
 						), $cart_item_key );
 						?>
+						
+						
 						<?php if ( ! $_product->is_visible() ) : ?>
 							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
 						<?php else : ?>

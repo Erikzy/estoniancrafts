@@ -35,6 +35,7 @@ $items_to_show = 3;
 					$product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 					?>
 					<li class="<?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+						
 						<?php
 						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 							'<a href="%s" class="remove" title="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
@@ -51,6 +52,27 @@ $items_to_show = 3;
 								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
 							</a>
 						<?php endif; ?>
+						
+						<?php
+               					if ($_product->managing_stock() && $_product->get_stock_quantity() ) {
+								$delivery = get_post_meta( $_product->id, '_expected_delivery_in_warehouse', true);
+								$durations_array =  ec_get_shipping_durations_array();
+								if($delivery !== ''){
+									if(is_numeric($delivery) && isset($durations_array[$delivery])){
+										$delivery = $durations_array[$delivery];
+									}else{
+										$delivery = '';
+									}
+								}
+								
+								}else{
+									$delivery = get_post_meta( $_product->id, '_expected_delivery_no_warehouse', true);
+								}
+								if(strlen($delivery) > 0){
+									echo '<p class="backorder_notification">Ready to ship in: '.$delivery.' '."<br>".' Expected delivery: Up to 7 days </p>';
+	           					}
+						?>
+						
 						<?php echo WC()->cart->get_item_data( $cart_item ); ?>
 
 						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>

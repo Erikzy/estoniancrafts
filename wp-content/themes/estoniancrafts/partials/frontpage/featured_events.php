@@ -39,14 +39,14 @@ if($eventQuery->have_posts()):
             
                 <div class='event-title'>
                 	
-                <?php 
+                <a href="<?php echo the_permalink();?>"><?php 
                 	
                     $title = the_title('','',false);
                     if(strlen($title) < 50){
                       echo $title;
                     }else{
                       echo substr($title,0,50).'..';
-                    } ?>
+                    } ?></a>
                     
                 </div>
                 <div class='event-excerpt'>

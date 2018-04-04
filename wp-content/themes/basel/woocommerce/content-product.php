@@ -67,7 +67,6 @@ if( ! $slider )
 
 ?>
 <div <?php post_class( $classes ); ?>>
-  Test
 	<?php wc_get_template_part( 'content', 'product-' . $hover ); ?>
 
 </div>

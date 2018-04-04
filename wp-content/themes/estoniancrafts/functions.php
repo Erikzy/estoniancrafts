@@ -33,6 +33,9 @@ include_once($currentDirname.'/portfolio/portfolio-functions.php');
 /**
  * @return string
  */
+ 
+ 
+ 
 function commented_before($comment_author,  $product_id ) {
        global $wpdb;
 
@@ -88,6 +91,27 @@ function ec_get_sidebar_name()
     return basel_get_sidebar_name();
 }
 
+function ec_get_shipping_durations_array(){
+	// OPTIONS FOR SHIPPING DURATION
+	
+	
+	$defaultArray = array(
+		"0"=> "---Select Option--",
+		"1"=> "1 day.",
+		"2"=> "2-3 days.",
+		"3"=> "4-7 days"
+	);
+	update_option('shipping-times-array',serialize($defaultArray));
+	
+	
+	$option = get_option('shipping-times-array');
+	
+	
+	
+	return unserialize($option);
+}
+
+
 
  function redirect_to_user_appropriate_home() {
 
@@ -97,6 +121,7 @@ function ec_get_sidebar_name()
  add_filter('login_redirect','redirect_to_user_appropriate_home');
 
 
+ 
 /**
  * @return boolean
  */
@@ -324,7 +349,16 @@ if (!function_exists('is_user_idcard')) {
     }
   
 }
-
+/*
+  		    <?php
+				$_size_chart = get_post_meta( $product->id, '_size_chart', true );
+				if($_size_chart == "yes"){
+					echo '<div class="sold-list">';
+					echo '<a href="'.get_site_url(null, 'size-chart').'">Size chart</a>';
+					echo '</div>';
+				}	
+			?>
+*/
 if (!function_exists('is_user_facebook')) {
     function is_user_facebook() {
         // Just to be sure if user is currently logged in
@@ -496,6 +530,33 @@ function ec_dokan_get_store_latests_posts( $user_id )
         $user_posts = get_posts( $args );
         
     return  $user_posts;
+}
+
+
+function get_clone_link($product_id){
+    return sprintf( '%s/clone/%s/', get_site_url(), $product_id );
+}
+
+function duplicate_product(){
+			global $post;
+			$wo_dup = new WC_Admin_Duplicate_Product();
+            // Compatibility for WC 3.0.0+
+            if ( version_compare( WC_VERSION, '2.7', '>' ) ) {
+                $product = wc_get_product( $post->ID );
+                $clone_product =  $wo_dup->product_duplicate( $product );
+	            $clone_product_id =  $clone_product->get_id();
+					
+            } else {
+                $clone_product_id =  $wo_dup->duplicate_product( $post );
+            }
+
+            $product_status = dokan_get_new_post_status();
+            wp_update_post( array( 'ID' => intval( $clone_product_id ), 'post_status' => "draft" ) );
+           	$generated_sku = 'A-'.$clone_product_id . time();
+        	update_post_meta( $clone_product_id, '_generated_sku', $generated_sku );
+			update_post_meta( $clone_product_id, '_sku', $generated_sku );
+            return $clone_product_id;
+
 }
 
 function ec_user_profile_data(){

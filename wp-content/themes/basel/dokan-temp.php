@@ -50,6 +50,13 @@ function lb_product_sold_count() {
     global $product;
     $units_sold = get_post_meta( $product->id, 'total_sales', true );
     echo '<p>' . sprintf( __( 'Units Sold: %s', 'woocommerce' ), $units_sold ) . '</p>';
+
+				$_size_chart = get_post_meta( $product->id, 'size_chart', true );
+				if($_size_chart == "on"){
+					echo '<p>';
+					echo '<a href="'.get_site_url(null, 'size-chart').'">Size chart</a>';
+					echo '</p>';
+				}	
 }
 
 // Make sure every comment needs to be approved

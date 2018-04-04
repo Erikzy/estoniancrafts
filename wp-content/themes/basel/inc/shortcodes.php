@@ -2272,7 +2272,7 @@ if( ! function_exists( 'basel_shortcode_social' )) {
 
 		ob_start();
 		?>
-		
+			
 			<ul class="social-nav">
 				<?php if ( $type == 'share' || basel_get_opt( 'fb_link' ) != ''): ?>
 					<li class="facebook"><a href="<?php echo ($type == 'follow') ? basel_get_opt( 'fb_link' ) : 'https://www.facebook.com/sharer/sharer.php?u=' . get_the_permalink(); ?>" target="<?php echo esc_attr( $target ); ?>" class="<?php if( $tooltip == "yes" ) echo 'basel-tooltip'; ?>"><i class="fa fa-facebook"></i></a></li>
@@ -2339,7 +2339,8 @@ if( ! function_exists( 'basel_shortcode_social' )) {
 				<?php endif ?>
 
 			</ul>
-	
+			
+
 		<?php
 		$output = ob_get_contents();
 		ob_end_clean();
