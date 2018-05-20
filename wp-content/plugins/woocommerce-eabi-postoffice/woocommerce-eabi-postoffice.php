@@ -849,7 +849,7 @@ if (is_woocommerce_active()) {
                                 return false;
                             }
                             if ($_product->needs_shipping()) {
-                                $totalWeight += $this->toKg($_product->weight) * $values['quantity'];
+                                $totalWeight += (int)$this->toKg($_product->weight) * (int)$values['quantity'];
                             }
                         }
                         

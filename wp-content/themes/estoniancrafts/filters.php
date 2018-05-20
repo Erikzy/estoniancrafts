@@ -756,7 +756,8 @@ function filter_duplicate_meta ($array){
 	return $array;
 }
 add_filter( 'woocommerce_duplicate_product_exclude_children','filter_allow_variations',0,2);
-function filter_allow_variations ($can_clone, $product){
+
+function filter_allow_variations ($can_clone, $product = null){
 	
 	return false;
 }
@@ -768,18 +769,22 @@ function filter_allow_variations ($can_clone, $product){
 add_filter('request', 'ec_product_clone_request', 1, 1);
 
 function ec_product_clone_request($query_vars){
-	
+
 	if (array_key_exists('pagename', $query_vars)) {
 		if($query_vars['pagename'] == "clone"){
 	  		global $post;
 	  		$args = array(
-  				'p'         => $query_vars['page'], // ID of a page, post, or custom type
-  				'post_type' => 'any'
+  				//'p'         => $query_vars['page'], // ID of a page, post, or custom type
+  				'post_type' => 'any',
+				'post_status' => 'any',
+				'post__in' =>array($query_vars['page']),
+			        'posts_per_page' => -1 
 			);
-			///var_dump($query_vars);
 			$post_query = new WP_Query($args);
+			var_dump($post_query);
 			if ( $post_query->have_posts() ) { 
-					while ( $post_query->have_posts() ) { 
+				
+				while ( $post_query->have_posts() ) { 
 					$post_query->the_post();
 			
 					$userid = get_current_user_id();
@@ -794,6 +799,7 @@ function ec_product_clone_request($query_vars){
 			
 				} 
 			} else {
+
 				return get_404_template();
 			}
 			wp_reset_postdata();

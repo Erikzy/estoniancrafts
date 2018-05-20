@@ -34,9 +34,9 @@ if (!class_exists("LoginCommon")) {
                     // $myaccount_page_url .= '?reghash='.$regHash;
                		// $myaccount_page_url .= '/edit-account';
                
-               		$this->redirect_url = redirect_to_user_appropriate_home();
+               		$redirect_url = redirect_to_user_appropriate_home();
             		wp_set_auth_cookie($user_id);
-            		header("Location: ".$this->redirect_url);	
+            		header("Location: ".$redirect_url);	
                 } else {
                     $user_id = $user->userid;
                 }
@@ -48,9 +48,9 @@ if (!class_exists("LoginCommon")) {
             }
      		
      		
-     		$this->redirect_url = redirect_to_user_appropriate_home();
+     		$redirect_url = redirect_to_user_appropriate_home();
             wp_set_auth_cookie($user_id);
-            header("Location: ".$this->redirect_url);	
+            header("Location: ".$redirect_url);	
             
             
         }

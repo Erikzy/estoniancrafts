@@ -129,15 +129,6 @@
 		</div>
 			
   		  
-  		    <?php
-				$_size_chart = get_post_meta( $product->id, 'size_chart' );
-				var_dump($_size_chart);
-				if($_size_chart == 'on'){
-					echo '<div class="sold-list">';
-					echo '<a href="'.get_site_url(null, 'size-chart').'">Size chart</a>';
-					echo '</div>';
-				}	
-			?>
 
   </div>
   

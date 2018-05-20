@@ -39,7 +39,8 @@ jQuery(document).ready(function(){
 });
 
 jQuery(document).resize(function(){ 
- 		topMenuF(sb);
+	 var sb = jQuery('.search-extended').clone();
+		topMenuF(sb);
 });
 
 /*

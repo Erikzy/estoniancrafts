@@ -162,12 +162,14 @@ class Dokan_Template_Products {
             }            
             
             // check description limit
-            $descriptionLimit = (int)get_option('_product_description_limit');
+    //ERIK: REMOVAL OF DESCRIPTION LIMIT AS TRELLO TASK		
+
+/*            $descriptionLimit = (int)get_option('_product_description_limit');
             if($descriptionLimit && strlen($post_content) > $descriptionLimit)
             {
                 $errors[] = __('Description is too long', 'ktt');
             }
-
+*/
             $shortDescriptionLimit = (int)get_option('_product_short_description_limit');
             if($shortDescriptionLimit && strlen($post_excerpt) > $shortDescriptionLimit)
             {

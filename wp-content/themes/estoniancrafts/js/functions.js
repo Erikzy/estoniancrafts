@@ -744,8 +744,9 @@ var baselThemeModule;
 
 
                 mainMenu.on('hover', ' > li', function(e) {
-                    setOffset( $(this) );
-                });
+			  setOffset( $(this) );
+                		
+		});
 
                 var setOffset = function( li ) {
 

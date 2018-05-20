@@ -156,24 +156,31 @@ if (!class_exists("IdCardLogin")) {
 
             $loginCode = '<script src="' . IdCardLogin::getPluginBaseUrl() . '/smartid_functions.js"></script>';
             if (get_option("smartid_idcard_enabled")) {
-                $loginCode .= '<img id="smartid-id-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/id-card.svg" height="31" width="88" style="display:inline; padding: 3px">';
+                $loginCode .= '<img onclick=startSmartIdLogin("'.$loginUri.'") id="smartid-fb-login" id="smartid-id-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/id-card.svg" height="31" width="88" 
+style="display:inline-block; padding: 3px">';
             }
             if (get_option("smartid_mobileid_enabled")) {
-                $loginCode .= '<img id="smartid-mid-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/mobile-id.svg" height="31" width="88" style="display:inline; padding: 3px">';
+                $loginCode .= '<img id="smartid-mid-login" onclick=startSmartIdLogin("'.$loginUri.'") src="' . IdCardLogin::getPluginBaseUrl() . '/img/mobile-id.svg" height="31" width="88" 
+style="display:inline-block; padding: 3px">';
             }
             if (get_option("lveid_enabled")) {
-                $loginCode .= '<img id="smartid-lveid-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/latvia_eid.png" height="31" width="88" style="display:inline; padding: 3px">';
+                $loginCode .= '<img onclick="startSmartIdLogin('.$loginUri.')" id="smartid-fb-login" id="smartid-lveid-login" onclick="startSmartIdLogin(\"'.$loginUrl.'\")"  src="' . IdCardLogin::getPluginBaseUrl() . 
+'/img/latvia_eid.png" height="31" width="88" 
+style="display:inline-block; padding: 3px">';
             }
             if (get_option("smartid_smartid_enabled")) {
-                $loginCode .= '<img id="smartid-smartid-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/smart-id-white.png" height="31" width="31" style="display:inline; padding: 3px">';
+                $loginCode .= '<img onclick=startSmartIdLogin("'.$loginUri.'") id="smartid-fb-login"  src="' . IdCardLogin::getPluginBaseUrl() . '/img/smart-id-white.png" height="31" width="31" 
+style="display:inline-block; padding: 
+3px">';
             }
             if (get_option("smartid_google_enabled")) {
-                $loginCode .= '<img id="smartid-gp-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/gp.png" height="31" width="31" style="display:inline; padding: 3px">';
+                $loginCode .= '<img onclick="startSmartIdLogin('.$loginUri.')" id="smartid-fb-login" id="smartid-gp-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/gp.png" height="31" width="31" style="display:inline; 
+padding: 3px">';
             }
             if (get_option("smartid_facebook_enabled")) {
-                $loginCode .= '<img id="smartid-fb-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/fb.png" height="31" width="31" style="display:inline; padding: 3px">';
+                $loginCode .= '<img onclick=startSmartIdLogin('.$loginUri.') id="smartid-fb-login" src="' . IdCardLogin::getPluginBaseUrl() . '/img/fb.png" height="31" width="31" style="display:inline; padding: 3px">';
             }
-
+/*
             $loginCode .= '<script>' .
                     '    document.getElementById("smartid-id-login").addEventListener("click", function () {' .
                     '        startSmartIdLogin("' . $loginUri . '");' .
@@ -181,20 +188,20 @@ if (!class_exists("IdCardLogin")) {
                     '    document.getElementById("smartid-mid-login").addEventListener("click", function () {' .
                     '        startSmartIdLogin("' . $loginUri . '");' .
                     '    });' .
-                    '    document.getElementById("smartid-lveid-login").addEventListener("click", function () {' .
-                    '        startSmartIdLogin("' . $loginUri . '");' .
-                    '    });' .
+                   '    document.getElementById("smartid-lveid-login").addEventListener("click", function () {' .
+                   '        startSmartIdLogin("' . $loginUri . '");' .
+                  '    });' .
                     '    document.getElementById("smartid-smartid-login").addEventListener("click", function () {' .
                     '        startSmartIdLogin("' . $loginUri . '");' .
                     '    });' .
-                    '    document.getElementById("smartid-gp-login").addEventListener("click", function () {' .
-                    '        startSmartIdLogin("' . $loginUri . '");' .
+                   '    document.getElementById("smartid-gp-login").addEventListener("click", function () {' .
+                   '        startSmartIdLogin("' . $loginUri . '");' .
                     '    });' .
-                    '    document.getElementById("smartid-fb-login").addEventListener("click", function () {' .
-                    '        startSmartIdLogin("' . $loginUri . '");' .
+                   '    document.getElementById("smartid-fb-login").addEventListener("click", function () {' .
+                   '        startSmartIdLogin("' . $loginUri . '");' .
                     '    });' .
                     '</script>';
-
+*/
 
             return $loginCode;
         }

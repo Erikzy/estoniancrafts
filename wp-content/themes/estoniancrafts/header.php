@@ -22,6 +22,16 @@
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
     <script src="<?php echo get_template_directory_uri(); ?>/js/menus.js"> </script>
 
+<script type="text/javascript">
+	jQuery('ul.menu li.dropdown').hover(function() {
+  jQuery(this).find('.sub-menu').stop(true, true).delay(200).fadeIn();
+}, function() {
+  jQuery(this).find('.sub-menu').stop(true, true).delay(200).fadeOut();
+});
+
+</script>
+
+
 </head>
 
 <body <?php body_class(); ?>>

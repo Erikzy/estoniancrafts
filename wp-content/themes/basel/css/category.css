@@ -138,3 +138,9 @@ ul.dokan-seller-wrap li.dokan-single-seller .dokan-store-banner-wrap img {
     height: 100% !important;
     margin: 0 auto;
 }
+@media screen and (max-width:1200px) {
+  .ec-new-product-grid{
+    width:auto;	
+ 
+   }
+}

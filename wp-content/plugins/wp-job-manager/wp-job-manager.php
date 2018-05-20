@@ -167,11 +167,11 @@ class WP_Job_Manager {
 			'i18n_confirm_delete' => __( 'Are you sure you want to delete this listing?', 'wp-job-manager' )
 		) );
                 
-                wp_register_script( 'job-offer', JOB_MANAGER_PLUGIN_URL . '/assets/js/job-offer.js', array( 'jquery' ), '1.0', true );
-                wp_enqueue_script('job-offer');
-                wp_enqueue_style( 'job-offer', JOB_MANAGER_PLUGIN_URL . '/assets/css/job-offer.css' );
+   //             wp_register_script( 'job-offer', JOB_MANAGER_PLUGIN_URL . '/assets/js/job-offer.js', array( 'jquery' ), '1.0', true );
+    //            wp_enqueue_script('job-offer');
+     //           wp_enqueue_style( 'job-offer', JOB_MANAGER_PLUGIN_URL . '/assets/css/job-offer.css' );
 		
-		wp_enqueue_style( 'wp-job-manager-frontend', JOB_MANAGER_PLUGIN_URL . '/assets/css/frontend.css' );
+//		wp_enqueue_style( 'wp-job-manager-frontend', JOB_MANAGER_PLUGIN_URL . '/assets/css/frontend.css' );
 	}
 }
 

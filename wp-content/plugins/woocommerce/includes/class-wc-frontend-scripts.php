@@ -347,7 +347,7 @@ class WC_Frontend_Scripts {
 				return array(
 					'min_password_strength' => apply_filters( 'woocommerce_min_password_strength', 3 ),
 					'i18n_password_error'   => esc_attr__( 'Please enter a stronger password.', 'woocommerce' ),
-					'i18n_password_hint'    => esc_attr__( 'The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! " ? $ % ^ &amp; ).', 'woocommerce' )
+					'i18n_password_hint'    => esc_attr__( 'The password must be at least 6 characters long and contain both letters and numbers.', 'woocommerce' )
 				);
 			break;
 		}

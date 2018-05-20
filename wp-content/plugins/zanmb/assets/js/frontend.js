@@ -1,6 +1,12 @@
 jQuery(document).ready(function ($) {
     "use strict";
 
+	$('ul.zmb-menu li.dropdown').hover(function(e) {
+  		$(this).find('.sub-menu').stop(true, true).delay(300).fadeIn();
+	}, function(e) {
+  		$(this).find('.sub-menu').stop(true, true).delay(300).fadeOut();
+	});	
+
     // Inline style for mega menu/vertical menu
     $('.sub-menu.zanmenu').each(function () {
         var $this           = $(this);
@@ -586,5 +592,8 @@ jQuery(document).ready(function ($) {
         // Close sliding content
         zmb_close_sliding_content();
     });
+
+
+
 
 });
