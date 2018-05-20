@@ -212,7 +212,7 @@
         </div>
 		<?php // Store IBAN ?>
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="ec_store_iban"><?php _e( 'Bank Account IBAN', 'ktt' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="ec_store_iban"><?php _e( 'Bank Account IBAN *', 'ktt' ); ?></label>
             <div class="dokan-w5 dokan-text-left">
                 <input id="ec_store_iban" required name="ec_store_iban" value="<?php echo isset($extended_settings['ec_store_iban']) ? esc_attr( $extended_settings['ec_store_iban'] ) : '' ?>" class="dokan-form-control" type="text">
             </div>
