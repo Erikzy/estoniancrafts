@@ -12,7 +12,8 @@ $company_types = array(
 			'1'=>  __( 'FIE', 'ktt'),
 		 	'2'=>  __( 'OÜ', 'ktt'),
 			'3'=>  __( 'AS', 'ktt'),
-			'4'=>  __( 'Private Person', 'ktt')
+			'4'=>  __( 'Private Person', 'ktt'),
+			'5'=>  __( 'MTÜ', 'ktt')
 );	
 
 
