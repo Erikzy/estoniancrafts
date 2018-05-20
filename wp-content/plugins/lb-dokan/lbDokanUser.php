@@ -31,6 +31,7 @@ class lbDokanUser {
         $ext_settings['company_name'] = '';
         $ext_settings['company_nr'] = '';
         $ext_settings['company_type'] = '';
+        $ext_settings['ec_store_iban'] = '';
         $ext_settings['description'] = '';
         $ext_settings['media'] = [''];
         $ext_settings['address'] = [['country' => false, 'state' => '', 'city' => '', 'address' => '', 'email' => '', 'phone' => '']];
@@ -71,6 +72,7 @@ class lbDokanUser {
     	$ext_settings['company_nr'] = ! empty( $_POST['dokan_company_nr'] ) ? wc_clean( $_POST['dokan_company_nr'] ) : '';
     	$ext_settings['company_type'] = ! empty( $_POST['dokan_company_type'] ) ? wc_clean( $_POST['dokan_company_type'] ) : '';
     	$ext_settings['description'] = ! empty( $_POST['dokan_description'] ) ? wc_clean( $_POST['dokan_description'] ) : '';
+		$ext_settings['ec_store_iban'] = ! empty( $_POST['ec_store_iban'] ) ? wc_clean( $_POST['ec_store_iban'] ) : '';
 
     	if( ! empty( $_POST['dokan_media'] ) ){
 

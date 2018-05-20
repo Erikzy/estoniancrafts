@@ -11,6 +11,7 @@
     $company_name  = isset( $extended_settings['company_name'] ) ? esc_attr( $extended_settings['company_name'] ) : '';
     $company_nr  = isset( $extended_settings['company_nr'] ) ? esc_attr( $extended_settings['company_nr'] ) : '';
     $company_type  = isset( $extended_settings['company_type'] ) ? esc_attr( $extended_settings['company_type'] ) : '';
+    $ec_store_iban  = isset( $extended_settings['ec_store_iban'] ) ? esc_attr( $extended_settings['ec_store_iban'] ) : '';
     $description  = isset( $extended_settings['description'] ) ? esc_attr( $extended_settings['description'] ) : '';
 
     $media_links  = isset( $extended_settings['media'] ) ? $extended_settings['media'] : [''];
@@ -189,6 +190,8 @@
                     <option value="2" <?= (($company_type == '2')? 'selected': '') ?>><?php _e( 'OÜ', 'ktt'); ?></option>
                     <option value="3" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'AS', 'ktt'); ?></option>
                     <option value="4" <?= (($company_type == '4')? 'selected': '') ?>><?php _e( 'Private person', 'ktt'); ?></option>
+                    <option value="5" <?= (($company_type == '5')? 'selected': '') ?>><?php _e( 'MTÜ', 'ktt'); ?></option>
+            
                 </select>
             </div>
         </div>
@@ -207,6 +210,15 @@
                 <input id="dokan_company_nr" required value="<?php echo $company_nr; ?>" name="dokan_company_nr" placeholder="<?php _e( 'company registration number', 'ktt'); ?>" class="dokan-form-control" type="text">
             </div>
         </div>
+		<?php // Store IBAN ?>
+        <div class="dokan-form-group">
+            <label class="dokan-w3 dokan-control-label" for="ec_store_iban"><?php _e( 'Bank Account IBAN', 'ktt' ); ?></label>
+            <div class="dokan-w5 dokan-text-left">
+                <input id="ec_store_iban" required name="ec_store_iban" value="<?php echo isset($extended_settings['ec_store_iban']) ? esc_attr( $extended_settings['ec_store_iban'] ) : '' ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
+
+
 
 		<?php // Store phone ?>
         <div class="dokan-form-group">
