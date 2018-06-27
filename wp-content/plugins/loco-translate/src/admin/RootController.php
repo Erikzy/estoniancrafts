@@ -70,8 +70,10 @@ class Loco_admin_RootController extends Loco_admin_list_BaseController {
         ) ) );
         
         // user's "admin" language may differ and is worth showing
-        $locale = Loco_Locale::parse( get_user_locale() );
-        $alt = (string) $locale;
+        
+	$locale = Loco_Locale::parse( get_locale() );
+       
+	 $alt = (string) $locale;
         if( $tag !== $alt ){
             $this->set( 'adminLocale', new Loco_mvc_ViewParams( array(
                 'name' => ( $name = $locale->ensureName($api) ),

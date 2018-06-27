@@ -128,7 +128,7 @@ class FacebookLogin{
         $facebook = new Facebook([
             'app_id' => $this->app_id,
             'app_secret' => $this->app_secret,
-            'default_graph_version' => 'v2.2',
+            'default_graph_version' => 'v2.11',
             'persistent_data_handler' => 'session'
         ]);
         return $facebook;
@@ -160,6 +160,8 @@ class FacebookLogin{
      * This code handles the Login / Regsitration part
      */
     public function apiCallback() {
+
+
         if(!session_id()) {
             session_start();
         }
@@ -197,7 +199,7 @@ class FacebookLogin{
         $helper = $fb->getRedirectLoginHelper();
         // Try to get an access token
         try {
-            $accessToken = $helper->getAccessToken();
+            $accessToken = $helper->getAccessToken($this->callback_url);
         }
         // When Graph returns an error
         catch(FacebookResponseException $e) {
@@ -206,6 +208,8 @@ class FacebookLogin{
                 'type' => 'error',
                 'content' => $error
             );
+	    		
+	//	var_dump($e);
         }
         // When validation fails or other local issues
         catch(FacebookSDKException $e) {
