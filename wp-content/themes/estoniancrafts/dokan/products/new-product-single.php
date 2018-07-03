@@ -524,7 +524,11 @@ if ( ! $from_shortcode ) {
 						<?php // Short description ?>
                         <div class="dokan-product-description">
                             <label for="post_excerpt" class="form-label desc-pro"><?php _e( 'Short Description', 'dokan' ); ?></label>
-							<span class="ec-form-field-description"><?php _e( 'Product short description', 'ktt' ); ?></span>
+							<span class="ec-form-field-description"><?php _e( 'Product short description', 'ktt' );
+												      _e(' up to: ','ktt');
+echo get_option('_product_short_description_limit');
+_e(' characters','ktt')			
+												 ?></span>
                             <?php 
 /*                            wp_editor( $post_excerpt , 'post_excerpt', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); */
                             ?>
@@ -1171,6 +1175,7 @@ jQuery(document).ready(function($)
 	}else{
 		parentstring = "";
 	}
+
 	
 	
 	if(catElm.length) {

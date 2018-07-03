@@ -1,4 +1,4 @@
-w.basel-navigation .menu>li>a {
+.basel-navigation .menu>li>a {
     text-decoration: none;
     letter-spacing: .5px;
     text-transform: uppercase;
@@ -990,9 +990,11 @@ h5.widget-title {
 
 .zmb-wrap .zmb-menu > li .sub-menu {
 	border-top: 0 none !important;;
+	display:none !important;
 }
 .zmb-wrap .zmb-menu > li:hover > .sub-menu {
     margin-top: 1px !important;
+    display:block !important;
     border-bottom: 1px solid #ebebeb !important;
 }
 .vc_tta-color-grey.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels {

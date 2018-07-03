@@ -143,7 +143,6 @@ jQuery(document).ready(function($){
 
 			var boxes = $(".lb_attribute_values");
 			boxes.select2({
-			    tags: true,
 			    placeholder: "Please enter attribute values",
 			    tokenSeparators: [",", "|", " "]
 			});
