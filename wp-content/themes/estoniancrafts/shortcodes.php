@@ -10,10 +10,11 @@ class EC_Shortcodes
 	public static function wp_loaded_action()
 	{
 		add_shortcode('ec_institutions', array(__CLASS__, 'ec_institutions'));
-		add_shortcode( 'non_vc_frontpage', array(__CLASS__, 'frontpage_sliders'));
+		add_shortcode('non_vc_frontpage', array(__CLASS__, 'frontpage_sliders'));
 		add_shortcode('user_has_idCard_extended', array(__CLASS__,'user_has_idcard_extended'));
 		add_shortcode('redirect_to_user_home', array(__CLASS__,'redirect_to_user_home'));
 		add_shortcode('redirect_to_user_shop', array(__CLASS__,'redirect_to_user_shop'));
+		add_shortcode('show_user_privacy_acceptance', array(__CLASS__,'show_user_privacy_acceptance'));
 
 	}
 
@@ -75,6 +76,15 @@ class EC_Shortcodes
 		wp_safe_redirect($_url);
 	
 	}
+	
+	public static function show_user_privacy_acceptance($request){
+		
+		$html = '<div class="backdrop">';
+		$html .= '</div>';
+		
+	}
+	
+	
 	public static function user_has_idcard_extended(){
 		 global $wpdb;
          $current_user = wp_get_current_user();

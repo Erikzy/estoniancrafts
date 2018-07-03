@@ -154,8 +154,9 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
 					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" />
+					
 				</p>
-
+	
 			<?php endif; ?>
 
 			<!-- Spam Trap -->
@@ -165,11 +166,16 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 			<?php do_action( 'register_form' ); ?>
 
 			<p class="woocomerce-FormRow form-row">
+	
+				<label for="privacy" class="inline">
+						<input class="woocommerce-Input woocommerce-Input--checkbox" name="privacy" type="checkbox" id="privacy"  /> <?php _e('I agree with the privacy policy', 'ec-privacy'); ?>
+					</label>
+			
 				<?php wp_nonce_field( 'woocommerce-register' ); ?>
-				<input type="submit" class="woocommerce-Button button smaller-orange-button lbutton rbutton" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
+				<input type="submit" style="display:none !important;" id="regform-submit-button" class="woocommerce-Button button smaller-orange-button lbutton" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
 
-			 <div class='row' style="text-align:center;">
+			 <div class='row' id="regform-submit-row" style="text-align:center;display:none;">
 	           		<?php
 	            	 	 echo do_shortcode('[ec_facebook_login_button]' ); 
 	            	 	?>
@@ -206,3 +212,17 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 </div><!-- .basel-registration-page -->
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); ?>
+
+
+<script type="text/javascript">
+	jQuery("#privacy").change(function(){
+		if(this.checked) {
+			jQuery("#regform-submit-row").css("display","block");
+			jQuery("#regform-submit-button").css("display","block");
+		}else{
+			jQuery("#regform-submit-row").css("display","none");
+			jQuery("#regform-submit-button").css("cssText","display:none !important;");	
+		}
+	});
+
+</script>

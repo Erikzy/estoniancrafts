@@ -12,7 +12,7 @@ class EC_Actions
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_action') );
 		add_action( 'wp_loaded', array(__CLASS__, 'wp_loaded_debug_action'), 9999 );
 		add_action('ec_extra_product_meta',array(__CLASS__, 'ec_new_prod_save'),9,2 );
-
+		add_action('woocommerce_after_checkout_validation',array(__CLASS__,'ec_add_privacy_policy_validation'),9,1);
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price' );
 		remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating' );
 //		add_action( 'woocommerce_after_shop_loop_item_title', array(__CLASS__, 'shop_loop_item_categories_action'), 9 );
@@ -134,10 +134,8 @@ class EC_Actions
 	
 	public static function ec_new_prod_save($product_id, $post_data)
 	{
- 	 update_post_meta( $product_id, 'product-tags', wc_clean($post_data['product-tags']));
+ 		update_post_meta( $product_id, 'product-tags', wc_clean($post_data['product-tags']));
 		
-		var_dump($post_data);
-		//die();
 		if(isset($post_data['size_chart'])   && $post_data['size_chart'] == 'on' ){
 
 			update_post_meta( $product_id, 'size_chart', wc_clean($post_data['size_chart']));
@@ -153,9 +151,34 @@ class EC_Actions
 		basel_product_categories();
 	}
 
+	public static function ec_add_privacy_policy_validation($data){
+		if(!user_has_confirmed()){
+			if ( empty( $data['woocommerce_checkout_update_totals'] ) && empty( $data['privacy'] )  ) {
+        		wc_add_notice( __( 'You must accept the Privacy policy', 'woocommerce' ), 'error' );
+        	}
+		}
+	}
+
+
+
 	public static function wp_loaded_debug_action()
 	{
 		global $wp_filter, $wp_actions, $merged_filters, $wp_current_filter;
+		$user  = wp_get_current_user();
+ 		if(0 != $user->ID){
+			if(!user_has_confirmed()){
+				if(!isset($_POST['user_confirmation']) ){
+	 				display_user_confirmation_form();
+	 			}else{
+					$confirm = $_POST['user_confirmation'];
+					if($confirm == "on"){
+						update_user_meta($user->ID, '_user_has_accepted',1);
+					} else {
+						display_user_confirmation_form();
+	 				}
+				}		
+			}
+		}
 //		ec_debug_to_console('$wp_actions', $wp_actions);
 //		ec_debug_to_console('$wp_filter', $wp_filter);
 //		ec_debug_to_console('$merged_filters', $merged_filters);
@@ -445,6 +468,9 @@ HTML;
 		die(json_encode(['success' => true, 'message' => __('Your question has been sent', 'ktt')]));
 	}
 
+	
+
+
 	public static function get_product_statistics_ajax()
 	{
 		check_ajax_referer('ec_get_product_statistics');
@@ -562,6 +588,16 @@ function order_update_pickuptime(){
 
 // Check if the current registered user has IDCARD validation hash code
 add_action('user_register', 'check_idcard_user_register');
+add_action('user_register', 'add_user_acceptance');
+
+
+function add_user_acceptance($user_id){
+
+	 add_user_meta($user_id, '_user_has_accepted', 1, true);
+
+}
+
+
 
 function check_idcard_user_register($user_id) {
     global $wpdb;

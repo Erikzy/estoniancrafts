@@ -501,6 +501,8 @@ class lbDokanUser {
         $company_name  = isset( $extended_settings['company_name'] ) ? esc_attr( $extended_settings['company_name'] ) : '';
         $company_nr  = isset( $extended_settings['company_nr'] ) ? esc_attr( $extended_settings['company_nr'] ) : '';
         $company_type  = isset( $extended_settings['company_type'] ) ? esc_attr( $extended_settings['company_type'] ) : '';
+        $ec_store_iban  = isset( $extended_settings['ec_store_iban'] ) ? esc_attr( $extended_settings['ec_store_iban'] ) : '';
+      
         $description  = isset( $extended_settings['description'] ) ? esc_attr( $extended_settings['description'] ) : '';
 
         $media_links  = isset( $extended_settings['media'] ) ? $extended_settings['media'] : [''];
@@ -531,6 +533,13 @@ class lbDokanUser {
                     </td>
                 </tr>
                 <tr>
+                    <th><label><?php _e( 'Company IBAN', 'ktt' ); ?></label></th>
+                    <td>
+                        <input id="ec_store_iban" required value="<?php echo $ec_store_iban; ?>" name="ec_store_iban" placeholder="<?php _e( 'Company Account IBAN', 'ktt'); ?>" class="regular-text" type="text">
+                    </td>
+                </tr>
+           
+                <tr>
                     <th><label><?php _e( 'Company type', 'ktt' ); ?></label></th>
                     <td>
                         <select name="dokan_company_type" required  id="dokan_company_type" style="max-width: 300px">
@@ -538,6 +547,8 @@ class lbDokanUser {
                             <option value="1" <?= (($company_type == '1')? 'selected': '') ?>><?php _e( 'FIE', 'ktt'); ?></option>
                             <option value="2" <?= (($company_type == '2')? 'selected': '') ?>><?php _e( 'OÜ', 'ktt'); ?></option>
                             <option value="3" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'AS', 'ktt'); ?></option>
+                            <option value="4" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'Private person', 'ktt'); ?></option>
+                            <option value="5" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'MTÜ', 'ktt'); ?></option>
                         </select>
                     </td>
                 </tr>
