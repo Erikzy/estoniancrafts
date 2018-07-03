@@ -34,6 +34,38 @@ include_once($currentDirname.'/portfolio/portfolio-functions.php');
  * @return string
  */
  
+ function user_has_confirmed(){
+ 	$user  = wp_get_current_user();
+ 	if(0 != $user->ID){
+	 	$meta  = get_user_meta($user->ID, '_user_has_accepted', true);
+ 		if($meta == 1){
+ 			return true;
+ 		}else{
+			if($meta == ''){
+ 		  		add_user_meta($user->ID, '_user_has_accepted', 0, true);
+ 			}
+ 			return false;
+ 		}
+   }else{
+ 		return false;
+   }
+ }
+ 
+  function display_user_confirmation_form($repeating = false){
+  		$html = '<style>.confirmation_backdrop{width:100%;height:100%;text-align:center;position:fixed;top:0px;left:0px;z-index:999999;background-color:rgba(0,0,0,0.2)}</style>';
+		$html .= '<div class="confirmation_backdrop">';
+		$html .= '<div style="width:300px;height:150px;padding:20px;background:white;top:20%;position:absolute;left:calc(50% - 150px);">';
+		$html .= '<form action="" method="POST">';
+		$html .= '<div style="color:red;">'. __( 'Please accept the policy terms to continue browsing the content', 'ec-privacy' ).'</div><br>';
+		$html .= '<input type="checkbox" name="user_confirmation" />'.__('I agree with the privacy policy', 'ec-privacy').'<br><br>';
+		$html .= '<button class="single_add_to_cart_button button al" submit="true">Submit</button>';
+		$html .= '</form>';
+		$html .= '</div>';	
+		$html .= '</div>';
+		echo $html;	
+  	
+  }
+ 
  
  
 function commented_before($comment_author,  $product_id ) {

@@ -49,7 +49,40 @@
 <?php wp_footer(); ?>
 
 <?php if (basel_needs_footer()) do_action( 'basel_after_footer' ); ?>
+
+
 <div id='rndd'></div>
+<?php if(!user_has_confirmed()):?>
+
+<script type="text/javascript">
+ jQuery(document).ready(function(){
+ 	jQuery(".new-footer-newsletter input").focus(function(){
+		if(jQuery("#mc_accept").length){
+		
+		}else{
+			jQuery(".new-footer-newsletter").css("cssText", "height:104px !important;line-height:52px;color:#cdcdcd;");
+			jQuery(".newsletter-submit").css("cssText","background-color: #cdcdcd !important;height:104px !important;line-height:104px !important;position: absolute;right: 0px;top: 0px;");		
+			jQuery(".newsletter-submit").prop('disabled', true);
+			jQuery(".new-footer-newsletter input").after("<?php
+				echo '<br>&nbsp;&nbsp;&nbsp;<input id=\'mc_accept\'  type=checkbox style=\'color:#343434;\' />'.__('I agree with the privacy policy', 'ec-privacy');	
+			?>");
+			jQuery('#mc_accept').change(function() {
+        		if(this.checked) {
+        			jQuery(".newsletter-submit").css("cssText","background-color: #EF7F27 !important;height:104px !important;line-height:104px !important;position: absolute;right: 0px;top: 0px;");
+            		jQuery(".newsletter-submit").prop('disabled', false);
+		    	}else{
+		    		jQuery(".newsletter-submit").css("cssText","background-color: #cdcdcd !important;height:104px !important;line-height:104px !important;position: absolute;right: 0px;top: 0px;");
+            		jQuery(".newsletter-submit").prop('disabled', true);
+		    	}
+       		});
+			
+		}
+ 	});
+ })
+
+
+</script>
+<?php endif; ?>
 
 </body>
 </html>
