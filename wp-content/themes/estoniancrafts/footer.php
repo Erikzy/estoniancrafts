@@ -64,7 +64,7 @@
 			jQuery(".newsletter-submit").css("cssText","background-color: #cdcdcd !important;height:104px !important;line-height:104px !important;position: absolute;right: 0px;top: 0px;");		
 			jQuery(".newsletter-submit").prop('disabled', true);
 			jQuery(".new-footer-newsletter input").after("<?php
-				echo '<br>&nbsp;&nbsp;&nbsp;<input id=\'mc_accept\'  type=checkbox style=\'color:#343434;\' />'.__('I agree with the privacy policy', 'ec-privacy');	
+				echo '<br>&nbsp;&nbsp;&nbsp;<input id=\'mc_accept\'  type=checkbox style=\'color:#343434;\' />'.sprintf( __( 'I&rsquo;ve read and accept the <a href=\"%s\" style=\'color:black;\' target=\"_blank\">privacy  policy</a>', 'woocommerce' ), esc_url(get_site_url(null, 'privacy-policy')) );	
 			?>");
 			jQuery('#mc_accept').change(function() {
         		if(this.checked) {

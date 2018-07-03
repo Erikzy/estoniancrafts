@@ -167,14 +167,21 @@ class EC_Actions
 		$user  = wp_get_current_user();
  		if(0 != $user->ID){
 			if(!user_has_confirmed()){
-				if(!isset($_POST['user_confirmation']) ){
+				if(!isset($_POST['user_confirmation']) && !isset($_REQUEST['delete-account'])){
 	 				display_user_confirmation_form();
 	 			}else{
-					$confirm = $_POST['user_confirmation'];
-					if($confirm == "on"){
-						update_user_meta($user->ID, '_user_has_accepted',1);
-					} else {
-						display_user_confirmation_form();
+	 				if(isset($_REQUEST['delete-account'])){
+	 					wp_delete_user($user->ID);
+	 					wp_logout();
+	 					wp_redirect(get_site_url());
+	 					exit;
+	 				} else {
+	 					$confirm = $_POST['user_confirmation'];
+						if($confirm == "on"){
+							update_user_meta($user->ID, '_user_has_accepted',1);
+						} else {
+							display_user_confirmation_form();
+	 					}
 	 				}
 				}		
 			}
@@ -593,7 +600,7 @@ add_action('user_register', 'add_user_acceptance');
 
 function add_user_acceptance($user_id){
 
-	 add_user_meta($user_id, '_user_has_accepted', 1, true);
+	// add_user_meta($user_id, '_user_has_accepted', 1, true);
 
 }
 
