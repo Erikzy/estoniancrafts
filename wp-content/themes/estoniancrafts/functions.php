@@ -54,11 +54,12 @@ include_once($currentDirname.'/portfolio/portfolio-functions.php');
   function display_user_confirmation_form($repeating = false){
   		$html = '<style>.confirmation_backdrop{width:100%;height:100%;text-align:center;position:fixed;top:0px;left:0px;z-index:999999;background-color:rgba(0,0,0,0.2)}</style>';
 		$html .= '<div class="confirmation_backdrop">';
-		$html .= '<div style="width:300px;height:150px;padding:20px;background:white;top:20%;position:absolute;left:calc(50% - 150px);">';
+		$html .= '<div style="width:300px;height:210px;padding:20px;background:white;top:20%;position:absolute;left:calc(50% - 150px);">';
 		$html .= '<form action="" method="POST">';
 		$html .= '<div style="color:red;">'. __( 'Please accept the policy terms to continue browsing the content', 'ec-privacy' ).'</div><br>';
-		$html .= '<input type="checkbox" name="user_confirmation" />'.__('I agree with the privacy policy', 'ec-privacy').'<br><br>';
+		$html .= '<input type="checkbox" name="user_confirmation" />'.sprintf( __( 'I&rsquo;ve read and accept the <a href="%s" target="_blank">privacy  policy</a>', 'woocommerce' ), esc_url(get_site_url(null, 'privacy-policy')) ).'<br><br>';
 		$html .= '<button class="single_add_to_cart_button button al" submit="true">Submit</button>';
+		$html .= '<br><br><a href="?delete-account=delete-account">'.__("Delete Account", 'ec-privacy').'</a>';
 		$html .= '</form>';
 		$html .= '</div>';	
 		$html .= '</div>';

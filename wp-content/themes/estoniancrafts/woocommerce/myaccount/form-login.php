@@ -168,7 +168,7 @@ if( $tabs && get_option( 'woocommerce_enable_myaccount_registration' ) !== 'yes'
 			<p class="woocomerce-FormRow form-row">
 	
 				<label for="privacy" class="inline">
-						<input class="woocommerce-Input woocommerce-Input--checkbox" name="privacy" type="checkbox" id="privacy"  /> <?php _e('I agree with the privacy policy', 'ec-privacy'); ?>
+						<input class="woocommerce-Input woocommerce-Input--checkbox" name="privacy" type="checkbox" id="privacy"  /> <?php printf( __( 'I&rsquo;ve read and accept the <a href="%s" target="_blank">privacy  policy</a>', 'woocommerce' ), esc_url(get_site_url(null, 'privacy-policy')) ); ?>
 					</label>
 			
 				<?php wp_nonce_field( 'woocommerce-register' ); ?>
