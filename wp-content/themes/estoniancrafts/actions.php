@@ -600,7 +600,7 @@ add_action('user_register', 'add_user_acceptance');
 
 function add_user_acceptance($user_id){
 
-	// add_user_meta($user_id, '_user_has_accepted', 1, true);
+	 add_user_meta($user_id, '_user_has_accepted', 1, true);
 
 }
 
