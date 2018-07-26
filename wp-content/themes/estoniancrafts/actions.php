@@ -152,10 +152,11 @@ class EC_Actions
 	}
 
 	public static function ec_add_privacy_policy_validation($data){
+	
 		if(!user_has_confirmed()){
-			if ( empty( $data['woocommerce_checkout_update_totals'] ) && empty( $data['privacy'] )  ) {
-        		wc_add_notice( __( 'You must accept the Privacy policy', 'woocommerce' ), 'error' );
-        	}
+			if ( empty( $_POST['privacy'] )  ) {
+        		     wc_add_notice( __( 'You must accept the Privacy policy', 'woocommerce' ), 'error' );
+        		}
 		}
 	}
 
