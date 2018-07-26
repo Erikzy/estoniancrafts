@@ -68,7 +68,7 @@
 ?>
 <?php do_action( 'dokan_settings_before_form', $current_user, $profile_info ); ?>
     <?php   
-     if(!store_has_bank_account()){
+     if(!store_has_bank_account() && empty( $_POST['ec_store_iban'] )){
     	echo "<div style='font-size:20px;padding:30px;width:100%;color:red;text-align:center;'>";
     	echo _e('Please provide a correct IBAN','ktt');
     	echo "</div>"; 
