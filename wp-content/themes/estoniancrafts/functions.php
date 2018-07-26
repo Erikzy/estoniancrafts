@@ -50,7 +50,7 @@ include_once($currentDirname.'/portfolio/portfolio-functions.php');
  		return false;
    }
  }
- 
+
   function display_user_confirmation_form($repeating = false){
   		$html = '<style>.confirmation_backdrop{width:100%;height:100%;text-align:center;position:fixed;top:0px;left:0px;z-index:999999;background-color:rgba(0,0,0,0.2)}</style>';
 		$html .= '<div class="confirmation_backdrop">';
@@ -223,6 +223,36 @@ function ec_debug_to_console()
         }
     }
 }
+
+function user_is_store(){
+    if ( is_user_logged_in() ) { 
+		$user = wp_get_current_user();
+		if(in_array('seller', $user->roles)){
+			return true;
+		}else{
+			return false;
+		}
+	} else{
+		return false;
+	}
+}
+
+function store_has_bank_account(){
+	$user = wp_get_current_user();
+	$ext_settings = get_user_meta( $user->ID, 'ktt_extended_settings', true );
+	
+	if(isset($ext_settings['ec_store_iban'])){
+		if(strlen($ext_settings['ec_store_iban']) < 20){
+			return false;
+		} else {
+			return true;
+		}
+	}else{
+
+		return false;
+	}
+}
+
 
 /**
  * Output the user id to the page of the current thread's last author.

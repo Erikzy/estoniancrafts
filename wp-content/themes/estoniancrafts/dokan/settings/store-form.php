@@ -67,7 +67,13 @@
 
 ?>
 <?php do_action( 'dokan_settings_before_form', $current_user, $profile_info ); ?>
-
+    <?php   
+     if(!store_has_bank_account()){
+    	echo "<div style='font-size:20px;padding:30px;width:100%;color:red;text-align:center;'>";
+    	echo _e('Please provide a correct IBAN','ktt');
+    	echo "</div>"; 
+     }
+    ?>
     <?php lbDokan::get_instance()->user->display_shop_profile_completeness($current_user) ?>
 <?php 
 	echo '<div class="bannerPreview center-block" >';
