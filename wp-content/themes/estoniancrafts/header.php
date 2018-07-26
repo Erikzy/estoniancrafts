@@ -16,8 +16,10 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php
-   if(get_post_thumbnail_id() > 0){
+    if(get_post_thumbnail_id() > 0){
      	echo '<meta property="og:image" content="'.wp_get_attachment_image_src(get_post_thumbnail_id(),'full')[0].'">'; 	
+    } else {
+     	echo '<meta property="og:image" content="'.get_site_url().'/wp-content/uploads/EstonianCrafts_logo_share.png">'; 	
     }
     
     
