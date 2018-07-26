@@ -17,7 +17,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php
    if(get_post_thumbnail_id() > 0){
-     	echo '<meta name="og:image" content="'.wp_get_attachment_image_src(get_post_thumbnail_id())[0].'">'; 	
+     	echo '<meta property="og:image" content="'.wp_get_attachment_image_src(get_post_thumbnail_id())[0].'">'; 	
     }
     
     
