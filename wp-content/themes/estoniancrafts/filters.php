@@ -155,7 +155,7 @@ class EC_Filters
             }              
   		}
 		
-
+		add_post_meta($order->id, "_omniva_request_xml", $requestData);
 		return $requestData;
 	}
 
