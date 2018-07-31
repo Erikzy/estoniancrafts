@@ -15,9 +15,23 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<?php
+    if(get_post_thumbnail_id() > 0){
+     	echo '<meta property="og:image" content="'.wp_get_attachment_image_src(get_post_thumbnail_id(),'full')[0].'">'; 	
+    } else {
+     	echo '<meta property="og:image" content="'.get_site_url().'/wp-content/uploads/EstonianCrafts_logo_share.png">'; 	
+    }
+    
+    
+    
+    ?>
+    
+	
+	
 <!-- 	<link rel="stylesheet" id="owl-carousel-css" href="http://localhost/ec2/EstonianCrafts/wp-content/themes/basel/css/owl.carousel.css?ver=1.0.1" type="text/css" media="all">
 	<script type="text/javascript" src="http://localhost/ec2/EstonianCrafts/wp-content/themes/basel/js/owl.carousel.min.js?ver=1.0"></script> -->
 	<?php wp_head(); ?>
+
     
     <?php wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css' ); ?>
     <script src="<?php echo get_template_directory_uri(); ?>/js/menus.js"> </script>

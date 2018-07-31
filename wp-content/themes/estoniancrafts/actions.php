@@ -152,10 +152,11 @@ class EC_Actions
 	}
 
 	public static function ec_add_privacy_policy_validation($data){
+	
 		if(!user_has_confirmed()){
-			if ( empty( $data['woocommerce_checkout_update_totals'] ) && empty( $data['privacy'] )  ) {
-        		wc_add_notice( __( 'You must accept the Privacy policy', 'woocommerce' ), 'error' );
-        	}
+			if ( empty( $_POST['privacy'] )  ) {
+        		     wc_add_notice( __( 'You must accept the Privacy policy', 'woocommerce' ), 'error' );
+        		}
 		}
 	}
 
@@ -186,6 +187,23 @@ class EC_Actions
 				}		
 			}
 		}
+		
+		/*  add bank account validation */
+		
+		if(user_is_store()){
+			if(!store_has_bank_account()){
+				if(empty( $_POST['ec_store_iban'] ) && empty( $_REQUEST['bank_empty_redirect'] )){
+					echo 'should redirect';
+					$_url =  get_site_url(null, 'my-account/dashboard/settings/store/?bank_empty_redirect=true');
+				    echo $_url;
+				    wp_redirect($_url);	
+				    //wp_die();
+				    exit();
+				}
+			}
+		}
+		
+		
 //		ec_debug_to_console('$wp_actions', $wp_actions);
 //		ec_debug_to_console('$wp_filter', $wp_filter);
 //		ec_debug_to_console('$merged_filters', $merged_filters);
