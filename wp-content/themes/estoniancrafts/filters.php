@@ -724,7 +724,7 @@ function ec_dokan_rewrite_rules($custom_store_url)
     add_rewrite_rule( '([^/]+)/toc?$', 'index.php?pagename=$matches[1]&toc=true', 'top' );
     add_rewrite_rule( '([^/]+)/toc/page/?([0-9]{1,})/?$', 'index.php?pagename=$matches[1]&paged=$matches[2]&toc=true', 'top' );
 
-    add_rewrite_rule( '([^/]+)/blog?$', 'index.php?pagename=$matches[1]&blog=true', 'top' );
+    add_rewrite_rule( '([^/]+).com/blog?$', 'index.php?pagename=$matches[1]&blog=true', 'top' );
 		
     add_rewrite_rule( '^user/([^/]*)/portfolio/([^/]*)?$', 'index.php?user=$matches[1]&portfolio=$matches[2]', 'top');
     flush_rewrite_rules();
