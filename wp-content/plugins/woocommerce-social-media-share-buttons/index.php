@@ -195,7 +195,7 @@ function toastie_wc_smsb_form_code() {
 			$social_val.='<span class="smsb_email vcount"><a href="mailto:?subject='.get_the_title($post->ID).'&amp;body='.get_option('toastie_smsb_email').'%0D%0A' . get_permalink($post->ID) . '"><img src="'. plugins_url( 'img/email-share-button-big.png', __FILE__ ) . '" alt="Email" /></a></span>';
 		};
 	};
-		
+/*		
 	$social_val.='</ul>
 	   
    			<script type="text/javascript">
@@ -212,7 +212,8 @@ function toastie_wc_smsb_form_code() {
 			});	
 			</script>
 	';
-    echo $social_val;
+*/    
+echo $social_val;
 }
 
 function toastie_wc_smsb_form_short_code() {
