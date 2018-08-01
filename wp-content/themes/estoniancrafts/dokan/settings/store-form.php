@@ -700,7 +700,7 @@ function showHidePrivateFields(){
 	
 			}
 			
-			if($("#ec_store_iban").val().length > 20){
+			if($("#ec_store_iban").val().length > 19){
 				$("#ec_store_iban_notice").hide();
 			}
 			
