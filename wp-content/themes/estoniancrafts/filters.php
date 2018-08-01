@@ -140,7 +140,7 @@ class EC_Filters
                             'address' => array(
                                 '@attributes' => array(
                                     'postcode' => $postcode,
-                                    'deliverypoint' => $deliverypoint,
+                                    'deliverypoint' => $city,
                                     'country' => $country,
                                     'street' => $street,
                                 ),
