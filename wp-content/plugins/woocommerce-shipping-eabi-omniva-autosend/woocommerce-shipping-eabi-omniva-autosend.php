@@ -408,21 +408,24 @@ if (is_eabi_postoffice_active()) {
                     }
 
                     //check if we have idcheck
-                    if ($this->_serviceExists($requestData['interchange']['item_list']['item']['add_service']['option'], 'SI') && !$requestData['interchange']['item_list']['item']['receiverAddressee']['person_code']) {
-                        if (!$fieldIdCode) {
-                            throw new Eabi_Woocommerce_Postoffice_Exception(__('SI (ID check) service requires social security number', self::PLUGIN_TEXT_DOMAIN));
-                        }
-                        $user = WC_Eabi_Postoffice::instance()->getUserFromOrder($order);
-                        if (!$user) {
-                            throw new Eabi_Woocommerce_Postoffice_Exception(__('SI (ID check) service requires registered customer', self::PLUGIN_TEXT_DOMAIN));
-                        }
-                        $socialSecurityCode = get_user_meta($user->ID, $fieldIdCode, true);
-                        if (!$socialSecurityCode) {
-                            throw new Eabi_Woocommerce_Postoffice_Exception(sprintf(__('SI (ID check) service requires customer to have social security number in attribute %s', self::PLUGIN_TEXT_DOMAIN), $fieldIdCode));
-                        }
-                        //set the idcode
-                        $requestData['interchange']['item_list']['item']['receiverAddressee']['person_code'] = $socialSecurityCode;
-                        $wasServicesProcessed = true;
+                    
+                    if(isset($requestData['interchange']['item_list']['item']['add_service'])){
+                   		if ($this->_serviceExists($requestData['interchange']['item_list']['item']['add_service']['option'], 'SI') && !$requestData['interchange']['item_list']['item']['receiverAddressee']['person_code']) {
+                    	    if (!$fieldIdCode) {
+                    	        throw new Eabi_Woocommerce_Postoffice_Exception(__('SI (ID check) service requires social security number', self::PLUGIN_TEXT_DOMAIN));
+                    	    }
+                    	    $user = WC_Eabi_Postoffice::instance()->getUserFromOrder($order);
+                    	    if (!$user) {
+                    	        throw new Eabi_Woocommerce_Postoffice_Exception(__('SI (ID check) service requires registered customer', self::PLUGIN_TEXT_DOMAIN));
+                    	    }
+                    	    $socialSecurityCode = get_user_meta($user->ID, $fieldIdCode, true);
+                    	    if (!$socialSecurityCode) {
+                    	        throw new Eabi_Woocommerce_Postoffice_Exception(sprintf(__('SI (ID check) service requires customer to have social security number in attribute %s', self::PLUGIN_TEXT_DOMAIN), $fieldIdCode));
+                    	    }
+                    	    //set the idcode
+                    	    $requestData['interchange']['item_list']['item']['receiverAddressee']['person_code'] = $socialSecurityCode;
+                    	    $wasServicesProcessed = true;
+                    	}
                     }
 
 
