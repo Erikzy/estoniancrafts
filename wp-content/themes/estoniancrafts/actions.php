@@ -191,7 +191,7 @@ class EC_Actions
 		/*  add bank account validation */
 		
 		if(user_is_store()){
-			if(!store_has_bank_account()){
+			if(!store_has_bank_account() && $_REQUEST['path'] != "/wp-admin/admin-ajax.php"  && $_REQUEST['path'] != "/wp-admin/async-upload.php"){
 				if(empty( $_POST['ec_store_iban'] ) && empty( $_REQUEST['bank_empty_redirect'] )){
 					echo 'should redirect';
 					$_url =  get_site_url(null, 'my-account/dashboard/settings/store/?bank_empty_redirect=true');
@@ -212,7 +212,7 @@ class EC_Actions
 
 	public static function wp_head_google_analytics_action()
 	{
-		$html = <<<HTML
+/*		$html = <<<HTML
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -224,7 +224,7 @@ class EC_Actions
 
 </script>
 HTML;
-		print $html;
+		print $html;*/
 	}
 
 	public static function basel_page_title()
