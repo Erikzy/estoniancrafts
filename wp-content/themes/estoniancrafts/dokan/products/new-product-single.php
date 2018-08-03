@@ -155,7 +155,7 @@ if ( ! $from_shortcode ) {
                 <?php endif ?>
             </h1>
         </header><!-- .entry-header -->
-
+		<div class="dokan-alert dokan-alert-info"><p>Please enter product information in English! Support for other languages will be added soon.</p></div>
         <?php lbDokan::display_product_completeness($post_id); ?>
 
         <div class="product-edit-new-container">
