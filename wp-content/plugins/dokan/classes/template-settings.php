@@ -386,10 +386,15 @@ class Dokan_Template_Settings {
            $error->add( 'ec_store_iban', __( 'Iban is not set.', 'dokan' ) );
         }
         
-        $address_fields = array('country','city','address','postcode');
-        foreach($address_fields as $field){
+        $address_fields = array('country' => 2,'city' => 2,'address' =>2,'postcode'=>5);
+        foreach($address_fields as $field => $length){
         	if(empty($_POST['dokan_address'][0][$field])){
         	    $error->add( 'dokan_address', __( 'Invalid '.$field, 'dokan' ) );
+            }else{
+            	if(strlen($_POST['dokan_address'][0][$field]) <  $length){
+        		    $error->add( 'dokan_address', __( ucfirst($field).' too short!', 'dokan' ) );
+            	
+            	}
             }
         
         }
