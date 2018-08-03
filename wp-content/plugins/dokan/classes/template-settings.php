@@ -231,6 +231,7 @@ class Dokan_Template_Settings {
         }
 
         if ( is_wp_error( $ajax_validate ) ) {
+        	
             wp_send_json_error( $ajax_validate->errors );
         }
 
@@ -376,6 +377,24 @@ class Dokan_Template_Settings {
                 $error->add( 'dokan_type', __( 'Store type required', 'dokan' ) );
             }
         }
+        
+         if ( isset( $_POST['ec_store_iban'] ) ) {
+            if ( strlen( $_POST['ec_store_iban'] ) < 20 ) {
+                $error->add( 'ec_store_iban', __( 'Iban is too short.', 'dokan' ) );
+            }
+        } else {
+           $error->add( 'ec_store_iban', __( 'Iban is not set.', 'dokan' ) );
+        }
+        
+        $address_fields = array('country','city','address','postcode');
+        foreach($address_fields as $field){
+        	if(empty($_POST['dokan_address'][0][$field])){
+        	    $error->add( 'dokan_address', __( 'Invalid '.$field, 'dokan' ) );
+            }
+        
+        }
+        
+        
 
         if ( !empty( $_POST['setting_paypal_email'] ) ) {
             $email = filter_var( $_POST['setting_paypal_email'], FILTER_VALIDATE_EMAIL );

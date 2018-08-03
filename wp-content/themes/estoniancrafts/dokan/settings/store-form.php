@@ -73,6 +73,12 @@
     	echo _e('Please provide a correct IBAN','ktt');
     	echo "</div>"; 
      }
+     if(!store_has_address()){
+    	echo "<div id='ec_store_address_notice' style='font-size:20px;padding:30px;width:100%;color:red;text-align:center;'>";
+    	echo _e('Missing Address Details','ktt');
+    	echo "</div>"; 
+     }
+     
     ?>
     <?php lbDokan::get_instance()->user->display_shop_profile_completeness($current_user) ?>
 <?php 
@@ -283,7 +289,7 @@
         </div>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_description"><?php _e( 'Address', 'ktt' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="dokan_address"><?php _e( 'Address', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
 
@@ -650,6 +656,8 @@ function showHidePrivateFields(){
                            errors.push(elements[e]);
                     }
                 }
+                console.log(elements[e]);
+                
             }
             if(errors.length > 0 )
             {     
@@ -688,23 +696,32 @@ function showHidePrivateFields(){
 
         
         $('#schanges').mousedown(function(){
+				
+			if($("#ec_store_address_notice").length != 0){
+				$("#ec_store_address_notice").hide();
+			}	
+			if($("#ec_store_iban_notice").length != 0){
+				$("#ec_store_iban_notice").hide();
+			}	
 			if($("#dokan_company_type").val() == 4){
 				$("#dokan_store_name").attr("disabled",false);
 				$("#dokan_store_name").val($("#person_name_handle_for_private").val());
 			}else{
 				
-	            let elements = [$("#dokan_company_name"),$("#dokan_company_nr"),$("#dokan_company_type")];
-    	        let jarray = [{},{},{}];
+	            let elements = [$("#dokan_company_name"),$("#dokan_company_nr"),$("#dokan_company_type"),$("#ec_store_iban")];
+    	        let jarray = [{},{},{},{}];
         	    remClass();
             	errDisp(elements,jarray);
 	
 			}
 			
-			if($("#ec_store_iban").val().length > 19){
-				$("#ec_store_iban_notice").hide();
-			}
+				
+			
 			
 		})
+		
+		
+		
 
     })(jQuery);
     

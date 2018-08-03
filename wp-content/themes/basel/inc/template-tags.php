@@ -1377,7 +1377,8 @@ if( ! function_exists( 'basel_header_block_mobile_nav' ) ) {
 					if( has_nav_menu( $location ) ) {
 						?>
 
-							<ul id="menu-peamenuu" class="site-mobile-menu zmb-menu"><li id="menu-item-products" class="menu-item menu-item-type-post_type menu-item-object-zanmenu  zanmenu-menu-item ">
+							<ul id="menu-peamenuu" class="site-mobile-menu zmb-menu">
+								<li id="menu-item-products" class="menu-item menu-item-type-post_type menu-item-object-zanmenu  zanmenu-menu-item ">
 									<a title="Products" class="zmb-item-title zmb-dropdown-toggle products-menu"  href="<?php echo get_site_url(); ?>/?s=&post_type=product">Products</a>
 								</li>
 						<?php
@@ -1392,7 +1393,7 @@ if( ! function_exists( 'basel_header_block_mobile_nav' ) ) {
 					*/
 					}
 
-					basel_header_block_header_links();
+					basel_header_block_header_links($showMobile = true);
 
 				 ?>
 			</div><!--END MOBILE-NAV-->
@@ -1412,8 +1413,8 @@ if( ! function_exists( 'basel_header_block_mobile_icon' ) ) {
 }
 
 if( ! function_exists( 'basel_header_block_header_links' ) ) {
-	function basel_header_block_header_links() {
-		$links = basel_get_header_links();
+	function basel_header_block_header_links($showMobile = false) {
+		$links = basel_get_header_links($showMobile);
 
 		if( ! empty( $links )) {
 		?>
@@ -1430,7 +1431,7 @@ if( ! function_exists( 'basel_header_block_header_links' ) ) {
 }
 
 if( ! function_exists( 'basel_get_header_links' ) ) {
-	function basel_get_header_links() {
+	function basel_get_header_links($showMobile = false) {
 		$links = array();
 
 		if( ! basel_woocommerce_installed() ) return $links;
@@ -1454,7 +1455,25 @@ if( ! function_exists( 'basel_get_header_links' ) ) {
 					'url' => $account_link
 				);
 			}
+			if($showMobile){
+				$links[] = array(
+					'label' => esc_html__('Fairs', 'basel'),
+					'url' => get_site_url().'/fairs/'
+				);
+				$links[] = array(
+					'label' => esc_html__('Blog', 'basel'),
+					'url' => get_site_url().'/blog/'
+				);	
+				$links[] = array(
+					'label' => esc_html__('Home', 'basel'),
+					'url' => get_site_url()
+				);					
+				
+			}
+			
 		}
+
+	
 
 		return apply_filters( 'basel_get_header_links',  $links );
 	}
