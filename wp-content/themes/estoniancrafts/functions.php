@@ -252,7 +252,27 @@ function store_has_bank_account(){
 		return false;
 	}
 }
-
+function store_has_address(){
+	$user = wp_get_current_user();
+	$ext_settings = get_user_meta( $user->ID, 'ktt_extended_settings', true );
+	if(isset($ext_settings['address'])){
+		
+		if(strlen($ext_settings['address'][0]['city'])  > 0 & 
+		   strlen($ext_settings['address'][0]['country']) > 0 &&
+		   strlen($ext_settings['address'][0]['address'])  > 0 &&
+		   strlen($ext_settings['address'][0]['postcode']) > 4){
+		    	return true;
+		   }else{
+		   		return false;
+		   }
+	
+	
+	}else{
+		return false;
+	}
+	
+	
+}
 
 /**
  * Output the user id to the page of the current thread's last author.

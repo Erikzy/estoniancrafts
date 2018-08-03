@@ -56,6 +56,10 @@ if ( $order ) : ?>
 				<strong><?php echo $order->payment_method_title; ?></strong>
 			</li>
 			<?php endif; ?>
+			<script>
+				fbq('track', 'Purchase', {currency: 'EUR', value: <?php echo $order->get_order_total(); ?>});				
+			
+			</script>
 		</ul>
 		<div class="clear"></div>
 

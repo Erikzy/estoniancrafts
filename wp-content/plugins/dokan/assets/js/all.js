@@ -2106,6 +2106,7 @@ jQuery(function($) {
 
     var validatorError = function(error, element) {
         var form_group = $(element).closest('.form-group');
+    
         form_group.addClass('has-error').append(error);
     };
 
@@ -2425,6 +2426,9 @@ jQuery(function($) {
                 $('html,body').animate({scrollTop:100});
 
                if ( resp.success ) {
+               		jQuery('.label-red-error').each(function(){
+						jQuery(this).removeClass("label-red-error");
+					});
                     // Harcoded Customization for template-settings function
                       $('.dokan-ajax-response').html( $('<div/>', {
                         'class': 'dokan-alert dokan-alert-success',
@@ -2434,10 +2438,32 @@ jQuery(function($) {
                     $('.dokan-ajax-response').append(resp.data.progress);
 
                 }else {
-                    $('.dokan-ajax-response').html( $('<div/>', {
+					var keys = Object.keys(resp.data);
+					$('.dokan-ajax-response').empty();
+					
+					jQuery('.label-red-error').each(function(){
+						jQuery(this).removeClass("label-red-error");
+					});
+					
+					for(var i = 0; i < keys.length;i++){
+					 jQuery("label[for='"+keys[i]+"']").addClass("label-red-error");
+					 
+						for(var j = 0;j < resp.data[keys[i]].length; j++){					 
+					 		$('.dokan-ajax-response').append( $('<div/>', {
+    	                    	'class': 'dokan-alert dokan-alert-danger',
+            	            	'html': '<p>' + resp.data[keys[i]][j]+ '</p>'
+                   
+                	    	}) );
+                	    }
+  					
+					}
+						
+                  /*  $('.dokan-ajax-response').html( $('<div/>', {
                         'class': 'dokan-alert dokan-alert-danger',
+                   
                         'html': '<p>' + resp.data + '</p>'
-                    }) );
+                   
+                    }) );*/
                 }
             });
         },

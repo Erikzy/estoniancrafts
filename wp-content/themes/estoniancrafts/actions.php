@@ -191,7 +191,7 @@ class EC_Actions
 		/*  add bank account validation */
 		
 		if(user_is_store()){
-			if(!store_has_bank_account()){
+			if((!store_has_bank_account() || !store_has_address()) && $_SERVER["REQUEST_URI"] != "/wp-admin/admin-ajax.php"  && $_SERVER["REQUEST_URI"] != "/wp-admin/async-upload.php"){
 				if(empty( $_POST['ec_store_iban'] ) && empty( $_REQUEST['bank_empty_redirect'] )){
 					echo 'should redirect';
 					$_url =  get_site_url(null, 'my-account/dashboard/settings/store/?bank_empty_redirect=true');
@@ -212,17 +212,37 @@ class EC_Actions
 
 	public static function wp_head_google_analytics_action()
 	{
-		$html = <<<HTML
+	$html = <<<HTML
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-85465038-3"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  ga('create', 'UA-85465038-1', 'auto');
-  ga('send', 'pageview');
-
+gtag('config', 'UA-85465038-3');
 </script>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1577134799259828');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1"
+src="https://www.facebook.com/tr?id=1577134799259828&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+
 HTML;
 		print $html;
 	}
