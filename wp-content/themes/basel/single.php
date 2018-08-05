@@ -30,21 +30,7 @@ get_header(); ?>
 						<div class=" center-block">
 						<?php if( function_exists( 'basel_shortcode_social' ) ) echo basel_shortcode_social(array('type' => 'share', 'tooltip' => 'no', 'style' => 'colored')) ?>
 					</div>
-					<script type="text/javascript">
-   			jQuery(".social-nav > li > a ").click(function(e){
-     				e.preventDefault();
-  				})
-			jQuery(document).ready(function(){
-				jQuery(".social-nav > li > a ").each(function(){
-					jQuery(this).attr("href",  "");
-					jQuery(this).attr("target", "");
-						
-				});
-				
-			});	
-			</script>
-					
-					</div>
+				</div>
 				<?php endif;
 				
 				$userid = get_current_user_id();
