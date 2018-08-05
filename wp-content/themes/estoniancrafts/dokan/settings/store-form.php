@@ -10,6 +10,8 @@
     $extended_settings = get_user_meta( get_current_user_id(), 'ktt_extended_settings', true );
     $company_name  = isset( $extended_settings['company_name'] ) ? esc_attr( $extended_settings['company_name'] ) : '';
     $company_nr  = isset( $extended_settings['company_nr'] ) ? esc_attr( $extended_settings['company_nr'] ) : '';
+    $kmkr_nr  = isset( $extended_settings['kmkr_nr'] ) ? esc_attr( $extended_settings['kmkr_nr'] ) : '';
+   
     $company_type  = isset( $extended_settings['company_type'] ) ? esc_attr( $extended_settings['company_type'] ) : '';
     $ec_store_iban  = isset( $extended_settings['ec_store_iban'] ) ? esc_attr( $extended_settings['ec_store_iban'] ) : '';
     $description  = isset( $extended_settings['description'] ) ? esc_attr( $extended_settings['description'] ) : '';
@@ -220,6 +222,20 @@
 
             <div class="dokan-w5 dokan-text-left">
                 <input id="dokan_company_nr" required value="<?php echo $company_nr; ?>" name="dokan_company_nr" placeholder="<?php _e( 'company registration number', 'ktt'); ?>" class="dokan-form-control" type="text">
+            </div>
+        </div>
+                <div class="dokan-form-group"  id="company_kmkr_form_group"
+        	<?php 
+        	if($company_type== 4){
+        		echo 'style="display:none;"';
+        	}
+        	?>
+        
+        	>
+            <label class="dokan-w3 dokan-control-label" for="kmkr_nr"><?php _e( 'Company VAT nr (KMKR)', 'ktt' ); ?></label>
+
+            <div class="dokan-w5 dokan-text-left">
+                <input id="dokan_kmkr_nr"  value="<?php echo $kmkr_nr; ?>" name="kmkr_nr" placeholder="<?php _e( 'company VAT number', 'ktt'); ?>" class="dokan-form-control" type="text">
             </div>
         </div>
 		<?php // Store IBAN ?>

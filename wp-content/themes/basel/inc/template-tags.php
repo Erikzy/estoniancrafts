@@ -1455,6 +1455,8 @@ if( ! function_exists( 'basel_get_header_links' ) ) {
 					'url' => $account_link
 				);
 			}
+			
+			
 			if($showMobile){
 				$links[] = array(
 					'label' => esc_html__('Fairs', 'basel'),
@@ -1468,7 +1470,43 @@ if( ! function_exists( 'basel_get_header_links' ) ) {
 					'label' => esc_html__('Home', 'basel'),
 					'url' => get_site_url()
 				);					
+				$links[] = array(
+					'label' => esc_html__('Jewelry', 'basel'),
+					'url' => get_site_url().'/product-category/jewelry/'
+				);	
+				$links[] = array(
+					'label' => esc_html__('Accessories', 'basel'),
+					'url' => get_site_url().'/product-category/accessories/'
+				);
+				$links[] = array(
+					'label' => esc_html__('Clothing', 'basel'),
+					'url' => get_site_url().'/product-category/clothing/'
+				);
+				$links[] = array(
+					'label' => esc_html__('Shoes', 'basel'),
+					'url' => get_site_url().'/product-category/shoes/'
+				);
+				$links[] = array(
+					'label' => esc_html__('Home & Living', 'basel'),
+					'url' => get_site_url().'/product-category/home-living/'
+				);	
 				
+				$links[] = array(
+					'label' => esc_html__('Toys & Games', 'basel'),
+					'url' => get_site_url().'/product-category/toys-games/'
+				);	
+				$links[] = array(
+					'label' => esc_html__('Paper & Party Supplies', 'basel'),
+					'url' => get_site_url().'/product-category/paper-party-supplies/'
+				);	
+				$links[] = array(
+					'label' => esc_html__('Art & Collectibles', 'basel'),
+					'url' => get_site_url().'/product-category/art-collectibles/'
+				);	
+				$links[] = array(
+					'label' => esc_html__('Patterns', 'basel'),
+					'url' => get_site_url().'/product-category/patterns/'
+				);	
 			}
 			
 		}
