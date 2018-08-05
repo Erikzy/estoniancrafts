@@ -93,7 +93,28 @@ class WooCommerce_PDF_Invoices_Functions {
 		}
 	}
 	public function shop_name() {
-		echo $this->get_shop_name();
+	//	echo $this->get_shop_name();
+	
+		$order = &WPO_WCPDF()->export->order;
+		$shop_id = $order->post->post_author;
+		$store_name =get_user_meta($shop_id,'dokan_store_name',true);
+		$settings  = get_user_meta($shop_id,'ktt_extended_settings',true);
+		$ret = '<table>';
+	//	$ret .= '<tr><td>'.$store_name.'</td></tr>';
+		if(isset($settings['company_name'])){
+			$ret .= '<tr><td>'.$settings['company_name'].' '.$this->getCompanyType($settings['company_type']).'</td></tr>';
+		}	
+
+		if(isset($settings['company_nr'])){
+			$ret .= '<tr><td>'.$settings['company_nr'].'</td></tr>';
+		}	
+		if(isset($settings['kmkr_nr'])){
+			$ret .= '<tr><td>'.$settings['kmkr_nr'].'</td></tr>';
+		}	
+
+
+		$ret .= '</table>';
+		echo $ret;	
 	}
 	
 	/**
@@ -108,7 +129,35 @@ class WooCommerce_PDF_Invoices_Functions {
 		}
 	}
 	public function shop_address() {
-		echo $this->get_shop_address();
+	//	echo $this->get_shop_address();
+	
+		$order = &WPO_WCPDF()->export->order;
+		$shop_id = $order->post->post_author;
+		$shop_user = get_userdata($shop_id);
+		$settings  = get_user_meta($shop_id,'ktt_extended_settings',true);
+		$ret = '<table>';
+		$address = $settings['address'][0];
+		if(isset($address)){
+			$ret .= '<tr><td>'.$address['address'].'</td></tr>';
+			$ret .= '<tr><td>'.$address['postcode'].' '.$address['city'].'</td></tr>';
+			$ret .= '<tr><td>'.$address['state'].'</td></tr>';
+	
+		}	
+
+		$ret .= '</table>';
+		echo $ret;	
+	
+	}
+	
+	public function getCompanyType($index){
+		$types = array(
+			1 => __('FIE','ktt'),
+			2 => __('OÜ','ktt'),
+			3 => __('AS','ktt'),
+			4 => __('Private Person','ktt'),
+			5 => __('MTÜ','ktt'),	
+		);
+		return $types[$index];
 	}
 
 	/**

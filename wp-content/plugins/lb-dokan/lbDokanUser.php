@@ -61,6 +61,8 @@ class lbDokanUser {
         $ext_profile['certificates'] = [['name' => '', 'auth' => '', 'start' => '', 'end' => '', 'link' => '', 'file' => '']];
 
         update_user_meta( $user_id, 'ktt_extended_profile', $ext_profile );
+        
+     
 
     }
 	
@@ -73,6 +75,7 @@ class lbDokanUser {
     	$ext_settings['company_type'] = ! empty( $_POST['dokan_company_type'] ) ? wc_clean( $_POST['dokan_company_type'] ) : '';
     	$ext_settings['description'] = ! empty( $_POST['dokan_description'] ) ? wc_clean( $_POST['dokan_description'] ) : '';
 		$ext_settings['ec_store_iban'] = ! empty( $_POST['ec_store_iban'] ) ? wc_clean( $_POST['ec_store_iban'] ) : '';
+		$ext_settings['kmkr_nr'] = ! empty( $_POST['kmkr_nr'] ) ? wc_clean( $_POST['kmkr_nr'] ) : '';
 
     	if( ! empty( $_POST['dokan_media'] ) ){
 
@@ -532,6 +535,13 @@ class lbDokanUser {
                         <input id="dokan_company_nr" required value="<?php echo $company_nr; ?>" name="dokan_company_nr" placeholder="<?php _e( 'company registration number', 'ktt'); ?>" class="regular-text" type="text">
                     </td>
                 </tr>
+                
+                 <tr>
+                    <th><label><?php _e( 'Company Vat nr (KMKR)', 'ktt' ); ?></label></th>
+                    <td>
+                        <input id="ec_store_iban" required value="<?php echo $ec_store_iban; ?>" name="ec_store_iban" placeholder="<?php _e( 'Company Account IBAN', 'ktt'); ?>" class="regular-text" type="text">
+                    </td>
+                </tr>
                 <tr>
                     <th><label><?php _e( 'Company IBAN', 'ktt' ); ?></label></th>
                     <td>
@@ -547,8 +557,8 @@ class lbDokanUser {
                             <option value="1" <?= (($company_type == '1')? 'selected': '') ?>><?php _e( 'FIE', 'ktt'); ?></option>
                             <option value="2" <?= (($company_type == '2')? 'selected': '') ?>><?php _e( 'OÜ', 'ktt'); ?></option>
                             <option value="3" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'AS', 'ktt'); ?></option>
-                            <option value="4" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'Private person', 'ktt'); ?></option>
-                            <option value="5" <?= (($company_type == '3')? 'selected': '') ?>><?php _e( 'MTÜ', 'ktt'); ?></option>
+                            <option value="4" <?= (($company_type == '4')? 'selected': '') ?>><?php _e( 'Private person', 'ktt'); ?></option>
+                            <option value="5" <?= (($company_type == '5')? 'selected': '') ?>><?php _e( 'MTÜ', 'ktt'); ?></option>
                         </select>
                     </td>
                 </tr>
