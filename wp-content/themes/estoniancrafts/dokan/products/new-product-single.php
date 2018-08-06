@@ -957,7 +957,8 @@ _e(' characters','ktt')
                   alert('Remember to upload a cover image!');
             }
            let arr = jQuery("input[name^='variable_regular_price'") ;
-            let el = [jQuery("#post_title"),jQuery("#product_cat"),jQuery("#_tax_status") ,jQuery("#_regular_price"), arr];
+           
+            let el = [jQuery("#post_title"),jQuery("#product_cat"),jQuery("#_tax_status") , arr];
             
             errDisp(el,ev);
                           
