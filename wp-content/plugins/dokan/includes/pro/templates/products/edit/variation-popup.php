@@ -81,13 +81,34 @@
                                                                     <label><?php _e( 'Regular Price: ', 'dokan' ) ?>(<?php echo get_woocommerce_currency_symbol(); ?>)</label>
                                                                     <input type="text" placeholder="<?php _e( 'Variation price (required)', 'dokan' ) ?>" class="wc_input_price" value="{{ ( !_.isUndefined( data._regular_price ) ) ? data._regular_price[0] : '' }}" name="variable_regular_price[]" size="5">
                                                                 </td>
-                                                                <td>
+                                                         <!--       <td>
                                                                     <label><?php _e( 'Sale Price: ', 'dokan' ); ?> (<?php echo get_woocommerce_currency_symbol(); ?>) <a class="sale_schedule" href="#"><?php _e( 'Schedule', 'dokan' ); ?></a>
                                                                     <a style="display:none" class="cancel_sale_schedule" href="#"><?php _e( 'Cancel schedule', 'dokan' ); ?></a></label>
                                                                     <input type="text" class="wc_input_price" value="{{ ( !_.isUndefined( data._sale_price ) ) ? data._sale_price[0] : '' }}" name="variable_sale_price[]" size="5" placeholder="<?php _e( '0.00', 'dokan' ); ?>">
-                                                                </td>
-                                                            </tr>
+                                                                </td> -->
+                                                       			<td>
+                                                       			   <# var variation_shipping = ( !_.isUndefined( data.variation_shippingclass ) ) ? data.variation_shippingclass[0] : ''; #>
+                                                                     <?php _e( 'Shipping class:', 'dokan' ); ?></label> <?php
+                                                                        $args = array(
+                                                                            'taxonomy'          => 'product_shipping_class',
+                                                                            'hide_empty'        => 0,
+                                                                            'show_option_none'  => __( 'Same as parent', 'dokan' ),
+                                                                            'name'              => 'variable_shipping_class[0]',
+                                                                            'id'                => '',
+                                                                            'echo'              => 0
+                                                                        );
 
+                                                                        $shipping = wp_dropdown_categories( $args );
+
+                                                                        echo str_replace( '<select', '<select class="variation_select_fileld" data-selected_data="{{ variation_shipping }}"', $shipping );
+                                                                    ?>
+                                                                   <?php if ( get_option( 'woocommerce_calc_taxes' ) == 'yes' ) : ?>
+                                                                    <input name="variable_tax_class" value="parent" type="hidden"/>
+                                                                    <?php endif; ?>
+                                                                    
+                                                                  </td>
+                                                            </tr>
+<!--
                                                             <tr style="display:none" class="sale_price_dates_fields">
                                                                 <td>
                                                                     <label><?php _e( 'Sale start date:', 'dokan' ); ?></label>
@@ -99,7 +120,7 @@
                                                                 </td>
                                                             </tr>
 
-                                                            <?php if ( wc_product_weight_enabled() || wc_product_dimensions_enabled() ) : ?>
+  -->                                                          <?php if ( wc_product_weight_enabled() || wc_product_dimensions_enabled() ) : ?>
 
                                                                 <tr>
                                                                     <?php if ( wc_product_weight_enabled() ) : ?>
@@ -124,36 +145,7 @@
                                                                 </tr>
                                                             <?php endif; ?>
 
-                                                            <tr>
-                                                                <td>
-                                                                <# var variation_shipping = ( !_.isUndefined( data.variation_shippingclass ) ) ? data.variation_shippingclass[0] : ''; #>
-                                                                    <?php _e( 'Shipping class:', 'dokan' ); ?></label> <?php
-                                                                        $args = array(
-                                                                            'taxonomy'          => 'product_shipping_class',
-                                                                            'hide_empty'        => 0,
-                                                                            'show_option_none'  => __( 'Same as parent', 'dokan' ),
-                                                                            'name'              => 'variable_shipping_class[0]',
-                                                                            'id'                => '',
-                                                                            'echo'              => 0
-                                                                        );
 
-                                                                        $shipping = wp_dropdown_categories( $args );
-
-                                                                        echo str_replace( '<select', '<select class="variation_select_fileld" data-selected_data="{{ variation_shipping }}"', $shipping );
-                                                                    ?>
-                                                                </td>
-                                                                <td>
-                                                                <?php if ( get_option( 'woocommerce_calc_taxes' ) == 'yes' ) : ?>
-                                                                    <label><?php _e( 'Tax class:', 'dokan' ); ?></label>
-                                                                    <select name="variable_tax_class[]" class="variation_select_fileld" data-selected_data="{{ ( !_.isUndefined( data.variation_taxclass ) ) ? data.variation_taxclass[0] : '' }}">
-                                                                        <option value="parent"><?php _e( 'Same as parent', 'dokan' ); ?></option>
-                                                                        <# _.each( data.tax_class_options[0], function( tax_val, tax_key ) { #>
-                                                                            <option value="{{tax_key}}">{{ tax_val }}</option>
-                                                                        <# }); #>
-                                                                    </select>
-                                                                <?php endif; ?>
-                                                                </td>
-                                                            </tr>
                                                             <tr class="show_if_variation_downloadable" style="display:none">
                                                                 <td colspan="2">
                                                                     <div class="form-field downloadable_files">

@@ -772,7 +772,9 @@ class Dokan_Pro_Ajax {
 
                 // Price handling
                 $regular_price  = wc_format_decimal( $variable_regular_price[ $i ] );
-                $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( $variable_sale_price[ $i ] ) );
+               
+               
+               /* $sale_price     = ( $variable_sale_price[ $i ] === '' ? '' : wc_format_decimal( $variable_sale_price[ $i ] ) );
                 $date_from      = wc_clean( $variable_sale_price_dates_from[ $i ] );
                 $date_to        = wc_clean( $variable_sale_price_dates_to[ $i ] );
 
@@ -807,7 +809,8 @@ class Dokan_Pro_Ajax {
                     update_post_meta( $variation_id, '_sale_price_dates_from', '' );
                     update_post_meta( $variation_id, '_sale_price_dates_to', '' );
                 }
-
+*/
+  update_post_meta( $variation_id, '_price', $regular_price );
                 if ( isset( $variable_tax_class[ $i ] ) && $variable_tax_class[ $i ] !== 'parent' )
                     update_post_meta( $variation_id, '_tax_class', wc_clean( $variable_tax_class[ $i ] ) );
                 else
