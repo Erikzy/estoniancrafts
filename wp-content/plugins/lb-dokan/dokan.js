@@ -143,6 +143,15 @@ jQuery(document).ready(function($){
 
 			var boxes = $(".lb_attribute_values");
 			boxes.select2({
+				createTag: function () {
+    				// Disable tagging
+   					 return null;
+  				},
+  				createSearchChoice : function(term){
+       				 return false;
+    			},
+  				
+  				tags: false,
 			    placeholder: "Please enter attribute values",
 			    tokenSeparators: [",", "|", " "]
 			});
