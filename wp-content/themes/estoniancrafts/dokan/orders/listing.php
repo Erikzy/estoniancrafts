@@ -32,7 +32,7 @@ if ( $user_orders ) {
                 <th><?php _e( 'Status', 'dokan' ); ?></th>
                 <th><?php _e( 'Customer', 'dokan' ); ?></th>
                 <th><?php _e( 'Date', 'dokan' ); ?></th>
-                <th width="17%"><?php _e( 'Action', 'dokan' ); ?></th>
+    <!--            <th width="17%"><?php _e( 'Action', 'dokan' ); ?></th> -->
             </tr>
         </thead>
         <tbody>
@@ -100,7 +100,7 @@ if ( $user_orders ) {
                         echo '<abbr title="' . esc_attr( $t_time ) . '">' . esc_html( apply_filters( 'post_date_column_time', $h_time, $the_order->id ) ) . '</abbr>';
                         ?>
                     </td>
-                    <td class="dokan-order-action" width="17%" data-title="<?php _e( 'Action', 'dokan' ); ?>" >
+              <!--         <td class="dokan-order-action" width="17%" data-title="<?php _e( 'Action', 'dokan' ); ?>" >
                         <?php
                         do_action( 'woocommerce_admin_order_actions_start', $the_order );
 
@@ -150,7 +150,7 @@ if ( $user_orders ) {
 
                         // do_action( 'woocommerce_admin_order_actions_end', $the_order ); // used only by PDF module to add 2 extra buttons
                         ?>
-                    </td>
+                    </td>-->
                    <!--  <td class="diviader"></td> -->
                 </tr>
 

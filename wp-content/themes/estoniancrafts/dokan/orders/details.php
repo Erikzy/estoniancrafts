@@ -39,11 +39,17 @@ $order    = new WC_Order( $order_id );
 
 }
 
-}
+
 </style>
 <div class="dokan-clearfix view-d">
     <div class=''>
         <a style="margin-bottom: 20px; line-height:14px !important" href="<?php echo wp_nonce_url( admin_url( 'admin-ajax.php?action=generate_wpo_wcpdf&template_type=invoice&order_ids=' . $order->id ), 'generate_wpo_wcpdf' ); ?>" class="dokan-btn dokan-btn-success medium-orange-button"   target="_blank"><?php echo __('Print invoice and address', 'ktt'); ?></a>
+<?php  
+
+if($order->post_status == "wc-shipping"){ 		
+   echo ' <a style="margin-bottom: 20px; line-height:14px !important" class="dokan-btn dokan-btn-success medium-orange-button"   target="_blank" href="' .site_url().'/wp-admin/admin-ajax.php?action=' . WC_Eabi_Postoffice::ACTION_PRINT_PACKING_SLIP_DOKAN . '&order_id=' . $order->id . '&slip_index=0'. '">(' . __('Print packing slip', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN) . ')</a>';
+  }
+     ?>         
     </div>
     <div class="dokan-w8 mydokan-w12" style="margin-right:3%;">
 
@@ -144,8 +150,8 @@ $order    = new WC_Order( $order_id );
                                 <?php
                             }
                         } else {
-                            $data  = get_post_meta( $order_id );
-                            include( DOKAN_INC_DIR . '/pro/templates/orders/views/html-order-items.php' );
+                         $data  = get_post_meta( $order_id );
+                         include( DOKAN_INC_DIR . '/pro/templates/orders/views/html-order-items.php' );
                         } ?>
                     </div>
                 </div>
@@ -200,13 +206,15 @@ $order    = new WC_Order( $order_id );
                                 <span><?php _e( 'Order Status:', 'dokan' ); ?></span>
                                 <label class="dokan-label dokan-label-<?php echo dokan_get_order_status_class( $order->post_status ); ?>"><?php echo isset( $statuses[$order->post_status] ) ? $statuses[$order->post_status] : $order->post_status; ?></label>
 
-                                <?php if ( dokan_get_option( 'order_status_change', 'dokan_selling', 'on' ) == 'on' ) {?>
+                                <?php if ( false ) {?>
                                     <a href="#" class="dokan-edit-status"><small><?php _e( '&nbsp; Edit', 'dokan' ); ?></small></a>
                                 <?php } ?>
                             </li>
-                            <li class="dokan-hide">
-                                <form id="dokan-order-status-form" action="" method="post">
-
+                            <li >
+ 
+    <?php if($order->post_status == "wc-processing"){ ?>	
+                                <form style="display:inline-block;width:40%;" id="dokan-order-shipping-form" action="" method="post">
+<!--
                                     <select id="order_status" name="order_status" class="form-control">
                                         <?php
                                         foreach ( $statuses as $status => $label ) {
@@ -215,16 +223,81 @@ $order    = new WC_Order( $order_id );
                                             // }
                                             echo '<option value="' . esc_attr( $status ) . '" ' . selected( $status, $order->post_status, false ) . '>' . esc_html__( $label, 'dokan' ) . '</option>';
                                         }
-                                        ?>
+                                        ?>cancelled
                                     </select>
-
+-->
+  					
+									<input type="hidden" name="order_status" value="wc-shipping">
                                     <input type="hidden" name="order_id" value="<?php echo $order->id; ?>">
                                     <input type="hidden" name="action" value="dokan_change_status">
                                     <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce( 'dokan_change_status' ); ?>">
-                                    <input type="submit" class="dokan-btn dokan-btn-success dokan-btn-sm smaller-orange-button m10" name="dokan_change_status" value="<?php _e( 'Update', 'dokan' ); ?>">
+                                    <input type="submit" class="dokan-btn dokan-btn-success dokan-btn-sm smaller-orange-button m10" name="dokan_change_status" value="<?php _e( 'Order Shipping', 'dokan' ); ?>">
 
-                                    <a href="#" class="dokan-btn dokan-btn-default dokan-btn-sm dokan-cancel-status smaller-gray-button m10"><?php _e( 'Cancel', 'dokan' ) ?></a>
                                 </form>
+<script type="text/javascript">
+ 
+jQuery(document).ready(function($) { 
+       $('form#dokan-order-shipping-form').on('submit', function(e) {
+        e.preventDefault();
+
+        var self = $(this),
+            li = self.closest('li');
+
+        li.block({ message: null, overlayCSS: { background: '#fff url(' + dokan.ajax_loader + ') no-repeat center', opacity: 0.6 } });
+
+        $.post( dokan.ajaxurl, self.serialize(), function(response) {
+            document.location.reload();
+        });
+    });
+ });    
+    
+</script>
+ <?php } ?> 
+                                    <form id="dokan-order-cancel-form" style="display:inline-block;width:40%;" action="<?php echo site_url();?>/wp-admin/admin-ajax.php" method="post">
+<!--
+                                    <select id="order_status" name="order_status" class="form-control">
+                                        <?php
+                                        foreach ( $statuses as $status => $label ) {
+                                            // if( $status == 'wc-refunded' ) {
+                                            //     continue;
+                                            // }
+                                            echo '<option value="' . esc_attr( $status ) . '" ' . selected( $status, $order->post_status, false ) . '>' . esc_html__( $label, 'dokan' ) . '</option>';
+                                        }
+                                        ?>cancelled
+                                    </select>
+-->
+   <?php if($order->post_status != "wc-cancelled"){
+   
+  
+    ?>						
+									<input type="hidden" name="order_status" value="wc-cancelled">
+                                    <input type="hidden" name="order_id" value="<?php echo $order->id; ?>">
+                                    <input type="hidden" name="action" value="dokan_change_status">
+                                    <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce( 'dokan_change_status' ); ?>">
+                                    <input type="submit" class="dokan-btn dokan-btn-success dokan-btn-sm smaller-orange-button m10" name="dokan_change_status" value="<?php _e( 'Cancel', 'dokan' ); ?>">
+<script type="text/javascript">
+ 
+jQuery(document).ready(function($) { 
+       $('form#dokan-order-cancel-form').on('submit', function(e) {
+        e.preventDefault();
+
+        var self = $(this),
+            li = self.closest('li');
+
+        li.block({ message: null, overlayCSS: { background: '#fff url(' + dokan.ajax_loader + ') no-repeat center', opacity: 0.6 } });
+
+        $.post( dokan.ajaxurl, self.serialize(), function(response) {
+             document.location.reload();
+        });
+    });
+ });
+    
+</script>
+   
+   
+   <?php } ?>
+                                </form>
+                            
                             </li>
                             <li>
                                 <span><?php _e( 'Order Date:', 'dokan' ); ?></span>
@@ -296,8 +369,7 @@ $order    = new WC_Order( $order_id );
                 <div class='address-wrapper dokan-panel-body general-details ' >
                		<?php
      			$barcodes = get_post_meta($order->id, 'barcode');
-                echo ' <strong><a class="eabi-print-packing-slip" href="' .site_url().'/wp-admin/admin-ajax.php?action=' . WC_Eabi_Postoffice::ACTION_PRINT_PACKING_SLIP_DOKAN . '&order_id=' . $order->id . '&slip_index=0'. '">(' . __('Print packing slip', WC_Eabi_Postoffice::PLUGIN_TEXT_DOMAIN) . ')</a></strong>';
-                              		
+                               		
               			
               	if($courier):		
               			$from =  get_post_meta($order->id,'courier_pickup_from',true);
@@ -431,7 +503,7 @@ $order    = new WC_Order( $order_id );
 						<div class="shipping-pickup-time">
 						
 						</div>					
-					<?
+					<?php
 					}
 				?>
                 <div class="clear"></div> 
