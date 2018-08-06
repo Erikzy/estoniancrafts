@@ -44,7 +44,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						$swatches = basel_has_swatches($product->id, $attribute_name, $options, $available_variations, $swatches_use_variation_images);
 					 ?>
 					<tr>
-						<td class="label"><label for="<?php echo sanitize_title( $attribute_name ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?></label></td>
+						<td style="width:15%"><span class="posted_in"><?php echo __('Choose ', 'ec-choice').wc_attribute_label( $attribute_name ); ?>:</span></td>
 						<td class="value <?php if ( ! empty( $swatches ) ): ?>with-swatches<?php endif; ?>">
 							<?php if ( ! empty( $swatches ) ): ?>
 								<div class="swatches-select" data-id="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>">
