@@ -37,4 +37,11 @@ if ( ! $post->post_excerpt ) {
 					echo '<a href="'.get_site_url(null, 'size-chart').'">Size chart</a>';
 					echo '</div>';
 				}	
+			?>  <?php
+				$_shoe_size_chart = get_post_meta( $post->id, '_shoe_size_chart', true );
+				if($_shoe_size_chart == "yes"){
+					echo '<div class="sold-list">';
+					echo '<a href="'.get_site_url(null, 'shoe-size-chart').'">Shoe size chart</a>';
+					echo '</div>';
+				}	
 			?>
