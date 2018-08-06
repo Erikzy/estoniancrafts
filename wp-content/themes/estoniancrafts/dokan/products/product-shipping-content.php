@@ -218,7 +218,7 @@
  		<input type="hidden" name="_required_tax" value="yes">
         <?php if ( 'yes' == get_option( 'woocommerce_calc_taxes' ) ) { ?>
       
-        <!--  <div class="dokan-clearfix dokan-tax-container">
+         <div class="dokan-clearfix dokan-tax-container">
           <div class="dokan-form-group">
                 <label for="_required_tax" class="form-label ">
                 <input type="hidden" name="_required_tax" value="yes">
@@ -242,12 +242,14 @@
                 <div class="dokan-form-group dokan-w">
                     <label class="form-label" for="_tax_class"><?php _e( 'Tax Class', 'dokan' ); ?></label>
                     <div class="dokan-text-left">
-                        <?php dokan_post_input_box( $post_id, '_tax_class', array( 'options' => $classes_options ), 'select' ); ?>
+                        <?php
+						
+                         dokan_post_input_box( $post_id, '_tax_class', array( 'options' => $classes_options ), 'select' ); ?>
                     </div>
                 </div>
             </div>
         </div>
-          --!>
+        
         <?php } ?>
     </div><!-- .dokan-side-right -->
 </div><!-- .dokan-product-inventory -->

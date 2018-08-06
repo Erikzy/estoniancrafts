@@ -948,13 +948,14 @@ _e(' characters','ktt')
                   alert('Remember to upload a cover image!');
             }
            let arr = jQuery("input[name^='variable_regular_price'") ;
-            let el = [jQuery("#post_title"),jQuery("#product_cat"), jQuery("#_regular_price"), arr];
+            let el = [jQuery("#post_title"),jQuery("#product_cat"),jQuery("#_tax_status") ,jQuery("#_regular_price"), arr];
             
-            errDisp(el);
+            errDisp(el,ev);
                           
-    }
-    errDisp = (elements) =>{
-       
+    },
+    
+    errDisp = (elements,ev) =>{
+       	
             let message = "";
             let errors = [];
             for(e in elements){
@@ -971,10 +972,14 @@ _e(' characters','ktt')
             }
 
             if(errors.length > 0 )
-            {     
+            { 
+            	ev.preventDefault();    
                 for(e in errors){
                   errors[e].addClass("input-red-error");
                   jQuery("label[for='"+errors[e].attr("name")+"']").addClass("label-red-error");
+                  
+                  console.log(errors[e].attr("name"));
+                  jQuery( "#"+errors[e].attr("name")).focus();
                   message = '<div class="dokan-product-title-alert dokan-alert dokan-alert-danger"> Please fill out this field. </div>';
                   //jQuery('.errfield').html(message);
                   //jQuery(message).insertBefore(errors[e]);
