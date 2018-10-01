@@ -506,8 +506,10 @@ if (is_woocommerce_active()) {
                         //eabi_postoffice_action_eabi_autosend_data_eabi_itella_smartpost
                         try {
                             $autoSendResult = apply_filters('eabi_postoffice_action_' . self::ACTION_AUTOSEND . '_' . $shippingModel->id, array(), $order, $pickup_location, $shippingModel, $mainConfigurationClass);
+                            add_post_meta($order->id, "_omniva_autosend_result", $autoSendResult); 
+					
                             if ($autoSendResult && isset($autoSendResult['barcodes'])) {
-                                if (is_string($autoSendResult['barcodes'])) {
+			        if (is_string($autoSendResult['barcodes'])) {
                                     $autoSendResult['barcodes'] = array($autoSendResult['barcodes']);
                                 }
                                 $this->helper()->setDataToOrder($order, $autoSendResult, $prefix);
