@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
     loop:true,
     margin:35,
 	dots:true,
+height:300,
     responsiveClass:true,
     navText : ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
 	navigation:true,
@@ -12,20 +13,20 @@ jQuery(document).ready(function($) {
             items:2,
             nav:true,
 			margin:20,
-		    autoHeight:true
+		        height:300,
         },
         660:{
             items:3,
             nav:true,
 			margin:20,
-			autoHeight:true
+			height:300
         },
         1110:{
             items:5,
             nav:true,
             loop:true,
 			margin:20,
-			autoHeight:true
+			height:300
         }
     }
 });	
