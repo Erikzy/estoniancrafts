@@ -57,7 +57,7 @@ if ( $order ) : ?>
 			</li>
 			<?php endif; ?>
 			<script>
-				fbq('track', 'Purchase', {currency: 'EUR', value: <?php echo $order->get_order_total(); ?>});				
+				fbq('track', 'Purchase', {currency: 'EUR', value: <?php echo $order->get_total(); ?>});				
 			
 			</script>
 		</ul>
