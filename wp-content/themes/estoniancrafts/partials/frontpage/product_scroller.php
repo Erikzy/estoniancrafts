@@ -5,7 +5,7 @@ if($productQuery->have_posts()):
 ?> 
 
         <div class="row marginTop">
-            <div class="col-md-12 overflowRemove" style="overflow:hidden;height:300px;">
+            <div class="col-md-12 overflowRemove" style="height:300px;">
                 <div class="owl-carousel product-owl-carousel" style="width:auto;">
                 <?php  while($productQuery->have_posts()):$productQuery->the_post(); ?>
                    <?php $product = wc_get_product( $productQuery->post->ID);?>
@@ -20,7 +20,7 @@ if($productQuery->have_posts()):
                            
                               $attachment_id =  get_post_thumbnail_id();
         					  $image_info = wp_get_attachment_image_src($attachment_id, 'product-slider-img');
-                          //    echo '<img src="'. $image_info[0] .'"  />';
+                          //    echo '<img async src="'. $image_info[0] .'"  />';
                          
                          			echo get_the_post_thumbnail( $productQuery->post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
         					'title' => ""
@@ -66,15 +66,23 @@ if($productQuery->have_posts()):
 <?php  endif; wp_reset_query(); wp_reset_postdata(); ?>	
 <script>
 
-jQuery(document).ready(function(){
+<!--jQuery(document).ready(function(){
 	jQuery('.overflowRemove').css("overflow","inherit");
 	jQuery('.overflowRemove').css("height","inherit");
 	jQuery('.fixStyles').css("width","inherit");
 	jQuery('.fixStyles').css("padding","");
  
 })
- 
+ -->
 
 </script>
-
-
+<style>
+.overflowREmove{
+  overflow:inherit;
+  height:inherit;
+}
+.fixStyles{
+ width:inherit;
+ padding:auto;	
+}
+</style>

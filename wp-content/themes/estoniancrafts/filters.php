@@ -18,6 +18,8 @@ class EC_Filters
         add_filter( 'ec_get_myaccount_menu_shop', array(__CLASS__, 'ec_get_myaccount_menu_shop_filter'), 1 );
         
         add_filter( 'eabi_omniva_autosend_data_before',array(__CLASS__,'ec_get_sender_data_filter'),9, 7);
+        add_filter( 'wc_order_statuses',array(__CLASS__,'ec_wc_order_statuses'),1);
+      
         //dokan_store_listing_per_page
         add_filter( 'dokan_store_listing_per_page',array(__CLASS__,'ec_store_listing_per_page'),9, 1);
         //tribe_events_list_show_ical_link
@@ -60,7 +62,10 @@ class EC_Filters
 	public static function ec_events_list_show_ical_link($bool = true){
 		return false;
 	}
-
+	public static function ec_wc_order_statuses($statuses){
+		$statuses['wc-shipping'] =  _x( 'Shipping', 'Order status', 'woocommerce' );
+		return $statuses;
+	}
 	public static function ec_get_sender_data_filter($requestData, 
 													 $order, 
 													 $packageValue , 

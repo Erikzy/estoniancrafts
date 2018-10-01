@@ -44,7 +44,16 @@
 });
 
 </script>
+<style>
 
+.site-logo img {
+    max-height: 55px;
+}
+
+.header-full-width .topbar-wrapp>.container {
+    width: 95%;
+}
+</style>
 
 </head>
 

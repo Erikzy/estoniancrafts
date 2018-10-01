@@ -89,7 +89,7 @@
                             <td colspan="4">
                                 <input type="hidden" name="attribute_values[]" value="<?php echo implode( ',', $options ); ?>">
 
-                                <select class="lb_attribute_values" style="width:100%;" name="lb_attribute_values[]" multiple="multiple">
+                                <select class="lb_attribute_values" style="width:100%;" autocomplete="false" name="lb_attribute_values[]" multiple="multiple">
                                     <?php 
 
                                         foreach ($att_val as $option) {

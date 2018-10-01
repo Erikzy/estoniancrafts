@@ -64,6 +64,7 @@ $_stock                 = get_post_meta( $post_id, '_stock', true );
 $_stock_status          = get_post_meta( $post_id, '_stock_status', true );
 
 $_size_chart            = get_post_meta( $post_id, 'size_chart');
+$_shoe_size_chart            = get_post_meta( $post_id, 'shoe_size_chart');
 $_visibility            = get_post_meta( $post_id, '_visibility', true );
 $_enable_reviews        = $post->comment_status;
 
@@ -524,7 +525,11 @@ if ( ! $from_shortcode ) {
 						<?php // Short description ?>
                         <div class="dokan-product-description">
                             <label for="post_excerpt" class="form-label desc-pro"><?php _e( 'Short Description', 'dokan' ); ?></label>
-							<span class="ec-form-field-description"><?php _e( 'Product short description', 'ktt' ); ?></span>
+							<span class="ec-form-field-description"><?php _e( 'Product short description', 'ktt' );
+												      _e(' up to: ','ktt');
+echo get_option('_product_short_description_limit');
+_e(' characters','ktt')			
+												 ?></span>
                             <?php 
 /*                            wp_editor( $post_excerpt , 'post_excerpt', array('editor_height' => 50, 'quicktags' => false, 'media_buttons' => false, 'teeny' => true, 'editor_class' => 'post_excerpt') ); */
                             ?>
@@ -546,13 +551,10 @@ if ( ! $from_shortcode ) {
                         </div>
 
 						     <div class="dokan-form-group">
-                                 
                                  <!--size_chart-->
                                  <label class="dokan-checkbox-inline dokan-form-label form-label " for="size_chart">
                                  <?php if($_size_chart == 'on'){
                                  	$checked=true;
-                                 
-                                 
                                  }else{
                                  	$checked=false;
                                  }; ?>
@@ -560,9 +562,20 @@ if ( ! $from_shortcode ) {
                                         <?php _e( 'Size Chart', 'dokan' ); ?>
 										<span class="ec-form-field-description"><?php _e( 'This product displays a size chart', 'ktt' ); ?></span>
                                     </label>
-
-                                               </div>
-
+							 </div>
+	    		 <div class="dokan-form-group">
+                                 <!--size_chart-->
+                                 <label class="dokan-checkbox-inline dokan-form-label form-label " for="shoe_size_chart">
+                                 <?php if($_shoe_size_chart == 'on'){
+                                 	$shoechecked=true;
+                                 }else{
+                                 	$shoechecked=false;
+                                 }; ?>
+                                        <input type="checkbox" id="shoe_size_chart" name="shoe_size_chart" <?php if($shoechecked){echo 'checked';}?>  >
+                                        <?php _e( 'Shoe Size Chart', 'dokan' ); ?>
+										<span class="ec-form-field-description"><?php _e( 'This product displays a shoe size chart', 'ktt' ); ?></span>
+                                    </label>
+							 </div>
                         <?php do_action( 'dokan_new_product_form' ); ?>
 
                         <?php //if ( $post_id ): ?>
@@ -944,13 +957,15 @@ if ( ! $from_shortcode ) {
                   alert('Remember to upload a cover image!');
             }
            let arr = jQuery("input[name^='variable_regular_price'") ;
-            let el = [jQuery("#post_title"),jQuery("#product_cat"), jQuery("#_regular_price"), arr];
+           
+            let el = [jQuery("#post_title"),jQuery("#product_cat"),jQuery("#_tax_status") , arr];
             
-            errDisp(el);
+            errDisp(el,ev);
                           
-    }
-    errDisp = (elements) =>{
-       
+    },
+    
+    errDisp = (elements,ev) =>{
+       	
             let message = "";
             let errors = [];
             for(e in elements){
@@ -967,10 +982,14 @@ if ( ! $from_shortcode ) {
             }
 
             if(errors.length > 0 )
-            {     
+            { 
+            	ev.preventDefault();    
                 for(e in errors){
                   errors[e].addClass("input-red-error");
                   jQuery("label[for='"+errors[e].attr("name")+"']").addClass("label-red-error");
+                  
+                  console.log(errors[e].attr("name"));
+                  jQuery( "#"+errors[e].attr("name")).focus();
                   message = '<div class="dokan-product-title-alert dokan-alert dokan-alert-danger"> Please fill out this field. </div>';
                   //jQuery('.errfield').html(message);
                   //jQuery(message).insertBefore(errors[e]);
@@ -1171,6 +1190,7 @@ jQuery(document).ready(function($)
 	}else{
 		parentstring = "";
 	}
+
 	
 	
 	if(catElm.length) {

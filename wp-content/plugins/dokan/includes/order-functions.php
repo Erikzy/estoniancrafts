@@ -470,6 +470,11 @@ function dokan_get_order_status_class( $status ) {
             return 'info';
             break;
 
+		case 'shipping':
+        case 'wc-shipping':
+            return 'info';
+            break;
+
         case 'refunded':
         case 'wc-refunded':
             return 'default';

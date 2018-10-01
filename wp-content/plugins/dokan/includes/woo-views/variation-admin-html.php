@@ -93,7 +93,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								<input type="text" size="5" name="variable_sale_price[<?php echo $loop; ?>]" value="<?php if ( isset( $_sale_price ) ) echo esc_attr( $_sale_price ); ?>" class="wc_input_price" />
 							</td>
 						</tr>
-
+<!--
 						<tr class="sale_price_dates_fields" style="display:none">
 							<td>
 								<label><?php _e( 'Sale start date:', 'dokan' ) ?></label>
@@ -104,7 +104,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 								<input type="text" name="variable_sale_price_dates_to[<?php echo $loop; ?>]" value="<?php echo ! empty( $_sale_price_dates_to ) ? date_i18n( 'Y-m-d', $_sale_price_dates_to ) : ''; ?>" placeholder="<?php echo _x('To&hellip;', 'placeholder', 'woocommerce') ?> YYYY-MM-DD" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" />
 							</td>
 						</tr>
-
+-->
 						<?php if ( wc_product_weight_enabled() || wc_product_dimensions_enabled() ) : ?>
 							<tr>
 								<?php if ( wc_product_weight_enabled() ) : ?>

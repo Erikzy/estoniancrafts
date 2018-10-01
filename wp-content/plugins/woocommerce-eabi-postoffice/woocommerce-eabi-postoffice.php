@@ -461,8 +461,6 @@ if (is_woocommerce_active()) {
                 public function doAutoSendOnOrderComplete($order_id) {
                     $order = $this->_getWoocommerceOrder($order_id);
                     $shippingModelName = maybe_unserialize(get_post_meta($order->id, self::SHIPPING_METHOD, true));
-                    
-
                     if (!$shippingModelName) {
                         $shippingModelName = $this->_getShippingMethod($order);
                     }
@@ -506,8 +504,8 @@ if (is_woocommerce_active()) {
                         //eabi_postoffice_action_eabi_autosend_data_eabi_itella_smartpost
                         try {
                             $autoSendResult = apply_filters('eabi_postoffice_action_' . self::ACTION_AUTOSEND . '_' . $shippingModel->id, array(), $order, $pickup_location, $shippingModel, $mainConfigurationClass);
-                            add_post_meta($order->id, "_omniva_autosend_result", $autoSendResult); 
 					
+    						add_post_meta($order->id, "_omniva_autosend_result", $autoSendResult);                   	
                             if ($autoSendResult && isset($autoSendResult['barcodes'])) {
 			        if (is_string($autoSendResult['barcodes'])) {
                                     $autoSendResult['barcodes'] = array($autoSendResult['barcodes']);
@@ -637,7 +635,7 @@ if (is_woocommerce_active()) {
                         }
 //                        add_action('woocommerce_payment_complete', array($this, 'doAutoSendOnPaymentComplete'), 10, 1);
                         add_action('woocommerce_order_status_pending_to_processing', array($this, 'doAutoSendOnPaymentComplete'), 10, 1);
-                        add_action('woocommerce_order_status_completed', array($this, 'doAutoSendOnOrderComplete'), 10, 1);
+                        add_action('woocommerce_order_status_shipping', array($this, 'doAutoSendOnOrderComplete'), 10, 1);
                         
                         do_action('eabi_woocommerce_postoffice_loaded');
                     } else {

@@ -57,6 +57,12 @@ function lb_product_sold_count() {
 					echo '<a href="'.get_site_url(null, 'size-chart').'">Size chart</a>';
 					echo '</p>';
 				}	
+				$_shoe_size_chart = get_post_meta( $product->id, 'shoe_size_chart', true );
+				if($_shoe_size_chart == "on"){
+					echo '<p>';
+					echo '<a href="'.get_site_url(null, 'shoe-size-chart').'">Shoe size chart</a>';
+					echo '</p>';
+				}	
 }
 
 // Make sure every comment needs to be approved

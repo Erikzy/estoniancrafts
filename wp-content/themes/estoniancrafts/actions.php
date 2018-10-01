@@ -144,6 +144,15 @@ class EC_Actions
 			update_post_meta( $product_id, 'size_chart', false);
 
 		}
+		
+		if(isset($post_data['shoe_size_chart'])   && $post_data['shoe_size_chart'] == 'on' ){
+
+			update_post_meta( $product_id, 'shoe_size_chart', wc_clean($post_data['shoe_size_chart']));
+
+		}else{
+			update_post_meta( $product_id, 'shoe_size_chart', false);
+
+		}
 	}
 
 	public static function shop_loop_item_categories_action()
