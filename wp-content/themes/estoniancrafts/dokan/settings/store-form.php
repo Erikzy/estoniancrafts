@@ -305,7 +305,7 @@
         </div>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_address"><?php _e( 'Address *', 'ktt' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="dokan_address"><?php _e( 'Address', 'ktt' ); echo '*'; ?></label>
 
             <div class="dokan-w5 dokan-text-left">
 
