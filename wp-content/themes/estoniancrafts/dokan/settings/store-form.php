@@ -305,7 +305,7 @@
         </div>
 
         <div class="dokan-form-group">
-            <label class="dokan-w3 dokan-control-label" for="dokan_address"><?php _e( 'Address', 'ktt' ); ?></label>
+            <label class="dokan-w3 dokan-control-label" for="dokan_address"><?php _e( 'Address *', 'ktt' ); ?></label>
 
             <div class="dokan-w5 dokan-text-left">
 
@@ -557,6 +557,7 @@ function showHidePrivateFields(){
 					jQuery("#dokan_store_name").val(jQuery("#person_name_handle_for_private").val());
 					jQuery("#dokan_store_name").attr("disabled",true);
 					jQuery("#dokan_store_name").css("background-color","#cdcdcd");
+                    jQuery("#company_kmkr_form_group").hide();
 				}else{
 					jQuery("#company_name_form_group").css("display","block");
 					jQuery("#company_reg_form_group").css("display","block");
@@ -564,6 +565,7 @@ function showHidePrivateFields(){
 					jQuery("#dokan_company_nr").attr("required",true);
 					jQuery("#dokan_store_name").attr("disabled",false);
 					jQuery("#dokan_store_name").css("background-color","#ffffff");
+                    jQuery("#company_kmkr_form_group").show();
 				}
 
 }
@@ -698,6 +700,7 @@ function showHidePrivateFields(){
         $('document').ready(function(){
         
         	if($("#dokan_company_type").val() == 4){
+                $("#company_kmkr_form_group").hide();
 				$("#dokan_company_name").attr("required",false);
 				$("#dokan_company_nr").attr("required",false);
 				$("#dokan_store_name").attr("disabled",true);
