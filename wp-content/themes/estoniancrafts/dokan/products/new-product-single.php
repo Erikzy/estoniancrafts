@@ -64,7 +64,8 @@ $_stock                 = get_post_meta( $post_id, '_stock', true );
 $_stock_status          = get_post_meta( $post_id, '_stock_status', true );
 
 $_size_chart            = get_post_meta( $post_id, 'size_chart');
-$_shoe_size_chart            = get_post_meta( $post_id, 'shoe_size_chart');
+$_shoe_size_chart       = strtolower(get_post_meta( $post_id, 'shoe_size_chart')[0]);
+
 $_visibility            = get_post_meta( $post_id, '_visibility', true );
 $_enable_reviews        = $post->comment_status;
 
@@ -575,7 +576,13 @@ _e(' characters','ktt')
                                         <?php _e( 'Shoe Size Chart', 'dokan' ); ?>
 										<span class="ec-form-field-description"><?php _e( 'This product displays a shoe size chart', 'ktt' ); ?></span>
                                     </label>
+
 							 </div>
+
+
+
+
+
                         <?php do_action( 'dokan_new_product_form' ); ?>
 
                         <?php //if ( $post_id ): ?>
